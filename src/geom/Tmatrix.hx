@@ -106,110 +106,79 @@ class Cmatrix4 {
 }
 
 @:forward
-abstract Amatrix2<M2: Tmatrix2>( M2 ) from M2 to M2 {
+abstract Amatrix2( Tmatrix2 ) from Tmatrix2 to Tmatrix2 {
     public inline
-    function new<M2: Tmatrix2>( ?m: M2 = null ){
-      	if( m == null ){
-        	this = new Amatrix2( Amatrix2.zeroTmatrix2() );
-        } else {
-        	this = m;
-        }
+    function new( m: Tmatrix2 ){
+      	this = m;
     }
-    // does not clone M2 type just clones to generic Amatrix2
     public inline 
-    function cloneTmatrix2():Amatrix2<Tmatrix2>{
+    function clone(): Amatrix2 {
         return new Amatrix2( { a: this.a, b: this.b 
                              , c: this.c, d: this.d } );
     }
-    public inline 
-    function cloneCmatrix2():Amatrix2<Cmatrix2>{
-        var c = new Cmatrix2();
-        c.a = this.a; c.b = this.b;
-        c.c = this.c; c.d = this.d;
-        return new Amatrix2( c );
-    }
     public inline
-    function createTmatrix2( a: Float, b: Float, c: Float, d: Float ){
+    function create( a: Float, b: Float, c: Float, d: Float ): Amatrix2 {
         this = new Amatrix2( { a:a, b:b 
                              , c:c, d:d } );
         return this;
     }
-    public inline
-    function createCmatrix2( a: Float, b: Float, c: Float, d: Float ){
-        var c2 = new Cmatrix2();
-        c2.a = a; c2.b = b;
-        c2.c = c; c2.d = d;
-        return new Amatrix2( c2 );
-    }
     public static inline
-    function unitCmatrix2(){
-        var c2 = new Cmatrix2();
-        c2.a = 1.; c2.b = 0.;
-        c2.c = 0.; c2.d = 1.;
-        return c2;
-    }
-    public static inline
-    function zeroCmatrix2(){
-        var c2 = new Cmatrix2();
-        return c2;
-    }
-    public static inline
-    function unitTmatrix2(){
+    function unit(): Amatrix2 {
         return new Amatrix2( { a: 1., b: 0.
                              , c: 0., d: 1. } );
     }
     public static inline
-    function zeroTmatrix2():Amatrix2<Tmatrix2>{
+    function zero(): Amatrix2 {
         return new Amatrix2( { a: 0., b: 0.
                              , c: 0., d: 0. } );
     }
     public static inline
-    function scale<T:Tpoint>( p: Apoint<T> ): Amatrix2<Tmatrix2> {
+    function scale( p: Apoint ): Amatrix2 {
         return new Amatrix2( { a: p.x, b: 0.
                               ,c: 0.,   d: p.y } );
     }
     public static inline
-    function rotation( alpha: Float ): Amatrix2<Tmatrix2> {
+    function rotation( alpha: Float ): Amatrix2 {
         return new Amatrix2( { a: Math.cos( alpha ), b: -Math.sin( alpha )
                             ,  c: Math.sin(alpha),   d: Math.cos(alpha) } );
     }
     public inline
-    function transpose(): Amatrix2<Tmatrix2>{
+    function transpose(): Amatrix2 {
         return new Amatrix2( { a: this.a, b: this.c
                              , c: this.b, d: this.d } );
     }
     @:op(A + B)
     public static inline
-    function add<M0: Tmatrix2,M1: Tmatrix2>( m0: Amatrix2<M0>, m1: Amatrix2<M1> ): Amatrix2<Tmatrix2> {
+    function add( m0: Amatrix2, m1: Amatrix2 ): Amatrix2 {
         return new Amatrix2( { a: m0.a + m1.a, b: m0.b + m1.b
                              , c: m0.c + m1.c, d: m0.d + m1.d } );
     }
     @:op(A - B)
     public static inline
-    function sub<M0: Tmatrix2,M1: Tmatrix2>( m0: Amatrix2<M0>, m1: Amatrix2<M1> ): Amatrix2<Tmatrix2> {
+    function sub( m0: Amatrix2, m1: Amatrix2 ): Amatrix2 {
         return new Amatrix2( { a: m0.a - m1.a, b: m0.b - m1.b
                              , c: m0.c - m1.c, d: m0.d - m1.d } );
     }
     @:op(A * B)
     public static inline
-    function multiplyValue<M2: Tmatrix2>( v: Float, m: Amatrix2<M2> ): Amatrix2<Tmatrix2> {
+    function multiplyValue( v: Float, m: Amatrix2 ): Amatrix2 {
         return new Amatrix2( {a: m.a*v, b: m.b*v
                              ,c: m.c*v, d: m.d*v } );
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply<M2: Tmatrix2, T:Tpoint>( p: Apoint<T>, m: Amatrix2<M2> ): Amatrix2<Tmatrix2> {
+    function scaleMultiply( p: Apoint2, m: Amatrix2 ): Amatrix2 {
         return new Amatrix2( {a: m.a*p.x, b: m.b
                              ,c: m.c,     d: m.d*p.y } );
     }
     @:op(A * B)
     public static inline
-    function multiply<A2: Tmatrix2, B2: Tmatrix2>( a2: Amatrix2<A2>, b2: Amatrix2<B2> ): Amatrix2<Tmatrix2> {
+    function multiply( a2: Amatrix2, b2: Amatrix2 ): Amatrix2 {
         return new Amatrix2( {a: a2.a*b2.a + a2.b*b2.c, b: a2.a*b2.b + a2.b*b2.d
                              ,c: a2.c*b2.a + a2.d*b2.c, d: a2.c*b2.b + a2.d*b2.d } );
     }
     public inline
-    function multiplyPoint<T:Tpoint>( p: Apoint<T>): Apoint<Tpoint> {
+    function multiplyPoint( p: Apoint2 ): Amatrix2 {
         var x = this.a * p.x + this.c * p.y;
         var y = this.b * p.x + this.d * p.y;
         return new Apoint( { x: x, y: y } );
@@ -219,7 +188,7 @@ abstract Amatrix2<M2: Tmatrix2>( M2 ) from M2 to M2 {
       return this.a*this.d - this.b*this.c;
     }
     public inline
-    function inverse(): Amatrix2<Tmatrix2> {
+    function inverse(): Amatrix2 {
         var d = det();
         return if( d == 0 ) {
             return null;
@@ -231,7 +200,7 @@ abstract Amatrix2<M2: Tmatrix2>( M2 ) from M2 to M2 {
     }
     @:from
     public static inline
-    function fromArr( arr: Array<Float> ){
+    function fromArr( arr: Array<Float> ): Amatrix2 {
         return new Amatrix2( { a: arr[0], b: arr[1]
                              , c: arr[2], d: arr[3] } );
     }
@@ -243,7 +212,7 @@ abstract Amatrix2<M2: Tmatrix2>( M2 ) from M2 to M2 {
     }
     @:from
     public static inline
-    function fromVec( vec: haxe.ds.Vector<Float> ){
+    function fromVec( vec: haxe.ds.Vector<Float> ): Amatrix2 {
         return new Amatrix2( { a: vec.get(0), b: vec.get(1),
                                c: vec.get(2), d: vec.get(3) } );
     }
@@ -287,57 +256,57 @@ abstract Amatrix2<M2: Tmatrix2>( M2 ) from M2 to M2 {
     }
 }
 @:forward
-abstract Amatrix3<M3: Tmatrix3>( M3 ) from M3 to M3 {
+abstract Amatrix3( Tmatrix3 ) from Tmatrix3 to Tmatrix3 {
     /* a b c
        d e f
        g h i    */
     public inline
-    function new( m: M3 ){
+    function new( m: Tmatrix3 ){
         this = m;
     }
     public static inline
-    function unit(): Amatrix3<Tmatrix3>{
+    function unit(): Amatrix3 {
       	return new Amatrix3({ a: 1., b: 0., c: 0.
-        								    , d: 0., e: 1., f: 0.
-        								    , g: 0., h: 0., i: 1. });
+                            , d: 0., e: 1., f: 0.
+                            , g: 0., h: 0., i: 1. });
     }
     public static inline
-    function zero(): Amatrix3<Tmatrix3>{
+    function zero(): Amatrix3 {
         return new Amatrix3({ a: 0., b: 0., c: 0.
-        								    , d: 0., e: 0., f: 0.
-        								    , g: 0., h: 0., i: 0. });
+                            , d: 0., e: 0., f: 0.
+                            , g: 0., h: 0., i: 0. });
     }
     @:op(A + B)
     public static inline
-    function add<M0: Tmatrix3,M1: Tmatrix3>( m0: Amatrix3<M0>, m1: Amatrix3<M1> ): Amatrix3<Tmatrix3> {
+    function add( m0: Amatrix3, m1: Amatrix3 ): Amatrix3 {
         return new Amatrix3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c
                              , d: m0.d + m1.d, e: m0.e + m1.e, f: m0.f + m1.f
                              , g: m0.d + m1.d, h: m0.h + m1.h, i: m0.i + m1.i } );
     }
     @:op(A - B)
     public static inline
-    function sub<M0: Tmatrix3,M1: Tmatrix3>( m0: Amatrix3<M0>, m1: Amatrix3<M1> ): Amatrix3<Tmatrix3> {
+    function sub( m0: Amatrix3, m1: Amatrix3 ): Amatrix3 {
         return new Amatrix3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c
                              , d: m0.d - m1.d, e: m0.e - m1.e, f: m0.f - m1.f
                              , g: m0.g - m1.g, h: m0.h - m1.h, i: m0.i - m1.i } );
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply<M3: Tmatrix3, T:Tpoint4>( p: Apoint4<T>, m: Amatrix3<M3> ): Amatrix3<Tmatrix3> {
+    function scaleMultiply( p: Apoint4, m: Amatrix3 ): Amatrix3 {
         return new Amatrix3( { a: m.a*p.x, b: m.b,     c: m.c
                              , d: m.d,     e: m.e*p.y, f: m.f
                              , g: m.g,     h: m.h,     i: m.i*p.z } );
     }
     @:op(A * B)
     public static inline
-    function multiplyV<M3: Tmatrix3>( v: Float, m: Amatrix3<M3> ): Amatrix3<Tmatrix3> {
+    function multiplyV( v: Float, m: Amatrix3 ): Amatrix3 {
         return new Amatrix3( { a: m.a*v, 	b: m.b*v,   c: m.c*v
                              , d: m.d*v,  e: m.e*v,   f: m.f*v
                              , g: m.g*v,  h: m.h*v,   i: m.i*v} );
     }
     @:op(A * B)
     public static inline
-    function multiply<A3: Tmatrix3, B3: Tmatrix3>( p: Amatrix3<A3>, q: Amatrix3<B3> ): Amatrix3<Tmatrix3> {
+    function multiply( p: Amatrix3, q: Amatrix3 ): Amatrix3 {
         /* a b c    a b c
            d e f    d e f
            g h i    g h i   */
@@ -357,7 +326,7 @@ abstract Amatrix3<M3: Tmatrix3>( M3 ) from M3 to M3 {
              + this.c * cofactor( this.d, this.e, this.g, this.h );
     }
     public inline
-    function inverse(): Amatrix3<Tmatrix3> {
+    function inverse(): Amatrix3 {
         var d = det();
         return if( d == 0 ){
             null;
@@ -455,24 +424,24 @@ abstract Amatrix3<M3: Tmatrix3>( M3 ) from M3 to M3 {
     }
 }
 @:forward
-abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
+abstract Amatrix4( Tmatrix4 ) from Tmatrix4 to Tmatrix4 {
     /* a b c d
        e f g h
        i j k l
        m n o p  */
     public inline
-    function new( m: M4 ){
+    function new( m: Tmatrix4 ){
     		this = m;
     }
     public static inline
-    function unit():Amatrix4<Tmatrix4>{
+    function unit(): Amatrix4 {
         return new Amatrix4({ a: 1., b: 0., c: 0., d: 0.
                             , e: 0., f: 1., g: 0., h: 0.
                             , i: 0., j: 0., k: 1., l: 0.
                             , m: 0., n: 0., o: 0., p: 1. } );
     }
     public static inline
-    function zero():Amatrix4<Tmatrix4>{
+    function zero(): Amatrix4 {
         return new Amatrix4({ a: 0., b: 0., c: 0., d: 0.
                             , e: 0., f: 0., g: 0., h: 0.
                             , i: 0., j: 0., k: 0., l: 0.
@@ -480,7 +449,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
     }
     @:op(A + B)
     public static inline
-    function add<M0: Tmatrix4,M1: Tmatrix4>( m0: Amatrix4<M0>, m1: Amatrix4<M1> ): Amatrix4<Tmatrix4> {
+    function add( m0: Amatrix4, m1: Amatrix4 ): Amatrix4 {
         return new Amatrix4( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c, d: m0.d + m1.d
                              , e: m0.e + m1.e, f: m0.f + m1.f, g: m0.d + m1.d, h: m0.h + m1.h
                              , i: m0.i + m1.i, j: m0.j + m1.j, k: m0.k + m1.k, l: m0.l + m1.l
@@ -488,7 +457,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
     }
     @:op(A - B)
     public static inline
-    function sub<M0: Tmatrix4,M1: Tmatrix4>( m0: Amatrix4<M0>, m1: Amatrix4<M1> ): Amatrix4<Tmatrix4> {
+    function sub( m0: Amatrix4, m1: Amatrix4 ): Amatrix4 {
         return new Amatrix4( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c, d: m0.d - m1.d
                              , e: m0.e - m1.e, f: m0.f - m1.f, g: m0.d - m1.d, h: m0.h - m1.h
                              , i: m0.i - m1.i, j: m0.j - m1.j, k: m0.k - m1.k, l: m0.l - m1.l
@@ -496,7 +465,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply<M4: Tmatrix4, T:Tpoint4>( p: Apoint4<T>, m: Amatrix4<M4> ): Amatrix4<Tmatrix4> {
+    function scaleMultiply( p: Apoint4, m: Amatrix4 ): Amatrix4 {
         return new Amatrix4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
@@ -504,7 +473,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
     }
     @:op(A * B)
     public static inline
-    function multiply<A4: Tmatrix4, B4: Tmatrix4>( r: Amatrix4<A4>, s: Amatrix4<B4> ): Amatrix4<Tmatrix4> {
+    function multiply( r: Amatrix4, s: Amatrix4 ): Amatrix4 {
         /* a b c d   a b c d
            e f g h   e f g h
            i j k l   i j k l
@@ -545,7 +514,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
                                   , this.m, this.n, this.o );
     }
     public inline
-    function inverse():Amatrix4<Tmatrix4> {
+    function inverse(): Amatrix4 {
         var a = this.a;
         var b = this.b; 
         var c = this.c;
@@ -593,7 +562,7 @@ abstract Amatrix4<M4: Tmatrix4>( M4 ) from M4 to M4 {
     }
     @:from
     public static inline 
-    function fromNumbered( m: Tmatrix4numbered ): Amatrix4<Tmatrix4> {
+    function fromNumbered( m: Tmatrix4numbered ): Amatrix4 {
         return new Amatrix4( { 
                            a: m._00, b: m._10, c: m._20, d: m._30
                          , e: m._01, f: m._11, g: m._21, h: m._31

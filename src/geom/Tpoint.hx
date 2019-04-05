@@ -47,12 +47,12 @@ class Cpoint4 {
     }
 }
 @:forward
-abstract Apoint<T:Tpoint>( T ) to T from T {
+abstract Apoint( Tpoint ) to Tpoint from Tpoint {
     public inline
-    function new(  p: T ){
+    function new(  p: Tpoint ){
         this = p;
     }
-    public var magnitude(get, set): Float;
+    public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
         return Math.sqrt( this.x * this.x + this.y * this.y);
@@ -103,47 +103,47 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
     }
     @:op(A + B)
     public static inline
-    function add<T:Tpoint,S:Tpoint>( a:Apoint<T>, b:Apoint<S> ): Apoint<Tpoint> {
+    function add( a:Apoint, b:Apoint ): Apoint {
       	return new Apoint({ x: a.x + b.x, y:  a.y + b.y });
     }
     @:op(A - B)
     public static inline
-    function subtract<T:Tpoint,S:Tpoint>( a: Apoint<T>, b:Apoint<S> ): Apoint<Tpoint> {
+    function subtract( a: Apoint, b:Apoint ): Apoint {
         return new Apoint({ x: a.x - b.x, y:  a.y - b.y });
     }
     @:op(A * B)
     public static inline
-    function dot<T:Tpoint,S:Tpoint>( a: Apoint<T>, b:Apoint<S> ): Apoint<Tpoint> {
+    function dot( a: Apoint, b:Apoint ): Apoint {
         return new Apoint({ x: a.x * b.x, y: a.y * b.y });
     }
     @:op(A * B)
     @:commutative
     public static inline
-    function scaleMultiply<T:Tpoint>( a: Apoint<T>, v: Float ): Apoint<Tpoint> {
+    function scaleMultiply( a: Apoint, v: Float ): Apoint {
         return new Apoint( { x: a.x * v, y: a.y * v } );
     }
     @:op(A / B)
     public static inline
-    function divide<T:Tpoint>( a: Apoint<T>, v: Float ): Apoint<Tpoint> {
+    function divide( a: Apoint, v: Float ): Apoint {
         return a * ( 1 / v );
     }
     public inline
-    function perp<S:Tpoint>( b:Apoint<S> ): Float {
+    function perp( b:Apoint ): Float {
         return this.x * b.y - this.y * b.x;
     }
     public inline
-    function mid<T:Tpoint,S:Tpoint>( a: Apoint<T>, b:Apoint<S> ): Apoint<Tpoint> {
+    function mid( a: Apoint, b:Apoint ): Apoint {
         return new Apoint( { x: ( a.x + b.x )/2, y:( a.y + b.y )/2 } );
     }
     public inline
-    function distance<S:Tpoint>( b: Apoint<S> ): Float {
+    function distance( b: Apoint ): Float {
         var dx = this.x - b.x;
         var dy = this.y - b.y;
         return dx * dx + dy * dy;
     }
     public inline
-    function span<S:Tpoint>( b: Apoint<S> ): Tpoint {
-        return { x: this.x - b.x, y: this.y - b.y };
+    function span( b: Apoint ): Apoint {
+        return new Apoint({ x: this.x - b.x, y: this.y - b.y });
     }
     public inline
     function normalize(): Float {
@@ -167,11 +167,11 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
 	// = 0, p is on the line, none (degenerate)
 // < 0, p is righ of line, clockwise
     public inline
-    function isLeft<S:Tpoint,U:Tpoint>( a: Apoint<S>, b:Apoint<U> ): Float {
+    function isLeft( a: Apoint, b:Apoint ): Float {
         return (( b.x - a.x )*( this.y - a.y ) - ( this.x - a.x )*( b.y - a.y ));
     }
     public static inline
-    function triangleArea<T:Tpoint,S:Tpoint,U:Tpoint>( a: Apoint<T>, b:Apoint<S>, c:Apoint<U> ): Float {
+    function triangleArea( a: Apoint, b:Apoint, c:Apoint ): Float {
         return Math.abs( a.isLeft( b , c ) / 2. );
     }
     public static inline
@@ -179,21 +179,21 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
         return Std.int( Math.abs( n )/n );
     }
     public inline static
-    function thetaDifference<S:Tpoint,U:Tpoint>( a: Apoint<S>, b:Apoint<U> ): Float {
+    function thetaDifference( a: Apoint, b:Apoint ): Float {
         var dx: Float = a.x - b.x;
         var dy: Float = a.y - b.y;
         return Math.atan2( dy, dx );
     }
     // need to assess / compare the quality of inTri approaches.
     public inline
-    function inTri<S:Tpoint,U:Tpoint,V:Tpoint>( a: Apoint<S>, b:Apoint<U>, c:Apoint<V> ): Bool {
+    function inTri( a: Apoint, b:Apoint, c:Apoint ): Bool {
         var planeAB = ( a.x - this.x )*( b.y - this.y ) - ( b.x - this.x )*( a.y - this.y );
         var planeBC = ( b.x - this.x )*( c.y - this.y ) - ( c.x - this.x )*( b.y - this.y );
         var planeCA = ( c.x - this.x )*( a.y - this.y ) - ( a.x - this.x )*( c.y - this.y );
         return sign( planeAB ) == sign( planeBC ) && sign( planeBC ) == sign( planeCA );
     }
     public inline
-    function inTri2<S:Tpoint,U:Tpoint,V:Tpoint>( a: Apoint<S>, b:Apoint<U>, c:Apoint<V> ): Bool {
+    function inTri2( a: Apoint, b:Apoint, c:Apoint ): Bool {
         var v0x = c.x - a.x;
         var v0y = c.y - a.y;
         var v1x = b.x - a.x;
@@ -212,7 +212,7 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
         return ( u >= 0 ) && ( v >= 0 ) && ( u + v < 1 );
     }
     public inline
-    function inRect<S:Tpoint,U:Tpoint>( b: Apoint<S>, c:Apoint<U> ): Bool {// in rect (b,c)
+    function inRect( b: Apoint, c:Apoint ): Bool {// in rect (b,c)
         var small: Float = 0.0000000001;
         var minx = Math.min( b.x, c.x );
         var maxx = Math.max( b.x, c.x );
@@ -228,11 +228,11 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
         }
     }
     public static inline
-    function convex<T:Tpoint,S:Tpoint,U:Tpoint>( a: Apoint<T>, b:Apoint<S>, c:Apoint<U>) : Bool { 
+    function convex( a: Apoint, b: Apoint, c: Apoint) : Bool { 
         return ( a.y - b.y )*( c.x - b.x ) + ( b.x - a.x )*( c.y - b.y ) >= 0;
     }
     public static inline
-    function cross<S:Tpoint,U:Tpoint>( a: Apoint<S>, b:Apoint<U> ) : Float {
+    function cross( a: Apoint, b:Apoint ) : Float {
         return a.x*b.y - a.y*b.x;
     }
     public inline
@@ -240,7 +240,7 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
         return Math.atan2( this.y, this.x );
     }
     public inline
-    function pivotAround<S:Tpoint>( omega: Float, pivot: Apoint<S> ){
+    function pivotAround( omega: Float, pivot: Apoint ){
         var px = this.x - pivot.x;
         var py = this.y - pivot.y;
         var px2 = px * Math.cos( omega ) - py * Math.sin( omega );
@@ -249,17 +249,17 @@ abstract Apoint<T:Tpoint>( T ) to T from T {
     }
 }
 @:forward
-abstract Apoint4<T:Tpoint4>( T ) to T from T {
+abstract Apoint4( Tpoint4 ) to Tpoint4 from Tpoint4 {
     public inline
-    function new(  p: T ){
+    function new(  p: Tpoint4 ){
         this = p;
     }
     public static inline
-   function unit(): Apoint4<Tpoint4> {
+   function unit(): Apoint4 {
         return new Apoint4( { x: 0., y: 0., z: 0., w: 1. } );
     }
     public static inline
-    function identity<S:Tpoint4>( out:Apoint4<S> ):Apoint4<S> {
+    function identity( out:Apoint4 ):Apoint4 {
             out.x = 0.;
             out.y = 0.;
             out.z = 0.;
@@ -267,7 +267,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
             return out;
     }
     public inline static
-    function copy<S:Tpoint4,U:Tpoint4>( pin: Apoint4<S>, pout:Apoint4<U> ): Apoint4<U> {
+    function copy( pin: Apoint4, pout:Apoint4 ): Apoint4 {
         pin.x = pout.x;
         pin.y = pout.y;
         pin.z = pout.z;
@@ -275,7 +275,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return pout;
     }
     public inline
-    function getTPoint(): Apoint4<Tpoint4> {
+    function getTPoint(): Apoint4 {
         return new Apoint4( { x: this.x, y: this.y, z: this.z, w: this.w } );
     }
     public var magnitude( get, set ): Float;
@@ -299,7 +299,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
     }
     @:op( A == B )
     public static inline
-    function equals<S:Tpoint4,U:Tpoint4>( a:Apoint4<S>, b:Apoint4<U> ): Bool {
+    function equals( a:Apoint4, b:Apoint4 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.x - b.x) >= delta
@@ -314,37 +314,37 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
     }
     @:op(A + B)
     public static inline
-    function add<S:Tpoint4,U:Tpoint4>( a:Apoint4<S>, b:Apoint4<U> ): Apoint4<Tpoint4> {
+    function add( a:Apoint4, b:Apoint4 ): Apoint4 {
       	return new Apoint4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
     @:op(A - B)
     public static inline
-    function subtract<S:Tpoint4,U:Tpoint4>( a: Apoint4<S>, b:Apoint4<U> ): Apoint4<Tpoint4> {
+    function subtract( a: Apoint4, b:Apoint4 ): Apoint4 {
         return new Apoint4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
     @:op(A * B)
     public static inline 
-    function dot<S:Tpoint4,U:Tpoint4>( a: Apoint4<S>, b:Apoint4<U> ): Apoint4<Tpoint4> {
+    function dot( a: Apoint4, b:Apoint4 ): Apoint4 {
         return new Apoint4({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
     }
     public static inline
-    function dotProduct<S:Tpoint4,U:Tpoint4>( a: Apoint4<S>, b:Apoint4<U> ):Float {
+    function dotProduct( a: Apoint4, b:Apoint4 ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
     @:op(A * B)
     @:commutative
     public static inline 
-    function scaleMultiply<S:Tpoint4>( a: Apoint4<S>, v: Float ): Apoint4<Tpoint4> {
+    function scaleMultiply( a: Apoint4, v: Float ): Apoint4 {
         return new Apoint4({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
     }
     @:op(A / B)
     public static inline
-    function divide<S:Tpoint4>( a: Apoint4<S>, v: Float ): Apoint4<Tpoint4> {
+    function divide( a: Apoint4, v: Float ): Apoint4 {
         return a * ( 1 / v );
     }
     @:op(~A)
     public static inline
-    function conjugate<S:Tpoint4>( a: Apoint4<S> ):Apoint4<Tpoint4> {
+    function conjugate( a: Apoint4 ):Apoint4 {
         return new Apoint4( { x: -a.x
                             , y: -a.y
                             , z: -a.z
@@ -353,7 +353,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
     }
     @:op(-A)
     public static inline
-    function negate<S:Tpoint4>( a: Apoint4<S> ):Apoint4<Tpoint4> {
+    function negate( a: Apoint4 ):Apoint4 {
         return new Apoint4( { x: -a.x
                             , y: -a.y
                             , z: -a.z
@@ -361,7 +361,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
                             } );
     }
     public static inline
-    function multiplyQ<S:Tpoint4,U:Tpoint4,V:Tpoint4>( a: Apoint4<S>, b:Apoint4<U>, out:Apoint4<V>):Apoint4<V> {
+    function multiplyQ( a: Apoint4, b:Apoint4, out:Apoint4 ):Apoint4 {
         var ax = a.x;
         var ay = a.y;
         var az = a.z;
@@ -377,7 +377,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return out;
     }
     public static inline
-    function multiplyV<S:Tpoint4,U:Tpoint4,V:Tpoint4>( q: Apoint4<S>, v:Apoint4<U>, out:Apoint4<V>):Apoint4<V> {
+    function multiplyV( q: Apoint4, v:Apoint4, out:Apoint4 ):Apoint4 {
         var vx = v.x;
         var vy = v.y;
         var vz = v.z;
@@ -392,19 +392,19 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return out;
     }
     public static inline
-    function fromAxisAngle<S:Tpoint4>( theta: Float, axis: Apoint4<S> ):Apoint4<Tpoint4>{
+    function fromAxisAngle( theta: Float, axis: Apoint4 ):Apoint4 {
         var half = theta / 2.;
         var c = Math.cos( half );
         var s = Math.sin( half );
         return new Apoint4( { x: s * axis.x, y: s * axis.y, z: s * axis.z, w: c } );
     } 
     public static inline
-    function lerp<S:Tpoint4,U:Tpoint4>( a: Apoint4<S>, b:Apoint4<U>, t: Float ): Apoint4<Tpoint4>{
+    function lerp( a: Apoint4, b:Apoint4, t: Float ): Apoint4 {
         return ( 1.0 - t )*a + t*b;
     }
-    public var euler( get, set ): Dynamic;
+    public var euler( get, set ): Apoint4;
     private inline
-    function set_euler<S:Tpoint4>( a: Apoint4<S> ):Apoint4<Tpoint4> {
+    function set_euler( a: Apoint4 ):Apoint4 {
         var x5 = a.x*.5;
         var y5 = a.y*.5;
         var z5 = a.z*.5;
@@ -421,13 +421,13 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return this;
     }
     private inline
-    function get_euler(): Apoint4<Tpoint4> {
+    function get_euler(): Apoint4 {
         return new Apoint4( { x: Math.atan2( 2*(this.w*this.x + this.y*this.z), 1 - 2*(this.x*this.x + this.y*this.y))
                          , y: Math.asin(2*(this.w*this.y - this.z*this.x))
                          , z: Math.atan2(2*(this.w*this.z + this.x*this.y), 1 - 2*(this.y*this.y + this.z*this.z))
                          , w: 1. } );
     }
-    public function slerp<S:Tpoint4,U:Tpoint4>( a: Apoint4<S>, b:Apoint4<U>, t: Float ): Apoint4<Tpoint4> {
+    public function slerp( a: Apoint4, b:Apoint4, t: Float ): Apoint4 {
         var w1 = a.w;
         var x1 = a.x;
         var y1 = a.y;
@@ -465,17 +465,17 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return p;
     }
     public inline
-    function normalize(): Apoint4<T> {
+    function normalize(): Apoint4 {
         magnitude = 1.; 
         return this;
     }
     public inline
-    function constrainDistance<S:Tpoint4>( anchor: Apoint4<S>, distance: Float ): Apoint4<Tpoint4> {
-        return ( ( this - anchor).normalize() * distance ) + anchor;
+    function constrainDistance( anchor: Apoint4, distance: Float ): Apoint4 {
+        return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
     @:from
     public static inline
-    function fromVec( vec: haxe.ds.Vector<Float> ): Apoint4<Tpoint4>{
+    function fromVec( vec: haxe.ds.Vector<Float> ): Apoint4 {
         return new Apoint4( { x: vec.get(0), y: vec.get(1), z: vec.get(2), w: vec.get(3) } );
     }
     @:to
@@ -489,7 +489,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return vec;
     }
     @:from
-    public inline static function fromArray( arr: Array<Float> ): Apoint4<Tpoint4> {
+    public inline static function fromArray( arr: Array<Float> ): Apoint4 {
         return new Apoint4( { x: arr[ 0 ], y: arr[ 1 ], z: arr[ 2 ], w: arr[ 3 ] } );
     }
     @:to
