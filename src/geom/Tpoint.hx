@@ -289,7 +289,7 @@ abstract Apoint4<T:Tpoint4>( T ) to T from T {
         return if( currentLength == 0. ){ 
             0.;
         } else {
-            var mul = magnitude / currentLength;
+            var mul = length / currentLength;
             this.x *= mul;
             this.y *= mul;
             this.z *= mul;
