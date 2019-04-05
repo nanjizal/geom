@@ -6,6 +6,7 @@
   "description"  : "geom",
   "version"      : "0.0.1",
   "releasenote"  : "See hhttps://github.com/nanjizal/geom/blob/master/readme.md",
+  "classPath"    : "src",
   "contributors" : ["Nanjizal"],
   "dependencies" : {}
 }
