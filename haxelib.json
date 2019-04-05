@@ -5,7 +5,7 @@
   "tags"         : ["cross","maths"],
   "description"  : "geom",
   "version"      : "0.0.1",
-  "releasenote"  : "Initial release",
+  "releasenote"  : "See hhttps://github.com/nanjizal/geom/blob/master/readme.md",
   "contributors" : ["Nanjizal"],
   "dependencies" : {}
 }
