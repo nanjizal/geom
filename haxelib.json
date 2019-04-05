@@ -1,0 +1,11 @@
+{
+  "name"         : "geom",
+  "url"          : "https://github.com/nanjizal/geom",
+  "license"      : "MIT",
+  "tags"         : ["cross","maths"],
+  "description"  : "geom",
+  "version"      : "0.0.1",
+  "releasenote"  : "Initial release",
+  "contributors" : ["Nanjizal"],
+  "dependencies" : {}
+}
