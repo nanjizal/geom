@@ -204,7 +204,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     public static inline
     function sz( y: Float ): Matrix4x4 {
         return new Matrix4x4({ a: 1., b: 0., c: 0.
-                             , d: 0., e: 1., f: 0..
+                             , d: 0., e: 1., f: 0.
                              , g: 0., h: 0., i: z } );
     }
     public inline
