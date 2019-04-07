@@ -116,9 +116,9 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for 2D
     public static inline
     function xShear( theta: Float ): Matrix3x3 {
-        return new Matrix3x3({ a: 1., b: tan( theta ), c: 0.
-                             , d: 0,  e: 1.,  f: 0.
-                             , g: 0., h: 0., i: 1. } );
+        return new Matrix3x3({ a: 1., b: Math.tan( theta ), c: 0.
+                             , d: 0,  e: 1.,                f: 0.
+                             , g: 0., h: 0.,                i: 1. } );
     }
    // for 2D
     public inline
@@ -128,9 +128,9 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for 2D
     public static inline
     function yShear( theta: Float ): Matrix3x3 {
-        return new Matrix3x3({ a: 1.,            b: 0.,  c: 0.
-                             , d: tan( theta ),  e: 1.,  f: 0.
-                             , g: 0.,            h: 0.,  i: 1. } );
+        return new Matrix3x3({ a: 1.,                 b: 0.,  c: 0.
+                             , d: Math.tan( theta ),  e: 1.,  f: 0.
+                             , g: 0.,                 h: 0.,  i: 1. } );
     }
     // for 2D
     public inline
