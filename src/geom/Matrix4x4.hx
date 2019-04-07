@@ -423,7 +423,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     @:to
     public inline
     function to3x3(): Matrix3x3 {
-        return new Matrix3x3( { a: this.a,  b: this.b,  c: this.c.
+        return new Matrix3x3( { a: this.a,  b: this.b,  c: this.c
                               , d: this.e,  e: this.f,  f: this.g
                               , g: this.i,  h: this.j,  i: this.k } );
     } 
