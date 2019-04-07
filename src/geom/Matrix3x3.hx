@@ -203,7 +203,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
         return this * sy( y );
     }
     public static inline
-    function sz( y: Float ): Matrix3x3 {
+    function sz( z: Float ): Matrix3x3 {
         return new Matrix3x3({ a: 1., b: 0., c: 0.
                              , d: 0., e: 1., f: 0.
                              , g: 0., h: 0., i: z } );
