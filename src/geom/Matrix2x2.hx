@@ -59,7 +59,7 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
                              , c: 0., d: 0. } );
     }
     public static inline
-    function scale( p: Apoint ): Matrix2x2 {
+    function scale( p: Matrix1x2 ): Matrix2x2 {
         return new Matrix2x2( { a: p.x, b: 0.
                               ,c: 0.,   d: p.y } );
     }
