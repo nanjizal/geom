@@ -1,4 +1,7 @@
 package geom;
+#if js
+import js.html.Float32Array;
+#end
 #if avoid_typedef
 // some haxe targets might perform better with a class so you can switch if you want.
 class Tmatrix4x4 {
@@ -532,4 +535,14 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
                 throw ('bad get $x, $y on Matrix4x4' );
         }
     }
+    #if js
+    public inline
+    function toFloat32Array( arr: Float32Array ): Float32Array {
+        arr.set([ this.a, this.b, this.c, this.d
+                , this.e, this.f, this.g, this.h
+                , this.i, this.j, this.k, this.l
+                , this.m, this.n, this.o, this.p ]);
+        return arr;
+    }
+    #end
 }
