@@ -209,7 +209,7 @@ abstract Matrix1x2( Tpoint ) to Tpoint from Tpoint {
     @:to
     public inline
     function toVec3(): Tmatrix1x3 {
-        return { this.x, this.y, 1 };
+        return { this.x, this.y, 1. };
     }
     @:from
     public inline static function fromVec3( v3: Tmatrix1x3 ): Matrix1x2 {
