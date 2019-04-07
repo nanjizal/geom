@@ -96,7 +96,149 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
         return new Matrix4x4({ a: 0., b: 0., c: 0., d: 0.
                             , e: 0., f: 0., g: 0., h: 0.
                             , i: 0., j: 0., k: 0., l: 0.
-                            , m: 0., n: 0., o: 0., p: 0. } );
+                            , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public static inline
+    function radianX( theta: Float ): Matrix4x4 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: 0., b: 0., c: 0., d: 0.
+                             , e: 0., f: c,  g: -s, h: 0.
+                             , i: 0., j: s,  k: c,  l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function rotateX( theta: Float ) : Matrix4x4 {
+        return this * radianX( theta );
+    }
+    public static inline
+    function radianY( theta: Float ): Matrix4x4 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: c,  b: 0., c: s, d: 0.
+                             , e: 0., f: 1., g: 0, h: 0.
+                             , i: s,  j: 0., k: c, l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function rotateY( theta: Float ) : Matrix4x4 {
+        return this * radianY( theta );
+    }
+    public static inline
+    function radianZ( theta: Float ): Matrix4x4 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: c,  b: -s, c: 0., d: 0.
+                             , e: s,  f: c,  g: 0,  h: 0.
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function rotateZ( theta: Float ) : Matrix4x4 {
+        return this * radianZ( theta );
+    }
+    public static inline
+    function sxyz( x: Float, y: Float, z: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: x, b: 0., c: 0., d: 0.
+                             , e: 0., f: y,  g: 0., h: 0.
+                             , i: 0., j: 0., k: z, l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function scaleXYZ( x: Float, y: Float, z: Float ){
+        return this * sxyz( x, y, z );
+    }
+    public static inline
+    function sx( x: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: x,  b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function scaleX( x: Float ): Matrix4x4 {
+        return this * sx( x );   
+    }
+    public static inline
+    function sy( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: y,  g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function scaleY( y: Float ): Matrix4x4 {
+        return this * sy( y );
+    }
+    public static inline
+    function sz( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: z,  l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function scaleZ( z: Float ): Matrix4x4 {
+        return this * sz( z );
+    }
+    public inline
+    function scale( s: Float ): Matrix4x4 {
+        return this * scaleXYZ( s, s, s );
+    }
+    public static inline
+    function txyz( x: Float, y: Float, z: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: x
+                             , e: 0., f: 1., g: 0., h: y
+                             , i: 0., j: 0., k: 1., l: z
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function translateXYZ( x: Float, y: Float, z: Float ): Matrix4x4 {
+        return this * txyz( x, y, z );
+    }
+    public static inline
+    function tx( x: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: x
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function translateX( x: Float ): Matrix4x4 {
+        return this * tx( x );
+    }
+    public static inline
+    function ty( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: y
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function translateY( y: Float ): Matrix4x4 {
+        return this * ty( y );
+    }
+    public static inline
+    function tz( z: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: z
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function translateZ( z: Float ): Matrix4x4 {
+        return this * tz( z );
+    }
+    public static inline
+    function txy( x: Float, y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0., d: x
+                             , e: 0., f: 1., g: 0., h: y
+                             , i: 0., j: 0., k: 1., l: 0.
+                             , m: 0., n: 0., o: 0., p: 1. } );
+    }
+    public inline
+    function translateXY( x: Float, y: Float ): Matrix4x4 {
+        return this * xy( x, y );
     }
     @:op(A + B)
     public static inline
