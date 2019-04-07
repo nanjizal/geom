@@ -241,7 +241,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     }
     public inline
     function translateXY( x: Float, y: Float ): Matrix4x4 {
-        return this * xy( x, y );
+        return this * txy( x, y );
     }
     @:op(A + B)
     public static inline
