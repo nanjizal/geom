@@ -283,7 +283,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply3D( p: Vec3, m: Matrix3x3 ): Matrix3x3 {
+    function scaleMultiply3D( p: Tmatrix1x3, m: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
                               , d: m.d,     e: m.e*p.y, f: m.f
                               , g: m.g,     h: m.h,     i: m.i*p.y } );
