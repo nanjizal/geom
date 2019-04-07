@@ -238,10 +238,10 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     public inline
     function toVector(): haxe.ds.Vector<Float> {
         var vec = new haxe.ds.Vector<Float>(4);
-        vec.set(0, this.x);
-        vec.set(1, this.y);
-        vec.set(2, this.z);
-        vec.set(3, this.w);
+        vec.set( 0, this.x );
+        vec.set( 1, this.y );
+        vec.set( 2, this.z );
+        vec.set( 3, this.w );
         return vec;
     }
     @:from
