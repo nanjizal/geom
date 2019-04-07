@@ -1,4 +1,5 @@
 package geom;
+import geom.Matrix1x2;
 #if avoid_typedef
 // some haxe targets might perform better with a class so you can switch if you want.
 class Tmatrix3x3 {
