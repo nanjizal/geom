@@ -262,7 +262,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     }
     @:op(A - B)
     public static inline
-    function sub( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
+    function subtract( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c
                              , d: m0.d - m1.d, e: m0.e - m1.e, f: m0.f - m1.f
                              , g: m0.g - m1.g, h: m0.h - m1.h, i: m0.i - m1.i } );
