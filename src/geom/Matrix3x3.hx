@@ -76,7 +76,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     function radianX( theta: Float ): Matrix3x3 {
         var c = Math.cos( theta );
         var s = Math.sin( theta );
-        return new Matrix3x3({ a: 0., b: 0., c: 0.
+        return new Matrix3x3({ a: 1., b: 0., c: 0.
                              , d: 0., e: c,  f: -s
                              , g: 0., h: s,  i: c } );
     }
@@ -90,7 +90,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
         var s = Math.sin( theta );
         return new Matrix3x3({ a: c,  b: 0., c: s
                              , d: 0., e: 1., f: 0
-                             , g: s,  h: 0., i: c } );
+                             , g: -s,  h: 0., i: c } );
     }
     public inline
     function rotateY( theta: Float ) : Matrix3x3 {
