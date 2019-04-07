@@ -219,7 +219,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for use with 2D
     public inline
     function scale2D( s: Float ): Matrix3x3 {
-        return this * new Matrix4x4({ a: s,  b: 0., c: 0.
+        return this * new Matrix3x3({ a: s,  b: 0., c: 0.
                                     , d: 0., e: s,  f: 0.
                                     , g: 0., h: 0., i: 1. } );
     }
