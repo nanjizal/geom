@@ -4,6 +4,7 @@ typedef Tmatrix1x4 = {
     public var z: Float;
     @:optional public var w: Float;
 }
+typedef Vec4 = Matrix1x4;
 @:forward
 abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     public inline
