@@ -118,10 +118,10 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     function radianY( theta: Float ): Matrix4x4 {
         var c = Math.cos( theta );
         var s = Math.sin( theta );
-        return new Matrix4x4({ a: c,  b: 0., c: s, d: 0.
-                             , e: 0., f: 1., g: 0, h: 0.
-                             , i: -s,  j: 0., k: c, l: 0.
-                             , m: 0., n: 0., o: 0., p: 1. } );
+        return new Matrix4x4({ a: c,   b: 0.,  c: s,  d: 0.
+                             , e: 0.,  f: 1.,  g: 0., h: 0.
+                             , i: -s,  j: 0.,  k: c,  l: 0.
+                             , m: 0.,  n: 0.,  o: 0., p: 1. } );
     }
     public inline
     function rotateY( theta: Float ) : Matrix4x4 {
@@ -131,10 +131,10 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     function radianZ( theta: Float ): Matrix4x4 {
         var c = Math.cos( theta );
         var s = Math.sin( theta );
-        return new Matrix4x4({ a: c,  b: -s, c: 0., d: 0.
-                             , e: s,  f: c,  g: 0,  h: 0.
-                             , i: 0., j: 0., k: 1., l: 0.
-                             , m: 0., n: 0., o: 0., p: 1. } );
+        return new Matrix4x4({ a: c,  b: -s, c: 0.,  d: 0.
+                             , e: s,  f: c,  g: 0.,  h: 0.
+                             , i: 0., j: 0., k: 1.,  l: 0.
+                             , m: 0., n: 0., o: 0.,  p: 1. } );
     }
     public inline
     function rotateZ( theta: Float ) : Matrix4x4 {
@@ -142,9 +142,9 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     }
     public static inline
     function sxyz( x: Float, y: Float, z: Float ): Matrix4x4 {
-        return new Matrix4x4({ a: x, b: 0., c: 0., d: 0.
+        return new Matrix4x4({ a: x,  b: 0., c: 0., d: 0.
                              , e: 0., f: y,  g: 0., h: 0.
-                             , i: 0., j: 0., k: z, l: 0.
+                             , i: 0., j: 0., k: z,  l: 0.
                              , m: 0., n: 0., o: 0., p: 1. } );
     }
     public inline
