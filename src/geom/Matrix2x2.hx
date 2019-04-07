@@ -93,7 +93,7 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply( p: Apoint2, m: Matrix2x2 ): Matrix2x2 {
+    function scaleMultiply( p: Matrix1x2, m: Matrix2x2 ): Matrix2x2 {
         return new Matrix2x2( {a: m.a*p.x, b: m.b
                              ,c: m.c,     d: m.d*p.y } );
     }
