@@ -390,10 +390,40 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     public static inline
     function fromVec( vec: haxe.ds.Vector<Float> ){
         return new Matrix4x4( { a: vec.get(0),  b: vec.get(1),  c: vec.get(2),  d: vec.get(3)
-                             , e: vec.get(4),  f: vec.get(5),  g: vec.get(6),  h: vec.get(7)
-                             , i: vec.get(8),  j: vec.get(9),  k: vec.get(10), l: vec.get(11)
-                             , m: vec.get(12), n: vec.get(13), o: vec.get(14), p: vec.get(15) } );
+                              , e: vec.get(4),  f: vec.get(5),  g: vec.get(6),  h: vec.get(7)
+                              , i: vec.get(8),  j: vec.get(9),  k: vec.get(10), l: vec.get(11)
+                              , m: vec.get(12), n: vec.get(13), o: vec.get(14), p: vec.get(15) } );
     }
+    // assumes z == 0
+    @:from
+    public static inline
+    function from2x2( m2: Matrix2x2 ){
+        return new Matrix4x4( { a: m2.a,  b: m2.b,  c: 0.,  d: 0.
+                              , e: m2.c,  f: m2.d,  g: 0.,  h: 0.
+                              , i: 0.,    j: 0.,    k: 0.,  l: 0.
+                              , m: 0.,    n: 0.,    o: 0.,  p: 1. } );
+    }
+    @:to
+    public inline
+    function to2x2(): Matrix2x2 {
+        return new Matrix2x2( { a: this.a,  b: this.b
+                              , d: this.e,  e: this.f } );
+    }  
+    @:from
+    public static inline
+    function from3x3( m3: Matrix3x3 ){
+        return new Matrix4x4( { a: m3.a,  b: m3.b,  c: m3.c,  d: 0.
+                              , e: m3.d,  f: m3.e,  g: m3.f,  h: 0.
+                              , i: m3.g,  j: m3.h,  k: m3.i,  l: 0.
+                              , m: 0.,    n: 0.,    o: 0.,    p: 1. } );
+    }
+    @:to
+    public inline
+    function to3x3(): Matrix3x3 {
+        return new Matrix3x3( { a: this.a,  b: this.b,  c: this.c.
+                              , d: this.e,  e: this.f,  f: this.g
+                              , g: this.i,  h: this.j,  i: this.k } );
+    } 
     @:to
     public inline
     function toVector(): haxe.ds.Vector<Float> {
