@@ -77,7 +77,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
         var s = Math.sin( theta );
         return new Matrix4x4({ a: 0., b: 0., c: 0.
                              , d: 0., e: c,  f: -s
-                             , g: 0., h: s,  i: c. } );
+                             , g: 0., h: s,  i: c } );
     }
     public inline
     function rotateX( theta: Float ) : Matrix3x3 {
