@@ -15,7 +15,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         return new Matrix1x4( { x: 0., y: 0., z: 0., w: 1. } );
     }
     public static inline
-    function identity( out:Matrix1x4 ):Matrix1x4 {
+    function identity( out: Matrix1x4 ):Matrix1x4 {
             out.x = 0.;
             out.y = 0.;
             out.z = 0.;
@@ -23,7 +23,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
             return out;
     }
     public inline static
-    function copy( pin: Matrix1x4, pout:Matrix1x4 ): Matrix1x4 {
+    function copy( pin: Matrix1x4, pout: Matrix1x4 ): Matrix1x4 {
         pin.x = pout.x;
         pin.y = pout.y;
         pin.z = pout.z;
@@ -55,7 +55,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     @:op( A == B )
     public static inline
-    function equals( a:Matrix1x4, b:Matrix1x4 ): Bool {
+    function equals( a: Matrix1x4, b: Matrix1x4 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.x - b.x) >= delta
@@ -70,21 +70,21 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     @:op(A + B)
     public static inline
-    function add( a:Matrix1x4, b:Matrix1x4 ): Matrix1x4 {
+    function add( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
       	return new Matrix1x4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
     @:op(A - B)
     public static inline
-    function subtract( a: Matrix1x4, b:Matrix1x4 ): Matrix1x4 {
+    function subtract( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
     @:op(A * B)
     public static inline 
-    function dot( a: Matrix1x4, b:Matrix1x4 ): Matrix1x4 {
+    function dot( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
     }
     public static inline
-    function dotProduct( a: Matrix1x4, b:Matrix1x4 ):Float {
+    function dotProduct( a: Matrix1x4, b: Matrix1x4 ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
     @:op(A * B)
@@ -100,7 +100,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     @:op(~A)
     public static inline
-    function conjugate( a: Matrix1x4 ):Matrix1x4 {
+    function conjugate( a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: -a.x
                             , y: -a.y
                             , z: -a.z
@@ -117,7 +117,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
                             } );
     }
     public static inline
-    function multiplyQ( a: Matrix1x4, b:Matrix1x4, out:Matrix1x4 ):Matrix1x4 {
+    function multiplyQ( a: Matrix1x4, b: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
         var ax = a.x;
         var ay = a.y;
         var az = a.z;
@@ -133,7 +133,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         return out;
     }
     public static inline
-    function multiplyV( q: Matrix1x4, v:Matrix1x4, out:Matrix1x4 ):Matrix1x4 {
+    function multiplyV( q: Matrix1x4, v: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
         var vx = v.x;
         var vy = v.y;
         var vz = v.z;
@@ -183,7 +183,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
                          , z: Math.atan2(2*(this.w*this.z + this.x*this.y), 1 - 2*(this.y*this.y + this.z*this.z))
                          , w: 1. } );
     }
-    public function slerp( a: Matrix1x4, b:Matrix1x4, t: Float ): Matrix1x4 {
+    public function slerp( a: Matrix1x4, b: Matrix1x4, t: Float ): Matrix1x4 {
         var w1 = a.w;
         var x1 = a.x;
         var y1 = a.y;
