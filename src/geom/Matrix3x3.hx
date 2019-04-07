@@ -362,7 +362,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     public static inline
     function from2x2( m2: Matrix2x2 ): Matrix3x3 {
         return new Matrix3x3( { a: m2.a, b: m2.b, c: 0.
-                              , d: m2.e, e: m2.f, f: 0.
+                              , d: m2.c, e: m2.d, f: 0.
                               , g: 0.,   h: 0,    i: 1. } );
     }
     @:to
