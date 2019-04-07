@@ -174,7 +174,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
         return this * sy( y );
     }
     public static inline
-    function sz( y: Float ): Matrix4x4 {
+    function sz( z: Float ): Matrix4x4 {
         return new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: z,  l: 0.
