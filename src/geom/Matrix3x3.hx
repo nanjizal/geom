@@ -71,6 +71,188 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
                             , d: 0., e: 0., f: 0.
                             , g: 0., h: 0., i: 0. });
     }
+    public static inline
+    function radianX( theta: Float ): Matrix3x3 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: 0., b: 0., c: 0.
+                             , d: 0., e: c,  f: -s
+                             , g: 0., h: s,  i: c. } );
+    }
+    public inline
+    function rotateX( theta: Float ) : Matrix3x3 {
+        return this * radianX( theta );
+    }
+    public static inline
+    function radianY( theta: Float ): Matrix3x3 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: c,  b: 0., c: s
+                             , d: 0., e: 1., f: 0
+                             , g: s,  h: 0., i: c } );
+    }
+    public inline
+    function rotateY( theta: Float ) : Matrix3x3 {
+        return this * radianY( theta );
+    }
+    public static inline
+    function radianZ( theta: Float ): Matrix3x3 {
+        var c = Math.cos( theta );
+        var s = Math.sin( theta );
+        return new Matrix4x4({ a: c,  b: -s, c: 0.
+                             , d: s,  e: c,  f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+    public inline
+    function rotateZ( theta: Float ) : Matrix3x3 {
+        return this * radianZ( theta );
+    }
+    // for 2D
+    public inline
+    function rotate( theta: Float ) : Matrix3x3 {
+        return this * radianZ( -theta );
+    }
+    // for 2D
+    public static inline
+    function xShear( theta: Float ): Matrix3x3 {
+        return new Matrix4x4({ a: 1., b: tan( theta ), c: 0.
+                             , d: 0,  e: 1.,  f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+   // for 2D
+    public inline
+    function shearX( theta: Float ) : Matrix3x3 {
+        return this * xShear( theta );
+    }
+    // for 2D
+    public static inline
+    function yShear( theta: Float ): Matrix3x3 {
+        return new Matrix4x4({ a: 1.,            b: 0,, c: 0.
+                             , d: tan( theta ),  e: 1.,  f: 0.
+                             , g: 0.,            h: 0., i: 1. } );
+    }
+    // for 2D
+    public inline
+    function shearY( theta: Float ): Matrix3x3 {
+        return this * yShear( theta );   
+    }
+    // for 2D
+    public static inline
+    function xFlip(): Matrix3x3 {
+        return new Matrix4x4({ a: 1., b: 0.,   c: 0.
+                             , d: 0,  e: -1.,  f: 0.
+                             , g: 0., h: 0.,   i: 1. } );
+    }
+    // for 2D
+    public inline
+    function flipX(): Matrix3x3 {
+        return this * xFLip();
+    }
+    // for 2D
+    public static inline
+    function yFlip(): Matrix4x4 {
+        return new Matrix4x4({ a: -1., b: 0., c: 0.
+                             , d: 0,  e: 1.,  f: 0.
+                             , g: 0., h: 0.,  i: 1. } );
+    }
+    // for 2D
+    public inline
+    function flipY(): Matrix3x3 {
+        return this * yFlip();
+    }
+    public static inline 
+    function xyFlip(){
+        return new Matrix4x4({ a: -1., b: 0.,  c: 0.
+                             , d: 0,   e: -1., f: 0.
+                             , g: 0.,  h: 0.,  i: 1. } );
+    }
+    public inline
+    function flipXY(){
+        return this * xyFlip();   
+    }
+    public static inline
+    function sxyz( x: Float, y: Float, z: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: x,  b: 0., c: 0.
+                             , d: 0., e: y,  f: 0.
+                             , g: 0., h: 0., i: z } );
+    }
+    public inline
+    function scaleXYZ( x: Float, y: Float, z: Float ){
+        return this * sxyz( x, y, z );
+    }
+    public static inline
+    function sx( x: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: x,  b: 0., c: 0.
+                             , d: 0., e: 1., f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+    public inline
+    function scaleX( x: Float ): Matrix4x4 {
+        return this * sx( x );   
+    }
+    // only 3D
+    public static inline
+    function sy( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0.
+                             , d: 0., e: y,  f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+    public inline
+    function scaleY( y: Float ): Matrix4x4 {
+        return this * sy( y );
+    }
+    public static inline
+    function sz( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: 0.
+                             , d: 0., e: 1., f: 0..
+                             , g: 0., h: 0., i: z } );
+    }
+    public inline
+    function scaleZ( z: Float ): Matrix4x4 {
+        return this * sz( z );
+    }
+    public inline
+    function scale( s: Float ): Matrix4x4 {
+        return this * scaleXYZ( s, s, s );
+    }
+    // for use with 2D
+    public inline
+    function scale2D( s: Float ): Matrix4x4 {
+        return this * new Matrix4x4({ a: s,  b: 0., c: 0.
+                                    , d: 0., e: s,  f: 0..
+                                    , g: 0., h: 0., i: 1. } );
+    }
+    // for use with 2D
+    public static inline
+    function tx( x: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: x.
+                             , d: 0., e: 1., f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+    // for use with 2D
+    public inline
+    function translateX( x: Float ): Matrix4x4 {
+        return this * tx( x );
+    }
+    // for use with 2D
+    public static inline
+    function ty( y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: y.
+                             , d: 0., e: 1., f: 0.
+                             , g: 0., h: 0., i: 1. } );
+    }
+    // for use with 2D
+    public static inline
+    function txy( x: Float, y: Float ): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 0., c: x
+                             , d: 0., e: 1., f: y
+                             , g: 0., h: 0., i: 1. } );
+    }
+    // for use with 2D
+    public inline
+    function translateXY( x: Float, y: Float ): Matrix4x4 {
+        return this * xy( x, y );
+    }
     @:op(A + B)
     public static inline
     function add( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
