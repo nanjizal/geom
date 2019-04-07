@@ -104,10 +104,10 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
                              ,c: a2.c*b2.a + a2.d*b2.c, d: a2.c*b2.b + a2.d*b2.d } );
     }
     public inline
-    function multiplyPoint( p: Matrix1x2 ): Matrix2x2 {
+    function multiplyPoint( p: Matrix1x2 ): Matrix1x2 {
         var x = this.a * p.x + this.c * p.y;
         var y = this.b * p.x + this.d * p.y;
-        return new Matrix2x2( { x: x, y: y } );
+        return new Matrix1x2( { x: x, y: y } );
     }
     public inline
     function det(){
