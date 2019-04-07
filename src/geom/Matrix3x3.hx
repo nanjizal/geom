@@ -237,8 +237,8 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for use with 2D
     public static inline
     function ty( y: Float ): Matrix4x4 {
-        return new Matrix4x4({ a: 1., b: 0., c: y.
-                             , d: 0., e: 1., f: 0.
+        return new Matrix4x4({ a: 1., b: 0., c: 0.
+                             , d: 0., e: 1., f: y
                              , g: 0., h: 0., i: 1. } );
     }
     // for use with 2D
