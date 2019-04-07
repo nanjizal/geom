@@ -258,7 +258,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply( p: Apoint4, m: Matrix4x4 ): Matrix4x4 {
+    function scaleMultiply( p: Matrix1x4, m: Matrix4x4 ): Matrix4x4 {
         return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
