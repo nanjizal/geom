@@ -120,7 +120,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
         var s = Math.sin( theta );
         return new Matrix4x4({ a: c,  b: 0., c: s, d: 0.
                              , e: 0., f: 1., g: 0, h: 0.
-                             , i: s,  j: 0., k: c, l: 0.
+                             , i: -s,  j: 0., k: c, l: 0.
                              , m: 0., n: 0., o: 0., p: 1. } );
     }
     public inline
