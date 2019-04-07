@@ -127,9 +127,9 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for 2D
     public static inline
     function yShear( theta: Float ): Matrix3x3 {
-        return new Matrix4x4({ a: 1.,            b: 0,, c: 0.
+        return new Matrix4x4({ a: 1.,            b: 0.,  c: 0.
                              , d: tan( theta ),  e: 1.,  f: 0.
-                             , g: 0.,            h: 0., i: 1. } );
+                             , g: 0.,            h: 0.,  i: 1. } );
     }
     // for 2D
     public inline
