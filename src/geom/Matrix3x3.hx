@@ -147,7 +147,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for 2D
     public inline
     function flipX(): Matrix3x3 {
-        return this * xFLip();
+        return this * xFlip();
     }
     // for 2D
     public static inline
