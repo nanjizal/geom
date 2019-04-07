@@ -252,7 +252,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     // for use with 2D
     public inline
     function translateXY( x: Float, y: Float ): Matrix4x4 {
-        return this * xy( x, y );
+        return this * txy( x, y );
     }
     @:op(A + B)
     public static inline
