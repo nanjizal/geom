@@ -3,6 +3,7 @@ typedef Tmatrix1x3 = {
     > Tpoint,
     public var z: Float;
 }
+// short cut - less verbose than Matrix1x2 to allow cleaner code, but Matrix1x2 is more consistant overall.
 typedef Vec2 = Matrix1x2;
 @:forward
 abstract Matrix1x2( Tpoint ) to Tpoint from Tpoint {
