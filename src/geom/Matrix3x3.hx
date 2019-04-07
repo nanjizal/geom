@@ -257,29 +257,43 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     public static inline
     function add( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c
-                             , d: m0.d + m1.d, e: m0.e + m1.e, f: m0.f + m1.f
-                             , g: m0.d + m1.d, h: m0.h + m1.h, i: m0.i + m1.i } );
+                              , d: m0.d + m1.d, e: m0.e + m1.e, f: m0.f + m1.f
+                              , g: m0.d + m1.d, h: m0.h + m1.h, i: m0.i + m1.i } );
     }
     @:op(A - B)
     public static inline
     function subtract( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c
-                             , d: m0.d - m1.d, e: m0.e - m1.e, f: m0.f - m1.f
-                             , g: m0.g - m1.g, h: m0.h - m1.h, i: m0.i - m1.i } );
+                              , d: m0.d - m1.d, e: m0.e - m1.e, f: m0.f - m1.f
+                              , g: m0.g - m1.g, h: m0.h - m1.h, i: m0.i - m1.i } );
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply( p: Apoint4, m: Matrix3x3 ): Matrix3x3 {
+    function scaleMultiply4D( p: Matrix1x4, m: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
-                             , d: m.d,     e: m.e*p.y, f: m.f
-                             , g: m.g,     h: m.h,     i: m.i*p.z } );
+                              , d: m.d,     e: m.e*p.y, f: m.f
+                              , g: m.g,     h: m.h,     i: m.i*p.z } );
+    }
+    @:op(A * B)
+    public static inline
+    function scaleMultiply2D( p: Matrix1x2, m: Matrix3x3 ): Matrix3x3 {
+        return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
+                              , d: m.d,     e: m.e*p.y, f: m.f
+                              , g: m.g,     h: m.h,     i: m.i } );
+    }
+    @:op(A * B)
+    public static inline
+    function scaleMultiply3D( p: Vec3, m: Matrix3x3 ): Matrix3x3 {
+        return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
+                              , d: m.d,     e: m.e*p.y, f: m.f
+                              , g: m.g,     h: m.h,     i: m.i*p.y } );
     }
     @:op(A * B)
     public static inline
     function multiplyV( v: Float, m: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m.a*v, 	b: m.b*v,   c: m.c*v
-                             , d: m.d*v,  e: m.e*v,   f: m.f*v
-                             , g: m.g*v,  h: m.h*v,   i: m.i*v} );
+                              , d: m.d*v,  e: m.e*v,   f: m.f*v
+                              , g: m.g*v,  h: m.h*v,   i: m.i*v} );
     }
     @:op(A * B)
     public static inline
@@ -328,6 +342,43 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
         return [ this.a, this.b, this.c 
                , this.d, this.e, this.f
                , this.g, this.h, this.i ];
+    }
+    @:to
+    public inline
+    function to2x2():Matrix2x2 {
+        return new Matrix2x2( { a: this.a, b: this.b
+                              , c: this.d, d: this.e } );
+    }
+    // assumes z is set to 0 for 3D use.
+    public static inline
+    function to3D( m2: Matrix2x2 ): Matrix3x3 {
+        return new Matrix3x3( { a: m2.a, b: m2.b, c: 0.
+                              , d: m2.e, e: m2.f, f: 0.
+                              , g: 0.,   h: 0,    i: 0. } );
+    }
+    // assumes z is set to 1 for 2D use, default 
+    @:from
+    public static inline
+    function from2x2( m2: Matrix2x2 ): Matrix3x3 {
+        return new Matrix3x3( { a: m2.a, b: m2.b, c: 0.
+                              , d: m2.e, e: m2.f, f: 0.
+                              , g: 0.,   h: 0,    i: 1. } );
+    }
+    @:to
+    public inline
+    function to4x4():Matrix4x4 {
+        return new Matrix4x4( { a: this.a, b: this.b, c: this.c, d: 0.
+                              , e: this.d, f: this.e, g: this.f, h: 0.
+                              , i: this.g, j: this.h, k: this.i, l: 0.
+                              , m: 0.    , n: 0.,     o: 0.,     p: 1. } );
+    }
+    // does not apply translations just discards 4th row and column. 
+    @:from
+    public static inline
+    function from4x4( m4: Matrix4x4 ): Matrix3x3 {
+        return new Matrix3x3( { a: m4.a, b: m4.b, c: m4.c
+                              , d: m4.e, e: m4.f, f: m4.g
+                              , g: m4.i, h: m4.j, i: m4.k } );
     }
     @:from
     public static inline
