@@ -135,8 +135,8 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
     // assumes 3D use, z == 0
     @:to
     public inline
-    function to4x4(): Matrix3x3 {
-        return new Matrix3x3( { a: this.a, b: this.b, c: 0., d: 0.
+    function to4x4(): Matrix4x4 {
+        return new Matrix4x4( { a: this.a, b: this.b, c: 0., d: 0.
                               , e: this.c, f: this.d, g: 0., h: 0.
                               , i: 0.,     j: 0.,     k: 0., l: 0.
                               , m: 0.,     n: 0.,     o: 0., p: 1. } );
