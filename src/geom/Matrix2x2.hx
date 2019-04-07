@@ -124,6 +124,37 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
             (1/d)*adj;
         }
     }
+    // assumes 2D use, z == 1
+    @:to
+    public inline
+    function to3x3(): Matrix3x3 {
+        return new Matrix3x3( { a: this.a, b: this.b, c: 0.
+                              , d: this.c, e: this.d, f: 0.
+                              , g: 0.,     h: 0,      i: 1. } );
+    }
+    // assumes 3D use, z == 0
+    @:to
+    public inline
+    function to4x4(): Matrix3x3 {
+        return new Matrix3x3( { a: this.a, b: this.b, c: 0., d: 0.
+                              , e: this.c, f: this.d, g: 0., h: 0.
+                              , i: 0.,     j: 0.,     k: 0., l: 0.
+                              , m: 0.,     n: 0.,     o: 0., p: 1. } );
+    }
+    // no translate applied
+    @:from
+    public static inline
+    function from3x3( m3: Matrix3x3 ): Matrix2x2 {
+        return new Matrix2x2( { a: m3.a, b: m3.b
+                              , c: m3.d, d: m3.e } );
+    }
+    // no 3d info applied
+    @:from
+    public static inline
+    function from4x4( m4: Matrix4x4 ): Matrix2x2 {
+        return new Matrix2x2( { a: m4.a, b: m4.b
+                              , c: m4.e, d: m4.f } );
+    }
     @:from
     public static inline
     function fromArr( arr: Array<Float> ): Matrix2x2 {
