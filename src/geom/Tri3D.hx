@@ -24,22 +24,22 @@ abstract Tri3D( TriVec ) to TriVec from TriVec {
     }
     @:op(A + B)
     public static inline
-    function add0( tv: TriVec, p: Matrix1x4 ): Tri3D {
+    function add0( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
     }
     @:op(A + B)
     public static inline
-    function add1( p: Matrix1x4, tv: TriVec ): Tri3D {
+    function add1( p: Matrix1x4, tv: Tri3D ): Tri3D {
         return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
     }
     @:op(A - B)
     public static inline
-    function sub( tv: TriVec, p: Matrix1x4 ): Tri3D {
+    function sub( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D(tv.a - p, tv.b - p, tv.c - p );
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply( tv: TriVec, p: Matrix1x4 ): Tri3D {
+    function scaleMultiply( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D(tv.a * p, tv.b * p, tv.c * p );    
     }
     public inline 
@@ -49,7 +49,7 @@ abstract Tri3D( TriVec ) to TriVec from TriVec {
     // Quaterion rotation
     // maybe better approach
     public inline
-    function multiplyQ( q: Matrix1x4 ):Matrix1x4 {
+    function multiplyQ( q: Matrix1x4 ): Tri3D {
         var cp = centre();
         var a2 = this.a - cp;
         var b2 = this.b - cp;
