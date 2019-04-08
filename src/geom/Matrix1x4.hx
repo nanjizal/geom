@@ -101,7 +101,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     @:op( A / B )
     public static inline
-    function divide2( v: Float, a: Matrix1x4,  ): Matrix1x4 {
+    function divide2( v: Float, a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: v/a.x, y: v/a.y, z: v/a.z, z: v/a.w } );
     }
     @:op(~A)
