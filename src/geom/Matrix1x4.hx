@@ -123,7 +123,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
                             } );
     }
     public static inline
-    function multiplyQ( a: Matrix1x4, b: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
+    function multiplyV( a: Matrix1x4, b: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
         var ax = a.x;
         var ay = a.y;
         var az = a.z;
@@ -139,7 +139,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         return out;
     }
     public static inline
-    function multiplyV( q: Matrix1x4, v: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
+    function multiplyQ( q: Matrix1x4, v: Matrix1x4, out: Matrix1x4 ):Matrix1x4 {
         var vx = v.x;
         var vy = v.y;
         var vz = v.z;
