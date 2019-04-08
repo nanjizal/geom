@@ -1,6 +1,5 @@
 package gemo;
 // based on trilateral.tri.Trilateral.
-// Triangle coordinates without color.
 class Tri {
     public var windingAdjusted: Bool;
     public var ax: Float;
