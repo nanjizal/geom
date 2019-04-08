@@ -373,6 +373,16 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
             });
         }
     }
+    public static inline
+    function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x4 {
+        var halfWid = wid/2;
+        var halfHi  = hi/2;
+        var tanHalf = Math.tan( fov/2 );
+        var scale = halfWid/tanHalf;
+        return new Matrix4x4( { a: scale, b: -0.,    c: -scale,          d: 0.
+                              , e: 0.,    f: -scale, g: -halfHi/tanHalf, h: 0.
+                              , i: 0.,    j: 0.,     k: -1,              l: 0. } );
+    }
     @:from
     public static inline 
     function fromNumbered( m: Tmatrix4x4numbered ): Matrix4x4 {
