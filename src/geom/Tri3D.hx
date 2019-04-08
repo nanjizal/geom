@@ -23,9 +23,13 @@ abstract Tri3D( TriVec ) to TriVec from TriVec {
         this = tv;
     }
     @:op(A + B)
-    @:communative
     public static inline
     function add( tv: TriVec, p: Matrix1x4 ){
+        return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
+    }
+    @:op(A + B)
+    public static inline
+    function add( p: Matrix1x4, tv: TriVec ){
         return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
     }
     @:op(A - B)
