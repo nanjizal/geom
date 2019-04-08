@@ -153,6 +153,13 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         out.z = qw*vz + qx*vy - qy*vx;
         return out;
     }
+    public inline 
+    function cross(v: Matrix1x4 ): Matrix1x4 {
+		return new Vector3( { x: this.y * v.z - this.z * v.y
+		                    , y: this.z * v.x - this.x * v.z;
+		                    , z: this.x * v.y - this.y * v.x;
+                            , w: this.w * v.w } );
+    }
     public static inline
     function fromAxisAngle( theta: Float, axis: Matrix1x4 ):Matrix1x4 {
         var half = theta / 2.;
