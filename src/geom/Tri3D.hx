@@ -25,22 +25,22 @@ abstract Tri3D( TriVec ) to TriVec from TriVec {
     @:op(A + B)
     public static inline
     function add0( tv: Tri3D, p: Matrix1x4 ): Tri3D {
-        return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
+        return new Tri3D( { tv.a + p, tv.b + p, tv.c + p } );
     }
     @:op(A + B)
     public static inline
     function add1( p: Matrix1x4, tv: Tri3D ): Tri3D {
-        return new Tri3D(tv.a + p, tv.b + p, tv.c + p );
+        return new Tri3D( { tv.a + p, tv.b + p, tv.c + p } );
     }
     @:op(A - B)
     public static inline
     function sub( tv: Tri3D, p: Matrix1x4 ): Tri3D {
-        return new Tri3D(tv.a - p, tv.b - p, tv.c - p );
+        return new Tri3D( { tv.a - p, tv.b - p, tv.c - p } );
     }
     @:op(A * B)
     public static inline
     function scaleMultiply( tv: Tri3D, p: Matrix1x4 ): Tri3D {
-        return new Tri3D(tv.a * p, tv.b * p, tv.c * p );    
+        return new Tri3D( { tv.a * p, tv.b * p, tv.c * p } );    
     }
     public inline 
     function centre(): Matrix1x4 {
