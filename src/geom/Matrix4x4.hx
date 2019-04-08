@@ -261,11 +261,28 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     }
     @:op(A * B)
     public static inline
-    function scaleMultiply( p: Matrix1x4, m: Matrix4x4 ): Matrix4x4 {
+    function scaleMultiply1( p: Matrix1x4, m: Matrix4x4 ): Matrix4x4 {
         return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
                              , m: m.m,     n: m.n,     o: m.o,     p: m.p*p.w } );
+    }
+    @:op(A * B)
+    public static inline
+    function scaleMultiply2( m: Matrix4x4, p: Matrix1x4 ): Matrix4x4 {
+        return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
+                             , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
+                             , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
+                             , m: m.m,     n: m.n,     o: m.o,     p: m.p*p.w } );
+    }
+    @:op(A / B)
+    public static inline
+    function scaleDivide( m: Matrix4x4, p: Matrix1x4 ): Matrix4x4 {
+        var pd = 1 / p;  
+        return new Matrix4x4( { a: m.a*pd.x, b: m.b,      c: m.c,      d: m.d
+                             , e: m.e,       f: m.f*pd.y, g: m.g,      h: m.h
+                             , i: m.i,       j: m.j,      k: m.k*pd.z, l: m.l
+                             , m: m.m,       n: m.n,      o: m.o,      p: m.p*pd.w } );
     }
     @:op(A * B)
     public static inline
