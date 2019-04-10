@@ -386,7 +386,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     // Maps 0,0,0 to pos, maps x-axis to dir, maps y-axis to
     // up.  maps z-axis to the right.
     public static inline
-    function orientation( pos: Matrix1x4, dir: Matrix1x4, up: Matrix1x4 ):AffineMatrix {
+    function orientation( pos: Matrix1x4, dir: Matrix1x4, up: Matrix1x4 ): Matrix4x4 {
         var right = dir.crossProduct( up );
         return new Matrix4x4( { a: dir.x, b: up.x, c: right.x, d: pos.x
                               , e: dir.y, f: up.y, g: right.y, h: pos.y
