@@ -391,7 +391,8 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
         var right = dir.cross( up );
         return new Matrix4x4( { a: dir.x, b: up.x, c: right.x, d: pos.x
                               , e: dir.y, f: up.y, g: right.y, h: pos.y
-                              , i: dir.z, j: up.z, k: right.z, l: pos.z } );
+                              , i: dir.z, j: up.z, k: right.z, l: pos.z 
+                              , m: 0.,    n: 0.,   o: 0.,      p: 1. } );
     }
     @:from
     public static inline 
