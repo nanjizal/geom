@@ -251,7 +251,7 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     }
     // for use with 2D
     public inline
-    function translateXY( x: Float, y: Float ): Matrix4x4 {
+    function translateXY( x: Float, y: Float ): Matrix3x3 {
         return this * txy( x, y );
     }
     @:op(A + B)
@@ -367,16 +367,16 @@ abstract Matrix3x3( Tmatrix3x3 ) from Tmatrix3x3 to Tmatrix3x3 {
     }
     @:to
     public inline
-    function to4x4():Matrix4x4 {
+    function to4x4():Matrix4x3 {
         return new Matrix4x4( { a: this.a, b: this.b, c: this.c, d: 0.
                               , e: this.d, f: this.e, g: this.f, h: 0.
                               , i: this.g, j: this.h, k: this.i, l: 0.
-                              , m: 0.    , n: 0.,     o: 0.,     p: 1. } );
+                              } );
     }
     // does not apply translations just discards 4th row and column. 
     @:from
     public static inline
-    function from4x4( m4: Matrix4x4 ): Matrix3x3 {
+    function from4x4( m4: Matrix4x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m4.a, b: m4.b, c: m4.c
                               , d: m4.e, e: m4.f, f: m4.g
                               , g: m4.i, h: m4.j, i: m4.k } );
