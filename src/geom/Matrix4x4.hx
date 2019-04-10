@@ -1,4 +1,5 @@
 package geom;
+
 #if js
 import js.html.Float32Array;
 #end
@@ -60,22 +61,15 @@ typedef Tmatrix4x4 = {
 }
 #end
 typedef Tmatrix4x4numbered = {
-    var _00: Float;
-    var _10: Float;
-    var _20: Float;
-    var _30: Float;
-    var _01: Float;     
-    var _11: Float;
-    var _21: Float;
-    var _31: Float;
-    var _02: Float;
-    var _12: Float;
-    var _22: Float;
-    var _32: Float;
-    var _03: Float;
-    var _13: Float;
-    var _23: Float;
-    var _33: Float;
+    var _00: Float; var _10: Float; var _20: Float; var _30: Float;
+    var _01: Float; var _11: Float; var _21: Float; var _31: Float;
+    var _02: Float; var _12: Float; var _22: Float; var _32: Float;
+    var _03: Float; var _13: Float; var _23: Float; var _33: Float;
+}
+typedef TAffineMatrix = {
+    var e0: Float; var e4: Float; var e8:  Float; var e12: Float;
+    var e1: Float; var e5: Float; var e9:  Float; var e13: Float;
+    var e2: Float; var e6: Float; var e10: Float; var e14: Float;
 }
 @:forward
 abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
