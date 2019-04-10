@@ -388,7 +388,7 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
     // up.  maps z-axis to the right.
     public static inline
     function orientation( pos: Matrix1x4, dir: Matrix1x4, up: Matrix1x4 ): Matrix4x4 {
-        var right = dir.crossProduct( up );
+        var right = dir.cross( up );
         return new Matrix4x4( { a: dir.x, b: up.x, c: right.x, d: pos.x
                               , e: dir.y, f: up.y, g: right.y, h: pos.y
                               , i: dir.z, j: up.z, k: right.z, l: pos.z } );
