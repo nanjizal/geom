@@ -381,7 +381,8 @@ abstract Matrix4x4( Tmatrix4x4 ) from Tmatrix4x4 to Tmatrix4x4 {
         var scale = halfWid/tanHalf;
         return new Matrix4x4( { a: scale, b: -0.,    c: -scale,          d: 0.
                               , e: 0.,    f: -scale, g: -halfHi/tanHalf, h: 0.
-                              , i: 0.,    j: 0.,     k: -1,              l: 0. } );
+                              , i: 0.,    j: 0.,     k: -1,              l: 0. 
+                              , m: 0.,    n: 0.,     o:  0.,             p: 1. } );
     }
     // Maps 0,0,0 to pos, maps x-axis to dir, maps y-axis to
     // up.  maps z-axis to the right.
