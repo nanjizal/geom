@@ -184,7 +184,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
         return this * txyz( x, y, z );
     }
     public static inline
-    function tx( x: Float ): Matrix4x4 {
+    function tx( x: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0.
@@ -246,7 +246,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
     @:op(A * B)
     public static inline
     function scaleMultiply1( p: Matrix1x4, m: Matrix4x3 ): Matrix4x3 {
-        return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
+        return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
                              } );
@@ -254,7 +254,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
     @:op(A * B)
     public static inline
     function scaleMultiply2( m: Matrix4x3, p: Matrix1x4 ): Matrix4x3 {
-        return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
+        return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
                              } );
