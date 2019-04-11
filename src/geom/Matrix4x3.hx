@@ -385,7 +385,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
     function toAffineMatrix(): TAffineMatrix {
       return { e0: this.a, e4: this.b, e8: this.c, e12: this.d
              , e1: this.e, e5: this.f, e9: this.g, e13: this.h
-             , e2: this.i, e6: this.j, e10: this.k, e14: this.l } );
+             , e2: this.i, e6: this.j, e10: this.k, e14: this.l };
     }
     @:from
     public static inline 
