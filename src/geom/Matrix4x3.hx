@@ -360,7 +360,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
         }
     }
     public static inline
-    function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x4 {
+    function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x3 {
         var halfWid = wid/2;
         var halfHi  = hi/2;
         var tanHalf = Math.tan( fov/2 );
@@ -389,7 +389,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
     }
     @:from
     public static inline 
-    function fromNumbered( m: Tmatrix4x4numbered ): Matrix4x4 {
+    function fromNumbered( m: Tmatrix4x4numbered ): Matrix4x3 {
         return new Matrix4x3( { 
                            a: m._00, b: m._10, c: m._20, d: m._30
                          , e: m._01, f: m._11, g: m._21, h: m._31
