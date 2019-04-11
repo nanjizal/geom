@@ -539,8 +539,6 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
                 this.k;
             case [ 2, 3 ]:
                 this.l;
-        
-                this.p;
             case _:
                 throw ('bad get $x, $y on Matrix4x3' );
         }
