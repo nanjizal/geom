@@ -286,8 +286,7 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
         , i: r.i*s.a+r.j*s.e+r.k*s.i, j: r.i*s.b+r.j*s.f+r.k*s.j
                                 , k: r.i*s.c+r.j*s.g+r.k*s.k, l: r.i*s.d+r.j*s.h+r.k*s.l+r.l
                                 
-        , m: r.m*s.a+r.n*s.e+r.o*s.i, n: r.m*s.b+r.n*s.f+r.o*s.j
-                                , o: r.m+s.c+r.n*s.g+r.o*s.k, p: r.m*s.d+r.n*s.h+r.o*s.l+r.p } );
+        } );
     }
     // https://www.mathsisfun.com/algebra/matrix-determinant.html
     public inline
