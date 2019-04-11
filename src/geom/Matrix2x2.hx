@@ -151,7 +151,7 @@ abstract Matrix2x2( Tmatrix2x2 ) from Tmatrix2x2 to Tmatrix2x2 {
     // no 3d info applied
     @:from
     public static inline
-    function from4x4( m4: Matrix4x4 ): Matrix2x2 {
+    function from4x4( m4: Matrix4x3 ): Matrix2x2 {
         return new Matrix2x2( { a: m4.a, b: m4.b
                               , c: m4.e, d: m4.f } );
     }
