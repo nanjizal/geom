@@ -379,6 +379,15 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
                               , i: dir.z, j: up.z, k: right.z, l: pos.z 
                               } );
     }
+    public static inline
+    function applyInverseRotation( p: Matrix1x4 ){
+        return new Matrix1x4({
+                    x: this.a * p.x + this.e * p.y + this.i * p.z,
+                    y: this.b * p.x + this.f * p.y + this.j * p.z,
+                    z: this.c * p.x + this.g * p.y + this.k * p.z
+                    w: 1.
+        });
+    }
     @:to
     public inline
     function toAffineMatrix(): TAffineMatrix {
