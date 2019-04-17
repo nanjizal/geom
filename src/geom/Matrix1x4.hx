@@ -12,7 +12,11 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         this = p;
     }
     public static inline
-   function unit(): Matrix1x4 {
+    function unit(): Matrix1x4 {
+        return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    public static inline
+    function zero(): Matrix1x4 {
         return new Matrix1x4( { x: 0., y: 0., z: 0., w: 1. } );
     }
     public static inline
@@ -88,11 +92,22 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     function dotProduct( a: Matrix1x4, b: Matrix1x4 ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
+    public inline
+    function dotProd( b: Matrix1x4 ):Float {
+        return this.x * b.x + this.y * b.y + this.z * b.z + this.w * b.w;
+    }
     @:op(A * B)
     @:commutative
     public static inline 
     function scaleMultiply( a: Matrix1x4, v: Float ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
+    }
+    public inline
+    function transformPoint( t: Matrix4x3 ): Matrix1x4 {
+        return new Matrix1x4({  x: t.a * this.x + t.b * this.y + t.c * this.z + t.d
+                              , y: t.e * this.x + t.f * this.y + t.g * this.z + t.h
+                              , z: t.i * this.x + t.j * this.y + t.k * this.z + t.l  
+                              , w: 1. });
     }
     @:op(A / B)
     public static inline

@@ -379,14 +379,54 @@ abstract Matrix4x3( Tmatrix4x3 ) from Tmatrix4x3 to Tmatrix4x3 {
                               , i: dir.z, j: up.z, k: right.z, l: pos.z 
                               } );
     }
-    public static inline
-    function applyInverseRotation( p: Matrix1x4 ){
-        return new Matrix1x4({
-                    x: this.a * p.x + this.e * p.y + this.i * p.z,
-                    y: this.b * p.x + this.f * p.y + this.j * p.z,
-                    z: this.c * p.x + this.g * p.y + this.k * p.z
-                    w: 1.
-        });
+    // RENAME LATER?
+    public inline // check if Z should be included
+    function applyRotation( p: Matrix1x4 ): Matrix1x4 {
+        return new Matrix1x4({ x: this.a * p.x + this.b * p.y + this.c * p.z
+                             , y: this.e * p.x + this.f * p.y + this.g * p.z
+                             , z: this.h * p.x + this.i * p.y + this.j * p.z
+                             , w: 1. });
+    }
+    public inline
+    function applyInverseRotation( p: Matrix1x4 ): Matrix1x4 {
+        return new Matrix1x4({ x: this.a * p.x + this.e * p.y + this.i * p.z
+                             , y: this.b * p.x + this.f * p.y + this.j * p.z
+                             , z: this.c * p.x + this.g * p.y + this.k * p.z
+                             , w: 1. });
+    }
+    public inline
+    function orthonormalizeRotation(){
+        var new_x = new Matrix1x4({ x: this.a, y: this.e, z: this.i, w: 1. } ).normalize();
+        var new_z = ( new_x.cross( new Matrix1x4( { x: this.b, y: this.f, z: this.j, w: 1. } ) ) ).normalize();
+        var new_y = new_z.cross( new_x );
+        this.a = new_x.x; this.b = new_y.x; this.c = new_z.x;
+        this.e = new_x.y; this.f = new_y.y; this.g = new_z.y;
+        this.i = new_x.z; this.j = new_y.z; this.k = new_z.z;
+        return this;
+    }
+    public inline
+    function makeViewFromOrientation(): Matrix4x3 {
+      // Swap x & z axes, negate z axis (even number of swaps
+      // maintains right-handedness).
+        var m = new Matrix4x3({ a: this.c,  b: this.b, c: -this.a, d: this.d
+                              , e: this.g,  f: this.f, g: -this.e, h: this.h
+                              , i: this.k,  j: this.j, k: -this.i, l: this.l } );
+        return m.invertNormalized();
+    }
+    public inline
+    function invertNormalizedRotation( ): Matrix4x3 {
+        return new Matrix4x3( { a: this.a, b: this.e, c: this.i, d: 0.
+                              , e: this.b, f: this.f, g: this.j, h: 0.
+                              , i: this.c, j: this.g, k: this.k, l: 0. } );
+    }
+    public inline
+    function invertNormalized(): Matrix4x3 {
+        var m = invertNormalizedRotation();
+        var trans_prime = new Matrix1x4( { x: this.d, y: this.h, z: this.l, w: 1. } ).transformPoint( m );
+        m.d = -trans_prime.x;
+        m.h = -trans_prime.y;
+        m.l = -trans_prime.z;
+        return m;
     }
     @:to
     public inline
