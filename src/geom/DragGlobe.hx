@@ -35,7 +35,7 @@ class DragGlobe {
                                       ,  new Matrix1x4({ x: 0., y: 1., z: 0., w: 1. } ) );
     }
     public inline // used on all Vertex
-    function transformVertex( v: Vertex ){
+    function transformVertex( v: Vertex ): Vertex {
         var p = new Matrix1x4( { x: v.x, y: v.y, z: v.z, w: 1. } );
         p = p.transformPoint( temp_mat1 );  // transformPoint
         return { x: p.x, y: p.y, z: p.z, u: v.u, v: v.v } 
