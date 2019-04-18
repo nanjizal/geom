@@ -36,6 +36,14 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
         return pout;
     }
     public inline
+    function projectPoint(): Matrix1x4 {
+        return if( this.z <= 0 ) {
+            new Matrix1x4( { x: 0., y: 0., z: this.z, w: 1. } );
+        } else {
+            new Matrix1x4( { x: this.x / this.z, y: this.y / this.z, z: this.z, w: 1. } );
+        }
+    }
+    public inline
     function getTPoint(): Matrix1x4 {
         return new Matrix1x4( { x: this.x, y: this.y, z: this.z, w: this.w } );
     }
