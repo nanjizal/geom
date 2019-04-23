@@ -5,6 +5,7 @@ import js.html.Float32Array;
 #end
 #if avoid_typedef
 // some haxe targets might perform better with a class so you can switch if you want.
+@:structInit
 class Tmatrix4x3 {
     public var a: Float = 0.;
     public var b: Float = 0.;
