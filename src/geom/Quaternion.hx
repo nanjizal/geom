@@ -2,13 +2,11 @@ package geom;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
 @:forward
-abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
+abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
     public inline
-    function new(  p: Tmatrix1x4 ){
-        this = p;
-    }
+    function new( m: geom.structure.Mat1x4 ){ this = m; }
     public static inline
-   function unit(): Quaternion {
+    function unit(): Quaternion {
         return new Quaternion( { x: 0., y: 0., z: 0., w: 1. } );
     }
     public static inline
@@ -19,9 +17,7 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
             out.w = 1.;
             return out;
     }
-    @:to
-    // add Quaternion to Matrix4x1
-    public inline 
+    @:to public inline // add Quaternion to Matrix4x1 
     function toMatrix4x1(): Matrix4x1 {
         return new Matrix4x1({ x: this.x, y: this.y, z: this.z, w: this.W });
     }
@@ -56,8 +52,7 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
             magnitude;
         }
     }
-    @:op( A == B )
-    public static inline
+    @:op( A == B ) public static inline
     function equals( a: Quaternion, b: Quaternion ): Bool {
         var delta = 0.0000001;
         return !(
@@ -71,18 +66,15 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
     }
-    @:op(A + B)
-    public static inline
+    @:op(A + B) public static inline
     function add( a: Quaternion, b: Quaternion ): Quaternion {
       	return new Quaternion({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
-    @:op(A - B)
-    public static inline
+    @:op(A - B) public static inline
     function subtract( a: Quaternion, b: Quaternion ): Quaternion {
         return new Quaternion({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
-    @:op(A * B)
-    public static inline 
+    @:op(A * B) public static inline 
     function dot( a: Quaternion, b: Quaternion ): Quaternion {
         return new Quaternion({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
     }
@@ -90,24 +82,19 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
     function dotProduct( a: Quaternion, b: Quaternion ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
-    @:op(A * B)
-    @:commutative
-    public static inline 
+    @:op(A * B) @:commutative public static inline 
     function scaleMultiply( a: Quaternion, v: Float ): Quaternion {
         return new Quaternion({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
     }
-    @:op(A / B)
-    public static inline
+    @:op(A / B) public static inline
     function divide( a: Quaternion, v: Float ): Quaternion {
         return a * ( 1 / v );
     }
-    @:op( A / B )
-    public static inline
+    @:op( A / B ) public static inline
     function divide2( v: Float, a: Quaternion ): Quaternion {
         return new Quaternion( { x: v/a.x, y: v/a.y, z: v/a.z, w: v/a.w } );
     }
-    @:op(~A)
-    public static inline
+    @:op(~A) public static inline
     function conjugate( a: Quaternion ): Quaternion {
         return new Quaternion( { x: -a.x
                             , y: -a.y
@@ -115,8 +102,7 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
                             , w: a.w 
                             } );
     }
-    @:op(-A)
-    public static inline
+    @:op(-A) public static inline
     function negate( a: Quaternion ):Quaternion {
         return new Quaternion( { x: -a.x
                             , y: -a.y
@@ -244,13 +230,11 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
     function constrainDistance( anchor: Quaternion, distance: Float ): Quaternion {
         return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
-    @:from
-    public static inline
+    @:from public static inline
     function fromVec( vec: haxe.ds.Vector<Float> ): Quaternion {
         return new Quaternion( { x: vec.get(0), y: vec.get(1), z: vec.get(2), w: vec.get(3) } );
     }
-    @:to
-    public inline
+    @:to public inline
     function toVector(): haxe.ds.Vector<Float> {
         var vec = new haxe.ds.Vector<Float>(4);
         vec.set( 0, this.x );
@@ -259,12 +243,12 @@ abstract Quaternion( Tmatrix1x4 ) to Quaternion from Quaternion {
         vec.set( 3, this.w );
         return vec;
     }
-    @:from
-    public inline static function fromArray( arr: Array<Float> ): Matrix1x4 {
+    @:from public inline static 
+    function fromArray( arr: Array<Float> ): Matrix1x4 {
         return new Quaternion( { x: arr[ 0 ], y: arr[ 1 ], z: arr[ 2 ], w: arr[ 3 ] } );
     }
-    @:to
-    public inline function toArray():Array<Float> {
+    @:to public inline
+    function toArray():Array<Float> {
         return [ this.x, this.y, this.z, this.w ];
     }
 }

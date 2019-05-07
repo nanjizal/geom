@@ -1,16 +1,9 @@
 package geom;
-typedef Tmatrix1x3 = {
-    > Tpoint,
-    public var z: Float;
-}
-// short cut - less verbose than Matrix1x2 to allow cleaner code, but Matrix1x2 is more consistant overall.
 typedef Vec2 = Matrix1x2;
 @:forward
-abstract Matrix1x2( Tpoint ) to Tpoint from Tpoint {
+abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
     public inline
-    function new(  p: Tpoint ){
-        this = p;
-    }
+    function new( m: geom.structure.Mat1x2 ){ this = m; }
     public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
@@ -60,29 +53,23 @@ abstract Matrix1x2( Tpoint ) to Tpoint from Tpoint {
     function east(){
         return new Matrix1x2( { x: 1., y: 0. } );
     }
-    @:op(A + B)
-    public static inline
+    @:op(A + B) public static inline
     function add( a:Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
       	return new Matrix1x2({ x: a.x + b.x, y:  a.y + b.y });
     }
-    @:op(A - B)
-    public static inline
+    @:op(A - B) public static inline
     function subtract( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: a.x - b.x, y:  a.y - b.y });
     }
-    @:op(A * B)
-    public static inline
+    @:op(A * B) public static inline
     function dot( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: a.x * b.x, y: a.y * b.y });
     }
-    @:op(A * B)
-    @:commutative
-    public static inline
+    @:op(A * B) @:commutative public static inline
     function scaleMultiply( a: Matrix1x2, v: Float ): Matrix1x2 {
         return new Matrix1x2( { x: a.x * v, y: a.y * v } );
     }
-    @:op(A / B)
-    public static inline
+    @:op(A / B) public static inline
     function divide( a: Matrix1x2, v: Float ): Matrix1x2 {
         return a * ( 1 / v );
     }
@@ -208,11 +195,11 @@ abstract Matrix1x2( Tpoint ) to Tpoint from Tpoint {
     }
     @:to
     public inline
-    function toVec3(): Tmatrix1x3 {
+    function toVec3(): geom.tydef.Tmatrix1x3 {
         return { x: this.x, y: this.y, z: 1. };
     }
-    @:from
-    public inline static function fromVec3( v3: Tmatrix1x3 ): Matrix1x2 {
+    @:from public inline static 
+    function fromVec3( v3: geom.tydef.Tmatrix1x3 ): Matrix1x2 {
         return new Matrix1x2( { x: v3.x, y: v3.y } );
     }
     public static inline

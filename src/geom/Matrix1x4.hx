@@ -1,16 +1,10 @@
+
 package geom;
-typedef Tmatrix1x4 = {
-    > Tpoint,
-    public var z: Float;
-    @:optional public var w: Float;
-}
 typedef Vec4 = Matrix1x4;
 @:forward
-abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
+abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
     public inline
-    function new(  p: Tmatrix1x4 ){
-        this = p;
-    }
+    function new( m: geom.structure.Mat1x4 ){ this = m; }
     public static inline
     function unit(): Matrix1x4 {
         return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
@@ -81,18 +75,15 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
     }
-    @:op(A + B)
-    public static inline
+    @:op(A + B) public static inline
     function add( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
       	return new Matrix1x4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
-    @:op(A - B)
-    public static inline
+    @:op(A - B) public static inline
     function subtract( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
-    @:op(A * B)
-    public static inline 
+    @:op(A * B) public static inline 
     function dot( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
     }
@@ -104,8 +95,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     function dotProd( b: Matrix1x4 ):Float {
         return this.x * b.x + this.y * b.y + this.z * b.z + this.w * b.w;
     }
-    @:op(A * B)
-    @:commutative
+    @:op(A * B) @:commutative
     public static inline 
     function scaleMultiply( a: Matrix1x4, v: Float ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
@@ -117,18 +107,15 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
                               , z: t.i * this.x + t.j * this.y + t.k * this.z + t.l  
                               , w: 1. });
     }
-    @:op(A / B)
-    public static inline
+    @:op(A / B) public static inline
     function divide( a: Matrix1x4, v: Float ): Matrix1x4 {
         return a * ( 1 / v );
     }
-    @:op( A / B )
-    public static inline
+    @:op( A / B ) public static inline
     function divide2( v: Float, a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: v/a.x, y: v/a.y, z: v/a.z, w: v/a.w } );
     }
-    @:op(~A)
-    public static inline
+    @:op(~A) public static inline
     function conjugate( a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: -a.x
                             , y: -a.y
@@ -136,8 +123,7 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
                             , w: a.w 
                             } );
     }
-    @:op(-A)
-    public static inline
+    @:op(-A) public static inline
     function negate( a: Matrix1x4 ):Matrix1x4 {
         return new Matrix1x4( { x: -a.x
                             , y: -a.y
@@ -178,10 +164,10 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     public inline 
     function cross(v: Matrix1x4 ): Matrix1x4 {
-		return new Matrix1x4( { x: this.y * v.z - this.z * v.y
-		                      , y: this.z * v.x - this.x * v.z
-		                      , z: this.x * v.y - this.y * v.x
-                                      , w: this.w * v.w } );
+        return new Matrix1x4( { x: this.y * v.z - this.z * v.y
+                              , y: this.z * v.x - this.x * v.z
+                              , z: this.x * v.y - this.y * v.x
+                              , w: this.w * v.w } );
     }
     public static inline
     function fromAxisAngle( theta: Float, axis: Matrix1x4 ):Matrix1x4 {
@@ -214,10 +200,11 @@ abstract Matrix1x4( Tmatrix1x4 ) to Tmatrix1x4 from Tmatrix1x4 {
     }
     private inline
     function get_euler(): Matrix1x4 {
-        return new Matrix1x4( { x: Math.atan2( 2*(this.w*this.x + this.y*this.z), 1 - 2*(this.x*this.x + this.y*this.y))
-                         , y: Math.asin(2*(this.w*this.y - this.z*this.x))
-                         , z: Math.atan2(2*(this.w*this.z + this.x*this.y), 1 - 2*(this.y*this.y + this.z*this.z))
-                         , w: 1. } );
+        return new Matrix1x4( 
+            { x: Math.atan2( 2*(this.w*this.x + this.y*this.z), 1 - 2*(this.x*this.x + this.y*this.y))
+            , y: Math.asin(2*(this.w*this.y - this.z*this.x))
+            , z: Math.atan2(2*(this.w*this.z + this.x*this.y), 1 - 2*(this.y*this.y + this.z*this.z))
+            , w: 1. } );
     }
     public function slerp( a: Matrix1x4, b: Matrix1x4, t: Float ): Matrix1x4 {
         var w1 = a.w;

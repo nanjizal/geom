@@ -1,44 +1,20 @@
 package geom;
-#if avoid_typedef
-class TriVec(){
-    public var a: Matrix1x4;
-    public var b: Matrix1x4;
-    public var c: Matrix1x4;
-    public function new( a: Matrix1x4, b: Matrix1x4, c: Matrix1x4 ){
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-}
-#else
-typedef TriVec = {
-   var a: Matrix1x4;
-   var b: Matrix1x4;
-   var c: Matrix1x4;
-}
-#end
 @:forward
-abstract Tri3D( TriVec ) to TriVec from TriVec {
-    public function new( tv: TriVec ){
-        this = tv;
-    }
-    @:op(A + B)
-    public static inline
+abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.structure.TriVec {
+    public function new( tv: geom.structure.TriVec ){ this = tv; }
+    @:op(A + B) public static inline
     function add0( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D( { a: tv.a + p, b: tv.b + p, c: tv.c + p } );
     }
-    @:op(A + B)
-    public static inline
+    @:op(A + B) public static inline
     function add1( p: Matrix1x4, tv: Tri3D ): Tri3D {
         return new Tri3D( { a: tv.a + p, b: tv.b + p, c: tv.c + p } );
     }
-    @:op(A - B)
-    public static inline
+    @:op(A - B) public static inline
     function sub( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D( { a: tv.a - p, b: tv.b - p, c: tv.c - p } );
     }
-    @:op(A * B)
-    public static inline
+    @:op(A * B) public static inline
     function scaleMultiply( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D( { a: tv.a * p, b: tv.b * p, c: tv.c * p } );    
     }
