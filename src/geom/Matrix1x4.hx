@@ -83,12 +83,16 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function subtract( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
+    /*
+    Not sure this is useful - need some consideration.
     @:op(A * B) public static inline 
     function dot( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
     }
+    */
+    // dot product
     public static inline
-    function dotProduct( a: Matrix1x4, b: Matrix1x4 ):Float {
+    function scalarProduct( a: Matrix1x4, b: Matrix1x4 ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
     public inline
@@ -215,7 +219,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         var x2 = b.x;
         var y2 = b.y;
         var z2 = b.z;
-        var dot = dotProduct( a, b );
+        var dot = scalarProduct( a, b );
         var p = Matrix1x4.unit();
         if( dot < 0 ) { // shortest direction
             dot = -dot;
