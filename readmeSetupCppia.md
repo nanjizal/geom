@@ -1,7 +1,5 @@
 # For using Cppia to test with latest Haxe.
-- Get latest Haxe from:
-
-      [http://build.haxe.org/builds/haxe](http://build.haxe.org/builds/haxe)
+- Get latest Haxe from:[http://build.haxe.org/builds/haxe](http://build.haxe.org/builds/haxe)
       
 - setup haxelib ( I use lib in same level as haxe folder named haxeLibrary
 
