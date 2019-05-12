@@ -154,6 +154,24 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function divide( a: Matrix1x2, v: Float ): Matrix1x2 {
         return a * ( 1 / v );
     }
+    /**
+     * <pre><code>
+     * >>> ({ new Matrix1x2({x:7.,y:6.}) == new Matrix1x2({x:7.,y:6.}); }) == true
+     * </code></pre>
+     */
+    @:op(A == B) public static inline
+    function equal( a: Matrix1x2, b:Matrix1x2 ): Bool {
+        return a.x == b.x && a.y == b.y;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ new Matrix1x2({x:7.,y:5.}) != new Matrix1x2({x:7.,y:6.}); }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix1x2, b:Matrix1x2 ): Bool {
+        return !equal( a, b );
+    }
     //  To consider...
     public inline
     function perp( b: Matrix1x2 ): Float {
@@ -398,13 +416,24 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function fromVec3( v3: geom.tydef.Tmatrix1x3 ): Matrix1x2 {
         return new Matrix1x2( { x: v3.x, y: v3.y } );
     }
-    public static inline
-    function fromArrayPos( arr: Array<Float>, pos: Int ){
+    /**
+     * <pre><code>
+     * >>> Equal.equals( Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1), new Matrix1x2({x:1.,y:2.}) ) == true
+     * </code></pre>
+     */
+    public static // inline
+    function fromArrayPos( arr: Array<Float>, pos: Int ): Matrix1x2 {
         return new Matrix1x2( { x: arr[ pos ], y: arr[ pos + 1 ] } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ var a = new Matrix1x2({x:5.,y:6.}); var arr = [ 0., 1., 2. ]; a.toArrayPos( arr, 1 ); }) == [ 0., 5., 6. ]
+     * </code></pre>
+     */
     public inline
-    function toArrayPos( arr: Array<Float>, pos: Int ){
+    function toArrayPos( arr: Array<Float>, pos: Int ): Array<Float> {
         arr[ pos ]     = this.x;
         arr[ pos + 1 ] = this.y;
+        return arr;
     }
 }
