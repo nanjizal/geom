@@ -21,7 +21,7 @@
 
 - You can put your tests above your methods, which solves the age old problem of do you clutter your library repo with the tests or put them is a separate repo - simple just put them with your code and just add one extra small class. [haxe-doctest#haxe](https://github.com/vegardit/haxe-doctest#haxe-doctest---haxedoc-based-unit-testing)
       
-- HaxeFoundation have switched to use utest, based off Franco's library, and latest haxe-doctest support this. But you can use munit or a tink one lots are supported by haxe-doctest.[utest](https://github.com/haxe-utest/utest)
+- HaxeFoundation have switched to use [utest](https://github.com/haxe-utest/utest), based off Franco's library, and latest haxe-doctest support this. But you can use munit or a tink one lots are supported by haxe-doctest.
       
 - It's quite easy to setup in my case [geom/GeomTest.hx](https://github.com/nanjizal/geom/blob/master/src/geom/GeomTest.hx)
       
