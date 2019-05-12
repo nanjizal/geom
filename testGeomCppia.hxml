@@ -1,0 +1,8 @@
+#    Cppia test
+-cp src
+-lib utest
+-lib haxe-doctest
+-lib equals
+-main geom.GeomTest
+-cppia geomTest.cppia
+-cmd haxelib run hxcpp geomTest.cppia
