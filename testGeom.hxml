@@ -1,0 +1,9 @@
+#    Javascript test
+-cp src
+-lib utest
+-lib haxe-doctest
+-lib equals
+-main geom.GeomTest
+-js geomTest.js
+-cmd echo '<!DOCTYPE html><meta charset="UTF-8"><html><body><script src="geomTest.js"></script></body></html>' >geomTest.html
+-cmd open geomTest.html
