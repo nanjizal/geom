@@ -1,5 +1,5 @@
 # For using Cppia to test with latest Haxe.
-- Get latest Haxe from:[http://build.haxe.org/builds/haxe](http://build.haxe.org/builds/haxe)
+- Get latest Haxe from: [http://build.haxe.org/builds/haxe](http://build.haxe.org/builds/haxe)
       
 - setup haxelib ( I use lib in same level as haxe folder named haxeLibrary
 
@@ -11,9 +11,7 @@
     
 - Then go to your lib folder for haxe and into hxcpp folder, normally I just drag the folder to terminal ( on mac ).
 
-- run the commands from terminal to rebuild your hxcpp
-
-      [https://github.com/HaxeFoundation/hxcpp/blob/master/README.md#building-the-tools](https://github.com/HaxeFoundation/hxcpp/blob/master/README.md#building-the-tools)
+- run the commands from terminal to rebuild your hxcpp [README.md#building-the-tools](https://github.com/HaxeFoundation/hxcpp/blob/master/README.md#building-the-tools)
       
 - run the commands to build cppia
 
