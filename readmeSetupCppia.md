@@ -27,7 +27,7 @@
 
 # Testing your library
 
-- You can put your tests above your methods, which solves the problem of if you put your tests in the same repo.
+- You can put your tests above your methods, which solves the age old problem of do you clutter your library repo with the tests or put them is a separate repo - simple just put them with your code and just add one extra small class.
 
       https://github.com/vegardit/haxe-doctest#haxe-doctest---haxedoc-based-unit-testing 
       
@@ -39,7 +39,7 @@
 
       https://github.com/nanjizal/geom/blob/master/src/geom/GeomTest.hx
       
-- So far I have only implemented some tests in one class still very much work in progress library, but already helped clarify and document aspects of my library.
+- So far I have only implemented some tests in one class still very much work in progress library, but already helped clarify my thoughts, and document aspects of my library as it progresses.
 
       https://github.com/nanjizal/geom/blob/master/src/geom/Matrix1x2.hx
       
