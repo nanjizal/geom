@@ -53,6 +53,11 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         pout.w = pin.w;
         return pout;
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"projectPoint" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function projectPoint(): Matrix1x4 {
         return if( this.z <= 0 ) {
@@ -61,6 +66,11 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
             new Matrix1x4( { x: this.x / this.z, y: this.y / this.z, z: this.z, w: 1. } );
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"magnitude" untested'); true; }) == true
+     * </code></pre>
+     */
     public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
@@ -99,10 +109,23 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
             || Math.abs(a.w - b.w) >= delta
         );
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"magnitude" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline 
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... a + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. }); 
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A + B) public static inline
     function add( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
       	return new Matrix1x4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });

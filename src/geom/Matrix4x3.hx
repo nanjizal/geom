@@ -1,8 +1,10 @@
 package geom;
+#if js
 #if (haxe_ver <= 4.0 )
 import js.html.Float32Array;
 #else
 import js.lib.Float32Array;
+#end
 #end
 import geom.tydef.*;
 @:forward // treat like 4x4 matrix but don't store last row!

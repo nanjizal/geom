@@ -2,6 +2,11 @@ package geom;
 typedef Vec2 = Matrix1x2;
 @:forward
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
+    /**
+     * <pre><code>
+     * >>> ({ trace('"new" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
     /**
@@ -22,7 +27,11 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function unit(){
         return new Matrix1x2({ x: 1., y: 1. });
     }
-    
+    /**
+     * <pre><code>
+     * >>> ({ trace('"magnitude" untested'); true; }) == true
+     * </code></pre>
+     */
     public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
@@ -180,6 +189,11 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function notEqual( a: Matrix1x2, b:Matrix1x2 ): Bool {
         return !equal( a, b );
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"perp" untested still to consider'); true; }) == true
+     * </code></pre>
+     */
     //  To consider...
     public inline
     function perp( b: Matrix1x2 ): Float {
@@ -228,12 +242,20 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function distanceBetween( b: Matrix1x2 ): Float {
         return Math.pow( distanceBetweenSquare( b ), 0.5 );
     }
-
+    /**
+     * <pre><code>
+     * >>> ({ trace('"span" untested still to consider'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function span( b: Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: this.x - b.x, y: this.y - b.y });
     }
-    
+    /**
+     * <pre><code>
+     * >>> ({ trace('"normalize" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function normalize(): Float {
         magnitude = 1.;
@@ -273,10 +295,21 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
 	// > 0, p is left of line, counterclockwise
 	// = 0, p is on the line, none (degenerate)
 // < 0, p is righ of line, clockwise
+
+    /**
+     * <pre><code>
+     * >>> ({ trace('"isLeft" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function isLeft( a: Matrix1x2, b:Matrix1x2 ): Float {
         return (( b.x - a.x )*( this.y - a.y ) - ( this.x - a.x )*( b.y - a.y ));
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"triangleArea" untested'); true; }) == true
+     * </code></pre>
+     */
     public static inline
     function triangleArea( a: Matrix1x2, b:Matrix1x2, c:Matrix1x2 ): Float {
         return Math.abs( a.isLeft( b , c ) / 2. );
@@ -309,6 +342,11 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         var dy: Float = a.y - b.y;
         return Math.atan2( dy, dx );
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"inTri" untested'); true; }) == true
+     * </code></pre>
+     */
     // need to assess / compare the quality of inTri approaches.
     public inline
     function inTri( a: Matrix1x2, b:Matrix1x2, c:Matrix1x2 ): Bool {
@@ -317,6 +355,11 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         var planeCA = ( c.x - this.x )*( a.y - this.y ) - ( a.x - this.x )*( c.y - this.y );
         return sign( planeAB ) == sign( planeBC ) && sign( planeBC ) == sign( planeCA );
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"inTri2" untested'); true; }) == true
+     * </code></pre>
+     */
     public inline
     function inTri2( a: Matrix1x2, b:Matrix1x2, c:Matrix1x2 ): Bool {
         var v0x = c.x - a.x;
@@ -379,10 +422,20 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
             ( minx <= this.x + small && this.x - small <= maxx && miny <= this.y + small && this.y - small <= maxy );
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"convex" untested'); true; }) == true
+     * </code></pre>
+     */
     public static inline
     function convex( a: Matrix1x2, b: Matrix1x2, c: Matrix1x2) : Bool { 
         return ( a.y - b.y )*( c.x - b.x ) + ( b.x - a.x )*( c.y - b.y ) >= 0;
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"cross" untested'); true; }) == true
+     * </code></pre>
+     */
     public static inline
     function cross( a: Matrix1x2, b:Matrix1x2 ) : Float {
         return a.x*b.y - a.y*b.x;
@@ -457,16 +510,31 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         py = py * Math.cos( omega ) + px * Math.sin( omega );
         return new Matrix1x2( { x: px2 + pivot.x, y: py + pivot.y } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"toTPoint" untested'); true; }) == true
+     * </code></pre>
+     */
     @:to
     public inline
     function toTpoint():geom.tydef.Tpoint {
         return { x: this.x, y: this.y };
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"toVec3" untested'); true; }) == true
+     * </code></pre>
+     */
     @:to
     public inline
     function toVec3(): geom.tydef.Tmatrix1x3 {
         return { x: this.x, y: this.y, z: 1. };
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"fromVec3" untested'); true; }) == true
+     * </code></pre>
+     */
     @:from public inline static 
     function fromVec3( v3: geom.tydef.Tmatrix1x3 ): Matrix1x2 {
         return new Matrix1x2( { x: v3.x, y: v3.y } );
