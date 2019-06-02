@@ -2206,8 +2206,12 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left7;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
-			left7 = true;
+			var this11 = new geom_structure_Mat1x4(1.,2.,3.,1.);
+			var a2 = this11;
+			var this12 = new geom_structure_Mat1x4(1.,2.,4.,1.);
+			var b2 = this12;
+			var delta2 = 0.0000001;
+			left7 = !(!(Math.abs(a2.x - b2.x) >= delta2 || Math.abs(a2.y - b2.y) >= delta2 || Math.abs(a2.z - b2.z) >= delta2 || Math.abs(a2.w - b2.w) >= delta2));
 		} catch( ex14 ) {
 			haxe_CallStack.lastException = ex14;
 			left7 = "exception: " + Std.string(((ex14) instanceof js__$Boot_HaxeError) ? ex14.val : ex14) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2220,20 +2224,14 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right7 = "exception: " + Std.string(((ex15) instanceof js__$Boot_HaxeError) ? ex15.val : ex15) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left7,right7)) {
-			utest_Assert.pass("Matrix1x4.hx:114 [OK] ({ trace('\"magnitude\" untested'); true; }) == true",{ lineNumber : 114, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:114 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Matrix1x4({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true",{ lineNumber : 114, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({ trace('\"magnitude\" untested'); true; }) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 114, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Matrix1x4({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 114, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left8;
 		try {
-			var this11 = new geom_structure_Mat1x4(1.,1.,1.,1.);
-			var a2 = this11;
-			var this12 = new geom_structure_Mat1x4(a2.x + a2.x,a2.y + a2.y,a2.z + a2.z,a2.w + a2.w);
-			var a3 = this12;
-			var this13 = new geom_structure_Mat1x4(2.,2.,2.,2.);
-			var b2 = this13;
-			var delta2 = 0.0000001;
-			left8 = !(Math.abs(a3.x - b2.x) >= delta2 || Math.abs(a3.y - b2.y) >= delta2 || Math.abs(a3.z - b2.z) >= delta2 || Math.abs(a3.w - b2.w) >= delta2);
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			left8 = true;
 		} catch( ex16 ) {
 			haxe_CallStack.lastException = ex16;
 			left8 = "exception: " + Std.string(((ex16) instanceof js__$Boot_HaxeError) ? ex16.val : ex16) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2246,20 +2244,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right8 = "exception: " + Std.string(((ex17) instanceof js__$Boot_HaxeError) ? ex17.val : ex17) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left8,right8)) {
-			utest_Assert.pass("Matrix1x4.hx:123 [OK] ({\nvar a = Matrix1x4.unit();\na + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. });\n}) == true",{ lineNumber : 123, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:126 [OK] ({ trace('\"magnitude\" untested'); true; }) == true",{ lineNumber : 126, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\na + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. });\n}) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 123, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({ trace('\"magnitude\" untested'); true; }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 126, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left9;
 		try {
-			var this14 = new geom_structure_Mat1x4(1.,2.,3.,1.);
+			var this13 = new geom_structure_Mat1x4(1.,1.,1.,1.);
+			var a3 = this13;
+			var this14 = new geom_structure_Mat1x4(a3.x + a3.x,a3.y + a3.y,a3.z + a3.z,a3.w + a3.w);
 			var a4 = this14;
-			var this15 = new geom_structure_Mat1x4(-a4.x,-a4.y,-a4.z,a4.w);
+			var this15 = new geom_structure_Mat1x4(2.,2.,2.,2.);
 			var b3 = this15;
-			var this16 = new geom_structure_Mat1x4(-1.,-2.,-3.,1.);
-			var b4 = this16;
 			var delta3 = 0.0000001;
-			left9 = !(Math.abs(b3.x - b4.x) >= delta3 || Math.abs(b3.y - b4.y) >= delta3 || Math.abs(b3.z - b4.z) >= delta3 || Math.abs(b3.w - b4.w) >= delta3);
+			left9 = !(Math.abs(a4.x - b3.x) >= delta3 || Math.abs(a4.y - b3.y) >= delta3 || Math.abs(a4.z - b3.z) >= delta3 || Math.abs(a4.w - b3.w) >= delta3);
 		} catch( ex18 ) {
 			haxe_CallStack.lastException = ex18;
 			left9 = "exception: " + Std.string(((ex18) instanceof js__$Boot_HaxeError) ? ex18.val : ex18) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2272,20 +2270,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right9 = "exception: " + Std.string(((ex19) instanceof js__$Boot_HaxeError) ? ex19.val : ex19) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left9,right9)) {
-			utest_Assert.pass("Matrix1x4.hx:175 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 175, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:135 [OK] ({\nvar a = Matrix1x4.unit();\na + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. });\n}) == true",{ lineNumber : 135, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 175, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\na + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. });\n}) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 135, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left10;
 		try {
-			var this17 = new geom_structure_Mat1x4(1.,2.,3.,1.);
-			var a5 = this17;
-			var this18 = new geom_structure_Mat1x4(-a5.x,-a5.y,-a5.z,a5.w);
+			var this16 = new geom_structure_Mat1x4(1.,2.,3.,1.);
+			var a5 = this16;
+			var this17 = new geom_structure_Mat1x4(-a5.x,-a5.y,-a5.z,a5.w);
+			var b4 = this17;
+			var this18 = new geom_structure_Mat1x4(-1.,-2.,-3.,1.);
 			var b5 = this18;
-			var this19 = new geom_structure_Mat1x4(-1.,-2.,-3.,1.);
-			var b6 = this19;
 			var delta4 = 0.0000001;
-			left10 = !(Math.abs(b5.x - b6.x) >= delta4 || Math.abs(b5.y - b6.y) >= delta4 || Math.abs(b5.z - b6.z) >= delta4 || Math.abs(b5.w - b6.w) >= delta4);
+			left10 = !(Math.abs(b4.x - b5.x) >= delta4 || Math.abs(b4.y - b5.y) >= delta4 || Math.abs(b4.z - b5.z) >= delta4 || Math.abs(b4.w - b5.w) >= delta4);
 		} catch( ex20 ) {
 			haxe_CallStack.lastException = ex20;
 			left10 = "exception: " + Std.string(((ex20) instanceof js__$Boot_HaxeError) ? ex20.val : ex20) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2298,21 +2296,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right10 = "exception: " + Std.string(((ex21) instanceof js__$Boot_HaxeError) ? ex21.val : ex21) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left10,right10)) {
-			utest_Assert.pass("Matrix1x4.hx:191 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 191, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:187 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 187, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 191, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 187, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left11;
 		try {
-			var this20 = new geom_structure_Mat1x4(1.,1.,1.,1.);
-			var a6 = this20;
-			var b7 = [1.,1.,1.,1.].slice(0);
-			var this21 = new geom_structure_Mat1x4(b7[0],b7[1],b7[2],b7[3]);
-			var c1 = this21;
-			var this22 = new geom_structure_Mat1x4(b7[0],b7[1],b7[2],b7[3]);
-			var b8 = this22;
+			var this19 = new geom_structure_Mat1x4(1.,2.,3.,1.);
+			var a6 = this19;
+			var this20 = new geom_structure_Mat1x4(-a6.x,-a6.y,-a6.z,a6.w);
+			var b6 = this20;
+			var this21 = new geom_structure_Mat1x4(-1.,-2.,-3.,1.);
+			var b7 = this21;
 			var delta5 = 0.0000001;
-			left11 = !(Math.abs(a6.x - b8.x) >= delta5 || Math.abs(a6.y - b8.y) >= delta5 || Math.abs(a6.z - b8.z) >= delta5 || Math.abs(a6.w - b8.w) >= delta5);
+			left11 = !(Math.abs(b6.x - b7.x) >= delta5 || Math.abs(b6.y - b7.y) >= delta5 || Math.abs(b6.z - b7.z) >= delta5 || Math.abs(b6.w - b7.w) >= delta5);
 		} catch( ex22 ) {
 			haxe_CallStack.lastException = ex22;
 			left11 = "exception: " + Std.string(((ex22) instanceof js__$Boot_HaxeError) ? ex22.val : ex22) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2325,23 +2322,21 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right11 = "exception: " + Std.string(((ex23) instanceof js__$Boot_HaxeError) ? ex23.val : ex23) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left11,right11)) {
-			utest_Assert.pass("Matrix1x4.hx:328 [OK] ({\nvar a = Matrix1x4.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true",{ lineNumber : 328, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:203 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 203, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 328, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 203, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left12;
 		try {
-			var this23 = new geom_structure_Mat1x4(1.,1.,1.,1.);
-			var a7 = this23;
-			var this24 = new Array(4);
-			var vec = this24;
-			vec[0] = a7.x;
-			vec[1] = a7.y;
-			vec[2] = a7.z;
-			vec[3] = a7.w;
-			var b9 = vec;
-			var c2 = [1.,1.,1.,1.].slice(0);
-			left12 = equals_Equal.equals(b9,c2);
+			var this22 = new geom_structure_Mat1x4(1.,1.,1.,1.);
+			var a7 = this22;
+			var b8 = [1.,1.,1.,1.].slice(0);
+			var this23 = new geom_structure_Mat1x4(b8[0],b8[1],b8[2],b8[3]);
+			var c1 = this23;
+			var this24 = new geom_structure_Mat1x4(b8[0],b8[1],b8[2],b8[3]);
+			var b9 = this24;
+			var delta6 = 0.0000001;
+			left12 = !(Math.abs(a7.x - b9.x) >= delta6 || Math.abs(a7.y - b9.y) >= delta6 || Math.abs(a7.z - b9.z) >= delta6 || Math.abs(a7.w - b9.w) >= delta6);
 		} catch( ex24 ) {
 			haxe_CallStack.lastException = ex24;
 			left12 = "exception: " + Std.string(((ex24) instanceof js__$Boot_HaxeError) ? ex24.val : ex24) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2354,20 +2349,23 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right12 = "exception: " + Std.string(((ex25) instanceof js__$Boot_HaxeError) ? ex25.val : ex25) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left12,right12)) {
-			utest_Assert.pass("Matrix1x4.hx:342 [OK] ({\nvar a = Matrix1x4.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 342, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:340 [OK] ({\nvar a = Matrix1x4.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true",{ lineNumber : 340, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 342, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 340, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left13;
 		try {
 			var this25 = new geom_structure_Mat1x4(1.,1.,1.,1.);
 			var a8 = this25;
-			var b_0 = 1.;
-			var b_1 = 1.;
-			var b_2 = 1.;
-			var b_3 = 1.;
-			var this26 = new geom_structure_Mat1x4(b_0,b_1,b_2,b_3);
-			left13 = equals_Equal.equals(a8,this26);
+			var this26 = new Array(4);
+			var vec = this26;
+			vec[0] = a8.x;
+			vec[1] = a8.y;
+			vec[2] = a8.z;
+			vec[3] = a8.w;
+			var b10 = vec;
+			var c2 = [1.,1.,1.,1.].slice(0);
+			left13 = equals_Equal.equals(b10,c2);
 		} catch( ex26 ) {
 			haxe_CallStack.lastException = ex26;
 			left13 = "exception: " + Std.string(((ex26) instanceof js__$Boot_HaxeError) ? ex26.val : ex26) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2380,16 +2378,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right13 = "exception: " + Std.string(((ex27) instanceof js__$Boot_HaxeError) ? ex27.val : ex27) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left13,right13)) {
-			utest_Assert.pass("Matrix1x4.hx:361 [OK] ({\nvar a = Matrix1x4.unit();\nvar b = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 361, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:354 [OK] ({\nvar a = Matrix1x4.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 354, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 361, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 354, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left14;
 		try {
 			var this27 = new geom_structure_Mat1x4(1.,1.,1.,1.);
 			var a9 = this27;
-			var b10 = [a9.x,a9.y,a9.z,a9.w];
-			left14 = equals_Equal.equals(b10,[1.,1.,1.,1.]);
+			var b_0 = 1.;
+			var b_1 = 1.;
+			var b_2 = 1.;
+			var b_3 = 1.;
+			var this28 = new geom_structure_Mat1x4(b_0,b_1,b_2,b_3);
+			left14 = equals_Equal.equals(a9,this28);
 		} catch( ex28 ) {
 			haxe_CallStack.lastException = ex28;
 			left14 = "exception: " + Std.string(((ex28) instanceof js__$Boot_HaxeError) ? ex28.val : ex28) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -2402,9 +2404,31 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right14 = "exception: " + Std.string(((ex29) instanceof js__$Boot_HaxeError) ? ex29.val : ex29) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left14,right14)) {
-			utest_Assert.pass("Matrix1x4.hx:373 [OK] ({\nvar a = Matrix1x4.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 373, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:373 [OK] ({\nvar a = Matrix1x4.unit();\nvar b = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 373, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 373, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 373, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+		}
+		var left15;
+		try {
+			var this29 = new geom_structure_Mat1x4(1.,1.,1.,1.);
+			var a10 = this29;
+			var b11 = [a10.x,a10.y,a10.z,a10.w];
+			left15 = equals_Equal.equals(b11,[1.,1.,1.,1.]);
+		} catch( ex30 ) {
+			haxe_CallStack.lastException = ex30;
+			left15 = "exception: " + Std.string(((ex30) instanceof js__$Boot_HaxeError) ? ex30.val : ex30) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right15;
+		try {
+			right15 = true;
+		} catch( ex31 ) {
+			haxe_CallStack.lastException = ex31;
+			right15 = "exception: " + Std.string(((ex31) instanceof js__$Boot_HaxeError) ? ex31.val : ex31) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left15,right15)) {
+			utest_Assert.pass("Matrix1x4.hx:385 [OK] ({\nvar a = Matrix1x4.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 385, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 385, fileName : "src/geom/Matrix1x4.hx", className : "", methodName : ""});
 		}
 	}
 	,testMatrix2x2_1: function() {
@@ -3103,9 +3127,13 @@ geom__$Matrix1x4_Matrix1x4_$Impl_$.set_magnitude = function(this1,length) {
 		return Math.sqrt(this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w);
 	}
 };
-geom__$Matrix1x4_Matrix1x4_$Impl_$.equals = function(a,b) {
+geom__$Matrix1x4_Matrix1x4_$Impl_$.equal = function(a,b) {
 	var delta = 0.0000001;
 	return !(Math.abs(a.x - b.x) >= delta || Math.abs(a.y - b.y) >= delta || Math.abs(a.z - b.z) >= delta || Math.abs(a.w - b.w) >= delta);
+};
+geom__$Matrix1x4_Matrix1x4_$Impl_$.notEqual = function(a,b) {
+	var delta = 0.0000001;
+	return !(!(Math.abs(a.x - b.x) >= delta || Math.abs(a.y - b.y) >= delta || Math.abs(a.z - b.z) >= delta || Math.abs(a.w - b.w) >= delta));
 };
 geom__$Matrix1x4_Matrix1x4_$Impl_$.magnitudeSquared = function(this1) {
 	return this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w;

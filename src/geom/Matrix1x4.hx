@@ -100,7 +100,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      */
     @:op( A == B )
     public static inline
-    function equals( a: Matrix1x4, b: Matrix1x4 ): Bool {
+    function equal( a: Matrix1x4, b: Matrix1x4 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.x - b.x) >= delta
@@ -108,6 +108,18 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
             || Math.abs(a.z - b.z) >= delta
             || Math.abs(a.w - b.w) >= delta
         );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = new Matrix1x4({ x: 1., y: 2., z: 4., w: 1. });
+     * ... a != b; }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix1x4, b:Matrix1x4 ): Bool {
+        return !equal( a, b );
     }
     /**
      * <pre><code>
