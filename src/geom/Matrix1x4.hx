@@ -5,28 +5,52 @@ typedef Vec4 = Matrix1x4;
 abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
     public inline
     function new( m: geom.structure.Mat1x4 ){ this = m; }
-    public static inline
-    function unit(): Matrix1x4 {
-        return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
-    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.zero() == new Matrix1x4({ x: 0., y: 0., z: 0., w: 1. })
+     * </code></pre>
+     */
     public static inline
     function zero(): Matrix1x4 {
         return new Matrix1x4( { x: 0., y: 0., z: 0., w: 1. } );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.unit() == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
+     * </code></pre>
+     */
+    public static inline
+    function unit(): Matrix1x4 {
+        return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.identity( Matrix1x4.zero() ) == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
+     * </code></pre>
+     */
     public static inline
     function identity( out: Matrix1x4 ):Matrix1x4 {
-            out.x = 0.;
-            out.y = 0.;
-            out.z = 0.;
+            out.x = 1.;
+            out.y = 1.;
+            out.z = 1.;
             out.w = 1.;
             return out;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = Matrix1x4.zero();
+     * ... var c = Matrix1x4.copy( a, b ); 
+     * ... a == c; }) == true
+     * </code></pre>
+     */
     public inline static
     function copy( pin: Matrix1x4, pout: Matrix1x4 ): Matrix1x4 {
-        pin.x = pout.x;
-        pin.y = pout.y;
-        pin.z = pout.z;
-        pin.w = pout.w;
+        pout.x = pin.x;
+        pout.y = pin.y;
+        pout.z = pin.z;
+        pout.w = pin.w;
         return pout;
     }
     public inline
@@ -36,10 +60,6 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         } else {
             new Matrix1x4( { x: this.x / this.z, y: this.y / this.z, z: this.z, w: 1. } );
         }
-    }
-    public inline
-    function getTPoint(): Matrix1x4 {
-        return new Matrix1x4( { x: this.x, y: this.y, z: this.z, w: this.w } );
     }
     public var magnitude( get, set ): Float;
     private inline
@@ -60,6 +80,14 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
             magnitude;
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
     @:op( A == B )
     public static inline
     function equals( a: Matrix1x4, b: Matrix1x4 ): Bool {
@@ -119,6 +147,14 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function divide2( v: Float, a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: v/a.x, y: v/a.y, z: v/a.z, w: v/a.w } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = ~a;
+     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true
+     * </code></pre>
+     */
     @:op(~A) public static inline
     function conjugate( a: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4( { x: -a.x
@@ -127,6 +163,14 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
                             , w: a.w 
                             } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = ~a;
+     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true
+     * </code></pre>
+     */
     @:op(-A) public static inline
     function negate( a: Matrix1x4 ):Matrix1x4 {
         return new Matrix1x4( { x: -a.x
@@ -256,11 +300,29 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function constrainDistance( anchor: Matrix1x4, distance: Float ): Matrix1x4 {
         return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
+     * ... var c: Matrix1x4 = b;
+     * ... a == b; }) == true
+     * </code></pre>
+     */
     @:from
     public static inline
     function fromVec( vec: haxe.ds.Vector<Float> ): Matrix1x4 {
         return new Matrix1x4( { x: vec.get(0), y: vec.get(1), z: vec.get(2), w: vec.get(3) } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... var b: haxe.ds.Vector<Float> = a;
+     * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
+     * ... Equal.equals( b, c ); }) == true
+     * </code></pre>
+     */
     @:to
     public inline
     function toVector(): haxe.ds.Vector<Float> {
@@ -271,10 +333,26 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         vec.set( 3, this.w );
         return vec;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... var b = [ 1., 1., 1., 1. ];
+     * ... Equal.equals( a, b ); }) == true
+     * </code></pre>
+     */
     @:from
     public inline static function fromArray( arr: Array<Float> ): Matrix1x4 {
         return new Matrix1x4( { x: arr[ 0 ], y: arr[ 1 ], z: arr[ 2 ], w: arr[ 3 ] } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... var b: Array<Float> = a;
+     * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
+     * </code></pre>
+     */
     @:to
     public inline function toArray():Array<Float> {
         return [ this.x, this.y, this.z, this.w ];

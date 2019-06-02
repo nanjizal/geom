@@ -1,20 +1,43 @@
 package geom;
+#if (haxe_ver <= 4.0 )
+import js.html.Float32Array;
+#else
+import js.lib.Float32Array;
+#end
 import geom.tydef.*;
 @:forward // treat like 4x4 matrix but don't store last row!
 abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.structure.Mat4x3 {
     public inline
     function new( m: geom.structure.Mat4x3 ){ this = m; }
-    public static inline
-    function unit(): Matrix4x3 {
-        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
-                             , e: 0., f: 1., g: 0., h: 0.
-                             , i: 0., j: 0., k: 1., l: 0. } );
-    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix4x3.zero() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: 0., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
+     * ... }) == true
+     * </code></pre>
+     */
     public static inline
     function zero(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... Matrix4x3.unit() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: 1., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: 1., l: 0. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function unit(): Matrix4x3 {
+        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
     }
     public static inline
     function radianX( theta: Float ): Matrix4x3 {
@@ -117,12 +140,55 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function translateXY( x: Float, y: Float ): Matrix4x3 { return this * txy( x, y ); }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
+     * ... var b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
+    @:op( A == B )
+    public static inline
+    function equals( a: Matrix4x3, b: Matrix4x3 ): Bool {
+        var delta = 0.0000001;
+        return !(
+               Math.abs(a.a - b.a) >= delta
+            || Math.abs(a.b - b.b) >= delta
+            || Math.abs(a.c - b.c) >= delta
+            || Math.abs(a.d - b.d) >= delta
+            || Math.abs(a.e - b.e) >= delta
+            || Math.abs(a.f - b.f) >= delta
+            || Math.abs(a.g - b.g) >= delta
+            || Math.abs(a.h - b.h) >= delta
+            || Math.abs(a.i - b.i) >= delta
+            || Math.abs(a.j - b.j) >= delta
+            || Math.abs(a.k - b.k) >= delta
+            || Math.abs(a.l - b.l) >= delta
+        );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x3.unit();
+     * ... a + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.
+     * ...                         , e: 0., f: 2., g: 0., h: 0.
+     * ...                         , i: 0., j: 0., k: 2., l: 0. } ); }) == true
+     * </code></pre>
+     */
     @:op(A + B) public static inline
     function add( m0: Matrix4x3, m1: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c, d: m0.d + m1.d
                               , e: m0.e + m1.e, f: m0.f + m1.f, g: m0.d + m1.d, h: m0.h + m1.h
                               , i: m0.i + m1.i, j: m0.j + m1.j, k: m0.k + m1.k, l: m0.l + m1.l } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x3.unit();
+     * ... a - a == Matrix4x3.zero(); }) == true
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function sub( m0: Matrix4x3, m1: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c, d: m0.d - m1.d
@@ -132,21 +198,21 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     @:op(A * B) public static inline
     function scaleMultiply1( p: Matrix1x4, m: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
-                             , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
-                             , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
+                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
+                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
     }
     @:op(A * B) public static inline
     function scaleMultiply2( m: Matrix4x3, p: Matrix1x4 ): Matrix4x3 {
         return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
-                             , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
-                             , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
+                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
+                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
     }
     @:op(A / B) public static inline
     function scaleDivide( m: Matrix4x3, p: Matrix1x4 ): Matrix4x3 {
         var pd = 1 / p;  
         return new Matrix4x3( { a: m.a*pd.x, b: m.b,      c: m.c,      d: m.d
-                             , e: m.e,       f: m.f*pd.y, g: m.g,      h: m.h
-                             , i: m.i,       j: m.j,      k: m.k*pd.z, l: m.l } );
+                              , e: m.e,      f: m.f*pd.y, g: m.g,      h: m.h
+                              , i: m.i,      j: m.j,      k: m.k*pd.z, l: m.l } );
     }
     @:op(A * B) public static inline // emulates 4x4 matrib with assumption last row is 0,0,0,1.
     function multiply( r: Matrix4x3, s: Matrix4x3 ): Matrix4x3 {
@@ -369,7 +435,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     #if js
     public inline
-    function toFloat32Array( arr: js.html.Float32Array ): js.html.Float32Array {
+    function toFloat32Array( arr: Float32Array ): Float32Array {
         arr.set([ this.a, this.b, this.c, this.d
                 , this.e, this.f, this.g, this.h
                 , this.i, this.j, this.k, this.l

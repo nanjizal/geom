@@ -4,6 +4,25 @@ typedef Vec2 = Matrix1x2;
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. })
+     * </code></pre>
+     */
+    public static inline
+    function zero(){
+        return new Matrix1x2({ x: 0., y: 0. });
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit() == new Matrix1x2({ x: 1., y: 1. })
+     * </code></pre>
+     */
+    public static inline
+    function unit(){
+        return new Matrix1x2({ x: 1., y: 1. });
+    }
+    
     public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
@@ -21,84 +40,226 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
             magnitude;
         }
     }
-    public inline
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.topLeft() == new Matrix1x2({ x: -1., y: 1. })
+     * </code></pre>
+     */
+    public static inline
     function topLeft(){
-        return new Matrix1x2( { x: -1., y: -1. } );
+        return new Matrix1x2( { x: -1., y: 1. } );
     }
-    public inline
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.topRight() == new Matrix1x2({ x: 1., y: 1. })
+     * </code></pre>
+     */
+    public static inline
     function topRight(){
-        return new Matrix1x2( { x: 1., y: -1. } );
-    }
-    public inline 
-    function bottomLeft(){
-         return new Matrix1x2( { x: -1., y: 1. } );
-    }
-    public inline
-    function bottomRight(){
         return new Matrix1x2( { x: 1., y: 1. } );
     }
-    public inline
-    function north(){
-        return new Matrix1x2( { x: 0., y: -1. } );
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.bottomLeft() == new Matrix1x2({ x: -1., y: -1. })
+     * </code></pre>
+     */
+    public static inline 
+    function bottomLeft(){
+         return new Matrix1x2( { x: -1., y: -1. } );
     }
-    public inline
-    function south(){
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.bottomRight() == new Matrix1x2({ x: 1., y: -1. })
+     * </code></pre>
+     */
+    public static inline
+    function bottomRight(){
+        return new Matrix1x2( { x: 1., y: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.north() == new Matrix1x2({ x: 0., y: 1. })
+     * </code></pre>
+     */
+    public static inline
+    function north(){
         return new Matrix1x2( { x: 0., y: 1. } );
     }
-    public inline
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.south() == new Matrix1x2({ x: 0., y: -1. })
+     * </code></pre>
+     */
+    public static inline
+    function south(){
+        return new Matrix1x2( { x: 0., y: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.west() == new Matrix1x2({ x: -1., y: 0. })
+     * </code></pre>
+     */
+    public static inline
     function west(){
         return new Matrix1x2( { x: -1., y: 0. } );
     }
-    public inline
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.east() == new Matrix1x2({ x: 1., y: 0. })
+     * </code></pre>
+     */
+    public static inline
     function east(){
         return new Matrix1x2( { x: 1., y: 0. } );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit() + Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+     * </code></pre>
+     */
     @:op(A + B) public static inline
     function add( a:Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
       	return new Matrix1x2({ x: a.x + b.x, y:  a.y + b.y });
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit() - Matrix1x2.unit() == new Matrix1x2( { x: 0., y: 0. } )
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function subtract( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: a.x - b.x, y:  a.y - b.y });
     }
+    // To consider...
     @:op(A * B) public static inline
     function dot( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: a.x * b.x, y: a.y * b.y });
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit() * 2 == new Matrix1x2( { x: 2., y: 2. } )
+     * >>> 2 * Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+     * </code></pre>
+     */
     @:op(A * B) @:commutative public static inline
     function scaleMultiply( a: Matrix1x2, v: Float ): Matrix1x2 {
         return new Matrix1x2( { x: a.x * v, y: a.y * v } );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit() / 2 == new Matrix1x2( { x: 0.5, y: 0.5 } )
+     * </code></pre>
+     */
     @:op(A / B) public static inline
     function divide( a: Matrix1x2, v: Float ): Matrix1x2 {
         return a * ( 1 / v );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 7., y: 6. } ); 
+     * ... var b = new Matrix1x2( { x: 7., y: 6. } ); 
+     * ... a == b; 
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op(A == B) public static inline
+    function equal( a: Matrix1x2, b:Matrix1x2 ): Bool {
+        return a.x == b.x && a.y == b.y;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 7., y: 5. } ); 
+     * ... var b = new Matrix1x2( { x: 7., y: 6. } ); 
+     * ... a != b; 
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix1x2, b:Matrix1x2 ): Bool {
+        return !equal( a, b );
+    }
+    //  To consider...
     public inline
-    function perp( b:Matrix1x2 ): Float {
+    function perp( b: Matrix1x2 ): Float {
         return this.x * b.y - this.y * b.x;
     }
-    public inline
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 3.,  y: 1. } ); 
+     * ... var b = new Matrix1x2( { x: 4.,  y: 2. } ); 
+     * ... var c = new Matrix1x2( { x: 3.5, y: 1.5 } );
+     * ... var mid = Matrix1x2.mid( a, b ); 
+     * ... mid == c;
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
     function mid( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2( { x: ( a.x + b.x )/2, y:( a.y + b.y )/2 } );
     }
+    /**
+     * test with 3,4,5 triangle
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 1., y: 1. } ); 
+     * ... var b = new Matrix1x2( { x: 1. + 3., y: 1. + 4. } ); 
+     * ... a.distanceBetweenSquare( b ); }) == 25
+     * </code></pre>
+     */
     public inline
-    function distance( b: Matrix1x2 ): Float {
+    function distanceBetweenSquare( b: Matrix1x2 ): Float {
         var dx = this.x - b.x;
         var dy = this.y - b.y;
         return dx * dx + dy * dy;
     }
+    /**
+     * test with 3,4,5 triangle
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 1., y: 1. } );
+     * ... var b = new Matrix1x2( { x: 1. + 3., y: 1. + 4. } ); 
+     * ... a.distanceBetween( b ); }) == 5
+     * </code></pre>
+     */
+    public inline
+    function distanceBetween( b: Matrix1x2 ): Float {
+        return Math.pow( distanceBetweenSquare( b ), 0.5 );
+    }
+
     public inline
     function span( b: Matrix1x2 ): Matrix1x2 {
         return new Matrix1x2({ x: this.x - b.x, y: this.y - b.y });
     }
+    
     public inline
     function normalize(): Float {
         magnitude = 1.;
         return magnitude;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 3., y: 3. } ); 
+     * ... a.lenSquare(); }) == 18
+     * </code></pre>
+     */
     public inline
-    function lenSq (): Float {
+    function lenSquare(): Float {
         return this.x * this.x + this.y * this.y;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 3., y: 4. } ); 
+     * ... a.distance(); }) == 5
+     * </code></pre>
+     */
+    public inline
+    function distance(): Float {
+        return Math.pow( lenSquare(), 0.5 );
     }
 	// Copyright 2000 softSurfer, 2012 Dan Sunday
 	// This code may be freely used and modified for any purpose
@@ -120,10 +281,28 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function triangleArea( a: Matrix1x2, b:Matrix1x2, c:Matrix1x2 ): Float {
         return Math.abs( a.isLeft( b , c ) / 2. );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.sign( -7. ) == -1
+     * >>> Matrix1x2.sign( 7. ) == 1
+     * </code></pre>
+     */
     public static inline
     function sign( n: Float ): Int {
         return Std.int( Math.abs( n )/n );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.east(),        Matrix1x2.zero() ) == 0
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomRight(), Matrix1x2.zero() ) == -Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.south(),       Matrix1x2.zero() ) == -Math.PI/2
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomLeft(),  Matrix1x2.zero() ) == -3*Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.west(),        Matrix1x2.zero() ) == Math.PI
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.topLeft(),     Matrix1x2.zero() ) == 3*Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.north(),       Matrix1x2.zero() ) == Math.PI/2
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.topRight(),    Matrix1x2.zero() ) == Math.PI/4
+     * </code></pre>
+     */
     public inline static
     function thetaDifference( a: Matrix1x2, b:Matrix1x2 ): Float {
         var dx: Float = a.x - b.x;
@@ -157,6 +336,33 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         // Check if point is in triangle
         return ( u >= 0 ) && ( v >= 0 ) && ( u + v < 1 );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x2.topRight()/2; 
+     * ... var b = Matrix1x2.zero(); 
+     * ... var c = Matrix1x2.topRight(); 
+     * ... a.inRect( b, c ); }) == true
+     *
+     * >>> ({ 
+     * ... var a = Matrix1x2.bottomLeft()/2; 
+     * ... var b = Matrix1x2.zero(); 
+     * ... var c = Matrix1x2.topRight(); 
+     * ... a.inRect( b, c ); }) == false
+     *
+     * >>> ({ 
+     * ... var a = Matrix1x2.bottomLeft()/2; 
+     * ... var b = Matrix1x2.bottomRight(); 
+     * ... var c = Matrix1x2.zero(); 
+     * ... a.inRect( b, c ); }) == false
+     * 
+     * >>> ({ 
+     * ... var a = Matrix1x2.bottomRight()/2; 
+     * ... var b = Matrix1x2.bottomRight(); 
+     * ... var c = Matrix1x2.zero(); 
+     * ... a.inRect( b, c ); }) == true
+     * </code></pre>
+     */
     public inline
     function inRect( b: Matrix1x2, c:Matrix1x2 ): Bool {// in rect (b,c)
         var small: Float = 0.0000000001;
@@ -181,10 +387,68 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function cross( a: Matrix1x2, b:Matrix1x2 ) : Float {
         return a.x*b.y - a.y*b.x;
     }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.east().theta()        == 0.
+     * >>> Matrix1x2.bottomRight().theta() == -Math.PI/4
+     * >>> Matrix1x2.south().theta()       == -Math.PI/2
+     * >>> Matrix1x2.bottomLeft().theta()  == -3*Math.PI/4
+     * >>> Matrix1x2.west().theta()        == Math.PI
+     * >>> Matrix1x2.topLeft().theta()     == 3*Math.PI/4
+     * >>> Matrix1x2.north().theta()       == Math.PI/2
+     * >>> Matrix1x2.topRight().theta()    == Math.PI/4
+     * </code></pre>
+     */
     public inline
     function theta(): Float {
         return Math.atan2( this.y, this.x );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 0.5, y: 0.5 } ); 
+     * ... var b = new Matrix1x2( { x: 0.5000001, y: 0.5000001 } ); 
+     * ... a.close( b ); }) == true
+     * </code></pre>
+     */
+    public inline
+    function close( b: Matrix1x2, delta = 0.00001 ): Bool {
+        return xClose( b ) && yClose( b );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... var a = new Matrix1x2( { x: 0.5, y: 1. } ); 
+     * ... var b = new Matrix1x2( { x: 0.5000001, y: 0.5000001 } ); 
+     * ... a.close( b ); }) == true
+     * </code></pre>
+     */
+    public inline
+    function xClose( b: Matrix1x2, delta = 0.00001 ): Bool {
+        var dx = this.x - b.x;
+        return ( dx < delta || dx > -delta );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 1., y: 0.5 } ); 
+     * ... var b = new Matrix1x2( { x: 0.5000001, y: 0.5000001 } ); 
+     * ... a.close( b ); }) == true
+     * </code></pre>
+     */
+    public inline
+    function yClose( b: Matrix1x2, delta = 0.00001 ): Bool {
+        var dy = this.y - b.y;
+        return ( dy < delta || dy > -delta );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x2.topRight(); 
+     * ... var b = a.pivotAround( Math.PI/2, Matrix1x2.topRight()/2 ); 
+     * ... b.close( Matrix1x2.north() ); }) == true
+     * </code></pre>
+     */
     public inline
     function pivotAround( omega: Float, pivot: Matrix1x2 ){
         var px = this.x - pivot.x;
@@ -195,6 +459,11 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     @:to
     public inline
+    function toTpoint():geom.tydef.Tpoint {
+        return { x: this.x, y: this.y };
+    }
+    @:to
+    public inline
     function toVec3(): geom.tydef.Tmatrix1x3 {
         return { x: this.x, y: this.y, z: 1. };
     }
@@ -202,13 +471,27 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function fromVec3( v3: geom.tydef.Tmatrix1x3 ): Matrix1x2 {
         return new Matrix1x2( { x: v3.x, y: v3.y } );
     }
-    public static inline
-    function fromArrayPos( arr: Array<Float>, pos: Int ){
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1) ==  new Matrix1x2({x:1.,y:2.})
+     * </code></pre>
+     */
+    public static // inline
+    function fromArrayPos( arr: Array<Float>, pos: Int ): Matrix1x2 {
         return new Matrix1x2( { x: arr[ pos ], y: arr[ pos + 1 ] } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 5., y: 6. } ); 
+     * ... var arr = [ 0., 1., 2. ]; 
+     * ... a.toArrayPos( arr, 1 ); }) == [ 0., 5., 6. ]
+     * </code></pre>
+     */
     public inline
-    function toArrayPos( arr: Array<Float>, pos: Int ){
+    function toArrayPos( arr: Array<Float>, pos: Int ): Array<Float> {
         arr[ pos ]     = this.x;
         arr[ pos + 1 ] = this.y;
+        return arr;
     }
 }

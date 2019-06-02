@@ -1,0 +1,1788 @@
+CPPIB
+1547
+0 
+3 new
+3 min
+3 max
+7 hasNext
+4 next
+5 TNull
+4 TInt
+6 TFloat
+5 TBool
+7 TObject
+9 TFunction
+6 TClass
+1 c
+5 TEnum
+1 e
+8 TUnknown
+6 isNull
+1 a
+7 __Index
+6 typeof
+10 isFunction
+6 equals
+1 b
+2 _g
+5 isNaN
+14 compareMethods
+3 _g2
+2 is
+2 a1
+2 b1
+6 length
+3 _g1
+4 _g11
+1 i
+2 a2
+2 b2
+3 _g3
+3 key
+4 keys
+4 key1
+4 push
+6 a_keys
+4 _g12
+4 key2
+4 key3
+6 b_keys
+4 _g21
+4 key4
+3 get
+7 _hx_tmp
+7 getTime
+4 _g13
+8 _hx_tmp1
+9 enumIndex
+6 a_args
+14 enumParameters
+6 b_args
+4 _g31
+3 _g4
+6 fields
+5 field
+2 pa
+2 pb
+8 _hx_tmp2
+19 __initializeUtest__
+4 init
+5 tests
+11 accessories
+15 testMatrix1x2_1
+4 left
+5 this1
+2 0.
+2 ex
+5 left1
+11 exception: 
+6 string
+22 exceptionStackAsString
+5 right
+5 this2
+3 ex1
+6 right1
+10 deepEquals
+4 pass
+71 Matrix1x2.hx:9 [OK] Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. })
+10 lineNumber
+8 fileName
+9 className
+10 methodName
+21 src/geom/Matrix1x2.hx
+67 Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. }) --> Left side `
+18 ` does not equal `
+4 fail
+2 `.
+5 left2
+5 this3
+2 1.
+3 ex2
+5 left3
+6 right2
+5 this4
+3 ex3
+6 right3
+72 Matrix1x2.hx:18 [OK] Matrix1x2.unit() == new Matrix1x2({ x: 1., y: 1. })
+67 Matrix1x2.unit() == new Matrix1x2({ x: 1., y: 1. }) --> Left side `
+5 left4
+5 this5
+3 -1.
+3 ex4
+5 left5
+6 right4
+5 this6
+3 ex5
+6 right5
+76 Matrix1x2.hx:45 [OK] Matrix1x2.topLeft() == new Matrix1x2({ x: -1., y: 1. })
+71 Matrix1x2.topLeft() == new Matrix1x2({ x: -1., y: 1. }) --> Left side `
+5 left6
+5 this7
+3 ex6
+5 left7
+6 right6
+5 this8
+3 ex7
+6 right7
+76 Matrix1x2.hx:54 [OK] Matrix1x2.topRight() == new Matrix1x2({ x: 1., y: 1. })
+8 _hx_tmp3
+71 Matrix1x2.topRight() == new Matrix1x2({ x: 1., y: 1. }) --> Left side `
+5 left8
+5 this9
+3 ex8
+5 left9
+6 right8
+6 this10
+3 ex9
+6 right9
+80 Matrix1x2.hx:63 [OK] Matrix1x2.bottomLeft() == new Matrix1x2({ x: -1., y: -1. })
+8 _hx_tmp4
+75 Matrix1x2.bottomLeft() == new Matrix1x2({ x: -1., y: -1. }) --> Left side `
+6 left10
+6 this11
+4 ex10
+6 left11
+7 right10
+6 this12
+4 ex11
+7 right11
+80 Matrix1x2.hx:72 [OK] Matrix1x2.bottomRight() == new Matrix1x2({ x: 1., y: -1. })
+8 _hx_tmp5
+75 Matrix1x2.bottomRight() == new Matrix1x2({ x: 1., y: -1. }) --> Left side `
+6 left12
+6 this13
+4 ex12
+6 left13
+7 right12
+6 this14
+4 ex13
+7 right13
+73 Matrix1x2.hx:81 [OK] Matrix1x2.north() == new Matrix1x2({ x: 0., y: 1. })
+8 _hx_tmp6
+68 Matrix1x2.north() == new Matrix1x2({ x: 0., y: 1. }) --> Left side `
+6 left14
+6 this15
+4 ex14
+6 left15
+7 right14
+6 this16
+4 ex15
+7 right15
+74 Matrix1x2.hx:90 [OK] Matrix1x2.south() == new Matrix1x2({ x: 0., y: -1. })
+8 _hx_tmp7
+69 Matrix1x2.south() == new Matrix1x2({ x: 0., y: -1. }) --> Left side `
+6 left16
+6 this17
+4 ex16
+6 left17
+7 right16
+6 this18
+4 ex17
+7 right17
+73 Matrix1x2.hx:99 [OK] Matrix1x2.west() == new Matrix1x2({ x: -1., y: 0. })
+8 _hx_tmp8
+68 Matrix1x2.west() == new Matrix1x2({ x: -1., y: 0. }) --> Left side `
+6 left18
+6 this19
+4 ex18
+6 left19
+7 right18
+6 this20
+4 ex19
+7 right19
+73 Matrix1x2.hx:108 [OK] Matrix1x2.east() == new Matrix1x2({ x: 1., y: 0. })
+8 _hx_tmp9
+67 Matrix1x2.east() == new Matrix1x2({ x: 1., y: 0. }) --> Left side `
+6 left20
+6 this21
+6 this22
+6 this23
+1 x
+1 y
+4 ex20
+6 left21
+7 right20
+6 this24
+2 2.
+4 ex21
+7 right21
+94 Matrix1x2.hx:117 [OK] Matrix1x2.unit() + Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+9 _hx_tmp10
+88 Matrix1x2.unit() + Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } ) --> Left side `
+6 left22
+6 this25
+6 this26
+6 this27
+4 ex22
+6 left23
+7 right22
+6 this28
+4 ex23
+7 right23
+94 Matrix1x2.hx:126 [OK] Matrix1x2.unit() - Matrix1x2.unit() == new Matrix1x2( { x: 0., y: 0. } )
+9 _hx_tmp11
+88 Matrix1x2.unit() - Matrix1x2.unit() == new Matrix1x2( { x: 0., y: 0. } ) --> Left side `
+6 left24
+6 this29
+6 this30
+4 ex24
+6 left25
+7 right24
+6 this31
+4 ex25
+7 right25
+79 Matrix1x2.hx:140 [OK] Matrix1x2.unit() * 2 == new Matrix1x2( { x: 2., y: 2. } )
+9 _hx_tmp12
+73 Matrix1x2.unit() * 2 == new Matrix1x2( { x: 2., y: 2. } ) --> Left side `
+6 left26
+6 this32
+6 this33
+4 ex26
+6 left27
+7 right26
+6 this34
+4 ex27
+7 right27
+79 Matrix1x2.hx:141 [OK] 2 * Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+9 _hx_tmp13
+73 2 * Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } ) --> Left side `
+6 left28
+6 this35
+2 a3
+1 v
+3 0.5
+6 this36
+6 this37
+4 ex28
+6 left29
+7 right28
+4 ex29
+7 right29
+103 Matrix1x2.hx:150 [OK] Equal.equals( Matrix1x2.unit() / 2, new Matrix1x2( { x: 0.5, y: 0.5 } ) ) == true
+9 _hx_tmp14
+97 Equal.equals( Matrix1x2.unit() / 2, new Matrix1x2( { x: 0.5, y: 0.5 } ) ) == true --> Left side `
+6 left30
+6 this38
+2 7.
+2 6.
+2 a4
+6 this39
+4 ex30
+6 left31
+7 right30
+4 ex31
+7 right31
+93 Matrix1x2.hx:159 [OK] ({ new Matrix1x2({x:7.,y:6.}) == new Matrix1x2({x:7.,y:6.}); }) == true
+9 _hx_tmp15
+87 ({ new Matrix1x2({x:7.,y:6.}) == new Matrix1x2({x:7.,y:6.}); }) == true --> Left side `
+6 left32
+6 this40
+2 5.
+2 a5
+6 this41
+2 b3
+4 ex32
+6 left33
+7 right32
+4 ex33
+7 right33
+93 Matrix1x2.hx:168 [OK] ({ new Matrix1x2({x:7.,y:5.}) != new Matrix1x2({x:7.,y:6.}); }) == true
+9 _hx_tmp16
+87 ({ new Matrix1x2({x:7.,y:5.}) != new Matrix1x2({x:7.,y:6.}); }) == true --> Left side `
+6 left34
+6 this42
+2 3.
+2 a6
+6 this43
+2 4.
+2 b4
+6 this44
+3 3.5
+3 1.5
+6 this45
+3 mid
+4 ex34
+6 left35
+7 right34
+4 ex35
+7 right35
+188 Matrix1x2.hx:182 [OK] ({ var a=new Matrix1x2({x:3.,y:1.}); var b=new Matrix1x2({x:4.,y:2.}); var c=new Matrix1x2({x:3.5,y:1.5}); var mid=Matrix1x2.mid(a,b); Equal.equals(mid,c); }) == true
+9 _hx_tmp17
+182 ({ var a=new Matrix1x2({x:3.,y:1.}); var b=new Matrix1x2({x:4.,y:2.}); var c=new Matrix1x2({x:3.5,y:1.5}); var mid=Matrix1x2.mid(a,b); Equal.equals(mid,c); }) == true --> Left side `
+6 left36
+6 this46
+2 a7
+6 this47
+2 b5
+2 dx
+2 dy
+4 ex36
+6 left37
+7 right36
+4 ex37
+7 right37
+141 Matrix1x2.hx:192 [OK] ({ var a = new Matrix1x2({x:1.,y:1.}); var b = new Matrix1x2({x:1.+3.,y:1.+4.}); a.distanceBetweenSquare( b ); }) == 25
+9 _hx_tmp18
+135 ({ var a = new Matrix1x2({x:1.,y:1.}); var b = new Matrix1x2({x:1.+3.,y:1.+4.}); a.distanceBetweenSquare( b ); }) == 25 --> Left side `
+6 left38
+6 this48
+2 a8
+6 this49
+2 b6
+3 dx1
+3 dy1
+3 pow
+4 ex38
+6 left39
+7 right38
+4 ex39
+7 right39
+134 Matrix1x2.hx:204 [OK] ({ var a = new Matrix1x2({x:1.,y:1.});
+var b = new Matrix1x2({x:1.+3.,y:1.+4.}); a.distanceBetween( b ); }) == 5
+9 _hx_tmp19
+128 ({ var a = new Matrix1x2({x:1.,y:1.});
+var b = new Matrix1x2({x:1.+3.,y:1.+4.}); a.distanceBetween( b ); }) == 5 --> Left side `
+6 left40
+6 this50
+2 a9
+4 ex40
+6 left41
+7 right40
+4 ex41
+7 right41
+82 Matrix1x2.hx:225 [OK] ({
+var a=new Matrix1x2({x:3.,y:3.});
+a.lenSquare(); }) == 18
+9 _hx_tmp20
+76 ({
+var a=new Matrix1x2({x:3.,y:3.});
+a.lenSquare(); }) == 18 --> Left side `
+6 left42
+6 this51
+3 a10
+4 ex42
+6 left43
+7 right42
+4 ex43
+7 right43
+80 Matrix1x2.hx:236 [OK] ({
+var a=new Matrix1x2({x:3.,y:4.});
+a.distance(); }) == 5
+9 _hx_tmp21
+74 ({
+var a=new Matrix1x2({x:3.,y:4.});
+a.distance(); }) == 5 --> Left side `
+6 left44
+3 int
+3 abs
+3 -7.
+4 ex44
+6 left45
+7 right44
+4 ex45
+7 right45
+49 Matrix1x2.hx:267 [OK] Matrix1x2.sign( -7. ) == -1
+9 _hx_tmp22
+43 Matrix1x2.sign( -7. ) == -1 --> Left side `
+6 left46
+4 ex46
+6 left47
+7 right46
+4 ex47
+7 right47
+47 Matrix1x2.hx:268 [OK] Matrix1x2.sign( 7. ) == 1
+9 _hx_tmp23
+41 Matrix1x2.sign( 7. ) == 1 --> Left side `
+6 left48
+6 this52
+3 a11
+6 this53
+2 b7
+3 dx2
+3 dy2
+5 atan2
+4 ex48
+6 left49
+7 right48
+4 ex49
+7 right49
+97 Matrix1x2.hx:277 [OK] Matrix1x2.thetaDifference( Matrix1x2.east(),        Matrix1x2.zero() ) == 0
+9 _hx_tmp24
+91 Matrix1x2.thetaDifference( Matrix1x2.east(),        Matrix1x2.zero() ) == 0 --> Left side `
+6 left50
+6 this54
+3 a12
+6 this55
+2 b8
+3 dx3
+3 dy3
+4 ex50
+6 left51
+7 right50
+2 PI
+4 ex51
+7 right51
+106 Matrix1x2.hx:278 [OK] Matrix1x2.thetaDifference( Matrix1x2.bottomRight(), Matrix1x2.zero() ) == -Math.PI/4
+9 _hx_tmp25
+100 Matrix1x2.thetaDifference( Matrix1x2.bottomRight(), Matrix1x2.zero() ) == -Math.PI/4 --> Left side `
+6 left52
+6 this56
+3 a13
+6 this57
+2 b9
+3 dx4
+3 dy4
+4 ex52
+6 left53
+7 right52
+4 ex53
+7 right53
+106 Matrix1x2.hx:279 [OK] Matrix1x2.thetaDifference( Matrix1x2.south(),       Matrix1x2.zero() ) == -Math.PI/2
+9 _hx_tmp26
+100 Matrix1x2.thetaDifference( Matrix1x2.south(),       Matrix1x2.zero() ) == -Math.PI/2 --> Left side `
+6 left54
+6 this58
+3 a14
+6 this59
+3 b10
+3 dx5
+3 dy5
+4 ex54
+6 left55
+7 right54
+4 ex55
+7 right55
+108 Matrix1x2.hx:280 [OK] Matrix1x2.thetaDifference( Matrix1x2.bottomLeft(),  Matrix1x2.zero() ) == -3*Math.PI/4
+9 _hx_tmp27
+102 Matrix1x2.thetaDifference( Matrix1x2.bottomLeft(),  Matrix1x2.zero() ) == -3*Math.PI/4 --> Left side `
+6 left56
+6 this60
+3 a15
+6 this61
+3 b11
+3 dx6
+3 dy6
+4 ex56
+6 left57
+7 right56
+4 ex57
+7 right57
+103 Matrix1x2.hx:281 [OK] Matrix1x2.thetaDifference( Matrix1x2.west(),        Matrix1x2.zero() ) == Math.PI
+9 _hx_tmp28
+97 Matrix1x2.thetaDifference( Matrix1x2.west(),        Matrix1x2.zero() ) == Math.PI --> Left side `
+6 left58
+6 this62
+3 a16
+6 this63
+3 b12
+3 dx7
+3 dy7
+4 ex58
+6 left59
+7 right58
+4 ex59
+7 right59
+107 Matrix1x2.hx:282 [OK] Matrix1x2.thetaDifference( Matrix1x2.topLeft(),     Matrix1x2.zero() ) == 3*Math.PI/4
+9 _hx_tmp29
+101 Matrix1x2.thetaDifference( Matrix1x2.topLeft(),     Matrix1x2.zero() ) == 3*Math.PI/4 --> Left side `
+6 left60
+6 this64
+3 a17
+6 this65
+3 b13
+3 dx8
+3 dy8
+4 ex60
+6 left61
+7 right60
+4 ex61
+7 right61
+105 Matrix1x2.hx:283 [OK] Matrix1x2.thetaDifference( Matrix1x2.north(),       Matrix1x2.zero() ) == Math.PI/2
+9 _hx_tmp30
+99 Matrix1x2.thetaDifference( Matrix1x2.north(),       Matrix1x2.zero() ) == Math.PI/2 --> Left side `
+6 left62
+6 this66
+3 a18
+6 this67
+3 b14
+3 dx9
+3 dy9
+4 ex62
+6 left63
+7 right62
+4 ex63
+7 right63
+105 Matrix1x2.hx:284 [OK] Matrix1x2.thetaDifference( Matrix1x2.topRight(),    Matrix1x2.zero() ) == Math.PI/4
+9 _hx_tmp31
+99 Matrix1x2.thetaDifference( Matrix1x2.topRight(),    Matrix1x2.zero() ) == Math.PI/4 --> Left side `
+6 left64
+6 this68
+3 a19
+2 v1
+6 this69
+3 a20
+6 this70
+3 b15
+6 this71
+2 c1
+5 small
+12 0.0000000001
+4 minx
+4 maxx
+4 miny
+4 maxy
+4 ex64
+6 left65
+7 right64
+4 ex65
+7 right65
+141 Matrix1x2.hx:322 [OK] ({ var a = Matrix1x2.topRight()/2;
+var b = Matrix1x2.zero();
+var c = Matrix1x2.topRight();
+a.inRect( b, c ); }) == true
+9 _hx_tmp32
+135 ({ var a = Matrix1x2.topRight()/2;
+var b = Matrix1x2.zero();
+var c = Matrix1x2.topRight();
+a.inRect( b, c ); }) == true --> Left side `
+6 left66
+6 this72
+3 a21
+2 v2
+6 this73
+3 a22
+6 this74
+3 b16
+6 this75
+2 c2
+6 small1
+5 minx1
+5 maxx1
+5 miny1
+5 maxy1
+4 ex66
+6 left67
+7 right66
+4 ex67
+7 right67
+144 Matrix1x2.hx:327 [OK] ({ var a = Matrix1x2.bottomLeft()/2;
+var b = Matrix1x2.zero();
+var c = Matrix1x2.topRight();
+a.inRect( b, c ); }) == false
+9 _hx_tmp33
+138 ({ var a = Matrix1x2.bottomLeft()/2;
+var b = Matrix1x2.zero();
+var c = Matrix1x2.topRight();
+a.inRect( b, c ); }) == false --> Left side `
+6 left68
+6 this76
+3 a23
+2 v3
+6 this77
+3 a24
+6 this78
+3 b17
+6 this79
+2 c3
+6 small2
+5 minx2
+5 maxx2
+5 miny2
+5 maxy2
+4 ex68
+6 left69
+7 right68
+4 ex69
+7 right69
+147 Matrix1x2.hx:332 [OK] ({ var a = Matrix1x2.bottomLeft()/2;
+var b = Matrix1x2.bottomRight();
+var c = Matrix1x2.zero();
+a.inRect( b, c ); }) == false
+9 _hx_tmp34
+141 ({ var a = Matrix1x2.bottomLeft()/2;
+var b = Matrix1x2.bottomRight();
+var c = Matrix1x2.zero();
+a.inRect( b, c ); }) == false --> Left side `
+6 left70
+6 this80
+3 a25
+2 v4
+6 this81
+3 a26
+6 this82
+3 b18
+6 this83
+2 c4
+6 small3
+5 minx3
+5 maxx3
+5 miny3
+5 maxy3
+4 ex70
+6 left71
+7 right70
+4 ex71
+7 right71
+147 Matrix1x2.hx:337 [OK] ({ var a = Matrix1x2.bottomRight()/2;
+var b = Matrix1x2.bottomRight();
+var c = Matrix1x2.zero();
+a.inRect( b, c ); }) == true
+9 _hx_tmp35
+141 ({ var a = Matrix1x2.bottomRight()/2;
+var b = Matrix1x2.bottomRight();
+var c = Matrix1x2.zero();
+a.inRect( b, c ); }) == true --> Left side `
+6 left72
+6 this84
+6 this85
+4 ex72
+6 left73
+7 right72
+4 ex73
+7 right73
+59 Matrix1x2.hx:369 [OK] Matrix1x2.east().theta()        == 0.
+9 _hx_tmp36
+53 Matrix1x2.east().theta()        == 0. --> Left side `
+6 left74
+6 this86
+6 this87
+4 ex74
+6 left75
+7 right74
+4 ex75
+7 right75
+67 Matrix1x2.hx:370 [OK] Matrix1x2.bottomRight().theta() == -Math.PI/4
+9 _hx_tmp37
+61 Matrix1x2.bottomRight().theta() == -Math.PI/4 --> Left side `
+6 left76
+6 this88
+6 this89
+4 ex76
+6 left77
+7 right76
+4 ex77
+7 right77
+67 Matrix1x2.hx:371 [OK] Matrix1x2.south().theta()       == -Math.PI/2
+9 _hx_tmp38
+61 Matrix1x2.south().theta()       == -Math.PI/2 --> Left side `
+6 left78
+6 this90
+6 this91
+4 ex78
+6 left79
+7 right78
+4 ex79
+7 right79
+69 Matrix1x2.hx:372 [OK] Matrix1x2.bottomLeft().theta()  == -3*Math.PI/4
+9 _hx_tmp39
+63 Matrix1x2.bottomLeft().theta()  == -3*Math.PI/4 --> Left side `
+6 left80
+6 this92
+6 this93
+4 ex80
+6 left81
+7 right80
+4 ex81
+7 right81
+64 Matrix1x2.hx:373 [OK] Matrix1x2.west().theta()        == Math.PI
+9 _hx_tmp40
+58 Matrix1x2.west().theta()        == Math.PI --> Left side `
+6 left82
+6 this94
+6 this95
+4 ex82
+6 left83
+7 right82
+4 ex83
+7 right83
+68 Matrix1x2.hx:374 [OK] Matrix1x2.topLeft().theta()     == 3*Math.PI/4
+9 _hx_tmp41
+62 Matrix1x2.topLeft().theta()     == 3*Math.PI/4 --> Left side `
+6 left84
+6 this96
+6 this97
+4 ex84
+6 left85
+7 right84
+4 ex85
+7 right85
+66 Matrix1x2.hx:375 [OK] Matrix1x2.north().theta()       == Math.PI/2
+9 _hx_tmp42
+60 Matrix1x2.north().theta()       == Math.PI/2 --> Left side `
+6 left86
+6 this98
+6 this99
+4 ex86
+6 left87
+7 right86
+4 ex87
+7 right87
+66 Matrix1x2.hx:376 [OK] Matrix1x2.topRight().theta()    == Math.PI/4
+9 _hx_tmp43
+60 Matrix1x2.topRight().theta()    == Math.PI/4 --> Left side `
+6 left88
+7 this100
+3 a27
+7 this101
+9 0.5000001
+3 b19
+5 delta
+7 0.00001
+6 delta1
+4 dx10
+6 delta2
+4 dy10
+4 ex88
+6 left89
+7 right88
+4 ex89
+7 right89
+137 Matrix1x2.hx:385 [OK] ({ var a = new Matrix1x2({x:0.5,y:0.5});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true
+9 _hx_tmp44
+131 ({ var a = new Matrix1x2({x:0.5,y:0.5});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true --> Left side `
+6 left90
+7 this102
+3 a28
+7 this103
+3 b20
+6 delta3
+6 delta4
+4 dx11
+6 delta5
+4 dy11
+4 ex90
+6 left91
+7 right90
+4 ex91
+7 right91
+136 Matrix1x2.hx:396 [OK] ({ var a = new Matrix1x2({x:0.5,y:1.});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true
+9 _hx_tmp45
+130 ({ var a = new Matrix1x2({x:0.5,y:1.});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true --> Left side `
+6 left92
+7 this104
+3 a29
+7 this105
+3 b21
+6 delta6
+6 delta7
+4 dx12
+6 delta8
+4 dy12
+4 ex92
+6 left93
+7 right92
+4 ex93
+7 right93
+136 Matrix1x2.hx:408 [OK] ({ var a = new Matrix1x2({x:1.,y:0.5});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true
+9 _hx_tmp46
+130 ({ var a = new Matrix1x2({x:1.,y:0.5});
+var b = new Matrix1x2({x:0.5000001,y:0.5000001});
+a.close( b ); }) == true --> Left side `
+6 left94
+7 this106
+3 a30
+5 omega
+7 this107
+3 a31
+2 v5
+7 this108
+5 pivot
+2 px
+2 py
+3 px2
+3 cos
+3 sin
+7 this109
+3 b22
+7 this110
+3 b23
+6 delta9
+7 delta10
+4 dx13
+7 delta11
+4 dy13
+4 ex94
+6 left95
+7 right94
+4 ex95
+7 right95
+155 Matrix1x2.hx:420 [OK] ({ var a = Matrix1x2.topRight();
+var b = a.pivotAround( Math.PI/2, Matrix1x2.topRight()/2 );
+b.close( Matrix1x2.north() ); }) == true
+9 _hx_tmp47
+149 ({ var a = Matrix1x2.topRight();
+var b = a.pivotAround( Math.PI/2, Matrix1x2.topRight()/2 );
+b.close( Matrix1x2.north() ); }) == true --> Left side `
+6 left96
+6 left97
+12 fromArrayPos
+7 this111
+4 ex96
+6 left98
+7 right96
+4 ex97
+7 right97
+116 Matrix1x2.hx:449 [OK] Equal.equals( Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1), new Matrix1x2({x:1.,y:2.}) ) == true
+9 _hx_tmp48
+110 Equal.equals( Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1), new Matrix1x2({x:1.,y:2.}) ) == true --> Left side `
+6 left99
+7 this112
+3 a32
+3 arr
+4 ex98
+7 left100
+7 right98
+4 ex99
+7 right99
+131 Matrix1x2.hx:458 [OK] ({ var a = new Matrix1x2({x:5.,y:6.});
+var arr = [ 0., 1., 2. ];
+a.toArrayPos( arr, 1 ); }) == [ 0., 5., 6. ]
+9 _hx_tmp49
+125 ({ var a = new Matrix1x2({x:5.,y:6.});
+var arr = [ 0., 1., 2. ];
+a.toArrayPos( arr, 1 ); }) == [ 0., 5., 6. ] --> Left side `
+6 _gthis
+4 name
+7 execute
+11 getResolved
+4 main
+6 runner
+7 addCase
+6 create
+3 run
+4 _new
+1 m
+4 zero
+4 unit
+9 magnitude
+13 get_magnitude
+4 this
+4 sqrt
+13 set_magnitude
+13 currentLength
+3 mul
+7 topLeft
+8 topRight
+10 bottomLeft
+11 bottomRight
+5 north
+5 south
+4 west
+4 east
+3 add
+8 subtract
+3 dot
+13 scaleMultiply
+6 divide
+5 equal
+8 notEqual
+4 perp
+21 distanceBetweenSquare
+15 distanceBetween
+4 span
+9 normalize
+9 lenSquare
+8 distance
+6 isLeft
+12 triangleArea
+4 sign
+1 n
+15 thetaDifference
+5 inTri
+7 planeAB
+7 planeBC
+7 planeCA
+6 inTri2
+3 v0x
+3 v0y
+3 v1x
+3 v1y
+3 v2x
+3 v2y
+5 dot00
+5 dot01
+5 dot02
+5 dot11
+5 dot12
+8 invDenom
+1 u
+6 inRect
+6 convex
+5 cross
+5 theta
+5 close
+6 xClose
+6 yClose
+11 pivotAround
+8 toTpoint
+6 toVec3
+1 z
+8 fromVec3
+3 pos
+10 toArrayPos
+9 CFunction
+6 Module
+7 FilePos
+1 s
+4 file
+4 line
+6 column
+6 Method
+9 classname
+6 method
+13 LocalFunction
+20 __hxcpp_mutex_create
+7 acquire
+21 __hxcpp_mutex_acquire
+7 release
+21 __hxcpp_mutex_release
+1 l
+19 __hxcpp_lock_create
+4 wait
+7 timeout
+17 __hxcpp_lock_wait
+9 sleepLock
+5 mutex
+7 pending
+11 threadCount
+13 processEvents
+1 f
+5 shift
+4 time
+4 tick
+9 hasEvents
+8 nextTick
+1 p
+10 isBlocking
+8 priority
+7 nextRun
+4 prev
+5 delay
+1 t
+12 __time_stamp
+4 stop
+22 Event function is null
+4 head
+10 sortEvents
+4 list
+6 insize
+7 nmerges
+5 psize
+5 qsize
+1 q
+4 tail
+3 now
+3 1e9
+2 wt
+7 time_ms
+2 dt
+5 event
+1 h
+4 item
+6 remove
+8 iterator
+3 val
+7 getMeta
+8 __meta__
+9 getFields
+4 meta
+5 stack
+14 exceptionStack
+4 elem
+5 elem2
+10 startsWith
+10 hx/doctest
+5 slice
+11 hx.doctest.
+7 method1
+10 classname1
+2   
+4 join
+5 split
+8 toString
+1 
+
+3 
+  
+5 match
+11 isEnumValue
+8 leftEnum
+9 rightEnum
+6 enumEq
+8 isObject
+7 clsLeft
+8 getClass
+11 clsLeftName
+12 getClassName
+8 clsRight
+12 clsRightName
+13 clsLeftFields
+4 sort
+14 clsRightFields
+2 x1
+2 y1
+9 fieldName
+14 substringAfter
+3 str
+3 sep
+7 foundAt
+7 indexOf
+9 substring
+18 substringAfterLast
+11 lastIndexOf
+15 substringBefore
+19 substringBeforeLast
+13 walkDirectory
+9 directory
+11 filePattern
+6 onFile
+5 files
+3 map
+13 readDirectory
+1 /
+11 isDirectory
+6 concat
+2 s1
+7 replace
+1 \
+7 results
+13 processResult
+4 cond
+10 getMessage
+10 Assert at 
+1 :
+75  out of context. Most likely you are trying to assert after a test timeout.
+7 Success
+7 Failure
+6 isTrue
+3 msg
+13 expected true
+7 isFalse
+5 value
+14 expected false
+24 expected null but it is 
+7 notNull
+17 expected not null
+4 type
+14 expected type 
+12 typeToString
+11  but it is 
+9 notEquals
+8 expected
+9 expected 
+16  and test value 
+20  should be different
+7 pattern
+10 the value 
+36  does not match the provided pattern
+11 floatEquals
+6 approx
+12 _floatEquals
+8 isFinite
+4 1e-5
+11 getTypeName
+6 `null`
+3 Int
+5 Float
+4 Bool
+6 Object
+8 function
+11 getEnumName
+9 `Unknown`
+10 isIterable
+8 isAnonym
+17 getInstanceFields
+3 has
+10 isIterator
+6 sameAs
+6 status
+9 texpected
+6 tvalue
+13 expectedValue
+11 actualValue
+5 error
+4 path
+11  for field 
+9 recursive
+7 tfields
+1 .
+8 hasField
+15 expected field 
+19  does not exist in 
+38 the tested object has extra field(s) (
+2 , 
+35 ) not included in the expected ones
+32 expected Iterable but it is not 
+7 evalues
+5 array
+7 vvalues
+33  values in Iterator but they are 
+5 path1
+9 iterator[
+1 ]
+1 [
+32 expected Iterator but it is not 
+8 evalues1
+8 vvalues1
+33  values in Iterable but they are 
+5 path2
+2 i1
+9 iterable[
+32 expected same function reference
+9 cexpected
+6 cvalue
+12 cpp::Pointer
+21 expected instance of 
+17 expected string '
+13 ' but it is '
+1 '
+23  elements but they are 
+5 path3
+2 i2
+6 array[
+27 expected array element at [
+10 ] to have 
+6 ebytes
+6 vbytes
+3 _g5
+4 _g14
+2 i3
+14 expected byte 
+4 vmap
+3 _g6
+1 k
+2 k1
+4 _g15
+2 k2
+2 k3
+5 vkeys
+19  keys but they are 
+5 path4
+5 hash[
+8 evalues2
+8 vvalues2
+5 path5
+3 _g7
+4 _g16
+2 i4
+8 evalues3
+8 vvalues3
+5 path6
+3 _g8
+4 _g17
+2 i5
+7 fields1
+5 path7
+3 _g9
+6 field1
+2 e1
+2 e2
+9 eexpected
+6 evalue
+7 getEnum
+24 expected enumeration of 
+26 expected enum constructor 
+15 enumConstructor
+7 eparams
+7 vparams
+5 path8
+4 _g10
+4 _g18
+2 i6
+5 enum[
+20 expected enum param 
+6  with 
+35 Unable to compare two unknown types
+1 "
+2 \"
+4 same
+6 raises
+12 msgNotThrown
+12 msgWrongType
+7 Dynamic
+18 exception of type 
+11  not raised
+23 expected throw of type 
+6 allows
+13 possibilities
+6 value 
+41  not found in the expected possibilities 
+8 contains
+6 values
+7 values 
+16  do not contain 
+11 notContains
+12  do contain 
+14 stringContains
+18  does not contain 
+14 stringSequence
+8 sequence
+19 null argument value
+2 p2
+10 expected '
+8 ' after 
+3 cut
+6 substr
+3 ...
+2  '
+6  begin
+13 pass expected
+16 failure expected
+4 warn
+7 Warning
+11 createAsync
+11 createEvent
+2 _t
+3 _t1
+2 e3
+2 e4
+2 e5
+30 <unable to retrieve type name>
+5 Error
+10 SetupError
+13 TeardownError
+12 TimeoutError
+12 missedAsyncs
+10 AsyncError
+6 Ignore
+6 reason
+9 timeoutMs
+9 callbacks
+8 timedOut
+8 resolved
+9 startTime
+5 timer
+16 setTimedOutState
+4 done
+17 Cannot done() at 
+28  because async is timed out.
+31  because async is done already.
+2 cb
+10 setTimeout
+18 Cannot setTimeout(
+5 ) at 
+23  because async is done.
+6 delay1
+5 round
+4 then
+11 utest.Async
+14 utest/Async.hx
+16 resolvedInstance
+15 StopPropagation
+8 handlers
+6 splice
+5 clear
+8 dispatch
+4 copy
+3 exc
+7 fixture
+8 wasBound
+8 finished
+24 fixture argument is null
+10 asyncStack
+8 onTested
+9 onTimeout
+10 onComplete
+10 onPrecheck
+12 ignoringInfo
+8 precheck
+14 executeFinally
+6 isSync
+14 expectingAsync
+20 executeFixtureMethod
+13 executeMethod
+5 setup
+18 executeAsyncMethod
+10 setupAsync
+11 checkTested
+10 expiration
+6 tested
+9 newExpire
+11 bindHandler
+8 addAsync
+8 addEvent
+13 unbindHandler
+2 f1
+2 t1
+7 handler
+31 async function already executed
+22 event already executed
+10 callMethod
+6 target
+13 no assertions
+9 completed
+16 completedFinally
+8 complete
+8 teardown
+13 teardownAsync
+4 pops
+3 pop
+7 isITest
+43 Invalid fixture type for utest.ITestHandler
+8 testCase
+4 test
+28 Fixture is missing test data
+9 testAsync
+8 runSetup
+11 setupMethod
+10 checkSetup
+13 Setup timeout
+7 runTest
+11 runTeardown
+9 checkTest
+21 Unexpected test state
+14 teardownMethod
+13 checkTeardown
+16 Teardown timeout
+108  is not allowed in tests extending utest.ITest. Add `async:utest.Async` argument to the test method instead.
+21 Assert.createAsync() 
+21 Assert.createEvent() 
+10 NotIgnored
+7 Ignored
+9 isIgnored
+12 ignoreReason
+13 get_isIgnored
+16 get_ignoreReason
+16 executedFixtures
+13 globalPattern
+13 iTestFixtures
+8 fixtures
+10 onProgress
+7 onStart
+11 onTestStart
+14 onTestComplete
+10 envPattern
+6 prefix
+8 addITest
+10 addCaseOld
+6 exists
+31 Cannot add the same test twice.
+17 isTestFixtureName
+4 spec
+6 ofData
+10 addFixture
+3 set
+10 setupClass
+13 teardownClass
+13 getSetupClass
+16 getTeardownClass
+38 can't add a null object as a test case
+8 isMethod
+8 prefixes
+10 getFixture
+5 index
+11 iTestRunner
+17 waitForCompletion
+7 runNext
+15 finishedHandler
+10 runFixture
+12 testComplete
+6 result
+6 totals
+9 ofHandler
+5 cases
+11 currentCase
+19 currentCaseFixtures
+8 runCases
+4 data
+11 setupFailed
+19 setupClass failed: 
+11 runFixtures
+18 setupClass timeout
+11 assertation
+18 ofFailedSetupClass
+14 teardownFailed
+22 tearDownClass failed: 
+21 teardownClass timeout
+21 ofFailedTeardownClass
+10 getIgnored
+11 checkMethod
+3 arg
+10  function 
+25  is not a field of target
+18  is not a function
+5 metas
+17 metasForTestMetas
+11 getProperty
+11 ignoredArgs
+13 ignoredReason
+8 getSetup
+11 getTeardown
+4 pack
+3 cls
+12 assertations
+5 allOk
+7 _g_head
+1 r
+21 displaySuccessResults
+17 headerDisplayMode
+6 report
+30 ShowSuccessResultsWithNoErrors
+13 displayHeader
+21 ShowHeaderWithResults
+9 setupName
+12 teardownName
+8 hasSetup
+11 hasTeardown
+7 methods
+5 stats
+28 invalid duplicated fixture: 
+4 wire
+11 methodNames
+18 errorsHavePriority
+5 names
+5 name1
+2 me
+2 as
+2 bs
+9 hasErrors
+6 errors
+7 compare
+11 hasFailures
+8 failures
+11 hasWarnings
+8 warnings
+12 hasTestError
+13 hasSetupError
+16 hasTeardownError
+15 hasTimeoutError
+13 hasAsyncError
+12 addSuccesses
+11 addFailures
+9 addErrors
+11 addWarnings
+10 addIgnores
+16 AlwaysShowHeader
+15 NeverShowHeader
+24 AlwaysShowSuccessResults
+23 NeverShowSuccessResults
+10 setHandler
+11 packageName
+7 isEmpty
+7 classes
+8 packages
+9 addResult
+14 flattenPackage
+18 getOrCreatePackage
+16 getOrCreateClass
+3 fix
+13 createFixture
+8 addClass
+10 addPackage
+13 existsPackage
+11 existsClass
+10 getPackage
+10 classNames
+12 packageNames
+12 assertation1
+4 flat
+3 ref
+5 parts
+4 part
+9 hasHeader
+4 isOk
+10 skipResult
+9 hasOutput
+23 runner argument is null
+5 start
+8 progress
+4 root
+13 checkNonITest
+5 first
+5 total
+7 baseMsg
+98 implement utest.ITest. Non-ITest tests are deprecated. Implement utest.ITest or extend utest.Test.
+9  doesn't 
+19  and 1 other don't 
+5  and 
+14  others don't 
+5 trace
+32 utest.ui.common.ResultAggregator
+35 utest/ui/common/ResultAggregator.hx
+19 createNoTestsResult
+12 utest.Runner
+18 No tests executed.
+9 successes
+7 ignores
+10 hasIgnores
+14 onAddSuccesses
+13 onAddFailures
+11 onAddErrors
+13 onAddWarnings
+12 onAddIgnores
+3 sum
+5 other
+9 dependant
+6 unwire
+13 outputHandler
+10 aggregator
+7 newline
+6 indent
+7 indents
+9 dumpStack
+7  utest.
+9 addHeader
+3 buf
+3 end
+15 
+assertations: 
+7 charBuf
+5 flush
+11 successes: 
+2 x2
+8 errors: 
+2 x3
+10 failures: 
+2 x4
+10 warnings: 
+2 x5
+16 execution time: 
+2 x6
+2 x7
+9 results: 
+28 ALL TESTS OK (success: true)
+36 SOME TESTS FAILURES (success: false)
+2 x8
+10 getResults
+5 pname
+5 cname
+5 mname
+2 : 
+3 OK 
+6 ERROR 
+8 FAILURE 
+8 WARNING 
+8 messages
+1 F
+9 messages1
+6 line: 
+1 E
+9 messages2
+9 messages3
+9 messages4
+1 S
+9 messages5
+9 messages6
+9 messages7
+2 s2
+1 T
+9 messages8
+9 messages9
+10 messages10
+2 s3
+1 O
+10 messages11
+20 missed async calls: 
+10 messages12
+2 s4
+1 A
+10 messages13
+10 messages14
+10 messages15
+4 msg1
+1 W
+10 messages16
+1 I
+10 messages17
+13 With reason: 
+4 exit
+8 _handler
+6 _trace
+25 utest.ui.text.PrintReport
+28 utest/ui/text/PrintReport.hx
+6 _print
+5 print
+10 orResolved
+5 async
+84
+0 
+11 IntIterator
+3 int
+4 void
+4 bool
+9 ValueType
+5 Class
+12 equals.Equal
+7 Dynamic
+12 hx::EnumBase
+4 Type
+4 Math
+5 Float
+7 Reflect
+3 Std
+5 Array
+9 Array.Any
+9 haxe.IMap
+4 Date
+13 haxe.io.Bytes
+12 Array.String
+6 String
+11 utest.ITest
+10 utest.Test
+12 Array.Object
+13 geom.GeomTest
+21 geom.structure.Mat1x2
+32 hx.doctest.internal.DocTestUtils
+12 utest.Assert
+31 geom._Matrix1x2.Matrix1x2_Impl_
+11 Array.Float
+11 utest.Async
+12 utest.Runner
+15 utest.ui.Report
+14 haxe.StackItem
+16 sys.thread.Mutex
+15 sys.thread.Lock
+15 haxe.EntryPoint
+13 haxe.MainLoop
+14 haxe.MainEvent
+10 haxe.Timer
+12 haxe.ds.List
+22 haxe.ds._List.ListNode
+4 null
+26 haxe.ds._List.ListIterator
+14 haxe.rtti.Meta
+12 .cpp.Variant
+14 haxe.CallStack
+11 StringTools
+4 EReg
+14 sys.FileSystem
+17 utest.Assertation
+6 Lambda
+19 Array.unsigned char
+32 utest._Dispatcher.EventException
+16 utest.Dispatcher
+14 utest.Notifier
+17 utest.TestHandler
+17 utest.TestFixture
+10 Array.bool
+18 utest.ITestHandler
+42 utest._IgnoredFixture.IgnoredFixture_Impl_
+17 haxe.ds.ObjectMap
+28 utest.utils.AccessoriesUtils
+25 utest._Runner.ITestRunner
+16 utest.TestResult
+19 utest.AccessoryName
+23 utest.ui.common.IReport
+41 utest.ui.common.SuccessResultsDisplayMode
+33 utest.ui.common.HeaderDisplayMode
+25 utest.ui.text.PrintReport
+27 utest.ui.common.ClassResult
+17 haxe.ds.StringMap
+27 utest.ui.common.ResultStats
+29 utest.ui.common.FixtureResult
+29 utest.ui.common.PackageResult
+27 utest.ui.common.ReportTools
+32 utest.ui.common.ResultAggregator
+8 haxe.Log
+29 utest.ui.text.PlainTextReport
+9 StringBuf
+3 Sys
+7 cpp.Lib
+22 utest.utils.AsyncUtils
+48
+D     ş²)  ş³)  	ş²)ş³) EE   EE      	/o    	/$I	   	 
+    D    şÕ8  	j	 
+şÕ89 	/=	/</<  şØ8  	j	 
+şØ89	/=	/</<   şÛ8  şÜ8  	jşÛ8şÜ8	/=tşÛ8şÜ8	/<	*,ş9 
+şÛ86 	 ş99	İşÛ8	/İşÜ8	/<9 999	/jşÛ8şÜ89	 9	/şÛ8şÜ89	*,ş9 5 ş9	şÛ82	*,ş9 İşÛ8*,ş9 İşÜ8kş9ş9	/<	*, ş9 9 *,!ş9 ş93oş9ş9	*,"ş9 $ş9)"ş9ş9"ş9ş9	/</=şÛ82	*,#ş9 İşÛ8*,$ş9 İşÜ8*,%ş9  	*,&şJ ' ş93B şJ	*,(ş9  şJ)ş9ş9*,*ş9 ş9*,+ş9  	*,,şJ ' ş93B şJ	*,-ş9  şJ)ş9ş9*,.ş9 ş9)ş9ş9	/<	*,/ş9 9 3oş9ş9	*,0ş9 "ş9ş9#ş9)1ş9ş91ş9ş9	/</=şÛ82	*,2şJ 3 İşÛ8/jşJ3 İşÜ8şÛ82	/İşÛ8İşÜ89	*,4ş"9 5 ş9*,5şJ 
+6şÛ8kşJ
+6şÜ8	/<*,7ş#9 
+8şÛ8*,9ş$9 
+8şÜ8/ş#9ş$9	*,:ş(9 9 *,;ş)9 <şÛ83oş(9ş)9	*,=ş%9 "ş)9ş(9#ş(9*,>ş&9 =şÛ8ş%9*,?ş'9 =şÜ8ş%9ş&9	*,@ş"J ş&9kş"Jş'9	/<)ş&9ş'9	/</=C   D    	   A  	*,BşI> 1CD 1 /şI>D    	   E  	2	*+Fş+9 7	*,Gş79 -:H:Hş+9ş79Iş89 	*,Jş%J e;KLş89ş+9eş%JM *+Nş_9 7	*,Oşc9 -:H:Hş_9şc9Pşd9 	*,Qş(J e;KLşd9ş_9eş(JM Rş+9ş_9	S;T1UVWX9	;Y; ; 	*,2ş.J ee;ZLş+9;[\eeş.JLş_9;]1UVWX9	;Y; ; 	*+^ş|9 7	*,_ş„9 -:`:`ş|9ş„9aş…9 	*,bş2J e;KLş…9ş|9eş2JM *+cş†9 7	*,dşŠ9 -:`:`ş†9şŠ9eş‹9 	*,fş5J e;KLş‹9ş†9eş5JM Rş|9ş†9	S;g1UVWX9;Y; ; 	*,5ş;J ee;hLş|9;[\eeş;JLş†9;]1UVWX9;Y; ; 	*+işŒ9 7	*,jş”9 -:k:`şŒ9ş”9lş•9 	*,mş?J e;KLş•9şŒ9eş?JM *+nş–9 7	*,oşš9 -:k:`ş–9şš9pş›9 	*,qşBJ e;KLş›9ş–9eşBJM RşŒ9ş–9	S;r1UVWX9-;Y; ; 	*,@şHJ ee;sLşŒ9;[\eeşHJLş–9;]1UVWX9-;Y; ; 	*+tşœ9 7	*,uş¤9 -:`:`şœ9ş¤9vş¥9 	*,wşLJ e;KLş¥9şœ9eşLJM *+xş¦9 7	*,yşª9 -:`:`ş¦9şª9zş«9 	*,{şOJ e;KLş«9ş¦9eşOJM Rşœ9ş¦9	S;|1UVWX96;Y; ; 	*,}şUJ ee;~Lşœ9;[\eeşUJLş¦9;]1UVWX96;Y; ; 	*+ş¬9 7	*,€ş´9 -:k:kş¬9ş´9şµ9 	*,‚şYJ e;KLşµ9ş¬9eşYJM *+ƒş¶9 7	*,„şº9 -:k:kş¶9şº9…ş»9 	*,†ş\J e;KLş»9ş¶9eş\JM Rş¬9ş¶9	S;‡1UVWX9?;Y; ; 	*,ˆşbJ ee;‰Lş¬9;[\eeşbJLş¶9;]1UVWX9?;Y; ; 	*+Šş¼9 7	*,‹şÄ9 -:`:kş¼9şÄ9ŒşÅ9 	*,şfJ e;KLşÅ9ş¼9eşfJM *+şÆ9 7	*,şÊ9 -:`:kşÆ9şÊ9şË9 	*,‘şiJ e;KLşË9şÆ9eşiJM Rş¼9şÆ9	S;’1UVWX9H;Y; ; 	*,“şoJ ee;”Lş¼9;[\eeşoJLşÆ9;]1UVWX9H;Y; ; 	*+•şÌ9 7	*,–şÔ9 -:H:`şÌ9şÔ9—şÕ9 	*,˜şsJ e;KLşÕ9şÌ9eşsJM *+™şÖ9 7	*,šşÚ9 -:H:`şÖ9şÚ9›şÛ9 	*,œşvJ e;KLşÛ9şÖ9eşvJM RşÌ9şÖ9	S;1UVWX9Q;Y; ; 	*,ş|J ee;ŸLşÌ9;[\eeş|JLşÖ9;]1UVWX9Q;Y; ; 	*+ şÜ9 7	*,¡şä9 -:H:kşÜ9şä9¢şå9 	*,£ş€J e;KLşå9şÜ9eş€JM *+¤şæ9 7	*,¥şê9 -:H:kşæ9şê9¦şë9 	*,§şƒJ e;KLşë9şæ9eşƒJM RşÜ9şæ9	S;¨1UVWX9Z;Y; ; 	*,©ş‰J ee;ªLşÜ9;[\eeş‰JLşæ9;]1UVWX9Z;Y; ; 	*+«şì9 7	*,¬şô9 -:k:Hşì9şô9­şõ9 	*,®şJ e;KLşõ9şì9eşJM *+¯şö9 7	*,°şú9 -:k:Hşö9şú9±şû9 	*,²şJ e;KLşû9şö9eşJM Rşì9şö9	S;³1UVWX9c;Y; ; 	*,´ş–J ee;µLşì9;[\eeş–JLşö9;]1UVWX9c;Y; ; 	*+¶şü9 7	*,·ş: -:`:Hşü9ş:¸ş: 	*,¹şšJ e;KLş:şü9eşšJM *+ºş: 7	*,»ş
+: -:`:Hş:ş
+:¼ş: 	*,½şJ e;KLş:ş:eşJM Rşü9ş:	S;¾1UVWX9l;Y; ; 	*,¿ş£J ee;ÀLşü9;[\eeş£JLş:;]1UVWX9l;Y; ; 	*+Áş: 7	*,Âş: -:`:`*,ş: ş:*,Ãş: -:`:`*,ş: ş:*,Äş : -eÅş:Åş:eÆş:Æş:ş:ş :Çş!: 	*,Èş©J e;KLş!:ş:eş©JM *+Éş": 7	*,Êş&: -:Ë:Ëş":ş&:Ìş': 	*,Íş¬J e;KLş':ş":eş¬JM Rş:ş":	S;Î1UVWX9u;Y; ; 	*,Ïş²J ee;ĞLş:;[\eeş²JLş":;]1UVWX9u;Y; ; 	*+Ñş(: 7	*,Òş,: -:`:`*,ş9: ş,:*,Óş0: -:`:`*,ş:: ş0:*,Ôş<: -hÅş9:Åş::hÆş9:Æş::ş(:ş<:Õş=: 	*,Öş¸J e;KLş=:ş(:eş¸JM *+×ş>: 7	*,ØşB: -:H:Hş>:şB:ÙşC: 	*,Úş»J e;KLşC:ş>:eş»JM Rş(:ş>:	S;Û1UVWX9~;Y; ; 	*,ÜşÁJ ee;İLş(:;[\eeşÁJLş>:;]1UVWX9~;Y; ; 	*+ŞşD: 7	*,ßşH: -:`:`*,#ş\: şH:*,àş_: -fÅş\:İ9fÆş\:İ9şD:ş_:áş`: 	*,âşÇJ e;KLş`:şD:eşÇJM *+ãşa: 7	*,äşe: -:Ë:Ëşa:şe:åşf: 	*,æşÊJ e;KLşf:şa:eşÊJM RşD:şa:	S;ç1UVWX9Œ;Y; ; 	*,èşĞJ ee;éLşD:;[\eeşĞJLşa:;]1UVWX9Œ;Y; ; 	*+êşg: 7	*,şl: İ9*,ëşk: -:`:`*, şm: şk:*,ìşs: -fÅşm:şl:fÆşm:şl:şg:şs:íşt: 	*,îşÖJ e;KLşt:şg:eşÖJM *+ïşu: 7	*,ğşy: -:Ë:Ëşu:şy:ñşz: 	*,òşÙJ e;KLşz:şu:eşÙJM Rşg:şu:	S;ó1UVWX9;Y; ; 	*,ôşßJ ee;õLşg:;[\eeşßJLşu:;]1UVWX9;Y; ; 	*+öş{: 7	*,÷ş: -:`:`*,øşŠ: ş:*,ùşŒ: :ú*,ûş: -fÅşŠ:şŒ:fÆşŠ:şŒ:*,üş’: -:ú:úş{:ş:ş’:ış“: 	*,şş şçJ e;KLş“:ş{:eşçJM *+şÿ ş”: 7	ş”:=ş ş•: 	*,şşêJ e;KLş•:ş”:eşêJM Rş{:ş”:	S;ş1UVWX9–;Y; ; 	*,şşğJ ee;şLş{:;[\eeşğJLş”:;]1UVWX9–;Y; ; 	*+şş–: 7	*,şşš: -:ş:ş*,ş	ş£: şš:*,ş
+ş: -:ş:ş*,$ş¤: ş:ş–:sjÅş£:Åş¤:jÆş£:Æş¤:şş¥: 	*,şşõJ e;KLş¥:ş–:eşõJM *+şş¦: 7	ş¦:=şş§: 	*,şşøJ e;KLş§:ş¦:eşøJM Rş–:ş¦:	S;ş1UVWX9Ÿ;Y; ; 	*,şşşJ ee;şLş–:;[\eeşşJLş¦:;]1UVWX9Ÿ;Y; ; 	*+şş¨: 7	*,şş¬: -:ş:ş*,şş¹: ş¬:*,şş°: -:ş:ş*,şşº: ş°:ş¨:)sjÅş¹:Åşº:jÆş¹:Æşº:şş»: 	*,şşK e;KLş»:ş¨:eşKM *+şş¼: 7	ş¼:=şş½: 	*,şşK e;KLş½:ş¼:eşKM Rş¨:ş¼:	S;ş1UVWX9¨;Y; ; 	*,şşK ee;ş Lş¨:;[\eeşKLş¼:;]1UVWX9¨;Y; ; 	*+ş!ş¾: 7		*,ş"şÂ: -:ş#:`*,ş$şÃ: şÂ:*,ş%şÇ: -:ş&:Ë*,ş'şÈ: şÇ:*,ş(şÌ: -:ş):ş**,şÍ: şÌ:*,ş+şÙ: -geÅşÃ:ÅşÈ:İ9geÆşÃ:ÆşÈ:İ9*,ş,şÚ: şÙ:ş¾:şÚ:şÍ:ş-şÛ: 	*,ş.şK e;KLşÛ:ş¾:eşKM *+ş/şÜ: 7	şÜ:=ş0şİ: 	*,ş1şK e;KLşİ:şÜ:eşKM Rş¾:şÜ:	S;ş21UVWX9¶;Y; ; 	*,ş3şK ee;ş4Lş¾:;[\eeşKLşÜ:;]1UVWX9¶;Y; ; 	*+ş5şŞ: 7	*,ş6şâ: -:`:`*,ş7şã: şâ:*,ş8şç: -:ş&:ş*,ş9şè: şç:*,ş:şñ: hÅşã:Åşè:*,ş;şò: hÆşã:Æşè:şŞ:efşñ:şñ:fşò:şò:ş<şó: 	*,ş=ş$K e;KLşó:şŞ:eş$KM *+ş>şô: 7	şô:9ş?şõ: 	*,ş@ş'K e;KLşõ:şô:eş'KM RşŞ:şô:	S;şA1UVWX9À;Y; ; 	*,şBş-K ee;şCLşŞ:;[\eeş-KLşô:;]1UVWX9À;Y; ; 	*+şDşö: 7	*,şEşú: -:`:`*,şFşû: şú:*,şGşÿ: -:ş&:ş*,şHş ; şÿ:*,şIş; hÅşû:Åş ;*,şJş; hÆşû:Æş ;şö:şKefş;ş;fş;ş;:úşLş; 	*,şMş4K e;KLş;şö:eş4KM *+şNş; 7	ş;9şOş; 	*,şPş7K e;KLş;ş;eş7KM Rşö:ş;	S;şQ1UVWX9Ì;Y; ; 	*,şRş=K ee;şSLşö:;[\eeş=KLş;;]1UVWX9Ì;Y; ; 	*+şTş; 7	*,şUş; -:ş#:ş#*,şVş; ş;ş;efÅş;Åş;fÆş;Æş;şWş; 	*,şXşCK e;KLş;ş;eşCKM *+şYş; 7	ş;9şZş; 	*,ş[şFK e;KLş;ş;eşFKM Rş;ş;	S;ş\1UVWX9á;Y; ; 	*,ş]şLK ee;ş^Lş;;[\eeşLKLş;;]1UVWX9á;Y; ; 	*+ş_ş; 7	*,ş`ş#; -:ş#:ş&*,şaş$; ş#;ş;şKefÅş$;Åş$;fÆş$;Æş$;:úşbş,; 	*,şcşSK e;KLş,;ş;eşSKM *+şdş-; 7	ş-;9şeş.; 	*,şfşVK e;KLş.;ş-;eşVKM Rş;ş-;	S;şg1UVWX9ì;Y; ; 	*,şhş\K ee;şiLş;;[\eeş\KLş-;;]1UVWX9ì;Y; ; 	*+şjş/; 7	ş/;şkgşl:şm:şmşnş4; 	*,şoşbK e;KLş4;ş/;eşbKM *+şpş5; 7	ş5;9ÿÿÿÿÿşqş6; 	*,şrşeK e;KLş6;ş5;eşeKM Rş/;ş5;	S;şs1UVWX9ş;Y; ; 	*,ştşkK ee;şuLş/;;[\eeşkKLş5;;]1UVWX9ş;Y; ; 	*+şvş7; 7	ş7;şkgşl:ş:şşwş;; 	*,şxşqK e;KLş;;ş7;eşqKM *+şyş<; 7	ş<;9şzş=; 	*,ş{ştK e;KLş=;ş<;eştKM Rş7;ş<;	S;ş|1UVWX9ş;Y; ; 	*,ş}şzK ee;ş~Lş7;;[\eeşzKLş<;;]1UVWX9ş;Y; ; 	*+şş>; 7	*,ş€şF; -:`:H*,şşM; şF;*,ş‚şJ; -:H:H*,şƒşN; şJ;*,ş„şO; hÅşM;ÅşN;*,ş…şP; hÆşM;ÆşN;ş>;ş†şP;şO;ş‡şQ; 	*,şˆş~K e;KLşQ;ş>;eş~KM *+ş‰şR; 7	şR;9 şŠşS; 	*,ş‹şK e;KLşS;şR;eşKM Rş>;şR;	S;şŒ1UVWX9ş;Y; ; 	*,şş‡K ee;şLş>;;[\eeş‡KLşR;;]1UVWX9ş;Y; ; 	*+şşT; 7	*,şşX; -:`:k*,ş‘ş_; şX;*,ş’ş\; -:H:H*,ş“ş`; ş\;*,ş”şa; hÅş_;Åş`;*,ş•şb; hÆş_;Æş`;şT;ş†şb;şa;ş–şc; 	*,ş—ş‹K e;KLşc;şT;eş‹KM *+ş˜şd; 7	şd;g'ş™İ9şšşe; 	*,ş›şK e;KLşe;şd;eşKM RşT;şd;	S;şœ1UVWX9ş;Y; ; 	*,şş”K ee;şLşT;;[\eeş”KLşd;;]1UVWX9ş;Y; ; 	*+şŸşf; 7	*,ş şj; -:H:k*,ş¡şq; şj;*,ş¢şn; -:H:H*,ş£şr; şn;*,ş¤şs; hÅşq;Åşr;*,ş¥şt; hÆşq;Æşr;şf;ş†şt;şs;ş¦şu; 	*,ş§ş˜K e;KLşu;şf;eş˜KM *+ş¨şv; 7	şv;g'ş™İ9ş©şw; 	*,şªş›K e;KLşw;şv;eş›KM Rşf;şv;	S;ş«1UVWX9ş;Y; ; 	*,ş¬ş¡K ee;ş­Lşf;;[\eeş¡KLşv;;]1UVWX9ş;Y; ; 	*+ş®şx; 7	*,ş¯ş|; -:k:k*,ş°şƒ; ş|;*,ş±ş€; -:H:H*,ş²ş„; ş€;*,ş³ş…; hÅşƒ;Åş„;*,ş´ş†; hÆşƒ;Æş„;şx;ş†ş†;ş…;şµş‡; 	*,ş¶ş¥K e;KLş‡;şx;eş¥KM *+ş·şˆ; 7	şˆ;gfİ9ÿıÿÿÿş™İ9ş¸ş‰; 	*,ş¹ş©K e;KLş‰;şˆ;eş©KM Rşx;şˆ;	S;şº1UVWX9ş;Y; ; 	*,ş»ş¯K ee;ş¼Lşx;;[\eeş¯KLşˆ;;]1UVWX9ş;Y; ; 	*+ş½şŠ; 7	*,ş¾ş; -:k:H*,ş¿ş•; ş;*,şÀş’; -:H:H*,şÁş–; ş’;*,şÂş—; hÅş•;Åş–;*,şÃş˜; hÆş•;Æş–;şŠ;ş†ş˜;ş—;şÄş™; 	*,şÅş³K e;KLş™;şŠ;eş³KM *+şÆşš; 7	şš;ş™şÇş›; 	*,şÈş¶K e;KLş›;şš;eş¶KM RşŠ;şš;	S;şÉ1UVWX9ş;Y; ; 	*,şÊş¼K ee;şËLşŠ;;[\eeş¼KLşš;;]1UVWX9ş;Y; ; 	*+şÌşœ; 7	*,şÍş ; -:k:`*,şÎş§; ş ;*,şÏş¤; -:H:H*,şĞş¨; ş¤;*,şÑş©; hÅş§;Åş¨;*,şÒşª; hÆş§;Æş¨;şœ;ş†şª;ş©;şÓş«; 	*,şÔşÀK e;KLş«;şœ;eşÀKM *+şÕş¬; 7	ş¬;gfİ9ş™İ9şÖş­; 	*,ş×şÄK e;KLş­;ş¬;eşÄKM Rşœ;ş¬;	S;şØ1UVWX9ş;Y; ; 	*,şÙşÊK ee;şÚLşœ;;[\eeşÊKLş¬;;]1UVWX9ş;Y; ; 	*+şÛş®; 7	*,şÜş²; -:H:`*,şİş¹; ş²;*,şŞş¶; -:H:H*,şßşº; ş¶;*,şàş»; hÅş¹;Åşº;*,şáş¼; hÆş¹;Æşº;ş®;ş†ş¼;ş»;şâş½; 	*,şãşÎK e;KLş½;ş®;eşÎKM *+şäş¾; 7	ş¾;gş™İ9şåş¿; 	*,şæşÑK e;KLş¿;ş¾;eşÑKM Rş®;ş¾;	S;şç1UVWX9ş;Y; ; 	*,şèş×K ee;şéLş®;;[\eeş×KLş¾;;]1UVWX9ş;Y; ; 	*+şêşÀ; 7	*,şëşÄ; -:`:`*,şìşË; şÄ;*,şíşÈ; -:H:H*,şîşÌ; şÈ;*,şïşÍ; hÅşË;ÅşÌ;*,şğşÎ; hÆşË;ÆşÌ;şÀ;ş†şÎ;şÍ;şñşÏ; 	*,şòşÛK e;KLşÏ;şÀ;eşÛKM *+şóşĞ; 7	şĞ;gş™İ9şôşÑ; 	*,şõşŞK e;KLşÑ;şĞ;eşŞKM RşÀ;şĞ;	S;şö1UVWX9ş;Y; ; 	*,ş÷şäK ee;şøLşÀ;;[\eeşäKLşĞ;;]1UVWX9ş;Y; ; 	*+şùşÒ; 7	*,şúşÖ; -:`:`*,şûşÙ; şÖ;*,şüşÛ; :ú*,şışİ; -fÅşÙ;şÛ;fÆşÙ;şÛ;*,şşşŞ; şİ;*,şÿşâ; -:H:H*,ş şã; şâ;*,şşç; -:`:`*,şşè; şç;*,şşö; :ş*,şş÷; Åşã;Åşè;*,şşø; Åşã;Åşè;*,şşù; Æşã;Æşè;*,şşú; Æşã;Æşè;şÒ;jş÷;şø;smşù;ÆşŞ;mÆşŞ;şú;jşù;şú;smş÷;ÅşŞ;mÅşŞ;şø;sssmş÷;eÅşŞ;şö;mhÅşŞ;şö;şø;mşù;eÆşŞ;şö;mhÆşŞ;şö;şú;ş	şû; 	*,ş
+şõK e;KLşû;şÒ;eşõKM *+şşü; 7	şü;=şşı; 	*,şşøK e;KLşı;şü;eşøKM RşÒ;şü;	S;ş1UVWX9şB;Y; ; 	*,şşşK ee;şLşÒ;;[\eeşşKLşü;;]1UVWX9şB;Y; ; 	*+şşş; 7	*,şş< -:k:k*,şş< ş<*,şş< :ú*,şş	< -fÅş<ş<fÆş<ş<*,şş
+< ş	<*,şş< -:H:H*,şş< ş<*,şş< -:`:`*,şş< ş<*,şş< :ş*,şş< Åş<Åş<*,şş< Åş<Åş<*,şş< Æş<Æş<*,şş< Æş<Æş<şş;jş<ş<smş<Æş
+<mÆş
+<ş<jş<ş<smş<Åş
+<mÅş
+<ş<sssmş<eÅş
+<ş<mhÅş
+<ş<ş<mş<eÆş
+<ş<mhÆş
+<ş<ş<ş ş< 	*,ş!şL e;KLş<şş;eşLM *+ş"ş < 7	ş <<ş#ş!< 	*,ş$şL e;KLş!<ş <eşLM Rşş;ş <	S;ş%1UVWX9şG;Y; ; 	*,ş&şL ee;ş'Lşş;;[\eeşLLş <;]1UVWX9şG;Y; ; 	*+ş(ş"< 7	*,ş)ş&< -:k:k*,ş*ş)< ş&<*,ş+ş+< :ú*,ş,ş-< -fÅş)<ş+<fÆş)<ş+<*,ş-ş.< ş-<*,ş.ş2< -:`:k*,ş/ş3< ş2<*,ş0ş7< -:H:H*,ş1ş8< ş7<*,ş2ş>< :ş*,ş3ş?< Åş3<Åş8<*,ş4ş@< Åş3<Åş8<*,ş5şA< Æş3<Æş8<*,ş6şB< Æş3<Æş8<ş"<jş?<ş@<smşA<Æş.<mÆş.<şB<jşA<şB<smş?<Åş.<mÅş.<ş@<sssmş?<eÅş.<ş><mhÅş.<ş><ş@<mşA<eÆş.<ş><mhÆş.<ş><şB<ş7şC< 	*,ş8ş)L e;KLşC<ş"<eş)LM *+ş9şD< 7	şD<<ş:şE< 	*,ş;ş,L e;KLşE<şD<eş,LM Rş"<şD<	S;ş<1UVWX9şL;Y; ; 	*,ş=ş2L ee;ş>Lş"<;[\eeş2LLşD<;]1UVWX9şL;Y; ; 	*+ş?şF< 7	*,ş@şJ< -:`:k*,şAşM< şJ<*,şBşO< :ú*,şCşQ< -fÅşM<şO<fÆşM<şO<*,şDşR< şQ<*,şEşV< -:`:k*,şFşW< şV<*,şGş[< -:H:H*,şHş\< ş[<*,şIşb< :ş*,şJşc< ÅşW<Åş\<*,şKşd< ÅşW<Åş\<*,şLşe< ÆşW<Æş\<*,şMşf< ÆşW<Æş\<şF<jşc<şd<smşe<ÆşR<mÆşR<şf<jşe<şf<smşc<ÅşR<mÅşR<şd<sssmşc<eÅşR<şb<mhÅşR<şb<şd<mşe<eÆşR<şb<mhÆşR<şb<şf<şNşg< 	*,şOşCL e;KLşg<şF<eşCLM *+şPşh< 7	şh<=şQşi< 	*,şRşFL e;KLşi<şh<eşFLM RşF<şh<	S;şS1UVWX9şQ;Y; ; 	*,şTşLL ee;şULşF<;[\eeşLLLşh<;]1UVWX9şQ;Y; ; 	*+şVşj< 7	*,şWşn< -:`:H*,şXşr< şn<şj<ş†Æşr<Åşr<şYşs< 	*,şZşPL e;KLşs<şj<eşPLM *+ş[şt< 7	şt<:Hş\şu< 	*,ş]şSL e;KLşu<şt<eşSLM Rşj<şt<	S;ş^1UVWX9şq;Y; ; 	*,ş_şYL ee;ş`Lşj<;[\eeşYLLşt<;]1UVWX9şq;Y; ; 	*+şaşv< 7	*,şbşz< -:`:k*,şcş}< şz<şv<ş†Æş}<Åş}<şdş~< 	*,şeş]L e;KLş~<şv<eş]LM *+şfş< 7	ş<g'ş™İ9şgş€< 	*,şhş`L e;KLş€<ş<eş`LM Rşv<ş<	S;şi1UVWX9şr;Y; ; 	*,şjşfL ee;şkLşv<;[\eeşfLLş<;]1UVWX9şr;Y; ; 	*+şlş< 7	*,şmş…< -:H:k*,şnşˆ< ş…<ş<ş†Æşˆ<Åşˆ<şoş‰< 	*,şpşjL e;KLş‰<ş<eşjLM *+şqşŠ< 7	şŠ<g'ş™İ9şrş‹< 	*,şsşmL e;KLş‹<şŠ<eşmLM Rş<şŠ<	S;şt1UVWX9şs;Y; ; 	*,şuşsL ee;şvLş<;[\eeşsLLşŠ<;]1UVWX9şs;Y; ; 	*+şwşŒ< 7	*,şxş< -:k:k*,şyş“< ş<şŒ<ş†Æş“<Åş“<şzş”< 	*,ş{şwL e;KLş”<şŒ<eşwLM *+ş|ş•< 7	ş•<gfİ9ÿıÿÿÿş™İ9ş}ş–< 	*,ş~ş{L e;KLş–<ş•<eş{LM RşŒ<ş•<	S;ş1UVWX9şt;Y; ; 	*,ş€şL ee;şLşŒ<;[\eeşLLş•<;]1UVWX9şt;Y; ; 	*+ş‚ş—< 7	*,şƒş›< -:k:H*,ş„ş< ş›<ş—<ş†Æş<Åş<ş…şŸ< 	*,ş†ş…L e;KLşŸ<ş—<eş…LM *+ş‡ş < 7	ş <ş™şˆş¡< 	*,ş‰şˆL e;KLş¡<ş <eşˆLM Rş—<ş <	S;şŠ1UVWX9şu;Y; ; 	*,ş‹şL ee;şŒLş—<;[\eeşLLş <;]1UVWX9şu;Y; ; 	*+şş¢< 7	*,şş¦< -:k:`*,şş©< ş¦<ş¢<ş†Æş©<Åş©<şşª< 	*,ş‘ş’L e;KLşª<ş¢<eş’LM *+ş’ş«< 7	ş«<gfİ9ş™İ9ş“ş¬< 	*,ş”ş–L e;KLş¬<ş«<eş–LM Rş¢<ş«<	S;ş•1UVWX9şv;Y; ; 	*,ş–şœL ee;ş—Lş¢<;[\eeşœLLş«<;]1UVWX9şv;Y; ; 	*+ş˜ş­< 7	*,ş™ş±< -:H:`*,şšş´< ş±<ş­<ş†Æş´<Åş´<ş›şµ< 	*,şœş L e;KLşµ<ş­<eş LM *+şş¶< 7	ş¶<gş™İ9şş·< 	*,şŸş£L e;KLş·<ş¶<eş£LM Rş­<ş¶<	S;ş 1UVWX9şw;Y; ; 	*,ş¡ş©L ee;ş¢Lş­<;[\eeş©LLş¶<;]1UVWX9şw;Y; ; 	*+ş£ş¸< 7	*,ş¤ş¼< -:`:`*,ş¥ş¿< ş¼<ş¸<ş†Æş¿<Åş¿<ş¦şÀ< 	*,ş§ş­L e;KLşÀ<ş¸<eş­LM *+ş¨şÁ< 7	şÁ<gş™İ9ş©şÂ< 	*,şªş°L e;KLşÂ<şÁ<eş°LM Rş¸<şÁ<	S;ş«1UVWX9şx;Y; ; 	*,ş¬ş¶L ee;ş­Lş¸<;[\eeş¶LLşÁ<;]1UVWX9şx;Y; ; 	*+ş®şÃ< 7	*,ş¯şÇ< -:ú:ú*,ş°şÈ< şÇ<*,ş±şÌ< -:ş²:ş²*,ş³şÍ< şÌ<*,ş´şé< :şµ*,ş¶şê< :şµ*,ş·şë< hÅşÈ<ÅşÍ<toşë<şê<nşë<'şê<	*,ş¸şì< :şµ*,ş¹şí< hÆşÈ<ÆşÍ<şÃ<toşí<şì<nşí<'şì<	şÃ<<şºşî< 	*,ş»ş½L e;KLşî<şÃ<eş½LM *+ş¼şï< 7	şï<=ş½şğ< 	*,ş¾şÀL e;KLşğ<şï<eşÀLM RşÃ<şï<	S;ş¿1UVWX9ş;Y; ; 	*,şÀşÆL ee;şÁLşÃ<;[\eeşÆLLşï<;]1UVWX9ş;Y; ; 	*+şÂşñ< 7	*,şÃşõ< -:ú:`*,şÄşö< şõ<*,şÅşú< -:ş²:ş²*,şÆşû< şú<*,şÇş = :şµ*,şÈş= :şµ*,şÉş= hÅşö<Åşû<toş=ş=nş='ş=	*,şÊş= :şµ*,şËş= hÆşö<Æşû<şñ<toş=ş=nş='ş=	şñ<<şÌş= 	*,şÍşÍL e;KLş=şñ<eşÍLM *+şÎş= 7	ş==şÏş= 	*,şĞşĞL e;KLş=ş=eşĞLM Rşñ<ş=	S;şÑ1UVWX9şŒ;Y; ; 	*,şÒşÖL ee;şÓLşñ<;[\eeşÖLLş=;]1UVWX9şŒ;Y; ; 	*+şÔş= 7	*,şÕş= -:`:ú*,şÖş= ş=*,ş×ş= -:ş²:ş²*,şØş= ş=*,şÙş= :şµ*,şÚş= :şµ*,şÛş= hÅş=Åş=toş=ş=nş='ş=	*,şÜş= :şµ*,şİş= hÆş=Æş=ş=toş=ş=nş='ş=	ş=<şŞş= 	*,şßşİL e;KLş=ş=eşİLM *+şàş= 7	ş==şáş= 	*,şâşàL e;KLş=ş=eşàLM Rş=ş=	S;şã1UVWX9ş˜;Y; ; 	*,şäşæL ee;şåLş=;[\eeşæLLş=;]1UVWX9ş˜;Y; ; 	*+şæş= 7	*,şçş#= -:`:`*,şèş$= ş#=*,şéş== gş™İ9*,şêş2= -:`:`*,şëş5= ş2=*,şìş7= :ú*,şíş9= -fÅş5=ş7=fÆş5=ş7=*,şîş>= ş9=*,şïş?= hÅş$=Åş>=*,şğş@= hÆş$=Æş>=*,şñşA= hfş?=şòş==fş@=şóş==ş@=efş@=şòş==fş?=şóş==*,şôşC= -eşA=Åş>=eş@=Æş>=*,şõşD= şC=*,şöşH= -:H:`*,ş÷şL= şH=*,şøşM= :şµ*,şùşN= :şµ*,şúşO= hÅşD=ÅşL=toşO=şN=nşO='şN=	*,şûşP= :şµ*,şüşQ= hÆşD=ÆşL=ş=toşQ=şP=nşQ='şP=	ş=<şışR= 	*,şşşùL e;KLşR=ş=eşùLM *+şÿşS= 7	şS==ş şT= 	*,şşüL e;KLşT=şS=eşüLM Rş=şS=	S;ş1UVWX9ş¤;Y; ; 	*,şşM ee;şLş=;[\eeşMLşS=;]1UVWX9ş¤;Y; ; 	*+şşU= 7	*,şşM ş:H:`:Ë9*,şş_= -:`:ËşU=şMş_=ş	ş`= 	*,ş
+şM e;KLş`=şU=eşMM *+şşa= 7	şa==şşb= 	*,şşM e;KLşb=şa=eşMM RşU=şa=	S;ş1UVWX9şÁ;Y; ; 	*,şşM ee;şLşU=;[\eeşMLşa=;]1UVWX9şÁ;Y; ; 	*+şşc= 7	*,şşg= -:ş:ş*,şşh= şg=*,şşi= :H:`:Ë"şi=9Åşh="şi=9Æşh=şc=şi=şşr= 	*,şşM e;KLşr=şc=eşMM *+şşs= 7	şs=:H:ş:şşşt= 	*,şşM e;KLşt=şs=eşMM Rşc=şs=	S;ş1UVWX9şÊ;Y; ; 	*,şşM ee;şLşc=;[\eeşMLşs=;]1UVWX9şÊ;Y; ;   A  	*,şşK>?*,BşJ> A )CşJ>1şş;E 	E şK>/ş  /şJ> ş!  	*,ş"ş*9   -   ş#ş*9- >>>>>>!ş$ş*9>> ş% ş*9D  0 ş&ş' ş'ş,9  	*,Gş-9 ş,9/ş-9 ş(  	*,Gş39 -:H:H/ş39 ş)  	*,Gş€9 -:`:`/ş€9HHş*  ş+ş, Gşó=  	/ş-efÅşó=Åşó=fÆşó=Æşó= ş.ş,  Gşô=  şõ=  	*,ş/şù= ş-efÅşô=Åşô=fÆşô=Æşô=jşù=9 	/İ9 	*,ş0şú= gşõ=şù=ÊÅşô=şú=ÊÆşô=şú=/ş-efÅşô=Åşô=fÆşô=Æşô=/:H ş1  	*,Gş9 -:k:`/ş9 ş2  	*,Gş 9 -:`:`/ş 9 ş3  	*,Gş°9 -:k:k/ş°9 ş4  	*,GşÀ9 -:`:k/şÀ9 ş5  	*,GşĞ9 -:H:`/şĞ9 ş6  	*,Gşà9 -:H:k/şà9 ş7  	*,Gşğ9 -:k:H/şğ9 ş8  	*,Gş : -:`:H/ş : ş9  ş:  ş:  	*,Gş: -eÅş:Åş:eÆş:Æş:/ş: ş:  ş1:  ş2:  	*,Gş6: -hÅş1:Åş2:hÆş1:Æş2:/ş6: ş;  şI:  şJ:  	*,GşN: -fÅşI:ÅşJ:fÆşI:ÆşJ:/şN: ş< ù şT:  ùşU:  	*,GşY: -fÅşT:şU:fÆşT:şU:/şY: ş= ù ş€:  ùş:  	*,şüş…: gİ9ş:*,Gş‡: -fÅş€:ş…:fÆş€:ş…:/ş‡: ş>  şŸ:  ş :  	jÅşŸ:Åş :	/jÆşŸ:Æş :	/</< ş?  ş±:  ş²:  	/)sjÅş±:Åş²:jÆş±:Æş²: ş@ş,  Gş >  ş>  	/hfÅş >Æş>fÆş >Åş> ş,  şÎ:  şÏ:  	*,GşÓ: -geÅşÎ:ÅşÏ:İ9geÆşÎ:ÆşÏ:İ9/şÓ: şAş,  Gşé:  şê:  	*,ş:şë: hÅşé:Åşê:*,ş;şì: hÆşé:Æşê:/efşë:şë:fşì:şì: şBş,  Gş;  ş;  	*,ş:ş; hÅş;Åş;*,ş;ş; hÆş;Æş;/şKefş;ş;fş;ş;:ú şCş,  Gş>  ş>  	*,Oş> -hÅş>Åş>hÆş>Æş>/ş> şDş, Gş>  		*,ş/ş> ş-efÅş>Åş>fÆş>Æş>kş>9 	*,ş0ş> g:`ş>ÊÅş>ş>ÊÆş>ş>*,2şVM efÅş>Åş>fÆş>Æş>/ş-efÅş>Åş>fÆş>Æş> şEş, Gş;  	/efÅş;Åş;fÆş;Æş; şFş, Gş%;  	/şKefÅş%;Åş%;fÆş%;Æş%;:ú şGş,   Gş>  ş>  ş>  	/hfhÅş>Åş>hÆş>Æş>fhÅş>Åş>hÆş>Æş> şH   ş>  ş>  ş>  	/şlghfhÅş>Åş>hÆş>Æş>fhÅş>Åş>hÆş>Æş>:Ë şIşJ şJş0;  	/şkgşlş0;ş0; şK  ş?;  ş@;  	*,ş:şA; hÅş?;Åş@;*,ş;şB; hÆş?;Æş@;/ş†şB;şA; şLş,    Gş>  ş>  ş>  ş >  	*,şMş!> hfhÅş>Åş>hÆş>Æş>fhÅş>Åş>hÆş>Æş>*,şNş"> hfhÅş>Åş>hÆş >Æş>fhÅş >Åş>hÆş>Æş>*,şOş#> hfhÅş >Åş>hÆş>Æş>fhÅş>Åş>hÆş >Æş>*,2ş„M şkgşlş!>ş!>jş„Mşkgşlş">ş">	*,5şŠM şkgşlş">ş">/jşŠMşkgşlş#>ş#>	/</< şPş,    Gş0>  ş1>  ş2>  ş3>  	*,şQş4> hÅş3>Åş1>*,şRş5> hÆş3>Æş1>*,şSş6> hÅş2>Åş1>*,şTş7> hÆş2>Æş1>*,şUş8> hÅş0>Åş1>*,şVş9> hÆş0>Æş1>*,şWş:> efş4>ş4>fş5>ş5>*,şXş;> efş4>ş6>fş5>ş7>*,şYş<> efş4>ş8>fş5>ş9>*,şZş=> efş6>ş6>fş7>ş7>*,ş[ş>> efş6>ş8>fş7>ş9>*,ş\ş?> gİ9hfş:>ş=>fş;>ş;>*,ş]ş@> fhfş=>ş<>fş;>ş>>ş?>*,ùşA> fhfş:>ş>>fş;>ş<>ş?>slş@>9 lşA>9 	/oeş@>şA>9	/</< ş^ş,   Gşé;  şê;  şë;  	*,şşì; :ş*,şşí; Åşê;Åşë;*,şşî; Åşê;Åşë;*,şşï; Æşê;Æşë;*,şşğ; Æşê;Æşë;jşí;şî;	mşï;Æşé;	/mÆşé;şğ;	/<	jşï;şğ;	mşí;Åşé;	/mÅşé;şî;	/<	ssmşí;eÅşé;şì;mhÅşé;şì;şî;mşï;eÆşé;şì;	/mhÆşé;şì;şğ;	/</< ş_   şB>  şC>  şD>  	/lefhÆşB>ÆşC>hÅşD>ÅşC>fhÅşC>ÅşB>hÆşD>ÆşC>9  ş`  şE>  şF>  	/hfÅşE>ÆşF>fÆşE>ÅşF> şaş, Gşo<  	/ş†Æşo<Åşo< şbş,  ş´GşÎ<  şÏ<  ş´şĞ< :şµ	*,ş¶şÙ< :şµ*,ş:şÚ< hÅşÎ<ÅşÏ<toşÚ<şÙ<nşÚ<'şÙ<	*,ş¸şã< :şµ*,ş;şä< hÆşÎ<ÆşÏ<)oşä<şã<	/nşä<'şã<	/=	/</< şcş,  ş´GşÑ<  şÒ<  ş´şÓ< :şµ	*,ş:şÔ< hÅşÑ<ÅşÒ<)oşÔ<şÓ<	/nşÔ<'şÓ<	/=/< şdş,  ş´GşÛ<  şÜ<  ş´şİ< :şµ	*,ş;şŞ< hÆşÛ<ÆşÜ<)oşŞ<şİ<	/nşŞ<'şİ<	/=/< şeş, şé şî Gş%=  şéş&=  şîş'=  	*,şïş(= hÅş%=Åş'=*,şğş)= hÆş%=Æş'=*,şñş*= hfş(=şòş&=fş)=şóş&=ş)=efş)=şòş&=fş(=şóş&=*,Oş.= -eş*=Åş'=eş)=Æş'=/ş.= şfş, GşG>  	/1ÅÆÅşG>ÆşG> şgş, GşH>  	/1ÅÆşhÅşH>ÆşH>:` şiş+ ş+şO:  	*,GşS: -İÅşO:İÆşO:/şS: şş şj şşV=  şjşW=  	*,Gş[= -"şV=şW="şV=eşW=9/ş[= şkş, ş şj Gşj=  şşk=  şjşl=  	"şk=şl=Åşj="şk=eşl=9Æşj=/şk=D   Å Æ Åş.9  Æş/9  	Æ:HÅ:HÅş.9Æş/9 EE Å  EE Æ I"şl şmş'şnşo"şpşqşrşsştşuşvù D#   #  	#ş'şw  EE ş'   şx  	şy#ş'  şz  	ş{#ş'D$   $  	$ş|ş}  EE ş|   ş~şşşe+ 9ÿÿÿÿÿ	/ş€$ş|şe+D%  EE ş$-$ EE ş‚#-# EE şƒ- EF ş„9  ş…  	3=	#şx %ş‚*,ş†ş„+ ş‡ %şƒ#şz %ş‚ş„+	
+ ş„+*,şˆş›+ &ş‰ s)&şŠ j%ş„9 	/İ9ÿÿÿÿÿ/ş›+ ş%  	3=	*,ş‹ş+ %ş… oş+9 	
+nş+9 	$ş~%şş+D'  	 'ş† şŒ ş†şW+  şŒşX+  	'ş='ş†şW+'şşX+'şİ9ÿÿÿÿÿ EE ş†  EE ş'  EE '  EE ş  EF ş  EF ş   ş‘ş’ ş’ş]+  	'şş]+İ9ÿÿÿÿÿeş“ ş]+  ş”  	'ş†	.'ş†>'şİ9ÿÿÿÿÿ'ş	&şƒ'	''ş''	'ş''şD&  EE şƒ' FFş„  şŠ  	*,şŒşœ+ ''&şƒ3şœ+	'şşœ+	/=şœ+'şœ+/< ş9'ş† ş'ş†şU+  şşV+ 9 	şU+	!;ş•*,şY+ ''-'şU+şV+*,ş–şZ+ ''&şƒşZ+	'şşZ+şY+'şY+şZ+&şƒşY+/'şY+ ş—  	*,ş˜ş…+ ''&şƒş…+	.*,ş™ş†+ 9*+şšş‡+ *,ş›şˆ+ 9 *,şœş‰+ 9 *+şŒşŠ+ '*+şş‹+ '*+şŒ+ '*+şş+ '3=	şŠ+ş…+ş…+>ş+>ş‡+9 3şŠ+	#ş‡+ş‹+şŠ+şˆ+9 	*,ş+ 9 *, ş+ ş†+3oş+ş+	*,"ş+ $ş+#şˆ+ş‹+'ş‹+ş‹+	
+ş‰+ş†+3tnşˆ+9 snş‰+9 ş‹+	jşˆ+9 	şŒ+ş‹+ş‹+'ş‹+%ş‰+	ttjş‰+9 ş‹+tn'şşŠ+'şş‹+sj'şşŠ+'şş‹+m'şşŠ+'şş‹+	şŒ+şŠ+şŠ+'şŠ+%şˆ+	şŒ+ş‹+ş‹+'ş‹+%ş‰+ş+	'ş+şŒ+	ş…+şŒ+'şşŒ+ş+ş+şŒ+şŠ+ş‹+'ş+>mş‡+9	
+Êş†+9'şş…+>&şƒş…+ ş‰  	&ş— *,ş’+ ''&şƒ*,şŸş•+ ş“ *,ş~ş–+ :ş 3ş’+	*,ş—+ '''ş’+*,ş¡ş˜+ h'şş’+ş•+to'şş’+9 mş˜+9 	ş–+İ9 'ş†ş’+	 'ş†ş’+	nş–+ş˜+	ş–+ş˜+ş’+ş—+/ş–+D(   (ş¢ ş¢şS+  	*,şş[+((?*,ş£şT+gİşS+İ9şè(ş¤&ş9 	É'ş(ş¤ş[+şT+ (ş%ş[+>'ş‘(ş¤şT+ EE ş¤'   ş”  	(ş¤	'ş” (ş¤(ş¤> ş%  	  ş‘(ş† ş¢ (ş†şQ+ ş¢şR+  	*,ş’ş`+((-(şR+(ş%ş`+ 	(ş” ş`+ şQ+/(ş`+D)   )  	)9  EE ş¥*  EE ş*  EF    ş9ş¦ ş¦şÊ+  	*,ÅşÓ+ **-*şÊ+>)ş¥	)ş¥şÓ+	*)şşÓ+)şşÓ+$)  ş§ù ùş‹2  	*,şşŒ2 *+>*,ş|ş2 **)ş¥3ş2	j*ş¦ş2ş‹2	şŒ2	)ş¥*ş2	*şŒ2*ş2j)şş2	)şşŒ2&)/=şŒ2ş2ş2*ş2/<  ş¨, , 	/,-,)ş¥D*   *ş¦  *ş¦şÍ+  şÎ+ * 	*ş¦şÍ+*şÎ+ EE ş¦  EE * D,   ,ş– *ş–şØ+ * 	,ş–şØ+ EE ş–*     	/,ş–    	*,ş©şÛ+ *ş¦,ş–,ş–*,ş–/şÛ+D-   şªş’ ş’ş%2  	/.ş«ş%2 ş¬ş’ ş’ş$2  	*,ş­ş&2 -şªş$2tş&2<ş&2	/1 	/<ş&2/+>D   M  	*,ş®ş99 /ş¯ *,"ş:9 9ÿÿÿÿÿ	*,ş^9 9 3oş^9ş99	*,ş°ş;9 """ş99ş^9#ş^9#ş:96	 ş;99	*,%şO9 5ş;9	*,şqşS9 5ş;9*,şpşT9 5ş;9*,ş±şU9 ""5 ş;9	0ş²şT9;ş³	ş99ş´ş999 ş:9
+şU9	şU9	j	 şU99	*,şuşX9 5şU9*,ştşY9 5 şU90ş²şY9;şµ	ş99ş´ş999 ş:9
+9	*,ş¶ş\9 5ş;9*,ş·ş]9 5 ş;90ş²ş]9;şµ	ş99ş´ş999 ş:9
+	 /ee;ş¸ş¹şº/ş»ş99;ş¼;ş½;ş¼ RF N Fşe9  Nşf9  	jşe9şf9	/=şf921	/1ş¾İ1şf9Lşe9şe92	/<sşe92şf92	jşe9şf9		*,şh9 9 *, şi9 Aşe93oşh9şi9	*,"şg9 $şh9)R"şe9şg9"şf9şg9	/</=/<sş¿şe9ş¿şf9	*,şÀşj9 şe9*,şÁşk9 şf9/
+şÂşj9şk9sşÃşe9şÃşf9	
+*,şÄşp9 
+şÅşe9*,şÆşq9 şp9>
+şÇşp9*,şÈşr9 
+şÅşf9*,şÉşs9 şr9>
+şÇşr9kşq9şs9	/<*,şÊşt9 <şe9şËşt9Åşu9  Æşv9  	nşu9şv9	/9	jşu9şv9	/9 	/9ÿÿÿÿÿ/9 *,şÌşw9 <şf9şËşw9şÍşx9  şÎşy9  	nşx9şy9	/9	jşx9şy9	/9 	/9ÿÿÿÿÿ/9 Rşt9şw9		*,ş{9 9 3oş{9şt9	*,şÏşz9 "şt9ş{9#ş{9)R=şe9şz9=şf9şz9	/</=/< şĞşÑ şÒ şÑş€=  şÒş=  	*,şÓş‚= şÔş€=ş=>jş‚=9ÿÿÿÿÿ	/; /şÕş€=eş‚=ş=> şÖşÑ şÒ şÑşƒ=  şÒş„=  	*,şÓş…= ş×şƒ=ş„=>jş…=9ÿÿÿÿÿ	/; /şÕşƒ=eş…=ş„=> şØşÑ şÒ şÑş†=  şÒş‡=  	*,şÓşˆ= şÔş†=ş‡=>jşˆ=9ÿÿÿÿÿ	/; /şÕş†=9 şˆ= şÙşÑ şÒ şÑş‰=  şÒşŠ=  	*,şÓş‹= ş×ş‰=şŠ=>jş‹=9ÿÿÿÿÿ	/; /şÕş‰=9 ş‹= şÚşÛ şÜ 1şİ şÛşŒ= şÜş= 1 şİş=  	*,şŞş‘= şß2şàşŒ=şoş=  	/eeşŒ=;şáş=3nş‘=9 	*,şpş’=ş‡ ş‘=2şâ"ş’=9 	ş‘=şãş‘=şß2şà"ş’=9 şäş¢=  	/ee"ş’=9 ;şáş¢=	*,2şãP 0şå"ş’=9 ;şæ;şá"ş’=9 şãP1ş¾ş="ş’=9 	ş="ş’=9 D  EE şç)  şèşé şê şjşéşò3  şêşó3  şjşô3  	şç	!eeee;şëVşô3;şìUşô3;şíşò3	)ş9şç3şîşô3	)ş9şç3şï şó3şô3 şğşé şñşjşéşõ3  şñşö3  şjş÷3  	şç	!eeee;şëVş÷3;şìUş÷3;şíşõ3	)ş9şç3şîş÷3	)ş9şç3şïşö3şö3;şòş÷3 şóşô şñşjşôşı3  şñşş3  şjşÿ3  	şç	!eeee;şëVşÿ3;şìUşÿ3;şíjşı3<	)ş9şç3şîşÿ3	)ş9şç3şïşş3şş3;şõşÿ3 şô şñşjşôş4  şñş4  şjş4  	şç	!eeee;şëVş4;şìUş4;şíş4	)ş9şç3şîş4	)ş9şç3şïş4ş4e;şöşş4ş4 ş÷şô şñşjşôş4  şñş4  şjş4  	şç	!eeee;şëVş4;şìUş4;şíş4	)ş9şç3şîş4	)ş9şç3şïş4ş4;şøş4 şô şù şñşjşôş4  şùş4  şñş4  şjş4  	*,şéş%4 ş4ş4şç	!eeee;şëVş4;şìUş4;şíş%4	)ş9şç3şîş4	*,2şSQ ))şç*+5şUQ ş4	şUQş4	*,@şWQ ee;şúşûş4;şüşUQeşWQşûş4)ş9şSQ3şïşUQş4 şışş şô şñşjşşş(4  şôş)4  şñş*4  şjş+4  	şç	!eeee;şëVş+4;şìUş+4;şíkş(4ş)4	)ş9şç3şîş+4	*,2şbQ ))şç*+5şdQ ş*4	şdQş*4	*,@şgQ ee;şÿşş(4;ş şdQeeşgQşş)4;ş)ş9şbQ3şïşdQş+4 şş şô şñşjşşş14  şôş24  şñş34  şjş44  	şç	!eeee;şëVş44;şìUş44;şíjş14ş24	)ş9şç3şîş44	*,2şrQ ))şç*+5ştQ ş34	ştQş34	*,@şvQ ee;şÿşş14;şüştQeşvQşş24)ş9şrQ3şïştQş44 ş¾ş 1şô şñşjşş:4 1 şôş;4  şñş<4  şjş=4  	*,şéş@4 1ş¾ş:4ş;4şç	!eeee;şëVş=4;şìUş=4;şíş@4	)ş9şç3şîş=4	)ş9şç3şïş<4ş<4ee;şşş;4;şş=4 şşş şô şşñşjşşşC4  şôşD4  şşE4  şñşF4  şjşG4  	*,şéşM4 şşC4şD4şE4şç	!eeee;şëVşG4;şìUşG4;şíşM4	)ş9şç3şîşG4	*,2şQ ))şç*+5şQ şF4	şQşF4	*,@ş’Q ee;şÿşşC4;şüşQeş’QşşD4)ş9şQ3şïşQşG4 şşş şô şşşşH4  şôşI4  şşJ4  	şH4	/şI4	şI4	/<	s)şşH4)şşI4	/jnşH49 nşI49 şJ4	şJ4:ş	/mşlhşI4şH4şJ4 ş
+ù ùşP4  	*,şV4 
+şP46	 	 şV49 	/;ş9	/;ş9	/;ş9	/;ş9	/;ş9	/;ş9	*,şX4 5 şV4/
+şÇşX49	*,şZ4 5 şV4/
+şşZ49	/;ş/+> şù ş ùş[4  şş\4  	*,<ş]4 ş\4<ş[4
+ş
+şÅş[4)4şş]4;ş¨	/</=ş[4;ş¨ şù ş ùş¥4  şş¦4  	*,<ş§4 ş¦4<ş¥4
+ş
+şÅş¥4t)4şş§4;)4şş§4;	/<=ş¥4;	/=ş¥4;	/</< şşş şô ş ş şşş¨4 şôş©4 şşª4  şş«4  	*,şş¬4 ş
+ş¨4*,şş­4 ş
+ş©4şşª4ş¨4şşª4ş©4skş¬4ş­4)tsjş¬4;şjş­4;şsjş¬4;şjş­4;ş	şşª4eeee;şúş¬4;şüş­4jşşª4; ; e;ş şşª4/<*,ş5 
+ş¨46 	 ş599	)şİş¨4İş©4ş«4	*,2ş¼Q ee;şÿşş¨4;şü*,5ş»Q eş¼Qşş©4şşª4eş»Qjşşª4; ; e;ş şşª4/</=9 9	kş¨4ş©4	*,@şÄQ ee;şÿşş¨4;şü*,}şÃQ eşÄQşş©4şşª4eşÃQjşşª4; ; e;ş şşª4/</=9	tBş!şª4jşşª4; 	*,ş"ş5 <ş©4*,<ş5 <ş¨4*,şş5 şşª4	*, ş5 9 3oş5ş5		*,=ş5 "ş5ş5#ş5ş§ş5ş5şşª4jş5; ş5eeş5;ş#ş5)ş$ş©4ş5	*,ˆşÑQ ee;ş%şşª4;ş&şşª4eşÑQşş©4/<*,ş5 =ş¨4ş5ş5	*,ùş5 =ş©4ş5)şş5ş5şª4ş«4	/<nş59 	şşª4ee;ş'ş¹ş5;ş(;ş)/<şş¨4=	)şş©4=	şşª4e;ş*jşşª4; ; e;ş şşª4/<tBş!şª4jşşª4; 	*,ş+ş5 4ş,1ş¨ 	/ş¨4*,ş-ş5 4ş,1ş¨ 	/ş©4kş5ş5	şşª4eeee;şÿş5;ş.ş5jşşª4; ; e;ş şşª4/<*,ş/ş5 şşª4	*,ş5 9 *,!ş 5 ş53oş5ş 5	*,"ş!5 $ş5şşª4jş5; ee;ş0ş!5;ş1eeeş5;ş2ş!5;ş1)ş"ş5ş!5"ş5ş!5şª4ş«4	*,“şïQ ee;şÿşşşª4;şü*,şîQ eşïQşşşª4şşª4eşîQjşşª4; ; e;ş şşª4/</=şş¨4=	)şş©4=	şşª4e;ş3jşşª4; ; e;ş şşª4/<tBş!şª4jşşª4; 	*,ş4ş"5 4ş,ş¨4*,ş5ş#5 4ş,ş©4kş"5ş#5	şşª4eeee;şÿş"5;ş6ş#5jşşª4; ; e;ş şşª4/<*,ş7ş$5 şşª4	*,%ş%5 9 *,+ş&5 ş"53oş%5ş&5	*,ş8ş'5 $ş%5şşª4jş$5; ee;ş9ş'5;ş1eeeş$5;ş2ş'5;ş1)ş"ş"5ş'5"ş#5ş'5şª4ş«4	/</=/=9	)ş¨4ş©4	şşª4e;ş:jşşª4; ; e;ş şşª4/</=9	*,ş)5 5 ş5*,ş;ş*5 
+şÇş)5*,ş<ş+5 
+şÇ
+şÅş©4jş*5;ş=	/jş¨4ş©4kş*5ş+5	*,©şR ee;ş>şş*5;şü*,´şR eşRşş+5şşª4eşRjşşª4; ; e;ş şşª4/<ş¨42	jş¨4ş©4	/=	*,¿şR ee;ş?Lş¨4;ş@şşª4eeşRLş©4;şA/<ş¨42	tBş!şª4jşşª4; 	kş¨4ş©4	*,Ïş#R ee;şÿLş¨4;şB*,Üş"R eş#RLş©4şşª4eş"Rjşşª4; ; e;ş şşª4/<*,şCş,5 şşª4	*,;ş-5 9 *,4ş.5 Aş¨43oş-5ş.5	*,şDş/5 $ş-5şşª4jş,5; ee;şEş/5;ş1eeeş,5;ş2ş/5;ş1)ş"ş¨4ş/5"ş©4ş/5şª4ş«4	*,èş3R eeee;şFş/5;şGşşşª4;şü*,ôş2R eş3Rşşşª4şşª4eş2Rjşşª4; ; e;ş şşª4/</=ş¨42	*,şş=R  3ş¨4kş=R 3ş©4	*,şş@R ee;şÿşş¨4;şü*,şş?R eş@Rşş©4şşª4eş?Rjşşª4; ; e;ş şşª4/</=ş¨42	tBş!şª4jşşª4; 	*,şHş05 ş¨4*,şIş15 ş©4kş05ş15	/<	*,şJş25 9 *,şKş35 ş053oş25ş35	*,şLş45 $ş25k"5ş05ş45"5ş15ş45	şşª4eeee;şM"5ş05ş45;şü"5ş15ş45jşşª4; ; e;ş şşª4/</=ş¨42	tBş!şª4jşşª4; 	*,şßş55 İş¨4*,şNş65 İş©4*,şOş85  	*,şPş«Q ' ş553B ş«Q	*,şQş95  ş«Q)ş85ş95*,'ş75 ş85*,şRş;5  	*,şSş¬Q ' ş653B ş¬Q	*,şTş<5  ş¬Q)ş;5ş<5*,şUş:5 ş;5kş75ş:5	şşª4eeee;şÿş75;şVş:5jşşª4; ; e;ş şşª4/<*,şWş=5 şşª4	*,/ş>5 9 3oş>5ş75	*,&ş?5 "ş75ş>5#ş>5şşª4jş=5; ee;şXLş?5;ş1eeeş=5;ş2Lş?5;ş1)ş1ş55ş?51ş65ş?5şª4ş«4	*,ş3şkR ee;şÿşşşª4;şü*,şBşjR eşkRşşşª4şşª4eşjRjşşª4; ; e;ş şşª4/</=şş¨4<	tBş!şª4jşşª4; 	*,şYş@5 4ş,1ş¨ 	/ş¨4*,şZşA5 4ş,1ş¨ 	/ş©4kş@5şA5	şşª4eeee;şÿş@5;ş.şA5jşşª4; ; e;ş şşª4/<*,ş[şB5 şşª4	*,ş\şC5 9 *,ş]şD5 ş@53oşC5şD5	*,ş^şE5 $şC5şşª4jşB5; ee;ş0şE5;ş1eeeşB5;ş2şE5;ş1)ş"ş@5şE5"şA5şE5şª4ş«4	*,şRş„R ee;şÿşşşª4;şü*,ş]şƒR eş„Rşşşª4şşª4eşƒRjşşª4; ; e;ş şşª4/</=şş¨4<	tBş!şª4jşşª4; 	*,ş_şF5 4ş,ş¨4*,ş`şG5 4ş,ş©4kşF5şG5	şşª4eeee;şÿşF5;ş6şG5jşşª4; ; e;ş şşª4/<*,şaşH5 şşª4	*,şbşI5 9 *,şcşJ5 şF53oşI5şJ5	*,şdşK5 $şI5şşª4jşH5; ee;ş9şK5;ş1eeeşH5;ş2şK5;ş1)ş"şF5şK5"şG5şK5şª4ş«4	/</=tBş!şª4jşşª4; 	*,şeşL5 
+ş
+şÅş¨4*,şfşM5 şşª4	*,şgşN5 9 3oşN5şL5	*,şhşO5 "şL5şN5#şN5şşª4jşM5; şO5eeşM5;ş#şO5*,şişP5 =ş¨4şO5şP5	*,şüşQ5 =ş©4şO5)şşP5şQ5şª4ş«4	/</=9	*,şjşS5 5 ş5*,şkşT5 
+şşS5*,şlşU5 
+ş
+şmş©4kşT5şU5	*,şhş¨R ee;şnşşT5;şü*,ştş§R eş¨RşşU5şşª4eş§Rjşşª4; ; e;ş şşª4/<tBş!şª4jşşª4; 	*,ş}ş±R 
+6ş¨4kş±R
+6ş©4	*,şş´R ee;şoş
+şpş¨4;şü*,şş³R eş´Rş
+şpş©4şşª4eş³Rjşşª4; ; e;ş şşª4/<*,şqşV5 
+8ş¨4*,şrşW5 
+8ş©4*,şsşX5 şşª4	*,ştşY5 9 *,şuşZ5 şV53oşY5şZ5	*,şvş[5 $şY5şşª4jşX5; ee;şwş[5;ş1eeeşX5;ş2ş[5;ş1)ş"şV5ş[5"şW5ş[5şª4ş«4	*,ş¬şÈR ee;şxşş¨4;şü*,ş»şÇR eşÈRşş©4şşª4eeeşÇRjşşª4; ; e;ş şşª4;şyşşª4/</=9	!;şz/< şù ùş4  	ş42	/ee;ş{0şåş4;ş{;ş|;ş{	/Lş4/+> ş}şş şô ş!şñşşjşşşt5  şôşu5  ş!şv5  şñşw5  şşx5  şjşy5  	şx5	şx5:ş	*,şşz5 1ş!şşşşşv5=şv5; >şt5şu5şşt5şu5şz5İşx5	Sşw5şy5	\şw5şşz5şw5şy5 ş~şu şùşş€şjşuş5  şùş€5  şş5  ş€ş‚5  şjşƒ5  	*,şş„5 ş€5
+şÇş€5;ş7	 ş5ş5	ş5ee;ş‚ş„5;şƒ\ş5şƒ5Iş…5 	ş€5	S>şƒ5	ş‚5	ş‚5eee;ş„ş„5;şüLş…5şğş…5ş€5ş‚5şƒ5 ş…ş† şô şñşjş†ş†5  şôş‡5  şñşˆ5  şjş‰5  	4şş†5ş‡5	şğ=şˆ5ş‰5	*+2şáR şˆ5	*,5şãR ee;ş‡şş‡5;şˆşáReşãRLş†5	şáRşˆ5\şáRş‰5 ş‰ş¾ şŠ şñşjş¾şŠ5  şŠş‹5  şñşŒ5  şjş5  	4şş‹5şŠ5	şğ=şŒ5ş5	*+2şèR şŒ5	*,5şêR ee;ş‹şş‹5;şŒşèReşêRLşŠ5	şèRşŒ5\şèRş5 şş¾ şŠ şñşjş¾ş5  şŠş5  şñş5  şjş‘5  	)4şş5ş5	şğ=ş5ş‘5	*+2şïR ş5	*,5şñR ee;ş‹şş5;şşïReşñRLş5	şïRş5\şïRş‘5 şş¾ şô şñşjş¾ş’5  şôş“5  şñş”5  şjş•5  	sş“5lşÔş“5ş’5>9 	şğ=ş”5ş•5	*+2şøR ş”5	*,5şúR ee;ş‡şş“5;şşøReşúRşş’5	şøRş”5\şøRş•5 ş‘ş’ şô şñşjş’ş–5  şôş—5  şñş˜5  şjş™5  	ş—5	\ş˜5;ş“ş˜5ş™5.*,şŒşš5 9 	*,ş 5 9 3oş 5ş–5	*,şoş›5 "ş–5ş 5#ş 5*,ş”şœ5 şÔş—5ş›5şš5oşœ59 	ş˜5	ş˜5ee;ş•ş›5;ş–nşš59 	*,ş—ş5 ş˜ş—59 şš5nş59	ş5e;ş™ş˜ş59ÿåÿÿÿ>Éş˜5ee;şšş5;şA	Éş˜5;ş›\ş˜5ş™5.şš5eşœ5ş›5şğ=ş˜5ş™5 Sşñşjşñş{5 ;şœşjş|5  	şğ=ş{5ş|5 \şñşjşñş}5 ;şşjş~5  	şğ<ş}5ş~5 şşñ şñş¡5  	)ş9şç3şŸş¡5ş ş†şş†şu2  şşv2  	/ 	 ş¡ş† şş†şy2  şşz2  	/ş{2  	  şûş’ ş’ş4  	7	*,ş¢ş4 
+şÅş4ş4	ş4ş4ş4 	 7	/
+şÇş4şiş4 	 7	*,ş£ş4 
+şmş4ş4	ş4ş4şjş4 	 7	/
+şş4ş¤ş 4 	 7	/L
+ş4ş¥ş!4 	 7	/Lş4ş¦ş"4 	 /;ş§I3	şîşjşïşñşjş¨ş®ş©ş®şªş®ş«ş¬ş®ş­ş®şŸşñş®ş¯ D   ş°ş°şN+ 9ú	ş± ş²<ş³<ş´ş“ şµ(ş‘ş¶şN+ EF ş³  EF ş²  EE ş±  EE ş´  EE şµ(   ş·şjşjşa+  	ş³	ş²	!eeee;ş¸Vşa+;şìUşa+;ş¹	!eeee;ş¸Vşa+;şìUşa+;şºş³=	*,şc+ 9 *, şd+ ş±3oşc+şd+	*,ş»şb+ "şd+şc+#şc+ şb+  ş¼ş° şjş°ş·+  şjş¸+  	ş³	!eeeeee;ş½ş·+;ş¾Vş¸+;şìUş¸+;ş¿ş²	!eeeeee;ş½ş·+;ş¾Vş¸+;şìUş¸+;ş¹(ş” şµ*,ş‘ş'S ş“ *,şÀş»+ hş·+şÁfİ9şèhş'Sş´şµ(ş‘ş¶ş»+  şÂş» ş»ş¾+  	ş³	 ş¾+	)ş±ş¾+  ş¶  	ş³	.ş²=ş·0şÄNşÃş¶EE şÅ  ş   	şÅ	şÅ->ş·şÅ0şÄşÃş /şÅI6şÆ  D7   7  	7şÇ-  EE şÇ   ş9ş¥ ş¥ş:+  	)7şÇş:+/ş:+  ş§ş¥ ş¥ş;+  		*,ş=+ 9 *, ş>+ 7şÇ3oş=+ş>+	*,"ş<+ $ş=+"7şÇş<+ş;+	/"şÈ7şÇş<+99 /+>  şÉ  	7şÇ-   şÊ ş?+  	7	*,ş˜ş@+ şË 7şÇ	*,şB+ 9 3oşB+ş@+	*,ş|şA+ "ş@+şB+#şB+şA+ş?+/=şÌşC+ 6	/</<  ş  	/n7şÇ9  ş”  	! 6şÆD8   8  	8şÇ-  EE şÇ   ş9ş¥ ş¥şD+  	)8şÇşD+/şD+  ş§ş¥ ş¥şE+  		*,şG+ 9 *, şH+ 8şÇ3oşG+şH+	*,"şF+ $şG+"8şÇşF+şE+	/"şÈ8şÇşF+99 /+>  şÉ  	8şÇ-   şÊ  	7	*,ş˜şI+ şË 8şÇ	*,şK+ 9 3oşK+şI+	*,ş|şJ+ "şI+şK+#şK+ şJ+/=şÌşL+ 6	/</<  ş  	/n8şÇ9  ş”  	! 6şÆD9   9şÍ :şÍşd2 : 	9şÎ<9şÏ<şd2	!;şĞ9şÍşd29şç-) 9şÑ-) 9şÒ-7 9şÓ-7 9şÔ-7 9şÕ-7 :şÖşd2	)ş99şç3ş®:şÖşd2 EF şç)  EF şÍ:  EF şÏ  EE şÑ)  EF şÒ7  EF şÓ7  EF şÔ7  EF şÕ7  EF ş×  EE şÎ   ş  	*,şş299?:şÖ9şÍ	9şØ .*,şÙş›2;;;=*,şÚşœ2;;;=*,ş%ş2  	";ş›29 	";şœ29 <.9şÛ ş29şØ ş27	9şÜ:şİ9şÍ9şŞ:şß9şÍş2)";şœ29 	9şÛ ş 2 	)ş99şç3ş©ş 29ş¯>";ş›29 <)";şœ29 	9şØ   şÛ  	7	9şÜ:şu9şÍşŸ2 	)ş99şç3ş¨şŸ29ş¯>  şØ  	7şÊ9şÕ?9şà   şà  	t9şáj)9şÑ9 	9şâ 	*,2şBS ş“ nşBS9şá	9ş 	(ş‘9şà9
+ EF şá   ş¼ş şş‡2  	*,şãşŠ2 eş“ gİş‡2İ9şè9şá9şáşŠ2nşŠ29şáşŠ29şá  şä  	9şÎ	.şç9şçş 9şåş¡9şæ9şÎ=  şç  	)9şÎ	.şç>ş ş†şw2  ş’şx2  	/ 	 ş¡şèş|2  şéş}2  	/ş~2  	 9şÎ<  şåş†şş†ş„2 şş…2 9ú	ş„2	ş„2 	 )ş99şÑş„2*,şêş†299?9ş¼ş…2/ 	))ş§9şÑş†2ş„2	)ş99şçş†23ş­;şë .7	9şä ş†2 ş„2ş2 	)ş99şçş†23ş­ş29ş¯9   şæş† şş†ş‘2 şş’2 9ú	)ş99şÑş‘2*,şêş“299?9ş¼ş’2/ş”2  	))ş§9şÑş“2ş‘2	)ş99şçş“23ş­;şì .7	9şä ş“2ş‘2ş”2şiş•2 	)ş99şçş“23ş­ş•29ş¯9   şÜş şşƒ2  	şƒ2	.9şä şí:şî9şÍ=:şî9şÍşƒ2   şŞş ş· şş–2  ş·ş—2  	ş–2	 ş—2.9şä şí:şî9şÍ=:şî9şÍş–2ş—2  şâ  	j)9şç9 	)ş99şç3şŸ;şï7şÊ9şÒ?9şğ   ş  	)ş99şç3ş«)9şÑ 7şÊ9şÓ?9şğ   şğ  	*,şş‚299?:şÖ9şÍ	9şñ .*,şÙş2;;;=*,şÚş€2;;;=*,şòş2  	";ş29 	";ş€29 <.9şñ ş‚27	9şÜ:şó9şÍ9şŞ:şô9şÍş2ş˜2 	)ş99şç3şªş˜29ş¯9";ş29 <)";ş€29 	9şñ   şñ  	9şÏ=9şç 7şÊ9şÔ?J ş¯şõşõş2 9	*,ş®ş2 /ş¯ 3n&ş29 	şö ş2/ş2D<9  <şÍ :şÍşc2 : 	9şc2):ş÷şc2	!;şø<şùİ:şîşc2<şú:şúşc2<şú	!;şû EE şù  EE şú  EE şß  EE şü  EE şô   ş  	:şÖ<şÍ	<şØ .<şä <şı   şı  	7	<şß :şş<şÍşª5 	)ş9<şç3ş©şª5/ş¯ <şñ .şÂ<şß<şÿ  şÿ  	ş²<şß	)ş9<şç3ş©;ş  <şñ 	<ş   ş  	7	<şü ş<şúş«5 	)ş9<şç3ş¨ş«5/ş¯ <ş .şÂ<şü<ş  ş  	7şÊ<şÕ?ş²<şü	)ş9<şç3ş«9 7şÊ<şÓ?	ş³<şü	j)<şç9 	)ş9<şç3şŸ;şï7şÊ<şÒ?	!;ş<ş   ş  	7	<şô :ş<şÍş¬5 	)ş9<şç3şªş¬5/ş¯ <şñ .şÂ<şô<ş  ş  	ş²<şô	)ş9<şç3şª;ş <şñ   şä  	<şÎ	.şç<şç*,şñş¥5;şş ş†ş¦5  ş’ş§5  	!e;ş	ş¥5/+>ş¡şèş¨5  şéş©5  	!e;ş
+ş¥5/+><şÎ=D=   ş  	*,Gş.2 +>/ş.2 şş¯ş¯ş02  	*,Gş42 ş02ş02; /ş42HFş HFş  ş&ş¯ ş¯ş)2  	*,Gş*2 ş)2/ş*2 şş, Gşe2  	/şe2 şş, Gşi2  	/şi2D       	 ş9  şj9  şò< ş> ş->  ş  ş-7  ş-7  şÔ-7  şÕ-7  ş-7  ş-7  9 *,şş2 +>ş2	 ş-1ş2;  EF ş  EE ş>  EF ş7  EF ş7  EF şÔ7  EF şÕ7  EF ş7  EF ş7  EF   EE ş1  EE şò   ş#şú şİşóşş1şßşôşúş2  şİş2 ;şİşóş2 ;şóşş2 ;şúşş2 1 şßş2 ;şßşôş	2 ;şô	ş22	 şş2ş2	 şş2ş2ş2ş2ş2ş2ş	2  şşù ş 1şùş
+2  şş2 1 	>ş şş
+2	!;ş*,şş2  *,Bş2  Aş
+2	*,ş92 9 *, ş:2 Cş23oş92ş:2	*,şúş2 "ş:2ş92#ş92) şşş2;şú;ş ş2 ş	*,şÍş72 :::ş!ş
+2ş2Dş2 ş"ş72)ş2ş72>ş# şş
+21ş$şş%?ş&Dş2ş2?ş'Dş2  şşú şİşóşş1şßşôşúşC2  şİşD2 ;şİşóşE2 ;şóşşF2 ;şúşşG2 1 şßşH2 ;şßşôşI2 ;şô	)şÃşC2	!;ş() ş)şC2şD2	şD2>) ş)şC2şH2	şH2>) ş)şC2şE2	şE2>) ş)şC2şI2	şI2>*,<şM2 
+ş
+şÅşC2	*,şO2 9 3oşO2şM2	*,=şN2 "şM2şO2#şO2) ş)şC2şN2	) şşN2şF2şG2 ş	 ş"-:şC2şN2şD2şE2şH2şI2  şş ş* ş1ş1şş2  ş*ş2  şş2 1 şş2 1 	sş2ş2		*,ş2 9 3oş2ş2	*,şş2 "ş2ş2#ş20ş²ş2ş2	/=/<ş2	ş2ş2/1ş¾ş2ş2  ş"şÍ :şÍş82 : 	) şş82$   ş+:ş, :ş,şP2  	/:" şşP2  ş)şú ş şúşJ2  şşK2  	7	/=şJ2şK2şL2 	/</<  ş%  	7şÊ ş?*,ş-şR2 @@-@?@ş% şR2 ş.   ş.  	) şò	(ş‘ ş.9d EE şj  EE ş   ş/ş09ş0ş¤2 9 		*,ş¨2  şj*, ş©2  ş3oş¨2ş©2	*,"ş¥2 $ş¨2*,şÍş¦2 ::" ş$ şj:ş÷ş¦2	*,şêş§2 99 ş1ş¦2)9şÏş§2	7ş99şÔş§2 ş/. şò=7şÊ şÔ?  ş19şÍ :9şÍşb2 : 	*,şêşm2 99:ş÷şb2-<şb2-9şb27ş99şÔşm2 ş27ş99şÕşm27şÊ şÕ7şÊ şşm29ş şm2/9şm2  ş2ş¥ 9ş¥şn2 9 	# ş7şÊ şşn27şÊ ş1ş3ş·ş4Aş5şn2 ş D@   @ş"  ş"şQ2   	@ş"şQ2 EE ş"   EE ş6  EE ş7  EE ş8  EE ş%  EE şß  EE şô   ş%  	@ş6>'  ş@ş"@ş9   ş9  	3B @ş6	@ş7 @ş6*,ş:ş]2 >1 ş@ş"@ş7@ş8şş]2@ş%ş%ş]27	@şß ş$ş]2ş^2 	@ş;3ş©e;ş<Lş^2/ş¯ .ş³@şß	)@ş=>	.	şÂ@şß@şÿ. ş/@ş">  şÿ  	ş²@şß	@ş;3ş©;ş> 	@ş=>  ş;ş? 3ş?ş_2 3 	É ş@ş"@ş87şÊ ş@ş"1ş4ş3ş· @ş"Aş@@ş7ş_2 ş@ş"@ş9   ş=ş09ş0şa2 9 	3n@ş89 	*,şêş¡2 99 ş1@ş"şö @ş8)9şÏş¡2	7ş99şÔş¡2@ş=/<7	@şô @ş%ş¢2 	@şA3şªe;şBLş¢2/ş¯ sş³@şôşa2	/=şÂ@şô@ş/<  ş  	ş²@şô	@şA3şª;şC @ş9   şAş? 3ş?ş£2 3 	7şÊ ş@ş"1ş4ş3ş· @ş"AşD@ş7ş£2 ş@ş"DB  JJJJD:   :şî şu şİşóşßşôşîş2  şuş2  şİş 2  şóş!2  şßş"2  şôş#2  	:ş÷<:şîş2:şuş2:şİş 2:şßş"2:şóş!2:şôş#2:şÖ:şE  EF şî  EF şu  EF şİ  EF şß  EF şó  EF şô  EF şÖ  EE ş÷  EE şú  EE şş  EE ş   şFş şG şş²5  şGş³5  	*,=ş´5 =:şîş²5ş´5	!eeeş³5;şHş²5;şI)ş´5	!eeeş³5;şHş²5;şJ  şE  	*,şKş'2 -ş¬
+şÅ:şî*,şLş(2 şMş'2:şutş(2)ş$ş(2;ş	/=ş *,şNş/2 şMş(2;şttş/2jş/29 "ş/29 	/=ş>*,şOş52 L"ş/29 /=şş52 ş!:şî şú D :şîş2  şúş2  Dş2  	*,şÍş62 ::-:ş2şş2>>>>:ş÷ş62=:şúş62ş2:şşş62?şPş2:şş62?şQş2/:ş62DA   A  	  EE şR  EE şS  EE şu  EE şİ  EE şß  EE şó  EE şô  EE şT)   şU  		*,şVşH **)ş¥AşT3şH	*,ş©şä+ 3*ş¦şHşH*şH*,ş|şÜ+ 33şä+j	 şÜ+9 	*,şŞ+ 5 şÜ+
+	/</= ş5Aşê 9AşêşÃ+ 9 	*,şWşÄ+ AA-A *,şşÅ+ şº
+şÇ
+şÅ:şî9şÍşÃ+;ş#AşSşÄ+şö şÅ+AşRşÄ+ş¹şÅ+;ş#AşuşÄ+:şu9şÍşÃ+AşİşÄ+:şİ9şÍşÃ+AşßşÄ+:şß9şÍşÃ+AşóşÄ+:şó9şÍşÃ+AşôşÄ+:şô9şÍşÃ+AşTşÄ+9şçşÃ+/AşÄ+ ş@Aşù ş? 3AşùşÆ+  ş?şÇ+ 3 	*,şWşÈ+ AA-A *,şşÉ+ şº
+şÇ
+şÅşÆ+;ş#AşSşÈ+şö şÉ+AşRşÈ+ş¹şÉ+;ş#AşuşÈ+;şİAşTşÈ+-) )ş9AşTşÈ+şÇ+/AşÈ+ şDAşù ş? 3AşùşÔ+  ş?şÕ+ 3 	*,şWşÖ+ AA-A *,şş×+ şº
+şÇ
+şÅşÔ+;ş#AşSşÖ+şö ş×+AşRşÖ+ş¹ş×+;ş#AşuşÖ+;şİAşTşÖ+-) )ş9AşTşÖ+şÕ+/AşÖ+D!   ş$Cş"  şXDşYECş"şß5   şXşà5 D şYşá5 E 	*,şZşâ5 CF-Fşß5şà5	şXşâ5 Dş[	şXşâ5şà5şá5	ş\şâ5 Eş]	ş\şâ5şá5/Cşâ5DG   GW ş^ ş_ Wş,6  ş^ş-6  ş_ş.6  	Gş-H GWş,6Gş^ş-6Gş`ş-6Gş_ş.6Gşaş.6Gşb9 Gşc-I  EE şH  EF W  EF ş^  EF ş_  EF ş`  EF şa  EF şb  EF şcI   ş9ş3 Jş3ş\6 J 	HşGşJXş\6	!eee;şdGW;ş#JXş\6IşeGşcJşcş\6$GşbHş#GşJXş\6ş\6  1Jşu JşuşÇ6  	/JH1GşşÇ6  şşu şuşÍ8  	/HşGşşÍ8  şfşgşgş¾6 =	*,şhş¿6  	*,şşàS H' Gş3B şàS	*,şişÃ6  şàS)ş¿6şÃ6ş¾6	*,şjşÄ6GG?şËş¿6şÅ6  şÆ6  	*,şkşÌ6 IIJşcG1şÄ6şÅ6*,şlşÍ6 IIJşcG1şÄ6şÆ6IşmşÌ6	)IşmşÍ6	/9ÿÿÿÿÿ	jIşnşÌ6IşnşÍ6	/şoşÅ6şÆ6	/şoIşnşÌ6IşnşÍ6	IşmşÍ6	/9	IşpşÌ6	)IşpşÍ6	/9ÿÿÿÿÿ	jIşqşÌ6IşqşÍ6	/şoşÅ6şÆ6	/şoIşqşÌ6IşqşÍ6	IşpşÍ6	/9	IşrşÌ6	)IşrşÍ6	/9ÿÿÿÿÿ	jIşsşÌ6IşsşÍ6	/şoşÅ6şÆ6	/şoIşsşÌ6IşsşÍ6	IşrşÍ6	/9	/şoşÅ6şÆ6/9 	şËş¿6şÎ6  şÏ6  	/şoşÎ6şÏ6/ş¿6DJ   JX Xş96  	JXş96Jş˜-) Jşt<Jşu<Jşv<Jşw<Jşx<Jşc-I  EF X  EF şt  EF şu  EF şv  EF şw  EF şx  EF şcI  EF ş˜)   ş¨, , 	/,-,)ş¥Jş˜  ş9ş? 3ş?ş<6 3 	)ş9Jş˜ş<66	 	 ş<69 	*,şgşL6 5 ş<6IşyJşc99	*,%şM6 5ş<6*,şN6 5 ş<6IşzJşc99	*,şbşO6 5ş<6*,ş\şP6 5 ş<6Iş{Jşc99	*,şKşQ6 5ş<6*,4şR6 5 ş<6	Iş{Jşc9Jşu=9	*,şJşS6 5ş<6*,;şT6 5 ş<6	Iş{Jşc9Jşv=9	*, şU6 5ş<6*,şV6 5 ş<6	Iş{Jşc9Jşw=9	*,+şW6 5ş<6*,!şX6 5 ş<6	Iş{Jşc9Jşx=9	*,ştşY6 5 ş<6Iş|Jşc99	*,şOşZ6 5 ş<6Iş}Jşc9IEş~ ş ş]  IDş€ ş ş[  CC   EE şXD  EE ş\E   ş‚şê DK   Kşƒ şƒşñ5  	Kş„=Kşƒşñ5Kş…-H Kş†-H Kşc-I  EF şƒ  EF ş„  EE ş…H  EE ş†H  EF şcI   ş‡ş3 Aşˆ ş3şó5 A şˆşô5  	Kş„<*,şRş6 KKKş‰AşRşó5şô5?*,şSş66 GGKşŠş6AşSşó5Aşİşó5Aşóşó5*,ş‹ş[6 JJKşŒAşuşó5AşTşó5Gş9ş66ş[6  şş3 Gş3ş06 G 	Kş„<Hş#Kş…GWş06ş06IşeKşcGşcş06  şş3 Kş3ş6 K 	Kş„<Hş#Kş†Kşƒş6ş6IşeKşcKşcş6  şş şşø5  	/HşKş†şø5  şş şş"6  	/HşKş…ş"6  ş‘Kş Kşşı5  	sKşƒjşı5; 	/K?/KH1Kş†şı5  şÅGş Gşş'6  	/GH1Kş…ş'6  ş’şgşgş¬6 =	*,şhş­6  	*,şşòS H' Kş…3B şòS	*,şiş±6  şòS)ş­6ş±6ş¬6	*,şjş²6KK?şËş­6ş³6  ş´6  	*,şkşµ6 IIGşcKşÅş²6ş³6*,şlş¶6 IIGşcKşÅş²6ş´6Işmşµ6	)Işmş¶6	/9ÿÿÿÿÿ	jIşnşµ6Işnş¶6	/şoş³6ş´6	/şoIşnşµ6Işnş¶6	Işmş¶6	/9	Işpşµ6	)Işpş¶6	/9ÿÿÿÿÿ	jIşqşµ6Işqş¶6	/şoş³6ş´6	/şoIşqşµ6Işqş¶6	Işpş¶6	/9	Işrşµ6	)Işrş¶6	/9ÿÿÿÿÿ	jIşsşµ6Işsş¶6	/şoş³6ş´6	/şoIşsşµ6Işsş¶6	Işrş¶6	/9	/şoş³6ş´6/9 	şËş­6ş·6  ş¸6  	/şoş·6ş¸6/ş­6  ş“şgşgş˜6 =	*,şhş™6  Kşƒ	)ş™6; 	*,şşT H' Kş†3B şT	*,şiş6  şT)ş™6ş6ş˜6	*,şjş6KK?şËş™6şŸ6  ş 6  	*,şkş¡6 IIKşcKş‘ş6şŸ6*,şlş¢6 IIKşcKş‘ş6ş 6Işmş¡6	)Işmş¢6	/9ÿÿÿÿÿ	jIşnş¡6Işnş¢6	/şoşŸ6ş 6	/şoIşnş¡6Işnş¢6	Işmş¢6	/9	Işpş¡6	)Işpş¢6	/9ÿÿÿÿÿ	jIşqş¡6Işqş¢6	/şoşŸ6ş 6	/şoIşqş¡6Işqş¢6	Işpş¢6	/9	Işrş¡6	)Işrş¢6	/9ÿÿÿÿÿ	jIşsş¡6Işsş¢6	/şoşŸ6ş 6	/şoIşsş¡6Işsş¢6	Işrş¢6	/9	/şoşŸ6ş 6/9 	şËş™6ş£6  ş¤6  	/şoş£6ş¤6/ş™6  şŒJşu şT Jşuş76  şTş86  	*,ş†ş:6 JJ-Jş76	*,ş?şT  ş¨ş863B şT	*,ş”ş;6 3 şTJş9ş:6ş;6/Jş:6  şŠGşR KşS şİ şó GşRş6 K şSş6  şİş 6  şóş!6  	Kşş6ş6	/GKşÅş6ş6*,ş/6 GG-Gş6ş 6ş!6Kşş6ş/6/Gş/6  ş‰KşR ş• ş– KKşRşõ5  ş•şö5  ş–ş÷5 K 	tşõ5jşõ5; 	/Kş÷5şö5	Kşş÷5şõ5	/KKş‘ş÷5şõ5*,şŒş6 KK-Kşõ5Kşş÷5ş6/Kş6	*,ş—ş6 şºşõ5;ş#	*,ş6 9 3oş6ş6	*,ş˜ş6 "ş6ş6#ş6ş÷5Kş‰ş6=ş÷5/Kş÷5/+>DL   ş™şZ Cşc IşZşt6 C şcşu6 I 	6 	 ş\şt69 	/=9	/<9	)Işšşu6	/=6 	 şXşt69	/<9 9	/=/< ş›şZ Cşc Işš şZş§6 C şcş¨6 I şšş©6  	)Işšş¨6	/<6 	 şXş§69 	/<9	/=9	/)ş©6/< şœşZ Cşc IşZşË8 C şcşÌ8 I 	)IşšşÌ8	/=/Lş™şË8şÌ8DM   Mş"  şˆş"şæ5   şˆşç5 <		şæ5	!;şMşˆşç5Mş"şæ57ş9 şşæ5Mş7ş9 şşæ5MşŸ7ş9 şÔşæ5MşòMş-8 MşÔ-7 Mş-7  EE ş"   EE şˆ  EF ş K  EF ş8  EF şÔ7  EF ş7   şş"  ş"şè5   	Mş¡ Mş -K>8şÊ Mş  ş¡  	*,ş¢şé5 +>*,ş£şê5 9 	*,şí5 9 *, şî5  Mş"3oşí5şî5	*,"şë5 $şí5*,şÍşì5 :: ş+Mş"şë5):ş÷şì5	#şê5şé5	şé5
+şÇ
+şÅ:şîşì5nşê59 	*,ş¤şï5 ;ş¥*+şñşğ5 6şê59	şğ5eee; şé5;ş¦şï59	şğ5eee; şé5;ş§şï5	şğ5eeeee; şé5;ş¨şê5;ş©şï5Nşªşğ50ş¬6ş«ş¡  ş‰KşR ş• ş–KKşRş´8  ş•şµ8  ş–ş¶8 K 	ş¶8	ş¶8Mş tş´8jş´8; 	/Kş¶8şµ8	Kşş¶8ş´8	/KKş‘ş¶8ş´8*,şŒş·8 KK-Kş´8Kşş¶8ş·8/Kş·8	*,ş—ş¸8 şºş´8;ş#	*,şº8 9 3oşº8ş¸8	*,ş˜ş¹8 "ş¸8şº8#şº8ş¶8Mş‰ş¹8=ş¶8/Kş¶8/+>  şŠGşR KşS şİ şó GşRş»8 K şSş¼8  şİş½8  şóş¾8  	Kşş»8ş¼8	/GKşÅş»8ş¼8*,ş¿8 GG-Gş¼8ş½8ş¾8Kşş»8ş¿8/Gş¿8  şŒJş3 AJş3şÀ8 A 	*,ş†şÁ8 JJ-JAşuşÀ8	*,şVş%H **)ş¥AşTşÀ83ş%H	*,ş©şÊ8 3*ş¦ş%Hş%H*ş%H*,ş?şÄ8 33şÊ8Jş9şÁ8şÄ8/JşÁ8  şŸ şò5  	Kş‡Mş ş3şò5Mşˆ7şÊMşşò5  şòş"  ş"şf6   	Kş„Mş 	Kş‡Mş Mş­ <7şÊMşÔMş   ş­A A 	*,ş3şg6 AA-A AşRşg6; AşSşg6; Aşuşg6; AşTşg6-) *,şjşh6 0 ş®ş%)ş9AşTşg63şï;ş¯şh6/Aşg6DI   I  	IşT9 Iş°9 Işq9 Işn9 Işs9 Iş±9 Işš=Işp<Işm<Işr<Iş²<Iş³-7 Iş´-7 Işµ-7 Iş¶-7 Iş·-7  EF şT  EF ş°  EF şq  EF şn  EF şs  EF ş±  EF ş³7  EF ş´7  EF şµ7  EF ş¶7  EF ş·7  EF şš  EF şp  EF şm  EF şr  EF ş²   şyù ùş
+6  	jş
+69 	.ÉIşTş
+6ÉIş°ş
+67şÊIş³ş
+6  şzù ùş6  	jş69 	.ÉIşTş6ÉIşqş6IşpnIşq9 Işš)ttIşpIşmIşr7şÊIş´ş6  ş{ù ùş6  	jş69 	.ÉIşTş6ÉIşnş6IşmnIşn9 Işš)ttIşpIşmIşr7şÊIşµş6  ş}ù ùş6  	jş69 	.ÉIşTş6ÉIş±ş6Iş²nIş±9 7şÊIş·ş6  ş|ù ùş6  	jş69 	.ÉIşTş6ÉIşsş6IşrnIşs9 Işš)ttIşpIşmIşr7şÊIş¶ş6  ş¸ş¹ Iş¹ş6 I 	IşyIş°ş6IşzIşqş6Iş{Işnş6Iş|Işsş6Iş}Iş±ş6  ş:ş¹ Iş¹şÒ8 I 	Işy'Iş°şÒ8Işz'IşqşÒ8Iş{'IşnşÒ8Iş|'IşsşÒ8Iş}'Iş±şÒ8  şeşº Işºş	6 I 	7ş9Iş³ş	6Işy7ş9Iş´ş	6Işz7ş9Işµş	6Iş{7ş9Iş¶ş	6Iş|7ş9Iş·ş	6Iş}Iş¸ş	6  ş»şº IşºşÓ8 I 	7ş§Iş³şÓ8Işy7ş§Iş´şÓ8Işz7ş§IşµşÓ8Iş{7ş§Iş¶şÓ8Iş|7ş§Iş·şÓ8Iş}Iş:şÓ8DO C Oş"  ş¼ş"şä5   ş¼şå5  	Oş½-Mşä5=7ş9 şşä5Oş7ş9MşÔOş½Oşòşå5	Oş‚şå5OşX Dş€Oş\ Eş~ EE şXD  EE ş\E  EE şê  EE ş½M  EE ş¾  EE ş¿   ş‚şê şêşn6  	Oşêşn6 EE ş´   ş  şi6   	Oş´O3   3  	/ş“   şÀ şÒ6  	*,şoşÓ6 ; 3l%şÒ69 	ÉşÓ6Oş¿/şÓ6  şÁş® ş®ş÷6  	jş÷69 	/; *,ş—şø6 şº/ş»ş÷6;ş¼*,şWşù6  	*,şû6 9 3oşû6şø6	*,ş˜şú6 "şø6şû6#şû6lşÔşú6;şÂ>9 	)şù6şú6/ş¹şù6Oş¾  şÃşÄ Pş3 KşÄşr6 P ş3şs6 K 	)Lş™?Kşcşs6	.*,şÅş{6 O3 *,şˆş|6 gİşkfhş{6Oş´İ9şèİ9şè	*,Åş6 ee;şÆIşTKşcşs6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş6	)Pşr6Lş6	*,şÍş‚6 ee;şÉIş°Kşcşs6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş‚6	)Pşr6Lş‚6	*,şÊş…6 ee;şËIşnKşcşs6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş…6	)Pşr6Lş…6	*,şÌşˆ6 ee;şÍIşqKşcşs6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lşˆ6	)Pşr6Lşˆ6	*,şÎş‹6 ee;şÏIşsKşcşs6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş‹6	)Pşr6Lş‹6	*,şĞş6 ee;şÑş|6Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş6	)Pşr6Lş6	*,şÒş‘6 Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş‘6	)Pşr6Lş‘6	*,şÓş”6 e;şÔIşšKşcşs6;şÕ;şÖPşÇşr6	PşÈ şr6Pşr6	Pşr6Lş”6	)Pşr6Lş”6	*,ş×ş—6 Oş¾PşÇşr6	PşÈ şr6Pşr6	Pşr6Lş—6	)Pşr6Lş—6 EE ş3K   şØ  	*,şÄşq6 PP-P OşÃşq6Oş3	*,şZ7 9 *, ş[7 Kş“Oş3>3oşZ7ş[7	*,şÙş¥6 "ş[7şZ7#şZ7*,şRş¦6 KKKş‘Oş3ş¥6Lş›?Kşcş¦6IşšKşcOş3		*,şX7 9 *,!şY7 Kş’ş¦6>3oşX7şY7	*,şÚş¹6 "şY7şX7#şX7*,şSşº6 GGKşÅş¦6ş¹6Lş›?Gşcşº6IşšKşcOş3		*,Åş½6 eejş¥6; ; eş¥6;ş#ş¹6Oş¾PşÇşq6	PşÈ şq6Pşq6	Pşq6Lş½6	)Pşq6Lş½6	*,%şV7 9 *,+şW7 Gşfşº6>3oşV7şW7	
+*,şÛşĞ6 "şW7şV7#şV7*,ş‹şÑ6 JJG1şº6şĞ6Lş›?JşcşÑ6IşšKşcOş3		*,şÍş×6 eeOşÀ9şĞ6;şÜPşÇşq6	PşÈ şq6Pşq6	Pşq6Lş×6	)Pşq6Lş×6IşšJşcşÑ6	PşÇşq6	PşÈ şq6Pşq6	Pşq6;şİ	)Pşq6;şİ	IşmJşcşÑ6	PşÇşq6	PşÈ şq6Pşq6	Pşq6;şŞ	)Pşq6;şŞ	IşpJşcşÑ6	PşÇşq6	PşÈ şq6Pşq6	Pşq6;şß	)Pşq6;şß	IşrJşcşÑ6	PşÇşq6	PşÈ şq6Pşq6	Pşq6;şà	)Pşq6;şà*,şáşä6 ; 	*,;şJ7 ,,Jş¨ şÑ63,ş–şJ7	*,ş©şO7 3*ş¦,ş–şJ7,ş–şJ7*,ş–şJ7*,ş?şç6 33şO76	 	 şç69 	*,şgş-7 5 şç6	PşÇşq6	PşÈ şq6Pşq6	Pşq6;ş#	)Pşq6;ş#9	*,şjş07 5şç6*,şñş17 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şâ	)Pşq6;şâ*,şãşÖT eOşÀ9;şäÉşä6eeeeşÖTUş07;ş(ş17Oş¾9	*,şoş47 5şç6*,ş57 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şå	)Pşq6;şå*,şæşİT OşÀ9*,şçşÜT eşİTLş57*,şèşÛT eşÜTOşÁş47Éşä6eşÛTOş¾9	*,şäş87 5şç6*,şiş97 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şé	)Pşq6;şé*,şêşåT OşÀ9*,şëşäT eşåTLş97*,şìşãT eşäTOşÁş87Éşä6eşãTOş¾9	*,şíş<7 5şç6*,şjş=7 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şî	)Pşq6;şî*,şïşíT OşÀ9*,şğşìT eşíTLş=7*,şñşëT eşìTOşÁş<7Éşä6eşëTOş¾9	*,şòş@7 5şç6*,ş¬şA7 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şó	)Pşq6;şó*,şôşôT eeOşÀ9;şõşA7*,şöşóT eşôTOşÁş@7Éşä6eşóTOş¾9	*,ş÷şD7 5şç6*,ş¤şE7 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şø	)Pşq6;şø*,şùşıT OşÀ9*,şúşüT eşıTLşE7*,şûşûT eşüTOşÁşD7Éşä6eşûTOş¾9	*,şüşG7 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şı	)Pşq6;şı*,şşşU eOşÀ9şG7Éşä6eşUOş¾9	*,ş¯şI7 5 şç6		PşÇşq6	PşÈ şq6Pşq6	Pşq6;şÿ	)Pşq6;şÿsşI7kşI7; 	*,ş ş
+U eOşÀ9e;şşI7Éşä6eş
+UOş¾	*,şÊşR7 Oş¾PşÇşq6	PşÈ şq6Pşq6	Pşq6LşR7	)Pşq6LşR7	PşÇşq6	PşÈ şq6Pşq6	Pşq6Lşä6	)Pşq6Lşä6/Pş» şq6  şòş3 Kş3şl6 K 	Oş3şl6Oşê	Oşê?QşIşšKşcşl69 9DFO  Fş"  ş"şã5   	Oşã5FşFş¾;ş¼Fş¿;ş¸  şşZ OşZşo6 O 	FşOşØ şo6  şşo şoşp6  	şp60şåşp6;ş¸Fş¿şp60şåşp6;ş¼Fş¾Nşªşp60ş4şş  şşo şoşÔ8  	RşşÔ8D?   ş&D Dş¿+  	ş$ş¿+	/ş 	/.ş$ş¿+/+> şPD DşÀ+  	şİşÀ+	/ş 	/.şİşÀ+/+> şQD DşÁ+  	şóşÁ+	/ş 	/.şóşÁ+/+> ş'D DşÂ+  	ş%şÂ+	/ş 	/.ş%şÂ+/+>DS   ş	ş
+ ş
+şM+  	şM+	/ş  	/şM+/+>K	ş! %ş% M 

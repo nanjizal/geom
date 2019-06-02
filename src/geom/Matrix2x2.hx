@@ -14,36 +14,97 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
                               , c:c, d:d } );
         return this;
     }
-    public static inline
-    function unit(): Matrix2x2 {
-        return new Matrix2x2( { a: 1., b: 0.
-                             , c: 0., d: 1. } );
-    }
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.zero() == new Matrix2x2( { a: 0., b: 0., c: 0., d: 0. } )
+     * </code></pre>
+     */
     public static inline
     function zero(): Matrix2x2 {
         return new Matrix2x2( { a: 0., b: 0.
                               , c: 0., d: 0. } );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.unit() == new Matrix2x2( { a: 1., b: 0., c: 0., d: 1. } )
+     * </code></pre>
+     */
+    public static inline
+    function unit(): Matrix2x2 {
+        return new Matrix2x2( { a: 1., b: 0.
+                              , c: 0., d: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.scale( new Matrix1x2( { x: 2., y: 2. } ) ) == new Matrix2x2( { a: 2., b: 0., c: 0.,  d: 2. } )
+     * </code></pre>
+     */
     public static inline
     function scale( p: Matrix1x2 ): Matrix2x2 {
         return new Matrix2x2( { a: p.x, b: 0.
                               , c: 0.,  d: p.y } );
     }
+    /**
+     * <pre><code>
+     * >>> 
+     * </code></pre>
+     */
     public static inline
     function rotation( alpha: Float ): Matrix2x2 {
         return new Matrix2x2( { a: Math.cos( alpha ), b: -Math.sin( alpha )
                              ,  c: Math.sin( alpha ), d: Math.cos( alpha ) } );
     }
+    /**
+     * <pre><code>
+     * >>> 
+     * </code></pre>
+     */
     public inline
     function transpose(): Matrix2x2 {
         return new Matrix2x2( { a: this.a, b: this.c
                               , c: this.b, d: this.d } );
-    }
+    }    
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... var a = Matrix2x2.unit();
+     * ... a + a == new Matrix2x2({ a: 2., b: 0., c: 0., d: 2. });
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A + B) public static inline
     function add( m0: Matrix2x2, m1: Matrix2x2 ): Matrix2x2 {
         return new Matrix2x2( { a: m0.a + m1.a, b: m0.b + m1.b
                               , c: m0.c + m1.c, d: m0.d + m1.d } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix2x2({ a: 1., b: 2., c: 3., d: 4. });
+     * ... var b = new Matrix2x2({ a: 1., b: 2., c: 3., d: 4. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
+    @:op( A == B )
+    public static inline
+    function equals( a: Matrix2x2, b: Matrix2x2 ): Bool {
+        var delta = 0.0000001;
+        return !(
+               Math.abs(a.a - b.a) >= delta
+            || Math.abs(a.b - b.b) >= delta
+            || Math.abs(a.c - b.c) >= delta
+            || Math.abs(a.d - b.d) >= delta
+        );
+    }
+    
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... var a = Matrix2x2.unit();
+     * ... a - a == Matrix2x2.zero();
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function sub( m0: Matrix2x2, m1: Matrix2x2 ): Matrix2x2 {
         return new Matrix2x2( { a: m0.a - m1.a, b: m0.b - m1.b

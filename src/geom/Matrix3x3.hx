@@ -5,17 +5,35 @@ import geom.Matrix4x3;
 abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.structure.Mat3x3 {
     public inline
     function new( m: geom.structure.Mat3x3 ){ this = m; }
-    public static inline
-    function unit(): Matrix3x3 {
-      	return new Matrix3x3({ a: 1., b: 0., c: 0.
-                            , d: 0., e: 1., f: 0.
-                            , g: 0., h: 0., i: 1. });
-    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix3x3.zero() == new Matrix3x3( { a: 0., b: 0., c: 0.
+     * ...                                    , d: 0., e: 0., f: 0.
+     * ...                                    , g: 0., h: 0., i: 0. }); 
+     * ... }) == true
+     * </code></pre>
+     */
     public static inline
     function zero(): Matrix3x3 {
         return new Matrix3x3({ a: 0., b: 0., c: 0.
-                            , d: 0., e: 0., f: 0.
-                            , g: 0., h: 0., i: 0. });
+                             , d: 0., e: 0., f: 0.
+                             , g: 0., h: 0., i: 0. });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... Matrix3x3.unit() == new Matrix3x3({ a: 1., b: 0., c: 0.
+     * ...                                  , d: 0., e: 1., f: 0.
+     * ...                                  , g: 0., h: 0., i: 1. });
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function unit(): Matrix3x3 {
+      	return new Matrix3x3({ a: 1., b: 0., c: 0.
+                             , d: 0., e: 1., f: 0.
+                             , g: 0., h: 0., i: 1. });
     }
     public static inline
     function radianX( theta: Float ): Matrix3x3 {
@@ -202,6 +220,30 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
         { a: p.a*q.a+p.b*q.d+p.c*q.g, b: p.a*q.b+p.b*q.e+p.c*q.h, c: p.a*q.c+p.b*q.f+p.c*q.i
         , d: p.d*q.a+p.e*p.d+p.f*q.g, e: p.d*q.b+p.e*q.e+p.f*q.h, f: p.d*q.c+p.e*q.f+p.f*q.i
         , g: p.g*p.a+p.h*q.d+p.i*q.g, h: p.g*q.b+p.h*q.e+p.i*q.h, i: p.g*q.c+p.h*q.f+p.i*q.i } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });
+     * ... var b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
+    @:op( A == B )
+    public static inline
+    function equals( a: Matrix3x3, b: Matrix3x3 ): Bool {
+        var delta = 0.0000001;
+        return !(
+               Math.abs(a.a - b.a) >= delta
+            || Math.abs(a.b - b.b) >= delta
+            || Math.abs(a.c - b.c) >= delta
+            || Math.abs(a.d - b.d) >= delta
+            || Math.abs(a.e - b.e) >= delta
+            || Math.abs(a.f - b.f) >= delta
+            || Math.abs(a.g - b.g) >= delta
+            || Math.abs(a.h - b.h) >= delta
+            || Math.abs(a.i - b.i) >= delta
+        );
     }
     public inline
     function cofactor( a: Float, b: Float, c: Float, d: Float ){
