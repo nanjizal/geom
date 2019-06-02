@@ -152,7 +152,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
      */
     @:op( A == B )
     public static inline
-    function equals( a: Matrix4x3, b: Matrix4x3 ): Bool {
+    function equal( a: Matrix4x3, b: Matrix4x3 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.a - b.a) >= delta
@@ -168,6 +168,18 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             || Math.abs(a.k - b.k) >= delta
             || Math.abs(a.l - b.l) >= delta
         );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
+     * ... var b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:11. });
+     * ... a != b; }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix4x3, b:Matrix4x3 ): Bool {
+        return !equal( a, b );
     }
     /**
      * <pre><code>

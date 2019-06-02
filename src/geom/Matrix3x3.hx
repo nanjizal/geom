@@ -231,7 +231,7 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
      */
     @:op( A == B )
     public static inline
-    function equals( a: Matrix3x3, b: Matrix3x3 ): Bool {
+    function equal( a: Matrix3x3, b: Matrix3x3 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.a - b.a) >= delta
@@ -244,6 +244,18 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
             || Math.abs(a.h - b.h) >= delta
             || Math.abs(a.i - b.i) >= delta
         );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });
+     * ... var b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 8. });
+     * ... a != b; }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix3x3, b:Matrix3x3 ): Bool {
+        return !equal( a, b );
     }
     public inline
     function cofactor( a: Float, b: Float, c: Float, d: Float ){

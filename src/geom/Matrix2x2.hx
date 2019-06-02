@@ -87,7 +87,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      */
     @:op( A == B )
     public static inline
-    function equals( a: Matrix2x2, b: Matrix2x2 ): Bool {
+    function equal( a: Matrix2x2, b: Matrix2x2 ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.a - b.a) >= delta
@@ -96,7 +96,18 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
             || Math.abs(a.d - b.d) >= delta
         );
     }
-    
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix2x2({ a: 1., b: 2., c: 3., d: 1. });
+     * ... var b = new Matrix2x2({ a: 1., b: 2., c: 4., d: 1. });
+     * ... a != b; }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Matrix2x2, b:Matrix2x2 ): Bool {
+        return !equal( a, b );
+    }
     /**
      * <pre><code>
      * >>> ({
