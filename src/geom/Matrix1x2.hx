@@ -2,11 +2,6 @@ package geom;
 typedef Vec2 = Matrix1x2;
 @:forward
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
-    /**
-     * <pre><code>
-     * >>> ({ trace('"new" untested'); true; }) == true
-     * </code></pre>
-     */
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
     /**

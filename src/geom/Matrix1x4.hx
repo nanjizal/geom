@@ -7,12 +7,12 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function new( m: geom.structure.Mat1x4 ){ this = m; }
     /**
      * <pre><code>
-     * >>> Matrix1x4.zero() == new Matrix1x4({ x: 0., y: 0., z: 0., w: 1. })
+     * >>> Matrix1x4.zero() == new Matrix1x4({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>
      */
     public static inline
     function zero(): Matrix1x4 {
-        return new Matrix1x4( { x: 0., y: 0., z: 0., w: 1. } );
+        return new Matrix1x4( { x: 0., y: 0., z: 0., w: 0. } );
     }
     /**
      * <pre><code>
@@ -142,6 +142,14 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function add( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
       	return new Matrix1x4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit();
+     * ... a - a == Matrix1x4.zero();
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function subtract( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
@@ -202,8 +210,8 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      * <pre><code>
      * >>> ({ 
      * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
-     * ... var b = ~a;
-     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true
+     * ... var b = -a;
+     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: -1. }); }) == true
      * </code></pre>
      */
     @:op(-A) public static inline
@@ -372,7 +380,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      * <pre><code>
      * >>> ({ 
      * ... var a = Matrix1x4.unit();
-     * ... var b = [ 1., 1., 1., 1. ];
+     * ... var b: Matrix1x4 = [ 1., 1., 1., 1. ];
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>
      */

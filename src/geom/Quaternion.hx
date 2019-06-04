@@ -1,32 +1,62 @@
 package geom;
+import geom.Matrix1x4;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
 @:forward
 abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
     public inline
     function new( m: geom.structure.Mat1x4 ){ this = m; }
+    /**
+     * <pre><code>
+     * >>> Quaternion.zero() == new Quaternion({ x: 0., y: 0., z: 0., w: 0. })
+     * </code></pre>
+     */
+    public static inline
+    function zero(): Quaternion {
+        return new Quaternion( { x: 0., y: 0., z: 0., w: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Quaternion.unit() == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
+     * </code></pre>
+     */
     public static inline
     function unit(): Quaternion {
-        return new Quaternion( { x: 0., y: 0., z: 0., w: 1. } );
+        return new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
     }
+    /**
+     * <pre><code>
+     * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
+     * </code></pre>
+     */
+    
     public static inline
     function identity( out: Quaternion ):Quaternion {
-            out.x = 0.;
-            out.y = 0.;
-            out.z = 0.;
+            out.x = 1.;
+            out.y = 1.;
+            out.z = 1.;
             out.w = 1.;
             return out;
     }
     @:to public inline // add Quaternion to Matrix4x1 
-    function toMatrix4x1(): Matrix4x1 {
-        return new Matrix4x1({ x: this.x, y: this.y, z: this.z, w: this.W });
+    function toMatrix4x1(): Matrix1x4 {
+        return new Matrix1x4({ x: this.x, y: this.y, z: this.z, w: this.w });
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = Quaternion.zero();
+     * ... var c = Quaternion.copy( a, b ); 
+     * ... a == c; }) == true
+     * </code></pre>
+     */
     public inline static
-    function copy( pin: Quaternion, pout: Quaternion ): Quaternion{
-        pin.x = pout.x;
-        pin.y = pout.y;
-        pin.z = pout.z;
-        pin.w = pout.w;
+    function copy( pin: Quaternion, pout: Quaternion ): Quaternion {
+        pout.x = pin.x;
+        pout.y = pin.y;
+        pout.z = pin.z;
+        pout.w = pin.w;
         return pout;
     }
     public inline
@@ -52,8 +82,16 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
             magnitude;
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
     @:op( A == B ) public static inline
-    function equals( a: Quaternion, b: Quaternion ): Bool {
+    function equal( a: Quaternion, b: Quaternion ): Bool {
         var delta = 0.0000001;
         return !(
                Math.abs(a.x - b.x) >= delta
@@ -62,14 +100,42 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
             || Math.abs(a.w - b.w) >= delta
         );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });
+     * ... a != b; }) == true
+     * </code></pre>
+     */
+    @:op(A != B) public static inline
+    function notEqual( a: Quaternion, b:Quaternion ): Bool {
+        return !equal( a, b );
+    }
     public inline 
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... a + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. }); 
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A + B) public static inline
     function add( a: Quaternion, b: Quaternion ): Quaternion {
       	return new Quaternion({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... a - a == Quaternion.zero(); 
+     * ... }) == true
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function subtract( a: Quaternion, b: Quaternion ): Quaternion {
         return new Quaternion({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
@@ -94,6 +160,14 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function divide2( v: Float, a: Quaternion ): Quaternion {
         return new Quaternion( { x: v/a.x, y: v/a.y, z: v/a.z, w: v/a.w } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = ~a;
+     * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true
+     * </code></pre>
+     */
     @:op(~A) public static inline
     function conjugate( a: Quaternion ): Quaternion {
         return new Quaternion( { x: -a.x
@@ -102,6 +176,14 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                             , w: a.w 
                             } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = -a;
+     * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true
+     * </code></pre>
+     */
     @:op(-A) public static inline
     function negate( a: Quaternion ):Quaternion {
         return new Quaternion( { x: -a.x
@@ -153,7 +235,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         var half = theta / 2.;
         var c = Math.cos( half );
         var s = Math.sin( half );
-        return new Matrix1x4( { x: s * axis.x, y: s * axis.y, z: s * axis.z, w: c } );
+        return new Quaternion( { x: s * axis.x, y: s * axis.y, z: s * axis.z, w: c } );
     } 
     public static inline
     function lerp( a: Quaternion, b:Quaternion, t: Float ): Quaternion {
@@ -194,7 +276,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         var y2 = b.y;
         var z2 = b.z;
         var dot = dotProduct( a, b );
-        var p = Matrix1x4.unit();
+        var p = Quaternion.unit();
         if( dot < 0 ) { // shortest direction
             dot = -dot;
             w2 = -w2;
@@ -230,10 +312,29 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function constrainDistance( anchor: Quaternion, distance: Float ): Quaternion {
         return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
+     * ... var c: Quaternion = b;
+     * ... a == b; }) == true
+     * </code></pre>
+     */
     @:from public static inline
     function fromVec( vec: haxe.ds.Vector<Float> ): Quaternion {
         return new Quaternion( { x: vec.get(0), y: vec.get(1), z: vec.get(2), w: vec.get(3) } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b: haxe.ds.Vector<Float> = a;
+     * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
+     * ... Equal.equals( b, c ); }) == true
+     * </code></pre>
+     */
+    
     @:to public inline
     function toVector(): haxe.ds.Vector<Float> {
         var vec = new haxe.ds.Vector<Float>(4);
@@ -243,10 +344,26 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         vec.set( 3, this.w );
         return vec;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b: Quaternion = [ 1., 1., 1., 1. ];
+     * ... Equal.equals( a, b ); }) == true
+     * </code></pre>
+     */
     @:from public inline static 
-    function fromArray( arr: Array<Float> ): Matrix1x4 {
+    function fromArray( arr: Array<Float> ): Quaternion {
         return new Quaternion( { x: arr[ 0 ], y: arr[ 1 ], z: arr[ 2 ], w: arr[ 3 ] } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b: Array<Float> = a;
+     * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
+     * </code></pre>
+     */
     @:to public inline
     function toArray():Array<Float> {
         return [ this.x, this.y, this.z, this.w ];
