@@ -983,7 +983,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left20;
 		try {
-			haxe_Log.trace("\"perp\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"perp\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left20 = true;
 		} catch( ex38 ) {
 			haxe_CallStack.lastException = ex38;
@@ -1080,7 +1080,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left24;
 		try {
-			haxe_Log.trace("\"span\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"span\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left24 = true;
 		} catch( ex46 ) {
 			haxe_CallStack.lastException = ex46;
@@ -1100,7 +1100,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left25;
 		try {
-			haxe_Log.trace("\"normalize\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"normalize\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left25 = true;
 		} catch( ex48 ) {
 			haxe_CallStack.lastException = ex48;
@@ -1162,7 +1162,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left28;
 		try {
-			haxe_Log.trace("\"isLeft\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"isLeft\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left28 = true;
 		} catch( ex54 ) {
 			haxe_CallStack.lastException = ex54;
@@ -1182,7 +1182,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left29;
 		try {
-			haxe_Log.trace("\"triangleArea\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"triangleArea\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left29 = true;
 		} catch( ex56 ) {
 			haxe_CallStack.lastException = ex56;
@@ -1440,7 +1440,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left40;
 		try {
-			haxe_Log.trace("\"inTri\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"inTri\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left40 = true;
 		} catch( ex78 ) {
 			haxe_CallStack.lastException = ex78;
@@ -1460,7 +1460,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left41;
 		try {
-			haxe_Log.trace("\"inTri2\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"inTri2\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left41 = true;
 		} catch( ex80 ) {
 			haxe_CallStack.lastException = ex80;
@@ -1639,7 +1639,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left47;
 		try {
-			haxe_Log.trace("\"cross\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"cross\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left47 = true;
 		} catch( ex92 ) {
 			haxe_CallStack.lastException = ex92;
@@ -1955,7 +1955,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left60;
 		try {
-			haxe_Log.trace("\"toTPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"toTPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left60 = true;
 		} catch( ex118 ) {
 			haxe_CallStack.lastException = ex118;
@@ -2170,7 +2170,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left4;
 		try {
-			haxe_Log.trace("\"projectPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"projectPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left4 = true;
 		} catch( ex8 ) {
 			haxe_CallStack.lastException = ex8;
@@ -2190,7 +2190,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left5;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left5 = true;
 		} catch( ex10 ) {
 			haxe_CallStack.lastException = ex10;
@@ -2258,7 +2258,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left8;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 7, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 8, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left8 = true;
 		} catch( ex16 ) {
 			haxe_CallStack.lastException = ex16;

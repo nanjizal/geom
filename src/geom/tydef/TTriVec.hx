@@ -1,4 +1,4 @@
-geom.tydef;
+package geom.tydef;
 typedef TTriVec = {
    var a: Matrix1x4;
    var b: Matrix1x4;

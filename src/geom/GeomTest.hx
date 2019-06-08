@@ -1,4 +1,5 @@
 package geom;
+#if !geomDoc
 import utest.Runner;
 import utest.Test;
 import utest.ui.Report;
@@ -17,3 +18,4 @@ class GeomTest extends utest.Test {
         super();
     }
 }
+#end

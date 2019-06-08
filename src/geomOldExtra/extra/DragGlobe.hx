@@ -1,4 +1,4 @@
-package extra.geom;
+package geom.extra;
 import geom.Matrix4x3;
 import geom.Matrix1x4;
  

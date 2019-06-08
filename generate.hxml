@@ -1,0 +1,9 @@
+-lib geom
+-D geomDoc
+-D doc-gen
+--macro include('geom')
+-cp src
+-main geom.GeomDoc
+--no-output
+-xml output.xml
+-js foo

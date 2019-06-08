@@ -1,4 +1,4 @@
-package gemo;
+package geom;
 // based on trilateral.tri.Trilateral.
 class Tri {
     public var windingAdjusted: Bool;

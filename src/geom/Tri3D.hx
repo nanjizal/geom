@@ -16,7 +16,7 @@ abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.struc
     }
     @:op(A * B) public static inline
     function scaleMultiply( tv: Tri3D, p: Matrix1x4 ): Tri3D {
-        return new Tri3D( { a: tv.a * p, b: tv.b * p, c: tv.c * p } );    
+        return new Tri3D( { a: tv.a * p.x, b: tv.b * p.y, c: tv.c * p.z } );    
     }
     public inline 
     function centre(): Matrix1x4 {

@@ -1,6 +1,6 @@
 package geom.structure;
 @:structInit
-class TriVec(){
+class TriVec {
     public var a: Matrix1x4;
     public var b: Matrix1x4;
     public var c: Matrix1x4;
