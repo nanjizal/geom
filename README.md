@@ -1,6 +1,6 @@
 # geom
 [unit tests](https://nanjizal.github.io/geom/geomTest.html) ( using haxe-doctest and utest )
-
+[doc](https://nanjizal.github.io/geom/pages) ( using doc-gen to provide documentation )
 geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
 
 *Currently cppia tests are not running must investigate.*
