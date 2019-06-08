@@ -428,7 +428,13 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> ({ trace('"convex" untested'); true; }) == true
+     * >>> ({ 
+     * ... var l = new Matrix1x2( { x: 1., y: 0. });
+     * ... var t = new Matrix1x2( { x: 2., y: 1. });
+     * ... var r = new Matrix1x2( { x: 4., y: 0. });
+     * ... var b = new Matrix1x2( { x: 3., y: -1. });
+     * ... (!Matrix1x2.convex( l, t, r ) && Matrix1x2.convex( l, b, r )) == true;
+     * ... }) == true
      * </code></pre>
      */
     public static inline
