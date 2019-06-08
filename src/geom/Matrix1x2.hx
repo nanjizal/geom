@@ -22,16 +22,25 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function unit(){
         return new Matrix1x2({ x: 1., y: 1. });
     }
+    public var magnitude( get, set ): Float;
     /**
      * <pre><code>
-     * >>> ({ trace('"magnitude" untested'); true; }) == true
+     * >>> ( new Matrix1x2( { x: 4., y: 3. } ) ).magnitude == 5
      * </code></pre>
      */
-    public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
         return Math.sqrt( this.x * this.x + this.y * this.y);
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var m = new Matrix1x2( { x: 9., y: 12. } );
+     * ... m.magnitude = 5;
+     * ... ( m.x == 3. && m.y == 4. ) == true; 
+     * ... }) == true
+     * </code></pre>
+     */
     private inline
     function set_magnitude( length: Float ): Float {
         var currentLength = get_magnitude();
@@ -517,22 +526,35 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> ({ trace('"toVec3" untested'); true; }) == true
+     * >>> ({ 
+     * ... var a = Matrix1x2.unit();
+     * ... var b: haxe.ds.Vector<Float> = a;
+     * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1. ]);
+     * ... Equal.equals( b, c ); }) == true
      * </code></pre>
      */
     @:to
     public inline
-    function toVec3(): geom.tydef.Tmatrix1x3 {
-        return { x: this.x, y: this.y, z: 1. };
+    function toVec3(): haxe.ds.Vector<Float>  {
+        var vec = new haxe.ds.Vector<Float>(3);
+        vec.set( 0, this.x );
+        vec.set( 1, this.y );
+        vec.set( 2, 1. );
+        return vec;
     }
     /**
      * <pre><code>
-     * >>> ({ trace('"fromVec3" untested'); true; }) == true
+     * >>> ({ 
+     * ... var a = Matrix1x2.unit();
+     * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1. ]);
+     * ... var c: Matrix1x2 = b;
+     * ... a == c; 
+     * ... }) == true
      * </code></pre>
      */
     @:from public inline static 
-    function fromVec3( v3: geom.tydef.Tmatrix1x3 ): Matrix1x2 {
-        return new Matrix1x2( { x: v3.x, y: v3.y } );
+    function fromVec3( v3: haxe.ds.Vector<Float>  ): Matrix1x2 {
+        return new Matrix1x2( { x: v3.get(0), y: v3.get(1)} );
     }
     /**
      * <pre><code>
