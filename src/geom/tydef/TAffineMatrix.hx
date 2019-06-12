@@ -1,4 +1,7 @@
 package geom.tydef;
+/**
+   ![2x2](../../bootstrap/img/affineMatrix.png)
+*/
 typedef TAffineMatrix = {
     e0: Float, e4: Float, e8:  Float, e12: Float,
     e1: Float, e5: Float, e9:  Float, e13: Float,

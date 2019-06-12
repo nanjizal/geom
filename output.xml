@@ -6640,20 +6640,23 @@
 		</new>
 		<meta><m n=":structInit"/></meta>
 	</class>
-	<typedef path="geom.tydef.TAffineMatrix" params="" file="src/geom/tydef/TAffineMatrix.hx"><a>
-	<e9><x path="Float"/></e9>
-	<e8><x path="Float"/></e8>
-	<e6><x path="Float"/></e6>
-	<e5><x path="Float"/></e5>
-	<e4><x path="Float"/></e4>
-	<e2><x path="Float"/></e2>
-	<e14><x path="Float"/></e14>
-	<e13><x path="Float"/></e13>
-	<e12><x path="Float"/></e12>
-	<e10><x path="Float"/></e10>
-	<e1><x path="Float"/></e1>
-	<e0><x path="Float"/></e0>
-</a></typedef>
+	<typedef path="geom.tydef.TAffineMatrix" params="" file="src/geom/tydef/TAffineMatrix.hx">
+		<a>
+			<e9><x path="Float"/></e9>
+			<e8><x path="Float"/></e8>
+			<e6><x path="Float"/></e6>
+			<e5><x path="Float"/></e5>
+			<e4><x path="Float"/></e4>
+			<e2><x path="Float"/></e2>
+			<e14><x path="Float"/></e14>
+			<e13><x path="Float"/></e13>
+			<e12><x path="Float"/></e12>
+			<e10><x path="Float"/></e10>
+			<e1><x path="Float"/></e1>
+			<e0><x path="Float"/></e0>
+		</a>
+		<haxe_doc>![2x2](../../bootstrap/img/affineMatrix.png)</haxe_doc>
+	</typedef>
 	<typedef path="geom.tydef.TTriVec" params="" file="src/geom/tydef/TTriVec.hx"><a>
 	<c><x path="geom.Matrix1x4"/></c>
 	<b><x path="geom.Matrix1x4"/></b>
