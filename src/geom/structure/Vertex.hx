@@ -1,8 +1,7 @@
 package geom.structure;
-/* 
-   x, y, z, w
-   u, v
-*/
+/** 
+   { x, y, z, w, u, v }
+**/
 @:structInit
 class Vertex {
     public var x = 0.; 

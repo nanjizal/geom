@@ -1,7 +1,7 @@
 package geom;
 typedef Vec2 = Matrix1x2;
 /** 
-   x, y
+   { x, y }
 **/
 @:forward
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {

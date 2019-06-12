@@ -1,7 +1,7 @@
 package geom.structure;
-/* 
-   x, y
-*/
+/** 
+   { x, y }
+**/
 @:structInit
 class Mat1x2 {
     public var x = 0.; 

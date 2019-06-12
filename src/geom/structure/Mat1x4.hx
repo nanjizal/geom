@@ -1,6 +1,6 @@
 package geom.structure;
 /** 
-   x, y, z, w
+   { x, y, z, w }
 **/
 @:structInit
 class Mat1x4 {

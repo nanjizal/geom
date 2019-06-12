@@ -2,6 +2,9 @@ package geom;
 import geom.Matrix1x4;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
+/**
+   { a, b, c, d }
+**/
 @:forward
 abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
     public inline
