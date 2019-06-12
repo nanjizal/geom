@@ -1,4 +1,7 @@
 package geom;
+/** 
+   ![triVec](../bootstrap/img/tri3D.png)
+**/
 @:forward
 abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.structure.TriVec {
     public function new( tv: geom.structure.TriVec ){ this = tv; }

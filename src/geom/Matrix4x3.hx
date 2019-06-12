@@ -46,9 +46,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                      , e: 0.,  f: 1., g: 0., h: 0.
      * ...                                      , i: 0.,  j: 0., k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -59,9 +61,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                       , e: 0., f: 1., g: 0., h: 0.
      * ...                                       , i: 0., j: 0., k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -72,22 +76,26 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
      * ...                                         , e: 0.,  f: -1., g: 0., h: 0.
      * ...                                         , i: 0.,  j: 0.,  k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline 
     function bottomLeft(){
-         return new Matrix4x3({ a: -1., b: -1., c: 0., d: 0.
-                              , e: 0.,  f: 0.,  g: 0., h: 0.
+         return new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+                              , e: 0.,  f: -1., g: 0., h: 0.
                               , i: 0.,  j: 0.,  k: 0., l: 0. } );
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
      * ...                                          , e: 0., f: -1., g: 0., h: 0.
      * ...                                          , i: 0., j: 0.,  k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -98,9 +106,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
      * ...                                    , e: 0., f: 1., g: 0., h: 0.
      * ...                                    , i: 0., j: 0., k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -111,9 +121,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
      * ...                                    , e: 0., f: -1., g: 0., h: 0.
      * ...                                    , i: 0., j: 0.,  k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -124,9 +136,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                   , e: 0.,  f: 0., g: 0., h: 0.
      * ...                                   , i: 0.,  j: 0., k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -137,9 +151,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                   , e: 0., f: 0., g: 0., h: 0.
      * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -150,9 +166,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
      * ...                                    , e: 0., f: 0., g: 0., h: 0.
      * ...                                    , i: 0., j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -163,9 +181,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
      * ...                                         , e: 0., f: 1., g: 0., h: 0.
      * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -176,9 +196,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                           , e: 0.,  f: 1., g: 0., h: 0.
      * ...                                           , i: 0.,  j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -189,9 +211,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                            , e: 0., f: 1., g: 0., h: 0.
      * ...                                            , i: 0., j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -202,9 +226,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
      * ...                                              , e: 0.,  f: -1., g: 0., h: 0.
      * ...                                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -215,9 +241,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
      * ...                                               , e: 0., f: -1., g: 0., h: 0.
      * ...                                               , i: 0., j: 0.,  k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -228,22 +256,26 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontSouth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
      * ...                                         , e: 0., f: -1., g: 0., h: 0.
-     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * ...                                         , i: 0., j: 0.,  k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
     function frontSouth(){
-        return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
-                             , e: 0., f: 0., g: 0., h: 0.
-                             , i: 0., j: 0., k: 1., l: 0. } );
+        return new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+                             , e: 0., f: -1., g: 0., h: 0.
+                             , i: 0., j: 0.,  k: 1., l: 0. } );
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                        , e: 0.,  f: 0., g: 0., h: 0.
      * ...                                        , i: 0.,  j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -254,9 +286,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                        , e: 0., f: 0., g: 0., h: 0.
      * ...                                        , i: 0., j: 0., k: 1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -267,9 +301,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
      * ...                                   , e: 0., f: 0., g: 0.,  h: 0.
      * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -280,9 +316,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * >>> ({
+     * ... Matrix4x3.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                          , e: 0.,  f: 1., g: 0., h: 0.
      * ...                                          , i: 0.,  j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -293,9 +331,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
      * ...                                           , e: 0., f: 1., g: 0.,  h: 0.
      * ...                                           , i: 0., j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -306,9 +346,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
      * ...                                             , e: 0.,  f: -1., g: 0.,  h: 0.
      * ...                                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -319,9 +361,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
      * ...                                              , e: 0., f: -1., g: 0.,  h: 0.
      * ...                                              , i: 0., j: 0.,  k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -332,9 +376,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
      * ...                                        , e: 0., f: 1., g: 0.,  h: 0.
      * ...                                        , i: 0., j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -345,9 +391,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
      * ...                                        , e: 0., f: -1., g: 0.,  h: 0.
      * ...                                        , i: 0., j: 0.,  k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -358,9 +406,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
      * ...                                       , e: 0.,  f: 0., g: 0.,  h: 0.
      * ...                                       , i: 0.,  j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline
@@ -371,9 +421,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * >>> ({
+     * ... Matrix4x3.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
      * ...                                       , e: 0., f: 0., g: 0.,  h: 0.
      * ...                                       , i: 0., j: 0., k: -1., l: 0. } );
+     * ... }) == true
      * </code></pre>
      */
     public static inline

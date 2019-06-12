@@ -39,6 +39,111 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     }
     /**
      * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.topLeft() == new Matrix2x2( { a: 1., b: 0.
+     * ...                                       , c: 0., d: -1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function topLeft(){
+        return new Matrix2x2( { a: 1., b: 0.
+                              , c: 0., d: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.topRight() == new Matrix2x2( { a: 1., b: 0.
+     * ...                                        , c: 0., d: 1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function topRight(){
+        return new Matrix2x2( { a: 1., b: 0.
+                              , c: 0., d: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.bottomLeft() == new Matrix2x2( { a: -1., b: 0.
+     * ...                                          , c: 0., d: -1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline 
+    function bottomLeft(){
+         return new Matrix2x2( { a: -1., b: 0.
+                               , c: 0., d: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.bottomRight() == new Matrix2x2( { a: 1., b: 0.
+     * ...                                           , c: 0., d: -1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function bottomRight(){
+        return new Matrix2x2( { a: 1., b: 0.
+                              , c: 0., d: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.north() == new Matrix2x2( { a: 0., b: 0.
+     * ...                                     , c: 0., d: 1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function north(){
+        return new Matrix2x2( { a: 0., b: 0.
+                              , c: 0., d: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.south() == new Matrix2x2( { a: 0., b: 0.
+     * ...                                     , c: 0., d: -1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function south(){
+        return new Matrix2x2( { a: 0., b: 0.
+                              , c: 0., d: -1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.west() == new Matrix2x2( { a: -1., b: 0.
+     * ...                                    , c: 0.,  d: 0. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function west(){
+        return new Matrix2x2( { a: -1., b: 0.
+                              , c: 0.,  d: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix2x2.east() == new Matrix2x2( { a: 1., b: 0.
+     * ...                                    , c: 0., d: 0. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function east(){
+        return new Matrix2x2( { a: 1., b: 0.
+                              , c: 0., d: 0. } );
+    }
+    
+    /**
+     * <pre><code>
      * >>> Matrix2x2.scale( new Matrix1x2( { x: 2., y: 2. } ) ) == new Matrix2x2( { a: 2., b: 0., c: 0.,  d: 2. } )
      * </code></pre>
      */

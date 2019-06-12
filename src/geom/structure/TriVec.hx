@@ -1,6 +1,6 @@
 package geom.structure;
-/**
-   ![tri](../../bootstrap/img/triangle.png)
+/** 
+   ![triVec](../../bootstrap/img/tri3D.png)
 **/
 @:structInit
 class TriVec {
