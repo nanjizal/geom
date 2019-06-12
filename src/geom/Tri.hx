@@ -1,5 +1,9 @@
 package geom;
-// based on trilateral.tri.Trilateral.
+/**
+   based on trilateral.tri.Trilateral.
+
+   ![tri](../bootstrap/img/triangle.png)
+**/
 class Tri {
     public var windingAdjusted: Bool;
     public var ax: Float;

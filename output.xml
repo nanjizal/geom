@@ -5765,7 +5765,7 @@
 		</toArray>
 	</class>
 	<class path="geom.Tri" params="" file="src/geom/Tri.hx">
-		<sign public="1" get="inline" set="null" line="73" static="1"><f a="n">
+		<sign public="1" get="inline" set="null" line="77" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></sign>
@@ -5777,51 +5777,51 @@
 		<by public="1"><x path="Float"/></by>
 		<cy public="1"><x path="Float"/></cy>
 		<x public="1" get="accessor" set="accessor"><x path="Float"/></x>
-		<get_x set="method" line="12"><f a=""><x path="Float"/></f></get_x>
-		<set_x set="method" line="15"><f a="x">
+		<get_x set="method" line="16"><f a=""><x path="Float"/></f></get_x>
+		<set_x set="method" line="19"><f a="x">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></set_x>
 		<y public="1" get="accessor" set="accessor"><x path="Float"/></y>
-		<get_y set="method" line="23"><f a=""><x path="Float"/></f></get_y>
-		<set_y set="method" line="26"><f a="y">
+		<get_y set="method" line="27"><f a=""><x path="Float"/></f></get_y>
+		<set_y set="method" line="30"><f a="y">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></set_y>
 		<right public="1" get="accessor" set="null"><x path="Float"/></right>
-		<get_right public="1" set="method" line="34"><f a=""><x path="Float"/></f></get_right>
+		<get_right public="1" set="method" line="38"><f a=""><x path="Float"/></f></get_right>
 		<bottom public="1" get="accessor" set="null"><x path="Float"/></bottom>
-		<get_bottom public="1" set="method" line="38"><f a=""><x path="Float"/></f></get_bottom>
-		<moveDelta set="method" line="41"><f a="dx:dy">
+		<get_bottom public="1" set="method" line="42"><f a=""><x path="Float"/></f></get_bottom>
+		<moveDelta set="method" line="45"><f a="dx:dy">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></moveDelta>
-		<liteHit public="1" get="inline" set="null" line="67"><f a="px:py">
+		<liteHit public="1" get="inline" set="null" line="71"><f a="px:py">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Bool"/>
 </f></liteHit>
-		<fullHit public="1" set="method" line="78"><f a="px:py">
+		<fullHit public="1" set="method" line="82"><f a="px:py">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Bool"/>
 </f></fullHit>
-		<adjustWinding public="1" set="method" line="82"><f a=""><x path="Bool"/></f></adjustWinding>
-		<rotate public="1" get="inline" set="null" line="85"><f a="x:y:theta">
+		<adjustWinding public="1" set="method" line="86"><f a=""><x path="Bool"/></f></adjustWinding>
+		<rotate public="1" get="inline" set="null" line="89"><f a="x:y:theta">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></rotate>
-		<rotateTrig public="1" get="inline" set="null" line="91"><f a="x:y:cos:sin">
+		<rotateTrig public="1" get="inline" set="null" line="95"><f a="x:y:cos:sin">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></rotateTrig>
-		<new public="1" set="method" line="49"><f a="ax_:ay_:bx_:by_:cx_:cy_">
+		<new public="1" set="method" line="53"><f a="ax_:ay_:bx_:by_:cx_:cy_">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
@@ -5830,6 +5830,9 @@
 	<x path="Float"/>
 	<x path="Void"/>
 </f></new>
+		<haxe_doc>based on trilateral.tri.Trilateral.
+
+   ![tri](../bootstrap/img/triangle.png)</haxe_doc>
 	</class>
 	<abstract path="geom.Tri3D" params="" file="src/geom/Tri3D.hx">
 		<from><icast><c path="geom.structure.TriVec"/></icast></from>
@@ -6169,12 +6172,13 @@
 		<a public="1"><x path="geom.Matrix1x4"/></a>
 		<b public="1"><x path="geom.Matrix1x4"/></b>
 		<c public="1"><x path="geom.Matrix1x4"/></c>
-		<new set="method" line="7"><f a="a:b:c">
+		<new set="method" line="10"><f a="a:b:c">
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="Void"/>
 </f></new>
+		<haxe_doc>![tri](../../bootstrap/img/triangle.png)</haxe_doc>
 		<meta>
 			<m n=":directlyUsed"/>
 			<m n=":structInit"/>

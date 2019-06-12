@@ -1,4 +1,7 @@
 package geom.structure;
+/**
+   ![tri](../../bootstrap/img/triangle.png)
+**/
 @:structInit
 class TriVec {
     public var a: Matrix1x4;
