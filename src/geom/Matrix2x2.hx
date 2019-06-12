@@ -297,11 +297,30 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         return [ this.a, this.b
                , this.c, this.d ];
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix2x2.unit();
+     * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 0., 0., 1. ]);
+     * ... var c: Matrix2x2 = b;
+     * ... a == c; 
+     * ... }) == true
+     * </code></pre>
+     */
     @:from public static inline
     function fromVec( vec: haxe.ds.Vector<Float> ): Matrix2x2 {
         return new Matrix2x2( { a: vec.get(0), b: vec.get(1),
                                c: vec.get(2), d: vec.get(3) } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix2x2.unit();
+     * ... var b: haxe.ds.Vector<Float> = a;
+     * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 0., 0., 1. ]);
+     * ... Equal.equals( b, c ); }) == true
+     * </code></pre>
+     */
     @:to public inline
     function toVector(): haxe.ds.Vector<Float> {
         var vec = new haxe.ds.Vector<Float>(4);
@@ -309,16 +328,39 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         vec.set(2, this.c); vec.set(3, this.d);
         return vec;
     }
-    public inline function setXY( x: Int, y: Int, v: Float  ): Float {
-        return switch [ x, y ] {
-            case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v;
-            case [ 1,0 ]: this.c = v; case [ 1,1 ]: this.d = v;
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... var a = Matrix2x2.unit();
+     * ... a.setXY( 0, 0, 1. );
+     * ... a.setXY( 1, 0, 2. );
+     * ... a.setXY( 0, 1, 3. );
+     * ... a.setXY( 1, 1, 4. );
+     * ... var b = new Matrix2x2({ a: 1., b: 2., c: 3., d: 4. });
+     * ... a == b;
+     * ... }) == true
+     * </code></pre>
+     */
+    
+    public inline function setXY( x: Int, y: Int, v: Float  ): Matrix2x2 {
+        switch [ x, y ] {
+            case [ 0,0 ]: this.a = v; case [ 1,0 ]: this.b = v;
+            case [ 0,1 ]: this.c = v; case [ 1,1 ]: this.d = v;
             case _: throw ('bad set $x, $y on Matrix2x2' ); }
+        return this;
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix2x2({ a: 1., b: 2., c: 3., d: 4. });
+     * ... a.getXY( 0, 0 ) == 1 && a.getXY( 1, 0 ) == 2 && a.getXY( 0, 1 ) == 3 && a.getXY( 1, 1 ) == 4;
+     * ... }) == true
+     * </code></pre>
+     */
     public inline function getXY( x: Int, y: Int  ): Float {
         return switch [ x, y ] {
-            case [ 0, 0 ]: this.a; case [ 0, 1 ]: this.b;
-            case [ 1, 0 ]: this.c; case [ 1, 1 ]: this.d;
+            case [ 0, 0 ]: this.a; case [ 1, 0 ]: this.b;
+            case [ 0, 1 ]: this.c; case [ 1, 1 ]: this.d;
             case _: throw ('bad get $x, $y on Matrix2x2' ); }
     }
 }

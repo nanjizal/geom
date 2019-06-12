@@ -569,7 +569,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * >>> Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1) ==  new Matrix1x2({x:1.,y:2.})
      * </code></pre>
      */
-    public static // inline
+    public static inline
     function fromArrayPos( arr: Array<Float>, pos: Int ): Matrix1x2 {
         return new Matrix1x2( { x: arr[ pos ], y: arr[ pos + 1 ] } );
     }
