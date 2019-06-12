@@ -44,6 +44,344 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
     }
+    /**
+     * <pre><code>
+     * >>> Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                      , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                      , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function topLeft(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+                             , e: 0.,  f: 1., g: 0., h: 0.
+                             , i: 0.,  j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                       , e: 0., f: 1., g: 0., h: 0.
+     * ...                                       , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function topRight(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                         , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                         , i: 0.,  j: 0.,  k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline 
+    function bottomLeft(){
+         return new Matrix4x3({ a: -1., b: -1., c: 0., d: 0.
+                              , e: 0.,  f: 0.,  g: 0., h: 0.
+                              , i: 0.,  j: 0.,  k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                          , e: 0., f: -1., g: 0., h: 0.
+     * ...                                          , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function bottomRight(){
+        return new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+                                 , e: 0., f: -1., g: 0., h: 0.
+                                 , i: 0., j: 0.,  k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function north(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+                                , e: 0., f: 1., g: 0., h: 0.
+                                , i: 0., j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * ...                                    , e: 0., f: -1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function south(){
+        return new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+                                , e: 0., f: -1., g: 0., h: 0.
+                                , i: 0., j: 0.,  k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                   , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function west(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+                             , e: 0.,  f: 0., g: 0., h: 0.
+                             , i: 0.,  j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: 0., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function east(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 0., g: 0., h: 0.
+                             , i: 0., j: 0., k: 0., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 0., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function front(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+                             , e: 0., f: 0., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: 1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontNorth(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                           , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                           , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontTopLeft(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+                             , e: 0.,  f: 1., g: 0., h: 0.
+                             , i: 0.,  j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                            , e: 0., f: 1., g: 0., h: 0.
+     * ...                                            , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontTopRight(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 1., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                              , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontBottomLeft(){
+        return new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+                             , e: 0.,  f: -1., g: 0., h: 0.
+                             , i: 0.,  j: 0.,  k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                               , e: 0., f: -1., g: 0., h: 0.
+     * ...                                               , i: 0., j: 0.,  k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontBottomRight(){
+        return new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+                             , e: 0., f: -1., g: 0., h: 0.
+                             , i: 0., j: 0.,  k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontSouth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: -1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontSouth(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+                             , e: 0., f: 0., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                        , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontWest(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+                             , e: 0.,  f: 0., g: 0., h: 0.
+                             , i: 0.,  j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0., f: 0., g: 0., h: 0.
+     * ...                                        , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function frontEast(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+                             , e: 0., f: 0., g: 0., h: 0.
+                             , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                   , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function back(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+                             , e: 0., f: 0., g: 0.,  h: 0.
+                             , i: 0., j: 0., k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                          , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                          , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backTopLeft(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+                             , e: 0.,  f: 1., g: 0.,  h: 0.
+                             , i: 0.,  j: 0., k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                           , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                           , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backTopRight(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+                             , e: 0., f: 1., g: 0.,  h: 0.
+                             , i: 0., j: 0., k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+     * ...                                             , e: 0.,  f: -1., g: 0.,  h: 0.
+     * ...                                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backBottomLeft(){
+        return new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+                             , e: 0.,  f: -1., g: 0.,  h: 0.
+                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+     * ...                                              , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                              , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backBottomRight(){
+        return new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+                             , e: 0., f: -1., g: 0.,  h: 0.
+                             , i: 0., j: 0.,  k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                        , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backNorth(){
+        return new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+                             , e: 0., f: 1., g: 0.,  h: 0.
+                             , i: 0., j: 0., k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+     * ...                                        , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backSouth(){
+        return new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+                             , e: 0., f: -1., g: 0.,  h: 0.
+                             , i: 0., j: 0.,  k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0.,  f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backWest(){
+        return new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+                             , e: 0.,  f: 0., g: 0.,  h: 0.
+                             , i: 0.,  j: 0., k: -1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>
+     */
+    public static inline
+    function backEast(){
+        return new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+                             , e: 0., f: 0., g: 0.,  h: 0.
+                             , i: 0., j: 0., k: -1., l: 0. } );
+    }
     public static inline
     function radianX( theta: Float ): Matrix4x3 {
         var c = Math.cos( theta ); var s = Math.sin( theta );

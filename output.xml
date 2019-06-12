@@ -4103,11 +4103,219 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</unit>
-	<radianX public="1" get="inline" set="null" line="47" static="1"><f a="theta">
+	<topLeft public="1" get="inline" set="null" line="54" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                      , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                      , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</topLeft>
+	<topRight public="1" get="inline" set="null" line="67" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                       , e: 0., f: 1., g: 0., h: 0.
+     * ...                                       , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</topRight>
+	<bottomLeft public="1" get="inline" set="null" line="80" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                         , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                         , i: 0.,  j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</bottomLeft>
+	<bottomRight public="1" get="inline" set="null" line="93" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                          , e: 0., f: -1., g: 0., h: 0.
+     * ...                                          , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</bottomRight>
+	<north public="1" get="inline" set="null" line="106" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</north>
+	<south public="1" get="inline" set="null" line="119" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * ...                                    , e: 0., f: -1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</south>
+	<west public="1" get="inline" set="null" line="132" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                   , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</west>
+	<east public="1" get="inline" set="null" line="145" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: 0., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</east>
+	<front public="1" get="inline" set="null" line="158" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 0., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</front>
+	<frontNorth public="1" get="inline" set="null" line="171" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: 1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontNorth>
+	<frontTopLeft public="1" get="inline" set="null" line="184" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                           , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                           , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontTopLeft>
+	<frontTopRight public="1" get="inline" set="null" line="197" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                            , e: 0., f: 1., g: 0., h: 0.
+     * ...                                            , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontTopRight>
+	<frontBottomLeft public="1" get="inline" set="null" line="210" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                              , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontBottomLeft>
+	<frontBottomRight public="1" get="inline" set="null" line="223" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                               , e: 0., f: -1., g: 0., h: 0.
+     * ...                                               , i: 0., j: 0.,  k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontBottomRight>
+	<frontSouth public="1" get="inline" set="null" line="236" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontSouth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: -1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontSouth>
+	<frontWest public="1" get="inline" set="null" line="249" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                        , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontWest>
+	<frontEast public="1" get="inline" set="null" line="262" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0., f: 0., g: 0., h: 0.
+     * ...                                        , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</frontEast>
+	<back public="1" get="inline" set="null" line="275" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                   , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</back>
+	<backTopLeft public="1" get="inline" set="null" line="288" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                          , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                          , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backTopLeft>
+	<backTopRight public="1" get="inline" set="null" line="301" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                           , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                           , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backTopRight>
+	<backBottomLeft public="1" get="inline" set="null" line="314" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+     * ...                                             , e: 0.,  f: -1., g: 0.,  h: 0.
+     * ...                                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backBottomLeft>
+	<backBottomRight public="1" get="inline" set="null" line="327" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+     * ...                                              , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                              , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backBottomRight>
+	<backNorth public="1" get="inline" set="null" line="340" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                        , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backNorth>
+	<backSouth public="1" get="inline" set="null" line="353" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+     * ...                                        , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backSouth>
+	<backWest public="1" get="inline" set="null" line="366" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0.,  f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backWest>
+	<backEast public="1" get="inline" set="null" line="379" static="1">
+		<f a=""><x path="geom.Matrix4x3"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+	</backEast>
+	<radianX public="1" get="inline" set="null" line="385" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianX>
-	<rotateX public="1" get="inline" set="null" line="54" static="1">
+	<rotateX public="1" get="inline" set="null" line="392" static="1">
 		<f a="this:theta">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4115,11 +4323,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateX>
-	<radianY public="1" get="inline" set="null" line="56" static="1"><f a="theta">
+	<radianY public="1" get="inline" set="null" line="394" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianY>
-	<rotateY public="1" get="inline" set="null" line="63" static="1">
+	<rotateY public="1" get="inline" set="null" line="401" static="1">
 		<f a="this:theta">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4127,11 +4335,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateY>
-	<radianZ public="1" get="inline" set="null" line="65" static="1"><f a="theta">
+	<radianZ public="1" get="inline" set="null" line="403" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianZ>
-	<rotateZ public="1" get="inline" set="null" line="72" static="1">
+	<rotateZ public="1" get="inline" set="null" line="410" static="1">
 		<f a="this:theta">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4139,13 +4347,13 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateZ>
-	<sxyz public="1" get="inline" set="null" line="74" static="1"><f a="x:y:z">
+	<sxyz public="1" get="inline" set="null" line="412" static="1"><f a="x:y:z">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sxyz>
-	<scaleXYZ public="1" get="inline" set="null" line="80" static="1">
+	<scaleXYZ public="1" get="inline" set="null" line="418" static="1">
 		<f a="this:x:y:z">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4155,11 +4363,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scaleXYZ>
-	<sx public="1" get="inline" set="null" line="82" static="1"><f a="x">
+	<sx public="1" get="inline" set="null" line="420" static="1"><f a="x">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sx>
-	<scaleX public="1" get="inline" set="null" line="88" static="1">
+	<scaleX public="1" get="inline" set="null" line="426" static="1">
 		<f a="this:x">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4167,11 +4375,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scaleX>
-	<sy public="1" get="inline" set="null" line="90" static="1"><f a="y">
+	<sy public="1" get="inline" set="null" line="428" static="1"><f a="y">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sy>
-	<scaleY public="1" get="inline" set="null" line="96" static="1">
+	<scaleY public="1" get="inline" set="null" line="434" static="1">
 		<f a="this:y">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4179,11 +4387,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scaleY>
-	<sz public="1" get="inline" set="null" line="98" static="1"><f a="z">
+	<sz public="1" get="inline" set="null" line="436" static="1"><f a="z">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sz>
-	<scaleZ public="1" get="inline" set="null" line="104" static="1">
+	<scaleZ public="1" get="inline" set="null" line="442" static="1">
 		<f a="this:z">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4191,7 +4399,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scaleZ>
-	<scale public="1" get="inline" set="null" line="106" static="1">
+	<scale public="1" get="inline" set="null" line="444" static="1">
 		<f a="this:s">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4199,13 +4407,13 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scale>
-	<txyz public="1" get="inline" set="null" line="108" static="1"><f a="x:y:z">
+	<txyz public="1" get="inline" set="null" line="446" static="1"><f a="x:y:z">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></txyz>
-	<translateXYZ public="1" get="inline" set="null" line="114" static="1">
+	<translateXYZ public="1" get="inline" set="null" line="452" static="1">
 		<f a="this:x:y:z">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4215,11 +4423,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</translateXYZ>
-	<tx public="1" get="inline" set="null" line="116" static="1"><f a="x">
+	<tx public="1" get="inline" set="null" line="454" static="1"><f a="x">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></tx>
-	<translateX public="1" get="inline" set="null" line="122" static="1">
+	<translateX public="1" get="inline" set="null" line="460" static="1">
 		<f a="this:x">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4227,11 +4435,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</translateX>
-	<ty public="1" get="inline" set="null" line="124" static="1"><f a="y">
+	<ty public="1" get="inline" set="null" line="462" static="1"><f a="y">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></ty>
-	<translateY public="1" get="inline" set="null" line="130" static="1">
+	<translateY public="1" get="inline" set="null" line="468" static="1">
 		<f a="this:y">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4239,11 +4447,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</translateY>
-	<tz public="1" get="inline" set="null" line="132" static="1"><f a="z">
+	<tz public="1" get="inline" set="null" line="470" static="1"><f a="z">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></tz>
-	<translateZ public="1" get="inline" set="null" line="138" static="1">
+	<translateZ public="1" get="inline" set="null" line="476" static="1">
 		<f a="this:z">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4251,12 +4459,12 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</translateZ>
-	<txy public="1" get="inline" set="null" line="140" static="1"><f a="x:y">
+	<txy public="1" get="inline" set="null" line="478" static="1"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></txy>
-	<translateXY public="1" get="inline" set="null" line="146" static="1">
+	<translateXY public="1" get="inline" set="null" line="484" static="1">
 		<f a="this:x:y">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4265,7 +4473,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</translateXY>
-	<equal public="1" get="inline" set="null" line="157" static="1">
+	<equal public="1" get="inline" set="null" line="495" static="1">
 		<f a="a:b">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x3"/>
@@ -4279,7 +4487,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</equal>
-	<notEqual public="1" get="inline" set="null" line="183" static="1">
+	<notEqual public="1" get="inline" set="null" line="521" static="1">
 		<f a="a:b">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x3"/>
@@ -4293,7 +4501,7 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 	</notEqual>
-	<add public="1" get="inline" set="null" line="196" static="1">
+	<add public="1" get="inline" set="null" line="534" static="1">
 		<f a="m0:m1">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x3"/>
@@ -4308,7 +4516,7 @@
      * ...                         , i: 0., j: 0., k: 2., l: 0. } ); }) == true
      * </code></pre>]]></haxe_doc>
 	</add>
-	<sub public="1" get="inline" set="null" line="209" static="1">
+	<sub public="1" get="inline" set="null" line="547" static="1">
 		<f a="m0:m1">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x3"/>
@@ -4321,7 +4529,7 @@
      * ... a - a == Matrix4x3.zero(); }) == true
      * </code></pre>]]></haxe_doc>
 	</sub>
-	<scaleMultiply1 public="1" get="inline" set="null" line="215" static="1">
+	<scaleMultiply1 public="1" get="inline" set="null" line="553" static="1">
 		<f a="p:m">
 			<x path="geom.Matrix1x4"/>
 			<x path="geom.Matrix4x3"/>
@@ -4329,7 +4537,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</scaleMultiply1>
-	<scaleMultiply2 public="1" get="inline" set="null" line="221" static="1">
+	<scaleMultiply2 public="1" get="inline" set="null" line="559" static="1">
 		<f a="m:p">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -4337,7 +4545,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</scaleMultiply2>
-	<scaleDivide public="1" get="inline" set="null" line="227" static="1">
+	<scaleDivide public="1" get="inline" set="null" line="565" static="1">
 		<f a="m:p">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -4345,7 +4553,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</scaleDivide>
-	<multiply public="1" get="inline" set="null" line="234" static="1">
+	<multiply public="1" get="inline" set="null" line="572" static="1">
 		<f a="r:s">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x3"/>
@@ -4353,7 +4561,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</multiply>
-	<cofactor public="1" get="inline" set="null" line="246" static="1">
+	<cofactor public="1" get="inline" set="null" line="584" static="1">
 		<f a="this:a:b:c:d:e:f:g:h:i">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
@@ -4369,33 +4577,33 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</cofactor>
-	<det public="1" get="inline" set="null" line="252" static="1">
+	<det public="1" get="inline" set="null" line="590" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</det>
-	<inverse public="1" get="inline" set="null" line="269" static="1">
+	<inverse public="1" get="inline" set="null" line="607" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</inverse>
-	<projectionWindow public="1" get="inline" set="null" line="300" static="1"><f a="wid:hi:fov">
+	<projectionWindow public="1" get="inline" set="null" line="638" static="1"><f a="wid:hi:fov">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></projectionWindow>
-	<orientation public="1" get="inline" set="null" line="309" static="1"><f a="pos:dir:up">
+	<orientation public="1" get="inline" set="null" line="647" static="1"><f a="pos:dir:up">
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix4x3"/>
 </f></orientation>
-	<applyRotation public="1" get="inline" set="null" line="316" static="1">
+	<applyRotation public="1" get="inline" set="null" line="654" static="1">
 		<f a="this:p">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -4403,7 +4611,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</applyRotation>
-	<applyInverseRotation public="1" get="inline" set="null" line="323" static="1">
+	<applyInverseRotation public="1" get="inline" set="null" line="661" static="1">
 		<f a="this:p">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -4411,35 +4619,35 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</applyInverseRotation>
-	<orthonormalizeRotation public="1" get="inline" set="null" line="330" static="1">
+	<orthonormalizeRotation public="1" get="inline" set="null" line="668" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<c path="geom.structure.Mat4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</orthonormalizeRotation>
-	<makeViewFromOrientation public="1" get="inline" set="null" line="340" static="1">
+	<makeViewFromOrientation public="1" get="inline" set="null" line="678" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</makeViewFromOrientation>
-	<invertNormalizedRotation public="1" get="inline" set="null" line="347" static="1">
+	<invertNormalizedRotation public="1" get="inline" set="null" line="685" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</invertNormalizedRotation>
-	<invertNormalized public="1" get="inline" set="null" line="353" static="1">
+	<invertNormalized public="1" get="inline" set="null" line="691" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</invertNormalized>
-	<toAffineMatrix public="1" get="inline" set="null" line="361" static="1">
+	<toAffineMatrix public="1" get="inline" set="null" line="699" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<t path="geom.tydef.TAffineMatrix"/>
@@ -4449,14 +4657,14 @@
 			<m n=":to"/>
 		</meta>
 	</toAffineMatrix>
-	<fromNumbered public="1" get="inline" set="null" line="368" static="1">
+	<fromNumbered public="1" get="inline" set="null" line="706" static="1">
 		<f a="m">
 			<t path="geom.tydef.Tmatrix4x4numbered"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromNumbered>
-	<toNumbered public="1" get="inline" set="null" line="375" static="1">
+	<toNumbered public="1" get="inline" set="null" line="713" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<t path="geom.tydef.Tmatrix4x4numbered"/>
@@ -4466,14 +4674,14 @@
 			<m n=":to"/>
 		</meta>
 	</toNumbered>
-	<fromArr public="1" get="inline" set="null" line="383" static="1">
+	<fromArr public="1" get="inline" set="null" line="721" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromArr>
-	<toArray public="1" get="inline" set="null" line="390" static="1">
+	<toArray public="1" get="inline" set="null" line="728" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<c path="Array"><x path="Float"/></c>
@@ -4483,21 +4691,21 @@
 			<m n=":to"/>
 		</meta>
 	</toArray>
-	<fromVec public="1" get="inline" set="null" line="397" static="1">
+	<fromVec public="1" get="inline" set="null" line="735" static="1">
 		<f a="v">
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromVec>
-	<from2x2 public="1" get="inline" set="null" line="404" static="1">
+	<from2x2 public="1" get="inline" set="null" line="742" static="1">
 		<f a="m2">
 			<x path="geom.Matrix2x2"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</from2x2>
-	<to2x2 public="1" get="inline" set="null" line="411" static="1">
+	<to2x2 public="1" get="inline" set="null" line="749" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix2x2"/>
@@ -4507,14 +4715,14 @@
 			<m n=":to"/>
 		</meta>
 	</to2x2>
-	<from3x3 public="1" get="inline" set="null" line="417" static="1">
+	<from3x3 public="1" get="inline" set="null" line="755" static="1">
 		<f a="m3">
 			<x path="geom.Matrix3x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</from3x3>
-	<to3x3 public="1" get="inline" set="null" line="424" static="1">
+	<to3x3 public="1" get="inline" set="null" line="762" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix3x3"/>
@@ -4524,7 +4732,7 @@
 			<m n=":to"/>
 		</meta>
 	</to3x3>
-	<toVector public="1" get="inline" set="null" line="431" static="1">
+	<toVector public="1" get="inline" set="null" line="769" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -4534,7 +4742,7 @@
 			<m n=":to"/>
 		</meta>
 	</toVector>
-	<setXY public="1" get="inline" set="null" line="439" static="1">
+	<setXY public="1" get="inline" set="null" line="777" static="1">
 		<f a="this:x:y:v">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Int"/>
@@ -4544,7 +4752,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</setXY>
-	<getXY public="1" get="inline" set="null" line="446" static="1">
+	<getXY public="1" get="inline" set="null" line="784" static="1">
 		<f a="this:x:y">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Int"/>
@@ -4553,7 +4761,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getXY>
-	<toFloat32Array public="1" get="inline" set="null" line="454" static="1">
+	<toFloat32Array public="1" get="inline" set="null" line="792" static="1">
 		<f a="this:arr">
 			<c path="geom.structure.Mat4x3"/>
 			<t path="js.html.Float32Array"/>
@@ -4594,11 +4802,219 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</unit>
-		<radianX public="1" get="inline" set="null" line="47" static="1"><f a="theta">
+		<topLeft public="1" get="inline" set="null" line="54" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                      , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                      , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</topLeft>
+		<topRight public="1" get="inline" set="null" line="67" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                       , e: 0., f: 1., g: 0., h: 0.
+     * ...                                       , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</topRight>
+		<bottomLeft public="1" get="inline" set="null" line="80" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                         , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                         , i: 0.,  j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</bottomLeft>
+		<bottomRight public="1" get="inline" set="null" line="93" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                          , e: 0., f: -1., g: 0., h: 0.
+     * ...                                          , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</bottomRight>
+		<north public="1" get="inline" set="null" line="106" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</north>
+		<south public="1" get="inline" set="null" line="119" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * ...                                    , e: 0., f: -1., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0.,  k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</south>
+		<west public="1" get="inline" set="null" line="132" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                   , i: 0.,  j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</west>
+		<east public="1" get="inline" set="null" line="145" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: 0., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</east>
+		<front public="1" get="inline" set="null" line="158" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                    , e: 0., f: 0., g: 0., h: 0.
+     * ...                                    , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</front>
+		<frontNorth public="1" get="inline" set="null" line="171" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: 1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontNorth>
+		<frontTopLeft public="1" get="inline" set="null" line="184" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                           , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                           , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontTopLeft>
+		<frontTopRight public="1" get="inline" set="null" line="197" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                            , e: 0., f: 1., g: 0., h: 0.
+     * ...                                            , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontTopRight>
+		<frontBottomLeft public="1" get="inline" set="null" line="210" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                              , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontBottomLeft>
+		<frontBottomRight public="1" get="inline" set="null" line="223" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                               , e: 0., f: -1., g: 0., h: 0.
+     * ...                                               , i: 0., j: 0.,  k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontBottomRight>
+		<frontSouth public="1" get="inline" set="null" line="236" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontSouth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0., f: -1., g: 0., h: 0.
+     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontSouth>
+		<frontWest public="1" get="inline" set="null" line="249" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                        , i: 0.,  j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontWest>
+		<frontEast public="1" get="inline" set="null" line="262" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0., f: 0., g: 0., h: 0.
+     * ...                                        , i: 0., j: 0., k: 1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</frontEast>
+		<back public="1" get="inline" set="null" line="275" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                   , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</back>
+		<backTopLeft public="1" get="inline" set="null" line="288" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                          , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                          , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backTopLeft>
+		<backTopRight public="1" get="inline" set="null" line="301" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                           , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                           , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backTopRight>
+		<backBottomLeft public="1" get="inline" set="null" line="314" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+     * ...                                             , e: 0.,  f: -1., g: 0.,  h: 0.
+     * ...                                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backBottomLeft>
+		<backBottomRight public="1" get="inline" set="null" line="327" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+     * ...                                              , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                              , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backBottomRight>
+		<backNorth public="1" get="inline" set="null" line="340" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                        , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backNorth>
+		<backSouth public="1" get="inline" set="null" line="353" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+     * ...                                        , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                        , i: 0., j: 0.,  k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backSouth>
+		<backWest public="1" get="inline" set="null" line="366" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0.,  f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0.,  j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backWest>
+		<backEast public="1" get="inline" set="null" line="379" static="1">
+			<f a=""><x path="geom.Matrix4x3"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Matrix1x2.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                       , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                       , i: 0., j: 0., k: -1., l: 0. } );
+     * </code></pre>]]></haxe_doc>
+		</backEast>
+		<radianX public="1" get="inline" set="null" line="385" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianX>
-		<rotateX public="1" get="inline" set="null" line="54" static="1">
+		<rotateX public="1" get="inline" set="null" line="392" static="1">
 			<f a="this:theta">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4606,11 +5022,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateX>
-		<radianY public="1" get="inline" set="null" line="56" static="1"><f a="theta">
+		<radianY public="1" get="inline" set="null" line="394" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianY>
-		<rotateY public="1" get="inline" set="null" line="63" static="1">
+		<rotateY public="1" get="inline" set="null" line="401" static="1">
 			<f a="this:theta">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4618,11 +5034,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateY>
-		<radianZ public="1" get="inline" set="null" line="65" static="1"><f a="theta">
+		<radianZ public="1" get="inline" set="null" line="403" static="1"><f a="theta">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></radianZ>
-		<rotateZ public="1" get="inline" set="null" line="72" static="1">
+		<rotateZ public="1" get="inline" set="null" line="410" static="1">
 			<f a="this:theta">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4630,13 +5046,13 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateZ>
-		<sxyz public="1" get="inline" set="null" line="74" static="1"><f a="x:y:z">
+		<sxyz public="1" get="inline" set="null" line="412" static="1"><f a="x:y:z">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sxyz>
-		<scaleXYZ public="1" get="inline" set="null" line="80" static="1">
+		<scaleXYZ public="1" get="inline" set="null" line="418" static="1">
 			<f a="this:x:y:z">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4646,11 +5062,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scaleXYZ>
-		<sx public="1" get="inline" set="null" line="82" static="1"><f a="x">
+		<sx public="1" get="inline" set="null" line="420" static="1"><f a="x">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sx>
-		<scaleX public="1" get="inline" set="null" line="88" static="1">
+		<scaleX public="1" get="inline" set="null" line="426" static="1">
 			<f a="this:x">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4658,11 +5074,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scaleX>
-		<sy public="1" get="inline" set="null" line="90" static="1"><f a="y">
+		<sy public="1" get="inline" set="null" line="428" static="1"><f a="y">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sy>
-		<scaleY public="1" get="inline" set="null" line="96" static="1">
+		<scaleY public="1" get="inline" set="null" line="434" static="1">
 			<f a="this:y">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4670,11 +5086,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scaleY>
-		<sz public="1" get="inline" set="null" line="98" static="1"><f a="z">
+		<sz public="1" get="inline" set="null" line="436" static="1"><f a="z">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></sz>
-		<scaleZ public="1" get="inline" set="null" line="104" static="1">
+		<scaleZ public="1" get="inline" set="null" line="442" static="1">
 			<f a="this:z">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4682,7 +5098,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scaleZ>
-		<scale public="1" get="inline" set="null" line="106" static="1">
+		<scale public="1" get="inline" set="null" line="444" static="1">
 			<f a="this:s">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4690,13 +5106,13 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scale>
-		<txyz public="1" get="inline" set="null" line="108" static="1"><f a="x:y:z">
+		<txyz public="1" get="inline" set="null" line="446" static="1"><f a="x:y:z">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></txyz>
-		<translateXYZ public="1" get="inline" set="null" line="114" static="1">
+		<translateXYZ public="1" get="inline" set="null" line="452" static="1">
 			<f a="this:x:y:z">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4706,11 +5122,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</translateXYZ>
-		<tx public="1" get="inline" set="null" line="116" static="1"><f a="x">
+		<tx public="1" get="inline" set="null" line="454" static="1"><f a="x">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></tx>
-		<translateX public="1" get="inline" set="null" line="122" static="1">
+		<translateX public="1" get="inline" set="null" line="460" static="1">
 			<f a="this:x">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4718,11 +5134,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</translateX>
-		<ty public="1" get="inline" set="null" line="124" static="1"><f a="y">
+		<ty public="1" get="inline" set="null" line="462" static="1"><f a="y">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></ty>
-		<translateY public="1" get="inline" set="null" line="130" static="1">
+		<translateY public="1" get="inline" set="null" line="468" static="1">
 			<f a="this:y">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4730,11 +5146,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</translateY>
-		<tz public="1" get="inline" set="null" line="132" static="1"><f a="z">
+		<tz public="1" get="inline" set="null" line="470" static="1"><f a="z">
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></tz>
-		<translateZ public="1" get="inline" set="null" line="138" static="1">
+		<translateZ public="1" get="inline" set="null" line="476" static="1">
 			<f a="this:z">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4742,12 +5158,12 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</translateZ>
-		<txy public="1" get="inline" set="null" line="140" static="1"><f a="x:y">
+		<txy public="1" get="inline" set="null" line="478" static="1"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></txy>
-		<translateXY public="1" get="inline" set="null" line="146" static="1">
+		<translateXY public="1" get="inline" set="null" line="484" static="1">
 			<f a="this:x:y">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4756,7 +5172,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</translateXY>
-		<equal public="1" get="inline" set="null" line="157" static="1">
+		<equal public="1" get="inline" set="null" line="495" static="1">
 			<f a="a:b">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x3"/>
@@ -4770,7 +5186,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</equal>
-		<notEqual public="1" get="inline" set="null" line="183" static="1">
+		<notEqual public="1" get="inline" set="null" line="521" static="1">
 			<f a="a:b">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x3"/>
@@ -4784,7 +5200,7 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 		</notEqual>
-		<add public="1" get="inline" set="null" line="196" static="1">
+		<add public="1" get="inline" set="null" line="534" static="1">
 			<f a="m0:m1">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x3"/>
@@ -4799,7 +5215,7 @@
      * ...                         , i: 0., j: 0., k: 2., l: 0. } ); }) == true
      * </code></pre>]]></haxe_doc>
 		</add>
-		<sub public="1" get="inline" set="null" line="209" static="1">
+		<sub public="1" get="inline" set="null" line="547" static="1">
 			<f a="m0:m1">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x3"/>
@@ -4812,7 +5228,7 @@
      * ... a - a == Matrix4x3.zero(); }) == true
      * </code></pre>]]></haxe_doc>
 		</sub>
-		<scaleMultiply1 public="1" get="inline" set="null" line="215" static="1">
+		<scaleMultiply1 public="1" get="inline" set="null" line="553" static="1">
 			<f a="p:m">
 				<x path="geom.Matrix1x4"/>
 				<x path="geom.Matrix4x3"/>
@@ -4820,7 +5236,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</scaleMultiply1>
-		<scaleMultiply2 public="1" get="inline" set="null" line="221" static="1">
+		<scaleMultiply2 public="1" get="inline" set="null" line="559" static="1">
 			<f a="m:p">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -4828,7 +5244,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</scaleMultiply2>
-		<scaleDivide public="1" get="inline" set="null" line="227" static="1">
+		<scaleDivide public="1" get="inline" set="null" line="565" static="1">
 			<f a="m:p">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -4836,7 +5252,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</scaleDivide>
-		<multiply public="1" get="inline" set="null" line="234" static="1">
+		<multiply public="1" get="inline" set="null" line="572" static="1">
 			<f a="r:s">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x3"/>
@@ -4844,7 +5260,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</multiply>
-		<cofactor public="1" get="inline" set="null" line="246" static="1">
+		<cofactor public="1" get="inline" set="null" line="584" static="1">
 			<f a="this:a:b:c:d:e:f:g:h:i">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
@@ -4860,33 +5276,33 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</cofactor>
-		<det public="1" get="inline" set="null" line="252" static="1">
+		<det public="1" get="inline" set="null" line="590" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</det>
-		<inverse public="1" get="inline" set="null" line="269" static="1">
+		<inverse public="1" get="inline" set="null" line="607" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</inverse>
-		<projectionWindow public="1" get="inline" set="null" line="300" static="1"><f a="wid:hi:fov">
+		<projectionWindow public="1" get="inline" set="null" line="638" static="1"><f a="wid:hi:fov">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
 </f></projectionWindow>
-		<orientation public="1" get="inline" set="null" line="309" static="1"><f a="pos:dir:up">
+		<orientation public="1" get="inline" set="null" line="647" static="1"><f a="pos:dir:up">
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix4x3"/>
 </f></orientation>
-		<applyRotation public="1" get="inline" set="null" line="316" static="1">
+		<applyRotation public="1" get="inline" set="null" line="654" static="1">
 			<f a="this:p">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -4894,7 +5310,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</applyRotation>
-		<applyInverseRotation public="1" get="inline" set="null" line="323" static="1">
+		<applyInverseRotation public="1" get="inline" set="null" line="661" static="1">
 			<f a="this:p">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -4902,35 +5318,35 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</applyInverseRotation>
-		<orthonormalizeRotation public="1" get="inline" set="null" line="330" static="1">
+		<orthonormalizeRotation public="1" get="inline" set="null" line="668" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<c path="geom.structure.Mat4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</orthonormalizeRotation>
-		<makeViewFromOrientation public="1" get="inline" set="null" line="340" static="1">
+		<makeViewFromOrientation public="1" get="inline" set="null" line="678" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</makeViewFromOrientation>
-		<invertNormalizedRotation public="1" get="inline" set="null" line="347" static="1">
+		<invertNormalizedRotation public="1" get="inline" set="null" line="685" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</invertNormalizedRotation>
-		<invertNormalized public="1" get="inline" set="null" line="353" static="1">
+		<invertNormalized public="1" get="inline" set="null" line="691" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</invertNormalized>
-		<toAffineMatrix public="1" get="inline" set="null" line="361" static="1">
+		<toAffineMatrix public="1" get="inline" set="null" line="699" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<t path="geom.tydef.TAffineMatrix"/>
@@ -4940,14 +5356,14 @@
 				<m n=":to"/>
 			</meta>
 		</toAffineMatrix>
-		<fromNumbered public="1" get="inline" set="null" line="368" static="1">
+		<fromNumbered public="1" get="inline" set="null" line="706" static="1">
 			<f a="m">
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromNumbered>
-		<toNumbered public="1" get="inline" set="null" line="375" static="1">
+		<toNumbered public="1" get="inline" set="null" line="713" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
@@ -4957,14 +5373,14 @@
 				<m n=":to"/>
 			</meta>
 		</toNumbered>
-		<fromArr public="1" get="inline" set="null" line="383" static="1">
+		<fromArr public="1" get="inline" set="null" line="721" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromArr>
-		<toArray public="1" get="inline" set="null" line="390" static="1">
+		<toArray public="1" get="inline" set="null" line="728" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<c path="Array"><x path="Float"/></c>
@@ -4974,21 +5390,21 @@
 				<m n=":to"/>
 			</meta>
 		</toArray>
-		<fromVec public="1" get="inline" set="null" line="397" static="1">
+		<fromVec public="1" get="inline" set="null" line="735" static="1">
 			<f a="v">
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromVec>
-		<from2x2 public="1" get="inline" set="null" line="404" static="1">
+		<from2x2 public="1" get="inline" set="null" line="742" static="1">
 			<f a="m2">
 				<x path="geom.Matrix2x2"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</from2x2>
-		<to2x2 public="1" get="inline" set="null" line="411" static="1">
+		<to2x2 public="1" get="inline" set="null" line="749" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix2x2"/>
@@ -4998,14 +5414,14 @@
 				<m n=":to"/>
 			</meta>
 		</to2x2>
-		<from3x3 public="1" get="inline" set="null" line="417" static="1">
+		<from3x3 public="1" get="inline" set="null" line="755" static="1">
 			<f a="m3">
 				<x path="geom.Matrix3x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</from3x3>
-		<to3x3 public="1" get="inline" set="null" line="424" static="1">
+		<to3x3 public="1" get="inline" set="null" line="762" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix3x3"/>
@@ -5015,7 +5431,7 @@
 				<m n=":to"/>
 			</meta>
 		</to3x3>
-		<toVector public="1" get="inline" set="null" line="431" static="1">
+		<toVector public="1" get="inline" set="null" line="769" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -5025,7 +5441,7 @@
 				<m n=":to"/>
 			</meta>
 		</toVector>
-		<setXY public="1" get="inline" set="null" line="439" static="1">
+		<setXY public="1" get="inline" set="null" line="777" static="1">
 			<f a="this:x:y:v">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Int"/>
@@ -5035,7 +5451,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</setXY>
-		<getXY public="1" get="inline" set="null" line="446" static="1">
+		<getXY public="1" get="inline" set="null" line="784" static="1">
 			<f a="this:x:y">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Int"/>
@@ -5044,7 +5460,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getXY>
-		<toFloat32Array public="1" get="inline" set="null" line="454" static="1">
+		<toFloat32Array public="1" get="inline" set="null" line="792" static="1">
 			<f a="this:arr">
 				<c path="geom.structure.Mat4x3"/>
 				<t path="js.html.Float32Array"/>
