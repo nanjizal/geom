@@ -26,6 +26,10 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function unit(): Matrix1x4 {
         return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
     }
+    public inline
+    function clone():Matrix1x4 {
+        return new Matrix1x4( { x: this.x, y: this.y, z: this.z, w: this.w } );
+    }
     /**
      * <pre><code>
      * >>> Matrix1x4.identity( Matrix1x4.zero() ) == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
@@ -263,6 +267,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
                               , z: this.x * v.y - this.y * v.x
                               , w: this.w * v.w } );
     }
+    /*
     public static inline
     function fromAxisAngle( theta: Float, axis: Matrix1x4 ):Matrix1x4 {
         var half = theta / 2.;
@@ -337,6 +342,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         }
         return p;
     }
+    */
     public inline
     function normalize(): Matrix1x4 {
         magnitude = 1.; 

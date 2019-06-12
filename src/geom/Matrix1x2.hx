@@ -7,6 +7,10 @@ typedef Vec2 = Matrix1x2;
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
+    public inline
+    function clone(): Matrix1x2 {
+        return new Matrix1x2( { x: this.x, y: this.y } );
+    }
     /**
      * <pre><code>
      * >>> Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. })

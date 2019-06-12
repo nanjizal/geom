@@ -3,7 +3,7 @@ import geom.Matrix1x4;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
 /**
-   { a, b, c, d }
+   { x, y, z, w }
 **/
 @:forward
 abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
@@ -26,6 +26,25 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     public static inline
     function unit(): Quaternion {
         return new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    public inline
+    function clone():Quaternion {
+        return new Quaternion( { x: this.x, y: this.y, z: this.z, w: this.w } );
+    }
+    public static inline
+    function xPIhalf(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion( { x: halfSqrt, y: 0., z: 0, w: halfSqrt } );
+    }
+    public static inline
+    function yPIhalf(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion({ x: 0., y: halfSqrt, z: 0., w: halfSqrt });
+    }
+    public static inline 
+    function zPIhalf(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion({ x: 0., y: 0., z: halfSqrt, w: halfSqrt });
     }
     /**
      * <pre><code>
@@ -61,10 +80,6 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         pout.z = pin.z;
         pout.w = pin.w;
         return pout;
-    }
-    public inline
-    function getTPoint(): Quaternion {
-        return new Quaternion( { x: this.x, y: this.y, z: this.z, w: this.w } );
     }
     public var magnitude( get, set ): Float;
     private inline
@@ -228,10 +243,10 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     }
     public inline 
     function cross(v: Quaternion ): Quaternion {
-		return new Quaternion( { x: this.y * v.z - this.z * v.y
-		                      , y: this.z * v.x - this.x * v.z
-		                      , z: this.x * v.y - this.y * v.x
-                                      , w: this.w * v.w } );
+        return new Quaternion( { x: this.y * v.z - this.z * v.y
+                               , y: this.z * v.x - this.x * v.z
+                               , z: this.x * v.y - this.y * v.x
+                               , w: this.w * v.w } );
     }
     public static inline
     function fromAxisAngle( theta: Float, axis: Quaternion ):Quaternion {
@@ -311,10 +326,12 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         magnitude = 1.; 
         return this;
     }
+    /* Not sure this is relevant
     public inline
     function constrainDistance( anchor: Quaternion, distance: Float ): Quaternion {
         return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
+    */
     /**
      * <pre><code>
      * >>> ({ 
