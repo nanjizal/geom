@@ -1,8 +1,7 @@
 package geom.structure;
-/* 
-   a b
-   c d
-*/
+/** 
+   ![2x2](../../bootstrap/img/matrix2x2.png)
+**/
 @:structInit
 class Mat2x2 {
     public var a = 0.; public var b = 0.;

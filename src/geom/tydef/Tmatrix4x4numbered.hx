@@ -1,4 +1,7 @@
 package geom.tydef;
+/**
+   ![2x2](../../bootstrap/img/matrix4x4numbered.png)
+*/
 typedef Tmatrix4x4numbered = {
     _00: Float, _10: Float, _20: Float, _30: Float,
     _01: Float, _11: Float, _21: Float, _31: Float,

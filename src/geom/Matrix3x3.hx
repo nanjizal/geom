@@ -1,6 +1,9 @@
 package geom;
 import geom.Matrix1x2;
 import geom.Matrix4x3;
+/** 
+   ![3x3](../bootstrap/img/matrix3x3.png)
+**/
 @:forward
 abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.structure.Mat3x3 {
     public inline

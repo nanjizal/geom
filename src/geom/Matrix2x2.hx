@@ -1,4 +1,7 @@
 package geom;
+/** 
+   ![2x2](../bootstrap/img/matrix2x2.png)
+**/
 @:forward
 abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.structure.Mat2x2 {
     public inline

@@ -1,9 +1,7 @@
 package geom.structure;
-/* 
-   a b c
-   d e f
-   g h i
-*/
+/** 
+   ![3x3](../../bootstrap/img/matrix3x3.png)
+**/
 @:structInit
 class Mat3x3 {
     public var a = 0.; public var b = 0.; public var c = 0.;

@@ -1,2 +1,4 @@
 -cmd haxe generate.hxml
 -cmd haxelib run dox -i output.xml --title "geom API documentation" -D themeColor 0xE3F9C3 --toplevel-package geom
+-cmd cd pages
+-cmd open index.html
