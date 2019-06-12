@@ -223,6 +223,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * test with 3,4,5 triangle
+     *
      * <pre><code>
      * >>> ({ 
      * ... var a = new Matrix1x2( { x: 1., y: 1. } ); 
@@ -238,9 +239,10 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * test with 3,4,5 triangle
+     *
      * <pre><code>
      * >>> ({ 
-     * ... var a = new Matrix1x2( { x: 1., y: 1. } );
+     * ... var a = new Matrix1x2( { x: 1., y: 1. } ); 
      * ... var b = new Matrix1x2( { x: 1. + 3., y: 1. + 4. } ); 
      * ... a.distanceBetween( b ); }) == 5
      * </code></pre>
@@ -393,19 +395,16 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * ... var b = Matrix1x2.zero(); 
      * ... var c = Matrix1x2.topRight(); 
      * ... a.inRect( b, c ); }) == true
-     *
      * >>> ({ 
      * ... var a = Matrix1x2.bottomLeft()/2; 
      * ... var b = Matrix1x2.zero(); 
      * ... var c = Matrix1x2.topRight(); 
      * ... a.inRect( b, c ); }) == false
-     *
      * >>> ({ 
      * ... var a = Matrix1x2.bottomLeft()/2; 
      * ... var b = Matrix1x2.bottomRight(); 
      * ... var c = Matrix1x2.zero(); 
      * ... a.inRect( b, c ); }) == false
-     * 
      * >>> ({ 
      * ... var a = Matrix1x2.bottomRight()/2; 
      * ... var b = Matrix1x2.bottomRight(); 

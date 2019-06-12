@@ -15,55 +15,38 @@
 >>> ({ 
 ... var a = new Matrix1x2( { x: 3., y: 4. } ); 
 ... a.distance(); }) == 5
-</code></pre></div></div><div class="field "><a name="distanceBetween"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#distanceBetween"><span class="identifier">distanceBetween</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a></span>):<span class="type">Float</span></code></h3><div class="doc"><p>test with 3,4,5 triangle
-<pre><code></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>({ </p></blockquote></blockquote></blockquote>
-<p>... var a = new Matrix1x2( { x: 1., y: 1. } );
+</code></pre></div></div><div class="field "><a name="distanceBetween"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#distanceBetween"><span class="identifier">distanceBetween</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a></span>):<span class="type">Float</span></code></h3><div class="doc"><p>test with 3,4,5 triangle</p><pre><code>
+>>> ({ 
+... var a = new Matrix1x2( { x: 1., y: 1. } ); 
 ... var b = new Matrix1x2( { x: 1. + 3., y: 1. + 4. } ); 
 ... a.distanceBetween( b ); }) == 5
-</code></pre></p></div></div><div class="field "><a name="distanceBetweenSquare"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#distanceBetweenSquare"><span class="identifier">distanceBetweenSquare</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a></span>):<span class="type">Float</span></code></h3><div class="doc"><p>test with 3,4,5 triangle
-<pre><code></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>({ </p></blockquote></blockquote></blockquote>
-<p>... var a = new Matrix1x2( { x: 1., y: 1. } ); 
+</code></pre></div></div><div class="field "><a name="distanceBetweenSquare"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#distanceBetweenSquare"><span class="identifier">distanceBetweenSquare</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a></span>):<span class="type">Float</span></code></h3><div class="doc"><p>test with 3,4,5 triangle</p><pre><code>
+>>> ({ 
+... var a = new Matrix1x2( { x: 1., y: 1. } ); 
 ... var b = new Matrix1x2( { x: 1. + 3., y: 1. + 4. } ); 
 ... a.distanceBetweenSquare( b ); }) == 25
-</code></pre></p></div></div><div class="field "><a name="inRect"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inRect"><span class="identifier">inRect</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">b:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
+</code></pre></div></div><div class="field "><a name="inRect"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inRect"><span class="identifier">inRect</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">b:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
 >>> ({ 
 ... var a = Matrix1x2.topRight()/2; 
 ... var b = Matrix1x2.zero(); 
 ... var c = Matrix1x2.topRight(); 
 ... a.inRect( b, c ); }) == true
-<blockquote>
-<blockquote>
-<blockquote>
-<p>({ </p></blockquote></blockquote></blockquote>
-<p>... var a = Matrix1x2.bottomLeft()/2; 
+>>> ({ 
+... var a = Matrix1x2.bottomLeft()/2; 
 ... var b = Matrix1x2.zero(); 
 ... var c = Matrix1x2.topRight(); 
-... a.inRect( b, c ); }) == false</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>({ </p></blockquote></blockquote></blockquote>
-<p>... var a = Matrix1x2.bottomLeft()/2; 
+... a.inRect( b, c ); }) == false
+>>> ({ 
+... var a = Matrix1x2.bottomLeft()/2; 
 ... var b = Matrix1x2.bottomRight(); 
 ... var c = Matrix1x2.zero(); 
-... a.inRect( b, c ); }) == false</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>({ </p></blockquote></blockquote></blockquote>
-<p>... var a = Matrix1x2.bottomRight()/2; 
+... a.inRect( b, c ); }) == false
+>>> ({ 
+... var a = Matrix1x2.bottomRight()/2; 
 ... var b = Matrix1x2.bottomRight(); 
 ... var c = Matrix1x2.zero(); 
 ... a.inRect( b, c ); }) == true
-</code></pre></p></div></div><div class="field "><a name="inTri"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inTri"><span class="identifier">inTri</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">a:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a>,</span> <span style="white-space:nowrap">b:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
+</code></pre></div></div><div class="field "><a name="inTri"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inTri"><span class="identifier">inTri</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">a:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a>,</span> <span style="white-space:nowrap">b:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
 >>> ({ trace('"inTri" untested'); true; }) == true
 </code></pre></div></div><div class="field "><a name="inTri2"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inTri2"><span class="identifier">inTri2</span></a> (<span style="white-space:nowrap">this:<a class="type" title="" href="../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">a:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a>,</span> <span style="white-space:nowrap">b:<a class="type" title="" href="../geom/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
 >>> ({ trace('"inTri2" untested'); true; }) == true
