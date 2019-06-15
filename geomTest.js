@@ -3773,7 +3773,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		try {
 			var this61 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
 			var a30 = this61;
-			var this62 = new geom_structure_Mat4x3(a30.a + a30.a,a30.b + a30.b,a30.c + a30.c,a30.d + a30.d,a30.e + a30.e,a30.f + a30.f,a30.d + a30.d,a30.h + a30.h,a30.i + a30.i,a30.j + a30.j,a30.k + a30.k,a30.l + a30.l);
+			var this62 = new geom_structure_Mat4x3(a30.a + a30.a,a30.b + a30.b,a30.c + a30.c,a30.d + a30.d,a30.e + a30.e,a30.f + a30.f,a30.g + a30.g,a30.h + a30.h,a30.i + a30.i,a30.j + a30.j,a30.k + a30.k,a30.l + a30.l);
 			var a31 = this62;
 			var this63 = new geom_structure_Mat4x3(2.,0.,0.,0.,0.,2.,0.,0.,0.,0.,2.,0.);
 			var b30 = this63;
@@ -3799,7 +3799,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		try {
 			var this64 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
 			var a32 = this64;
-			var this65 = new geom_structure_Mat4x3(a32.a - a32.a,a32.b - a32.b,a32.c - a32.c,a32.d - a32.d,a32.e - a32.e,a32.f - a32.f,a32.d - a32.d,a32.h - a32.h,a32.i - a32.i,a32.j - a32.j,a32.k - a32.k,a32.l - a32.l);
+			var this65 = new geom_structure_Mat4x3(a32.a - a32.a,a32.b - a32.b,a32.c - a32.c,a32.d - a32.d,a32.e - a32.e,a32.f - a32.f,a32.g - a32.g,a32.h - a32.h,a32.i - a32.i,a32.j - a32.j,a32.k - a32.k,a32.l - a32.l);
 			var a33 = this65;
 			var this66 = new geom_structure_Mat4x3(0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.);
 			var b31 = this66;
@@ -3820,6 +3820,104 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			utest_Assert.pass("Matrix4x3.hx:594 [OK] ({\nvar a = Matrix4x3.unit();\na - a == Matrix4x3.zero(); }) == true",{ lineNumber : 594, fileName : "src/geom/Matrix4x3.hx", className : "", methodName : ""});
 		} else {
 			utest_Assert.fail("({\nvar a = Matrix4x3.unit();\na - a == Matrix4x3.zero(); }) == true --> Left side `" + Std.string(left31) + "` does not equal `" + Std.string(right31) + "`.",{ lineNumber : 594, fileName : "src/geom/Matrix4x3.hx", className : "", methodName : ""});
+		}
+	}
+	,testMatrix4x4_1: function() {
+		var left;
+		try {
+			var this1 = new geom_structure_Mat4x4(0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.);
+			var a = this1;
+			var this2 = new geom_structure_Mat4x4(0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.);
+			var b = this2;
+			var delta = 0.0000001;
+			left = !(Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta || Math.abs(a.m - b.m) >= delta || Math.abs(a.n - b.n) >= delta || Math.abs(a.o - b.o) >= delta || Math.abs(a.p - b.p) >= delta);
+		} catch( ex ) {
+			haxe_CallStack.lastException = ex;
+			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right;
+		try {
+			right = true;
+		} catch( ex1 ) {
+			haxe_CallStack.lastException = ex1;
+			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
+			utest_Assert.pass("Matrix4x4.hx:19 [OK] ({\nMatrix4x4.zero() == new Matrix4x4({ a: 0., b: 0., c: 0., d: 0.\n, e: 0., f: 0., g: 0., h: 0.\n, i: 0., j: 0., k: 0., l: 0.\n, m: 0., n: 0., o: 0., p: 0. } );\n}) == true",{ lineNumber : 19, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nMatrix4x4.zero() == new Matrix4x4({ a: 0., b: 0., c: 0., d: 0.\n, e: 0., f: 0., g: 0., h: 0.\n, i: 0., j: 0., k: 0., l: 0.\n, m: 0., n: 0., o: 0., p: 0. } );\n}) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 19, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		}
+		var left1;
+		try {
+			var this3 = new geom_structure_Mat4x4(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.);
+			var a1 = this3;
+			var this4 = new geom_structure_Mat4x4(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.);
+			var b1 = this4;
+			var delta1 = 0.0000001;
+			left1 = !(Math.abs(a1.a - b1.a) >= delta1 || Math.abs(a1.b - b1.b) >= delta1 || Math.abs(a1.c - b1.c) >= delta1 || Math.abs(a1.d - b1.d) >= delta1 || Math.abs(a1.e - b1.e) >= delta1 || Math.abs(a1.f - b1.f) >= delta1 || Math.abs(a1.g - b1.g) >= delta1 || Math.abs(a1.h - b1.h) >= delta1 || Math.abs(a1.i - b1.i) >= delta1 || Math.abs(a1.j - b1.j) >= delta1 || Math.abs(a1.k - b1.k) >= delta1 || Math.abs(a1.l - b1.l) >= delta1 || Math.abs(a1.m - b1.m) >= delta1 || Math.abs(a1.n - b1.n) >= delta1 || Math.abs(a1.o - b1.o) >= delta1 || Math.abs(a1.p - b1.p) >= delta1);
+		} catch( ex2 ) {
+			haxe_CallStack.lastException = ex2;
+			left1 = "exception: " + Std.string(((ex2) instanceof js__$Boot_HaxeError) ? ex2.val : ex2) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right1;
+		try {
+			right1 = true;
+		} catch( ex3 ) {
+			haxe_CallStack.lastException = ex3;
+			right1 = "exception: " + Std.string(((ex3) instanceof js__$Boot_HaxeError) ? ex3.val : ex3) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left1,right1)) {
+			utest_Assert.pass("Matrix4x4.hx:36 [OK] ({\nMatrix4x4.unit() == new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.\n, e: 0., f: 1., g: 0., h: 0.\n, i: 0., j: 0., k: 1., l: 0.\n, m: 0., n: 0., o: 0., p: 1. } );\n}) == true",{ lineNumber : 36, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nMatrix4x4.unit() == new Matrix4x4({ a: 1., b: 0., c: 0., d: 0.\n, e: 0., f: 1., g: 0., h: 0.\n, i: 0., j: 0., k: 1., l: 0.\n, m: 0., n: 0., o: 0., p: 1. } );\n}) == true --> Left side `" + Std.string(left1) + "` does not equal `" + Std.string(right1) + "`.",{ lineNumber : 36, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		}
+		var left2;
+		try {
+			var this5 = new geom_structure_Mat4x4(1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.);
+			var a2 = this5;
+			var this6 = new geom_structure_Mat4x4(1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.);
+			var b2 = this6;
+			var delta2 = 0.0000001;
+			left2 = !(Math.abs(a2.a - b2.a) >= delta2 || Math.abs(a2.b - b2.b) >= delta2 || Math.abs(a2.c - b2.c) >= delta2 || Math.abs(a2.d - b2.d) >= delta2 || Math.abs(a2.e - b2.e) >= delta2 || Math.abs(a2.f - b2.f) >= delta2 || Math.abs(a2.g - b2.g) >= delta2 || Math.abs(a2.h - b2.h) >= delta2 || Math.abs(a2.i - b2.i) >= delta2 || Math.abs(a2.j - b2.j) >= delta2 || Math.abs(a2.k - b2.k) >= delta2 || Math.abs(a2.l - b2.l) >= delta2 || Math.abs(a2.m - b2.m) >= delta2 || Math.abs(a2.n - b2.n) >= delta2 || Math.abs(a2.o - b2.o) >= delta2 || Math.abs(a2.p - b2.p) >= delta2);
+		} catch( ex4 ) {
+			haxe_CallStack.lastException = ex4;
+			left2 = "exception: " + Std.string(((ex4) instanceof js__$Boot_HaxeError) ? ex4.val : ex4) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right2;
+		try {
+			right2 = true;
+		} catch( ex5 ) {
+			haxe_CallStack.lastException = ex5;
+			right2 = "exception: " + Std.string(((ex5) instanceof js__$Boot_HaxeError) ? ex5.val : ex5) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left2,right2)) {
+			utest_Assert.pass("Matrix4x4.hx:54 [OK] ({\nvar a = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:16. });\nvar b = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:16. });\na == b; }) == true",{ lineNumber : 54, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:16. });\nvar b = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:16. });\na == b; }) == true --> Left side `" + Std.string(left2) + "` does not equal `" + Std.string(right2) + "`.",{ lineNumber : 54, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		}
+		var left3;
+		try {
+			var this7 = new geom_structure_Mat4x4(1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.);
+			var a3 = this7;
+			var this8 = new geom_structure_Mat4x4(1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,15.);
+			var b3 = this8;
+			var delta3 = 0.0000001;
+			left3 = !(!(Math.abs(a3.a - b3.a) >= delta3 || Math.abs(a3.b - b3.b) >= delta3 || Math.abs(a3.c - b3.c) >= delta3 || Math.abs(a3.d - b3.d) >= delta3 || Math.abs(a3.e - b3.e) >= delta3 || Math.abs(a3.f - b3.f) >= delta3 || Math.abs(a3.g - b3.g) >= delta3 || Math.abs(a3.h - b3.h) >= delta3 || Math.abs(a3.i - b3.i) >= delta3 || Math.abs(a3.j - b3.j) >= delta3 || Math.abs(a3.k - b3.k) >= delta3 || Math.abs(a3.l - b3.l) >= delta3 || Math.abs(a3.m - b3.m) >= delta3 || Math.abs(a3.n - b3.n) >= delta3 || Math.abs(a3.o - b3.o) >= delta3 || Math.abs(a3.p - b3.p) >= delta3));
+		} catch( ex6 ) {
+			haxe_CallStack.lastException = ex6;
+			left3 = "exception: " + Std.string(((ex6) instanceof js__$Boot_HaxeError) ? ex6.val : ex6) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right3;
+		try {
+			right3 = true;
+		} catch( ex7 ) {
+			haxe_CallStack.lastException = ex7;
+			right3 = "exception: " + Std.string(((ex7) instanceof js__$Boot_HaxeError) ? ex7.val : ex7) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left3,right3)) {
+			utest_Assert.pass("Matrix4x4.hx:85 [OK] ({\nvar a = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. , m:13.,n:14.,o:15.,p:16.});\nvar b = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:15. });\na != b; }) == true",{ lineNumber : 85, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. , m:13.,n:14.,o:15.,p:16.});\nvar b = new Matrix4x4({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12., m:13.,n:14.,o:15.,p:15. });\na != b; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 85, fileName : "src/geom/Matrix4x4.hx", className : "", methodName : ""});
 		}
 	}
 	,testQuaternion_1: function() {
@@ -3887,9 +3985,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right2 = "exception: " + Std.string(((ex5) instanceof js__$Boot_HaxeError) ? ex5.val : ex5) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left2,right2)) {
-			utest_Assert.pass("Quaternion.hx:51 [OK] Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })",{ lineNumber : 51, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:101 [OK] Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })",{ lineNumber : 101, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. }) --> Left side `" + Std.string(left2) + "` does not equal `" + Std.string(right2) + "`.",{ lineNumber : 51, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. }) --> Left side `" + Std.string(left2) + "` does not equal `" + Std.string(right2) + "`.",{ lineNumber : 101, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left3;
 		try {
@@ -3916,9 +4014,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right3 = "exception: " + Std.string(((ex7) instanceof js__$Boot_HaxeError) ? ex7.val : ex7) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left3,right3)) {
-			utest_Assert.pass("Quaternion.hx:69 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true",{ lineNumber : 69, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:119 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true",{ lineNumber : 119, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 69, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 119, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left4;
 		try {
@@ -3940,9 +4038,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right4 = "exception: " + Std.string(((ex9) instanceof js__$Boot_HaxeError) ? ex9.val : ex9) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left4,right4)) {
-			utest_Assert.pass("Quaternion.hx:105 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true",{ lineNumber : 105, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:159 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true",{ lineNumber : 159, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 105, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 159, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left5;
 		try {
@@ -3964,9 +4062,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right5 = "exception: " + Std.string(((ex11) instanceof js__$Boot_HaxeError) ? ex11.val : ex11) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left5,right5)) {
-			utest_Assert.pass("Quaternion.hx:123 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true",{ lineNumber : 123, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:177 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true",{ lineNumber : 177, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true --> Left side `" + Std.string(left5) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 123, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true --> Left side `" + Std.string(left5) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 177, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left6;
 		try {
@@ -3990,9 +4088,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right6 = "exception: " + Std.string(((ex13) instanceof js__$Boot_HaxeError) ? ex13.val : ex13) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left6,right6)) {
-			utest_Assert.pass("Quaternion.hx:139 [OK] ({\nvar a = Quaternion.unit();\na + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. });\n}) == true",{ lineNumber : 139, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:193 [OK] ({\nvar a = Quaternion.unit();\na + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. });\n}) == true",{ lineNumber : 193, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\na + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. });\n}) == true --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 139, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\na + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. });\n}) == true --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 193, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left7;
 		try {
@@ -4016,9 +4114,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right7 = "exception: " + Std.string(((ex15) instanceof js__$Boot_HaxeError) ? ex15.val : ex15) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left7,right7)) {
-			utest_Assert.pass("Quaternion.hx:151 [OK] ({\nvar a = Quaternion.unit();\na - a == Quaternion.zero();\n}) == true",{ lineNumber : 151, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:205 [OK] ({\nvar a = Quaternion.unit();\na - a == Quaternion.zero();\n}) == true",{ lineNumber : 205, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\na - a == Quaternion.zero();\n}) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 151, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\na - a == Quaternion.zero();\n}) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 205, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left8;
 		try {
@@ -4042,9 +4140,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right8 = "exception: " + Std.string(((ex17) instanceof js__$Boot_HaxeError) ? ex17.val : ex17) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left8,right8)) {
-			utest_Assert.pass("Quaternion.hx:183 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 183, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:229 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 229, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 183, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 229, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left9;
 		try {
@@ -4068,9 +4166,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right9 = "exception: " + Std.string(((ex19) instanceof js__$Boot_HaxeError) ? ex19.val : ex19) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left9,right9)) {
-			utest_Assert.pass("Quaternion.hx:199 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = -a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true",{ lineNumber : 199, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:245 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = -a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true",{ lineNumber : 245, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = -a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 199, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = -a;\nb == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 245, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left10;
 		try {
@@ -4095,9 +4193,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right10 = "exception: " + Std.string(((ex21) instanceof js__$Boot_HaxeError) ? ex21.val : ex21) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left10,right10)) {
-			utest_Assert.pass("Quaternion.hx:337 [OK] ({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 337, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:370 [OK] ({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 370, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 337, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 370, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left11;
 		try {
@@ -4124,9 +4222,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right11 = "exception: " + Std.string(((ex23) instanceof js__$Boot_HaxeError) ? ex23.val : ex23) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left11,right11)) {
-			utest_Assert.pass("Quaternion.hx:350 [OK] ({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 350, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:383 [OK] ({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 383, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 350, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 383, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left12;
 		try {
@@ -4151,9 +4249,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right12 = "exception: " + Std.string(((ex25) instanceof js__$Boot_HaxeError) ? ex25.val : ex25) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left12,right12)) {
-			utest_Assert.pass("Quaternion.hx:369 [OK] ({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 369, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:402 [OK] ({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 402, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 369, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 402, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left13;
 		try {
@@ -4173,9 +4271,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right13 = "exception: " + Std.string(((ex27) instanceof js__$Boot_HaxeError) ? ex27.val : ex27) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left13,right13)) {
-			utest_Assert.pass("Quaternion.hx:381 [OK] ({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 381, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:414 [OK] ({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 414, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 381, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 414, fileName : "src/geom/Quaternion.hx", className : "", methodName : ""});
 		}
 	}
 	,__initializeUtest__: function() {
@@ -4199,6 +4297,10 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}});
 		init.tests.push({ name : "testMatrix4x3_1", execute : function() {
 			_gthis.testMatrix4x3_1();
+			return utest_Async.getResolved();
+		}});
+		init.tests.push({ name : "testMatrix4x4_1", execute : function() {
+			_gthis.testMatrix4x4_1();
 			return utest_Async.getResolved();
 		}});
 		init.tests.push({ name : "testQuaternion_1", execute : function() {
@@ -5395,7 +5497,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.rotateX = function(this1,theta) {
 	var s = Math.sin(theta);
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,c,-s,0.,0.,s,c,0.);
 	var s1 = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c + s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.radianY = function(theta) {
@@ -5409,7 +5511,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.rotateY = function(this1,theta) {
 	var s = Math.sin(theta);
 	var this2 = new geom_structure_Mat4x3(c,0.,s,0.,0.,1.,0.,0.,-s,0.,c,0.);
 	var s1 = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c + s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.radianZ = function(theta) {
@@ -5423,7 +5525,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.rotateZ = function(this1,theta) {
 	var s = Math.sin(theta);
 	var this2 = new geom_structure_Mat4x3(c,-s,0.,0.,s,c,0.,0.,0.,0.,1.,0.);
 	var s1 = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c + s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.sxyz = function(x,y,z) {
@@ -5433,7 +5535,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.sxyz = function(x,y,z) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleXYZ = function(this1,x,y,z) {
 	var this2 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,z,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.sx = function(x) {
@@ -5443,7 +5545,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.sx = function(x) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleX = function(this1,x) {
 	var this2 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.sy = function(y) {
@@ -5453,7 +5555,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.sy = function(y) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleY = function(this1,y) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,y,0.,0.,0.,0.,1.,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.sz = function(z) {
@@ -5463,15 +5565,15 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.sz = function(z) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleZ = function(this1,z) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,z,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scale = function(this1,s) {
 	var this2 = new geom_structure_Mat4x3(s,0.,0.,0.,0.,s,0.,0.,0.,0.,s,0.);
 	var s1 = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c + s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	var s2 = this3;
-	var this4 = new geom_structure_Mat4x3(this1.a * s2.a + this1.b * s2.e + this1.c * s2.i,this1.a * s2.b + this1.b * s2.f + this1.c * s2.j,this1.a * s2.c + this1.b * s2.g + this1.c + s2.k,this1.a * s2.d + this1.b * s2.h + this1.c * s2.l + this1.d,this1.e * s2.a + this1.f * s2.e + this1.g * s2.i,this1.e * s2.b + this1.f * s2.f + this1.g * s2.j,this1.e * s2.c + this1.f * s2.g + this1.g * s2.k,this1.e * s2.d + this1.f * s2.h + this1.g * s2.l + this1.h,this1.i * s2.a + this1.j * s2.e + this1.k * s2.i,this1.i * s2.b + this1.j * s2.f + this1.k * s2.j,this1.i * s2.c + this1.j * s2.g + this1.k * s2.k,this1.i * s2.d + this1.j * s2.h + this1.k * s2.l + this1.l);
+	var this4 = new geom_structure_Mat4x3(this1.a * s2.a + this1.b * s2.e + this1.c * s2.i,this1.a * s2.b + this1.b * s2.f + this1.c * s2.j,this1.a * s2.c + this1.b * s2.g + this1.c * s2.k,this1.a * s2.d + this1.b * s2.h + this1.c * s2.l + this1.d,this1.e * s2.a + this1.f * s2.e + this1.g * s2.i,this1.e * s2.b + this1.f * s2.f + this1.g * s2.j,this1.e * s2.c + this1.f * s2.g + this1.g * s2.k,this1.e * s2.d + this1.f * s2.h + this1.g * s2.l + this1.h,this1.i * s2.a + this1.j * s2.e + this1.k * s2.i,this1.i * s2.b + this1.j * s2.f + this1.k * s2.j,this1.i * s2.c + this1.j * s2.g + this1.k * s2.k,this1.i * s2.d + this1.j * s2.h + this1.k * s2.l + this1.l);
 	return this4;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.txyz = function(x,y,z) {
@@ -5481,7 +5583,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.txyz = function(x,y,z) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.translateXYZ = function(this1,x,y,z) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,z);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.tx = function(x) {
@@ -5491,7 +5593,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.tx = function(x) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.translateX = function(this1,x) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,0.,0.,0.,1.,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.ty = function(y) {
@@ -5501,7 +5603,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.ty = function(y) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.translateY = function(this1,y) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,y,0.,0.,1.,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.tz = function(z) {
@@ -5511,7 +5613,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.tz = function(z) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.translateZ = function(this1,z) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,z);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.txy = function(x,y) {
@@ -5521,7 +5623,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.txy = function(x,y) {
 geom__$Matrix4x3_Matrix4x3_$Impl_$.translateXY = function(this1,x,y) {
 	var this2 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,0.);
 	var s = this2;
-	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c + s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.equal = function(a,b) {
@@ -5533,11 +5635,11 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.notEqual = function(a,b) {
 	return !(!(Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta));
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.add = function(m0,m1) {
-	var this1 = new geom_structure_Mat4x3(m0.a + m1.a,m0.b + m1.b,m0.c + m1.c,m0.d + m1.d,m0.e + m1.e,m0.f + m1.f,m0.d + m1.d,m0.h + m1.h,m0.i + m1.i,m0.j + m1.j,m0.k + m1.k,m0.l + m1.l);
+	var this1 = new geom_structure_Mat4x3(m0.a + m1.a,m0.b + m1.b,m0.c + m1.c,m0.d + m1.d,m0.e + m1.e,m0.f + m1.f,m0.g + m1.g,m0.h + m1.h,m0.i + m1.i,m0.j + m1.j,m0.k + m1.k,m0.l + m1.l);
 	return this1;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.sub = function(m0,m1) {
-	var this1 = new geom_structure_Mat4x3(m0.a - m1.a,m0.b - m1.b,m0.c - m1.c,m0.d - m1.d,m0.e - m1.e,m0.f - m1.f,m0.d - m1.d,m0.h - m1.h,m0.i - m1.i,m0.j - m1.j,m0.k - m1.k,m0.l - m1.l);
+	var this1 = new geom_structure_Mat4x3(m0.a - m1.a,m0.b - m1.b,m0.c - m1.c,m0.d - m1.d,m0.e - m1.e,m0.f - m1.f,m0.g - m1.g,m0.h - m1.h,m0.i - m1.i,m0.j - m1.j,m0.k - m1.k,m0.l - m1.l);
 	return this1;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleMultiply1 = function(p,m) {
@@ -5555,7 +5657,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.scaleDivide = function(m,p) {
 	return this2;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.multiply = function(r,s) {
-	var this1 = new geom_structure_Mat4x3(r.a * s.a + r.b * s.e + r.c * s.i,r.a * s.b + r.b * s.f + r.c * s.j,r.a * s.c + r.b * s.g + r.c + s.k,r.a * s.d + r.b * s.h + r.c * s.l + r.d,r.e * s.a + r.f * s.e + r.g * s.i,r.e * s.b + r.f * s.f + r.g * s.j,r.e * s.c + r.f * s.g + r.g * s.k,r.e * s.d + r.f * s.h + r.g * s.l + r.h,r.i * s.a + r.j * s.e + r.k * s.i,r.i * s.b + r.j * s.f + r.k * s.j,r.i * s.c + r.j * s.g + r.k * s.k,r.i * s.d + r.j * s.h + r.k * s.l + r.l);
+	var this1 = new geom_structure_Mat4x3(r.a * s.a + r.b * s.e + r.c * s.i,r.a * s.b + r.b * s.f + r.c * s.j,r.a * s.c + r.b * s.g + r.c * s.k,r.a * s.d + r.b * s.h + r.c * s.l + r.d,r.e * s.a + r.f * s.e + r.g * s.i,r.e * s.b + r.f * s.f + r.g * s.j,r.e * s.c + r.f * s.g + r.g * s.k,r.e * s.d + r.f * s.h + r.g * s.l + r.h,r.i * s.a + r.j * s.e + r.k * s.i,r.i * s.b + r.j * s.f + r.k * s.j,r.i * s.c + r.j * s.g + r.k * s.k,r.i * s.d + r.j * s.h + r.k * s.l + r.l);
 	return this1;
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.cofactor = function(this1,a,b,c,d,e,f,g,h,i) {
@@ -5856,6 +5958,46 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.toFloat32Array = function(this1,arr) {
 	arr.set([this1.a,this1.b,this1.c,this1.d,this1.e,this1.f,this1.g,this1.h,this1.i,this1.j,this1.k,this1.l,0.,0.,0.,1.]);
 	return arr;
 };
+var geom__$Matrix4x4_Matrix4x4_$Impl_$ = {};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.__name__ = "geom._Matrix4x4.Matrix4x4_Impl_";
+geom__$Matrix4x4_Matrix4x4_$Impl_$._new = function(m) {
+	var this1 = m;
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.zero = function() {
+	var this1 = new geom_structure_Mat4x4(0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.);
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.unit = function() {
+	var this1 = new geom_structure_Mat4x4(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.);
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.equal = function(a,b) {
+	var delta = 0.0000001;
+	return !(Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta || Math.abs(a.m - b.m) >= delta || Math.abs(a.n - b.n) >= delta || Math.abs(a.o - b.o) >= delta || Math.abs(a.p - b.p) >= delta);
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.notEqual = function(a,b) {
+	var delta = 0.0000001;
+	return !(!(Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta || Math.abs(a.m - b.m) >= delta || Math.abs(a.n - b.n) >= delta || Math.abs(a.o - b.o) >= delta || Math.abs(a.p - b.p) >= delta));
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.multiply = function(r,s) {
+	var this1 = new geom_structure_Mat4x4(r.a * s.a + r.b * s.e + r.c * s.i + r.d * s.m,r.a * s.b + r.b * s.f + r.c * s.j + r.d * s.n,r.a * s.c + r.b * s.g + r.c * s.k + r.d * s.o,r.a * s.d + r.b * s.h + r.c * s.l + r.d * s.p,r.e * s.a + r.f * s.e + r.g * s.i + r.h * s.m,r.e * s.b + r.f * s.f + r.g * s.j + r.h * s.n,r.e * s.c + r.f * s.g + r.g * s.k + r.h * s.o,r.e * s.d + r.f * s.h + r.g * s.l + r.h * s.p,r.i * s.a + r.j * s.e + r.k * s.i + r.l * s.m,r.i * s.b + r.j * s.f + r.k * s.j + r.l * s.n,r.i * s.c + r.j * s.g + r.k * s.k + r.l * s.o,r.i * s.d + r.j * s.h + r.k * s.l + r.l * s.p,r.m * s.a + r.n * s.e + r.o * s.i + r.p * s.m,r.m * s.b + r.n * s.f + r.o * s.j + r.p * s.n,r.m + s.c + r.n * s.g + r.o * s.k + r.p * s.o,r.m * s.d + r.n * s.h + r.o * s.l + r.p * s.p);
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.perspective = function(fov,aspectRatio,near,far) {
+	var f = 1.0 / Math.tan(fov / 2);
+	var rangeInv = 1 / (near - far);
+	var this1 = new geom_structure_Mat4x4(f / aspectRatio,0.,0.,0.,0.,f,0.,0.,0.,0.,(near + far) * rangeInv,-1.,0.,0.,near * far * rangeInv * 2,0.);
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.matrix4x3 = function(m) {
+	var this1 = new geom_structure_Mat4x4(m.a,m.b,m.b,m.c,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,0.,0.,0.,1.);
+	return this1;
+};
+geom__$Matrix4x4_Matrix4x4_$Impl_$.toFloat32Array = function(this1,arr) {
+	arr.set([this1.a,this1.b,this1.c,this1.d,this1.e,this1.f,this1.g,this1.h,this1.i,this1.j,this1.k,this1.l,this1.m,this1.n,this1.o,this1.p]);
+	return arr;
+};
 var geom__$Quaternion_Quaternion_$Impl_$ = {};
 geom__$Quaternion_Quaternion_$Impl_$.__name__ = "geom._Quaternion.Quaternion_Impl_";
 geom__$Quaternion_Quaternion_$Impl_$.__properties__ = {set_euler:"set_euler",get_euler:"get_euler",set_magnitude:"set_magnitude",get_magnitude:"get_magnitude"};
@@ -5875,6 +6017,18 @@ geom__$Quaternion_Quaternion_$Impl_$.clone = function(this1) {
 	var this2 = new geom_structure_Mat1x4(this1.x,this1.y,this1.z,this1.w);
 	return this2;
 };
+geom__$Quaternion_Quaternion_$Impl_$.xRotate = function(angle) {
+	var this1 = new geom_structure_Mat1x4(Math.sin(0.5 * angle),0.,0,Math.cos(0.5 * angle));
+	return this1;
+};
+geom__$Quaternion_Quaternion_$Impl_$.yRotate = function(angle) {
+	var this1 = new geom_structure_Mat1x4(0.,Math.sin(0.5 * angle),0.,Math.cos(0.5 * angle));
+	return this1;
+};
+geom__$Quaternion_Quaternion_$Impl_$.zRotate = function(angle) {
+	var this1 = new geom_structure_Mat1x4(0.,0.,Math.sin(0.5 * angle),Math.cos(0.5 * angle));
+	return this1;
+};
 geom__$Quaternion_Quaternion_$Impl_$.xPIhalf = function() {
 	var halfSqrt = Math.sqrt(0.5);
 	var this1 = new geom_structure_Mat1x4(halfSqrt,0.,0,halfSqrt);
@@ -5889,6 +6043,28 @@ geom__$Quaternion_Quaternion_$Impl_$.zPIhalf = function() {
 	var halfSqrt = Math.sqrt(0.5);
 	var this1 = new geom_structure_Mat1x4(0.,0.,halfSqrt,halfSqrt);
 	return this1;
+};
+geom__$Quaternion_Quaternion_$Impl_$.createFromAxisAngle = function(x,y,z,theta) {
+	var factor = Math.sin(theta / 2.0);
+	x *= factor;
+	y *= factor;
+	z *= factor;
+	var w = Math.cos(theta / 2.0);
+	var this1 = new geom_structure_Mat1x4(x,y,z,w);
+	var this2 = this1;
+	var currentLength = Math.sqrt(this2.x * this2.x + this2.y * this2.y + this2.z * this2.z + this2.w * this2.w);
+	if(currentLength != 0.) {
+		var mul = 1. / currentLength;
+		this2.x *= mul;
+		this2.y *= mul;
+		this2.z *= mul;
+		this2.w *= mul;
+		var tmp = this2.x * this2.x + this2.y * this2.y + this2.z * this2.z + this2.w * this2.w;
+	}
+	return this2;
+};
+geom__$Quaternion_Quaternion_$Impl_$.dot = function(this1) {
+	return this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w;
 };
 geom__$Quaternion_Quaternion_$Impl_$.identity = function(out) {
 	out.x = 1.;
@@ -5924,6 +6100,9 @@ geom__$Quaternion_Quaternion_$Impl_$.set_magnitude = function(this1,length) {
 		return Math.sqrt(this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w);
 	}
 };
+geom__$Quaternion_Quaternion_$Impl_$.dotProduct = function(a,b) {
+	return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+};
 geom__$Quaternion_Quaternion_$Impl_$.equal = function(a,b) {
 	var delta = 0.0000001;
 	return !(Math.abs(a.x - b.x) >= delta || Math.abs(a.y - b.y) >= delta || Math.abs(a.z - b.z) >= delta || Math.abs(a.w - b.w) >= delta);
@@ -5942,13 +6121,6 @@ geom__$Quaternion_Quaternion_$Impl_$.add = function(a,b) {
 geom__$Quaternion_Quaternion_$Impl_$.subtract = function(a,b) {
 	var this1 = new geom_structure_Mat1x4(a.x - b.x,a.y - b.y,a.z - b.z,a.w - b.w);
 	return this1;
-};
-geom__$Quaternion_Quaternion_$Impl_$.dot = function(a,b) {
-	var this1 = new geom_structure_Mat1x4(a.x * b.x,a.y * b.y,a.z * b.z,a.w * b.w);
-	return this1;
-};
-geom__$Quaternion_Quaternion_$Impl_$.dotProduct = function(a,b) {
-	return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 };
 geom__$Quaternion_Quaternion_$Impl_$.scaleMultiply = function(a,v) {
 	var this1 = new geom_structure_Mat1x4(a.x * v,a.y * v,a.z * v,a.w * v);
@@ -5971,34 +6143,9 @@ geom__$Quaternion_Quaternion_$Impl_$.negate = function(a) {
 	var this1 = new geom_structure_Mat1x4(-a.x,-a.y,-a.z,-a.w);
 	return this1;
 };
-geom__$Quaternion_Quaternion_$Impl_$.multiplyV = function(a,b,out) {
-	var ax = a.x;
-	var ay = a.y;
-	var az = a.z;
-	var aw = a.w;
-	var bx = b.x;
-	var by = b.y;
-	var bz = b.z;
-	var bw = b.w;
-	out.x = ax * bw + aw * bx + ay * bz - az * by;
-	out.y = ay * bw + aw * by + az * bx - ax * bz;
-	out.z = az * bw + aw * bz + ax * by - ay * bx;
-	out.w = aw * bw - ax * bx - ay * by - az * bz;
-	return out;
-};
-geom__$Quaternion_Quaternion_$Impl_$.multiplyQ = function(q,v,out) {
-	var vx = v.x;
-	var vy = v.y;
-	var vz = v.z;
-	var qx = q.x;
-	var qy = q.y;
-	var qz = q.z;
-	var qw = q.w;
-	out.w = -qx * vx - qy * vy - qz * vz;
-	out.x = qw * vx + qy * vz - qz * vy;
-	out.y = qw * vy - qx * vz + qz * vx;
-	out.z = qw * vz + qx * vy - qy * vx;
-	return out;
+geom__$Quaternion_Quaternion_$Impl_$.multiplyQ = function(q1,q2) {
+	var this1 = new geom_structure_Mat1x4(q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x,-q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y,q1.x * q2.y - q1.y * q2.x + q1.z * q2.w + q1.w * q2.z,-q1.x * q2.x - q1.y * q2.y - q1.z * q2.z + q1.w * q2.w);
+	return this1;
 };
 geom__$Quaternion_Quaternion_$Impl_$.cross = function(this1,v) {
 	var this2 = new geom_structure_Mat1x4(this1.y * v.z - this1.z * v.y,this1.z * v.x - this1.x * v.z,this1.x * v.y - this1.y * v.x,this1.w * v.w);
@@ -6012,6 +6159,24 @@ geom__$Quaternion_Quaternion_$Impl_$.fromAxisAngle = function(theta,axis) {
 	return this1;
 };
 geom__$Quaternion_Quaternion_$Impl_$.lerp = function(a,b,t) {
+	var currentLength = Math.sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
+	if(currentLength != 0.) {
+		var mul = 1. / currentLength;
+		a.x *= mul;
+		a.y *= mul;
+		a.z *= mul;
+		a.w *= mul;
+		var tmp = a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
+	}
+	var currentLength1 = Math.sqrt(b.x * b.x + b.y * b.y + b.z * b.z + b.w * b.w);
+	if(currentLength1 != 0.) {
+		var mul1 = 1. / currentLength1;
+		b.x *= mul1;
+		b.y *= mul1;
+		b.z *= mul1;
+		b.w *= mul1;
+		var tmp1 = b.x * b.x + b.y * b.y + b.z * b.z + b.w * b.w;
+	}
 	var v = 1.0 - t;
 	var this1 = new geom_structure_Mat1x4(a.x * v,a.y * v,a.z * v,a.w * v);
 	var a1 = this1;
@@ -6040,44 +6205,65 @@ geom__$Quaternion_Quaternion_$Impl_$.get_euler = function(this1) {
 	var this2 = new geom_structure_Mat1x4(Math.atan2(2 * (this1.w * this1.x + this1.y * this1.z),1 - 2 * (this1.x * this1.x + this1.y * this1.y)),Math.asin(2 * (this1.w * this1.y - this1.z * this1.x)),Math.atan2(2 * (this1.w * this1.z + this1.x * this1.y),1 - 2 * (this1.y * this1.y + this1.z * this1.z)),1.);
 	return this2;
 };
-geom__$Quaternion_Quaternion_$Impl_$.slerp = function(this1,a,b,t) {
-	var w1 = a.w;
-	var x1 = a.x;
-	var y1 = a.y;
-	var z1 = a.z;
-	var w2 = b.w;
-	var x2 = b.x;
-	var y2 = b.y;
-	var z2 = b.z;
-	var dot = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
-	var this2 = new geom_structure_Mat1x4(1.,1.,1.,1.);
-	var p = this2;
-	if(dot < 0) {
+geom__$Quaternion_Quaternion_$Impl_$.slerp = function(this1,v1,t) {
+	var this2 = new geom_structure_Mat1x4(this1.x,this1.y,this1.z,this1.w);
+	var v0 = this2;
+	var currentLength = Math.sqrt(v0.x * v0.x + v0.y * v0.y + v0.z * v0.z + v0.w * v0.w);
+	if(currentLength != 0.) {
+		var mul = 1. / currentLength;
+		v0.x *= mul;
+		v0.y *= mul;
+		v0.z *= mul;
+		v0.w *= mul;
+		var tmp = v0.x * v0.x + v0.y * v0.y + v0.z * v0.z + v0.w * v0.w;
+	}
+	var dot = v0.x * v1.x + v0.y * v1.y + v0.z * v1.z + v0.w * v1.w;
+	if(dot < 0.0) {
+		var this3 = new geom_structure_Mat1x4(-v1.x,-v1.y,-v1.z,-v1.w);
+		v1 = this3;
 		dot = -dot;
-		w2 = -w2;
-		x2 = -x2;
-		y2 = -y2;
-		z2 = -z2;
 	}
-	if(dot < 0.95) {
-		var angle = Math.acos(dot);
-		var s = 1. / Math.sin(angle);
-		var s1 = Math.sin(angle * (1 - t)) * s;
-		var s2 = Math.sin(angle * t) * s;
-		p.w = w1 * s1 + w2 * s2;
-		p.x = x1 * s1 + x2 * s2;
-		p.y = y1 * s1 + y2 * s2;
-		p.z = z1 * s1 + z2 * s2;
-	} else {
-		p.w = w1 + t * (w2 - w1);
-		p.x = x1 + t * (x2 - x1);
-		p.y = y1 + t * (y2 - y1);
-		p.z = z1 + t * (z2 - z1);
-		var len = 1.0 / Math.sqrt(p.x * p.x + p.y * p.y + p.z * p.z + p.w * p.w);
-		var this3 = new geom_structure_Mat1x4(p.x * len,p.y * len,p.z * len,p.w * len);
-		p = this3;
+	if(dot > 0.9995) {
+		var _g = t;
+		var this4 = new geom_structure_Mat1x4(v1.x - v0.x,v1.y - v0.y,v1.z - v0.z,v1.w - v0.w);
+		var _g1 = this4;
+		var this5 = new geom_structure_Mat1x4(_g1.x * _g,_g1.y * _g,_g1.z * _g,_g1.w * _g);
+		var b = this5;
+		var this6 = new geom_structure_Mat1x4(v0.x + b.x,v0.y + b.y,v0.z + b.z,v0.w + b.w);
+		var result = this6;
+		var currentLength1 = Math.sqrt(result.x * result.x + result.y * result.y + result.z * result.z + result.w * result.w);
+		if(currentLength1 != 0.) {
+			var mul1 = 1. / currentLength1;
+			result.x *= mul1;
+			result.y *= mul1;
+			result.z *= mul1;
+			result.w *= mul1;
+			var tmp1 = result.x * result.x + result.y * result.y + result.z * result.z + result.w * result.w;
+		}
+		return result;
 	}
-	return p;
+	var theta0 = Math.acos(dot);
+	var theta = theta0 * t;
+	var sinTheta = Math.sin(theta);
+	var sinTheta0 = Math.sin(theta0);
+	var ratioA = Math.cos(theta) - dot * sinTheta / sinTheta0;
+	var ratioB = sinTheta / sinTheta0;
+	var this7 = new geom_structure_Mat1x4(v0.x * ratioA + v1.x * ratioB,v0.y * ratioA + v1.y * ratioB,v0.z * ratioA + v1.z * ratioB,v0.x * ratioA + v1.x * ratioB);
+	var q = this7;
+	var currentLength2 = Math.sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
+	if(currentLength2 != 0.) {
+		var mul2 = 1. / currentLength2;
+		q.x *= mul2;
+		q.y *= mul2;
+		q.z *= mul2;
+		q.w *= mul2;
+		var tmp2 = q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
+	}
+	return q;
+};
+geom__$Quaternion_Quaternion_$Impl_$.scaled = function(this1,scale) {
+	var this2 = new geom_structure_Mat1x4(this1.x * scale,this1.y * scale,this1.z * scale,this1.w * scale);
+	return this2;
 };
 geom__$Quaternion_Quaternion_$Impl_$.normalize = function(this1) {
 	var currentLength = Math.sqrt(this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w);
@@ -6110,6 +6296,19 @@ geom__$Quaternion_Quaternion_$Impl_$.fromArray = function(arr) {
 };
 geom__$Quaternion_Quaternion_$Impl_$.toArray = function(this1) {
 	return [this1.x,this1.y,this1.z,this1.w];
+};
+geom__$Quaternion_Quaternion_$Impl_$.toMatrix4x3 = function(this1) {
+	var xx = this1.x * this1.x;
+	var xy = this1.x * this1.y;
+	var xz = this1.x * this1.z;
+	var xw = this1.x * this1.w;
+	var yy = this1.y * this1.y;
+	var yz = this1.y * this1.z;
+	var yw = this1.y * this1.w;
+	var zz = this1.z * this1.z;
+	var zw = this1.z * this1.w;
+	var this2 = new geom_structure_Mat4x3(1 - 2 * (yy + zz),2 * (xy - zw),2 * (xz + yw),0,2 * (xy + zw),1 - 2 * (xx + zz),2 * (yz - xw),0,2 * (xz - yw),2 * (yz + xw),1 - 2 * (xx + yy),0);
+	return this2;
 };
 var geom_structure_Mat1x2 = function(x,y) {
 	this.y = 0.;
@@ -6236,6 +6435,60 @@ geom_structure_Mat4x3.prototype = {
 	,k: null
 	,l: null
 	,__class__: geom_structure_Mat4x3
+};
+var geom_structure_Mat4x4 = function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) {
+	this.p = 0.;
+	this.o = 0.;
+	this.n = 0.;
+	this.m = 0.;
+	this.l = 0.;
+	this.k = 0.;
+	this.j = 0.;
+	this.i = 0.;
+	this.h = 0.;
+	this.g = 0.;
+	this.f = 0.;
+	this.e = 0.;
+	this.d = 0.;
+	this.c = 0.;
+	this.b = 0.;
+	this.a = 0.;
+	this.a = a;
+	this.b = b;
+	this.c = c;
+	this.d = d;
+	this.e = e;
+	this.f = f;
+	this.g = g;
+	this.h = h;
+	this.i = i;
+	this.j = j;
+	this.k = k;
+	this.l = l;
+	this.m = m;
+	this.n = n;
+	this.o = o;
+	this.p = p;
+};
+geom_structure_Mat4x4.__name__ = "geom.structure.Mat4x4";
+geom_structure_Mat4x4.prototype = {
+	a: null
+	,b: null
+	,c: null
+	,d: null
+	,e: null
+	,f: null
+	,g: null
+	,h: null
+	,i: null
+	,j: null
+	,k: null
+	,l: null
+	,m: null
+	,n: null
+	,o: null
+	,p: null
+	,__class__: geom_structure_Mat4x4
 };
 var haxe_StackItem = $hxEnums["haxe.StackItem"] = { __ename__ : "haxe.StackItem", __constructs__ : ["CFunction","Module","FilePos","Method","LocalFunction"]
 	,CFunction: {_hx_index:0,__enum__:"haxe.StackItem",toString:$estr}

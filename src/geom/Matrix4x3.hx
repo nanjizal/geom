@@ -586,7 +586,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     @:op(A + B) public static inline
     function add( m0: Matrix4x3, m1: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c, d: m0.d + m1.d
-                              , e: m0.e + m1.e, f: m0.f + m1.f, g: m0.d + m1.d, h: m0.h + m1.h
+                              , e: m0.e + m1.e, f: m0.f + m1.f, g: m0.g + m1.g, h: m0.h + m1.h
                               , i: m0.i + m1.i, j: m0.j + m1.j, k: m0.k + m1.k, l: m0.l + m1.l } );
     }
     /**
@@ -599,7 +599,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     @:op(A - B) public static inline
     function sub( m0: Matrix4x3, m1: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c, d: m0.d - m1.d
-                              , e: m0.e - m1.e, f: m0.f - m1.f, g: m0.d - m1.d, h: m0.h - m1.h
+                              , e: m0.e - m1.e, f: m0.f - m1.f, g: m0.g - m1.g, h: m0.h - m1.h
                               , i: m0.i - m1.i, j: m0.j - m1.j, k: m0.k - m1.k, l: m0.l - m1.l } );
     }
     @:op(A * B) public static inline
@@ -625,7 +625,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     function multiply( r: Matrix4x3, s: Matrix4x3 ): Matrix4x3 {
         return new Matrix4x3(
         { a: r.a*s.a+r.b*s.e+r.c*s.i, b: r.a*s.b+r.b*s.f+r.c*s.j
-                                , c: r.a*s.c+r.b*s.g+r.c+s.k, d: r.a*s.d+r.b*s.h+r.c*s.l+r.d
+                                , c: r.a*s.c+r.b*s.g+r.c*s.k, d: r.a*s.d+r.b*s.h+r.c*s.l+r.d
         , e: r.e*s.a+r.f*s.e+r.g*s.i, f: r.e*s.b+r.f*s.f+r.g*s.j
                                 , g: r.e*s.c+r.f*s.g+r.g*s.k, h: r.e*s.d+r.f*s.h+r.g*s.l+r.h
         , i: r.i*s.a+r.j*s.e+r.k*s.i, j: r.i*s.b+r.j*s.f+r.k*s.j
@@ -687,6 +687,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             });
         }
     }
+    
     public static inline
     function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x3 {
         var halfWid = wid/2; var halfHi  = hi/2;

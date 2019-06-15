@@ -31,6 +31,22 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function clone():Quaternion {
         return new Quaternion( { x: this.x, y: this.y, z: this.z, w: this.w } );
     }
+    
+    public static inline
+    function xRotate( angle: Float ){
+        return new Quaternion({ x: Math.sin (0.5 * angle), y: 0.,  z: 0, w: Math.cos( 0.5 * angle ) });
+    }
+    
+    public static inline
+    function yRotate( angle: Float ){
+        return new Quaternion({ x: 0., y: Math.sin( 0.5 * angle ), z: 0., w: Math.cos( 0.5 * angle ) });
+    }
+    
+    public static inline
+    function zRotate( angle: Float ){
+        return new Quaternion({ x: 0., y:0., z: Math.sin( 0.5 * angle ), w: Math.cos( 0.5 * angle ) });
+    }
+    
     public static inline
     function xPIhalf(): Quaternion {
         var halfSqrt = Math.sqrt( 0.5 );
@@ -46,6 +62,40 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         var halfSqrt = Math.sqrt( 0.5 );
         return new Quaternion({ x: 0., y: 0., z: halfSqrt, w: halfSqrt });
     }
+    
+    
+    public static inline 
+    function createFromAxisAngle( x: Float, y: Float, z: Float, theta: Float ){
+        // Here we calculate the sin( theta / 2) once for optimization
+        var factor = Math.sin( theta / 2.0 );
+        // Calculate the x, y and z of the quaternion
+        x = x * factor;
+        y = y * factor;
+        z = z * factor;
+
+        // Calcualte the w value by cos( theta / 2 )
+        var w = Math.cos( theta / 2.0 );
+
+        return new Quaternion({ x: x, y: y, z: z, w: w } ).normalize();
+    }
+    
+    public inline 
+    function dot(){
+       return (((this.x * this.x) + (this.y * this.y)) + (this.z * this.z)) + (this.w * this.w);
+    }
+    /*
+    public inline
+    function normalize(){
+       var num = dot();
+       var inv = 1.0 / Math.sqrt(num);
+       this.x *= inv;
+       this.y *= inv;
+       this.z *= inv;
+       this.w *= inv;
+       return this;
+    }
+    */
+    
     /**
      * <pre><code>
      * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
@@ -99,6 +149,10 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
             this.w *= mul;
             magnitude;
         }
+    }
+    public static inline
+    function dotProduct( a: Quaternion, b: Quaternion ):Float {
+        return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
     /**
      * <pre><code>
@@ -158,14 +212,6 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function subtract( a: Quaternion, b: Quaternion ): Quaternion {
         return new Quaternion({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
     }
-    @:op(A * B) public static inline 
-    function dot( a: Quaternion, b: Quaternion ): Quaternion {
-        return new Quaternion({ x: a.x * b.x, y: a.y * b.y, z: a.z * b.z, w: a.w * b.w });
-    }
-    public static inline
-    function dotProduct( a: Quaternion, b: Quaternion ):Float {
-        return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
-    }
     @:op(A * B) @:commutative public static inline 
     function scaleMultiply( a: Quaternion, v: Float ): Quaternion {
         return new Quaternion({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
@@ -210,36 +256,12 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                             , w: -a.w 
                             } );
     }
-    public static inline
-    function multiplyV( a: Quaternion, b: Quaternion, out: Quaternion ):Quaternion {
-        var ax = a.x;
-        var ay = a.y;
-        var az = a.z;
-        var aw = a.w;
-        var bx = b.x;
-        var by = b.y; 
-        var bz = b.z;
-        var bw = b.w;
-        out.x = ax * bw + aw * bx + ay * bz - az * by;
-        out.y = ay * bw + aw * by + az * bx - ax * bz;
-        out.z = az * bw + aw * bz + ax * by - ay * bx;
-        out.w = aw * bw - ax * bx - ay * by - az * bz;
-        return out;
-    }
-    public static inline
-    function multiplyQ( q: Quaternion, v: Quaternion, out: Quaternion ):Quaternion {
-        var vx = v.x;
-        var vy = v.y;
-        var vz = v.z;
-        var qx = q.x;
-        var qy = q.y;
-        var qz = q.z;
-        var qw = q.w;
-        out.w = -qx*vx - qy*vy - qz*vz;
-        out.x = qw*vx + qy*vz - qz*vy;
-        out.y = qw*vy - qx*vz + qz*vx;
-        out.z = qw*vz + qx*vy - qy*vx;
-        return out;
+    @:op(A * B) public static inline
+    function multiplyQ( q1: Quaternion, q2: Quaternion ):Quaternion {
+        return new Quaternion({ x:  q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x
+                              , y: -q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y
+                              , z:  q1.x * q2.y - q1.y * q2.x + q1.z * q2.w + q1.w * q2.z
+                              , w: -q1.x * q2.x - q1.y * q2.y - q1.z * q2.z + q1.w * q2.w });
     }
     public inline 
     function cross(v: Quaternion ): Quaternion {
@@ -257,6 +279,8 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     } 
     public static inline
     function lerp( a: Quaternion, b:Quaternion, t: Float ): Quaternion {
+        a.normalize();
+        b.normalize();
         return ( 1.0 - t )*a + t*b;
     }
     public var euler( get, set ): Quaternion;
@@ -284,54 +308,63 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                          , z: Math.atan2(2*(this.w*this.z + this.x*this.y), 1 - 2*(this.y*this.y + this.z*this.z))
                          , w: 1. } );
     }
-    public function slerp( a: Quaternion, b: Quaternion, t: Float ): Quaternion {
-        var w1 = a.w;
-        var x1 = a.x;
-        var y1 = a.y;
-        var z1 = a.z;
-        var w2 = b.w;
-        var x2 = b.x;
-        var y2 = b.y;
-        var z2 = b.z;
-        var dot = dotProduct( a, b );
-        var p = Quaternion.unit();
-        if( dot < 0 ) { // shortest direction
+    
+    // https://en.wikipedia.org/wiki/Slerp
+    // https://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/index.htm
+    public function slerp( v1: Quaternion, t: Float ) {
+        // Only unit quaternions are valid rotations.
+        // Normalize to avoid undefined behavior.
+        var v0 = clone();
+        v0.normalize();
+        //v1.normalize();
+
+        // Compute the cosine of the angle between the two vectors.
+        var dot = dotProduct( v0, v1 );
+
+        // If the dot product is negative, slerp won't take
+        // the shorter path. Note that v1 and -v1 are equivalent when
+        // the negation is applied to all four components. Fix by 
+        // reversing one quaternion.
+        if( dot < 0.0 ){
+            v1 = -v1;
             dot = -dot;
-            w2 = -w2;
-            x2 = -x2;
-            y2 = -y2;
-            z2 = -z2;
         }
-        if( dot < 0.95 ) {
-            var angle = Math.acos( dot );// interpolate angle linearly
-            var s     = 1. / Math.sin( angle );
-            var s1    = Math.sin( angle * ( 1 - t ) ) * s;
-            var s2    = Math.sin( angle * t ) * s;
-            p.w = w1 * s1 + w2 * s2;
-            p.x = x1 * s1 + x2 * s2;
-            p.y = y1 * s1 + y2 * s2;
-            p.z = z1 * s1 + z2 * s2;
-        } else {
-            p.w = w1 + t * ( w2 - w1 );// nearly identical angle, interpolate linearly
-            p.x = x1 + t * ( x2 - x1 );
-            p.y = y1 + t * ( y2 - y1 );
-            p.z = z1 + t * ( z2 - z1 );
-            var len: Float = 1.0 / p.magnitude;
-            p = p*len;
+        
+        if( dot > 0.9995 ) {
+            // If the inputs are too close for comfort, linearly interpolate
+            // and normalize the result.
+            var result: Quaternion = v0 + t*(v1 - v0);
+            result.normalize();
+            return result;
         }
-        return p;
+
+        // Since dot is in range [0, 0.9995], acos is safe
+        var theta0    = Math.acos( dot );        // theta0 = angle between input vectors
+        var theta     = theta0*t;          // theta = angle between v0 and result
+        var sinTheta  = Math.sin( theta );     // compute this value only once
+        var sinTheta0 = Math.sin( theta0 ); // compute this value only once
+
+        var ratioA = Math.cos( theta ) - dot * sinTheta / sinTheta0;  // == sin(theta_0 - theta) / sin(theta_0)
+        var ratioB = sinTheta / sinTheta0;
+        var q = new Quaternion({ x: v0.x * ratioA + v1.x * ratioB
+                              , y: v0.y * ratioA + v1.y * ratioB
+                              , z: v0.z * ratioA + v1.z * ratioB
+                              , w: v0.x * ratioA + v1.x * ratioB
+                              });
+        return q.normalize();
     }
+    public inline function scaled(scale: Float): Quaternion {
+        return new Quaternion({x: this.x * scale, y: this.y * scale, z: this.z * scale, w: this.w * scale});
+    }
+    
     public inline
     function normalize(): Quaternion {
         magnitude = 1.; 
+        //this = scaled(1.0 / magnitude);
         return this;
     }
-    /* Not sure this is relevant
-    public inline
-    function constrainDistance( anchor: Quaternion, distance: Float ): Quaternion {
-        return ( ( this - anchor ).normalize() * distance ) + anchor;
-    }
-    */
+    
+    
     /**
      * <pre><code>
      * >>> ({ 
@@ -387,5 +420,21 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     @:to public inline
     function toArray():Array<Float> {
         return [ this.x, this.y, this.z, this.w ];
+    }
+    // https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToMatrix/index.htm
+    @:to public inline
+    function toMatrix4x3(): Matrix4x3 {
+        var xx      = this.x * this.x;
+        var xy      = this.x * this.y;
+        var xz      = this.x * this.z;
+        var xw      = this.x * this.w;
+        var yy      = this.y * this.y;
+        var yz      = this.y * this.z;
+        var yw      = this.y * this.w;
+        var zz      = this.z * this.z;
+        var zw      = this.z * this.w;
+        return new Matrix4x3({ a: 1 - 2 * ( yy + zz ), b: 2 * ( xy - zw ),     c: 2 * ( xz + yw ),     d: 0
+                             , e: 2 * ( xy + zw ),     f: 1 - 2 * ( xx + zz ), g: 2 * ( yz - xw ),     h: 0
+                             , i: 2 * ( xz - yw ),     j: 2 * ( yz + xw ),     k: 1 - 2 * ( xx + yy ), l: 0 });
     }
 }
