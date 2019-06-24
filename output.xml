@@ -16,6 +16,43 @@
 		<impl><class path="_Any.Any_Impl_" params="" file="/usr/local/lib/haxe/std/Any.hx" private="1" module="Any"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
 	<class path="Array" params="T" file="/usr/local/lib/haxe/std/js/_std/Array.hx" extern="1">
+		<length public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of `this` Array.</haxe_doc>
+		</length>
+		<join public="1" set="method">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a string representation of `this` Array, with `sep` separating
+		each element.
+
+		The result of this operation is equal to `Std.string(this[0]) + sep +
+		Std.string(this[1]) + sep + ... + sep + Std.string(this[this.length-1])`
+
+		If `this` is the empty Array `[]`, the result is the empty String `""`.
+		If `this` has exactly one element, the result is equal to a call to
+		`Std.string(this[0])`.
+
+		If `sep` is null, the result is unspecified.</haxe_doc>
+		</join>
+		<push public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Adds the element `x` at the end of `this` Array and returns the new
+		length of `this` Array.
+
+		This operation modifies `this` Array in place.
+
+		`this.length` increases by 1.</haxe_doc>
+		</push>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Array.</haxe_doc>
+		</new>
 		<haxe_doc>An Array is a storage for values. You can access it using indexes or
 	with its API.
 
@@ -547,9 +584,32 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/usr/local/lib/haxe/std/js/_std/Std.hx">
+		<string public="1" set="method" line="36" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Converts any value to a String.
+
+		If `s` is of `String`, `Int`, `Float` or `Bool`, its value is returned.
+
+		If `s` is an instance of a class and that class or one of its parent classes has
+		a `toString` method, that method is called. If no such method is present, the result
+		is unspecified.
+
+		If `s` is an enum constructor without argument, the constructor's name is returned. If
+		arguments exists, the constructor's name followed by the String representations of
+		the arguments is returned.
+
+		If `s` is a structure, the field names along with their values are returned. The field order
+		and the operator separating field names and values are unspecified.
+
+		If s is null, "null" is returned.</haxe_doc>
+		</string>
 		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
 		<meta>
 			<m n=":keep"/>
+			<m n=":directlyUsed"/>
 			<m n=":keepInit"/>
 			<m n=":coreApi"/>
 		</meta>
@@ -706,6 +766,369 @@
 	abstract types.
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
+	<abstract path="geom.DualQuaternion" params="" file="src/geom/DualQuaternion.hx">
+		<from><icast><c path="geom.structure.DualQ"/></icast></from>
+		<this><c path="geom.structure.DualQ"/></this>
+		<to>
+			<icast><c path="geom.structure.DualQ"/></icast>
+			<icast field="toMatrix4x3"><x path="geom.Matrix4x3"/></icast>
+		</to>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="geom._DualQuaternion.DualQuaternion_Impl_" params="" file="src/geom/DualQuaternion.hx" private="1" module="geom.DualQuaternion">
+	<_new public="1" get="inline" set="null" line="10" static="1">
+		<f a="dq">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<zero public="1" get="inline" set="null" line="17" static="1">
+		<f a=""><x path="geom.DualQuaternion"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> DualQuaternion.zero() == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * </code></pre>]]></haxe_doc>
+	</zero>
+	<clone public="1" get="inline" set="null" line="22" static="1">
+		<f a="this">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</clone>
+	<equal public="1" get="inline" set="null" line="38" static="1">
+		<f a="a:b">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":op"><e>A == B</e></m></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var b = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var c = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var d = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var e = new DualQuaternion( { real: a, dual: b } );
+     * ... var f = new DualQuaternion( { real: c, dual: d } );
+     * ... e == f; }) == true
+     * </code></pre>]]></haxe_doc>
+	</equal>
+	<notEqual public="1" get="inline" set="null" line="54" static="1">
+		<f a="a:b">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":op"><e>A != B</e></m></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var b = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var c = new Quaternion( { x: 1., y: 2., z: 4., w: 1. } );
+     * ... var d = new Quaternion( { x: 1., y: 2., z: 4., w: 1. } );
+     * ... var e = new DualQuaternion( { real: a, dual: b } );
+     * ... var f = new DualQuaternion( { real: c, dual: d } );
+     * ... e != f; }) == true
+     * </code></pre>]]></haxe_doc>
+	</notEqual>
+	<scaleMultiply public="1" get="inline" set="null" line="58" static="1">
+		<f a="a:v">
+			<x path="geom.DualQuaternion"/>
+			<x path="Float"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta>
+			<m n=":op"><e>A * B</e></m>
+			<m n=":commutative"/>
+		</meta>
+	</scaleMultiply>
+	<divide public="1" get="inline" set="null" line="62" static="1">
+		<f a="a:v">
+			<x path="geom.DualQuaternion"/>
+			<x path="Float"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":op"><e>A / B</e></m></meta>
+	</divide>
+	<add public="1" get="inline" set="null" line="76" static="1">
+		<f a="a:b">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":op"><e>A + B</e></m></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b = Quaternion.unit();
+     * ... var c = new DualQuaternion( { real: a, dual: b } );
+     * ... c + c == new DualQuaternion( { real:{ x: 2., y: 2., z: 2., w: 2. }, dual: { x: 2., y: 2., z: 2., w: 2. } } ); 
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+	</add>
+	<subtract public="1" get="inline" set="null" line="90" static="1">
+		<f a="a:b">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":op"><e>A - B</e></m></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b = Quaternion.unit();
+     * ... var c = new DualQuaternion( { real: a, dual: b } );
+     * ... c - c == new DualQuaternion( { real: Quaternion.zero(), dual: Quaternion.zero() } );
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+	</subtract>
+	<negate public="1" get="inline" set="null" line="105" static="1">
+		<f a="a">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":op"><e>-A</e></m></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var c = new DualQuaternion({ real: a, dual: a } );
+     * ... var b = -c;
+     * ... var e = new Quaternion({ x: -1., y: -2., z: -3., w: -1. });
+     * ... var f = new DualQuaternion({ real: e, dual: e });
+     * ... b == f; }) == true
+     * </code></pre>]]></haxe_doc>
+	</negate>
+	<create public="1" get="inline" set="null" line="109" static="1"><f a="r:t">
+	<x path="geom.Quaternion"/>
+	<x path="geom.Matrix1x4"/>
+	<x path="geom.DualQuaternion"/>
+</f></create>
+	<dotProduct public="1" get="inline" set="null" line="119" static="1"><f a="a:b">
+	<x path="geom.DualQuaternion"/>
+	<x path="geom.DualQuaternion"/>
+	<x path="Float"/>
+</f></dotProduct>
+	<normalize public="1" get="inline" set="null" line="123" static="1">
+		<f a="this">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</normalize>
+	<conjugate public="1" get="inline" set="null" line="130" static="1">
+		<f a="this">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</conjugate>
+	<getTranslation public="1" get="inline" set="null" line="134" static="1">
+		<f a="this">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getTranslation>
+	<multiplyQ public="1" get="inline" set="null" line="140" static="1">
+		<f a="q1:q2">
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+			<x path="geom.DualQuaternion"/>
+		</f>
+		<meta><m n=":op"><e>A * B</e></m></meta>
+	</multiplyQ>
+	<toMatrix4x3 public="1" get="inline" set="null" line="145" static="1">
+		<f a="this">
+			<c path="geom.structure.DualQ"/>
+			<x path="geom.Matrix4x3"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toMatrix4x3>
+</class></impl>
+	</abstract>
+	<class path="geom._DualQuaternion.DualQuaternion_Impl_" params="" file="src/geom/DualQuaternion.hx" private="1" module="geom.DualQuaternion">
+		<_new public="1" get="inline" set="null" line="10" static="1">
+			<f a="dq">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<zero public="1" get="inline" set="null" line="17" static="1">
+			<f a=""><x path="geom.DualQuaternion"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> DualQuaternion.zero() == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * </code></pre>]]></haxe_doc>
+		</zero>
+		<clone public="1" get="inline" set="null" line="22" static="1">
+			<f a="this">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</clone>
+		<equal public="1" get="inline" set="null" line="38" static="1">
+			<f a="a:b">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":op"><e>A == B</e></m></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var b = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var c = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var d = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var e = new DualQuaternion( { real: a, dual: b } );
+     * ... var f = new DualQuaternion( { real: c, dual: d } );
+     * ... e == f; }) == true
+     * </code></pre>]]></haxe_doc>
+		</equal>
+		<notEqual public="1" get="inline" set="null" line="54" static="1">
+			<f a="a:b">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":op"><e>A != B</e></m></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var b = new Quaternion( { x: 1., y: 2., z: 3., w: 1. } );
+     * ... var c = new Quaternion( { x: 1., y: 2., z: 4., w: 1. } );
+     * ... var d = new Quaternion( { x: 1., y: 2., z: 4., w: 1. } );
+     * ... var e = new DualQuaternion( { real: a, dual: b } );
+     * ... var f = new DualQuaternion( { real: c, dual: d } );
+     * ... e != f; }) == true
+     * </code></pre>]]></haxe_doc>
+		</notEqual>
+		<scaleMultiply public="1" get="inline" set="null" line="58" static="1">
+			<f a="a:v">
+				<x path="geom.DualQuaternion"/>
+				<x path="Float"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta>
+				<m n=":op"><e>A * B</e></m>
+				<m n=":commutative"/>
+			</meta>
+		</scaleMultiply>
+		<divide public="1" get="inline" set="null" line="62" static="1">
+			<f a="a:v">
+				<x path="geom.DualQuaternion"/>
+				<x path="Float"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":op"><e>A / B</e></m></meta>
+		</divide>
+		<add public="1" get="inline" set="null" line="76" static="1">
+			<f a="a:b">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":op"><e>A + B</e></m></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b = Quaternion.unit();
+     * ... var c = new DualQuaternion( { real: a, dual: b } );
+     * ... c + c == new DualQuaternion( { real:{ x: 2., y: 2., z: 2., w: 2. }, dual: { x: 2., y: 2., z: 2., w: 2. } } ); 
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+		</add>
+		<subtract public="1" get="inline" set="null" line="90" static="1">
+			<f a="a:b">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":op"><e>A - B</e></m></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = Quaternion.unit();
+     * ... var b = Quaternion.unit();
+     * ... var c = new DualQuaternion( { real: a, dual: b } );
+     * ... c - c == new DualQuaternion( { real: Quaternion.zero(), dual: Quaternion.zero() } );
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+		</subtract>
+		<negate public="1" get="inline" set="null" line="105" static="1">
+			<f a="a">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":op"><e>-A</e></m></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var c = new DualQuaternion({ real: a, dual: a } );
+     * ... var b = -c;
+     * ... var e = new Quaternion({ x: -1., y: -2., z: -3., w: -1. });
+     * ... var f = new DualQuaternion({ real: e, dual: e });
+     * ... b == f; }) == true
+     * </code></pre>]]></haxe_doc>
+		</negate>
+		<create public="1" get="inline" set="null" line="109" static="1"><f a="r:t">
+	<x path="geom.Quaternion"/>
+	<x path="geom.Matrix1x4"/>
+	<x path="geom.DualQuaternion"/>
+</f></create>
+		<dotProduct public="1" get="inline" set="null" line="119" static="1"><f a="a:b">
+	<x path="geom.DualQuaternion"/>
+	<x path="geom.DualQuaternion"/>
+	<x path="Float"/>
+</f></dotProduct>
+		<normalize public="1" get="inline" set="null" line="123" static="1">
+			<f a="this">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</normalize>
+		<conjugate public="1" get="inline" set="null" line="130" static="1">
+			<f a="this">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</conjugate>
+		<getTranslation public="1" get="inline" set="null" line="134" static="1">
+			<f a="this">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</getTranslation>
+		<multiplyQ public="1" get="inline" set="null" line="140" static="1">
+			<f a="q1:q2">
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+				<x path="geom.DualQuaternion"/>
+			</f>
+			<meta><m n=":op"><e>A * B</e></m></meta>
+		</multiplyQ>
+		<toMatrix4x3 public="1" get="inline" set="null" line="145" static="1">
+			<f a="this">
+				<c path="geom.structure.DualQ"/>
+				<x path="geom.Matrix4x3"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toMatrix4x3>
+	</class>
 	<class path="geom.GeomDoc" params="" file="src/geom/GeomDoc.hx">
 		<main public="1" set="method" line="5" static="1">
 			<f a=""><x path="Void"/></f>
@@ -6044,49 +6467,64 @@
      * >>> Quaternion.zero() == new Quaternion({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>]]></haxe_doc>
 	</zero>
-	<unit public="1" get="inline" set="null" line="26" static="1">
+	<zeroNormal public="1" get="inline" set="null" line="26" static="1">
+		<f a=""><x path="geom.Quaternion"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> Quaternion.zeroNormal() == new Quaternion({ x: 0., y: 0., z: 0., w: 1. })
+     * </code></pre>]]></haxe_doc>
+	</zeroNormal>
+	<unit public="1" get="inline" set="null" line="35" static="1">
 		<f a=""><x path="geom.Quaternion"/></f>
 		<haxe_doc><![CDATA[* <pre><code>
      * >>> Quaternion.unit() == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>]]></haxe_doc>
 	</unit>
-	<clone public="1" get="inline" set="null" line="30" static="1">
+	<unitNormal public="1" get="inline" set="null" line="47" static="1">
+		<f a=""><x path="geom.Quaternion"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var q = new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
+     * ... Quaternion.unit().normalize() == q.normalize();
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+	</unitNormal>
+	<clone public="1" get="inline" set="null" line="52" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</clone>
-	<xRotate public="1" get="inline" set="null" line="35" static="1"><f a="angle">
+	<xRotate public="1" get="inline" set="null" line="57" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></xRotate>
-	<yRotate public="1" get="inline" set="null" line="40" static="1"><f a="angle">
+	<yRotate public="1" get="inline" set="null" line="62" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></yRotate>
-	<zRotate public="1" get="inline" set="null" line="45" static="1"><f a="angle">
+	<zRotate public="1" get="inline" set="null" line="67" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></zRotate>
-	<xPIhalf public="1" get="inline" set="null" line="50" static="1"><f a=""><x path="geom.Quaternion"/></f></xPIhalf>
-	<yPIhalf public="1" get="inline" set="null" line="55" static="1"><f a=""><x path="geom.Quaternion"/></f></yPIhalf>
-	<zPIhalf public="1" get="inline" set="null" line="60" static="1"><f a=""><x path="geom.Quaternion"/></f></zPIhalf>
-	<createFromAxisAngle public="1" get="inline" set="null" line="67" static="1"><f a="x:y:z:theta">
+	<xPIhalf public="1" get="inline" set="null" line="72" static="1"><f a=""><x path="geom.Quaternion"/></f></xPIhalf>
+	<yPIhalf public="1" get="inline" set="null" line="77" static="1"><f a=""><x path="geom.Quaternion"/></f></yPIhalf>
+	<zPIhalf public="1" get="inline" set="null" line="82" static="1"><f a=""><x path="geom.Quaternion"/></f></zPIhalf>
+	<createFromAxisAngle public="1" get="inline" set="null" line="89" static="1"><f a="x:y:z:theta">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></createFromAxisAngle>
-	<dot public="1" get="inline" set="null" line="82" static="1">
+	<dot public="1" get="inline" set="null" line="104" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</dot>
-	<identity public="1" get="inline" set="null" line="105" static="1">
+	<identity public="1" get="inline" set="null" line="127" static="1">
 		<f a="out">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6095,7 +6533,7 @@
      * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>]]></haxe_doc>
 	</identity>
-	<toMatrix4x1 public="1" get="inline" set="null" line="113" static="1">
+	<toMatrix4x1 public="1" get="inline" set="null" line="135" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Matrix1x4"/>
@@ -6105,7 +6543,7 @@
 			<m n=":to"/>
 		</meta>
 	</toMatrix4x1>
-	<copy public="1" get="inline" set="null" line="126" static="1">
+	<copy public="1" get="inline" set="null" line="148" static="1">
 		<f a="pin:pout">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6123,14 +6561,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</magnitude>
-	<get_magnitude get="inline" set="null" line="135" static="1">
+	<get_magnitude get="inline" set="null" line="157" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_magnitude>
-	<set_magnitude get="inline" set="null" line="139" static="1">
+	<set_magnitude get="inline" set="null" line="161" static="1">
 		<f a="this:length">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Float"/>
@@ -6138,12 +6576,12 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_magnitude>
-	<dotProduct public="1" get="inline" set="null" line="153" static="1"><f a="a:b">
+	<dotProduct public="1" get="inline" set="null" line="175" static="1"><f a="a:b">
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 	<x path="Float"/>
 </f></dotProduct>
-	<equal public="1" get="inline" set="null" line="165" static="1">
+	<equal public="1" get="inline" set="null" line="187" static="1">
 		<f a="a:b">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6157,7 +6595,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</equal>
-	<notEqual public="1" get="inline" set="null" line="183" static="1">
+	<notEqual public="1" get="inline" set="null" line="205" static="1">
 		<f a="a:b">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6171,14 +6609,14 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 	</notEqual>
-	<magnitudeSquared public="1" get="inline" set="null" line="187" static="1">
+	<magnitudeSquared public="1" get="inline" set="null" line="209" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</magnitudeSquared>
-	<add public="1" get="inline" set="null" line="199" static="1">
+	<add public="1" get="inline" set="null" line="221" static="1">
 		<f a="a:b">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6192,7 +6630,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</add>
-	<subtract public="1" get="inline" set="null" line="211" static="1">
+	<subtract public="1" get="inline" set="null" line="233" static="1">
 		<f a="a:b">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6206,7 +6644,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</subtract>
-	<scaleMultiply public="1" get="inline" set="null" line="215" static="1">
+	<scaleMultiply public="1" get="inline" set="null" line="237" static="1">
 		<f a="a:v">
 			<x path="geom.Quaternion"/>
 			<x path="Float"/>
@@ -6217,7 +6655,7 @@
 			<m n=":commutative"/>
 		</meta>
 	</scaleMultiply>
-	<divide public="1" get="inline" set="null" line="219" static="1">
+	<divide public="1" get="inline" set="null" line="241" static="1">
 		<f a="a:v">
 			<x path="geom.Quaternion"/>
 			<x path="Float"/>
@@ -6225,7 +6663,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</divide>
-	<divide2 public="1" get="inline" set="null" line="223" static="1">
+	<divide2 public="1" get="inline" set="null" line="245" static="1">
 		<f a="v:a">
 			<x path="Float"/>
 			<x path="geom.Quaternion"/>
@@ -6233,7 +6671,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</divide2>
-	<conjugate public="1" get="inline" set="null" line="235" static="1">
+	<conjugate public="1" get="inline" set="null" line="257" static="1">
 		<f a="a">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6246,7 +6684,7 @@
      * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true
      * </code></pre>]]></haxe_doc>
 	</conjugate>
-	<negate public="1" get="inline" set="null" line="251" static="1">
+	<negate public="1" get="inline" set="null" line="273" static="1">
 		<f a="a">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6259,7 +6697,7 @@
      * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true
      * </code></pre>]]></haxe_doc>
 	</negate>
-	<multiplyQ public="1" get="inline" set="null" line="259" static="1">
+	<multiplyQ public="1" get="inline" set="null" line="281" static="1">
 		<f a="q1:q2">
 			<x path="geom.Quaternion"/>
 			<x path="geom.Quaternion"/>
@@ -6267,7 +6705,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</multiplyQ>
-	<cross public="1" get="inline" set="null" line="266" static="1">
+	<cross public="1" get="inline" set="null" line="288" static="1">
 		<f a="this:v">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
@@ -6275,12 +6713,12 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</cross>
-	<fromAxisAngle public="1" get="inline" set="null" line="273" static="1"><f a="theta:axis">
+	<fromAxisAngle public="1" get="inline" set="null" line="295" static="1"><f a="theta:axis">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 </f></fromAxisAngle>
-	<lerp public="1" get="inline" set="null" line="280" static="1"><f a="a:b:t">
+	<lerp public="1" get="inline" set="null" line="302" static="1"><f a="a:b:t">
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 	<x path="Float"/>
@@ -6290,7 +6728,7 @@
 		<x path="geom.Quaternion"/>
 		<meta><m n=":impl"/></meta>
 	</euler>
-	<set_euler get="inline" set="null" line="287" static="1">
+	<set_euler get="inline" set="null" line="309" static="1">
 		<f a="this:a">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
@@ -6298,14 +6736,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_euler>
-	<get_euler get="inline" set="null" line="304" static="1">
+	<get_euler get="inline" set="null" line="326" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_euler>
-	<slerp public="1" set="method" line="314" static="1">
+	<slerp public="1" set="method" line="336" static="1">
 		<f a="this:v1:t">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
@@ -6314,7 +6752,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</slerp>
-	<scaled public="1" get="inline" set="null" line="356" static="1">
+	<scaled public="1" get="inline" set="null" line="378" static="1">
 		<f a="this:scale">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Float"/>
@@ -6322,14 +6760,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</scaled>
-	<normalize public="1" get="inline" set="null" line="360" static="1">
+	<normalize public="1" get="inline" set="null" line="382" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Quaternion"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</normalize>
-	<fromVec public="1" get="inline" set="null" line="377" static="1">
+	<fromVec public="1" get="inline" set="null" line="399" static="1">
 		<f a="vec">
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
 			<x path="geom.Quaternion"/>
@@ -6343,7 +6781,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</fromVec>
-	<toVector public="1" get="inline" set="null" line="391" static="1">
+	<toVector public="1" get="inline" set="null" line="413" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -6360,7 +6798,7 @@
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toVector>
-	<fromArray public="1" get="inline" set="null" line="408" static="1">
+	<fromArray public="1" get="inline" set="null" line="430" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.Quaternion"/>
@@ -6373,7 +6811,7 @@
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 	</fromArray>
-	<toArray public="1" get="inline" set="null" line="420" static="1">
+	<toArray public="1" get="inline" set="null" line="442" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<c path="Array"><x path="Float"/></c>
@@ -6389,7 +6827,7 @@
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toArray>
-	<toMatrix4x3 public="1" get="inline" set="null" line="425" static="1">
+	<toMatrix4x3 public="1" get="inline" set="null" line="447" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.Matrix4x3"/>
@@ -6419,49 +6857,64 @@
      * >>> Quaternion.zero() == new Quaternion({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>]]></haxe_doc>
 		</zero>
-		<unit public="1" get="inline" set="null" line="26" static="1">
+		<zeroNormal public="1" get="inline" set="null" line="26" static="1">
+			<f a=""><x path="geom.Quaternion"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> Quaternion.zeroNormal() == new Quaternion({ x: 0., y: 0., z: 0., w: 1. })
+     * </code></pre>]]></haxe_doc>
+		</zeroNormal>
+		<unit public="1" get="inline" set="null" line="35" static="1">
 			<f a=""><x path="geom.Quaternion"/></f>
 			<haxe_doc><![CDATA[* <pre><code>
      * >>> Quaternion.unit() == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>]]></haxe_doc>
 		</unit>
-		<clone public="1" get="inline" set="null" line="30" static="1">
+		<unitNormal public="1" get="inline" set="null" line="47" static="1">
+			<f a=""><x path="geom.Quaternion"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var q = new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
+     * ... Quaternion.unit().normalize() == q.normalize();
+     * ... }) == true
+     * </code></pre>]]></haxe_doc>
+		</unitNormal>
+		<clone public="1" get="inline" set="null" line="52" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</clone>
-		<xRotate public="1" get="inline" set="null" line="35" static="1"><f a="angle">
+		<xRotate public="1" get="inline" set="null" line="57" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></xRotate>
-		<yRotate public="1" get="inline" set="null" line="40" static="1"><f a="angle">
+		<yRotate public="1" get="inline" set="null" line="62" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></yRotate>
-		<zRotate public="1" get="inline" set="null" line="45" static="1"><f a="angle">
+		<zRotate public="1" get="inline" set="null" line="67" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></zRotate>
-		<xPIhalf public="1" get="inline" set="null" line="50" static="1"><f a=""><x path="geom.Quaternion"/></f></xPIhalf>
-		<yPIhalf public="1" get="inline" set="null" line="55" static="1"><f a=""><x path="geom.Quaternion"/></f></yPIhalf>
-		<zPIhalf public="1" get="inline" set="null" line="60" static="1"><f a=""><x path="geom.Quaternion"/></f></zPIhalf>
-		<createFromAxisAngle public="1" get="inline" set="null" line="67" static="1"><f a="x:y:z:theta">
+		<xPIhalf public="1" get="inline" set="null" line="72" static="1"><f a=""><x path="geom.Quaternion"/></f></xPIhalf>
+		<yPIhalf public="1" get="inline" set="null" line="77" static="1"><f a=""><x path="geom.Quaternion"/></f></yPIhalf>
+		<zPIhalf public="1" get="inline" set="null" line="82" static="1"><f a=""><x path="geom.Quaternion"/></f></zPIhalf>
+		<createFromAxisAngle public="1" get="inline" set="null" line="89" static="1"><f a="x:y:z:theta">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 </f></createFromAxisAngle>
-		<dot public="1" get="inline" set="null" line="82" static="1">
+		<dot public="1" get="inline" set="null" line="104" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</dot>
-		<identity public="1" get="inline" set="null" line="105" static="1">
+		<identity public="1" get="inline" set="null" line="127" static="1">
 			<f a="out">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6470,7 +6923,7 @@
      * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>]]></haxe_doc>
 		</identity>
-		<toMatrix4x1 public="1" get="inline" set="null" line="113" static="1">
+		<toMatrix4x1 public="1" get="inline" set="null" line="135" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Matrix1x4"/>
@@ -6480,7 +6933,7 @@
 				<m n=":to"/>
 			</meta>
 		</toMatrix4x1>
-		<copy public="1" get="inline" set="null" line="126" static="1">
+		<copy public="1" get="inline" set="null" line="148" static="1">
 			<f a="pin:pout">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6498,14 +6951,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</magnitude>
-		<get_magnitude get="inline" set="null" line="135" static="1">
+		<get_magnitude get="inline" set="null" line="157" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_magnitude>
-		<set_magnitude get="inline" set="null" line="139" static="1">
+		<set_magnitude get="inline" set="null" line="161" static="1">
 			<f a="this:length">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Float"/>
@@ -6513,12 +6966,12 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_magnitude>
-		<dotProduct public="1" get="inline" set="null" line="153" static="1"><f a="a:b">
+		<dotProduct public="1" get="inline" set="null" line="175" static="1"><f a="a:b">
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 	<x path="Float"/>
 </f></dotProduct>
-		<equal public="1" get="inline" set="null" line="165" static="1">
+		<equal public="1" get="inline" set="null" line="187" static="1">
 			<f a="a:b">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6532,7 +6985,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</equal>
-		<notEqual public="1" get="inline" set="null" line="183" static="1">
+		<notEqual public="1" get="inline" set="null" line="205" static="1">
 			<f a="a:b">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6546,14 +6999,14 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 		</notEqual>
-		<magnitudeSquared public="1" get="inline" set="null" line="187" static="1">
+		<magnitudeSquared public="1" get="inline" set="null" line="209" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</magnitudeSquared>
-		<add public="1" get="inline" set="null" line="199" static="1">
+		<add public="1" get="inline" set="null" line="221" static="1">
 			<f a="a:b">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6567,7 +7020,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</add>
-		<subtract public="1" get="inline" set="null" line="211" static="1">
+		<subtract public="1" get="inline" set="null" line="233" static="1">
 			<f a="a:b">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6581,7 +7034,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</subtract>
-		<scaleMultiply public="1" get="inline" set="null" line="215" static="1">
+		<scaleMultiply public="1" get="inline" set="null" line="237" static="1">
 			<f a="a:v">
 				<x path="geom.Quaternion"/>
 				<x path="Float"/>
@@ -6592,7 +7045,7 @@
 				<m n=":commutative"/>
 			</meta>
 		</scaleMultiply>
-		<divide public="1" get="inline" set="null" line="219" static="1">
+		<divide public="1" get="inline" set="null" line="241" static="1">
 			<f a="a:v">
 				<x path="geom.Quaternion"/>
 				<x path="Float"/>
@@ -6600,7 +7053,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</divide>
-		<divide2 public="1" get="inline" set="null" line="223" static="1">
+		<divide2 public="1" get="inline" set="null" line="245" static="1">
 			<f a="v:a">
 				<x path="Float"/>
 				<x path="geom.Quaternion"/>
@@ -6608,7 +7061,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</divide2>
-		<conjugate public="1" get="inline" set="null" line="235" static="1">
+		<conjugate public="1" get="inline" set="null" line="257" static="1">
 			<f a="a">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6621,7 +7074,7 @@
      * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: 1. }); }) == true
      * </code></pre>]]></haxe_doc>
 		</conjugate>
-		<negate public="1" get="inline" set="null" line="251" static="1">
+		<negate public="1" get="inline" set="null" line="273" static="1">
 			<f a="a">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6634,7 +7087,7 @@
      * ... b == new Quaternion({ x: -1., y: -2., z: -3., w: -1. }); }) == true
      * </code></pre>]]></haxe_doc>
 		</negate>
-		<multiplyQ public="1" get="inline" set="null" line="259" static="1">
+		<multiplyQ public="1" get="inline" set="null" line="281" static="1">
 			<f a="q1:q2">
 				<x path="geom.Quaternion"/>
 				<x path="geom.Quaternion"/>
@@ -6642,7 +7095,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</multiplyQ>
-		<cross public="1" get="inline" set="null" line="266" static="1">
+		<cross public="1" get="inline" set="null" line="288" static="1">
 			<f a="this:v">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
@@ -6650,12 +7103,12 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</cross>
-		<fromAxisAngle public="1" get="inline" set="null" line="273" static="1"><f a="theta:axis">
+		<fromAxisAngle public="1" get="inline" set="null" line="295" static="1"><f a="theta:axis">
 	<x path="Float"/>
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 </f></fromAxisAngle>
-		<lerp public="1" get="inline" set="null" line="280" static="1"><f a="a:b:t">
+		<lerp public="1" get="inline" set="null" line="302" static="1"><f a="a:b:t">
 	<x path="geom.Quaternion"/>
 	<x path="geom.Quaternion"/>
 	<x path="Float"/>
@@ -6665,7 +7118,7 @@
 			<x path="geom.Quaternion"/>
 			<meta><m n=":impl"/></meta>
 		</euler>
-		<set_euler get="inline" set="null" line="287" static="1">
+		<set_euler get="inline" set="null" line="309" static="1">
 			<f a="this:a">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
@@ -6673,14 +7126,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_euler>
-		<get_euler get="inline" set="null" line="304" static="1">
+		<get_euler get="inline" set="null" line="326" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_euler>
-		<slerp public="1" set="method" line="314" static="1">
+		<slerp public="1" set="method" line="336" static="1">
 			<f a="this:v1:t">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
@@ -6689,7 +7142,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</slerp>
-		<scaled public="1" get="inline" set="null" line="356" static="1">
+		<scaled public="1" get="inline" set="null" line="378" static="1">
 			<f a="this:scale">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Float"/>
@@ -6697,14 +7150,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</scaled>
-		<normalize public="1" get="inline" set="null" line="360" static="1">
+		<normalize public="1" get="inline" set="null" line="382" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Quaternion"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</normalize>
-		<fromVec public="1" get="inline" set="null" line="377" static="1">
+		<fromVec public="1" get="inline" set="null" line="399" static="1">
 			<f a="vec">
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
 				<x path="geom.Quaternion"/>
@@ -6718,7 +7171,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</fromVec>
-		<toVector public="1" get="inline" set="null" line="391" static="1">
+		<toVector public="1" get="inline" set="null" line="413" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -6735,7 +7188,7 @@
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toVector>
-		<fromArray public="1" get="inline" set="null" line="408" static="1">
+		<fromArray public="1" get="inline" set="null" line="430" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.Quaternion"/>
@@ -6748,7 +7201,7 @@
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 		</fromArray>
-		<toArray public="1" get="inline" set="null" line="420" static="1">
+		<toArray public="1" get="inline" set="null" line="442" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<c path="Array"><x path="Float"/></c>
@@ -6764,7 +7217,7 @@
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toArray>
-		<toMatrix4x3 public="1" get="inline" set="null" line="425" static="1">
+		<toMatrix4x3 public="1" get="inline" set="null" line="447" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.Matrix4x3"/>
@@ -7050,6 +7503,19 @@
 	<x path="Void"/>
 </f></new>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="geom.structure.DualQ" params="" file="src/geom/structure/DualQ.hx">
+		<real public="1"><x path="geom.Quaternion"/></real>
+		<dual public="1"><x path="geom.Quaternion"/></dual>
+		<new set="method" line="8"><f a="real:dual">
+	<x path="geom.Quaternion"/>
+	<x path="geom.Quaternion"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":structInit"/>
+		</meta>
 	</class>
 	<class path="geom.structure.Mat1x2" params="" file="src/geom/structure/Mat1x2.hx">
 		<x public="1" expr="0.">
@@ -7964,6 +8430,34 @@
 		<meta>
 			<m n=":keep"/>
 			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<class path="js.Boot" params="" file="/usr/local/lib/haxe/std/js/Boot.hx">
+		<__string_rec set="method" line="71" static="1">
+			<f a="o:s">
+				<a>
+					<toString set="null"><f a=""><c path="String"/></f></toString>
+					<length set="null"><x path="Int"/></length>
+					<hasOwnProperty set="null"><f a="">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></hasOwnProperty>
+					<_hx_index set="null"><x path="Int"/></_hx_index>
+					<__enum__ set="null"><x path="Bool"/></__enum__>
+				</a>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":ifFeature"><e>"has_enum"</e></m>
+			</meta>
+		</__string_rec>
+		<__toStr static="1"><c path="js.lib.Function"/></__toStr>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
 		</meta>
 	</class>
 	<typedef path="js.html.Float32Array" params="" file="/usr/local/lib/haxe/std/js/html/Float32Array.hx">

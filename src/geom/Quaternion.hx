@@ -20,12 +20,34 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     }
     /**
      * <pre><code>
+     * >>> Quaternion.zeroNormal() == new Quaternion({ x: 0., y: 0., z: 0., w: 1. })
+     * </code></pre>
+     */
+    public static inline
+    function zeroNormal(): Quaternion {
+        return new Quaternion( { x: 0., y: 0., z: 0., w: 1. } );
+    }
+    /**
+     * <pre><code>
      * >>> Quaternion.unit() == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
     public static inline
     function unit(): Quaternion {
         return new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var q = new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
+     * ... Quaternion.unit().normalize() == q.normalize();
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function unitNormal(): Quaternion {
+        trace('unitNormal' + unit().normalize() );
+        return unit().normalize();
     }
     public inline
     function clone():Quaternion {
