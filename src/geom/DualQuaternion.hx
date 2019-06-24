@@ -127,9 +127,9 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
         var oneOver = 1/mag;
         return new DualQuaternion({ real: this.real*oneOver, dual: this.dual*oneOver } );
     }
-    public inline
-    function conjugate(): DualQuaternion {
-        return new DualQuaternion( { real: ~this.real, dual: ~this.dual });
+    @:op(~A) public static inline
+    function conjugate( a: DualQuaternion ): DualQuaternion {
+        return new DualQuaternion( { real: ~a.real, dual: ~a.dual });
     }
     public inline
     function getTranslation(): Matrix1x4 {

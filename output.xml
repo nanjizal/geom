@@ -919,11 +919,11 @@
 		<meta><m n=":impl"/></meta>
 	</normalize>
 	<conjugate public="1" get="inline" set="null" line="130" static="1">
-		<f a="this">
-			<c path="geom.structure.DualQ"/>
+		<f a="a">
+			<x path="geom.DualQuaternion"/>
 			<x path="geom.DualQuaternion"/>
 		</f>
-		<meta><m n=":impl"/></meta>
+		<meta><m n=":op"><e>~A</e></m></meta>
 	</conjugate>
 	<getTranslation public="1" get="inline" set="null" line="134" static="1">
 		<f a="this">
@@ -1097,11 +1097,11 @@
 			<meta><m n=":impl"/></meta>
 		</normalize>
 		<conjugate public="1" get="inline" set="null" line="130" static="1">
-			<f a="this">
-				<c path="geom.structure.DualQ"/>
+			<f a="a">
+				<x path="geom.DualQuaternion"/>
 				<x path="geom.DualQuaternion"/>
 			</f>
-			<meta><m n=":impl"/></meta>
+			<meta><m n=":op"><e>~A</e></m></meta>
 		</conjugate>
 		<getTranslation public="1" get="inline" set="null" line="134" static="1">
 			<f a="this">

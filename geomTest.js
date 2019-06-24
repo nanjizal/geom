@@ -662,13 +662,13 @@ geom__$DualQuaternion_DualQuaternion_$Impl_$.normalize = function(this1) {
 	var this4 = new geom_structure_DualQ(this2,this3);
 	return this4;
 };
-geom__$DualQuaternion_DualQuaternion_$Impl_$.conjugate = function(this1) {
-	var a = this1.real;
-	var this2 = new geom_structure_Mat1x4(-a.x,-a.y,-a.z,a.w);
-	var a1 = this1.dual;
-	var this3 = new geom_structure_Mat1x4(-a1.x,-a1.y,-a1.z,a1.w);
-	var this4 = new geom_structure_DualQ(this2,this3);
-	return this4;
+geom__$DualQuaternion_DualQuaternion_$Impl_$.conjugate = function(a) {
+	var a1 = a.real;
+	var this1 = new geom_structure_Mat1x4(-a1.x,-a1.y,-a1.z,a1.w);
+	var a2 = a.dual;
+	var this2 = new geom_structure_Mat1x4(-a2.x,-a2.y,-a2.z,a2.w);
+	var this3 = new geom_structure_DualQ(this1,this2);
+	return this3;
 };
 geom__$DualQuaternion_DualQuaternion_$Impl_$.getTranslation = function(this1) {
 	var a = this1.dual;
