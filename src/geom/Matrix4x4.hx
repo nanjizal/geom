@@ -1,6 +1,6 @@
 package geom;
 #if js
-#if (haxe_ver <= 4.0 )
+#if (haxe_ver < 4.0 )
 import js.html.Float32Array;
 #else
 import js.lib.Float32Array;

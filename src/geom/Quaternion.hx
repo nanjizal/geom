@@ -292,6 +292,30 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                                , z: this.x * v.y - this.y * v.x
                                , w: this.w * v.w } );
     }
+    /**
+     * used to set yaw pitch and roll ( very similar to set euler ) but static.
+     *     x:  Pitch
+     *     y:  Yaw
+     *     z:  Roll
+     **/
+    public static inline
+    function fromYawPitchRoll( yaw: Float, pitch: Float, roll: Float ){
+        var n9 = roll * 0.5;
+        var n6 = Math.sin( n9 );
+        var n5 = Math.cos( n9 );
+        var n8 = pitch * 0.5;
+        var n4 = Math.sin( n8 );
+        var n3 = Math.cos( n8 );
+        var n7 = yaw * 0.5;
+        var n2 = Math.sin( n7 );
+        var n1 = Math.cos( n7 );
+        return new Quaternion( { x: ((n1 * n4) * n5) + ((n2 * n3) * n6)
+                               , y: ((n2 * n3) * n5) - ((n1 * n4) * n6)
+                               , z: ((n1 * n3) * n6) - ((n2 * n4) * n5)
+                               , w: ((n1 * n3) * n5) + ((n2 * n4) * n6) 
+                               } );
+    }
+    
     public static inline
     function fromAxisAngle( theta: Float, axis: Quaternion ):Quaternion {
         var half = theta / 2.;
@@ -305,6 +329,10 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         b.normalize();
         return ( 1.0 - t )*a + t*b;
     }
+    /**
+     * input/output euler as rotation angles around x, y, z axis ( as faux Quaternion ), 
+     * but set /gets internally as the Quaternion value
+     **/
     public var euler( get, set ): Quaternion;
     private inline
     function set_euler( a: Quaternion ):Quaternion {
@@ -443,6 +471,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function toArray():Array<Float> {
         return [ this.x, this.y, this.z, this.w ];
     }
+    
     // https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToMatrix/index.htm
     @:to public inline
     function toMatrix4x3(): Matrix4x3 {
