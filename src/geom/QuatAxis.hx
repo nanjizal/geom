@@ -11,7 +11,7 @@ class QuatAxis {
     var zTrinary = new Trinary( 0. );
     public inline
     function pitch( v: Trit ){
-        rotateAroundX( v );
+         rotateAroundX( v );
     }
     public inline
     function rotateAroundX( v: Trit ){
@@ -62,8 +62,11 @@ class QuatAxis {
     public inline
     function updateCalculate( m: Matrix4x3 ) {
         if( xTrinary.changed || yTrinary.changed || zTrinary.changed ){
+            // create Quaternion
             var quat = Quaternion.fromYawPitchRoll( yAxis, xAxis, zAxis );
+            // convert to matrix
             m4x3 = quat;
+            // apply to current matrix
             m = m4x3 * m;
         }
         return m;
