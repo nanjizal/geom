@@ -10,19 +10,28 @@ class QuatAxis {
     var yTrinary = new Trinary( 0. );
     var zTrinary = new Trinary( 0. );
     public inline
-    function rotateDx( v: Trit ){
+    function pitch( v: Trit ){
+        rotateAroundX( v );
+    }
+    public inline
+    function rotateAroundX( v: Trit ){
         xTrinary.trit = v;
         if( xTrinary.changed ){
             if( v == zero ){
                 xAxis = 0.;
             } else {
                 var f: Float = v;
-                xAxis = f*stepSize;
+                // swap as y is mostly rendered down.
+                xAxis = -f*stepSize;
             }
         }
     }
     public inline
-    function rotateDy( v: Trit ){
+    function yaw( v: Trit ){
+        rotateAroundY( v );
+    }
+    public inline
+    function rotateAroundY( v: Trit ){
         yTrinary.trit = v;
         if( yTrinary.changed ){
             if( v == zero ){
@@ -34,7 +43,11 @@ class QuatAxis {
         }
     }
     public inline
-    function rotateDz( v: Trit ){
+    function roll( v: Trit ){
+        rotateAroundZ( v );
+    }
+    public inline
+    function rotateAroundZ( v: Trit ){
         zTrinary.trit = v;
         if( zTrinary.changed ){
             if( v == zero ){
