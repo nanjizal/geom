@@ -13,7 +13,7 @@ class QuatAxis {
     function rotateDx( v: Trit ){
         xTrinary.trit = v;
         if( xTrinary.changed ){
-            if( v == zero3 ){
+            if( v == zero ){
                 xAxis = 0.;
             } else {
                 var f: Float = v;
@@ -25,7 +25,7 @@ class QuatAxis {
     function rotateDy( v: Trit ){
         yTrinary.trit = v;
         if( yTrinary.changed ){
-            if( v == zero3 ){
+            if( v == zero ){
                 yAxis = 0.;
             } else {
                 var f: Float = v;
@@ -37,7 +37,7 @@ class QuatAxis {
     function rotateDz( v: Trit ){
         zTrinary.trit = v;
         if( zTrinary.changed ){
-            if( v == zero3 ){
+            if( v == zero ){
                 zAxis = 0.;
             } else {
                 var f: Float = v;

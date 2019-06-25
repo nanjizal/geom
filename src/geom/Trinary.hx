@@ -1,10 +1,13 @@
 package geom;
 @:enum
 abstract Trit( Float ) from Float to Float {
-    var negative3 = -1.;
-    var zero3     = 0.;
-    var positive3 = 1.;
+    var negative = -1.;
+    var zero     = 0.;
+    var positive = 1.;
 }
+/**
+ * Like boolean but 3 state with a changed variable so updates are only done when required.
+ **/
 class Trinary{
     public var changed: Bool = false;
     public function new( v: Trit ){
