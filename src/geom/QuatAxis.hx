@@ -11,7 +11,7 @@ class QuatAxis {
     var zTrinary = new Trinary( 0. );
     public inline
     function pitch( v: Trit ){
-         rotateAroundX( v );
+        rotateAroundX( v );
     }
     public inline
     function rotateAroundX( v: Trit ){
