@@ -841,13 +841,14 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             case [ 2, 0 ]: this.i; case [ 2, 1 ]: this.j; case [ 2, 2 ]: this.k; case [ 2, 3 ]: this.l;
             case _: throw ('bad get $x, $y on Matrix4x3' ); }
     }
+    // Really confused on this as tx, ty, tz seem to need moving to work but other values don't seem to need to be transposed.
     #if js
     public inline
     function toFloat32Array( arr: Float32Array ): Float32Array {
-        arr.set([ this.a, this.b, this.c, this.d
-                , this.e, this.f, this.g, this.h
-                , this.i, this.j, this.k, this.l
-                , 0.,         0.,     0.,      1. ]);
+        arr.set([ this.a, this.b, this.c, 0.
+                , this.e, this.f, this.g, 0.
+                , this.i, this.j, this.k, 0.
+                , this.d, this.h, this.l,      1. ]);
         return arr;
     }
     #end
