@@ -113,27 +113,20 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
         , m: r.m*s.a+r.n*s.e+r.o*s.i+r.p*s.m, n: r.m*s.b+r.n*s.f+r.o*s.j+r.p*s.n
                                 , o: r.m+s.c+r.n*s.g+r.o*s.k+r.p*s.o, p: r.m*s.d+r.n*s.h+r.o*s.l+r.p*s.p } );
     }
-    
-    public static inline
-    function perspective( fov: Float, aspectRatio: Float, near: Float, far: Float ): Matrix4x4 {
-        /*
-         fov = Field of view - the angle in radians of what's in view along the Y axis
-         Aspect Ratio - the ratio of the canvas, typically canvas.width / canvas.height
-         Near - Anything before this point in the Z direction gets clipped (resultside of the clip space)
-         Far - Anything after this point in the Z direction gets clipped (outside of the clip space)
-        */
-      var f = 1.0 / Math.tan(fov / 2);
-      var rangeInv = 1 / (near - far);
-      return new Matrix4x4({ a: f / aspectRatio, b: 0., c: 0.,                        d: 0.
-                           , e: 0.,              f: f,  g: 0.,                        h: 0.
-                           , i: 0.,              j: 0., k: (near + far) * rangeInv,   l: -1.
-                           , m: 0.,              n: 0., o: near * far * rangeInv * 2, p: 0. });
+    public inline
+    function delta( x: Float, y: Float ): Matrix4x4 {
+        var m = this;
+        return new Matrix4x4( { 
+                           a: m.a, b: m.b, c: m.c, d: m.d
+                         , e: m.e, f: m.f, g: m.g, h: m.h
+                         , i: m.i, j: m.j, k: m.k, l: m.l
+                         , m: m.m + x, n: m.n + y, o: m.o, p: m.p } );
     }
     @:from
     public static inline 
     function matrix4x3( m: Matrix4x3 ): Matrix4x4 {
         return new Matrix4x4( { 
-                           a: m.a, b: m.b, c: m.b, d: m.c
+                           a: m.a, b: m.b, c: m.c, d: m.d
                          , e: m.e, f: m.f, g: m.g, h: m.h
                          , i: m.i, j: m.j, k: m.k, l: m.l
                          , m: 0., n: 0., o: 0., p: 1. } );

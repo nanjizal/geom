@@ -6240,14 +6240,6 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.inverse = function(this1) {
 		return this2;
 	}
 };
-geom__$Matrix4x3_Matrix4x3_$Impl_$.projectionWindow = function(wid,hi,fov) {
-	var halfWid = wid / 2;
-	var halfHi = hi / 2;
-	var tanHalf = Math.tan(fov / 2);
-	var scale = halfWid / tanHalf;
-	var this1 = new geom_structure_Mat4x3(scale,-0.,-scale,0.,0.,-scale,-halfHi / tanHalf,0.,0.,0.,-1,0.);
-	return this1;
-};
 geom__$Matrix4x3_Matrix4x3_$Impl_$.orientation = function(pos,dir,up) {
 	var this1 = new geom_structure_Mat1x4(dir.y * up.z - dir.z * up.y,dir.z * up.x - dir.x * up.z,dir.x * up.y - dir.y * up.x,dir.w * up.w);
 	var right = this1;
@@ -6483,7 +6475,7 @@ geom__$Matrix4x3_Matrix4x3_$Impl_$.getXY = function(this1,x,y) {
 	}
 };
 geom__$Matrix4x3_Matrix4x3_$Impl_$.toFloat32Array = function(this1,arr) {
-	arr.set([this1.a,this1.b,this1.c,0.,this1.e,this1.f,this1.g,0.,this1.i,this1.j,this1.k,0.,this1.d,this1.h,this1.l,1.]);
+	arr.set([this1.a,this1.b,this1.c,this1.d,this1.e,this1.f,this1.g,this1.h,this1.i,this1.j,this1.k,this1.l,0.,0.,0.,1.]);
 	return arr;
 };
 var geom__$Matrix4x4_Matrix4x4_$Impl_$ = {};
@@ -6512,14 +6504,13 @@ geom__$Matrix4x4_Matrix4x4_$Impl_$.multiply = function(r,s) {
 	var this1 = new geom_structure_Mat4x4(r.a * s.a + r.b * s.e + r.c * s.i + r.d * s.m,r.a * s.b + r.b * s.f + r.c * s.j + r.d * s.n,r.a * s.c + r.b * s.g + r.c * s.k + r.d * s.o,r.a * s.d + r.b * s.h + r.c * s.l + r.d * s.p,r.e * s.a + r.f * s.e + r.g * s.i + r.h * s.m,r.e * s.b + r.f * s.f + r.g * s.j + r.h * s.n,r.e * s.c + r.f * s.g + r.g * s.k + r.h * s.o,r.e * s.d + r.f * s.h + r.g * s.l + r.h * s.p,r.i * s.a + r.j * s.e + r.k * s.i + r.l * s.m,r.i * s.b + r.j * s.f + r.k * s.j + r.l * s.n,r.i * s.c + r.j * s.g + r.k * s.k + r.l * s.o,r.i * s.d + r.j * s.h + r.k * s.l + r.l * s.p,r.m * s.a + r.n * s.e + r.o * s.i + r.p * s.m,r.m * s.b + r.n * s.f + r.o * s.j + r.p * s.n,r.m + s.c + r.n * s.g + r.o * s.k + r.p * s.o,r.m * s.d + r.n * s.h + r.o * s.l + r.p * s.p);
 	return this1;
 };
-geom__$Matrix4x4_Matrix4x4_$Impl_$.perspective = function(fov,aspectRatio,near,far) {
-	var f = 1.0 / Math.tan(fov / 2);
-	var rangeInv = 1 / (near - far);
-	var this1 = new geom_structure_Mat4x4(f / aspectRatio,0.,0.,0.,0.,f,0.,0.,0.,0.,(near + far) * rangeInv,-1.,0.,0.,near * far * rangeInv * 2,0.);
-	return this1;
+geom__$Matrix4x4_Matrix4x4_$Impl_$.delta = function(this1,x,y) {
+	var m = this1;
+	var this2 = new geom_structure_Mat4x4(m.a,m.b,m.c,m.d,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,m.m + x,m.n + y,m.o,m.p);
+	return this2;
 };
 geom__$Matrix4x4_Matrix4x4_$Impl_$.matrix4x3 = function(m) {
-	var this1 = new geom_structure_Mat4x4(m.a,m.b,m.b,m.c,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,0.,0.,0.,1.);
+	var this1 = new geom_structure_Mat4x4(m.a,m.b,m.c,m.d,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,0.,0.,0.,1.);
 	return this1;
 };
 geom__$Matrix4x4_Matrix4x4_$Impl_$.toFloat32Array = function(this1,arr) {

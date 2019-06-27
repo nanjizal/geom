@@ -766,6 +766,63 @@
 	abstract types.
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
+	<class path="geom.Axis" params="" file="src/geom/Axis.hx">
+		<rx expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</rx>
+		<ry expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</ry>
+		<rz expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</rz>
+		<tx expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</tx>
+		<ty expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</ty>
+		<tz expr="new Parameter()">
+			<c path="geom.Parameter"/>
+			<meta><m n=":value"><e>new Parameter()</e></m></meta>
+		</tz>
+		<pitch public="1" get="inline" set="null" line="11"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></pitch>
+		<yaw public="1" get="inline" set="null" line="15"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></yaw>
+		<roll public="1" get="inline" set="null" line="19"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></roll>
+		<alongX public="1" get="inline" set="null" line="23"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></alongX>
+		<alongY public="1" get="inline" set="null" line="27"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></alongY>
+		<alongZ public="1" get="inline" set="null" line="31"><f a="v">
+	<x path="geom.Trit"/>
+	<x path="Void"/>
+</f></alongZ>
+		<updateCalculate public="1" set="method" line="36"><f a="q">
+	<x path="geom.DualQuaternion"/>
+	<x path="geom.DualQuaternion"/>
+</f></updateCalculate>
+		<rotationChanged public="1" get="inline" set="null" line="53"><f a=""><x path="Bool"/></f></rotationChanged>
+		<translationChanged public="1" get="inline" set="null" line="57"><f a=""><x path="Bool"/></f></translationChanged>
+		<new public="1" set="method" line="35"><f a=""><x path="Void"/></f></new>
+	</class>
 	<abstract path="geom.DualQuaternion" params="" file="src/geom/DualQuaternion.hx">
 		<from><icast><c path="geom.structure.DualQ"/></icast></from>
 		<this><c path="geom.structure.DualQ"/></this>
@@ -5261,19 +5318,13 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</inverse>
-	<projectionWindow public="1" get="inline" set="null" line="691" static="1"><f a="wid:hi:fov">
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="geom.Matrix4x3"/>
-</f></projectionWindow>
-	<orientation public="1" get="inline" set="null" line="700" static="1"><f a="pos:dir:up">
+	<orientation public="1" get="inline" set="null" line="690" static="1"><f a="pos:dir:up">
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix4x3"/>
 </f></orientation>
-	<applyRotation public="1" get="inline" set="null" line="707" static="1">
+	<applyRotation public="1" get="inline" set="null" line="697" static="1">
 		<f a="this:p">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -5281,7 +5332,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</applyRotation>
-	<applyInverseRotation public="1" get="inline" set="null" line="714" static="1">
+	<applyInverseRotation public="1" get="inline" set="null" line="704" static="1">
 		<f a="this:p">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix1x4"/>
@@ -5289,35 +5340,35 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</applyInverseRotation>
-	<orthonormalizeRotation public="1" get="inline" set="null" line="721" static="1">
+	<orthonormalizeRotation public="1" get="inline" set="null" line="711" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<c path="geom.structure.Mat4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</orthonormalizeRotation>
-	<makeViewFromOrientation public="1" get="inline" set="null" line="731" static="1">
+	<makeViewFromOrientation public="1" get="inline" set="null" line="721" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</makeViewFromOrientation>
-	<invertNormalizedRotation public="1" get="inline" set="null" line="738" static="1">
+	<invertNormalizedRotation public="1" get="inline" set="null" line="728" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</invertNormalizedRotation>
-	<invertNormalized public="1" get="inline" set="null" line="744" static="1">
+	<invertNormalized public="1" get="inline" set="null" line="734" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</invertNormalized>
-	<toAffineMatrix public="1" get="inline" set="null" line="752" static="1">
+	<toAffineMatrix public="1" get="inline" set="null" line="742" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<t path="geom.tydef.TAffineMatrix"/>
@@ -5327,14 +5378,14 @@
 			<m n=":to"/>
 		</meta>
 	</toAffineMatrix>
-	<fromNumbered public="1" get="inline" set="null" line="759" static="1">
+	<fromNumbered public="1" get="inline" set="null" line="749" static="1">
 		<f a="m">
 			<t path="geom.tydef.Tmatrix4x4numbered"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromNumbered>
-	<toNumbered public="1" get="inline" set="null" line="766" static="1">
+	<toNumbered public="1" get="inline" set="null" line="756" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<t path="geom.tydef.Tmatrix4x4numbered"/>
@@ -5344,14 +5395,14 @@
 			<m n=":to"/>
 		</meta>
 	</toNumbered>
-	<fromArr public="1" get="inline" set="null" line="774" static="1">
+	<fromArr public="1" get="inline" set="null" line="764" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromArr>
-	<toArray public="1" get="inline" set="null" line="781" static="1">
+	<toArray public="1" get="inline" set="null" line="771" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<c path="Array"><x path="Float"/></c>
@@ -5361,21 +5412,21 @@
 			<m n=":to"/>
 		</meta>
 	</toArray>
-	<fromVec public="1" get="inline" set="null" line="788" static="1">
+	<fromVec public="1" get="inline" set="null" line="778" static="1">
 		<f a="v">
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromVec>
-	<from2x2 public="1" get="inline" set="null" line="795" static="1">
+	<from2x2 public="1" get="inline" set="null" line="785" static="1">
 		<f a="m2">
 			<x path="geom.Matrix2x2"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</from2x2>
-	<to2x2 public="1" get="inline" set="null" line="802" static="1">
+	<to2x2 public="1" get="inline" set="null" line="792" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix2x2"/>
@@ -5385,14 +5436,14 @@
 			<m n=":to"/>
 		</meta>
 	</to2x2>
-	<from3x3 public="1" get="inline" set="null" line="808" static="1">
+	<from3x3 public="1" get="inline" set="null" line="798" static="1">
 		<f a="m3">
 			<x path="geom.Matrix3x3"/>
 			<x path="geom.Matrix4x3"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</from3x3>
-	<to3x3 public="1" get="inline" set="null" line="815" static="1">
+	<to3x3 public="1" get="inline" set="null" line="805" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="geom.Matrix3x3"/>
@@ -5402,7 +5453,7 @@
 			<m n=":to"/>
 		</meta>
 	</to3x3>
-	<toVector public="1" get="inline" set="null" line="822" static="1">
+	<toVector public="1" get="inline" set="null" line="812" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -5412,7 +5463,7 @@
 			<m n=":to"/>
 		</meta>
 	</toVector>
-	<setXY public="1" get="inline" set="null" line="830" static="1">
+	<setXY public="1" get="inline" set="null" line="820" static="1">
 		<f a="this:x:y:v">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Int"/>
@@ -5422,7 +5473,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</setXY>
-	<getXY public="1" get="inline" set="null" line="837" static="1">
+	<getXY public="1" get="inline" set="null" line="827" static="1">
 		<f a="this:x:y">
 			<c path="geom.structure.Mat4x3"/>
 			<x path="Int"/>
@@ -5431,7 +5482,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getXY>
-	<toFloat32Array public="1" get="inline" set="null" line="846" static="1">
+	<toFloat32Array public="1" get="inline" set="null" line="836" static="1">
 		<f a="this:arr">
 			<c path="geom.structure.Mat4x3"/>
 			<c path="js.lib.Float32Array"/>
@@ -6012,19 +6063,13 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</inverse>
-		<projectionWindow public="1" get="inline" set="null" line="691" static="1"><f a="wid:hi:fov">
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="geom.Matrix4x3"/>
-</f></projectionWindow>
-		<orientation public="1" get="inline" set="null" line="700" static="1"><f a="pos:dir:up">
+		<orientation public="1" get="inline" set="null" line="690" static="1"><f a="pos:dir:up">
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix1x4"/>
 	<x path="geom.Matrix4x3"/>
 </f></orientation>
-		<applyRotation public="1" get="inline" set="null" line="707" static="1">
+		<applyRotation public="1" get="inline" set="null" line="697" static="1">
 			<f a="this:p">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -6032,7 +6077,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</applyRotation>
-		<applyInverseRotation public="1" get="inline" set="null" line="714" static="1">
+		<applyInverseRotation public="1" get="inline" set="null" line="704" static="1">
 			<f a="this:p">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix1x4"/>
@@ -6040,35 +6085,35 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</applyInverseRotation>
-		<orthonormalizeRotation public="1" get="inline" set="null" line="721" static="1">
+		<orthonormalizeRotation public="1" get="inline" set="null" line="711" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<c path="geom.structure.Mat4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</orthonormalizeRotation>
-		<makeViewFromOrientation public="1" get="inline" set="null" line="731" static="1">
+		<makeViewFromOrientation public="1" get="inline" set="null" line="721" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</makeViewFromOrientation>
-		<invertNormalizedRotation public="1" get="inline" set="null" line="738" static="1">
+		<invertNormalizedRotation public="1" get="inline" set="null" line="728" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</invertNormalizedRotation>
-		<invertNormalized public="1" get="inline" set="null" line="744" static="1">
+		<invertNormalized public="1" get="inline" set="null" line="734" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</invertNormalized>
-		<toAffineMatrix public="1" get="inline" set="null" line="752" static="1">
+		<toAffineMatrix public="1" get="inline" set="null" line="742" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<t path="geom.tydef.TAffineMatrix"/>
@@ -6078,14 +6123,14 @@
 				<m n=":to"/>
 			</meta>
 		</toAffineMatrix>
-		<fromNumbered public="1" get="inline" set="null" line="759" static="1">
+		<fromNumbered public="1" get="inline" set="null" line="749" static="1">
 			<f a="m">
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromNumbered>
-		<toNumbered public="1" get="inline" set="null" line="766" static="1">
+		<toNumbered public="1" get="inline" set="null" line="756" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
@@ -6095,14 +6140,14 @@
 				<m n=":to"/>
 			</meta>
 		</toNumbered>
-		<fromArr public="1" get="inline" set="null" line="774" static="1">
+		<fromArr public="1" get="inline" set="null" line="764" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromArr>
-		<toArray public="1" get="inline" set="null" line="781" static="1">
+		<toArray public="1" get="inline" set="null" line="771" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<c path="Array"><x path="Float"/></c>
@@ -6112,21 +6157,21 @@
 				<m n=":to"/>
 			</meta>
 		</toArray>
-		<fromVec public="1" get="inline" set="null" line="788" static="1">
+		<fromVec public="1" get="inline" set="null" line="778" static="1">
 			<f a="v">
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromVec>
-		<from2x2 public="1" get="inline" set="null" line="795" static="1">
+		<from2x2 public="1" get="inline" set="null" line="785" static="1">
 			<f a="m2">
 				<x path="geom.Matrix2x2"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</from2x2>
-		<to2x2 public="1" get="inline" set="null" line="802" static="1">
+		<to2x2 public="1" get="inline" set="null" line="792" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix2x2"/>
@@ -6136,14 +6181,14 @@
 				<m n=":to"/>
 			</meta>
 		</to2x2>
-		<from3x3 public="1" get="inline" set="null" line="808" static="1">
+		<from3x3 public="1" get="inline" set="null" line="798" static="1">
 			<f a="m3">
 				<x path="geom.Matrix3x3"/>
 				<x path="geom.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</from3x3>
-		<to3x3 public="1" get="inline" set="null" line="815" static="1">
+		<to3x3 public="1" get="inline" set="null" line="805" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="geom.Matrix3x3"/>
@@ -6153,7 +6198,7 @@
 				<m n=":to"/>
 			</meta>
 		</to3x3>
-		<toVector public="1" get="inline" set="null" line="822" static="1">
+		<toVector public="1" get="inline" set="null" line="812" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -6163,7 +6208,7 @@
 				<m n=":to"/>
 			</meta>
 		</toVector>
-		<setXY public="1" get="inline" set="null" line="830" static="1">
+		<setXY public="1" get="inline" set="null" line="820" static="1">
 			<f a="this:x:y:v">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Int"/>
@@ -6173,7 +6218,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</setXY>
-		<getXY public="1" get="inline" set="null" line="837" static="1">
+		<getXY public="1" get="inline" set="null" line="827" static="1">
 			<f a="this:x:y">
 				<c path="geom.structure.Mat4x3"/>
 				<x path="Int"/>
@@ -6182,7 +6227,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getXY>
-		<toFloat32Array public="1" get="inline" set="null" line="846" static="1">
+		<toFloat32Array public="1" get="inline" set="null" line="836" static="1">
 			<f a="this:arr">
 				<c path="geom.structure.Mat4x3"/>
 				<c path="js.lib.Float32Array"/>
@@ -6269,21 +6314,23 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</multiply>
-	<perspective public="1" get="inline" set="null" line="117" static="1"><f a="fov:aspectRatio:near:far">
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="geom.Matrix4x4"/>
-</f></perspective>
-	<matrix4x3 public="1" get="inline" set="null" line="133" static="1">
+	<delta public="1" get="inline" set="null" line="116" static="1">
+		<f a="this:x:y">
+			<c path="geom.structure.Mat4x4"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="geom.Matrix4x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</delta>
+	<matrix4x3 public="1" get="inline" set="null" line="126" static="1">
 		<f a="m">
 			<x path="geom.Matrix4x3"/>
 			<x path="geom.Matrix4x4"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</matrix4x3>
-	<toFloat32Array public="1" get="inline" set="null" line="143" static="1">
+	<toFloat32Array public="1" get="inline" set="null" line="136" static="1">
 		<f a="this:arr">
 			<c path="geom.structure.Mat4x4"/>
 			<c path="js.lib.Float32Array"/>
@@ -6362,21 +6409,23 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</multiply>
-		<perspective public="1" get="inline" set="null" line="117" static="1"><f a="fov:aspectRatio:near:far">
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="Float"/>
-	<x path="geom.Matrix4x4"/>
-</f></perspective>
-		<matrix4x3 public="1" get="inline" set="null" line="133" static="1">
+		<delta public="1" get="inline" set="null" line="116" static="1">
+			<f a="this:x:y">
+				<c path="geom.structure.Mat4x4"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="geom.Matrix4x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</delta>
+		<matrix4x3 public="1" get="inline" set="null" line="126" static="1">
 			<f a="m">
 				<x path="geom.Matrix4x3"/>
 				<x path="geom.Matrix4x4"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</matrix4x3>
-		<toFloat32Array public="1" get="inline" set="null" line="143" static="1">
+		<toFloat32Array public="1" get="inline" set="null" line="136" static="1">
 			<f a="this:arr">
 				<c path="geom.structure.Mat4x4"/>
 				<c path="js.lib.Float32Array"/>
@@ -6385,102 +6434,50 @@
 			<meta><m n=":impl"/></meta>
 		</toFloat32Array>
 	</class>
-	<class path="geom.QuatAxis" params="" file="src/geom/QuatAxis.hx">
-		<stepSize public="1" expr="0.01" line="5" static="1">
+	<class path="geom.Parameter" params="" file="src/geom/Parameter.hx">
+		<step public="1" expr="0.005">
 			<x path="Float"/>
-			<meta><m n=":value"><e>0.01</e></m></meta>
-		</stepSize>
-		<dualQuaternion><x path="geom.DualQuaternion"/></dualQuaternion>
-		<m4x3><x path="geom.Matrix4x3"/></m4x3>
-		<xAxis expr="0.">
+			<meta><m n=":value"><e>0.005</e></m></meta>
+		</step>
+		<value public="1" expr="0.">
 			<x path="Float"/>
 			<meta><m n=":value"><e>0.</e></m></meta>
-		</xAxis>
-		<yAxis expr="0.">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.</e></m></meta>
-		</yAxis>
-		<zAxis expr="0.">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.</e></m></meta>
-		</zAxis>
-		<tx expr="0.">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.</e></m></meta>
-		</tx>
-		<ty expr="0.">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.</e></m></meta>
-		</ty>
-		<tz expr="0.">
-			<x path="Float"/>
-			<meta><m n=":value"><e>0.</e></m></meta>
-		</tz>
-		<rxTrinary expr="new Trinary(0.)">
+		</value>
+		<trinary public="1" expr="new Trinary(0.)">
 			<c path="geom.Trinary"/>
 			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</rxTrinary>
-		<ryTrinary expr="new Trinary(0.)">
-			<c path="geom.Trinary"/>
-			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</ryTrinary>
-		<rzTrinary expr="new Trinary(0.)">
-			<c path="geom.Trinary"/>
-			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</rzTrinary>
-		<txTrinary expr="new Trinary(0.)">
-			<c path="geom.Trinary"/>
-			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</txTrinary>
-		<tyTrinary expr="new Trinary(0.)">
-			<c path="geom.Trinary"/>
-			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</tyTrinary>
-		<tzTrinary expr="new Trinary(0.)">
-			<c path="geom.Trinary"/>
-			<meta><m n=":value"><e>new Trinary(0.)</e></m></meta>
-		</tzTrinary>
-		<pitch public="1" get="inline" set="null" line="20"><f a="v">
+		</trinary>
+		<update public="1" get="inline" set="null" line="10"><f a="v">
 	<x path="geom.Trit"/>
 	<x path="Void"/>
-</f></pitch>
-		<rotateAroundX public="1" get="inline" set="null" line="24"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></rotateAroundX>
-		<yaw public="1" get="inline" set="null" line="37"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></yaw>
-		<rotateAroundY public="1" get="inline" set="null" line="41"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></rotateAroundY>
-		<roll public="1" get="inline" set="null" line="53"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></roll>
-		<rotateAroundZ public="1" get="inline" set="null" line="57"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></rotateAroundZ>
-		<alongX public="1" get="inline" set="null" line="69"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></alongX>
-		<alongY public="1" get="inline" set="null" line="81"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></alongY>
-		<alongZ public="1" get="inline" set="null" line="93"><f a="v">
-	<x path="geom.Trit"/>
-	<x path="Void"/>
-</f></alongZ>
-		<updateCalculate public="1" get="inline" set="null" line="107"><f a="m">
+</f></update>
+		<new public="1" set="method" line="8"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="geom.Projection" params="" file="src/geom/Projection.hx">
+		<perspective public="1" get="inline" set="null" line="6" static="1">
+			<f a="?angleOfView:?near:?far" v="1.57079632679:0.1:100.">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="geom.Matrix4x4"/>
+			</f>
+			<meta><m n=":value"><e>{ far : 100., near : 0.1, angleOfView : 1.57079632679 }</e></m></meta>
+			<haxe_doc>@:angleOfView preset to Math.PI/2;</haxe_doc>
+		</perspective>
+		<perspectiveAspect public="1" get="inline" set="null" line="17" static="1"><f a="fov:aspectRatio:near:far">
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="geom.Matrix4x4"/>
+</f></perspectiveAspect>
+		<projectionWindow public="1" get="inline" set="null" line="32" static="1"><f a="wid:hi:fov">
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
 	<x path="geom.Matrix4x3"/>
-	<x path="geom.Matrix4x3"/>
-</f></updateCalculate>
-		<new public="1" set="method" line="106"><f a=""><x path="Void"/></f></new>
+</f></projectionWindow>
 	</class>
 	<abstract path="geom.Quaternion" params="" file="src/geom/Quaternion.hx">
 		<from>

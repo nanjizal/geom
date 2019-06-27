@@ -687,16 +687,6 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             });
         }
     }
-    
-    public static inline
-    function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x3 {
-        var halfWid = wid/2; var halfHi  = hi/2;
-        var tanHalf = Math.tan( fov/2 );
-        var scale = halfWid/tanHalf;
-        return new Matrix4x3( { a: scale, b: -0.,    c: -scale,          d: 0.
-                              , e: 0.,    f: -scale, g: -halfHi/tanHalf, h: 0.
-                              , i: 0.,    j: 0.,     k: -1,              l: 0. } );
-    }
     public static inline// Maps 0,0,0 to pos,maps x-axis to dir,maps y-axis to up.maps z-axis to the right.
     function orientation( pos: Matrix1x4, dir: Matrix1x4, up: Matrix1x4 ): Matrix4x3 {
         var right = dir.cross( up );
@@ -842,13 +832,13 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             case _: throw ('bad get $x, $y on Matrix4x3' ); }
     }
     // Really confused on this as tx, ty, tz seem to need moving to work but other values don't seem to need to be transposed.
-    #if js
+    #if js 
     public inline
     function toFloat32Array( arr: Float32Array ): Float32Array {
-        arr.set([ this.a, this.b, this.c, 0.
-                , this.e, this.f, this.g, 0.
-                , this.i, this.j, this.k, 0.
-                , this.d, this.h, this.l,      1. ]);
+        arr.set([ this.a, this.b, this.c, this.d
+                , this.e, this.f, this.g, this.h
+                , this.i, this.j, this.k, this.l
+                , 0.,     0.,     0.,     1. ]);
         return arr;
     }
     #end
