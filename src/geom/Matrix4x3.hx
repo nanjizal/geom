@@ -842,4 +842,89 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         return arr;
     }
     #end
+    // used to print out a pretty representation of the matrix for debugging,
+    // likely quite slow and not optimum, but easier to read.
+    public inline
+    function pretty( prec: Int ):String {
+        var sa = floatToStringPrecision( this.a, prec );
+        var sb = floatToStringPrecision( this.b, prec );
+        var sc = floatToStringPrecision( this.c, prec );
+        var sd = floatToStringPrecision( this.d, prec );
+        var se = floatToStringPrecision( this.e, prec );
+        var sf = floatToStringPrecision( this.f, prec );
+        var sg = floatToStringPrecision( this.g, prec );
+        var sh = floatToStringPrecision( this.h, prec );
+        var si = floatToStringPrecision( this.i, prec );
+        var sj = floatToStringPrecision( this.j, prec );
+        var sk = floatToStringPrecision( this.k, prec );
+        var sl = floatToStringPrecision( this.l, prec );
+        var la = sa.length;
+        var lb = sb.length;
+        var lc = sc.length;
+        var ld = sd.length;
+        var le = se.length;
+        var lf = sf.length;
+        var lg = sg.length;
+        var lh = sh.length;
+        var li = si.length;
+        var lj = sj.length;
+        var lk = sk.length;
+        var ll = sl.length;
+        var r0: Int = Math.round( Math.max( Math.max( la, le ), li ) );
+        var r1: Int = Math.round( Math.max( Math.max( lb, lf ), lj ) );
+        var r2: Int = Math.round( Math.max( Math.max( lc, lg ), lk ) );
+        var r3: Int = Math.round( Math.max( Math.max( ld, lh ), ll ) );
+        var spaces = '';
+        for( n in 0...r0 ) spaces = spaces + ' ';
+        sa = spaces.substr( 0, r0 - la ) + sa;
+        se = spaces.substr( 0, r0 - le ) + se;
+        si = spaces.substr( 0, r0 - li ) + si;
+        var spaces = '';
+        for( n in 0...r1 ) spaces = spaces + ' ';
+        sb = spaces.substr( 0, r1 - lb ) + sb;
+        sf = spaces.substr( 0, r1 - lf ) + sf;
+        sj = spaces.substr( 0, r1 - lj ) + sj;
+        var space = '';
+        for( n in 0...r2 ) spaces = spaces + ' ';
+        sc = spaces.substr( 0, r2 - lc ) + sc;
+        sg = spaces.substr( 0, r2 - lg ) + sg;
+        sk = spaces.substr( 0, r2 - lk ) + sk;
+        var space = '';
+        for( n in 0...r3 ) spaces = spaces + ' ';
+        sd = spaces.substr( 0, r3 - ld ) + sd;
+        sh = spaces.substr( 0, r3 - lh ) + sh;
+        sl = spaces.substr( 0, r3 - ll ) + sl;
+        return '\n'
+             + '/ ' + sa + ', ' + sb + ', ' + sc + ', ' + sd + ' \\\n'
+             + '| ' + se + ', ' + sf + ', ' + sg + ', ' + sh + ' |\n'
+             + '\\ ' + si + ', ' + sj + ', ' + sk + ', ' + sl + ' /\n';
+    }
+    /*
+        credit: sea_jackel https://stackoverflow.com/questions/23689001/how-to-reliably-format-a-floating-point-number-to-a-specified-number-of-decimal
+    */
+    public static function floatToStringPrecision( n: Float, prec: Int ){
+        if( n==0 ) return "0." + ([for(i in 0...prec) "0"].join("")); //quick return
+        var minusSign:Bool = ( n < 0.0 );
+        n = Math.abs( n );
+        var intPart:Int = Math.floor( n );
+        var p = Math.pow( 10, prec );
+        var fracPart = Math.round( p*(n - intPart) );
+        var buf: StringBuf = new StringBuf();
+        if( minusSign ) buf.addChar( "-".code );
+        buf.add( Std.string( intPart ) );
+        if( fracPart == 0 ){
+            buf.addChar( ".".code );
+            for( i in 0...prec ) buf.addChar( "0".code );
+        } else {
+            buf.addChar( ".".code );
+            p = p/10;
+            var nZeros:Int = 0;
+            while( fracPart < p ){
+                p = p/10;
+                buf.addChar( "0".code );
+            }
+            buf.add(fracPart);
+        }
+        return buf.toString();
+    }
 }
