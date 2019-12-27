@@ -843,9 +843,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     @:from
     public static inline
     function fromWebGL( arr: Float32Array ): Matrix4x3 {
-        return new Matrix4x3( { a: arr.get(0),  b: arr.get(4),  c: arr.get(8),  d: arr.get(12)
-                              , e: arr.get(1),  f: arr.get(5),  g: arr.get(9),  h: arr.get(13)
-                              , i: arr.get(2),  j: arr.get(6),  k: arr.get(10), l: arr.get(14) } );
+        return new Matrix4x3( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
+                              , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
+                              , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14] } );
     }
     public inline
     function updateWebGL( arr: Float32Array ): Float32Array {
