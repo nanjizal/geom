@@ -9,6 +9,15 @@ class Axis {
     var ty = new Parameter();
     var tz = new Parameter();
     public inline
+    function reset(){
+        rx.value = 0.;
+        ry.value = 0.;
+        rz.value = 0.;
+        tx.value = 0.;
+        ty.value = 0.;
+        tz.value = 0.;
+    }
+    public inline
     function pitch( v: Trit ){
         rx.update( v );
     }
