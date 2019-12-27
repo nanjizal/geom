@@ -10,9 +10,9 @@ class Projection {
         var dif = far - near;
         return new Matrix4x4({ a: scale, b: 0.,     c: 0.,                d: 0.
                              , e: 0.,    f: scale,  g: 0.,                h: 0.
-                             , i: 0.,    j: 0.,     k: -far / dif,        l: -1.
-                             , m: 0.,    n: 0.,     o: -far * near / dif, p: 0.
-            });
+                             , i: 0.,    j: 0.,     k: -far / dif,        l: -far * near / dif
+                             , m: 0.,    n: 0.,     o: -1., p: 0.
+                        });
     } 
     public static inline
     function perspectiveAspect( fov: Float, aspectRatio: Float, near: Float, far: Float ): Matrix4x4 {
@@ -26,9 +26,11 @@ class Projection {
       var rangeInv = 1 / (near - far);
       return new Matrix4x4({ a: f / aspectRatio, b: 0., c: 0.,                        d: 0.
                            , e: 0.,              f: f,  g: 0.,                        h: 0.
-                           , i: 0.,              j: 0., k: (near + far) * rangeInv,   l: -1.
-                           , m: 0.,              n: 0., o: near * far * rangeInv * 2, p: 0. });
+                           , i: 0.,              j: 0., k: (near + far) * rangeInv,   l:near * far * rangeInv * 2
+                           , m: 0.,              n: 0., o: -1.,                       p: 0. });
     }
+    
+    // TODO: NOT sure this may need changing as adjusted the other two since gl takes columns
     public static inline
     function projectionWindow( wid: Float, hi: Float, fov: Float ):  Matrix4x3 {
         var halfWid = wid/2; var halfHi  = hi/2;

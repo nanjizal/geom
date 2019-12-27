@@ -831,19 +831,33 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             case [ 2, 0 ]: this.i; case [ 2, 1 ]: this.j; case [ 2, 2 ]: this.k; case [ 2, 3 ]: this.l;
             case _: throw ('bad get $x, $y on Matrix4x3' ); }
     }
-    // Really confused on this as tx, ty, tz seem to need moving to work but other values don't seem to need to be transposed.
-    #if js 
+    #if js     
+    @:to
     public inline
-    function toFloat32Array( arr: Float32Array ): Float32Array {
-        arr.set([ this.a, this.b, this.c, this.d
-                , this.e, this.f, this.g, this.h
-                , this.i, this.j, this.k, this.l
-                , 0.,     0.,     0.,     1. ]);
+    function toWebGL(): Float32Array {
+        return new Float32Array( [ this.a, this.e, this.i, 0.
+                                 , this.b, this.f, this.j, 0.
+                                 , this.c, this.g, this.k, 0.
+                                 , this.d, this.h, this.l, 1.  ]);
+    }
+    @:from
+    public static inline
+    function fromWebGL( arr: Float32Array ): Matrix4x3 {
+        return new Matrix4x3( { a: arr.get(0),  b: arr.get(4),  c: arr.get(8),  d: arr.get(12)
+                              , e: arr.get(1),  f: arr.get(5),  g: arr.get(9),  h: arr.get(13)
+                              , i: arr.get(2),  j: arr.get(6),  k: arr.get(10), l: arr.get(14) } );
+    }
+    public inline
+    function updateWebGL( arr: Float32Array ): Float32Array {
+        arr.set([ this.a, this.e, this.i, 0.
+                , this.b, this.f, this.j, 0.
+                , this.c, this.g, this.k, 0.
+                , this.d, this.h, this.l, 1.  ]);
         return arr;
     }
     #end
     // used to print out a pretty representation of the matrix for debugging,
-    // likely quite slow and not optimum, but easier to read.
+    // likely quite slow and not optimum.
     public inline
     function pretty( prec: Int ):String {
         var sa = floatToStringPrecision( this.a, prec );
