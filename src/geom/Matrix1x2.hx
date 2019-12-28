@@ -11,6 +11,14 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function clone(): Matrix1x2 {
         return new Matrix1x2( { x: this.x, y: this.y } );
     }
+    
+    public inline
+    function get_self() return (cast this : Matrix1x2);
+    
+    public inline
+    function lerp( p2: Matrix1x2, t: Float ){
+        return get_self() + t * negate(span( p2 ));
+    }
     /**
      * <pre><code>
      * >>> Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. })
@@ -132,6 +140,12 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function east(){
         return new Matrix1x2( { x: 1., y: 0. } );
     }
+    
+    @:op( -A ) public static inline
+    function negate( a:Matrix1x2 ): Matrix1x2 {
+      	return new Matrix1x2({ x: -a.x, y:  -a.y });
+    }
+    
     /**
      * <pre><code>
      * >>> Matrix1x2.unit() + Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
@@ -241,6 +255,13 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         var dy = this.y - b.y;
         return dx * dx + dy * dy;
     }
+    
+    public inline
+    function distanceBetweenSquare_( b: Matrix1x2 ): Float {
+        var c = span( b );
+        return c.lenSquare();
+    }
+    
     /**
      * test with 3,4,5 triangle
      *
