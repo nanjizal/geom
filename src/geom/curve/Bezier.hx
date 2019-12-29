@@ -1,5 +1,6 @@
 package geom.curve;
-
+// considering a Raph tweet on Beziers on segmentation, porting and distorting from js slowly.
+// currently only quadratic and cubic used.
 class Bezier {
     // Compute an approximation to int (1 + 4x^2) ^ -0.25 dx
     // This isn't especially good but will do.
