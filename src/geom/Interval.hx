@@ -68,7 +68,7 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
     }
     public static inline
     function random(){
-        return Math.random()*( this.u - this.l ) - this.l;
+        return Math.random()*( this.u - this.l ) + this.l;
     }
     public static inline
     function randomInt(){
