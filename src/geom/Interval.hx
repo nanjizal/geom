@@ -21,13 +21,13 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
     public inline
     function clampClosed( v: Float ): Float {
         return if( v <= this.l ) this.l
-            else if (v  >= this.u ) this.u
+            else if (v >= this.u ) this.u
             else v;
     }
     public inline
     function clampOpen( v: Float ): Float {
-        return if( above( v ) ) this.l
-            else if ( below( v ) ) this.u
+        return if( below( v ) ) this.l
+            else if ( above( v ) ) this.u
             else v;
     }
     public inline
