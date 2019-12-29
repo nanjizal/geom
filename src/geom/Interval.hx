@@ -47,7 +47,7 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
         return v == clampOpen( v );
     }
     public static inline
-    function inclampClosed( v: Float ): Bool {
+    function inClampClosed( v: Float ): Bool {
         return v == clampClosed( v );
     }
     public static inline
