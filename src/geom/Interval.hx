@@ -81,6 +81,10 @@ abstract RadianInterval( Interval ) from Interval to Interval {
     function new(){ 
         this = new Interval( -Math.PI, Math.PI );
     }
+    public inline
+    function wrap( v: Float ){
+        return ( inClosedClamp( v ) )? v: v - ( Math.PI*2) * Math.floor((v+ Math.PI) / (Math.PI*2));
+    }
     public static inline
     function inPiWrap( v: Float ): Bool {
         return ( new RadianInterval() ).inClosedClamp( v );
