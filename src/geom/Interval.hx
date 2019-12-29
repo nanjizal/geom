@@ -12,7 +12,7 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
     }
     public inline
     function fix(){
-        if( !valid ){
+        if( !valid() ){
             var l = this.u;
             this.u = this.l;
             this.l = l;
@@ -20,19 +20,20 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
     }
     public inline
     function clampClosed( v: Float ): Float {
-        return if( v <= this.l ) l
-            else if (v  >= this.u ) u
+        return if( v <= this.l ) this.l
+            else if (v  >= this.u ) this.u
             else v;
     }
     public inline
     function clampOpen( v: Float ): Float {
-        return if( above( v ) ) l
-            else if ( below( v ) ) u
+        return if( above( v ) ) this.l
+            else if ( below( v ) ) this.u
             else v;
     }
     public inline
     function close( v: Float, delta = 0.00001 ): Bool {
-        return new Interval( this.l - delta, this.u + delta ).clampClose( v );
+        var interval: Interval = { l: this.l - delta, u: this.u + delta };
+        return interval.inClampClosed( v );
     }
     public inline
     function above( v: Float ){
@@ -46,31 +47,34 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
     function inClampOpen( v: Float ): Bool {
         return v == clampOpen( v );
     }
-    public static inline
+    public inline
     function inClampClosed( v: Float ): Bool {
         return v == clampClosed( v );
     }
     public static inline
-    function unit( v: Float ){
-        return ( new Interval( 0., 1. ) ).clampClosed( v );
+    function unit( v: Float ): Float {
+        var interval: Interval = { l: 0., u: 1. };
+        return interval.clampClosed( v );
     }
     public static inline
-    function unitFloat( v: Float ){
-        return ( new Interval( -1., 1. ) ).clampClosed( v );
+    function unitFloat( v: Float ): Float {
+        var interval: Interval = { l: -1., u: 1. };
+        return interval.clampClosed( v );
     }
     public static inline
-    function unitNegative( v: Float ){
-        return ( new Interval( -1, 0. ).clampClosed( v );
+    function unitNegative( v: Float ): Float {
+        var interval: Interval = { l: -1., u: 1. };
+        return interval.clampClosed( v );
     }
     public static inline
     function inUnitFloat( v: Float ){
         return v == unitFloat( v );
     }
-    public static inline
+    public inline
     function random(){
-        return Math.random()*( this.u - this.l ) + this.l;
+        return Math.random()*( this.u - this.l ) - this.l;
     }
-    public static inline
+    public inline
     function randomInt(){
         return Math.round( random() );
     }
@@ -79,15 +83,15 @@ abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.stru
 abstract RadianInterval( Interval ) from Interval to Interval {
     public inline
     function new(){ 
-        this = new Interval( -Math.PI, Math.PI );
+        this = { u: -Math.PI, l: Math.PI };
     }
     public inline
     function wrap( v: Float ){
-        return ( inClosedClamp( v ) )? v: v - ( Math.PI*2) * Math.floor((v+ Math.PI) / (Math.PI*2));
+        return ( this.inClampClosed( v ) )? v: v - ( Math.PI*2) * Math.floor((v+ Math.PI) / (Math.PI*2));
     }
     public static inline
     function inPiWrap( v: Float ): Bool {
-        return ( new RadianInterval() ).inClosedClamp( v );
+        return ( new RadianInterval() ).inClampClosed( v );
     }
     public static inline
     function wrapRadian( v: Float ){
