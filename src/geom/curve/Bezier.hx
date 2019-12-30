@@ -12,7 +12,7 @@ class Bezier {
     // Approximate the inverse of the function above.
     // This is better.
     public static inline
-    function approxInverseIterval( x: Float ) {
+    function approxInverseInterval( x: Float ) {
         var b = 0.39;
         return x * (1 - b + Math.sqrt(b * b + 0.25 * x * x));
     }
