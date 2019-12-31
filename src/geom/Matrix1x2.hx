@@ -17,12 +17,17 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     
     public inline
     function lerpClampT( p: Matrix1x2, t: Float ): Matrix1x2 {
-        return lerp( p, Interval.unitFloat( t ) );
+        return lerp( p, Interval.unit( t ) );
     }
     
     public inline
     function lerp( p: Matrix1x2, t: Float ): Matrix1x2 {
         return get_self() + t * negate(span( p ));
+    }
+    
+    public inline
+    function sumXY(): Float {
+        return this.x + this.y;
     }
     /**
      * <pre><code>
