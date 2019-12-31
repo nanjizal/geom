@@ -42,6 +42,7 @@ class Bezier {
         var x2 = u2 / cross;
         // There's probably a more elegant formulation of this...
         var scale = Math.abs( cross ) / ( dd.magnitude * Math.abs( x2 - x0 ) );
+        // subdivide
         var a0 = approx_myint( x0 );
         var a2 = approx_myint( x2 );
         var count =  0.5 * Math.abs( a2 - a0 ) * Math.sqrt( params.scale / tol );
