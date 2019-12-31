@@ -16,8 +16,13 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function get_self() return (cast this : Matrix1x2);
     
     public inline
-    function lerp( p2: Matrix1x2, t: Float ){
-        return get_self() + t * negate(span( p2 ));
+    function lerpClampT( p: Matrix1x2, t: Float ): Matrix1x2 {
+        return lerp( p, Interval.unitFloat( t ) );
+    }
+    
+    public inline
+    function lerp( p: Matrix1x2, t: Float ): Matrix1x2 {
+        return get_self() + t * negate(span( p ));
     }
     /**
      * <pre><code>
