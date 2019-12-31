@@ -23,7 +23,7 @@ class Bezier {
         var p10 = p1 - p0;
         var p20 = p2 - p0;
         var t = ( p10 * p20 ) / ( p20 * p20 );
-        var p = p0.lerpClamp( p20, t );
+        var p = p0.lerpClampT( p20, t );
         return 0.5 * p.distanceBetweenSquare_( p10 );
     }
     // Subdivide using fancy algorithm.
