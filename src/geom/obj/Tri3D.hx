@@ -1,4 +1,4 @@
-package geom;
+package geom.obj;
 /** 
    ![triVec](../bootstrap/img/tri3D.png)
 **/
