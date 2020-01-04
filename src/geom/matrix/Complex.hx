@@ -28,19 +28,19 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     public var i( get, set ): Float;
     inline
     function get_i(): Float {
-       return y;
+       return this.y;
     }
     inline
     function set_i( v: Float ): Float {
-        y = z;
+        this.y = v;
         return v;
     }
     public var real( v: Float ): Float;
     inline function get_real(): Float {
-        return x;
+        return this.x;
     }
     inline function set_real( v: Float ): Float {
-        x = v;
+        this.x = v;
         return v;
     }
     public inline
@@ -85,7 +85,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      */
     @:op(A + B) public static inline
     function add( a: Complex, b: Complex ): Complex {
-      	return new Quaternion({ x: a.x + b.x, y: a.y + b.y });
+      	return new Complex({ x: a.x + b.x, y: a.y + b.y });
     }
     /**
      * <pre><code>
