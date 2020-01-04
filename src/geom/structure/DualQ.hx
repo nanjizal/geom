@@ -1,5 +1,5 @@
 package geom.structure;
-import geom.Quaternion;
+import geom.matrix.Quaternion;
 
 @:structInit
 class DualQ {
