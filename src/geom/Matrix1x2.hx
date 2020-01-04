@@ -1,4 +1,4 @@
-package geom;
+package geom.matrix;
 typedef Vec2 = Matrix1x2;
 /** 
    { x, y }
