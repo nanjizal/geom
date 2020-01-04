@@ -1,5 +1,6 @@
 package geom.matrix;
 import geom.matrix.Matrix1x2;
+import gemo.matrix.Hyperbolic;
 /**
    { x, y }
 **/
@@ -99,7 +100,19 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function subtract( a: Complex, b: Complex ): Complex {
         return new Complex({ x: a.x - b.x, y: a.y - b.y });
     }
-     /**
+    /* <pre><code>
+     * >>> ({ 
+     * ... var a = 10.;
+     * ... var b = new Complex({ x: 1., y: 7. });
+     * ... a * b == new Complex({ x: 10, y: 70. });
+     * ... }) == true
+     * </code></pre>    
+    */    
+    @:op(A * B) public static inline
+    function scale( a: Float, b: Complex ):Complex {
+        return new Complex({ x: a * b.x , y: a * b.y });    
+    }     
+    /**
      * <pre><code>
      * >>> ({ 
      * ... var a = new Complex({ x: 3., y: 2. });
@@ -169,7 +182,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
         }
     }
     public inline
-    function theta(): Float {
+    function phase(): Float {
         return Math.atan2( i, real );
     }
     public inline
@@ -180,8 +193,54 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function isImaginary(): Bool {
         return real == 0;
     }
-    public inline function
-    function fromCircle( r: Float , angle: Float ){
-        return new Complex({ x:r*Math.cos( angle ), y:r*Math.sin( angle ) });
+    public inline
+    function cis( angle: Float ): Complex {
+       return new Complex({ x: Math.cos( angle ) y: Math.sin( angle ) });
+    }
+    public inline
+    function fromCircle( r: Float , angle: Float ): Complex {
+        return r* cis( angle ); 
+    }
+    public inline
+    function square(): Complex {
+        //return magnitude * cis( theta );
+       var here = new Complex({ x: this.x, y: this.y });
+       return here*here;
+    }
+    public static inline
+    function exp( c: Complex ): Complex {
+       return new Complex({ x: Math.exp(c.real) * Math.cos(c.i), y:Math.exp(c.real) * Math.sin(c.i) });
+    }
+    public static inline 
+    function sin( c: Complex ): Complex {
+       return new Complex({ x: Math.sin(c.real) * Hyperbolic.cosh(c.i), y: Math.cos(c.real) * Hyperbolic.sinh(c.i) });
+    }
+    public static inline
+    function cos( c: Complex ):Complex {
+       return new Complex({ x: Math.cos(c.real) * Math.cosh(c.i), y: -Math.sin(c.real) * Math.sinh(c.i) });
+    }
+    public static inline 
+    function tan( c: Complex ): Complex {
+        var s = sin(c);
+        var c = cos(c):
+        return s/c;
+    }
+    public inline
+    function reciprocal() {
+        var scale = r*r + i*i;
+        return new Complex({ x: r / scale, y: -i / scale });
+    }
+    //DeMoivre's Theorem    
+    public static inline
+    function pow( c: Complex, n: Float ): Complex {
+       return Math.pow( c.magnitude , n )*cis( n*c.phase() );
+    }
+    public static inline
+    function squareRoot( c: Complex ): Complex{
+       return pow( c, 0.5 );
+    }
+    public inline
+    function root2(): Complex {
+      return squareRoot( this );
     }
 }
