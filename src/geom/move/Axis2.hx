@@ -70,7 +70,7 @@ class Axis2 {
             if( tx.changed || ty.changed ) m.translateXY( tx, ty );
             return m;
         } else {
-            return q;
+            return m;
         }
     }
     // does not apply shear yet.
