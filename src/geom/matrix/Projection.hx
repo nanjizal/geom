@@ -1,4 +1,4 @@
-package geom;
+package geom.matrix;
 class Projection { 
     /**
      @:angleOfView preset to Math.PI/2;
