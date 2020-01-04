@@ -1,4 +1,4 @@
-package geom;
+package geom.move;
 @:enum
 abstract Trit( Float ) from Float to Float {
     var negative = -1.;
