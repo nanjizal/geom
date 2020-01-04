@@ -1,5 +1,5 @@
 
-package geom;
+package geom.matrix;
 typedef Vec4 = Matrix1x4;
 /** 
    { x, y, z, w }
