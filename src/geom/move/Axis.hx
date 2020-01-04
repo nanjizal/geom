@@ -1,6 +1,6 @@
-package geom;
-import geom.Trinary;
-import geom.Parameter;
+package geom.move;
+import geom.move.Trinary;
+import geom.move.Parameter;
 class Axis {
     var rx = new Parameter();
     var ry = new Parameter();
