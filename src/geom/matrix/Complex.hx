@@ -99,7 +99,6 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function subtract( a: Complex, b: Complex ): Complex {
         return new Complex({ x: a.x - b.x, y: a.y - b.y });
     }
-3 + 2i)(1 + 7i)−11 + 23i
      /**
      * <pre><code>
      * >>> ({ 
