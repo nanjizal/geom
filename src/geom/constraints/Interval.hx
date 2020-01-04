@@ -1,4 +1,4 @@
-package geom.contraints;
+package geom.constraints;
 
 @:forward
 abstract Interval( geom.structure.Range ) from geom.structure.Range to geom.structure.Range {
