@@ -1,4 +1,4 @@
-package geom;
+package geom.obj;
 /**
    based on trilateral.tri.Trilateral.
 
