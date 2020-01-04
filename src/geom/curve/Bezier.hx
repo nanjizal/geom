@@ -1,5 +1,5 @@
 package geom.curve;
-
+import geom.matrix.Matrix1x2;
 class Bezier {
     // Compute an approximation to int (1 + 4x^2) ^ -0.25 dx
     // This isn't especially good but will do.
