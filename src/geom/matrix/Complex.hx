@@ -120,7 +120,8 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      * ... a * b == new Complex({ x: -11., y: 23. });
      * ... }) == true
      * </code></pre>
-     */    @:op(A * B) public static inline
+     */    
+    @:op(A * B) public static inline
     function multiply( a: Complex, b: Complex ):Complex {
         return new Complex({ x: ( a.x * b.b ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
     }
@@ -140,6 +141,16 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function conjugate( a: Complex ): Complex {
         return new Complex( { x: a.x, y: -a.y } );
     }
+10+5i)(3−4i)
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Complex({ x: 10., y: 5. });
+     * ... var b = new Complex({ x: 3., y: 4. });
+     * ... a / b == new Complex({ x:3., y: -4. });
+     * ... }) == true
+     * </code></pre>
+     */    
     @:op(A / B) public static inline
     function divide( c1: Complex, c2: Complex ): Complex {
         var conj = ~c2; 
