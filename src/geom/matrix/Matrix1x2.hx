@@ -1,4 +1,5 @@
 package geom.matrix;
+import geom.constraints.Interval;
 typedef Vec2 = Matrix1x2;
 /** 
    { x, y }
