@@ -1,7 +1,7 @@
 package geom.move;
 import geom.move.Trinary;
 import geom.move.Parameter;
-class Axis {
+class Axis3 {
     var rx = new Parameter();
     var ry = new Parameter();
     var rz = new Parameter();
