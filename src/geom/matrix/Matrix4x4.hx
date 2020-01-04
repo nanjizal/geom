@@ -1,4 +1,4 @@
-package geom;
+package geom.matrix;
 #if js
 #if (haxe_ver < 4.0 )
 import js.html.Float32Array;
