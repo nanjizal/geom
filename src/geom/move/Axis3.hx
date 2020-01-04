@@ -3,7 +3,7 @@ import geom.move.Trinary;
 import geom.move.Parameter;
 import geom.matrix.Quaternion;
 import geom.matrix.DualQuaternion;
-import geom.matrix.Matrix4x1;
+import geom.matrix.Matrix1x4;
 class Axis3 {
     var rx = new Parameter();
     var ry = new Parameter();
