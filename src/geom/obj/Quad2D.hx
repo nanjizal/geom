@@ -1,4 +1,4 @@
-package geom;
+package geom.obj;
 import geom.Matrix1x2;
 @:structInit
 class Quad2D {
