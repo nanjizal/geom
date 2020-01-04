@@ -1,5 +1,5 @@
-package geom;
-import geom.Trinary;
+package geom.move;
+import geom.move.Trinary;
 
 class Parameter {
     public var step = 0.005;
