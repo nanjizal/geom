@@ -233,14 +233,18 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     //DeMoivre's Theorem    
     public static inline
     function pow( c: Complex, n: Float ): Complex {
-       return Math.pow( c.magnitude , n )*cis( n*c.phase() );
+       return if( isReal( c ) == true ){
+           Math.pow( c.r, n ):
+       } else {
+           Math.pow( c.magnitude , n )*cis( n*c.phase() );
+       }
     }
     public static inline
     function squareRoot( c: Complex ): Complex{
-       return pow( c, 0.5 );
+        return pow( c, 0.5 );
     }
     public inline
     function root2(): Complex {
-      return squareRoot( this );
+        return squareRoot( this );
     }
 }
