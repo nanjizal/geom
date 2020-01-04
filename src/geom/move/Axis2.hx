@@ -3,6 +3,7 @@ import geom.move.Trinary;
 import geom.move.Parameter;
 import geom.matrix.Matrix3x3;
 import geom.matrix.DualQuaternion;
+import geom.matrix.Quaternion;
 import geom.matrix.Matrix1x4;
 // untested
 class Axis2 {
