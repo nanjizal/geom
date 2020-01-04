@@ -1,5 +1,8 @@
-package;
+package curve.geom;
 
+// Hyperbolic functions not provided in Haxe but present in languages like Javascript.
+// Created using polyfills.
+// Untested.
 class Hyperbolic {
     public static inline
     function sinh( x: Float ): Float {
