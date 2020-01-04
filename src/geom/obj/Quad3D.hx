@@ -1,5 +1,5 @@
 package geom.obj;
-import geom.Matrix1x4;
+import geom.matrix.Matrix1x4;
 @:structInit
 class Quad3D {
     public var A: Matrix1x4; 
