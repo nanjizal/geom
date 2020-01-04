@@ -99,7 +99,16 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function subtract( a: Complex, b: Complex ): Complex {
         return new Complex({ x: a.x - b.x, y: a.y - b.y });
     }
-    @:op(A * B) public static inline
+3 + 2i)(1 + 7i)−11 + 23i
+     /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Complex({ x: 3., y: 2. });
+     * ... var b = new Complex({ x: 1., y: 7. });
+     * ... a * b == new Complex({ x: -11., y: 23. });
+     * ... }) == true
+     * </code></pre>
+     */    @:op(A * B) public static inline
     function multiply( a: Complex, b: Complex ):Complex {
         return new Complex({ x: ( a.x * b.b ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
     }
