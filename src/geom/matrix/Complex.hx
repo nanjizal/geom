@@ -23,7 +23,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      * </code></pre>
      */
     public static inline
-    function unit(): Quaternion {
+    function unit(): Complex {
         return new Complex( { x: 1., y: 1. } );
     }}
     public var i( get, set ): Float;
