@@ -1,18 +1,29 @@
 package curve.geom;
-
-// Hyperbolic functions not provided in Haxe but present in languages like Javascript.
+// Hyperbolic functions may also be deduced from trigonometric functions with complex arguments
+// Some functions not provided in Haxe Math.
 // Created using polyfills.
 // Untested.
-class Hyperbolic {
-    public static inline
+public static inline
     function sinh( x: Float ): Float {
         var y = Math.exp( x );
         return ( y - 1. / y ) / 2.;
     }
     public static inline
+    function cosech( x: Float ): Float {
+        return 1 / sinh(x);
+    }
+    public static inline
+    function sech( x: Float ): Float {
+        return 1 / cosh(x);
+    }
+    public static inline
     function cosh( x: Float ): Float {
-      var y = Math.exp( x );
-      return ( y + 1. / y ) / 2.;
+        var y = Math.exp( x );
+        return ( y + 1. / y ) / 2.;
+    }
+    public static inline
+    function coth( x: Float ): Float {
+        return cosh(x) / sinh(x);
     }
     public static inline
     function tanh( x: Float ): Float {
