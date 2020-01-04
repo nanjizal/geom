@@ -1,5 +1,6 @@
 package geom;
 // provides implementations for Math functions not in Haxe but in browser or otherwise, thought is required about decimal places.
+// move hyperbolic functions to curve.Hyperbolic
 enum abstract MathConstants( Float ){
     var LN2                = 0.69314718055994530941723212145817656807550013436025;
     var LN10               = 2.30258509299404568401799145468436420760110148862877;
@@ -51,42 +52,6 @@ class Numerical {
     public static inline
     function trunc( v: Float ): Int {
         return ( v < 0. )? Math.ceil( v ): Math.floor( v );
-    }
-    public static inline
-    function sinh( x: Float ): Float {
-        var y = Math.exp( x );
-        return ( y - 1. / y ) / 2.;
-    }
-    public static inline
-    function tanh( x: Float ): Float {
-        var a = Math.exp( x );
-        var b = Math.exp( -x );
-        return if( a == Math.POSITIVE_INFINITY ){
-            1.
-        } else {
-            if( b == Math.POSITIVE_INFINITY ){
-                -1
-            } else {
-                (a - b) / (a + b);
-            }
-        }
-    }
-    public static inline
-    function cosh( x: Float ): Float {
-      var y = Math.exp( x );
-      return ( y + 1. / y ) / 2.;
-    }
-    public static inline
-    function acosh( x: Float ): Float {
-        return Math.log( x + Math.sqrt( x * x - 1.) );
-    }
-    public static inline
-    function asinh( x: Float ): Float {
-        return Math.log( x + Math.sqrt( x * x + 1. ));
-    }
-    public static inline
-    function atanh function( x: Float ): Float {
-        return Math.log( ( 1. + x ) / ( 1. - x ) ) / 2.;
     }
     public static inline
     function log1p( x: Float ): Float {
