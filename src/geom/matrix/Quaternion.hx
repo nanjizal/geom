@@ -1,5 +1,5 @@
-package geom;
-import geom.Matrix1x4;
+package geom.matrix;
+import geom.matrix.Matrix1x4;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
 /**
