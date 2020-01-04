@@ -1,6 +1,7 @@
 package geom;
 // provides implementations for Math functions not in Haxe but in browser or otherwise, thought is required about decimal places.
 // move hyperbolic functions to curve.Hyperbolic
+// move log stuff to curve.Logarithmic
 enum abstract MathConstants( Float ){
     var LN2                = 0.69314718055994530941723212145817656807550013436025;
     var LN10               = 2.30258509299404568401799145468436420760110148862877;
@@ -44,31 +45,5 @@ class Numerical {
           return 32;
         }
         return 31 - ( Math.log( asUint ) / MathConstants.LN2 | 0) | 0; // the "| 0" acts like math.floor
-    }
-    public static inline
-    function expm1( v: Float ): Float {
-      return Math.exp( v ) - 1.;
-    }
-    public static inline
-    function trunc( v: Float ): Int {
-        return ( v < 0. )? Math.ceil( v ): Math.floor( v );
-    }
-    public static inline
-    function log1p( x: Float ): Float {
-        return Math.log( 1. + x );
-    }
-    public static inline
-    function log10( x: Float ): Float {
-        return Math.log( x ) * MathConstants.LOG10E;
-    }
-    public static inline
-    function log2( x: Float ): Float {
-        return Math.log( x ) * MathConstants.LOG2E;
-    }
-    // cube root
-    public static inline
-    function cbrt( x: Float ): Float {
-        var pow = Math.pow;
-        return ( x < 0 )? -pow( -x, (1/3) ): pow( x, (1/3) );
     }
 }
