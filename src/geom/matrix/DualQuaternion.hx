@@ -1,7 +1,7 @@
 package geom;
 import geom.structure.DualQ;
-import geom.DualQuaternion;
-import geom.Matrix1x4;
+import geom.matrix.DualQuaternion;
+import geom.matrix.Matrix1x4;
 // referance Luxe source code and this link
 // http://wscg.zcu.cz/wscg2012/short/A29-full.pdf
 
