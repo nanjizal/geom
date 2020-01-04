@@ -1,5 +1,5 @@
-package constraints.demo;
-import geom.Matrix1x4;
+package geom.constraints;
+import geom.matrix.Matrix1x4;
 // reference
 // Johnathon Selstad
 // @JohnSelstad
