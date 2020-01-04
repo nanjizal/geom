@@ -1,4 +1,4 @@
-package geom;
+package geom.matrix;
 import geom.structure.DualQ;
 import geom.matrix.DualQuaternion;
 import geom.matrix.Matrix1x4;
