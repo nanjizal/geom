@@ -1,6 +1,6 @@
-package geom;
-import geom.Matrix1x2;
-import geom.Matrix4x3;
+package geom.matrix;
+import geom.matrix.Matrix1x2;
+import geom.matrix.Matrix4x3;
 /** 
    ![3x3](../bootstrap/img/matrix3x3.png)
 **/
