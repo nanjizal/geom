@@ -1,6 +1,8 @@
 package geom.move;
 import geom.move.Trinary;
 import geom.move.Parameter;
+import geom.matrix.Quaternion;
+import geom.matrix.DualQuaternion;
 class Axis3 {
     var rx = new Parameter();
     var ry = new Parameter();
