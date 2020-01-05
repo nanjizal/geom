@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 import haxe.io.Int32Array; 
 @:forward
 abstract Int32Flat5( Int32Flat ) {
