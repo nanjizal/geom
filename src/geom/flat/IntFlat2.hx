@@ -6,7 +6,7 @@ abstract IntFlat2( IntFlat ) {
       return this.readItem( pos*2 + k );
     }
     @:op([]) public inline 
-    function writeItem( k: Int, v: Float ): Int {
+    function writeItem( k: Int, v: Int ): Int {
         this.writeItem( pos*2 + k, v );
         return v;
     }
