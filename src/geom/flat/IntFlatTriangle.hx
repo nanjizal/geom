@@ -262,7 +262,7 @@ abstract IntFlatTriangle( IntFlat9 ){
     public inline
     function prettyAll(){
         this.pos = 0;
-        var str = 'FloatFlatTriangle: \n';
+        var str = 'IntFlatTriangle: \n';
         for( i in 0...this.length ) {
             str += prettyString();
             this.next();
