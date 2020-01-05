@@ -23,7 +23,7 @@ class ComplexTrig {
     }
     public static inline 
     function tan( c: Complex ): Complex {
-        return if( Complex.isReal( c ) ){
+        return if( Complex.isReal( c ) == true ){
             new Complex({ x: Math.tan2( c.real ), y: 0 });
         } else {
             var s = sin(c);
