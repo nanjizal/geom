@@ -1,5 +1,7 @@
-package flat;
-import flat.FloatFlat9;
+package geom.flat;
+import geom.flat.FloatFlat9;
+import geom.matrix.Matrix4x3;
+import geom.matrix.Matrix1x4;
 // effectively 2D with z coordinates for depth etc... at the moment.
 @:forward
 abstract Int32FlatTriangle( Int32Flat9 ){
