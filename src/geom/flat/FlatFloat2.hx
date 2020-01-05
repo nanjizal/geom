@@ -1,8 +1,6 @@
-  
-package geom.flat;
-import haxe.io.Float32Array; 
+package flat;
 @:forward
-abstract Float32Flat2( Float32Flat ) {
+abstract FloatFlat2( FloatFlat ) {
     @:op([]) public inline 
     function readItem( k: Int ): Float {
       return  this.readItem( index*2 + k );
@@ -14,7 +12,7 @@ abstract Float32Flat2( Float32Flat ) {
     }
     public inline 
     function new( len: Int ){
-        this = new Float32Flat( len );
+        this = new Array<Float>();
     }
     public var index( get, set ): Int;
     inline
@@ -27,7 +25,7 @@ abstract Float32Flat2( Float32Flat ) {
         return id;
     }
     public inline
-    function getArray(): Float32Array {
-        return this.subarray( 2, this.length*2 + 2 );
+    function getArray(): Array<Float> {
+        return this.slice( 2, this.length*2 + 2 );
     }
 }
