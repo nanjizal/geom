@@ -1,5 +1,5 @@
 package geom.flat;
-import flat.FloatFlat4;
+import geom.flat.FloatFlat4;
 @:forward
 abstract FloatFlatRGBA( Float32Flat4 ){
     public inline
