@@ -1,5 +1,4 @@
-  
-package flat;
+package geom.flat;
 import flat.Int32Flat4;
 // Not yet tested this version, colours may need some tweaking.
 @:forward
