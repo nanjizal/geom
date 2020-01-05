@@ -1,5 +1,5 @@
-package flat;
-import flat.Float32Flat9;
+package geom.flat;
+import geom.flat.Float32Flat9;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
 // effectively 2D with z coordinates for depth etc... at the moment.
