@@ -141,7 +141,6 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function conjugate( a: Complex ): Complex {
         return new Complex( { x: a.x, y: -a.y } );
     }
-10+5i)(3−4i)
     /**
      * <pre><code>
      * >>> ({ 
@@ -229,32 +228,6 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
        } else {
             new Complex({ x: Math.exp(c.real) * Math.cos(c.i), y:Math.exp(c.real) * Math.sin(c.i) });
        }
-    }
-    public static inline 
-    function sin( c: Complex ): Complex {
-       return if( isReal( c ) == true ){
-            new Complex({ x: Math.sin( c.real ), y: 0 });
-        } else { 
-            new Complex({ x: Math.sin(c.real) * Hyperbolic.cosh(c.i), y: Math.cos(c.real) * Hyperbolic.sinh(c.i) });
-        }
-    }
-    public static inline
-    function cos( c: Complex ):Complex {
-        return if( isReal( c ) == true ){
-            new Complex({ x: Math.cos( c.real ), y: 0 } );
-        } else {
-            new Complex({ x: Math.cos(c.real) * Hyperbolic.cosh(c.i), y: -Math.sin(c.real) * Hyperbolic.sinh(c.i) });
-        }
-    }
-    public static inline 
-    function tan( c: Complex ): Complex {
-        return if( isReal( c ) ){
-            new Complex({ x: Math.tan2( c.real ), y: 0 });
-        } else {
-            var s = sin(c);
-            var c = cos(c):
-            s/c;
-        }
     }
     public inline
     function reciprocal() {
