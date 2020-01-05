@@ -30,4 +30,3 @@ abstract Float32Flat4( Float32Flat ) {
         return this.subarray( 2, this.length*4 + 2 );
     }
 }
-© 2020 GitHub, Inc.
