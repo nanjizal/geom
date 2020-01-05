@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 import flat.Float32Flat4;
 @:forward
 abstract Float32FlatRGBA( Float32Flat4 ){
