@@ -160,6 +160,33 @@ abstract Int32FlatTriangle( Int32Flat9 ){
     function get_back(): Float {
         return Math.max( Math.max( az, bz ), cz );
     }
+    public
+    function transform( m: Matrix4x3 ){
+        var pa = new Matrix1x4( { x: ax, y: ay, z: az, w: 1. } );
+        var pb = new Matrix1x4( { x: bx, y: by, z: bz, w: 1. } );
+        var pc = new Matrix1x4( { x: cx, y: cy, z: cz, w: 1. } );
+        pa = pa.transformPoint( m );
+        pb = pb.transformPoint( m );
+        pc = pc.transformPoint( m );
+        ax = Math.round( pa.x );
+        ay = Math.round( pa.y );
+        az = Math.round( pa.z );
+        bx = Math.round( pb.x );
+        by = Math.round( pb.y );
+        bz = Math.round( pb.z );
+        cx = Math.round( pc.x );
+        cy = Math.round( pc.y );
+        cz = Math.round( pc.z ); 
+    }
+    public
+    function transformAll( m: Matrix4x3 ) {
+        this.pos = 0;
+        for( i in 0...this.length ){
+            transform( m );
+            this.next();
+        }
+    }    
+    inline
     function moveDelta( dx: Int, dy: Int ){
         ax += dx;
         ay += dy;
