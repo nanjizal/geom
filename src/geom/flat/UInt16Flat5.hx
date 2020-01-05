@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 import haxe.io.Int16Array; 
 @:forward
 abstract UInt16Flat5( UInt16Flat ) {
