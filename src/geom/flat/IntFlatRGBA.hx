@@ -1,5 +1,5 @@
 package geom.flat;
-import flat.IntFlat4;
+import geom.flat.IntFlat4;
 // Not yet tested this version, colours may need some tweaking.
 @:forward
 abstract IntFlatRGBA( IntFlat4 ){
