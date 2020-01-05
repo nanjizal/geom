@@ -1,7 +1,7 @@
 package geom.structure;
 import geom.matrix.Matrix1x4;
 /** 
-   { dist, edge, point, norm }
+   { dist, edge, norm, refl }
 **/
 @:structInit
 class Ray {
