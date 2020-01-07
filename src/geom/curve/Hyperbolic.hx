@@ -31,10 +31,10 @@ class Hyperbolic {
         var a = Math.exp( x );
         var b = Math.exp( -x );
         return if( a == Math.POSITIVE_INFINITY ){
-            1.
+            1.;
         } else {
             if( b == Math.POSITIVE_INFINITY ){
-                -1
+                -1.;
             } else {
                 (a - b) / (a + b);
             }
