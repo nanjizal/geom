@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 @:forward
 abstract FloatFlat2( FloatFlat ) {
     @:op([]) public inline 
