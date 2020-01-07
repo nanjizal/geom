@@ -25,7 +25,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     public static inline
     function unit(): Complex {
         return new Complex( { x: 1., y: 1. } );
-    }}
+    }
     public var i( get, set ): Float;
     inline
     function get_i(): Float {
