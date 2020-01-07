@@ -205,7 +205,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     }
     public inline
     function cis( angle: Float ): Complex {
-       return new Complex({ x: Math.cos( angle ) y: Math.sin( angle ) });
+       return new Complex({ x: Math.cos( angle ), y: Math.sin( angle ) });
     }
     public inline
     function fromCircle( r: Float , angle: Float ): Complex {
