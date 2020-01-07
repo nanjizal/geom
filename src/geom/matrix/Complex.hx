@@ -215,7 +215,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function square(): Complex {
        return if( isReal( c ) == true ){
             new Complex({ x: real*real, y: 0 });
-       }
+       } else {
             //return magnitude * cis( theta );
             var here = new Complex({ x: this.x, y: this.y });
             here*here;
