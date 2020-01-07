@@ -903,11 +903,11 @@
 		</meta>
 	</class>
 	<class path="geom.GeomDoc" params="" file="src/geom/GeomDoc.hx">
-		<main public="1" set="method" line="5" static="1">
+		<main public="1" set="method" line="15" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="8"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="18"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<abstract path="geom.MathConstants" params="" file="src/geom/Numerical.hx" module="geom.Numerical">
