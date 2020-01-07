@@ -3,7 +3,7 @@ package curve.geom;
 // Some functions not provided in Haxe Math.
 // Created using polyfills.
 // Untested.
-public class Hyperbolic {
+class Hyperbolic {
     public static inline
     function sinh( x: Float ): Float {
         var y = Math.exp( x );
