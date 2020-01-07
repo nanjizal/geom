@@ -1,4 +1,4 @@
-package curve.geom;
+package geom.curve;
 // Hyperbolic functions may also be deduced from trigonometric functions with complex arguments
 // Some functions not provided in Haxe Math.
 // Created using polyfills.
