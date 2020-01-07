@@ -2,7 +2,7 @@ package geom;
 // provides implementations for Math functions not in Haxe but in browser or otherwise, thought is required about decimal places.
 // move hyperbolic functions to curve.Hyperbolic
 // move log stuff to curve.Logarithmic
-enum abstract MathConstants( Float ){
+enum abstract MathConstants( Float ) to Float from Float {
     var LN2                = 0.69314718055994530941723212145817656807550013436025;
     var LN10               = 2.30258509299404568401799145468436420760110148862877;
     var LOG2E              = 1.442695040888963387;
@@ -34,8 +34,11 @@ enum abstract MathConstants( Float ){
     var twinPrime          = 0.660162;
 }
 class Numerical {
+    /**
+     * This is probably broken?  More investigation required.
+     **/
     public static inline
-    function clz32( v: Float ): Int {
+    function clz32( v: Int ): Int {
         // Let n be ToUint32(x).
         // Let p be the number of leading zero bits in 
         // the 32-bit binary representation of n.
@@ -44,6 +47,68 @@ class Numerical {
         if( asUint == 0. ) {
           return 32;
         }
-        return 31 - ( Math.log( asUint ) / MathConstants.LN2 | 0) | 0; // the "| 0" acts like math.floor
+        var v: Float = MathConstants.LN2;
+        var out = Math.floor( Math.log( asUint ) / v );
+        return 31 - out;
+    }
+    /**
+     *  Provides Math.max for Integer
+    **/
+    public static inline
+    function maxInt2( a: Int, b: Int ): Int{
+        return if( a > b ){
+            a;
+        } else {
+            b;
+        }
+    }
+    /**
+     *  Provides Math.min for Integer
+    **/
+    public static inline
+    function minInt2( a: Int, b: Int, c: Int ): Int {
+        return if( a < b ){
+            a;
+        } else {
+            b;
+        }
+    }
+    /**
+     *  Provides Math.min for 3 Integer 
+    **/
+    public static inline
+    function minInt3( a: Int, b: Int, c: Int ): Int {
+        return if( a < b ){
+            if( a < c ){
+                a;
+            } else {
+                c;
+            }
+        } else {
+            if( b < c ){
+                b;
+            } else {
+                c;
+            }
+        }
+    }
+    /**
+     *  Provides Math.max for 3 Integer
+    **/
+    public static inline
+    function maxInt3( a: Int, b: Int, c: Int ): Int{
+        return if( a > b ){
+            if( a > c ){
+                a;
+            } else {
+                c;
+            }
+        } else {
+            if( b > c ){
+                b;
+            } else {
+                c;
+            }
+        }
     }
 }

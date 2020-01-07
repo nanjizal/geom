@@ -1,7 +1,7 @@
 package geom.flat;
-import haxe.io.Int16Array; 
+import haxe.io.UInt16Array; 
 @:forward
-abstract UInt16Flat8( UInt16Flat ) {
+abstract UInt16Flat9( UInt16Flat ) {
     @:op([]) public inline 
     function readItem( k: Int ): UInt {
       return this.readItem( pos*9 + k );

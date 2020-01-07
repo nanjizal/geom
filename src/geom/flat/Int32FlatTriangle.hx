@@ -2,6 +2,7 @@ package geom.flat;
 import geom.flat.FloatFlat9;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
+import geom.Numerical;
 // effectively 2D with z coordinates for depth etc... at the moment.
 @:forward
 abstract Int32FlatTriangle( Int32Flat9 ){
@@ -28,7 +29,7 @@ abstract Int32FlatTriangle( Int32Flat9 ){
     function get_az(): Int {
         return this[ 2 ];
     }
-    function set_az( v: Float ): Int {
+    function set_az( v: Int ): Int {
         this[ 2 ] = v;
         return v;
     }
@@ -108,59 +109,59 @@ abstract Int32FlatTriangle( Int32Flat9 ){
     public function adjustWinding():Bool { // check sign
         return ( (ax * by - bx * ay) + (bx * cy - cx * by) + (cx * ay - ax * cy) )>0;
     }
-    public var x( get, set ): Float;
+    public var x( get, set ): Int;
     inline
     function get_x() {
-        return Math.min( Math.min( ax, bx ), cx );
+        return Numerical.minInt3( ax, bx, cx );
     }
     inline
-    function set_x( x: Int ): Int {
-        var dx = x - get_x();
+    function set_x( x_: Int ): Int {
+        var dx = x_ - get_x();
         ax = ax + dx;
         bx = bx + dx;
         cx = cx + dx;
-        return x;
+        return x_;
     }
     public var y( get, set ): Int;   
     inline
     function get_y(): Int {
-        return Math.min( Math.min( ay, by ), cy );
+        return Numerical.minInt3( ay, by, cy );
     }
     inline
-    function set_y( y: Int ): Int {
-        var dy = y - get_y();
+    function set_y( y_: Int ): Int {
+        var dy = y_ - get_y();
         ay = ay + dy;
         by = by + dy;
         cy = cy + dy;
-        return y;
+        return y_;
     }
     public var z( get, set ): Int;   
     inline
     function get_z(): Int {
-        return Math.min( Math.min( az, bz ), cz );
+        return Numerical.minInt3( az, bz, cz );
     }
     inline
-    function set_z( z: Int ): Int {
-        var dz = z - get_z();
+    function set_z( z_: Int ): Int {
+        var dz = z_ - get_z();
         az = az + dz;
         bz = bz + dz;
         cz = cz + dz;
-        return z;
+        return z_;
     }
     public var right( get, never ): Int;
     inline
     function get_right(): Int {
-        return Math.max( Math.max( ax, bx ), cx );
+        return Numerical.maxInt3( ax, bx, cx );
     }
     public var bottom( get, never ): Int;
     inline
     function get_bottom(): Int {
-        return Math.max( Math.max( ay, by ), cy );
+        return Numerical.maxInt3( ay, by, cy );
     }
     public var back( get, never ): Int;
     inline
-    function get_back(): Float {
-        return Math.max( Math.max( az, bz ), cz );
+    function get_back(): Int {
+        return Numerical.maxInt3( az, bz, cz );
     }
     public
     function transform( m: Matrix4x3 ){
@@ -226,6 +227,7 @@ abstract Int32FlatTriangle( Int32Flat9 ){
         var ax_: Float = ax - x;
         var ay_: Float = ay - y;
         var bx_: Float = bx - x;
+        var by_: Float = by - y;
         var cx_: Float = cx - x;
         var cy_: Float = cy - y;
         var dx: Float;

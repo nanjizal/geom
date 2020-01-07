@@ -1,5 +1,5 @@
-package flat;
-import haxe.io.Int16Array; 
+package geom.flat;
+import haxe.io.UInt16Array; 
 @:forward
 abstract UInt16Flat3( UInt16Flat ) {
     @:op([]) public inline 

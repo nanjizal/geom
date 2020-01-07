@@ -1,7 +1,7 @@
 package geom.flat;
 import geom.flat.FloatFlat4;
 @:forward
-abstract FloatFlatRGBA( Float32Flat4 ){
+abstract FloatFlatRGBA( FloatFlat4 ){
     public inline
     function new( len: Int ){
         this = new FloatFlat4( len );

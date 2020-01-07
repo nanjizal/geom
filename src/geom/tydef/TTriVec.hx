@@ -1,4 +1,5 @@
 package geom.tydef;
+import geom.matrix.Matrix1x4;
 /** 
    triangle corners a,b,c with coordinates x, y, z, w.
    

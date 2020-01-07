@@ -1,4 +1,5 @@
 package geom.obj;
+import geom.matrix.Matrix1x4;
 /** 
    ![triVec](../bootstrap/img/tri3D.png)
 **/

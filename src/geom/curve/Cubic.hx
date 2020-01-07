@@ -5,7 +5,6 @@ class Cubic {
     function cube( x: Float ){
         return x*x*x;
     }
-    public static inline
     // cube root
     public static inline
     function cbrt( x: Float ): Float {

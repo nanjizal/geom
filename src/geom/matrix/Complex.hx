@@ -123,11 +123,11 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      */    
     @:op(A * B) public static inline
     function multiply( a: Complex, b: Complex ):Complex {
-        return new Complex({ x: ( a.x * b.b ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
+        return new Complex({ x: ( a.x * b.y ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
     }
-    public static inline
+    public inline
     function addExponents(){
-        return r + i;
+        return real + i;
     }
     /**
      * <pre><code>
@@ -154,7 +154,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function divide( c1: Complex, c2: Complex ): Complex {
         var conj = ~c2; 
         var numr = c1 * conj;
-        var demr = c2 * conjc2;    
+        var demr = c2 * conj;    
         var dval = demr.real + demr.i; 
         return new Complex({ x: numr.real/dval, y: numr.i/dval } );
     }
@@ -203,7 +203,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function isImaginary(): Bool {
         return real == 0;
     }
-    public inline
+    public static inline
     function cis( angle: Float ): Complex {
        return new Complex({ x: Math.cos( angle ), y: Math.sin( angle ) });
     }
@@ -212,18 +212,18 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
         return r* cis( angle ); 
     }
     public inline
-    function square(): Complex {
-       return if( isReal( c ) == true ){
-            new Complex({ x: real*real, y: 0 });
+    function square( c: Complex ): Complex {
+       return if( c.isReal() == true ){
+            new Complex({ x: c.real*c.real, y: 0 });
        } else {
             //return magnitude * cis( theta );
-            var here = new Complex({ x: this.x, y: this.y });
+            var here = new Complex({ x: c.x, y: c.y });
             here*here;
        }
     }
     public static inline
     function exp( c: Complex ): Complex {
-       return if( isReal( c ) == true ){
+       return if( c.isReal() == true ){
             new Complex({ x: Math.exp( c.real ), y: 0 });
        } else {
             new Complex({ x: Math.exp(c.real) * Math.cos(c.i), y:Math.exp(c.real) * Math.sin(c.i) });
@@ -231,13 +231,13 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     }
     public inline
     function reciprocal() {
-        var scale = r*r + i*i;
-        return new Complex({ x: r / scale, y: -i / scale });
+        var scale = real*real + i*i;
+        return new Complex({ x: real / scale, y: -i / scale });
     }
     //DeMoivre's Theorem    
     public static inline
     function pow( c: Complex, n: Float ): Complex {
-        return if( isReal( c ) == true ){
+        return if( c.isReal() == true ){
             new Complex({x: Math.pow( c.real, n ), y: 0 });
         } else {
             Math.pow( c.magnitude , n )*cis( n*c.phase() );

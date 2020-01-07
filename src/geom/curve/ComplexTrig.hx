@@ -7,7 +7,7 @@ import geom.curve.Hyperbolic;
 class ComplexTrig {
     public static inline 
     function sin( c: Complex ): Complex {
-       return if( Complex.isReal( c ) == true ){
+       return if( c.isReal() == true ){
             new Complex({ x: Math.sin( c.real ), y: 0 });
         } else { 
             new Complex({ x: Math.sin(c.real) * Hyperbolic.cosh(c.i), y: Math.cos(c.real) * Hyperbolic.sinh(c.i) });
@@ -15,7 +15,7 @@ class ComplexTrig {
     }
     public static inline
     function cos( c: Complex ):Complex {
-        return if( Complex.isReal( c ) == true ){
+        return if( c.isReal() == true ){
             new Complex({ x: Math.cos( c.real ), y: 0 } );
         } else {
             new Complex({ x: Math.cos(c.real) * Hyperbolic.cosh(c.i), y: -Math.sin(c.real) * Hyperbolic.sinh(c.i) });
@@ -23,8 +23,8 @@ class ComplexTrig {
     }
     public static inline 
     function tan( c: Complex ): Complex {
-        return if( Complex.isReal( c ) == true ){
-            new Complex({ x: Math.tan2( c.real ), y: 0 });
+        return if( c.isReal() == true ){
+            new Complex({ x: Math.tan( c.real ), y: 0 });
         } else {
             var s = sin(c);
             var c = cos(c);

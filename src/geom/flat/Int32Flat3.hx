@@ -4,11 +4,11 @@ import haxe.io.Int32Array;
 abstract Int32Flat3( Int32Flat ) {
     @:op([]) public inline 
     function readItem( k: Int ): Int {
-      return this.readItem( index*3 + k );
+      return this.readItem( pos*3 + k );
     }
     @:op([]) public inline 
     function writeItem( k: Int, v: Int ): Int {
-        this.writeItem( index*3 + k, v );
+        this.writeItem( pos*3 + k, v );
         return v;
     }
     public inline 

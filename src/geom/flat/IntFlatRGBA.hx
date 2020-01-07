@@ -5,7 +5,7 @@ import geom.flat.IntFlat4;
 abstract IntFlatRGBA( IntFlat4 ){
     public inline
     function new( len: Int ){
-        this = new Int32Flat4( len );
+        this = new IntFlat4( len );
     }
     public var red( get, set ): Int;
     function get_red(): Int {
@@ -115,15 +115,15 @@ abstract IntFlatRGBA( IntFlat4 ){
         return str;
     }
     public static inline
-    function alphaChannel( int: Int ) : Float
+    function alphaChannel( int: Int ) : Int
         return int >> 24;
     public static inline
-    function redChannel( int: Int ) : Float
+    function redChannel( int: Int ) : Int
         return int >> 16;
     public static inline
-    function greenChannel( int: Int ) : Float
+    function greenChannel( int: Int ) : Int
         return int >> 8;
     public static inline
-    function blueChannel( int: Int ) : Float
+    function blueChannel( int: Int ) : Int
         return int;
 }

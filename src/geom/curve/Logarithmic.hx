@@ -11,10 +11,12 @@ class Logarithmic {
     }
     public static inline
     function log10( x: Float ): Float {
-        return Math.log( x ) * MathConstants.LOG10E;
+        var v: Float = MathConstants.LOG10E;
+        return Math.log( x ) * v;
     }
     public static inline
     function log2( x: Float ): Float {
-        return Math.log( x ) * MathConstants.LOG2E;
+        var v: Float = MathConstants.LOG2E;
+        return Math.log( x ) * v;
     }
 }

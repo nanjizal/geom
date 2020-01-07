@@ -115,15 +115,15 @@ abstract Int32FlatRGBA( Int32Flat4 ){
         return str;
     }
     public static inline
-    function alphaChannel( int: Int ) : Float
+    function alphaChannel( int: Int ) : Int
         return int >> 24;
     public static inline
-    function redChannel( int: Int ) : Float
+    function redChannel( int: Int ) : Int
         return int >> 16;
     public static inline
-    function greenChannel( int: Int ) : Float
+    function greenChannel( int: Int ) : Int
         return int >> 8;
     public static inline
-    function blueChannel( int: Int ) : Float
+    function blueChannel( int: Int ) : Int
         return int;
 }

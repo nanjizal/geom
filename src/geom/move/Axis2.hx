@@ -7,17 +7,16 @@ import geom.matrix.Quaternion;
 import geom.matrix.Matrix1x4;
 // untested
 class Axis2 {
-    var rxy = new Parameter();
-    var sx = new Parameter();
-    var sy = new Parameter();
-    var shearx: new Parameter();
-    var sheary: new Parameter();
-    var tx = new Parameter();
-    var ty = new Parameter();
+    var rxy    = new Parameter();
+    var sx     = new Parameter();
+    var sy     = new Parameter();
+    var shearx = new Parameter();
+    var sheary = new Parameter();
+    var tx     = new Parameter();
+    var ty     = new Parameter();
     public inline
     function reset(){
-        rx.value = 0.;
-        ry.value = 0.;
+        rxy.value = 0.;
         sx.value = 1.;
         sy.value = 1.;
         shearx.value = 0.;
@@ -59,16 +58,16 @@ class Axis2 {
         var rotations    = rotationChanged();
         var translations = translationChanged();
         var shear        = shearChanged();
-        var scale        = scaleChanged();
-        if( translations || rotations || shearChanged || resizeChanged ){
+        var scale        = resizeChanged();
+        if( translations || rotations || shear || scale ){
             // TODO: apply more consideration!
             // apply resize first?
-            if( scale )                    m.scaleXYZ( 1 + sx, 1 + sy, 1 ); // not sure on this.
+            if( scale )                    m.scaleXYZ( 1 + sx.value, 1 + sy.value, 1 ); // not sure on this.
             // apply shear second?
-            if( shearx.changed )           m.shearX( shearx );
-            if( sheary.changed )           m.shearY( sheary );
-            if( rxy.changed )              m.rotate( rxy );
-            if( tx.changed || ty.changed ) m.translateXY( tx, ty );
+            if( shearx.trinary.changed )           m.shearX( shearx.value );
+            if( sheary.trinary.changed )           m.shearY( sheary.value );
+            if( rotations )              m.rotate( rxy.value );
+            if( translations ) m.translateXY( tx.value, ty.value );
             return m;
         } else {
             return m;
@@ -79,6 +78,7 @@ class Axis2 {
     function updateCalculateQuaternion( q: DualQuaternion ) {
         var rotations    = rotationChanged();
         var translations = translationChanged(); 
+        
         if( translations || rotations ){
             var qReal = if( rotations ){ Quaternion.fromYawPitchRoll( 0., 0., rxy.value );
                     } else { Quaternion.zeroNormal(); 
@@ -94,7 +94,7 @@ class Axis2 {
     }
     public inline
     function rotationChanged(): Bool {
-        return rxy;
+        return rxy.trinary.changed;
     }
     public inline
     function translationChanged(): Bool {
@@ -102,10 +102,10 @@ class Axis2 {
     }
     public inline
     function shearChanged(): Bool {
-        return shearx.changed || sheary.changed ;
+        return shearx.trinary.changed || sheary.trinary.changed ;
     }
     public inline
     function resizeChanged(): Bool {
-        return sx.changed || sy.changed ;
+        return sx.trinary.changed || sy.trinary.changed ;
     }
 }

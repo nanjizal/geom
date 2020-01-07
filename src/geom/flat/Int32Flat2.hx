@@ -3,17 +3,17 @@ import haxe.io.Int32Array;
 @:forward
 abstract Int32Flat2( Int32Flat ) {
     @:op([]) public inline 
-    function readItem( k: Int ): Float {
-      return this.readItem( index*2 + k );
+    function readItem( k: Int ): Int {
+      return this.readItem( pos + pos + k );
     }
     @:op([]) public inline 
-    function writeItem( k: Int, v: Float ): Float {
-        this.writeItem( index*2 + k, v );
+    function writeItem( k: Int, v: Int ): Int {
+        this.writeItem( pos + pos + k, v );
         return v;
     }
     public inline 
     function new( len: Int ){
-        this = new Int16Flat( len );
+        this = new Int32Flat( len );
     }
     public var pos( get, set ): Int;
     inline
