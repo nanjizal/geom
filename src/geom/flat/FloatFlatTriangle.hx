@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 import geom.flat.FloatFlat9;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
