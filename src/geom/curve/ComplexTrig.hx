@@ -27,7 +27,7 @@ class ComplexTrig {
             new Complex({ x: Math.tan2( c.real ), y: 0 });
         } else {
             var s = sin(c);
-            var c = cos(c):
+            var c = cos(c);
             s/c;
         }
     }
