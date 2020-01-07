@@ -1,6 +1,6 @@
 package geom.matrix;
 import geom.matrix.Matrix1x2;
-import gemo.matrix.Hyperbolic;
+import gemo.curve.Hyperbolic;
 /**
    { x, y }
 **/
