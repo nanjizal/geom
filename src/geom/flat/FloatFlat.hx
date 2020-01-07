@@ -1,4 +1,4 @@
-package flat;
+package geom.flat;
 // arr[0] defines pos the position, pos is used to get items
 // arr[1] defines length used.
 // DON'T use this one directly!!
