@@ -49,7 +49,7 @@ class Hyperbolic {
         return Math.log( x + Math.sqrt( x * x + 1. ));
     }
     public static inline
-    function atanh function( x: Float ): Float {
+    function atanh( x: Float ): Float {
         return Math.log( ( 1. + x ) / ( 1. - x ) ) / 2.;
     }
 }
