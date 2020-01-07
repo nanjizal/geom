@@ -36,7 +36,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
         this.y = v;
         return v;
     }
-    public var real( v: Float ): Float;
+    public var real( get, set ): Float;
     inline function get_real(): Float {
         return this.x;
     }
