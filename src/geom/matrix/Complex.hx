@@ -19,7 +19,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     }
         /**
      * <pre><code>
-     * >>> Complex.unit() == new Complex({ x: 1., y: 1.. })
+     * >>> Complex.unit() == new Complex({ x: 1., y: 1. })
      * </code></pre>
      */
     public static inline
@@ -51,7 +51,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = new Complex({ x: 1., y: 2.. });
+     * ... var a = new Complex({ x: 1., y: 2. });
      * ... var b = new Complex({ x: 1., y: 2. });
      * ... a == b; }) == true
      * </code></pre>
@@ -68,7 +68,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      * <pre><code>
      * >>> ({ 
      * ... var a = new Complex({ x: 1., y: 2. });
-     * ... var b = new Complex({ x: 1., y: 2. });
+     * ... var b = new Complex({ x: 1., y: 1. });
      * ... a != b; }) == true
      * </code></pre>
      */
@@ -123,7 +123,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      */    
     @:op(A * B) public static inline
     function multiply( a: Complex, b: Complex ):Complex {
-        return new Complex({ x: ( a.x * b.y ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
+        return new Complex({ x: ( a.x * b.x ) - ( a.y * b.y ), y: (a.x * b.y) + (a.y * b.x) });    
     }
     public inline
     function addExponents(){
@@ -144,12 +144,27 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = new Complex({ x: 10., y: 5. });
-     * ... var b = new Complex({ x: 3., y: 4. });
-     * ... a / b == new Complex({ x:3., y: -4. });
+     * ... var a = new Complex({ x: 1., y: -3. });
+     * ... var b = new Complex({ x: 1., y: 2. });
+     * ... a / b == new Complex({ x:-1, y: -1 });
      * ... }) == true
      * </code></pre>
-     */    
+     */
+     /* 
+    Need to see which approach is fastest.
+    @:op(A / B) public static inline
+    function divide( c1: Complex, c2: Complex ): Complex {
+        // There maybe a more optimal approach using conjugate
+        var a = c1.real;
+        var b = c1.i;
+        var c = c2.real;
+        var d = c2.i;
+        var real_numr = a*c + b*d;
+        var i_numr = b*c - a*d;
+        var denominator = c*c + d*d;
+        return new Complex( { x: real_numr/denominator, y: i_numr/denominator } );
+    }
+    */
     @:op(A / B) public static inline
     function divide( c1: Complex, c2: Complex ): Complex {
         var conj = ~c2; 
@@ -169,7 +184,14 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     @:op(-A) public static inline
     function negate( a: Complex ):Complex {
         return new Complex( { x: -a.x, y: -a.y } );
-    } 
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Complex({ x: 2., y: 4. });
+     * ... a.magnitudeSquared() == 4. + 16; }) == true
+     * </code></pre>
+     */
     public inline 
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y;

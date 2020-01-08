@@ -4,6 +4,17 @@ import utest.Runner;
 import utest.Test;
 import utest.ui.Report;
 import equals.Equal;
+// subfolders
+import geom.Numerical;
+import geom.constraints.*;
+import geom.curve.*;
+import geom.flat.*;
+import geom.matrix.*;
+import geom.move.*;
+import geom.obj.*;
+import geom.structure.*;
+import geom.systemL.*;
+import gemo.tydef.*;
 
 @:build(hx.doctest.DocTestGenerator.generateDocTests())
 @:build(utest.utils.TestBuilder.build())
