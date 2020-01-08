@@ -799,18 +799,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			var demr = this29;
 			var dval = demr.x + demr.y;
 			var this30 = new geom_structure_Mat1x2(numr.x / dval,numr.y / dval);
-			haxe_Log.trace("divide " + Std.string(this30),{ fileName : "src/geom/GeomTest.hx", lineNumber : 19, className : "geom.GeomTest", methodName : "testComplex_1"});
-			var this31 = new geom_structure_Mat1x2(b10.x,-b10.y);
-			var conj1 = this31;
-			var this32 = new geom_structure_Mat1x2(a11.x * conj1.x - a11.y * conj1.y,a11.x * conj1.y + a11.y * conj1.x);
-			var numr1 = this32;
-			var this33 = new geom_structure_Mat1x2(b10.x * conj1.x - b10.y * conj1.y,b10.x * conj1.y + b10.y * conj1.x);
-			var demr1 = this33;
-			var dval1 = demr1.x + demr1.y;
-			var this34 = new geom_structure_Mat1x2(numr1.x / dval1,numr1.y / dval1);
-			var a12 = this34;
-			var this35 = new geom_structure_Mat1x2(-1,-1);
-			var b11 = this35;
+			var a12 = this30;
+			var this31 = new geom_structure_Mat1x2(-1,-1);
+			var b11 = this31;
 			var delta7 = 0.0000001;
 			left9 = !(Math.abs(a12.x - b11.x) >= delta7 || Math.abs(a12.y - b11.y) >= delta7);
 		} catch( ex18 ) {
@@ -825,18 +816,18 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right9 = "exception: " + Std.string(((ex19) instanceof js__$Boot_HaxeError) ? ex19.val : ex19) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left9,right9)) {
-			utest_Assert.pass("Complex.hx:146 [OK] ({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\ntrace( 'divide ' + a / b );\na / b == new Complex({ x:-1, y: -1 });\n}) == true",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:146 [OK] ({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\ntrace( 'divide ' + a / b );\na / b == new Complex({ x:-1, y: -1 });\n}) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left10;
 		try {
-			var this36 = new geom_structure_Mat1x2(1.,2.);
-			var a13 = this36;
-			var this37 = new geom_structure_Mat1x2(-a13.x,-a13.y);
-			var b12 = this37;
-			var this38 = new geom_structure_Mat1x2(-1.,-2.);
-			var b13 = this38;
+			var this32 = new geom_structure_Mat1x2(1.,2.);
+			var a13 = this32;
+			var this33 = new geom_structure_Mat1x2(-a13.x,-a13.y);
+			var b12 = this33;
+			var this34 = new geom_structure_Mat1x2(-1.,-2.);
+			var b13 = this34;
 			var delta8 = 0.0000001;
 			left10 = !(Math.abs(b12.x - b13.x) >= delta8 || Math.abs(b12.y - b13.y) >= delta8);
 		} catch( ex20 ) {
@@ -851,14 +842,14 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right10 = "exception: " + Std.string(((ex21) instanceof js__$Boot_HaxeError) ? ex21.val : ex21) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left10,right10)) {
-			utest_Assert.pass("Complex.hx:179 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true",{ lineNumber : 179, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:178 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true",{ lineNumber : 178, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 179, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 178, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left11;
 		try {
-			var this39 = new geom_structure_Mat1x2(2.,4.);
-			var a14 = this39;
+			var this35 = new geom_structure_Mat1x2(2.,4.);
+			var a14 = this35;
 			left11 = a14.x * a14.x + a14.y * a14.y == 20.;
 		} catch( ex22 ) {
 			haxe_CallStack.lastException = ex22;
@@ -872,9 +863,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right11 = "exception: " + Std.string(((ex23) instanceof js__$Boot_HaxeError) ? ex23.val : ex23) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left11,right11)) {
-			utest_Assert.pass("Complex.hx:191 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true",{ lineNumber : 191, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:190 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true",{ lineNumber : 190, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 191, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 190, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 	}
 	,testDualQuaternion_1: function() {
@@ -5297,6 +5288,15 @@ geom_matrix__$Complex_Complex_$Impl_$.exp = function(c) {
 		return this1;
 	} else {
 		var this2 = new geom_structure_Mat1x2(Math.exp(c.x) * Math.cos(c.y),Math.exp(c.x) * Math.sin(c.y));
+		return this2;
+	}
+};
+geom_matrix__$Complex_Complex_$Impl_$.ln = function(c) {
+	if(c.y == 0 == true) {
+		var this1 = new geom_structure_Mat1x2(Math.log(c.x),0);
+		return this1;
+	} else {
+		var this2 = new geom_structure_Mat1x2(0.5 * Math.log(c.x * c.x + c.y * c.y),Math.atan(c.x / c.y));
 		return this2;
 	}
 };

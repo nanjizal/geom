@@ -251,6 +251,15 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
             new Complex({ x: Math.exp(c.real) * Math.cos(c.i), y:Math.exp(c.real) * Math.sin(c.i) });
        }
     }
+    public static inline
+    function ln( c: Complex ): Complex {
+        return if( c.isReal() == true ){
+            new Complex({ x: Math.log( c.real ), y: 0 });
+        } else {
+            new Complex({ x: 0.5*Math.log( c.magnitudeSquared() ), y: Math.atan( c.real/c.i ) });
+        }
+        
+    }
     public inline
     function reciprocal() {
         var scale = real*real + i*i;
