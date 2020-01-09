@@ -564,54 +564,71 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 	testComplex_1: function() {
 		var left;
 		try {
+			var removeI = HxOverrides.substr("1 + 2i",0,"1 + 2i".length - 1);
+			var split = removeI.split("+");
 			var this1 = new geom_structure_Mat1x2(0.,0.);
-			left = this1;
+			var c = this1;
+			var v = parseFloat(split[0]);
+			c.x = v;
+			var v1 = parseFloat(split[1]);
+			c.y = v1;
+			var c0 = c;
+			var this2 = new geom_structure_Mat1x2(1.,2.);
+			var c1 = this2;
+			var delta = 0.0000001;
+			left = !(Math.abs(c1.x - c0.x) >= delta || Math.abs(c1.y - c0.y) >= delta);
 		} catch( ex ) {
 			haxe_CallStack.lastException = ex;
 			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		var right;
 		try {
-			var this2 = new geom_structure_Mat1x2(0.,0.);
-			right = this2;
+			right = true;
 		} catch( ex1 ) {
 			haxe_CallStack.lastException = ex1;
 			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
-			utest_Assert.pass("Complex.hx:13 [OK] Complex.zero() == new Complex({ x: 0., y: 0. })",{ lineNumber : 13, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:32 [OK] ({\nvar c0: Complex = '1 + 2i';\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true",{ lineNumber : 32, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("Complex.zero() == new Complex({ x: 0., y: 0. }) --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 13, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar c0: Complex = '1 + 2i';\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 32, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left1;
 		try {
-			var this3 = new geom_structure_Mat1x2(1.,1.);
-			left1 = this3;
+			var c_real = 1.;
+			var c_imaginary = 2.;
+			var this3 = new geom_structure_Mat1x2(c_real,c_imaginary);
+			var c01 = this3;
+			var this4 = new geom_structure_Mat1x2(1.,2.);
+			var c11 = this4;
+			var delta1 = 0.0000001;
+			left1 = !(Math.abs(c11.x - c01.x) >= delta1 || Math.abs(c11.y - c01.y) >= delta1);
 		} catch( ex2 ) {
 			haxe_CallStack.lastException = ex2;
 			left1 = "exception: " + Std.string(((ex2) instanceof js__$Boot_HaxeError) ? ex2.val : ex2) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		var right1;
 		try {
-			var this4 = new geom_structure_Mat1x2(1.,1.);
-			right1 = this4;
+			right1 = true;
 		} catch( ex3 ) {
 			haxe_CallStack.lastException = ex3;
 			right1 = "exception: " + Std.string(((ex3) instanceof js__$Boot_HaxeError) ? ex3.val : ex3) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left1,right1)) {
-			utest_Assert.pass("Complex.hx:22 [OK] Complex.unit() == new Complex({ x: 1., y: 1. })",{ lineNumber : 22, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:50 [OK] ({\nvar c0: Complex = { real: 1., imaginary: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true",{ lineNumber : 50, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("Complex.unit() == new Complex({ x: 1., y: 1. }) --> Left side `" + Std.string(left1) + "` does not equal `" + Std.string(right1) + "`.",{ lineNumber : 22, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar c0: Complex = { real: 1., imaginary: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true --> Left side `" + Std.string(left1) + "` does not equal `" + Std.string(right1) + "`.",{ lineNumber : 50, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left2;
 		try {
-			var this5 = new geom_structure_Mat1x2(1.,2.);
-			var a = this5;
+			var c_r = 1.;
+			var c_i = 2.;
+			var this5 = new geom_structure_Mat1x2(c_r,c_i);
+			var c02 = this5;
 			var this6 = new geom_structure_Mat1x2(1.,2.);
-			var b = this6;
-			var delta = 0.0000001;
-			left2 = !(Math.abs(a.x - b.x) >= delta || Math.abs(a.y - b.y) >= delta);
+			var c12 = this6;
+			var delta2 = 0.0000001;
+			left2 = !(Math.abs(c12.x - c02.x) >= delta2 || Math.abs(c12.y - c02.y) >= delta2);
 		} catch( ex4 ) {
 			haxe_CallStack.lastException = ex4;
 			left2 = "exception: " + Std.string(((ex4) instanceof js__$Boot_HaxeError) ? ex4.val : ex4) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -624,18 +641,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right2 = "exception: " + Std.string(((ex5) instanceof js__$Boot_HaxeError) ? ex5.val : ex5) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left2,right2)) {
-			utest_Assert.pass("Complex.hx:53 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 2. });\na == b; }) == true",{ lineNumber : 53, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:63 [OK] ({\nvar c0: Complex = { r: 1., i: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true",{ lineNumber : 63, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 2. });\na == b; }) == true --> Left side `" + Std.string(left2) + "` does not equal `" + Std.string(right2) + "`.",{ lineNumber : 53, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar c0: Complex = { r: 1., i: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true --> Left side `" + Std.string(left2) + "` does not equal `" + Std.string(right2) + "`.",{ lineNumber : 63, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left3;
 		try {
-			var this7 = new geom_structure_Mat1x2(1.,2.);
-			var a1 = this7;
-			var this8 = new geom_structure_Mat1x2(1.,1.);
-			var b1 = this8;
-			var delta1 = 0.0000001;
-			left3 = !(!(Math.abs(a1.x - b1.x) >= delta1 || Math.abs(a1.y - b1.y) >= delta1));
+			var c_real1 = 1.;
+			var c_i1 = 2.;
+			var this7 = new geom_structure_Mat1x2(c_real1,c_i1);
+			var c03 = this7;
+			var this8 = new geom_structure_Mat1x2(1.,2.);
+			var c13 = this8;
+			var delta3 = 0.0000001;
+			left3 = !(Math.abs(c13.x - c03.x) >= delta3 || Math.abs(c13.y - c03.y) >= delta3);
 		} catch( ex6 ) {
 			haxe_CallStack.lastException = ex6;
 			left3 = "exception: " + Std.string(((ex6) instanceof js__$Boot_HaxeError) ? ex6.val : ex6) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -648,20 +667,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right3 = "exception: " + Std.string(((ex7) instanceof js__$Boot_HaxeError) ? ex7.val : ex7) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left3,right3)) {
-			utest_Assert.pass("Complex.hx:69 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 1. });\na != b; }) == true",{ lineNumber : 69, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:76 [OK] ({\nvar c0: Complex = { real: 1., i: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true",{ lineNumber : 76, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 1. });\na != b; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 69, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar c0: Complex = { real: 1., i: 2. };\nvar c1 = new Complex({ x: 1., y: 2. });\nc1 == c0; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 76, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left4;
 		try {
-			var this9 = new geom_structure_Mat1x2(1.,1.);
-			var a2 = this9;
-			var this10 = new geom_structure_Mat1x2(a2.x + a2.x,a2.y + a2.y);
-			var a3 = this10;
-			var this11 = new geom_structure_Mat1x2(2.,2.);
-			var b2 = this11;
-			var delta2 = 0.0000001;
-			left4 = !(Math.abs(a3.x - b2.x) >= delta2 || Math.abs(a3.y - b2.y) >= delta2);
+			var c_r1 = 1.;
+			var c_i2 = 2.;
+			var this9 = new geom_structure_Mat1x2(c_r1,c_i2);
+			var c2 = this9;
+			var r = c2.x;
+			var i = c2.y;
+			var s = "" + r + " + " + i + " i";
+			left4 = s == "1. + 2. i" || s == "1 + 2 i";
 		} catch( ex8 ) {
 			haxe_CallStack.lastException = ex8;
 			left4 = "exception: " + Std.string(((ex8) instanceof js__$Boot_HaxeError) ? ex8.val : ex8) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -674,75 +693,60 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right4 = "exception: " + Std.string(((ex9) instanceof js__$Boot_HaxeError) ? ex9.val : ex9) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left4,right4)) {
-			utest_Assert.pass("Complex.hx:81 [OK] ({\nvar a = Complex.unit();\na + a == new Complex({ x: 2., y: 2. });\n}) == true",{ lineNumber : 81, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:89 [OK] ({\nvar c: Complex = { r: 1., i: 2. };\nvar s: String = c;\n// js seems to remove the .'s from the numbers not sure on other targets\ns == '1. + 2. i' || s == '1 + 2 i'; }) == true",{ lineNumber : 89, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Complex.unit();\na + a == new Complex({ x: 2., y: 2. });\n}) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 81, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar c: Complex = { r: 1., i: 2. };\nvar s: String = c;\n// js seems to remove the .'s from the numbers not sure on other targets\ns == '1. + 2. i' || s == '1 + 2 i'; }) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 89, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left5;
 		try {
-			var this12 = new geom_structure_Mat1x2(1.,1.);
-			var a4 = this12;
-			var this13 = new geom_structure_Mat1x2(a4.x - a4.x,a4.y - a4.y);
-			var a5 = this13;
-			var this14 = new geom_structure_Mat1x2(0.,0.);
-			var b3 = this14;
-			var delta3 = 0.0000001;
-			left5 = !(Math.abs(a5.x - b3.x) >= delta3 || Math.abs(a5.y - b3.y) >= delta3);
+			var this10 = new geom_structure_Mat1x2(0.,0.);
+			left5 = this10;
 		} catch( ex10 ) {
 			haxe_CallStack.lastException = ex10;
 			left5 = "exception: " + Std.string(((ex10) instanceof js__$Boot_HaxeError) ? ex10.val : ex10) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		var right5;
 		try {
-			right5 = true;
+			var this11 = new geom_structure_Mat1x2(0.,0.);
+			right5 = this11;
 		} catch( ex11 ) {
 			haxe_CallStack.lastException = ex11;
 			right5 = "exception: " + Std.string(((ex11) instanceof js__$Boot_HaxeError) ? ex11.val : ex11) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left5,right5)) {
-			utest_Assert.pass("Complex.hx:93 [OK] ({\nvar a = Complex.unit();\na - a == Complex.zero();\n}) == true",{ lineNumber : 93, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:107 [OK] Complex.zero() == new Complex({ x: 0., y: 0. })",{ lineNumber : 107, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Complex.unit();\na - a == Complex.zero();\n}) == true --> Left side `" + Std.string(left5) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 93, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("Complex.zero() == new Complex({ x: 0., y: 0. }) --> Left side `" + Std.string(left5) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 107, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left6;
 		try {
-			var a6 = 10.;
-			var this15 = new geom_structure_Mat1x2(1.,7.);
-			var b4 = this15;
-			var this16 = new geom_structure_Mat1x2(a6 * b4.x,a6 * b4.y);
-			var a7 = this16;
-			var this17 = new geom_structure_Mat1x2(10,70.);
-			var b5 = this17;
-			var delta4 = 0.0000001;
-			left6 = !(Math.abs(a7.x - b5.x) >= delta4 || Math.abs(a7.y - b5.y) >= delta4);
+			var this12 = new geom_structure_Mat1x2(1.,1.);
+			left6 = this12;
 		} catch( ex12 ) {
 			haxe_CallStack.lastException = ex12;
 			left6 = "exception: " + Std.string(((ex12) instanceof js__$Boot_HaxeError) ? ex12.val : ex12) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		var right6;
 		try {
-			right6 = true;
+			var this13 = new geom_structure_Mat1x2(1.,1.);
+			right6 = this13;
 		} catch( ex13 ) {
 			haxe_CallStack.lastException = ex13;
 			right6 = "exception: " + Std.string(((ex13) instanceof js__$Boot_HaxeError) ? ex13.val : ex13) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left6,right6)) {
-			utest_Assert.pass("Complex.hx:104 [OK] ({\nvar a = 10.;\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: 10, y: 70. });\n}) == true",{ lineNumber : 104, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:116 [OK] Complex.unit() == new Complex({ x: 1., y: 1. })",{ lineNumber : 116, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = 10.;\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: 10, y: 70. });\n}) == true --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 104, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("Complex.unit() == new Complex({ x: 1., y: 1. }) --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 116, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left7;
 		try {
-			var this18 = new geom_structure_Mat1x2(3.,2.);
-			var a8 = this18;
-			var this19 = new geom_structure_Mat1x2(1.,7.);
-			var b6 = this19;
-			var this20 = new geom_structure_Mat1x2(a8.x * b6.x - a8.y * b6.y,a8.x * b6.y + a8.y * b6.x);
-			var a9 = this20;
-			var this21 = new geom_structure_Mat1x2(-11.,23.);
-			var b7 = this21;
-			var delta5 = 0.0000001;
-			left7 = !(Math.abs(a9.x - b7.x) >= delta5 || Math.abs(a9.y - b7.y) >= delta5);
+			var this14 = new geom_structure_Mat1x2(1.,2.);
+			var a = this14;
+			var this15 = new geom_structure_Mat1x2(1.,2.);
+			var b = this15;
+			var delta4 = 0.0000001;
+			left7 = !(Math.abs(a.x - b.x) >= delta4 || Math.abs(a.y - b.y) >= delta4);
 		} catch( ex14 ) {
 			haxe_CallStack.lastException = ex14;
 			left7 = "exception: " + Std.string(((ex14) instanceof js__$Boot_HaxeError) ? ex14.val : ex14) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -755,20 +759,18 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right7 = "exception: " + Std.string(((ex15) instanceof js__$Boot_HaxeError) ? ex15.val : ex15) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left7,right7)) {
-			utest_Assert.pass("Complex.hx:117 [OK] ({\nvar a = new Complex({ x: 3., y: 2. });\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: -11., y: 23. });\n}) == true",{ lineNumber : 117, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:147 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 2. });\na == b; }) == true",{ lineNumber : 147, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 3., y: 2. });\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: -11., y: 23. });\n}) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 117, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 2. });\na == b; }) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 147, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left8;
 		try {
-			var this22 = new geom_structure_Mat1x2(1.,2.);
-			var a10 = this22;
-			var this23 = new geom_structure_Mat1x2(a10.x,-a10.y);
-			var b8 = this23;
-			var this24 = new geom_structure_Mat1x2(1.,-2.);
-			var b9 = this24;
-			var delta6 = 0.0000001;
-			left8 = !(Math.abs(b8.x - b9.x) >= delta6 || Math.abs(b8.y - b9.y) >= delta6);
+			var this16 = new geom_structure_Mat1x2(1.,2.);
+			var a1 = this16;
+			var this17 = new geom_structure_Mat1x2(1.,1.);
+			var b1 = this17;
+			var delta5 = 0.0000001;
+			left8 = !(!(Math.abs(a1.x - b1.x) >= delta5 || Math.abs(a1.y - b1.y) >= delta5));
 		} catch( ex16 ) {
 			haxe_CallStack.lastException = ex16;
 			left8 = "exception: " + Std.string(((ex16) instanceof js__$Boot_HaxeError) ? ex16.val : ex16) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -781,29 +783,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right8 = "exception: " + Std.string(((ex17) instanceof js__$Boot_HaxeError) ? ex17.val : ex17) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left8,right8)) {
-			utest_Assert.pass("Complex.hx:134 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = ~a;\nb == new Complex({ x: 1., y: -2. }); }) == true",{ lineNumber : 134, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:163 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 1. });\na != b; }) == true",{ lineNumber : 163, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = ~a;\nb == new Complex({ x: 1., y: -2. }); }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 134, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = new Complex({ x: 1., y: 1. });\na != b; }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right8) + "`.",{ lineNumber : 163, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left9;
 		try {
-			var this25 = new geom_structure_Mat1x2(1.,-3.);
-			var a11 = this25;
-			var this26 = new geom_structure_Mat1x2(1.,2.);
-			var b10 = this26;
-			var this27 = new geom_structure_Mat1x2(b10.x,-b10.y);
-			var conj = this27;
-			var this28 = new geom_structure_Mat1x2(a11.x * conj.x - a11.y * conj.y,a11.x * conj.y + a11.y * conj.x);
-			var numr = this28;
-			var this29 = new geom_structure_Mat1x2(b10.x * conj.x - b10.y * conj.y,b10.x * conj.y + b10.y * conj.x);
-			var demr = this29;
-			var dval = demr.x + demr.y;
-			var this30 = new geom_structure_Mat1x2(numr.x / dval,numr.y / dval);
-			var a12 = this30;
-			var this31 = new geom_structure_Mat1x2(-1,-1);
-			var b11 = this31;
-			var delta7 = 0.0000001;
-			left9 = !(Math.abs(a12.x - b11.x) >= delta7 || Math.abs(a12.y - b11.y) >= delta7);
+			var this18 = new geom_structure_Mat1x2(1.,1.);
+			var a2 = this18;
+			var this19 = new geom_structure_Mat1x2(a2.x + a2.x,a2.y + a2.y);
+			var a3 = this19;
+			var this20 = new geom_structure_Mat1x2(2.,2.);
+			var b2 = this20;
+			var delta6 = 0.0000001;
+			left9 = !(Math.abs(a3.x - b2.x) >= delta6 || Math.abs(a3.y - b2.y) >= delta6);
 		} catch( ex18 ) {
 			haxe_CallStack.lastException = ex18;
 			left9 = "exception: " + Std.string(((ex18) instanceof js__$Boot_HaxeError) ? ex18.val : ex18) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -816,20 +809,20 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right9 = "exception: " + Std.string(((ex19) instanceof js__$Boot_HaxeError) ? ex19.val : ex19) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left9,right9)) {
-			utest_Assert.pass("Complex.hx:146 [OK] ({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:175 [OK] ({\nvar a = Complex.unit();\na + a == new Complex({ x: 2., y: 2. });\n}) == true",{ lineNumber : 175, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 146, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Complex.unit();\na + a == new Complex({ x: 2., y: 2. });\n}) == true --> Left side `" + Std.string(left9) + "` does not equal `" + Std.string(right9) + "`.",{ lineNumber : 175, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left10;
 		try {
-			var this32 = new geom_structure_Mat1x2(1.,2.);
-			var a13 = this32;
-			var this33 = new geom_structure_Mat1x2(-a13.x,-a13.y);
-			var b12 = this33;
-			var this34 = new geom_structure_Mat1x2(-1.,-2.);
-			var b13 = this34;
-			var delta8 = 0.0000001;
-			left10 = !(Math.abs(b12.x - b13.x) >= delta8 || Math.abs(b12.y - b13.y) >= delta8);
+			var this21 = new geom_structure_Mat1x2(1.,1.);
+			var a4 = this21;
+			var this22 = new geom_structure_Mat1x2(a4.x - a4.x,a4.y - a4.y);
+			var a5 = this22;
+			var this23 = new geom_structure_Mat1x2(0.,0.);
+			var b3 = this23;
+			var delta7 = 0.0000001;
+			left10 = !(Math.abs(a5.x - b3.x) >= delta7 || Math.abs(a5.y - b3.y) >= delta7);
 		} catch( ex20 ) {
 			haxe_CallStack.lastException = ex20;
 			left10 = "exception: " + Std.string(((ex20) instanceof js__$Boot_HaxeError) ? ex20.val : ex20) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -842,15 +835,21 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right10 = "exception: " + Std.string(((ex21) instanceof js__$Boot_HaxeError) ? ex21.val : ex21) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left10,right10)) {
-			utest_Assert.pass("Complex.hx:178 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true",{ lineNumber : 178, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:187 [OK] ({\nvar a = Complex.unit();\na - a == Complex.zero();\n}) == true",{ lineNumber : 187, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 178, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Complex.unit();\na - a == Complex.zero();\n}) == true --> Left side `" + Std.string(left10) + "` does not equal `" + Std.string(right10) + "`.",{ lineNumber : 187, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 		var left11;
 		try {
-			var this35 = new geom_structure_Mat1x2(2.,4.);
-			var a14 = this35;
-			left11 = a14.x * a14.x + a14.y * a14.y == 20.;
+			var a6 = 10.;
+			var this24 = new geom_structure_Mat1x2(1.,7.);
+			var b4 = this24;
+			var this25 = new geom_structure_Mat1x2(a6 * b4.x,a6 * b4.y);
+			var a7 = this25;
+			var this26 = new geom_structure_Mat1x2(10,70.);
+			var b5 = this26;
+			var delta8 = 0.0000001;
+			left11 = !(Math.abs(a7.x - b5.x) >= delta8 || Math.abs(a7.y - b5.y) >= delta8);
 		} catch( ex22 ) {
 			haxe_CallStack.lastException = ex22;
 			left11 = "exception: " + Std.string(((ex22) instanceof js__$Boot_HaxeError) ? ex22.val : ex22) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
@@ -863,9 +862,145 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right11 = "exception: " + Std.string(((ex23) instanceof js__$Boot_HaxeError) ? ex23.val : ex23) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left11,right11)) {
-			utest_Assert.pass("Complex.hx:190 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true",{ lineNumber : 190, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:198 [OK] ({\nvar a = 10.;\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: 10, y: 70. });\n}) == true",{ lineNumber : 198, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 190, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = 10.;\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: 10, y: 70. });\n}) == true --> Left side `" + Std.string(left11) + "` does not equal `" + Std.string(right11) + "`.",{ lineNumber : 198, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		}
+		var left12;
+		try {
+			var this27 = new geom_structure_Mat1x2(3.,2.);
+			var a8 = this27;
+			var this28 = new geom_structure_Mat1x2(1.,7.);
+			var b6 = this28;
+			var this29 = new geom_structure_Mat1x2(a8.x * b6.x - a8.y * b6.y,a8.x * b6.y + a8.y * b6.x);
+			var a9 = this29;
+			var this30 = new geom_structure_Mat1x2(-11.,23.);
+			var b7 = this30;
+			var delta9 = 0.0000001;
+			left12 = !(Math.abs(a9.x - b7.x) >= delta9 || Math.abs(a9.y - b7.y) >= delta9);
+		} catch( ex24 ) {
+			haxe_CallStack.lastException = ex24;
+			left12 = "exception: " + Std.string(((ex24) instanceof js__$Boot_HaxeError) ? ex24.val : ex24) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right12;
+		try {
+			right12 = true;
+		} catch( ex25 ) {
+			haxe_CallStack.lastException = ex25;
+			right12 = "exception: " + Std.string(((ex25) instanceof js__$Boot_HaxeError) ? ex25.val : ex25) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left12,right12)) {
+			utest_Assert.pass("Complex.hx:211 [OK] ({\nvar a = new Complex({ x: 3., y: 2. });\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: -11., y: 23. });\n}) == true",{ lineNumber : 211, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Complex({ x: 3., y: 2. });\nvar b = new Complex({ x: 1., y: 7. });\na * b == new Complex({ x: -11., y: 23. });\n}) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 211, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		}
+		var left13;
+		try {
+			var this31 = new geom_structure_Mat1x2(1.,2.);
+			var a10 = this31;
+			var this32 = new geom_structure_Mat1x2(a10.x,-a10.y);
+			var b8 = this32;
+			var this33 = new geom_structure_Mat1x2(1.,-2.);
+			var b9 = this33;
+			var delta10 = 0.0000001;
+			left13 = !(Math.abs(b8.x - b9.x) >= delta10 || Math.abs(b8.y - b9.y) >= delta10);
+		} catch( ex26 ) {
+			haxe_CallStack.lastException = ex26;
+			left13 = "exception: " + Std.string(((ex26) instanceof js__$Boot_HaxeError) ? ex26.val : ex26) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right13;
+		try {
+			right13 = true;
+		} catch( ex27 ) {
+			haxe_CallStack.lastException = ex27;
+			right13 = "exception: " + Std.string(((ex27) instanceof js__$Boot_HaxeError) ? ex27.val : ex27) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left13,right13)) {
+			utest_Assert.pass("Complex.hx:228 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = ~a;\nb == new Complex({ x: 1., y: -2. }); }) == true",{ lineNumber : 228, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = ~a;\nb == new Complex({ x: 1., y: -2. }); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 228, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		}
+		var left14;
+		try {
+			var this34 = new geom_structure_Mat1x2(1.,-3.);
+			var a11 = this34;
+			var this35 = new geom_structure_Mat1x2(1.,2.);
+			var b10 = this35;
+			var this36 = new geom_structure_Mat1x2(b10.x,-b10.y);
+			var conj = this36;
+			var this37 = new geom_structure_Mat1x2(a11.x * conj.x - a11.y * conj.y,a11.x * conj.y + a11.y * conj.x);
+			var numr = this37;
+			var this38 = new geom_structure_Mat1x2(b10.x * conj.x - b10.y * conj.y,b10.x * conj.y + b10.y * conj.x);
+			var demr = this38;
+			var dval = demr.x + demr.y;
+			var this39 = new geom_structure_Mat1x2(numr.x / dval,numr.y / dval);
+			var a12 = this39;
+			var this40 = new geom_structure_Mat1x2(-1,-1);
+			var b11 = this40;
+			var delta11 = 0.0000001;
+			left14 = !(Math.abs(a12.x - b11.x) >= delta11 || Math.abs(a12.y - b11.y) >= delta11);
+		} catch( ex28 ) {
+			haxe_CallStack.lastException = ex28;
+			left14 = "exception: " + Std.string(((ex28) instanceof js__$Boot_HaxeError) ? ex28.val : ex28) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right14;
+		try {
+			right14 = true;
+		} catch( ex29 ) {
+			haxe_CallStack.lastException = ex29;
+			right14 = "exception: " + Std.string(((ex29) instanceof js__$Boot_HaxeError) ? ex29.val : ex29) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left14,right14)) {
+			utest_Assert.pass("Complex.hx:240 [OK] ({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true",{ lineNumber : 240, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: -3. });\nvar b = new Complex({ x: 1., y: 2. });\na / b == new Complex({ x:-1, y: -1 });\n}) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 240, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		}
+		var left15;
+		try {
+			var this41 = new geom_structure_Mat1x2(1.,2.);
+			var a13 = this41;
+			var this42 = new geom_structure_Mat1x2(-a13.x,-a13.y);
+			var b12 = this42;
+			var this43 = new geom_structure_Mat1x2(-1.,-2.);
+			var b13 = this43;
+			var delta12 = 0.0000001;
+			left15 = !(Math.abs(b12.x - b13.x) >= delta12 || Math.abs(b12.y - b13.y) >= delta12);
+		} catch( ex30 ) {
+			haxe_CallStack.lastException = ex30;
+			left15 = "exception: " + Std.string(((ex30) instanceof js__$Boot_HaxeError) ? ex30.val : ex30) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right15;
+		try {
+			right15 = true;
+		} catch( ex31 ) {
+			haxe_CallStack.lastException = ex31;
+			right15 = "exception: " + Std.string(((ex31) instanceof js__$Boot_HaxeError) ? ex31.val : ex31) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left15,right15)) {
+			utest_Assert.pass("Complex.hx:272 [OK] ({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true",{ lineNumber : 272, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Complex({ x: 1., y: 2. });\nvar b = -a;\nb == new Complex({ x: -1., y: -2. }); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 272, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		}
+		var left16;
+		try {
+			var this44 = new geom_structure_Mat1x2(2.,4.);
+			var a14 = this44;
+			left16 = a14.x * a14.x + a14.y * a14.y == 20.;
+		} catch( ex32 ) {
+			haxe_CallStack.lastException = ex32;
+			left16 = "exception: " + Std.string(((ex32) instanceof js__$Boot_HaxeError) ? ex32.val : ex32) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right16;
+		try {
+			right16 = true;
+		} catch( ex33 ) {
+			haxe_CallStack.lastException = ex33;
+			right16 = "exception: " + Std.string(((ex33) instanceof js__$Boot_HaxeError) ? ex33.val : ex33) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left16,right16)) {
+			utest_Assert.pass("Complex.hx:284 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right16) + "`.",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 	}
 	,testDualQuaternion_1: function() {
@@ -5159,6 +5294,34 @@ geom_curve_Hyperbolic.atanh = function(x) {
 var geom_matrix__$Complex_Complex_$Impl_$ = {};
 geom_matrix__$Complex_Complex_$Impl_$.__name__ = "geom.matrix._Complex.Complex_Impl_";
 geom_matrix__$Complex_Complex_$Impl_$.__properties__ = {set_magnitude:"set_magnitude",get_magnitude:"get_magnitude",set_real:"set_real",get_real:"get_real",set_i:"set_i",get_i:"get_i"};
+geom_matrix__$Complex_Complex_$Impl_$.fromString = function(s) {
+	var removeI = HxOverrides.substr(s,0,s.length - 1);
+	var split = removeI.split("+");
+	var this1 = new geom_structure_Mat1x2(0.,0.);
+	var c = this1;
+	var v = parseFloat(split[0]);
+	c.x = v;
+	var v1 = parseFloat(split[1]);
+	c.y = v1;
+	return c;
+};
+geom_matrix__$Complex_Complex_$Impl_$.fromRealImaginary = function(c) {
+	var this1 = new geom_structure_Mat1x2(c.real,c.imaginary);
+	return this1;
+};
+geom_matrix__$Complex_Complex_$Impl_$.fromRi = function(c) {
+	var this1 = new geom_structure_Mat1x2(c.r,c.i);
+	return this1;
+};
+geom_matrix__$Complex_Complex_$Impl_$.fromRealI = function(c) {
+	var this1 = new geom_structure_Mat1x2(c.real,c.i);
+	return this1;
+};
+geom_matrix__$Complex_Complex_$Impl_$.toString = function(this1) {
+	var r = this1.x;
+	var i = this1.y;
+	return "" + r + " + " + i + " i";
+};
 geom_matrix__$Complex_Complex_$Impl_$._new = function(m) {
 	var this1 = m;
 	return this1;

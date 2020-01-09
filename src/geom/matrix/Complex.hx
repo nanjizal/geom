@@ -2,13 +2,107 @@ package geom.matrix;
 import geom.matrix.Matrix1x2;
 import geom.curve.Hyperbolic;
 /**
+   Complex - A Complex Float Type.  
    { x, y }
+   
+   For Convinence you can declare in several ways eg:  
+   var c0: Complex = '1 + 2i';  
+   var c1: Complex = { real: 1., imaginary: 2. };  
+   var c2: Complex = { r: 1., i: 2. };  
+   var c3: Complex = new Complex({ x: 1., y: 2. });  
+   
+   You can use normal operations  
+   var c4 = c0 * c1;  
+   var c5 = c0 + c1;  
+   
+   You can extract either part  
+   var real = c0.real;  
+   var imaginary = c0.i;  
+   
+   You can trace it.
+   trace( Complex.fromString( c0 ) ); // '1. + 2. i'
+   
+   Trig functions are contained in geom.curve.ComplexTrig, but do not have tests beyond compile.  
+  
 **/
 @:forward
 abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = '1 + 2i';
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>
+     */
+    @:from
+    static public inline
+    function fromString( s: String ): Complex {
+        var removeI = s.substr(0,s.length-1);
+        var split = removeI.split('+');
+        var c = new Complex({x: 0., y: 0. });
+        c.real = Std.parseFloat( split[0] );
+        c.i = Std.parseFloat( split[1] );
+        return c;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., imaginary: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>
+     */
+    @:from
+    static public inline
+    function fromRealImaginary( c:{ real: Float, imaginary: Float } ): Complex {
+        return new Complex({ x: c.real, y: c.imaginary });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { r: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>
+     */
+    @:from
+    static public inline
+    function fromRi( c:{ r: Float, i: Float } ): Complex {
+        return new Complex({ x: c.r, y: c.i });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>
+     */
+    @:from
+    static public inline
+    function fromRealI( c:{ real: Float, i: Float } ): Complex {
+        return new Complex({ x: c.real, y: c.i });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var c: Complex = { r: 1., i: 2. };
+     * ... var s: String = c;
+     * ... // js seems to remove the .'s from the numbers not sure on other targets
+     * ... s == '1. + 2. i' || s == '1 + 2 i'; }) == true
+     * </code></pre>
+     */
+    @:to
+    public inline
+    function toString(): String{
+        var r: Float = real;
+        var i: Float = i;
+        return '$r + $i i'; 
+    }
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
-        /**
+    /**
      * <pre><code>
      * >>> Complex.zero() == new Complex({ x: 0., y: 0. })
      * </code></pre>

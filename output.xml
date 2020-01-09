@@ -14060,13 +14060,129 @@
 		</getArray>
 	</class>
 	<abstract path="geom.matrix.Complex" params="" file="src/geom/matrix/Complex.hx">
-		<from><icast><c path="geom.structure.Mat1x2"/></icast></from>
+		<from>
+			<icast><c path="geom.structure.Mat1x2"/></icast>
+			<icast field="fromString"><c path="String"/></icast>
+			<icast field="fromRealImaginary"><a>
+	<real><x path="Float"/></real>
+	<imaginary><x path="Float"/></imaginary>
+</a></icast>
+			<icast field="fromRi"><a>
+	<r><x path="Float"/></r>
+	<i><x path="Float"/></i>
+</a></icast>
+			<icast field="fromRealI"><a>
+	<real><x path="Float"/></real>
+	<i><x path="Float"/></i>
+</a></icast>
+		</from>
 		<this><c path="geom.structure.Mat1x2"/></this>
-		<to><icast><c path="geom.structure.Mat1x2"/></icast></to>
-		<haxe_doc>{ x, y }</haxe_doc>
+		<to>
+			<icast><c path="geom.structure.Mat1x2"/></icast>
+			<icast field="toString"><c path="String"/></icast>
+		</to>
+		<haxe_doc>Complex - A Complex Float Type.  
+   { x, y }
+   
+   For Convinence you can declare in several ways eg:  
+   var c0: Complex = '1 + 2i';  
+   var c1: Complex = { real: 1., imaginary: 2. };  
+   var c2: Complex = { r: 1., i: 2. };  
+   var c3: Complex = new Complex({ x: 1., y: 2. });  
+   
+   You can use normal operations  
+   var c4 = c0 * c1;  
+   var c5 = c0 + c1;  
+   
+   You can extract either part  
+   var real = c0.real;  
+   var imaginary = c0.i;  
+   
+   You can trace it.
+   trace( Complex.fromString( c0 ) ); // '1. + 2. i'
+   
+   Trig functions are contained in geom.curve.ComplexTrig, but do not have tests beyond compile.</haxe_doc>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.matrix._Complex.Complex_Impl_" params="" file="src/geom/matrix/Complex.hx" private="1" module="geom.matrix.Complex">
-	<_new public="1" get="inline" set="null" line="9" static="1">
+	<fromString public="1" get="inline" set="null" line="39" static="1">
+		<f a="s">
+			<c path="String"/>
+			<x path="geom.matrix.Complex"/>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = '1 + 2i';
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+	</fromString>
+	<fromRealImaginary public="1" get="inline" set="null" line="57" static="1">
+		<f a="c">
+			<a>
+				<real><x path="Float"/></real>
+				<imaginary><x path="Float"/></imaginary>
+			</a>
+			<x path="geom.matrix.Complex"/>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., imaginary: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+	</fromRealImaginary>
+	<fromRi public="1" get="inline" set="null" line="70" static="1">
+		<f a="c">
+			<a>
+				<r><x path="Float"/></r>
+				<i><x path="Float"/></i>
+			</a>
+			<x path="geom.matrix.Complex"/>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { r: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+	</fromRi>
+	<fromRealI public="1" get="inline" set="null" line="83" static="1">
+		<f a="c">
+			<a>
+				<real><x path="Float"/></real>
+				<i><x path="Float"/></i>
+			</a>
+			<x path="geom.matrix.Complex"/>
+		</f>
+		<meta><m n=":from"/></meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+	</fromRealI>
+	<toString public="1" get="inline" set="null" line="97" static="1">
+		<f a="this">
+			<c path="geom.structure.Mat1x2"/>
+			<c path="String"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c: Complex = { r: 1., i: 2. };
+     * ... var s: String = c;
+     * ... // js seems to remove the .'s from the numbers not sure on other targets
+     * ... s == '1. + 2. i' || s == '1 + 2 i'; }) == true
+     * </code></pre>]]></haxe_doc>
+	</toString>
+	<_new public="1" get="inline" set="null" line="103" static="1">
 		<f a="m">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="geom.matrix.Complex"/>
@@ -14076,13 +14192,13 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</_new>
-	<zero public="1" get="inline" set="null" line="16" static="1">
+	<zero public="1" get="inline" set="null" line="110" static="1">
 		<f a=""><x path="geom.matrix.Complex"/></f>
 		<haxe_doc><![CDATA[* <pre><code>
      * >>> Complex.zero() == new Complex({ x: 0., y: 0. })
      * </code></pre>]]></haxe_doc>
 	</zero>
-	<unit public="1" get="inline" set="null" line="25" static="1">
+	<unit public="1" get="inline" set="null" line="119" static="1">
 		<f a=""><x path="geom.matrix.Complex"/></f>
 		<haxe_doc><![CDATA[* <pre><code>
      * >>> Complex.unit() == new Complex({ x: 1., y: 1. })
@@ -14092,14 +14208,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</i>
-	<get_i get="inline" set="null" line="30" static="1">
+	<get_i get="inline" set="null" line="124" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_i>
-	<set_i get="inline" set="null" line="34" static="1">
+	<set_i get="inline" set="null" line="128" static="1">
 		<f a="this:v">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
@@ -14111,14 +14227,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</real>
-	<get_real get="inline" set="null" line="40" static="1">
+	<get_real get="inline" set="null" line="134" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_real>
-	<set_real get="inline" set="null" line="43" static="1">
+	<set_real get="inline" set="null" line="137" static="1">
 		<f a="this:v">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
@@ -14126,14 +14242,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_real>
-	<clone public="1" get="inline" set="null" line="47" static="1">
+	<clone public="1" get="inline" set="null" line="141" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="geom.matrix.Complex"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</clone>
-	<equal public="1" get="inline" set="null" line="59" static="1">
+	<equal public="1" get="inline" set="null" line="153" static="1">
 		<f a="a:b">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14147,7 +14263,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</equal>
-	<notEqual public="1" get="inline" set="null" line="75" static="1">
+	<notEqual public="1" get="inline" set="null" line="169" static="1">
 		<f a="a:b">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14161,7 +14277,7 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 	</notEqual>
-	<add public="1" get="inline" set="null" line="87" static="1">
+	<add public="1" get="inline" set="null" line="181" static="1">
 		<f a="a:b">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14175,7 +14291,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</add>
-	<subtract public="1" get="inline" set="null" line="99" static="1">
+	<subtract public="1" get="inline" set="null" line="193" static="1">
 		<f a="a:b">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14189,7 +14305,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</subtract>
-	<scale public="1" get="inline" set="null" line="111" static="1">
+	<scale public="1" get="inline" set="null" line="205" static="1">
 		<f a="a:b">
 			<x path="Float"/>
 			<x path="geom.matrix.Complex"/>
@@ -14197,7 +14313,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</scale>
-	<multiply public="1" get="inline" set="null" line="124" static="1">
+	<multiply public="1" get="inline" set="null" line="218" static="1">
 		<f a="a:b">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14212,14 +14328,14 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</multiply>
-	<addExponents public="1" get="inline" set="null" line="128" static="1">
+	<addExponents public="1" get="inline" set="null" line="222" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</addExponents>
-	<conjugate public="1" get="inline" set="null" line="140" static="1">
+	<conjugate public="1" get="inline" set="null" line="234" static="1">
 		<f a="a">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14232,7 +14348,7 @@
      * ... b == new Complex({ x: 1., y: -2. }); }) == true
      * </code></pre>]]></haxe_doc>
 	</conjugate>
-	<divide public="1" get="inline" set="null" line="168" static="1">
+	<divide public="1" get="inline" set="null" line="262" static="1">
 		<f a="c1:c2">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14247,7 +14363,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 	</divide>
-	<negate public="1" get="inline" set="null" line="184" static="1">
+	<negate public="1" get="inline" set="null" line="278" static="1">
 		<f a="a">
 			<x path="geom.matrix.Complex"/>
 			<x path="geom.matrix.Complex"/>
@@ -14260,7 +14376,7 @@
      * ... b == new Complex({ x: -1., y: -2. }); }) == true
      * </code></pre>]]></haxe_doc>
 	</negate>
-	<magnitudeSquared public="1" get="inline" set="null" line="195" static="1">
+	<magnitudeSquared public="1" get="inline" set="null" line="289" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
@@ -14276,14 +14392,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</magnitude>
-	<get_magnitude get="inline" set="null" line="200" static="1">
+	<get_magnitude get="inline" set="null" line="294" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_magnitude>
-	<set_magnitude get="inline" set="null" line="204" static="1">
+	<set_magnitude get="inline" set="null" line="298" static="1">
 		<f a="this:length">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
@@ -14291,32 +14407,32 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_magnitude>
-	<phase public="1" get="inline" set="null" line="216" static="1">
+	<phase public="1" get="inline" set="null" line="310" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</phase>
-	<isReal public="1" get="inline" set="null" line="220" static="1">
+	<isReal public="1" get="inline" set="null" line="314" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</isReal>
-	<isImaginary public="1" get="inline" set="null" line="224" static="1">
+	<isImaginary public="1" get="inline" set="null" line="318" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</isImaginary>
-	<cis public="1" get="inline" set="null" line="228" static="1"><f a="angle">
+	<cis public="1" get="inline" set="null" line="322" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.matrix.Complex"/>
 </f></cis>
-	<fromCircle public="1" get="inline" set="null" line="232" static="1">
+	<fromCircle public="1" get="inline" set="null" line="326" static="1">
 		<f a="this:r:angle">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="Float"/>
@@ -14325,7 +14441,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</fromCircle>
-	<square public="1" get="inline" set="null" line="236" static="1">
+	<square public="1" get="inline" set="null" line="330" static="1">
 		<f a="this:c">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="geom.matrix.Complex"/>
@@ -14333,31 +14449,31 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</square>
-	<exp public="1" get="inline" set="null" line="246" static="1"><f a="c">
+	<exp public="1" get="inline" set="null" line="340" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></exp>
-	<ln public="1" get="inline" set="null" line="254" static="1"><f a="c">
+	<ln public="1" get="inline" set="null" line="348" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></ln>
-	<reciprocal public="1" get="inline" set="null" line="263" static="1">
+	<reciprocal public="1" get="inline" set="null" line="357" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="geom.matrix.Complex"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</reciprocal>
-	<pow public="1" get="inline" set="null" line="269" static="1"><f a="c:n">
+	<pow public="1" get="inline" set="null" line="363" static="1"><f a="c:n">
 	<x path="geom.matrix.Complex"/>
 	<x path="Float"/>
 	<x path="geom.matrix.Complex"/>
 </f></pow>
-	<squareRoot public="1" get="inline" set="null" line="277" static="1"><f a="c">
+	<squareRoot public="1" get="inline" set="null" line="371" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></squareRoot>
-	<root2 public="1" get="inline" set="null" line="281" static="1">
+	<root2 public="1" get="inline" set="null" line="375" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x2"/>
 			<x path="geom.matrix.Complex"/>
@@ -14367,7 +14483,85 @@
 </class></impl>
 	</abstract>
 	<class path="geom.matrix._Complex.Complex_Impl_" params="" file="src/geom/matrix/Complex.hx" private="1" module="geom.matrix.Complex">
-		<_new public="1" get="inline" set="null" line="9" static="1">
+		<fromString public="1" get="inline" set="null" line="39" static="1">
+			<f a="s">
+				<c path="String"/>
+				<x path="geom.matrix.Complex"/>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = '1 + 2i';
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+		</fromString>
+		<fromRealImaginary public="1" get="inline" set="null" line="57" static="1">
+			<f a="c">
+				<a>
+					<real><x path="Float"/></real>
+					<imaginary><x path="Float"/></imaginary>
+				</a>
+				<x path="geom.matrix.Complex"/>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., imaginary: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+		</fromRealImaginary>
+		<fromRi public="1" get="inline" set="null" line="70" static="1">
+			<f a="c">
+				<a>
+					<r><x path="Float"/></r>
+					<i><x path="Float"/></i>
+				</a>
+				<x path="geom.matrix.Complex"/>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { r: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+		</fromRi>
+		<fromRealI public="1" get="inline" set="null" line="83" static="1">
+			<f a="c">
+				<a>
+					<real><x path="Float"/></real>
+					<i><x path="Float"/></i>
+				</a>
+				<x path="geom.matrix.Complex"/>
+			</f>
+			<meta><m n=":from"/></meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c0: Complex = { real: 1., i: 2. };
+     * ... var c1 = new Complex({ x: 1., y: 2. });
+     * ... c1 == c0; }) == true
+     * </code></pre>]]></haxe_doc>
+		</fromRealI>
+		<toString public="1" get="inline" set="null" line="97" static="1">
+			<f a="this">
+				<c path="geom.structure.Mat1x2"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... var c: Complex = { r: 1., i: 2. };
+     * ... var s: String = c;
+     * ... // js seems to remove the .'s from the numbers not sure on other targets
+     * ... s == '1. + 2. i' || s == '1 + 2 i'; }) == true
+     * </code></pre>]]></haxe_doc>
+		</toString>
+		<_new public="1" get="inline" set="null" line="103" static="1">
 			<f a="m">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="geom.matrix.Complex"/>
@@ -14377,13 +14571,13 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</_new>
-		<zero public="1" get="inline" set="null" line="16" static="1">
+		<zero public="1" get="inline" set="null" line="110" static="1">
 			<f a=""><x path="geom.matrix.Complex"/></f>
 			<haxe_doc><![CDATA[* <pre><code>
      * >>> Complex.zero() == new Complex({ x: 0., y: 0. })
      * </code></pre>]]></haxe_doc>
 		</zero>
-		<unit public="1" get="inline" set="null" line="25" static="1">
+		<unit public="1" get="inline" set="null" line="119" static="1">
 			<f a=""><x path="geom.matrix.Complex"/></f>
 			<haxe_doc><![CDATA[* <pre><code>
      * >>> Complex.unit() == new Complex({ x: 1., y: 1. })
@@ -14393,14 +14587,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</i>
-		<get_i get="inline" set="null" line="30" static="1">
+		<get_i get="inline" set="null" line="124" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_i>
-		<set_i get="inline" set="null" line="34" static="1">
+		<set_i get="inline" set="null" line="128" static="1">
 			<f a="this:v">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
@@ -14412,14 +14606,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</real>
-		<get_real get="inline" set="null" line="40" static="1">
+		<get_real get="inline" set="null" line="134" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_real>
-		<set_real get="inline" set="null" line="43" static="1">
+		<set_real get="inline" set="null" line="137" static="1">
 			<f a="this:v">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
@@ -14427,14 +14621,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_real>
-		<clone public="1" get="inline" set="null" line="47" static="1">
+		<clone public="1" get="inline" set="null" line="141" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="geom.matrix.Complex"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</clone>
-		<equal public="1" get="inline" set="null" line="59" static="1">
+		<equal public="1" get="inline" set="null" line="153" static="1">
 			<f a="a:b">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14448,7 +14642,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</equal>
-		<notEqual public="1" get="inline" set="null" line="75" static="1">
+		<notEqual public="1" get="inline" set="null" line="169" static="1">
 			<f a="a:b">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14462,7 +14656,7 @@
      * ... a != b; }) == true
      * </code></pre>]]></haxe_doc>
 		</notEqual>
-		<add public="1" get="inline" set="null" line="87" static="1">
+		<add public="1" get="inline" set="null" line="181" static="1">
 			<f a="a:b">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14476,7 +14670,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</add>
-		<subtract public="1" get="inline" set="null" line="99" static="1">
+		<subtract public="1" get="inline" set="null" line="193" static="1">
 			<f a="a:b">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14490,7 +14684,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</subtract>
-		<scale public="1" get="inline" set="null" line="111" static="1">
+		<scale public="1" get="inline" set="null" line="205" static="1">
 			<f a="a:b">
 				<x path="Float"/>
 				<x path="geom.matrix.Complex"/>
@@ -14498,7 +14692,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</scale>
-		<multiply public="1" get="inline" set="null" line="124" static="1">
+		<multiply public="1" get="inline" set="null" line="218" static="1">
 			<f a="a:b">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14513,14 +14707,14 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</multiply>
-		<addExponents public="1" get="inline" set="null" line="128" static="1">
+		<addExponents public="1" get="inline" set="null" line="222" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</addExponents>
-		<conjugate public="1" get="inline" set="null" line="140" static="1">
+		<conjugate public="1" get="inline" set="null" line="234" static="1">
 			<f a="a">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14533,7 +14727,7 @@
      * ... b == new Complex({ x: 1., y: -2. }); }) == true
      * </code></pre>]]></haxe_doc>
 		</conjugate>
-		<divide public="1" get="inline" set="null" line="168" static="1">
+		<divide public="1" get="inline" set="null" line="262" static="1">
 			<f a="c1:c2">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14548,7 +14742,7 @@
      * ... }) == true
      * </code></pre>]]></haxe_doc>
 		</divide>
-		<negate public="1" get="inline" set="null" line="184" static="1">
+		<negate public="1" get="inline" set="null" line="278" static="1">
 			<f a="a">
 				<x path="geom.matrix.Complex"/>
 				<x path="geom.matrix.Complex"/>
@@ -14561,7 +14755,7 @@
      * ... b == new Complex({ x: -1., y: -2. }); }) == true
      * </code></pre>]]></haxe_doc>
 		</negate>
-		<magnitudeSquared public="1" get="inline" set="null" line="195" static="1">
+		<magnitudeSquared public="1" get="inline" set="null" line="289" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
@@ -14577,14 +14771,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</magnitude>
-		<get_magnitude get="inline" set="null" line="200" static="1">
+		<get_magnitude get="inline" set="null" line="294" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_magnitude>
-		<set_magnitude get="inline" set="null" line="204" static="1">
+		<set_magnitude get="inline" set="null" line="298" static="1">
 			<f a="this:length">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
@@ -14592,32 +14786,32 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_magnitude>
-		<phase public="1" get="inline" set="null" line="216" static="1">
+		<phase public="1" get="inline" set="null" line="310" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</phase>
-		<isReal public="1" get="inline" set="null" line="220" static="1">
+		<isReal public="1" get="inline" set="null" line="314" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</isReal>
-		<isImaginary public="1" get="inline" set="null" line="224" static="1">
+		<isImaginary public="1" get="inline" set="null" line="318" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</isImaginary>
-		<cis public="1" get="inline" set="null" line="228" static="1"><f a="angle">
+		<cis public="1" get="inline" set="null" line="322" static="1"><f a="angle">
 	<x path="Float"/>
 	<x path="geom.matrix.Complex"/>
 </f></cis>
-		<fromCircle public="1" get="inline" set="null" line="232" static="1">
+		<fromCircle public="1" get="inline" set="null" line="326" static="1">
 			<f a="this:r:angle">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="Float"/>
@@ -14626,7 +14820,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</fromCircle>
-		<square public="1" get="inline" set="null" line="236" static="1">
+		<square public="1" get="inline" set="null" line="330" static="1">
 			<f a="this:c">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="geom.matrix.Complex"/>
@@ -14634,31 +14828,31 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</square>
-		<exp public="1" get="inline" set="null" line="246" static="1"><f a="c">
+		<exp public="1" get="inline" set="null" line="340" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></exp>
-		<ln public="1" get="inline" set="null" line="254" static="1"><f a="c">
+		<ln public="1" get="inline" set="null" line="348" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></ln>
-		<reciprocal public="1" get="inline" set="null" line="263" static="1">
+		<reciprocal public="1" get="inline" set="null" line="357" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="geom.matrix.Complex"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</reciprocal>
-		<pow public="1" get="inline" set="null" line="269" static="1"><f a="c:n">
+		<pow public="1" get="inline" set="null" line="363" static="1"><f a="c:n">
 	<x path="geom.matrix.Complex"/>
 	<x path="Float"/>
 	<x path="geom.matrix.Complex"/>
 </f></pow>
-		<squareRoot public="1" get="inline" set="null" line="277" static="1"><f a="c">
+		<squareRoot public="1" get="inline" set="null" line="371" static="1"><f a="c">
 	<x path="geom.matrix.Complex"/>
 	<x path="geom.matrix.Complex"/>
 </f></squareRoot>
-		<root2 public="1" get="inline" set="null" line="281" static="1">
+		<root2 public="1" get="inline" set="null" line="375" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x2"/>
 				<x path="geom.matrix.Complex"/>
