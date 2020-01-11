@@ -40,7 +40,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     function fromString( s: String ): Complex {
         var removeI = s.substr(0,s.length-1);
         var split = removeI.split('+');
-        var c = new Complex({x: 0., y: 0. });
+        var c = Complex.zero();
         c.real = Std.parseFloat( split[0] );
         c.i = Std.parseFloat( split[1] );
         return c;
