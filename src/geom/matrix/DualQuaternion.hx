@@ -115,8 +115,10 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
         return new DualQuaternion({ real: real
                                   , dual: dual });
     }
-    public inline
-    function applyScale( s: Float ): DualQuaternion {
+    /**
+     * applyScale
+     */
+    public inline function applyScale( s: Float ): DualQuaternion {
         var cloned = clone();
         cloned = cloned*DualQuaternion.scalar( s );
         return cloned;

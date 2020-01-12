@@ -15000,15 +15000,16 @@
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.DualQuaternion"/>
 </f></create>
-	<applyScale public="1" get="inline" set="null" line="118" static="1">
+	<applyScale public="1" get="inline" set="null" line="121" static="1">
 		<f a="this:s">
 			<c path="geom.structure.DualQ"/>
 			<x path="Float"/>
 			<x path="geom.matrix.DualQuaternion"/>
 		</f>
 		<meta><m n=":impl"/></meta>
+		<haxe_doc>* applyScale</haxe_doc>
 	</applyScale>
-	<scalar public="1" get="inline" set="null" line="131" static="1">
+	<scalar public="1" get="inline" set="null" line="133" static="1">
 		<f a="s">
 			<x path="Float"/>
 			<x path="geom.matrix.DualQuaternion"/>
@@ -15018,33 +15019,33 @@
      * var scaledDualQuaternion = DualQuaternion.scalar( 3 ) * dualQ;
      * source:  *http://roartindon.blogspot.com/2015/04/encoding-uniform-scale-in-quaternions.html</haxe_doc>
 	</scalar>
-	<dotProduct public="1" get="inline" set="null" line="136" static="1"><f a="a:b">
+	<dotProduct public="1" get="inline" set="null" line="138" static="1"><f a="a:b">
 	<x path="geom.matrix.DualQuaternion"/>
 	<x path="geom.matrix.DualQuaternion"/>
 	<x path="Float"/>
 </f></dotProduct>
-	<normalize public="1" get="inline" set="null" line="140" static="1">
+	<normalize public="1" get="inline" set="null" line="142" static="1">
 		<f a="this">
 			<c path="geom.structure.DualQ"/>
 			<x path="geom.matrix.DualQuaternion"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</normalize>
-	<conjugate public="1" get="inline" set="null" line="147" static="1">
+	<conjugate public="1" get="inline" set="null" line="149" static="1">
 		<f a="a">
 			<x path="geom.matrix.DualQuaternion"/>
 			<x path="geom.matrix.DualQuaternion"/>
 		</f>
 		<meta><m n=":op"><e>~A</e></m></meta>
 	</conjugate>
-	<getTranslation public="1" get="inline" set="null" line="151" static="1">
+	<getTranslation public="1" get="inline" set="null" line="153" static="1">
 		<f a="this">
 			<c path="geom.structure.DualQ"/>
 			<x path="geom.matrix.Matrix1x4"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTranslation>
-	<multiplyQ public="1" get="inline" set="null" line="157" static="1">
+	<multiplyQ public="1" get="inline" set="null" line="159" static="1">
 		<f a="q1:q2">
 			<x path="geom.matrix.DualQuaternion"/>
 			<x path="geom.matrix.DualQuaternion"/>
@@ -15052,7 +15053,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</multiplyQ>
-	<toMatrix4x3 public="1" get="inline" set="null" line="162" static="1">
+	<toMatrix4x3 public="1" get="inline" set="null" line="164" static="1">
 		<f a="this">
 			<c path="geom.structure.DualQ"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -15196,15 +15197,16 @@
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.DualQuaternion"/>
 </f></create>
-		<applyScale public="1" get="inline" set="null" line="118" static="1">
+		<applyScale public="1" get="inline" set="null" line="121" static="1">
 			<f a="this:s">
 				<c path="geom.structure.DualQ"/>
 				<x path="Float"/>
 				<x path="geom.matrix.DualQuaternion"/>
 			</f>
 			<meta><m n=":impl"/></meta>
+			<haxe_doc>* applyScale</haxe_doc>
 		</applyScale>
-		<scalar public="1" get="inline" set="null" line="131" static="1">
+		<scalar public="1" get="inline" set="null" line="133" static="1">
 			<f a="s">
 				<x path="Float"/>
 				<x path="geom.matrix.DualQuaternion"/>
@@ -15214,33 +15216,33 @@
      * var scaledDualQuaternion = DualQuaternion.scalar( 3 ) * dualQ;
      * source:  *http://roartindon.blogspot.com/2015/04/encoding-uniform-scale-in-quaternions.html</haxe_doc>
 		</scalar>
-		<dotProduct public="1" get="inline" set="null" line="136" static="1"><f a="a:b">
+		<dotProduct public="1" get="inline" set="null" line="138" static="1"><f a="a:b">
 	<x path="geom.matrix.DualQuaternion"/>
 	<x path="geom.matrix.DualQuaternion"/>
 	<x path="Float"/>
 </f></dotProduct>
-		<normalize public="1" get="inline" set="null" line="140" static="1">
+		<normalize public="1" get="inline" set="null" line="142" static="1">
 			<f a="this">
 				<c path="geom.structure.DualQ"/>
 				<x path="geom.matrix.DualQuaternion"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</normalize>
-		<conjugate public="1" get="inline" set="null" line="147" static="1">
+		<conjugate public="1" get="inline" set="null" line="149" static="1">
 			<f a="a">
 				<x path="geom.matrix.DualQuaternion"/>
 				<x path="geom.matrix.DualQuaternion"/>
 			</f>
 			<meta><m n=":op"><e>~A</e></m></meta>
 		</conjugate>
-		<getTranslation public="1" get="inline" set="null" line="151" static="1">
+		<getTranslation public="1" get="inline" set="null" line="153" static="1">
 			<f a="this">
 				<c path="geom.structure.DualQ"/>
 				<x path="geom.matrix.Matrix1x4"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTranslation>
-		<multiplyQ public="1" get="inline" set="null" line="157" static="1">
+		<multiplyQ public="1" get="inline" set="null" line="159" static="1">
 			<f a="q1:q2">
 				<x path="geom.matrix.DualQuaternion"/>
 				<x path="geom.matrix.DualQuaternion"/>
@@ -15248,7 +15250,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</multiplyQ>
-		<toMatrix4x3 public="1" get="inline" set="null" line="162" static="1">
+		<toMatrix4x3 public="1" get="inline" set="null" line="164" static="1">
 			<f a="this">
 				<c path="geom.structure.DualQ"/>
 				<x path="geom.matrix.Matrix4x3"/>

@@ -75,8 +75,18 @@ class Bezier {
         result.push(1);
         return result;
     }*/
+    
+    /**
+     * provides curveThru so c is mid point on curve
+     *
+     */
     public static inline
-    function quadratic ( t: Float, s: Float, c: Float, e: Float ): Float {
+    function quadraticThru( t: Float, s: Float, c: Float, e: Float ): Float {
+        c = 2*c - 0.5*( s + c );
+        quadratic( t, s, c, e );
+    }
+    public static inline
+    function quadratic( t: Float, s: Float, c: Float, e: Float ): Float {
         var u = 1 - t;
         return Math.pow( u, 2 )*s + 2*u*t*c + Math.pow( t, 2 )*e;
     }
