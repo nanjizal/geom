@@ -123,7 +123,6 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
      * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
-    
     public static inline
     function identity( out: Quaternion ):Quaternion {
             out.x = 1.;
@@ -206,6 +205,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function notEqual( a: Quaternion, b:Quaternion ): Bool {
         return !equal( a, b );
     }
+    
     public inline 
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
@@ -403,8 +403,15 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                               });
         return q.normalize();
     }
-    public inline function scaled(scale: Float): Quaternion {
-        return new Quaternion({x: this.x * scale, y: this.y * scale, z: this.z * scale, w: this.w * scale});
+    
+    public static inline
+    function scalarReal( s: Float ): Quaternion {
+        return new Quaternion({x: 0, y: 0, z: 0, w: Math.sqrt( s ) });
+    }
+    // not sure see above
+    public inline
+    function scaled( s: Float ): Quaternion {
+        return new Quaternion({x: this.x * s, y: this.y * s, z: this.z * s, w: this.w * s});
     }
     
     public inline

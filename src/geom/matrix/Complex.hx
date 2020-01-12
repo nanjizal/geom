@@ -283,7 +283,7 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
      * <pre><code>
      * >>> ({ 
      * ... var a = new Complex({ x: 2., y: 4. });
-     * ... a.magnitudeSquared() == 4. + 16; }) == true
+     * ... a.magnitudeSquared() == 4. + 16.; }) == true
      * </code></pre>
      */
     public inline 

@@ -115,6 +115,23 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
         return new DualQuaternion({ real: real
                                   , dual: dual });
     }
+    public inline
+    function applyScale( s: Float ): DualQuaternion {
+        var cloned = clone();
+        cloned = cloned*DualQuaternion.scalar( s );
+        return cloned;
+    }
+    
+    /**
+     * allow scaling a DualQuaternion untested
+     * usage:
+     * var scaledDualQuaternion = DualQuaternion.scalar( 3 ) * dualQ;
+     * source:  *http://roartindon.blogspot.com/2015/04/encoding-uniform-scale-in-quaternions.html
+     */
+    public static inline
+    function scalar( s: Float ): DualQuaternion{
+        return new DualQuaternion( { real: Quaternion.scalarReal( s ), dual: Quaternion.zero() } );
+    }
     
     public static inline 
     function dotProduct( a: DualQuaternion, b: DualQuaternion ): Float {

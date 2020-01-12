@@ -998,9 +998,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right16 = "exception: " + Std.string(((ex33) instanceof js__$Boot_HaxeError) ? ex33.val : ex33) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left16,right16)) {
-			utest_Assert.pass("Complex.hx:284 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.pass("Complex.hx:284 [OK] ({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16.; }) == true",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16; }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right16) + "`.",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Complex({ x: 2., y: 4. });\na.magnitudeSquared() == 4. + 16.; }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right16) + "`.",{ lineNumber : 284, fileName : "src/geom/matrix/Complex.hx", className : "", methodName : ""});
 		}
 	}
 	,testDualQuaternion_1: function() {
@@ -4772,9 +4772,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right5 = "exception: " + Std.string(((ex11) instanceof js__$Boot_HaxeError) ? ex11.val : ex11) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left6,right5)) {
-			utest_Assert.pass("Quaternion.hx:141 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true",{ lineNumber : 141, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:140 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true",{ lineNumber : 140, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 141, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = Quaternion.zero();\nvar c = Quaternion.copy( a, b );\na == c; }) == true --> Left side `" + Std.string(left6) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 140, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left7;
 		try {
@@ -4796,9 +4796,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right6 = "exception: " + Std.string(((ex13) instanceof js__$Boot_HaxeError) ? ex13.val : ex13) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left7,right6)) {
-			utest_Assert.pass("Quaternion.hx:181 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true",{ lineNumber : 181, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:180 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true",{ lineNumber : 180, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 181, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\na == b; }) == true --> Left side `" + Std.string(left7) + "` does not equal `" + Std.string(right6) + "`.",{ lineNumber : 180, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left8;
 		try {
@@ -4820,9 +4820,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right7 = "exception: " + Std.string(((ex15) instanceof js__$Boot_HaxeError) ? ex15.val : ex15) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left8,right7)) {
-			utest_Assert.pass("Quaternion.hx:199 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true",{ lineNumber : 199, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:198 [OK] ({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true",{ lineNumber : 198, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 199, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });\nvar b = new Quaternion({ x: 1., y: 2., z: 4., w: 1. });\na != b; }) == true --> Left side `" + Std.string(left8) + "` does not equal `" + Std.string(right7) + "`.",{ lineNumber : 198, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left9;
 		try {
@@ -4951,9 +4951,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right12 = "exception: " + Std.string(((ex25) instanceof js__$Boot_HaxeError) ? ex25.val : ex25) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left13,right12)) {
-			utest_Assert.pass("Quaternion.hx:420 [OK] ({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 420, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:427 [OK] ({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 427, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 420, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 427, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left14;
 		try {
@@ -4980,9 +4980,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right13 = "exception: " + Std.string(((ex27) instanceof js__$Boot_HaxeError) ? ex27.val : ex27) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left14,right13)) {
-			utest_Assert.pass("Quaternion.hx:433 [OK] ({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 433, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:440 [OK] ({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 440, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 433, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 440, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left15;
 		try {
@@ -5007,9 +5007,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right14 = "exception: " + Std.string(((ex29) instanceof js__$Boot_HaxeError) ? ex29.val : ex29) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left15,right14)) {
-			utest_Assert.pass("Quaternion.hx:452 [OK] ({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 452, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:459 [OK] ({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 459, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 452, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 459, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left16;
 		try {
@@ -5029,9 +5029,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right15 = "exception: " + Std.string(((ex31) instanceof js__$Boot_HaxeError) ? ex31.val : ex31) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left16,right15)) {
-			utest_Assert.pass("Quaternion.hx:464 [OK] ({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 464, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:471 [OK] ({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 471, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 464, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit();\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 471, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 	}
 	,__initializeUtest__: function() {
@@ -5619,6 +5619,38 @@ geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.create = function(r,t) {
 	var dual = this3;
 	var this4 = new geom_structure_DualQ(real1,dual);
 	return this4;
+};
+geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.applyScale = function(this1,scale) {
+	var this2 = this1.real;
+	var this3 = new geom_structure_Mat1x4(this2.x,this2.y,this2.z,this2.w);
+	var this4 = this1.dual;
+	var this5 = new geom_structure_Mat1x4(this4.x,this4.y,this4.z,this4.w);
+	var this6 = new geom_structure_DualQ(this3,this5);
+	var q1 = this6;
+	var this7 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(scale));
+	var this8 = new geom_structure_Mat1x4(0.,0.,0.,0.);
+	var this9 = new geom_structure_DualQ(this7,this8);
+	var q2 = this9;
+	var q11 = q2.real;
+	var q21 = q1.real;
+	var this10 = new geom_structure_Mat1x4(q11.x * q21.w + q11.y * q21.z - q11.z * q21.y + q11.w * q21.x,-q11.x * q21.z + q11.y * q21.w + q11.z * q21.x + q11.w * q21.y,q11.x * q21.y - q11.y * q21.x + q11.z * q21.w + q11.w * q21.z,-q11.x * q21.x - q11.y * q21.y - q11.z * q21.z + q11.w * q21.w);
+	var q12 = q2.dual;
+	var q22 = q1.real;
+	var this11 = new geom_structure_Mat1x4(q12.x * q22.w + q12.y * q22.z - q12.z * q22.y + q12.w * q22.x,-q12.x * q22.z + q12.y * q22.w + q12.z * q22.x + q12.w * q22.y,q12.x * q22.y - q12.y * q22.x + q12.z * q22.w + q12.w * q22.z,-q12.x * q22.x - q12.y * q22.y - q12.z * q22.z + q12.w * q22.w);
+	var a = this11;
+	var q13 = q1.dual;
+	var q23 = q2.real;
+	var this12 = new geom_structure_Mat1x4(q13.x * q23.w + q13.y * q23.z - q13.z * q23.y + q13.w * q23.x,-q13.x * q23.z + q13.y * q23.w + q13.z * q23.x + q13.w * q23.y,q13.x * q23.y - q13.y * q23.x + q13.z * q23.w + q13.w * q23.z,-q13.x * q23.x - q13.y * q23.y - q13.z * q23.z + q13.w * q23.w);
+	var b = this12;
+	var this13 = new geom_structure_Mat1x4(a.x + b.x,a.y + b.y,a.z + b.z,a.w + b.w);
+	var this14 = new geom_structure_DualQ(this10,this13);
+	return this14;
+};
+geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.scalar = function(s) {
+	var this1 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(s));
+	var this2 = new geom_structure_Mat1x4(0.,0.,0.,0.);
+	var this3 = new geom_structure_DualQ(this1,this2);
+	return this3;
 };
 geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.dotProduct = function(a,b) {
 	var a1 = a.real;
@@ -7984,8 +8016,12 @@ geom_matrix__$Quaternion_Quaternion_$Impl_$.slerp = function(this1,v1,t) {
 	}
 	return q;
 };
-geom_matrix__$Quaternion_Quaternion_$Impl_$.scaled = function(this1,scale) {
-	var this2 = new geom_structure_Mat1x4(this1.x * scale,this1.y * scale,this1.z * scale,this1.w * scale);
+geom_matrix__$Quaternion_Quaternion_$Impl_$.scalarReal = function(s) {
+	var this1 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(s));
+	return this1;
+};
+geom_matrix__$Quaternion_Quaternion_$Impl_$.scaled = function(this1,s) {
+	var this2 = new geom_structure_Mat1x4(this1.x * s,this1.y * s,this1.z * s,this1.w * s);
 	return this2;
 };
 geom_matrix__$Quaternion_Quaternion_$Impl_$.normalize = function(this1) {

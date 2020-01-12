@@ -1,32 +1,36 @@
 package geom.systemL;
 import geom.matrix.Matrix1x4;
 import geom.matrix.Quaternion;
+import geom.matrix.DualQuaternion;
 /**
     3D LSystem node
 **/
 @:structInit
 class LNode3D{
-    public var pos : Matrix1x4;
-    public var angle : Quaternion;
-    public function new( pos_: Matrix1x4, angle_: Quaternion ){
-        pos = pos_;
-        angle = angle_;
+    
+    // needs testing and thought, unsure if this is correct.
+    public var dualQ : DualQuaternion;
+    public function new( pos: Matrix1x4, angle: Quaternion ){
+        dualQ = DualQuaternion.create( angle, pos );
     }
-    // Needs some checking and thought
-    /*
+    
+    // really unsure if DualQuaternion.scaler is setup right.
     public inline
     function transform( distance: Float ): LNode3D {
-        var p: Matrix1x4 = ( pos * angle );// * distance;
-        return new LNode3D( p, angle );
+        var cloned = clone();
+        cloned.dualQ.applyScale( distance );
+        return cloned;
     }
-    */
+    
     public inline 
     function clone(): LNode3D {
-        return new LNode3D( pos.clone(), angle.clone() );
+        var cloned = Type.createEmptyInstance( LNode3D );
+        cloned.dualQ = dualQ.clone();
+        return cloned;
     }
-    // is this times?
+    
     inline public
     function addAngle( q: Quaternion ): Void {
-        angle = angle + q;
+        dualQ.dual = dualQ.dual * q;
     }
 }
