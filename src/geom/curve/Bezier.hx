@@ -83,7 +83,7 @@ class Bezier {
     public static inline
     function quadraticThru( t: Float, s: Float, c: Float, e: Float ): Float {
         c = 2*c - 0.5*( s + c );
-        quadratic( t, s, c, e );
+        return quadratic( t, s, c, e );
     }
     public static inline
     function quadratic( t: Float, s: Float, c: Float, e: Float ): Float {

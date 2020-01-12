@@ -1843,14 +1843,25 @@
 	<x path="geom.matrix.Matrix1x2"/>
 	<c path="Array"><x path="Float"/></c>
 </f></subdiv>
-		<quadratic public="1" get="inline" set="null" line="78" static="1"><f a="t:s:c:e">
+		<quadraticThru public="1" get="inline" set="null" line="83" static="1">
+			<f a="t:s:c:e">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>* provides curveThru so c is mid point on curve
+     *</haxe_doc>
+		</quadraticThru>
+		<quadratic public="1" get="inline" set="null" line="88" static="1"><f a="t:s:c:e">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 </f></quadratic>
-		<quadSegment public="1" get="inline" set="null" line="83" static="1"><f a="t0:t1:s:c:e">
+		<quadSegment public="1" get="inline" set="null" line="93" static="1"><f a="t0:t1:s:c:e">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
@@ -1858,7 +1869,7 @@
 	<x path="Float"/>
 	<x path="Float"/>
 </f></quadSegment>
-		<cubic public="1" get="inline" set="null" line="88" static="1"><f a="t:s:c1:c2:e">
+		<cubic public="1" get="inline" set="null" line="98" static="1"><f a="t:s:c1:c2:e">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>

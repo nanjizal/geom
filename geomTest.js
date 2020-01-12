@@ -5620,31 +5620,32 @@ geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.create = function(r,t) {
 	var this4 = new geom_structure_DualQ(real1,dual);
 	return this4;
 };
-geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.applyScale = function(this1,scale) {
+geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.applyScale = function(this1,s) {
 	var this2 = this1.real;
 	var this3 = new geom_structure_Mat1x4(this2.x,this2.y,this2.z,this2.w);
 	var this4 = this1.dual;
 	var this5 = new geom_structure_Mat1x4(this4.x,this4.y,this4.z,this4.w);
 	var this6 = new geom_structure_DualQ(this3,this5);
-	var q1 = this6;
-	var this7 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(scale));
+	var cloned = this6;
+	var this7 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(s));
 	var this8 = new geom_structure_Mat1x4(0.,0.,0.,0.);
 	var this9 = new geom_structure_DualQ(this7,this8);
 	var q2 = this9;
-	var q11 = q2.real;
-	var q21 = q1.real;
-	var this10 = new geom_structure_Mat1x4(q11.x * q21.w + q11.y * q21.z - q11.z * q21.y + q11.w * q21.x,-q11.x * q21.z + q11.y * q21.w + q11.z * q21.x + q11.w * q21.y,q11.x * q21.y - q11.y * q21.x + q11.z * q21.w + q11.w * q21.z,-q11.x * q21.x - q11.y * q21.y - q11.z * q21.z + q11.w * q21.w);
-	var q12 = q2.dual;
-	var q22 = q1.real;
-	var this11 = new geom_structure_Mat1x4(q12.x * q22.w + q12.y * q22.z - q12.z * q22.y + q12.w * q22.x,-q12.x * q22.z + q12.y * q22.w + q12.z * q22.x + q12.w * q22.y,q12.x * q22.y - q12.y * q22.x + q12.z * q22.w + q12.w * q22.z,-q12.x * q22.x - q12.y * q22.y - q12.z * q22.z + q12.w * q22.w);
+	var q1 = q2.real;
+	var q21 = cloned.real;
+	var this10 = new geom_structure_Mat1x4(q1.x * q21.w + q1.y * q21.z - q1.z * q21.y + q1.w * q21.x,-q1.x * q21.z + q1.y * q21.w + q1.z * q21.x + q1.w * q21.y,q1.x * q21.y - q1.y * q21.x + q1.z * q21.w + q1.w * q21.z,-q1.x * q21.x - q1.y * q21.y - q1.z * q21.z + q1.w * q21.w);
+	var q11 = q2.dual;
+	var q22 = cloned.real;
+	var this11 = new geom_structure_Mat1x4(q11.x * q22.w + q11.y * q22.z - q11.z * q22.y + q11.w * q22.x,-q11.x * q22.z + q11.y * q22.w + q11.z * q22.x + q11.w * q22.y,q11.x * q22.y - q11.y * q22.x + q11.z * q22.w + q11.w * q22.z,-q11.x * q22.x - q11.y * q22.y - q11.z * q22.z + q11.w * q22.w);
 	var a = this11;
-	var q13 = q1.dual;
+	var q12 = cloned.dual;
 	var q23 = q2.real;
-	var this12 = new geom_structure_Mat1x4(q13.x * q23.w + q13.y * q23.z - q13.z * q23.y + q13.w * q23.x,-q13.x * q23.z + q13.y * q23.w + q13.z * q23.x + q13.w * q23.y,q13.x * q23.y - q13.y * q23.x + q13.z * q23.w + q13.w * q23.z,-q13.x * q23.x - q13.y * q23.y - q13.z * q23.z + q13.w * q23.w);
+	var this12 = new geom_structure_Mat1x4(q12.x * q23.w + q12.y * q23.z - q12.z * q23.y + q12.w * q23.x,-q12.x * q23.z + q12.y * q23.w + q12.z * q23.x + q12.w * q23.y,q12.x * q23.y - q12.y * q23.x + q12.z * q23.w + q12.w * q23.z,-q12.x * q23.x - q12.y * q23.y - q12.z * q23.z + q12.w * q23.w);
 	var b = this12;
 	var this13 = new geom_structure_Mat1x4(a.x + b.x,a.y + b.y,a.z + b.z,a.w + b.w);
 	var this14 = new geom_structure_DualQ(this10,this13);
-	return this14;
+	cloned = this14;
+	return cloned;
 };
 geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.scalar = function(s) {
 	var this1 = new geom_structure_Mat1x4(0,0,0,Math.sqrt(s));
