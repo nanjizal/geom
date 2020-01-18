@@ -38,6 +38,17 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
                               , c: 0., d: 1. } );
     }
     /**
+     * Used for testing
+     * <pre><code>
+     * >>> Matrix2x2._1234() == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
+     * </code></pre>
+     */
+    public static inline
+    function _1234(): Matrix2x2 {
+        return new Matrix2x2( { a: 1., b: 2.
+                           , c: 3., d: 4.} );
+    }
+    /**
      * <pre><code>
      * >>> ({
      * ... Matrix2x2.topLeft() == new Matrix2x2( { a: 1., b: 0.

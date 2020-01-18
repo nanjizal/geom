@@ -1,5 +1,8 @@
 package geom.matrix;
 import geom.matrix.Matrix1x4;
+import geom.matrix.Matrix4x4;
+import geom.matrix.Matrix3x3;
+import geom.matrix.Matrix4x3;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
 // Untested
 /**
@@ -482,6 +485,10 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     // https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToMatrix/index.htm
     @:to public inline
     function toMatrix4x3(): Matrix4x3 {
+        // TODO: test overhead of this shorter technique? over full version.
+        var m: Matrix3x3 = new Quaternion( this );
+        return m.to4x3();
+        /*
         var xx      = this.x * this.x;
         var xy      = this.x * this.y;
         var xz      = this.x * this.z;
@@ -494,5 +501,67 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         return new Matrix4x3({ a: 1 - 2 * ( yy + zz ), b: 2 * ( xy - zw ),     c: 2 * ( xz + yw ),     d: 0
                              , e: 2 * ( xy + zw ),     f: 1 - 2 * ( xx + zz ), g: 2 * ( yz - xw ),     h: 0
                              , i: 2 * ( xz - yw ),     j: 2 * ( yz + xw ),     k: 1 - 2 * ( xx + yy ), l: 0 });
+        */
+    }
+    @:to public inline
+    function toMatrix3x3(): Matrix3x3 {
+        var xx      = this.x * this.x;
+        var xy      = this.x * this.y;
+        var xz      = this.x * this.z;
+        var xw      = this.x * this.w;
+        var yy      = this.y * this.y;
+        var yz      = this.y * this.z;
+        var yw      = this.y * this.w;
+        var zz      = this.z * this.z;
+        var zw      = this.z * this.w;
+        return new Matrix3x3({ a: 1 - 2 * ( yy + zz ), b: 2 * ( xy - zw ),     c: 2 * ( xz + yw )
+                             , d: 2 * ( xy + zw ),     e: 1 - 2 * ( xx + zz ), f: 2 * ( yz - xw )
+                             , g: 2 * ( xz - yw ),     h: 2 * ( yz + xw ),     i: 1 - 2 * ( xx + yy ) });
+    }
+    /**
+     * 
+     */
+    // https://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/
+    @:from public inline static
+    function fromMatrix4x3( m4x3: Matrix4x3 ): Quaternion {
+        var m3x3: Matrix3x3 = m4x3;
+        return Quaternion.fromMatrix3x3( m3x3 );
+    }
+    /**
+     * 
+     */
+    // https://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/
+    @:from public inline static
+    function fromMatrix3x3( m: Matrix3x3 ): Quaternion {
+        new Matrix3x3( { a: 0., b: 0., c: 0.
+                       , d: 0., e: 0., f: 0.
+                       , g: 0., h: 0., i: 0. }); 
+        var tr = m.a + m.e + m.i;
+        var s: Float;
+        return if( tr > 0 ){ 
+            s = Math.sqrt( tr + 1.0 ) * 2; // S=4*qw 
+            new Quaternion( { x: ( m.h - m.f ) / s
+                            , y: ( m.c - m.g ) / s
+                            , z: ( m.d - m.b ) / s
+                            , w: 0.25 * s } );
+        } else if ( ( m.a > m.e ) && ( m.a > m.i ) ) { 
+          s = Math.sqrt( 1.0 + m.a - m.e - m.i ) * 2; // S=4*qx 
+          new Quaternion( { x: 0.25 * s
+                          , y: ( m.b + m.d ) / s
+                          , z: ( m.c + m.g ) / s
+                          , w: ( m.h - m.f ) / s } );
+        } else if ( m.e > m.i ) { 
+            s = Math.sqrt( 1.0 + m.e - m.a - m.i ) * 2; // S=4*qy
+            new Quaternion( { x: ( m.b + m.d ) / s
+                            , y: 0.25 * s 
+                            , z: ( m.f + m.h ) / s
+                            , w: ( m.c - m.g ) / s } );
+        } else { 
+            s = Math.sqrt( 1.0 + m.i - m.i - m.e ) * 2; // S=4*qz
+            new Quaternion( { x: ( m.d - m.b ) / s
+                            , y: ( m.c + m.g ) / s
+                            , z: ( m.f + m.h ) / s
+                            , w: 0.25 * s } );
+        }
     }
 }

@@ -38,6 +38,22 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
                              , d: 0., e: 1., f: 0.
                              , g: 0., h: 0., i: 1. });
     }
+    /**
+     * Used for testing
+     * <pre><code>
+     * >>> ({
+     * ... Matrix3x3._123456789() == new Matrix3x3({ a: 1., b: 2., c: 3.
+     * ...                                         , d: 4., e: 5., f: 6.
+     * ...                                         , g: 7., h: 8., i: 9. });
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function _123456789(): Matrix3x3 {
+        return new Matrix3x3( { a: 1., b: 2., c: 3.
+                              , d: 4., e: 5., f: 6.
+                              , g: 7., h: 8., i: 9. } );
+    }
     public static inline
     function radianX( theta: Float ): Matrix3x3 {
         var c = Math.cos( theta );

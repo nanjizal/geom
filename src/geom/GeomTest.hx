@@ -14,7 +14,8 @@ import geom.move.*;
 import geom.obj.*;
 import geom.structure.*;
 import geom.systemL.*;
-import gemo.tydef.*;
+import geom.tydef.*;
+import geom.matrixConversion.*;
 
 @:build(hx.doctest.DocTestGenerator.generateDocTests())
 @:build(utest.utils.TestBuilder.build())

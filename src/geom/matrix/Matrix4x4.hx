@@ -48,7 +48,24 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                              , i: 0., j: 0., k: 1., l: 0. 
                              , m: 0., n: 0., o: 0., p: 1. } );
     }
-    
+    /**
+     * Used for testing
+     * <pre><code>
+     * >>> ({ 
+     * ... Matrix4x4._1_16() == new Matrix4x4({ a: 1., b: 2., c: 3., d: 4.
+     * ...                                    , e: 5., f: 6., g: 7., h: 8.
+     * ...                                    , i: 9., j: 10., k: 11., l: 12.
+     * ...                                    , m: 13., n: 14., o: 15., p: 16. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static inline
+    function _1_16(): Matrix4x4 {
+        return new Matrix4x4( { a: 1.,  b: 2.,  c: 3.,  d: 4.
+                              , e: 5.,  f: 6.,  g: 7.,  h: 8.
+                              , i: 9.,  j: 10., k: 11., l: 12.
+                              , m: 13., n: 14., o: 15., p: 16. } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
