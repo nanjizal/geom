@@ -34,9 +34,9 @@ abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.struc
         var a2 = this.a - cp;
         var b2 = this.b - cp;
         var c2 = this.c - cp;
-        var aout = Matrix1x4.unit();
-        var bout = Matrix1x4.unit();
-        var cout = Matrix1x4.unit();
+        var aout = Matrix1x4.unit;
+        var bout = Matrix1x4.unit;
+        var cout = Matrix1x4.unit;
         Matrix1x4.multiplyQ( q, a2, aout ); 
         Matrix1x4.multiplyQ( q, b2, bout );
         Matrix1x4.multiplyQ( q, c2, cout );

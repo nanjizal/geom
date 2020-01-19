@@ -19,32 +19,35 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix2x2.zero() == new Matrix2x2( { a: 0., b: 0., c: 0., d: 0. } )
+     * >>> Matrix2x2.zero == new Matrix2x2( { a: 0., b: 0., c: 0., d: 0. } )
      * </code></pre>
      */
-    public static inline
-    function zero(): Matrix2x2 {
+    public static var zero( get, never ): Matrix2x2;
+    static inline
+    function get_zero(): Matrix2x2 {
         return new Matrix2x2( { a: 0., b: 0.
                               , c: 0., d: 0. } );
     }
     /**
      * <pre><code>
-     * >>> Matrix2x2.unit() == new Matrix2x2( { a: 1., b: 0., c: 0., d: 1. } )
+     * >>> Matrix2x2.unit == new Matrix2x2( { a: 1., b: 0., c: 0., d: 1. } )
      * </code></pre>
      */
-    public static inline
-    function unit(): Matrix2x2 {
+    public static var unit( get, never ): Matrix2x2;
+    static inline
+    function get_unit(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 1. } );
     }
     /**
      * Used for testing
      * <pre><code>
-     * >>> Matrix2x2._1234() == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
+     * >>> Matrix2x2._1234 == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
      * </code></pre>
      */
-    public static inline
-    function _1234(): Matrix2x2 {
+    public static var _1234( get, never ): Matrix2x2;
+    static inline
+    function get__1234(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 2.
                            , c: 3., d: 4.} );
     }
@@ -186,7 +189,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... var a = Matrix2x2.unit();
+     * ... var a = Matrix2x2.unit;
      * ... a + a == new Matrix2x2({ a: 2., b: 0., c: 0., d: 2. });
      * ... }) == true
      * </code></pre>
@@ -230,8 +233,8 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... var a = Matrix2x2.unit();
-     * ... a - a == Matrix2x2.zero();
+     * ... var a = Matrix2x2.unit;
+     * ... a - a == Matrix2x2.zero;
      * ... }) == true
      * </code></pre>
      */
@@ -311,7 +314,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix2x2.unit();
+     * ... var a = Matrix2x2.unit;
      * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 0., 0., 1. ]);
      * ... var c: Matrix2x2 = b;
      * ... a == c; 
@@ -326,7 +329,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix2x2.unit();
+     * ... var a = Matrix2x2.unit;
      * ... var b: haxe.ds.Vector<Float> = a;
      * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 0., 0., 1. ]);
      * ... Equal.equals( b, c ); }) == true
@@ -342,7 +345,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... var a = Matrix2x2.unit();
+     * ... var a = Matrix2x2.unit;
      * ... a.setXY( 0, 0, 1. );
      * ... a.setXY( 1, 0, 2. );
      * ... a.setXY( 0, 1, 3. );

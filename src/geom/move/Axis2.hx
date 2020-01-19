@@ -81,10 +81,10 @@ class Axis2 {
         
         if( translations || rotations ){
             var qReal = if( rotations ){ Quaternion.fromYawPitchRoll( 0., 0., rxy.value );
-                    } else { Quaternion.zeroNormal(); 
+                    } else { Quaternion.zeroNormal; 
                     }
             var qDual = if( translations ){ new Matrix1x4( { x: tx.value, y: ty.value, z: 0, w: 1. } );
-                    } else { Matrix1x4.zero ();
+                    } else { Matrix1x4.zero;
                     }
             var dualQuaternion = DualQuaternion.create( qReal, qDual );
             return ( dualQuaternion * q );//.normalize();

@@ -10,20 +10,22 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function new( m: geom.structure.Mat1x4 ){ this = m; }
     /**
      * <pre><code>
-     * >>> Matrix1x4.zero() == new Matrix1x4({ x: 0., y: 0., z: 0., w: 0. })
+     * >>> Matrix1x4.zero == new Matrix1x4({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>
      */
-    public static inline
-    function zero(): Matrix1x4 {
+    public static var zero( get, never ): Matrix1x4;
+    static inline
+    function get_zero(): Matrix1x4 {
         return new Matrix1x4( { x: 0., y: 0., z: 0., w: 0. } );
     }
     /**
      * <pre><code>
-     * >>> Matrix1x4.unit() == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
+     * >>> Matrix1x4.unit == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
+    public static var unit( get, never ): Matrix1x4;
     public static inline
-    function unit(): Matrix1x4 {
+    function get_unit(): Matrix1x4 {
         return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
     }
     public inline
@@ -32,7 +34,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x4.identity( Matrix1x4.zero() ) == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
+     * >>> Matrix1x4.identity( Matrix1x4.zero ) == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
     public static inline
@@ -47,7 +49,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      * <pre><code>
      * >>> ({ 
      * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
-     * ... var b = Matrix1x4.zero();
+     * ... var b = Matrix1x4.zero;
      * ... var c = Matrix1x4.copy( a, b ); 
      * ... a == c; }) == true
      * </code></pre>
@@ -140,7 +142,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
+     * ... var a = Matrix1x4.unit;
      * ... a + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. }); 
      * ... }) == true
      * </code></pre>
@@ -152,8 +154,8 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
-     * ... a - a == Matrix1x4.zero();
+     * ... var a = Matrix1x4.unit;
+     * ... a - a == Matrix1x4.zero;
      * ... }) == true
      * </code></pre>
      */
@@ -315,7 +317,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         var y2 = b.y;
         var z2 = b.z;
         var dot = scalarProduct( a, b );
-        var p = Matrix1x4.unit();
+        var p = Matrix1x4.unit;
         if( dot < 0 ) { // shortest direction
             dot = -dot;
             w2 = -w2;
@@ -355,7 +357,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
+     * ... var a = Matrix1x4.unit;
      * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
      * ... var c: Matrix1x4 = b;
      * ... a == b; }) == true
@@ -369,7 +371,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
+     * ... var a = Matrix1x4.unit;
      * ... var b: haxe.ds.Vector<Float> = a;
      * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
      * ... Equal.equals( b, c ); }) == true
@@ -388,7 +390,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
+     * ... var a = Matrix1x4.unit;
      * ... var b: Matrix1x4 = [ 1., 1., 1., 1. ];
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>
@@ -400,7 +402,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x4.unit();
+     * ... var a = Matrix1x4.unit;
      * ... var b: Array<Float> = a;
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>

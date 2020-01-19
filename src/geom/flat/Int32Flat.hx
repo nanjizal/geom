@@ -17,7 +17,7 @@ abstract Int32Flat( Int32Array ) to Int32Array from Int32Array {
     }
     public inline
     function new( len: Int ){
-        this = new Int32Array( len );
+        this = new Int32Array( len + 2 );
         this[0] = 0; // init iteratior no.
         this[1] = 0; // init useful length
     }

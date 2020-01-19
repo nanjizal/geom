@@ -17,7 +17,7 @@ abstract UInt16Flat( UInt16Array ) to UInt16Array from UInt16Array {
     }
     public inline
     function new( len: Int ){
-        this = new UInt16Array( len );
+        this = new UInt16Array( len + 2 );
         this[0] = 0; // init iteratior no.
         this[1] = 0; // init useful length
     }

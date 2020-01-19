@@ -32,28 +32,30 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.zero() == new Matrix1x2({ x: 0., y: 0. })
+     * >>> Matrix1x2.zero == new Matrix1x2({ x: 0., y: 0. })
      * </code></pre>
      */
-    public static inline
-    function zero(){
+    public static var zero( get, never ): Matrix1x2;
+    static inline
+    function get_zero(): Matrix1x2 {
         return new Matrix1x2({ x: 0., y: 0. });
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.unit() == new Matrix1x2({ x: 1., y: 1. })
+     * >>> Matrix1x2.unit == new Matrix1x2({ x: 1., y: 1. })
      * </code></pre>
      */
-    public static inline
-    function unit(){
+    public static var unit( get, never ): Matrix1x2;
+    static inline
+    function get_unit(): Matrix1x2 {
         return new Matrix1x2({ x: 1., y: 1. });
     }
-    public var magnitude( get, set ): Float;
     /**
      * <pre><code>
      * >>> ( new Matrix1x2( { x: 4., y: 3. } ) ).magnitude == 5
      * </code></pre>
      */
+    public var magnitude( get, set ): Float;
     private inline
     function get_magnitude(): Float {
         return Math.sqrt( this.x * this.x + this.y * this.y);
@@ -159,7 +161,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     
     /**
      * <pre><code>
-     * >>> Matrix1x2.unit() + Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+     * >>> Matrix1x2.unit + Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
      * </code></pre>
      */
     @:op(A + B) public static inline
@@ -168,7 +170,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.unit() - Matrix1x2.unit() == new Matrix1x2( { x: 0., y: 0. } )
+     * >>> Matrix1x2.unit - Matrix1x2.unit == new Matrix1x2( { x: 0., y: 0. } )
      * </code></pre>
      */
     @:op(A - B) public static inline
@@ -182,8 +184,8 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.unit() * 2 == new Matrix1x2( { x: 2., y: 2. } )
-     * >>> 2 * Matrix1x2.unit() == new Matrix1x2( { x: 2., y: 2. } )
+     * >>> Matrix1x2.unit * 2 == new Matrix1x2( { x: 2., y: 2. } )
+     * >>> 2 * Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
      * </code></pre>
      */
     @:op(A * B) @:commutative public static inline
@@ -192,7 +194,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.unit() / 2 == new Matrix1x2( { x: 0.5, y: 0.5 } )
+     * >>> Matrix1x2.unit / 2 == new Matrix1x2( { x: 0.5, y: 0.5 } )
      * </code></pre>
      */
     @:op(A / B) public static inline
@@ -371,14 +373,14 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     }
     /**
      * <pre><code>
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.east(),        Matrix1x2.zero() ) == 0
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomRight(), Matrix1x2.zero() ) == -Math.PI/4
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.south(),       Matrix1x2.zero() ) == -Math.PI/2
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomLeft(),  Matrix1x2.zero() ) == -3*Math.PI/4
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.west(),        Matrix1x2.zero() ) == Math.PI
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.topLeft(),     Matrix1x2.zero() ) == 3*Math.PI/4
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.north(),       Matrix1x2.zero() ) == Math.PI/2
-     * >>> Matrix1x2.thetaDifference( Matrix1x2.topRight(),    Matrix1x2.zero() ) == Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.east(),        Matrix1x2.zero ) == 0
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomRight(), Matrix1x2.zero ) == -Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.south(),       Matrix1x2.zero ) == -Math.PI/2
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.bottomLeft(),  Matrix1x2.zero ) == -3*Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.west(),        Matrix1x2.zero ) == Math.PI
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.topLeft(),     Matrix1x2.zero ) == 3*Math.PI/4
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.north(),       Matrix1x2.zero ) == Math.PI/2
+     * >>> Matrix1x2.thetaDifference( Matrix1x2.topRight(),    Matrix1x2.zero ) == Math.PI/4
      * </code></pre>
      */
     public inline static
@@ -428,23 +430,23 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * <pre><code>
      * >>> ({ 
      * ... var a = Matrix1x2.topRight()/2; 
-     * ... var b = Matrix1x2.zero(); 
+     * ... var b = Matrix1x2.zero; 
      * ... var c = Matrix1x2.topRight(); 
      * ... a.inRect( b, c ); }) == true
      * >>> ({ 
      * ... var a = Matrix1x2.bottomLeft()/2; 
-     * ... var b = Matrix1x2.zero(); 
+     * ... var b = Matrix1x2.zero; 
      * ... var c = Matrix1x2.topRight(); 
      * ... a.inRect( b, c ); }) == false
      * >>> ({ 
      * ... var a = Matrix1x2.bottomLeft()/2; 
      * ... var b = Matrix1x2.bottomRight(); 
-     * ... var c = Matrix1x2.zero(); 
+     * ... var c = Matrix1x2.zero; 
      * ... a.inRect( b, c ); }) == false
      * >>> ({ 
      * ... var a = Matrix1x2.bottomRight()/2; 
      * ... var b = Matrix1x2.bottomRight(); 
-     * ... var c = Matrix1x2.zero(); 
+     * ... var c = Matrix1x2.zero; 
      * ... a.inRect( b, c ); }) == true
      * </code></pre>
      */
@@ -571,7 +573,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x2.unit();
+     * ... var a = Matrix1x2.unit;
      * ... var b: haxe.ds.Vector<Float> = a;
      * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1. ]);
      * ... Equal.equals( b, c ); }) == true
@@ -589,7 +591,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix1x2.unit();
+     * ... var a = Matrix1x2.unit;
      * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1. ]);
      * ... var c: Matrix1x2 = b;
      * ... a == c; 

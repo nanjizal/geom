@@ -51,10 +51,10 @@ class Axis3 {
         var translations = translationChanged(); 
         if( translations || rotations ){
             var qReal = if( rotations ){ Quaternion.fromYawPitchRoll( ry.value, rx.value, rz.value );
-                    } else { Quaternion.zeroNormal(); 
+                    } else { Quaternion.zeroNormal; 
                     }
             var qDual = if( translations ){ new Matrix1x4( { x: tx.value, y: ty.value, z: tz.value, w: 1. } );
-                    } else { Matrix1x4.zero ();
+                    } else { Matrix1x4.zero;
                     }
             var dualQuaternion = DualQuaternion.create( qReal, qDual );
             return ( dualQuaternion * q );//.normalize();

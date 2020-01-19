@@ -15,7 +15,7 @@ abstract Matrix2x2Alternate( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Alternate = new Matrix2x2Alternate( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Alternate = new Matrix2x2Alternate( Matrix2x2._1234 );
      * ... var b: Alternate2x2numbered = { _00: 1., _01: 2., _10: 3., _11: 4. };
      * ... var c: Alternate2x2numbered = a;
      * ... Equal.equals( b, c ); }) == true
@@ -29,7 +29,7 @@ abstract Matrix2x2Alternate( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Alternate = new Matrix2x2Alternate( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Alternate = new Matrix2x2Alternate( Matrix2x2._1234 );
      * ... var b: Alternate2x2numbered = { _00: 1., _01: 2., _10: 3., _11: 4. };
      * ... var c: Matrix2x2Alternate = b;
      * ... Equal.equals( a, c ); }) == true

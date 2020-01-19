@@ -14,7 +14,7 @@ abstract Matrix3x3Alternate( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Alternate = new Matrix3x3Alternate( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Alternate = new Matrix3x3Alternate( Matrix3x3._123456789 );
      * ... var b: Alternate3x3numbered = { _00: 1., _01: 2., _02: 3., _10: 4., _11: 5., _12: 6., _20: 7., _21: 8., _22: 9. };
      * ... var c: Tmatrix3x3numbered = a;
      * ... Equal.equals( b, c ); }) == true
@@ -30,7 +30,7 @@ abstract Matrix3x3Alternate( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Alternate= new Matrix3x3Alternate( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Alternate= new Matrix3x3Alternate( Matrix3x3._123456789 );
      * ... var b: Alternate3x3numbered = { _00: 1., _01: 2., _02: 3., _10: 4., _11: 5., _12: 6., _20: 7., _21: 8., _22: 9. };
      * ... var c: Matrix3x3Alternate  = b;
      * ... Equal.equals( a, c ); }) == true

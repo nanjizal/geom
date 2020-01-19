@@ -14,7 +14,7 @@ abstract Matrix2x2Convert( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234 );
      * ... var b: Tmatrix2x2 = { a: 1., b: 2., c: 3., d: 4. };
      * ... var c: Tmatrix2x2 = a;
      * ... Equal.equals( b, c ); }) == true
@@ -28,7 +28,7 @@ abstract Matrix2x2Convert( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234 );
      * ... var b: Tmatrix2x2 = { a: 1., b: 2., c: 3., d: 4. };
      * ... var c: Matrix2x2Convert = b;
      * ... Equal.equals( a, c ); }) == true
@@ -42,7 +42,7 @@ abstract Matrix2x2Convert( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234 );
      * ... var b: Tmatrix2x2numbered = { _00: 1., _10: 2., _01: 3., _11: 4. };
      * ... var c: Tmatrix2x2numbered = a;
      * ... Equal.equals( b, c ); }) == true
@@ -56,7 +56,7 @@ abstract Matrix2x2Convert( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234() );
+     * ... var a: Matrix2x2Convert = new Matrix2x2Convert( Matrix2x2._1234 );
      * ... var b: Tmatrix2x2numbered = { _00: 1., _10: 2., _01: 3., _11: 4. };
      * ... var c: Matrix2x2Convert  = b;
      * ... Equal.equals( a, c ); }) == true

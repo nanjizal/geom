@@ -17,14 +17,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.zero() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.zero == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
      * ...                                   , e: 0., f: 0., g: 0., h: 0.
      * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function zero(): Matrix4x3 {
+    public static var zero( get, never ): Matrix4x3;
+    static inline
+    function get_zero(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0. } );
@@ -32,14 +33,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... Matrix4x3.unit() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.unit == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                   , e: 0., f: 1., g: 0., h: 0.
      * ...                                   , i: 0., j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function unit(): Matrix4x3 {
+    public static var unit( get, never ): Matrix4x3;
+    static inline
+    function get_unit(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
@@ -577,7 +579,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix4x3.unit();
+     * ... var a = Matrix4x3.unit;
      * ... a + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.
      * ...                         , e: 0., f: 2., g: 0., h: 0.
      * ...                         , i: 0., j: 0., k: 2., l: 0. } ); }) == true
@@ -592,8 +594,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Matrix4x3.unit();
-     * ... a - a == Matrix4x3.zero(); }) == true
+     * ... var a = Matrix4x3.unit;
+     * ... a - a == Matrix4x3.zero; }) == true
      * </code></pre>
      */
     @:op(A - B) public static inline

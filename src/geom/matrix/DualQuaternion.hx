@@ -1,6 +1,7 @@
 package geom.matrix;
 import geom.structure.DualQ;
 import geom.matrix.DualQuaternion;
+import geom.matrix.Quaternion;
 import geom.matrix.Matrix1x4;
 // referance Luxe source code and this link
 // http://wscg.zcu.cz/wscg2012/short/A29-full.pdf
@@ -11,13 +12,14 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
     function new( dq: geom.structure.DualQ ){ this = dq; }
     /**
      * <pre><code>
-     * >>> DualQuaternion.zero() == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
      * </code></pre>
      */
-    public static inline
-    function zero(): DualQuaternion {
-        return new DualQuaternion( { real: Quaternion.zeroNormal()
-                                   , dual: Quaternion.zero() } );
+    public static var zero( get, never ): DualQuaternion;
+    static inline
+    function get_zero(): DualQuaternion {
+        return new DualQuaternion( { real: Quaternion.zeroNormal
+                                   , dual: Quaternion.zero } );
     }
     public inline
     function clone(): DualQuaternion {
@@ -66,8 +68,8 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
-     * ... var b = Quaternion.unit();
+     * ... var a = Quaternion.unit;
+     * ... var b = Quaternion.unit;
      * ... var c = new DualQuaternion( { real: a, dual: b } );
      * ... c + c == new DualQuaternion( { real:{ x: 2., y: 2., z: 2., w: 2. }, dual: { x: 2., y: 2., z: 2., w: 2. } } ); 
      * ... }) == true
@@ -80,10 +82,10 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
-     * ... var b = Quaternion.unit();
+     * ... var a = Quaternion.unit;
+     * ... var b = Quaternion.unit;
      * ... var c = new DualQuaternion( { real: a, dual: b } );
-     * ... c - c == new DualQuaternion( { real: Quaternion.zero(), dual: Quaternion.zero() } );
+     * ... c - c == new DualQuaternion( { real: Quaternion.zero, dual: Quaternion.zero } );
      * ... }) == true
      * </code></pre>
      */
@@ -132,7 +134,7 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
      */
     public static inline
     function scalar( s: Float ): DualQuaternion{
-        return new DualQuaternion( { real: Quaternion.scalarReal( s ), dual: Quaternion.zero() } );
+        return new DualQuaternion( { real: Quaternion.scalarReal( s ), dual: Quaternion.zero } );
     }
     
     public static inline 
@@ -164,7 +166,7 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
     @:to public inline
     function toMatrix4x3(): Matrix4x3 {
         var q = normalize();
-        var m = Matrix4x3.unit();
+        var m = Matrix4x3.unit;
         var w = q.real.w;
         var x = q.real.x;
         var y = q.real.y;

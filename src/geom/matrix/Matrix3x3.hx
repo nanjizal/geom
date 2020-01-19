@@ -11,14 +11,15 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix3x3.zero() == new Matrix3x3( { a: 0., b: 0., c: 0.
+     * ... Matrix3x3.zero == new Matrix3x3( { a: 0., b: 0., c: 0.
      * ...                                    , d: 0., e: 0., f: 0.
      * ...                                    , g: 0., h: 0., i: 0. }); 
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function zero(): Matrix3x3 {
+    public static var zero( get, never ): Matrix3x3;
+    static inline
+    function get_zero(): Matrix3x3 {
         return new Matrix3x3({ a: 0., b: 0., c: 0.
                              , d: 0., e: 0., f: 0.
                              , g: 0., h: 0., i: 0. });
@@ -26,14 +27,15 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     /**
      * <pre><code>
      * >>> ({ 
-     * ... Matrix3x3.unit() == new Matrix3x3({ a: 1., b: 0., c: 0.
+     * ... Matrix3x3.unit == new Matrix3x3({ a: 1., b: 0., c: 0.
      * ...                                  , d: 0., e: 1., f: 0.
      * ...                                  , g: 0., h: 0., i: 1. });
      * ... }) == true
      * </code></pre>
      */
+    public static var unit( get, never ): Matrix3x3;
     public static inline
-    function unit(): Matrix3x3 {
+    function get_unit(): Matrix3x3 {
       	return new Matrix3x3({ a: 1., b: 0., c: 0.
                              , d: 0., e: 1., f: 0.
                              , g: 0., h: 0., i: 1. });
@@ -42,14 +44,15 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
      * Used for testing
      * <pre><code>
      * >>> ({
-     * ... Matrix3x3._123456789() == new Matrix3x3({ a: 1., b: 2., c: 3.
+     * ... Matrix3x3._123456789 == new Matrix3x3({ a: 1., b: 2., c: 3.
      * ...                                         , d: 4., e: 5., f: 6.
      * ...                                         , g: 7., h: 8., i: 9. });
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function _123456789(): Matrix3x3 {
+    public static var _123456789( get, never ): Matrix3x3;
+    static inline
+    function get__123456789(): Matrix3x3 {
         return new Matrix3x3( { a: 1., b: 2., c: 3.
                               , d: 4., e: 5., f: 6.
                               , g: 7., h: 8., i: 9. } );

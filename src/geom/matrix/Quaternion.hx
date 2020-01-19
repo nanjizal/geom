@@ -14,43 +14,46 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     function new( m: geom.structure.Mat1x4 ){ this = m; }
     /**
      * <pre><code>
-     * >>> Quaternion.zero() == new Quaternion({ x: 0., y: 0., z: 0., w: 0. })
+     * >>> Quaternion.zero == new Quaternion({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>
      */
-    public static inline
-    function zero(): Quaternion {
+    public static var zero( get, never ): Quaternion;
+    static inline
+    function get_zero(): Quaternion {
         return new Quaternion( { x: 0., y: 0., z: 0., w: 0. } );
     }
     /**
      * <pre><code>
-     * >>> Quaternion.zeroNormal() == new Quaternion({ x: 0., y: 0., z: 0., w: 1. })
+     * >>> Quaternion.zeroNormal == new Quaternion({ x: 0., y: 0., z: 0., w: 1. })
      * </code></pre>
      */
-    public static inline
-    function zeroNormal(): Quaternion {
+    public static var zeroNormal( get, never ): Quaternion;
+    static inline
+    function get_zeroNormal(): Quaternion {
         return new Quaternion( { x: 0., y: 0., z: 0., w: 1. } );
     }
     /**
      * <pre><code>
-     * >>> Quaternion.unit() == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
+     * >>> Quaternion.unit == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
-    public static inline
-    function unit(): Quaternion {
+    public static var unit( get, never ): Quaternion;
+    static inline
+    function get_unit(): Quaternion {
         return new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
     }
     /**
      * <pre><code>
      * >>> ({ 
      * ... var q = new Quaternion( { x: 1., y: 1., z: 1., w: 1. } );
-     * ... Quaternion.unit().normalize() == q.normalize();
+     * ... Quaternion.unitNormal == q.normalize();
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function unitNormal(): Quaternion {
-        trace('unitNormal' + unit().normalize() );
-        return unit().normalize();
+    public static var unitNormal( get, never ): Quaternion;
+    static inline
+    function get_unitNormal(): Quaternion {
+        return unit.normalize();
     }
     public inline
     function clone():Quaternion {
@@ -123,7 +126,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     
     /**
      * <pre><code>
-     * >>> Quaternion.identity( Quaternion.zero() ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
+     * >>> Quaternion.identity( Quaternion.zero ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
      * </code></pre>
      */
     public static inline
@@ -142,7 +145,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
      * <pre><code>
      * >>> ({ 
      * ... var a = new Quaternion({ x: 1., y: 2., z: 3., w: 1. });
-     * ... var b = Quaternion.zero();
+     * ... var b = Quaternion.zero;
      * ... var c = Quaternion.copy( a, b ); 
      * ... a == c; }) == true
      * </code></pre>
@@ -216,7 +219,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
+     * ... var a = Quaternion.unit;
      * ... a + a == new Quaternion({ x: 2., y: 2., z: 2., w: 2. }); 
      * ... }) == true
      * </code></pre>
@@ -228,8 +231,8 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
-     * ... a - a == Quaternion.zero(); 
+     * ... var a = Quaternion.unit;
+     * ... a - a == Quaternion.zero; 
      * ... }) == true
      * </code></pre>
      */
@@ -428,7 +431,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
+     * ... var a = Quaternion.unit;
      * ... var b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
      * ... var c: Quaternion = b;
      * ... a == b; }) == true
@@ -441,7 +444,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
+     * ... var a = Quaternion.unit;
      * ... var b: haxe.ds.Vector<Float> = a;
      * ... var c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);
      * ... Equal.equals( b, c ); }) == true
@@ -460,7 +463,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
+     * ... var a = Quaternion.unit;
      * ... var b: Quaternion = [ 1., 1., 1., 1. ];
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>
@@ -472,7 +475,7 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = Quaternion.unit();
+     * ... var a = Quaternion.unit;
      * ... var b: Array<Float> = a;
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>

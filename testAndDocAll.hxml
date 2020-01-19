@@ -1,0 +1,8 @@
+# document
+-cmd haxe generateDoc.hxml
+#unit test cppia - a fairly fast static target
+--next
+-cmd haxe testGeomCppia.hxml
+# unit test js
+--next
+-cmd haxe testGeom.hxml

@@ -5,12 +5,27 @@ import haxe.io.Float32Array; // js.lib.Float32Array
 // DON'T use this one directly!!
 @:forward
 abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
-    
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var ff = new Float32Flat(2);
+     * ... ff[0] = 1.;
+     * ... ff[0] == 1.; }) == true
+     * </code></pre>
+     */
     @:op([]) //@:arrayAccess
     public inline
     function readItem( k: Int ): Float {
       return this[ k + 2 ];
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var ff = new Float32Flat(2);
+     * ... ff[0] = 1.;
+     * ... ff[0] == 1.; }) == true
+     * </code></pre>
+     */
     @:op([]) //@:arrayAccess
     public inline
     function writeItem( k: Int, v: Float ): Float {
@@ -20,7 +35,7 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
     
     public inline
     function new( len: Int ){
-        this = new Float32Array( len );
+        this = new Float32Array( len + 2 );
         this[0] = 0.; // init iteratior no.
         this[1] = 0.; // init useful length
     }

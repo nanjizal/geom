@@ -14,7 +14,7 @@ abstract Matrix3x3Convert( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789 );
      * ... var b: Tmatrix3x3 = { a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. };
      * ... var c: Tmatrix3x3 = a;
      * ... Equal.equals( b, c ); }) == true
@@ -28,7 +28,7 @@ abstract Matrix3x3Convert( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789 );
      * ... var b: Tmatrix3x3 = { a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. };
      * ... var c: Matrix3x3Convert = b;
      * ... Equal.equals( a, c ); }) == true
@@ -42,7 +42,7 @@ abstract Matrix3x3Convert( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789 );
      * ... var b: Tmatrix3x3numbered = { _00: 1., _10: 2., _20: 3., _01: 4., _11: 5., _21: 6., _02: 7., _12: 8., _22: 9. };
      * ... var c: Tmatrix3x3numbered = a;
      * ... Equal.equals( b, c ); }) == true
@@ -58,7 +58,7 @@ abstract Matrix3x3Convert( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 to
     /**
      * <pre><code>
      * >>> ({ 
-     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789() );
+     * ... var a: Matrix3x3Convert = new Matrix3x3Convert( Matrix3x3._123456789 );
      * ... var b: Tmatrix3x3numbered = { _00: 1., _10: 2., _20: 3., _01: 4., _11: 5., _21: 6., _02: 7., _12: 8., _22: 9. };
      * ... var c: Matrix3x3Convert  = b;
      * ... Equal.equals( a, c ); }) == true
