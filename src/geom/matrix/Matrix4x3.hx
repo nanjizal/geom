@@ -49,14 +49,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.topLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.topLeft == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                      , e: 0.,  f: 1., g: 0., h: 0.
      * ...                                      , i: 0.,  j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function topLeft(){
+    public static var topLeft( get, never ): Matrix4x3;
+    static inline
+    function get_topLeft(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
                              , e: 0.,  f: 1., g: 0., h: 0.
                              , i: 0.,  j: 0., k: 0., l: 0. } );
@@ -64,14 +65,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.topRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.topRight == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                       , e: 0., f: 1., g: 0., h: 0.
      * ...                                       , i: 0., j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function topRight(){
+    public static var topRight( get, never ): Matrix4x3;
+    static inline
+    function get_topRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0. } );
@@ -79,14 +81,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.bottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ... Matrix4x3.bottomLeft == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
      * ...                                         , e: 0.,  f: -1., g: 0., h: 0.
      * ...                                         , i: 0.,  j: 0.,  k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline 
-    function bottomLeft(){
+    public static var bottomLeft( get, never ): Matrix4x3;
+    static inline 
+    function get_bottomLeft(): Matrix4x3 {
          return new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
                               , e: 0.,  f: -1., g: 0., h: 0.
                               , i: 0.,  j: 0.,  k: 0., l: 0. } );
@@ -94,14 +97,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.bottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ... Matrix4x3.bottomRight == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
      * ...                                          , e: 0., f: -1., g: 0., h: 0.
      * ...                                          , i: 0., j: 0.,  k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function bottomRight(){
+    public static var bottomRight( get, never ): Matrix4x3;
+    static inline
+    function get_bottomRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
                                  , e: 0., f: -1., g: 0., h: 0.
                                  , i: 0., j: 0.,  k: 0., l: 0. } );
@@ -109,14 +113,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.north() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.north == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
      * ...                                    , e: 0., f: 1., g: 0., h: 0.
      * ...                                    , i: 0., j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function north(){
+    public static var north( get, never ): Matrix4x3;
+    static inline
+    function get_north(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                                 , e: 0., f: 1., g: 0., h: 0.
                                 , i: 0., j: 0., k: 0., l: 0. } );
@@ -124,14 +129,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.south() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * ... Matrix4x3.south == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
      * ...                                    , e: 0., f: -1., g: 0., h: 0.
      * ...                                    , i: 0., j: 0.,  k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function south(){
+    public static var south( get, never ): Matrix4x3;
+    static inline
+    function get_south(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
                                 , e: 0., f: -1., g: 0., h: 0.
                                 , i: 0., j: 0.,  k: 0., l: 0. } );
@@ -139,14 +145,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.west() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.west == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
      * ...                                   , e: 0.,  f: 0., g: 0., h: 0.
      * ...                                   , i: 0.,  j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function west(){
+    public static var west( get, never ): Matrix4x3;
+    static inline
+    function get_west(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
                              , e: 0.,  f: 0., g: 0., h: 0.
                              , i: 0.,  j: 0., k: 0., l: 0. } );
@@ -154,14 +161,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.east() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ... Matrix4x3.east == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
      * ...                                   , e: 0., f: 0., g: 0., h: 0.
      * ...                                   , i: 0., j: 0., k: 0., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function east(){
+    public static var east( get, never ): Matrix4x3;
+    static inline
+    function get_east(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0. } );
@@ -169,14 +177,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.front() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
-     * ...                                    , e: 0., f: 0., g: 0., h: 0.
-     * ...                                    , i: 0., j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.front == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                  , e: 0., f: 0., g: 0., h: 0.
+     * ...                                  , i: 0., j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function front(){
+    public static var front( get, never ): Matrix4x3;
+    static inline
+    function get_front(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
@@ -184,14 +193,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontNorth() == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
-     * ...                                         , e: 0., f: 1., g: 0., h: 0.
-     * ...                                         , i: 0., j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.frontNorth == new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
+     * ...                                       , e: 0., f: 1., g: 0., h: 0.
+     * ...                                       , i: 0., j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontNorth(){
+    public static var frontNorth( get, never ): Matrix4x3;
+    static inline
+    function get_frontNorth(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
@@ -199,14 +209,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
-     * ...                                           , e: 0.,  f: 1., g: 0., h: 0.
-     * ...                                           , i: 0.,  j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.frontTopLeft == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                         , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                         , i: 0.,  j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontTopLeft(){
+    public static var frontTopLeft( get, never ): Matrix4x3;
+    static inline
+    function get_frontTopLeft(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
                              , e: 0.,  f: 1., g: 0., h: 0.
                              , i: 0.,  j: 0., k: 1., l: 0. } );
@@ -214,14 +225,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
-     * ...                                            , e: 0., f: 1., g: 0., h: 0.
-     * ...                                            , i: 0., j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.frontTopRight == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                          , e: 0., f: 1., g: 0., h: 0.
+     * ...                                          , i: 0., j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontTopRight(){
+    public static var frontTopRight( get, never ): Matrix4x3;
+    static inline
+    function get_frontTopRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
@@ -229,14 +241,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
-     * ...                                              , e: 0.,  f: -1., g: 0., h: 0.
-     * ...                                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
+     * ... Matrix4x3.frontBottomLeft == new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
+     * ...                                            , e: 0.,  f: -1., g: 0., h: 0.
+     * ...                                            , i: 0.,  j: 0.,  k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontBottomLeft(){
+    public static var frontBottomLeft( get, never ): Matrix4x3;
+    static inline
+    function get_frontBottomLeft(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0.,  c: 0., d: 0.
                              , e: 0.,  f: -1., g: 0., h: 0.
                              , i: 0.,  j: 0.,  k: 1., l: 0. } );
@@ -244,14 +257,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
-     * ...                                               , e: 0., f: -1., g: 0., h: 0.
-     * ...                                               , i: 0., j: 0.,  k: 1., l: 0. } );
+     * ... Matrix4x3.frontBottomRight == new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
+     * ...                                             , e: 0., f: -1., g: 0., h: 0.
+     * ...                                             , i: 0., j: 0.,  k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontBottomRight(){
+    public static var frontBottomRight( get, never ): Matrix4x3;
+    static inline
+    function get_frontBottomRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0.,  c: 0., d: 0.
                              , e: 0., f: -1., g: 0., h: 0.
                              , i: 0., j: 0.,  k: 1., l: 0. } );
@@ -259,14 +273,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
-     * ...                                         , e: 0., f: -1., g: 0., h: 0.
-     * ...                                         , i: 0., j: 0.,  k: 1., l: 0. } );
+     * ... Matrix4x3.frontSouth == new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
+     * ...                                       , e: 0., f: -1., g: 0., h: 0.
+     * ...                                       , i: 0., j: 0.,  k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontSouth(){
+    public static var frontSouth( get, never ): Matrix4x3;
+    static inline
+    function get_frontSouth(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0.,  c: 0., d: 0.
                              , e: 0., f: -1., g: 0., h: 0.
                              , i: 0., j: 0.,  k: 1., l: 0. } );
@@ -274,14 +289,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontWest() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
-     * ...                                        , e: 0.,  f: 0., g: 0., h: 0.
-     * ...                                        , i: 0.,  j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.frontWest == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                      , e: 0.,  f: 0., g: 0., h: 0.
+     * ...                                      , i: 0.,  j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontWest(){
+    public static var frontWest( get, never ): Matrix4x3;
+    static inline
+    function get_frontWest(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
                              , e: 0.,  f: 0., g: 0., h: 0.
                              , i: 0.,  j: 0., k: 1., l: 0. } );
@@ -289,14 +305,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.frontEast() == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
-     * ...                                        , e: 0., f: 0., g: 0., h: 0.
-     * ...                                        , i: 0., j: 0., k: 1., l: 0. } );
+     * ... Matrix4x3.frontEast == new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
+     * ...                                      , e: 0., f: 0., g: 0., h: 0.
+     * ...                                      , i: 0., j: 0., k: 1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function frontEast(){
+    public static var frontEast( get, never ): Matrix4x3;
+    static inline
+    function get_frontEast(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
@@ -304,14 +321,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.back() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ... Matrix4x3.back == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
      * ...                                   , e: 0., f: 0., g: 0.,  h: 0.
      * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function back(){
+    public static var back( get, never ): Matrix4x3;
+    static inline
+    function get_back(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
                              , e: 0., f: 0., g: 0.,  h: 0.
                              , i: 0., j: 0., k: -1., l: 0. } );
@@ -319,14 +337,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backTopLeft() == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
-     * ...                                          , e: 0.,  f: 1., g: 0., h: 0.
-     * ...                                          , i: 0.,  j: 0., k: -1., l: 0. } );
+     * ... Matrix4x3.backTopLeft == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                        , e: 0.,  f: 1., g: 0., h: 0.
+     * ...                                        , i: 0.,  j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backTopLeft(){
+    public static var backTopLeft( get, never ): Matrix4x3;
+    static inline
+    function get_backTopLeft(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
                              , e: 0.,  f: 1., g: 0.,  h: 0.
                              , i: 0.,  j: 0., k: -1., l: 0. } );
@@ -334,14 +353,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backTopRight() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
-     * ...                                           , e: 0., f: 1., g: 0.,  h: 0.
-     * ...                                           , i: 0., j: 0., k: -1., l: 0. } );
+     * ... Matrix4x3.backTopRight == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                         , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                         , i: 0., j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backTopRight(){
+    public static var backTopRight( get, never ): Matrix4x3;
+    static inline
+    function get_backTopRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
                              , e: 0., f: 1., g: 0.,  h: 0.
                              , i: 0., j: 0., k: -1., l: 0. } );
@@ -349,14 +369,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backBottomLeft() == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
-     * ...                                             , e: 0.,  f: -1., g: 0.,  h: 0.
-     * ...                                             , i: 0.,  j: 0.,  k: -1., l: 0. } );
+     * ... Matrix4x3.backBottomLeft == new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
+     * ...                                           , e: 0.,  f: -1., g: 0.,  h: 0.
+     * ...                                           , i: 0.,  j: 0.,  k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backBottomLeft(){
+    public static var backBottomLeft( get, never ): Matrix4x3;
+    static inline
+    function get_backBottomLeft(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0.,  c: 0.,  d: 0.
                              , e: 0.,  f: -1., g: 0.,  h: 0.
                              , i: 0.,  j: 0.,  k: -1., l: 0. } );
@@ -364,14 +385,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backBottomRight() == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
-     * ...                                              , e: 0., f: -1., g: 0.,  h: 0.
-     * ...                                              , i: 0., j: 0.,  k: -1., l: 0. } );
+     * ... Matrix4x3.backBottomRight == new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
+     * ...                                            , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                            , i: 0., j: 0.,  k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backBottomRight(){
+    public static var backBottomRight( get, never ): Matrix4x3;
+    static inline
+    function get_backBottomRight(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0.,  c: 0.,  d: 0.
                              , e: 0., f: -1., g: 0.,  h: 0.
                              , i: 0., j: 0.,  k: -1., l: 0. } );
@@ -379,14 +401,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backNorth() == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
-     * ...                                        , e: 0., f: 1., g: 0.,  h: 0.
-     * ...                                        , i: 0., j: 0., k: -1., l: 0. } );
+     * ... Matrix4x3.backNorth == new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
+     * ...                                      , e: 0., f: 1., g: 0.,  h: 0.
+     * ...                                      , i: 0., j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backNorth(){
+    public static var backNorth( get, never ): Matrix4x3;
+    static inline
+    function get_backNorth(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0., c: 0.,  d: 0.
                              , e: 0., f: 1., g: 0.,  h: 0.
                              , i: 0., j: 0., k: -1., l: 0. } );
@@ -394,14 +417,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backSouth() == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
-     * ...                                        , e: 0., f: -1., g: 0.,  h: 0.
-     * ...                                        , i: 0., j: 0.,  k: -1., l: 0. } );
+     * ... Matrix4x3.backSouth == new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
+     * ...                                      , e: 0., f: -1., g: 0.,  h: 0.
+     * ...                                      , i: 0., j: 0.,  k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backSouth(){
+    public static var backSouth( get, never ): Matrix4x3;
+    static inline
+    function get_backSouth(): Matrix4x3 {
         return new Matrix4x3({ a: 0., b: 0.,  c: 0.,  d: 0.
                              , e: 0., f: -1., g: 0.,  h: 0.
                              , i: 0., j: 0.,  k: -1., l: 0. } );
@@ -409,14 +433,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backWest() == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
-     * ...                                       , e: 0.,  f: 0., g: 0.,  h: 0.
-     * ...                                       , i: 0.,  j: 0., k: -1., l: 0. } );
+     * ... Matrix4x3.backWest == new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
+     * ...                                     , e: 0.,  f: 0., g: 0.,  h: 0.
+     * ...                                     , i: 0.,  j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backWest(){
+    public static var backWest( get, never ): Matrix4x3;
+    static inline
+    function get_backWest(): Matrix4x3 {
         return new Matrix4x3({ a: -1., b: 0., c: 0.,  d: 0.
                              , e: 0.,  f: 0., g: 0.,  h: 0.
                              , i: 0.,  j: 0., k: -1., l: 0. } );
@@ -424,14 +449,15 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix4x3.backEast() == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
-     * ...                                       , e: 0., f: 0., g: 0.,  h: 0.
-     * ...                                       , i: 0., j: 0., k: -1., l: 0. } );
+     * ... Matrix4x3.backEast == new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
+     * ...                                     , e: 0., f: 0., g: 0.,  h: 0.
+     * ...                                     , i: 0., j: 0., k: -1., l: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function backEast(){
+    public static var backEast( get, never ): Matrix4x3;
+    static inline
+    function get_backEast(): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0.,  d: 0.
                              , e: 0., f: 0., g: 0.,  h: 0.
                              , i: 0., j: 0., k: -1., l: 0. } );

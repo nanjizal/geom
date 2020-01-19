@@ -54,104 +54,112 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.topLeft() == new Matrix2x2( { a: 1., b: 0.
+     * ... Matrix2x2.topLeft == new Matrix2x2( { a: 1., b: 0.
      * ...                                       , c: 0., d: -1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function topLeft(){
+    public static var topLeft( get, never ): Matrix2x2;
+    static inline
+    function get_topLeft(){
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: -1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.topRight() == new Matrix2x2( { a: 1., b: 0.
+     * ... Matrix2x2.topRight == new Matrix2x2( { a: 1., b: 0.
      * ...                                        , c: 0., d: 1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function topRight(){
+    public static var topRight( get, never ): Matrix2x2;
+    static inline
+    function get_topRight(){
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.bottomLeft() == new Matrix2x2( { a: -1., b: 0.
+     * ... Matrix2x2.bottomLeft == new Matrix2x2( { a: -1., b: 0.
      * ...                                          , c: 0., d: -1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline 
-    function bottomLeft(){
+    public static var bottomLeft( get, never ): Matrix2x2;
+    static inline 
+    function get_bottomLeft(): Matrix2x2 {
          return new Matrix2x2( { a: -1., b: 0.
                                , c: 0., d: -1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.bottomRight() == new Matrix2x2( { a: 1., b: 0.
+     * ... Matrix2x2.bottomRight == new Matrix2x2( { a: 1., b: 0.
      * ...                                           , c: 0., d: -1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function bottomRight(){
+    public static var bottomRight( get, never ): Matrix2x2;
+    static inline
+    function get_bottomRight(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: -1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.north() == new Matrix2x2( { a: 0., b: 0.
+     * ... Matrix2x2.north == new Matrix2x2( { a: 0., b: 0.
      * ...                                     , c: 0., d: 1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function north(){
+    public static var north( get, never ): Matrix2x2;
+    static inline
+    function get_north(): Matrix2x2 {
         return new Matrix2x2( { a: 0., b: 0.
                               , c: 0., d: 1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.south() == new Matrix2x2( { a: 0., b: 0.
+     * ... Matrix2x2.south == new Matrix2x2( { a: 0., b: 0.
      * ...                                     , c: 0., d: -1. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function south(){
+    public static var south( get, never ): Matrix2x2;
+    static inline
+    function get_south(){
         return new Matrix2x2( { a: 0., b: 0.
                               , c: 0., d: -1. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.west() == new Matrix2x2( { a: -1., b: 0.
+     * ... Matrix2x2.west == new Matrix2x2( { a: -1., b: 0.
      * ...                                    , c: 0.,  d: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function west(){
+    public static var west( get, never ): Matrix2x2;
+    static inline
+    function get_west(): Matrix2x2 {
         return new Matrix2x2( { a: -1., b: 0.
                               , c: 0.,  d: 0. } );
     }
     /**
      * <pre><code>
      * >>> ({
-     * ... Matrix2x2.east() == new Matrix2x2( { a: 1., b: 0.
+     * ... Matrix2x2.east == new Matrix2x2( { a: 1., b: 0.
      * ...                                    , c: 0., d: 0. } );
      * ... }) == true
      * </code></pre>
      */
-    public static inline
-    function east(){
+    public static var east( get, never ): Matrix2x2;
+    static inline
+    function get_east(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 0. } );
     }
