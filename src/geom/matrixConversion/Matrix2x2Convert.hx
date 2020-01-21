@@ -5,7 +5,7 @@ import geom.tydef.Tmatrix2x2;
 import geom.tydef.Tmatrix2x2numbered;
 import geom.tydef.Alternate2x2numbered;
 /** 
-   ![2x2](../bootstrap/img/matrix2x2.png)
+   ![2x2](../../bootstrap/img/matrix2x2.png)
 **/
 @:forward
 abstract Matrix2x2Convert( geom.matrix.Matrix2x2 ) from geom.matrix.Matrix2x2 to geom.matrix.Matrix2x2 {

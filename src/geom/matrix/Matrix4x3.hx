@@ -8,7 +8,7 @@ import js.lib.Float32Array;
 #end
 import geom.tydef.*;
 /** 
-   ![4x3](../bootstrap/img/matrix4x3.png)
+   ![4x3](../../bootstrap/img/matrix4x3.png)
 **/
 @:forward // treat like 4x4 matrix but don't store last row!
 abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.structure.Mat4x3 {

@@ -5,7 +5,7 @@ import geom.tydef.Tmatrix3x3;
 import geom.tydef.Tmatrix3x3numbered;
 import geom.tydef.Alternate3x3numbered;
 /** 
-   ![2x2](../bootstrap/img/matrix3x3.png)
+   ![3x3](../../bootstrap/img/matrix3x3.png)
 **/
 @:forward
 abstract Matrix3x3Convert( geom.matrix.Matrix3x3 ) from geom.matrix.Matrix3x3 to geom.matrix.Matrix3x3 {

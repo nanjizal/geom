@@ -5,7 +5,7 @@ import geom.tydef.Tmatrix2x2;
 import geom.tydef.Tmatrix2x2numbered;
 import geom.tydef.Alternate2x2numbered;
 /** 
-   ![2x2](../bootstrap/img/matrix2x2.png)  
+   ![2x2](../../bootstrap/img/matrix2x2.png)  
    because you can't have same typedef signature auto conversion.
 **/
 @:forward

@@ -6,7 +6,7 @@ import geom.tydef.Tmatrix4x4;
 import geom.tydef.Tmatrix4x4numbered;
 import geom.tydef.Alternate4x4numbered;
 /** 
-   ![2x2](../bootstrap/img/matrix4x4.png)
+   ![4x4](../../bootstrap/img/matrix4x4.png)
 **/
 @:forward
 abstract Matrix4x4Alternate( geom.matrix.Matrix4x4 ) from geom.matrix.Matrix4x4 to geom.matrix.Matrix4x4 {

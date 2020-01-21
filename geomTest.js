@@ -599,59 +599,7 @@ geom_GeomTest.main = function() {
 };
 geom_GeomTest.__super__ = utest_Test;
 geom_GeomTest.prototype = $extend(utest_Test.prototype,{
-	testFloat32Flat_1: function() {
-		var left;
-		try {
-			var this1 = new Float32Array(4);
-			var this2 = this1;
-			this2[0] = 0.;
-			this2[1] = 0.;
-			var ff = this2;
-			ff[2] = 1.;
-			left = ff[2] == 1.;
-		} catch( ex ) {
-			haxe_CallStack.lastException = ex;
-			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
-		}
-		var right;
-		try {
-			right = true;
-		} catch( ex1 ) {
-			haxe_CallStack.lastException = ex1;
-			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
-		}
-		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
-			utest_Assert.pass("Float32Flat.hx:10 [OK] ({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true",{ lineNumber : 10, fileName : "src/geom/flat/Float32Flat.hx", className : "", methodName : ""});
-		} else {
-			utest_Assert.fail("({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 10, fileName : "src/geom/flat/Float32Flat.hx", className : "", methodName : ""});
-		}
-		var left1;
-		try {
-			var this3 = new Float32Array(4);
-			var this4 = this3;
-			this4[0] = 0.;
-			this4[1] = 0.;
-			var ff1 = this4;
-			ff1[2] = 1.;
-			left1 = ff1[2] == 1.;
-		} catch( ex2 ) {
-			haxe_CallStack.lastException = ex2;
-			left1 = "exception: " + Std.string(((ex2) instanceof js__$Boot_HaxeError) ? ex2.val : ex2) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
-		}
-		var right1;
-		try {
-			right1 = true;
-		} catch( ex3 ) {
-			haxe_CallStack.lastException = ex3;
-			right1 = "exception: " + Std.string(((ex3) instanceof js__$Boot_HaxeError) ? ex3.val : ex3) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
-		}
-		if(hx_doctest_internal_DocTestUtils.deepEquals(left1,right1)) {
-			utest_Assert.pass("Float32Flat.hx:23 [OK] ({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true",{ lineNumber : 23, fileName : "src/geom/flat/Float32Flat.hx", className : "", methodName : ""});
-		} else {
-			utest_Assert.fail("({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true --> Left side `" + Std.string(left1) + "` does not equal `" + Std.string(right1) + "`.",{ lineNumber : 23, fileName : "src/geom/flat/Float32Flat.hx", className : "", methodName : ""});
-		}
-	}
-	,testComplex_1: function() {
+	testComplex_1: function() {
 		var left;
 		try {
 			var removeI = HxOverrides.substr("1 + 2i",0,"1 + 2i".length - 1);
@@ -6827,13 +6775,61 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			utest_Assert.fail("({\nvar a: Matrix4x4Convert = new Matrix4x4Convert( Matrix4x4._1_16 );\nvar b: Tmatrix4x4numbered = { _00: 1., _10: 2., _20: 3., _30: 4.\n, _01: 5., _11: 6., _21: 7., _31: 8.\n, _02: 9., _12: 10., _22: 11., _32: 12.\n, _03: 13., _13: 14., _23: 15., _33: 16. };\nvar c: Matrix4x4Convert  = b;\nEqual.equals( a, c ); }) == true --> Left side `" + Std.string(left5) + "` does not equal `" + Std.string(right5) + "`.",{ lineNumber : 111, fileName : "src/geom/matrixConversion/Matrix4x4Convert.hx", className : "", methodName : ""});
 		}
 	}
+	,testFloat32Flat_1: function() {
+		var left;
+		try {
+			var this1 = new Float32Array(4);
+			var this2 = this1;
+			this2[0] = 0.;
+			this2[1] = 0.;
+			var ff = this2;
+			ff[2] = 1.;
+			left = ff[2] == 1.;
+		} catch( ex ) {
+			haxe_CallStack.lastException = ex;
+			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right;
+		try {
+			right = true;
+		} catch( ex1 ) {
+			haxe_CallStack.lastException = ex1;
+			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
+			utest_Assert.pass("Float32Flat.hx:10 [OK] ({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true",{ lineNumber : 10, fileName : "src/geom/flat/f32/Float32Flat.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 10, fileName : "src/geom/flat/f32/Float32Flat.hx", className : "", methodName : ""});
+		}
+		var left1;
+		try {
+			var this3 = new Float32Array(4);
+			var this4 = this3;
+			this4[0] = 0.;
+			this4[1] = 0.;
+			var ff1 = this4;
+			ff1[2] = 1.;
+			left1 = ff1[2] == 1.;
+		} catch( ex2 ) {
+			haxe_CallStack.lastException = ex2;
+			left1 = "exception: " + Std.string(((ex2) instanceof js__$Boot_HaxeError) ? ex2.val : ex2) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right1;
+		try {
+			right1 = true;
+		} catch( ex3 ) {
+			haxe_CallStack.lastException = ex3;
+			right1 = "exception: " + Std.string(((ex3) instanceof js__$Boot_HaxeError) ? ex3.val : ex3) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left1,right1)) {
+			utest_Assert.pass("Float32Flat.hx:23 [OK] ({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true",{ lineNumber : 23, fileName : "src/geom/flat/f32/Float32Flat.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("({\nvar ff = new Float32Flat(2);\nff[0] = 1.;\nff[0] == 1.; }) == true --> Left side `" + Std.string(left1) + "` does not equal `" + Std.string(right1) + "`.",{ lineNumber : 23, fileName : "src/geom/flat/f32/Float32Flat.hx", className : "", methodName : ""});
+		}
+	}
 	,__initializeUtest__: function() {
 		var _gthis = this;
 		var init = utest_Test.prototype.__initializeUtest__.call(this);
-		init.tests.push({ name : "testFloat32Flat_1", execute : function() {
-			_gthis.testFloat32Flat_1();
-			return utest_Async.getResolved();
-		}});
 		init.tests.push({ name : "testComplex_1", execute : function() {
 			_gthis.testComplex_1();
 			return utest_Async.getResolved();
@@ -6892,6 +6888,10 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}});
 		init.tests.push({ name : "testMatrix4x4Convert_1", execute : function() {
 			_gthis.testMatrix4x4Convert_1();
+			return utest_Async.getResolved();
+		}});
+		init.tests.push({ name : "testFloat32Flat_1", execute : function() {
+			_gthis.testFloat32Flat_1();
 			return utest_Async.getResolved();
 		}});
 		return init;
@@ -7186,55 +7186,55 @@ geom_curve_Hyperbolic.asinh = function(x) {
 geom_curve_Hyperbolic.atanh = function(x) {
 	return Math.log((1. + x) / (1. - x)) / 2.;
 };
-var geom_flat__$Float32Flat_Float32Flat_$Impl_$ = {};
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.__name__ = "geom.flat._Float32Flat.Float32Flat_Impl_";
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.__properties__ = {set_pos:"set_pos",get_pos:"get_pos",set_index:"set_index",get_index:"get_index",get_length:"get_length"};
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.readItem = function(this1,k) {
+var geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$ = {};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.__name__ = "geom.flat.f32._Float32Flat.Float32Flat_Impl_";
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.__properties__ = {set_pos:"set_pos",get_pos:"get_pos",set_index:"set_index",get_index:"get_index",get_length:"get_length"};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.readItem = function(this1,k) {
 	return this1[k + 2];
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.writeItem = function(this1,k,v) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.writeItem = function(this1,k,v) {
 	this1[k + 2] = v;
 	return v;
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$._new = function(len) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$._new = function(len) {
 	var this1 = new Float32Array(len + 2);
 	var this2 = this1;
 	this2[0] = 0.;
 	this2[1] = 0.;
 	return this2;
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.get_length = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_length = function(this1) {
 	return Std.int(this1[1]);
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.get_index = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_index = function(this1) {
 	return Std.int(this1[0]);
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.set_index = function(this1,id) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_index = function(this1,id) {
 	this1[0] = id;
 	if(this1[0] > this1[1]) {
 		this1[1] = this1[0];
 	}
 	return id;
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.get_pos = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_pos = function(this1) {
 	return this1[0];
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.set_pos = function(this1,pos_) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_pos = function(this1,pos_) {
 	this1[0] = pos_;
 	if(this1[0] > this1[1]) {
 		this1[1] = this1[0];
 	}
 	return pos_;
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.updateLen = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.updateLen = function(this1) {
 	if(this1[0] > this1[1]) {
 		this1[1] = this1[0];
 	}
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.hasNext = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.hasNext = function(this1) {
 	return this1[0] < Std.int(this1[1]);
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
 	var pos_ = this1[0] + 1.;
 	this1[0] = pos_;
 	if(this1[0] > this1[1]) {
@@ -7242,7 +7242,7 @@ geom_flat__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
 	}
 	return this1[0];
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
 	var pos_ = this1[0] + 1.;
 	this1[0] = pos_;
 	if(this1[0] > this1[1]) {
@@ -7250,7 +7250,7 @@ geom_flat__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
 	}
 	return this1[0];
 };
-geom_flat__$Float32Flat_Float32Flat_$Impl_$.getArray = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.getArray = function(this1) {
 	return this1.subarray(2,Std.int(this1[1]) + 2);
 };
 var geom_matrix__$Complex_Complex_$Impl_$ = {};
