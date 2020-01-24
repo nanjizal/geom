@@ -52,6 +52,6 @@ abstract Int32Flat( Int32Array ) to Int32Array from Int32Array {
     }
     public inline
     function getArray(): Int32Array {
-        return this.subarray( 2, this.length - 1 );
+        return this.subarray( 2, get_length() + 2 );
     }
 }

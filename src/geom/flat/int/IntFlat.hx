@@ -51,6 +51,6 @@ abstract IntFlat( Array<Int> ) to Array<Int> from Array<Int> {
     }
     public inline
     function getArray(): Array<Int> {
-        return this.slice( 2, this.length - 1 );
+        return this.slice( 2, get_length() + 2 );
     }
 }
