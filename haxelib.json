@@ -4,7 +4,7 @@
   "license"      : "MIT",
   "tags"         : ["cross","maths"],
   "description"  : "geom",
-  "version"      : "0.0.1",
+  "version"      : "0.0.1-alpha",
   "releasenote"  : "See https://github.com/nanjizal/geom/blob/master/readme.md",
   "classPath"    : "src",
   "contributors" : ["Nanjizal"],
