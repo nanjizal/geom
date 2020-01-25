@@ -167,7 +167,7 @@ class Conversion {
         var tm: Tmatrix3x3 = { a: m3x3.a, b: m3x3.b, c: m3x3.c, d: m3x3.d, e: m3x3.e, f: m3x3.f, g: m3x3.g, h: m3x3.h, i: m3x3.i };
         return tm;
     }
-   public static inline
+    public static inline
     function Tmatrix3x3to3x3( tm: Tmatrix3x3 ): Matrix3x3 {
         var m3x3: Mat3x3 = cast tm;
         return new Matrix3x3( m3x3 );
@@ -221,8 +221,7 @@ class Conversion {
         return new Matrix3x3( { a: m4x3.a,  b: m4x3.b,  c: m4x3.c
                               , d: m4x3.e,  e: m4x3.f,  f: m4x3.g
                               , g: m4x3.i,  h: m4x3.j,  i: m4x3.k } );
-    } 
-    @:from
+    }
     public static inline
     function ArraytoMatrix4x3( arr: Array<Float> ): Matrix4x3 {
         return new Matrix4x3( { a: arr[0],  b: arr[1],  c: arr[2],  d: arr[3]
@@ -310,7 +309,7 @@ class Conversion {
         return new Matrix4x3( m4x3 );
     }
     // 4x4
-    @:to public inline
+    public static inline
     function _4x4toTmatrix4x4( m4x4: Matrix4x4 ): Tmatrix4x4 {
         var tm: Tmatrix4x4 = { a: m4x4.a, b: m4x4.b, c: m4x4.c, d: m4x4.d
                              , e: m4x4.e, f: m4x4.f, g: m4x4.g, h: m4x4.h
@@ -346,7 +345,7 @@ class Conversion {
                                        , _30: m4x4.m, _31: m4x4.n, _32: m4x4.o, _33: m4x4.p };
         return tm;
     }
-    @:from public static inline
+    public static inline
     function Alternate4x4numberedto4x4( tm: Alternate4x4numbered ): Matrix4x4 {
         return new Matrix4x4( { a: tm._00, b: tm._01, c: tm._02, d: tm._03
                               , e: tm._10, f: tm._11, g: tm._12, h: tm._13
