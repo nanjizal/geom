@@ -9,6 +9,7 @@ import js.lib.Float32Array;
 #end
 import geom.matrix.*;
 import geom.tydef.*;
+import geom.structure.*;
 // collected matrix conversions
 class Conversion {
     // 1x2
@@ -94,6 +95,34 @@ class Conversion {
         vec.set(2, m2x2.c); vec.set(3, m2x2.d);
         return vec;
     }
+    public static inline
+    function toTmatrix2x2( m2x2: Matrix2x2 ): Tmatrix2x2 {
+        var tm: Tmatrix2x2 = { a: m2x2.a, b: m2x2.b, c: m2x2.c, d: m2x2.d };
+        return tm;
+    }
+    public static inline
+    function Tmatrix2x2to2x2( tm: Tmatrix2x2 ): Matrix2x2 {
+        var m2x2: Mat2x2 = cast tm;
+        return new Matrix2x2( m2x2 );
+    }
+    public static inline
+    function _2x2toTmatrix2x2numbered( m2x2: Matrix2x2 ): Tmatrix2x2numbered {
+        var tm: Tmatrix2x2numbered = { _00: m2x2.a, _10: m2x2.b, _01: m2x2.c, _11: m2x2.d };
+        return tm;
+    }
+    public static inline
+    function Tmatrix2x2numberedto2x2( tm: Tmatrix2x2numbered ): Matrix2x2 {
+        return new Matrix2x2( { a: tm._00, b: tm._10, c: tm._01, d: tm._11 } );
+    }
+    public static inline
+    function _2x2toAlternate2x2numbered( m2x2: Matrix2x2 ): Alternate2x2numbered {
+        var am: Alternate2x2numbered = { _00: m2x2.a, _01: m2x2.b, _10: m2x2.c, _11: m2x2.d };
+        return am;
+    }
+    public static inline
+    function Alternate2x2numberedto2x2( am: Alternate2x2numbered ): Matrix2x2 {
+        return new Matrix2x2( { a: am._00, b: am._01, c: am._10, d: am._11 } );
+    }
     // 3x3
     public static inline
     function Arrayto3x3( arr: Array<Float> ){
@@ -132,6 +161,42 @@ class Conversion {
         v.set( 3, m3x3.d ); v.set( 4, m3x3.e ); v.set( 5, m3x3.f );
       	v.set( 6, m3x3.g ); v.set( 7, m3x3.h ); v.set( 8, m3x3.i );
         return v;
+    }
+    public static inline
+    function _3x3toTmatrix3x3( m3x3: Matrix3x3 ): Tmatrix3x3 {
+        var tm: Tmatrix3x3 = { a: m3x3.a, b: m3x3.b, c: m3x3.c, d: m3x3.d, e: m3x3.e, f: m3x3.f, g: m3x3.g, h: m3x3.h, i: m3x3.i };
+        return tm;
+    }
+   public static inline
+    function Tmatrix3x3to3x3( tm: Tmatrix3x3 ): Matrix3x3 {
+        var m3x3: Mat3x3 = cast tm;
+        return new Matrix3x3( m3x3 );
+    }
+    public static inline
+    function _3x3toTmatrix3x3numbered( m3x3: Matrix3x3 ): Tmatrix3x3numbered {
+        var tm: Tmatrix3x3numbered = { _00: m3x3.a, _10: m3x3.b, _20: m3x3.c
+                                     , _01: m3x3.d, _11: m3x3.e, _21: m3x3.f
+                                     , _02: m3x3.g, _12: m3x3.h, _22: m3x3.i };
+        return tm;
+    }
+    public static inline
+    function Tmatrix3x3numberedto3x3( tm: Tmatrix3x3numbered ): Matrix3x3 {
+        return new Matrix3x3( { a: tm._00, b: tm._10, c: tm._20
+                              , d: tm._01, e: tm._11, f: tm._21
+                              , g: tm._02, h: tm._12, i: tm._22 } );
+    }
+    public static inline
+    function _m3x3toAlternate3x3numbered( m3x3: Matrix3x3 ): Alternate3x3numbered {
+        var tm: Tmatrix3x3numbered = { _00: m3x3.a, _01: m3x3.b, _02: m3x3.c
+                                     , _10: m3x3.d, _11: m3x3.e, _12: m3x3.f
+                                     , _20: m3x3.g, _21: m3x3.h, _22: m3x3.i };
+        return tm;
+    }
+    public static inline
+    function Alternate3x3numberedto3x3( tm: Alternate3x3numbered ): Matrix3x3 {
+        return new Matrix3x3( { a: tm._00, b: tm._01, c: tm._02
+                              , d: tm._10, e: tm._11, f: tm._12
+                              , g: tm._20, h: tm._21, i: tm._22 } );
     }
     // 4x3
     public static inline
@@ -229,5 +294,63 @@ class Conversion {
                , _01: m4x3.e, _11: m4x3.f, _21: m4x3.g, _31: m4x3.h
                , _02: m4x3.i, _12: m4x3.j, _22: m4x3.k, _32: m4x3.l
                , _03: 0.,     _13: 0.,     _23: 0.,     _33: 1. };
+    }
+    public static inline
+    function _4x3toTmatrix4x3( m4x3: Matrix4x3 ): Tmatrix4x3 {
+        var tm4x3: Tmatrix4x3 = { a: m4x3.a, b: m4x3.b, c: m4x3.c, d: m4x3.d
+                                , e: m4x3.e, f: m4x3.f, g: m4x3.g, h: m4x3.h
+                                , i: m4x3.i, j: m4x3.j, k: m4x3.k, l: m4x3.l };
+        return tm4x3;
+    }
+    public static inline
+    function Tmatrix4x3to4x3( tm: Tmatrix4x3 ): Matrix4x3 {
+        var m4x3: Mat4x3 = { a: tm.a, b: tm.b, c: tm.c, d: tm.d
+                           , e: tm.e, f: tm.f, g: tm.g, h: tm.h
+                           , i: tm.i, j: tm.j, k: tm.k, l: tm.l };
+        return new Matrix4x3( m4x3 );
+    }
+    // 4x4
+    @:to public inline
+    function _4x4toTmatrix4x4( m4x4: Matrix4x4 ): Tmatrix4x4 {
+        var tm: Tmatrix4x4 = { a: m4x4.a, b: m4x4.b, c: m4x4.c, d: m4x4.d
+                             , e: m4x4.e, f: m4x4.f, g: m4x4.g, h: m4x4.h
+                             , i: m4x4.i, j: m4x4.j, k: m4x4.k, l: m4x4.l
+                             , m: m4x4.m, n: m4x4.n, o: m4x4.o, p: m4x4.p };
+        return tm;
+    }
+    public static inline
+    function Tmatrix4x4to4x4( tm: Tmatrix4x4 ): Matrix4x4 {
+        var m4x4: Mat4x4 = cast tm;
+        return new Matrix4x4( m4x4 );
+    }
+    public static inline
+    function _4x4toTmatrix4x4numbered( m4x4: Matrix4x4 ): Tmatrix4x4numbered {
+        var tm: Tmatrix4x4numbered = { _00: m4x4.a, _10: m4x4.b, _20: m4x4.c, _30: m4x4.d
+                                     , _01: m4x4.e, _11: m4x4.f, _21: m4x4.g, _31: m4x4.h
+                                     , _02: m4x4.i, _12: m4x4.j, _22: m4x4.k, _32: m4x4.l
+                                     , _03: m4x4.m, _13: m4x4.n, _23: m4x4.o, _33: m4x4.p };
+        return tm;
+    }
+    public static inline
+    function Tmatrix4x4numberedto4x4( tm: Tmatrix4x4numbered ): Matrix4x4 {
+        return new Matrix4x4( { a: tm._00, b: tm._10, c: tm._20, d: tm._30
+                                                    , e: tm._01, f: tm._11, g: tm._21, h: tm._31
+                                                    , i: tm._02, j: tm._12, k: tm._22, l: tm._32
+                                                    , m: tm._03, n: tm._13, o: tm._23, p: tm._33 } );
+    }
+    public static inline
+    function _4x4toAlternate4x4numbered( m4x4: Matrix4x4 ): Alternate4x4numbered {
+        var tm: Alternate4x4numbered = { _00: m4x4.a, _01: m4x4.b, _02: m4x4.c, _03: m4x4.d
+                                       , _10: m4x4.e, _11: m4x4.f, _12: m4x4.g, _13: m4x4.h
+                                       , _20: m4x4.i, _21: m4x4.j, _22: m4x4.k, _23: m4x4.l
+                                       , _30: m4x4.m, _31: m4x4.n, _32: m4x4.o, _33: m4x4.p };
+        return tm;
+    }
+    @:from public static inline
+    function Alternate4x4numberedto4x4( tm: Alternate4x4numbered ): Matrix4x4 {
+        return new Matrix4x4( { a: tm._00, b: tm._01, c: tm._02, d: tm._03
+                              , e: tm._10, f: tm._11, g: tm._12, h: tm._13
+                              , i: tm._20, j: tm._21, k: tm._22, l: tm._23
+                              , m: tm._30, n: tm._31, o: tm._32, p: tm._33 } );
     }
 }

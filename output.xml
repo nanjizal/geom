@@ -15783,154 +15783,240 @@
 		</root2>
 	</class>
 	<class path="geom.matrix.Conversion" params="" file="src/geom/matrix/Conversion.hx">
-		<_1x2toTpoint public="1" get="inline" set="null" line="15" static="1"><f a="m1x2">
+		<_1x2toTpoint public="1" get="inline" set="null" line="16" static="1"><f a="m1x2">
 	<x path="geom.matrix.Matrix1x2"/>
 	<t path="geom.tydef.Tpoint"/>
 </f></_1x2toTpoint>
-		<_1x2toVec3 public="1" get="inline" set="null" line="19" static="1"><f a="m1x2">
+		<_1x2toVec3 public="1" get="inline" set="null" line="20" static="1"><f a="m1x2">
 	<x path="geom.matrix.Matrix1x2"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_1x2toVec3>
-		<Vectorto1x2 public="1" get="inline" set="null" line="27" static="1"><f a="v">
+		<Vectorto1x2 public="1" get="inline" set="null" line="28" static="1"><f a="v">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix1x2"/>
 </f></Vectorto1x2>
-		<Vectorto1x3 public="1" get="inline" set="null" line="32" static="1"><f a="vec">
+		<Vectorto1x3 public="1" get="inline" set="null" line="33" static="1"><f a="vec">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix1x3"/>
 </f></Vectorto1x3>
-		<_1x3toVector public="1" get="inline" set="null" line="36" static="1"><f a="m1x3">
+		<_1x3toVector public="1" get="inline" set="null" line="37" static="1"><f a="m1x3">
 	<x path="geom.matrix.Matrix1x3"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_1x3toVector>
-		<Arrayto1x3 public="1" get="inline" set="null" line="44" static="1"><f a="arr">
+		<Arrayto1x3 public="1" get="inline" set="null" line="45" static="1"><f a="arr">
 	<c path="Array"><x path="Float"/></c>
 	<x path="geom.matrix.Matrix1x3"/>
 </f></Arrayto1x3>
-		<_1x3toArray public="1" get="inline" set="null" line="48" static="1"><f a="m1x3">
+		<_1x3toArray public="1" get="inline" set="null" line="49" static="1"><f a="m1x3">
 	<x path="geom.matrix.Matrix1x3"/>
 	<c path="Array"><x path="Float"/></c>
 </f></_1x3toArray>
-		<Vectorto1x4 public="1" get="inline" set="null" line="53" static="1"><f a="vec">
+		<Vectorto1x4 public="1" get="inline" set="null" line="54" static="1"><f a="vec">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></Vectorto1x4>
-		<_1x4toVector public="1" get="inline" set="null" line="57" static="1"><f a="m1x4">
+		<_1x4toVector public="1" get="inline" set="null" line="58" static="1"><f a="m1x4">
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_1x4toVector>
-		<Arrayto1x4 public="1" get="inline" set="null" line="66" static="1"><f a="arr">
+		<Arrayto1x4 public="1" get="inline" set="null" line="67" static="1"><f a="arr">
 	<c path="Array"><x path="Float"/></c>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></Arrayto1x4>
-		<_1x4toArray public="1" get="inline" set="null" line="70" static="1"><f a="m1x4">
+		<_1x4toArray public="1" get="inline" set="null" line="71" static="1"><f a="m1x4">
 	<x path="geom.matrix.Matrix1x4"/>
 	<c path="Array"><x path="Float"/></c>
 </f></_1x4toArray>
-		<Arrayto2x2 public="1" get="inline" set="null" line="75" static="1"><f a="arr">
+		<Arrayto2x2 public="1" get="inline" set="null" line="76" static="1"><f a="arr">
 	<c path="Array"><x path="Float"/></c>
 	<x path="geom.matrix.Matrix2x2"/>
 </f></Arrayto2x2>
-		<_2x2toArray public="1" get="inline" set="null" line="80" static="1"><f a="m2x2">
+		<_2x2toArray public="1" get="inline" set="null" line="81" static="1"><f a="m2x2">
 	<x path="geom.matrix.Matrix2x2"/>
 	<c path="Array"><x path="Float"/></c>
 </f></_2x2toArray>
-		<Vectorto2x2 public="1" get="inline" set="null" line="85" static="1"><f a="vec">
+		<Vectorto2x2 public="1" get="inline" set="null" line="86" static="1"><f a="vec">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix2x2"/>
 </f></Vectorto2x2>
-		<_2x2toVector public="1" get="inline" set="null" line="90" static="1"><f a="m2x2">
+		<_2x2toVector public="1" get="inline" set="null" line="91" static="1"><f a="m2x2">
 	<x path="geom.matrix.Matrix2x2"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_2x2toVector>
-		<Arrayto3x3 public="1" get="inline" set="null" line="98" static="1"><f a="arr">
+		<toTmatrix2x2 public="1" get="inline" set="null" line="98" static="1"><f a="m2x2">
+	<x path="geom.matrix.Matrix2x2"/>
+	<t path="geom.tydef.Tmatrix2x2"/>
+</f></toTmatrix2x2>
+		<Tmatrix2x2to2x2 public="1" get="inline" set="null" line="103" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix2x2"/>
+	<x path="geom.matrix.Matrix2x2"/>
+</f></Tmatrix2x2to2x2>
+		<_2x2toTmatrix2x2numbered public="1" get="inline" set="null" line="108" static="1"><f a="m2x2">
+	<x path="geom.matrix.Matrix2x2"/>
+	<t path="geom.tydef.Tmatrix2x2numbered"/>
+</f></_2x2toTmatrix2x2numbered>
+		<Tmatrix2x2numberedto2x2 public="1" get="inline" set="null" line="113" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix2x2numbered"/>
+	<x path="geom.matrix.Matrix2x2"/>
+</f></Tmatrix2x2numberedto2x2>
+		<_2x2toAlternate2x2numbered public="1" get="inline" set="null" line="117" static="1"><f a="m2x2">
+	<x path="geom.matrix.Matrix2x2"/>
+	<t path="geom.tydef.Alternate2x2numbered"/>
+</f></_2x2toAlternate2x2numbered>
+		<Alternate2x2numberedto2x2 public="1" get="inline" set="null" line="122" static="1"><f a="am">
+	<t path="geom.tydef.Alternate2x2numbered"/>
+	<x path="geom.matrix.Matrix2x2"/>
+</f></Alternate2x2numberedto2x2>
+		<Arrayto3x3 public="1" get="inline" set="null" line="127" static="1"><f a="arr">
 	<c path="Array"><x path="Float"/></c>
 	<x path="geom.matrix.Matrix3x3"/>
 </f></Arrayto3x3>
-		<_3x3toArray public="1" get="inline" set="null" line="104" static="1"><f a="m3x3">
+		<_3x3toArray public="1" get="inline" set="null" line="133" static="1"><f a="m3x3">
 	<x path="geom.matrix.Matrix3x3"/>
 	<c path="Array"><x path="Float"/></c>
 </f></_3x3toArray>
-		<_2x2to3x3 public="1" get="inline" set="null" line="111" static="1"><f a="m2">
+		<_2x2to3x3 public="1" get="inline" set="null" line="140" static="1"><f a="m2">
 	<x path="geom.matrix.Matrix2x2"/>
 	<x path="geom.matrix.Matrix3x3"/>
 </f></_2x2to3x3>
-		<_3x3to2x2 public="1" get="inline" set="null" line="117" static="1"><f a="m3x3">
+		<_3x3to2x2 public="1" get="inline" set="null" line="146" static="1"><f a="m3x3">
 	<x path="geom.matrix.Matrix3x3"/>
 	<x path="geom.matrix.Matrix2x2"/>
 </f></_3x3to2x2>
-		<Vectorto3x3 public="1" get="inline" set="null" line="122" static="1"><f a="vec">
+		<Vectorto3x3 public="1" get="inline" set="null" line="151" static="1"><f a="vec">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix3x3"/>
 </f></Vectorto3x3>
-		<_3x3toVector public="1" get="inline" set="null" line="128" static="1"><f a="m3x3">
+		<_3x3toVector public="1" get="inline" set="null" line="157" static="1"><f a="m3x3">
 	<x path="geom.matrix.Matrix3x3"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_3x3toVector>
-		<_2x2to4x3 public="1" get="inline" set="null" line="137" static="1"><f a="m2">
+		<_3x3toTmatrix3x3 public="1" get="inline" set="null" line="165" static="1"><f a="m3x3">
+	<x path="geom.matrix.Matrix3x3"/>
+	<t path="geom.tydef.Tmatrix3x3"/>
+</f></_3x3toTmatrix3x3>
+		<Tmatrix3x3to3x3 public="1" get="inline" set="null" line="170" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix3x3"/>
+	<x path="geom.matrix.Matrix3x3"/>
+</f></Tmatrix3x3to3x3>
+		<_3x3toTmatrix3x3numbered public="1" get="inline" set="null" line="175" static="1"><f a="m3x3">
+	<x path="geom.matrix.Matrix3x3"/>
+	<t path="geom.tydef.Tmatrix3x3numbered"/>
+</f></_3x3toTmatrix3x3numbered>
+		<Tmatrix3x3numberedto3x3 public="1" get="inline" set="null" line="182" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix3x3numbered"/>
+	<x path="geom.matrix.Matrix3x3"/>
+</f></Tmatrix3x3numberedto3x3>
+		<_m3x3toAlternate3x3numbered public="1" get="inline" set="null" line="188" static="1"><f a="m3x3">
+	<x path="geom.matrix.Matrix3x3"/>
+	<t path="geom.tydef.Alternate3x3numbered"/>
+</f></_m3x3toAlternate3x3numbered>
+		<Alternate3x3numberedto3x3 public="1" get="inline" set="null" line="195" static="1"><f a="tm">
+	<t path="geom.tydef.Alternate3x3numbered"/>
+	<x path="geom.matrix.Matrix3x3"/>
+</f></Alternate3x3numberedto3x3>
+		<_2x2to4x3 public="1" get="inline" set="null" line="202" static="1"><f a="m2">
 	<x path="geom.matrix.Matrix2x2"/>
 	<x path="geom.matrix.Matrix4x3"/>
 </f></_2x2to4x3>
-		<_4x3to2x2 public="1" get="inline" set="null" line="143" static="1"><f a="m4x3">
+		<_4x3to2x2 public="1" get="inline" set="null" line="208" static="1"><f a="m4x3">
 	<x path="geom.matrix.Matrix4x3"/>
 	<x path="geom.matrix.Matrix2x2"/>
 </f></_4x3to2x2>
-		<_3x3to4x3 public="1" get="inline" set="null" line="148" static="1"><f a="m3">
+		<_3x3to4x3 public="1" get="inline" set="null" line="213" static="1"><f a="m3">
 	<x path="geom.matrix.Matrix3x3"/>
 	<x path="geom.matrix.Matrix4x3"/>
 </f></_3x3to4x3>
-		<_4x3to3x3 public="1" get="inline" set="null" line="154" static="1"><f a="m4x3">
+		<_4x3to3x3 public="1" get="inline" set="null" line="219" static="1"><f a="m4x3">
 	<x path="geom.matrix.Matrix4x3"/>
 	<x path="geom.matrix.Matrix3x3"/>
 </f></_4x3to3x3>
-		<ArraytoMatrix4x3 public="1" get="inline" set="null" line="161" static="1">
+		<ArraytoMatrix4x3 public="1" get="inline" set="null" line="226" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.matrix.Matrix4x3"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</ArraytoMatrix4x3>
-		<_4x3toArray public="1" get="inline" set="null" line="167" static="1"><f a="m4x3">
+		<_4x3toArray public="1" get="inline" set="null" line="232" static="1"><f a="m4x3">
 	<x path="geom.matrix.Matrix4x3"/>
 	<c path="Array"><x path="Float"/></c>
 </f></_4x3toArray>
-		<_4x3toVector public="1" get="inline" set="null" line="173" static="1"><f a="m4x3">
+		<_4x3toVector public="1" get="inline" set="null" line="238" static="1"><f a="m4x3">
 	<x path="geom.matrix.Matrix4x3"/>
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 </f></_4x3toVector>
-		<Vectorto4x3 public="1" get="inline" set="null" line="181" static="1"><f a="v">
+		<Vectorto4x3 public="1" get="inline" set="null" line="246" static="1"><f a="v">
 	<x path="haxe.ds.Vector"><x path="Float"/></x>
 	<x path="geom.matrix.Matrix4x3"/>
 </f></Vectorto4x3>
-		<_4x3toFloat32Array_ public="1" get="inline" set="null" line="190" static="1"><f a="m4x3">
+		<_4x3toFloat32Array_ public="1" get="inline" set="null" line="255" static="1"><f a="m4x3">
 	<x path="geom.matrix.Matrix4x3"/>
 	<c path="js.lib.Float32Array"/>
 </f></_4x3toFloat32Array_>
-		<Float32Array_to4x3 public="1" get="inline" set="null" line="198" static="1"><f a="arr">
+		<Float32Array_to4x3 public="1" get="inline" set="null" line="263" static="1"><f a="arr">
 	<c path="js.lib.Float32Array"/>
 	<x path="geom.matrix.Matrix4x3"/>
 </f></Float32Array_to4x3>
-		<_4x3toTAffineMatrix public="1" get="inline" set="null" line="208" static="1">
+		<_4x3toTAffineMatrix public="1" get="inline" set="null" line="273" static="1">
 			<f a="m4x3">
 				<x path="geom.matrix.Matrix4x3"/>
 				<t path="geom.tydef.TAffineMatrix"/>
 			</f>
 			<haxe_doc>* check transpose</haxe_doc>
 		</_4x3toTAffineMatrix>
-		<Tmatrix4x4numberedto4x3 public="1" get="inline" set="null" line="217" static="1">
+		<Tmatrix4x4numberedto4x3 public="1" get="inline" set="null" line="282" static="1">
 			<f a="m">
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
 				<x path="geom.matrix.Matrix4x3"/>
 			</f>
 			<haxe_doc>* check transpose</haxe_doc>
 		</Tmatrix4x4numberedto4x3>
-		<_4x3toTmatrix4x4numbered public="1" get="inline" set="null" line="226" static="1">
+		<_4x3toTmatrix4x4numbered public="1" get="inline" set="null" line="291" static="1">
 			<f a="m4x3">
 				<x path="geom.matrix.Matrix4x3"/>
 				<t path="geom.tydef.Tmatrix4x4numbered"/>
 			</f>
 			<haxe_doc>* check transpose</haxe_doc>
 		</_4x3toTmatrix4x4numbered>
+		<_4x3toTmatrix4x3 public="1" get="inline" set="null" line="298" static="1"><f a="m4x3">
+	<x path="geom.matrix.Matrix4x3"/>
+	<t path="geom.tydef.Tmatrix4x3"/>
+</f></_4x3toTmatrix4x3>
+		<Tmatrix4x3to4x3 public="1" get="inline" set="null" line="305" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix4x3"/>
+	<x path="geom.matrix.Matrix4x3"/>
+</f></Tmatrix4x3to4x3>
+		<Tmatrix4x4to4x4 public="1" get="inline" set="null" line="321" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix4x4"/>
+	<x path="geom.matrix.Matrix4x4"/>
+</f></Tmatrix4x4to4x4>
+		<_4x4toTmatrix4x4numbered public="1" get="inline" set="null" line="326" static="1"><f a="m4x4">
+	<x path="geom.matrix.Matrix4x4"/>
+	<t path="geom.tydef.Tmatrix4x4numbered"/>
+</f></_4x4toTmatrix4x4numbered>
+		<Tmatrix4x4numberedto4x4 public="1" get="inline" set="null" line="334" static="1"><f a="tm">
+	<t path="geom.tydef.Tmatrix4x4numbered"/>
+	<x path="geom.matrix.Matrix4x4"/>
+</f></Tmatrix4x4numberedto4x4>
+		<_4x4toAlternate4x4numbered public="1" get="inline" set="null" line="341" static="1"><f a="m4x4">
+	<x path="geom.matrix.Matrix4x4"/>
+	<t path="geom.tydef.Alternate4x4numbered"/>
+</f></_4x4toAlternate4x4numbered>
+		<Alternate4x4numberedto4x4 public="1" get="inline" set="null" line="349" static="1">
+			<f a="tm">
+				<t path="geom.tydef.Alternate4x4numbered"/>
+				<x path="geom.matrix.Matrix4x4"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</Alternate4x4numberedto4x4>
+		<_4x4toTmatrix4x4 public="1" get="inline" set="null" line="313">
+			<f a="m4x4">
+				<x path="geom.matrix.Matrix4x4"/>
+				<t path="geom.tydef.Tmatrix4x4"/>
+			</f>
+			<meta><m n=":to"/></meta>
+		</_4x4toTmatrix4x4>
 	</class>
 	<abstract path="geom.matrix.DualQuaternion" params="" file="src/geom/matrix/DualQuaternion.hx">
 		<from><icast><c path="geom.structure.DualQ"/></icast></from>

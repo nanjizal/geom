@@ -8027,6 +8027,31 @@ geom_matrix_Conversion._2x2toVector = function(m2x2) {
 	vec[3] = m2x2.d;
 	return vec;
 };
+geom_matrix_Conversion.toTmatrix2x2 = function(m2x2) {
+	var tm = { a : m2x2.a, b : m2x2.b, c : m2x2.c, d : m2x2.d};
+	return tm;
+};
+geom_matrix_Conversion.Tmatrix2x2to2x2 = function(tm) {
+	var m2x2 = tm;
+	var this1 = m2x2;
+	return this1;
+};
+geom_matrix_Conversion._2x2toTmatrix2x2numbered = function(m2x2) {
+	var tm = { _00 : m2x2.a, _10 : m2x2.b, _01 : m2x2.c, _11 : m2x2.d};
+	return tm;
+};
+geom_matrix_Conversion.Tmatrix2x2numberedto2x2 = function(tm) {
+	var this1 = new geom_structure_Mat2x2(tm._00,tm._10,tm._01,tm._11);
+	return this1;
+};
+geom_matrix_Conversion._2x2toAlternate2x2numbered = function(m2x2) {
+	var am = { _00 : m2x2.a, _01 : m2x2.b, _10 : m2x2.c, _11 : m2x2.d};
+	return am;
+};
+geom_matrix_Conversion.Alternate2x2numberedto2x2 = function(am) {
+	var this1 = new geom_structure_Mat2x2(am._00,am._01,am._10,am._11);
+	return this1;
+};
 geom_matrix_Conversion.Arrayto3x3 = function(arr) {
 	var this1 = new geom_structure_Mat3x3(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7],arr[8]);
 	return this1;
@@ -8059,6 +8084,31 @@ geom_matrix_Conversion._3x3toVector = function(m3x3) {
 	v[7] = m3x3.h;
 	v[8] = m3x3.i;
 	return v;
+};
+geom_matrix_Conversion._3x3toTmatrix3x3 = function(m3x3) {
+	var tm = { a : m3x3.a, b : m3x3.b, c : m3x3.c, d : m3x3.d, e : m3x3.e, f : m3x3.f, g : m3x3.g, h : m3x3.h, i : m3x3.i};
+	return tm;
+};
+geom_matrix_Conversion.Tmatrix3x3to3x3 = function(tm) {
+	var m3x3 = tm;
+	var this1 = m3x3;
+	return this1;
+};
+geom_matrix_Conversion._3x3toTmatrix3x3numbered = function(m3x3) {
+	var tm = { _00 : m3x3.a, _10 : m3x3.b, _20 : m3x3.c, _01 : m3x3.d, _11 : m3x3.e, _21 : m3x3.f, _02 : m3x3.g, _12 : m3x3.h, _22 : m3x3.i};
+	return tm;
+};
+geom_matrix_Conversion.Tmatrix3x3numberedto3x3 = function(tm) {
+	var this1 = new geom_structure_Mat3x3(tm._00,tm._10,tm._20,tm._01,tm._11,tm._21,tm._02,tm._12,tm._22);
+	return this1;
+};
+geom_matrix_Conversion._m3x3toAlternate3x3numbered = function(m3x3) {
+	var tm = { _00 : m3x3.a, _01 : m3x3.b, _02 : m3x3.c, _10 : m3x3.d, _11 : m3x3.e, _12 : m3x3.f, _20 : m3x3.g, _21 : m3x3.h, _22 : m3x3.i};
+	return tm;
+};
+geom_matrix_Conversion.Alternate3x3numberedto3x3 = function(tm) {
+	var this1 = new geom_structure_Mat3x3(tm._00,tm._01,tm._02,tm._10,tm._11,tm._12,tm._20,tm._21,tm._22);
+	return this1;
 };
 geom_matrix_Conversion._2x2to4x3 = function(m2) {
 	var this1 = new geom_structure_Mat4x3(m2.a,m2.b,0.,0.,m2.c,m2.d,0.,0.,0.,0.,1.,0.);
@@ -8120,6 +8170,43 @@ geom_matrix_Conversion.Tmatrix4x4numberedto4x3 = function(m) {
 };
 geom_matrix_Conversion._4x3toTmatrix4x4numbered = function(m4x3) {
 	return { _00 : m4x3.a, _10 : m4x3.b, _20 : m4x3.c, _30 : m4x3.d, _01 : m4x3.e, _11 : m4x3.f, _21 : m4x3.g, _31 : m4x3.h, _02 : m4x3.i, _12 : m4x3.j, _22 : m4x3.k, _32 : m4x3.l, _03 : 0., _13 : 0., _23 : 0., _33 : 1.};
+};
+geom_matrix_Conversion._4x3toTmatrix4x3 = function(m4x3) {
+	var tm4x3 = { a : m4x3.a, b : m4x3.b, c : m4x3.c, d : m4x3.d, e : m4x3.e, f : m4x3.f, g : m4x3.g, h : m4x3.h, i : m4x3.i, j : m4x3.j, k : m4x3.k, l : m4x3.l};
+	return tm4x3;
+};
+geom_matrix_Conversion.Tmatrix4x3to4x3 = function(tm) {
+	var m4x3 = new geom_structure_Mat4x3(tm.a,tm.b,tm.c,tm.d,tm.e,tm.f,tm.g,tm.h,tm.i,tm.j,tm.k,tm.l);
+	var this1 = m4x3;
+	return this1;
+};
+geom_matrix_Conversion.Tmatrix4x4to4x4 = function(tm) {
+	var m4x4 = tm;
+	var this1 = m4x4;
+	return this1;
+};
+geom_matrix_Conversion._4x4toTmatrix4x4numbered = function(m4x4) {
+	var tm = { _00 : m4x4.a, _10 : m4x4.b, _20 : m4x4.c, _30 : m4x4.d, _01 : m4x4.e, _11 : m4x4.f, _21 : m4x4.g, _31 : m4x4.h, _02 : m4x4.i, _12 : m4x4.j, _22 : m4x4.k, _32 : m4x4.l, _03 : m4x4.m, _13 : m4x4.n, _23 : m4x4.o, _33 : m4x4.p};
+	return tm;
+};
+geom_matrix_Conversion.Tmatrix4x4numberedto4x4 = function(tm) {
+	var this1 = new geom_structure_Mat4x4(tm._00,tm._10,tm._20,tm._30,tm._01,tm._11,tm._21,tm._31,tm._02,tm._12,tm._22,tm._32,tm._03,tm._13,tm._23,tm._33);
+	return this1;
+};
+geom_matrix_Conversion._4x4toAlternate4x4numbered = function(m4x4) {
+	var tm = { _00 : m4x4.a, _01 : m4x4.b, _02 : m4x4.c, _03 : m4x4.d, _10 : m4x4.e, _11 : m4x4.f, _12 : m4x4.g, _13 : m4x4.h, _20 : m4x4.i, _21 : m4x4.j, _22 : m4x4.k, _23 : m4x4.l, _30 : m4x4.m, _31 : m4x4.n, _32 : m4x4.o, _33 : m4x4.p};
+	return tm;
+};
+geom_matrix_Conversion.Alternate4x4numberedto4x4 = function(tm) {
+	var this1 = new geom_structure_Mat4x4(tm._00,tm._01,tm._02,tm._03,tm._10,tm._11,tm._12,tm._13,tm._20,tm._21,tm._22,tm._23,tm._30,tm._31,tm._32,tm._33);
+	return this1;
+};
+geom_matrix_Conversion.prototype = {
+	_4x4toTmatrix4x4: function(m4x4) {
+		var tm = { a : m4x4.a, b : m4x4.b, c : m4x4.c, d : m4x4.d, e : m4x4.e, f : m4x4.f, g : m4x4.g, h : m4x4.h, i : m4x4.i, j : m4x4.j, k : m4x4.k, l : m4x4.l, m : m4x4.m, n : m4x4.n, o : m4x4.o, p : m4x4.p};
+		return tm;
+	}
+	,__class__: geom_matrix_Conversion
 };
 var geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$ = {};
 geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.__name__ = "geom.matrix._DualQuaternion.DualQuaternion_Impl_";
