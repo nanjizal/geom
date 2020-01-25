@@ -303,22 +303,11 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
         }
     }
     @:from public static inline
-    function fromArr( arr: Array<Float> ){
-        return new Matrix3x3( { a: arr[0], b: arr[1], c: arr[2]
-                             , d: arr[3], e: arr[4], f: arr[5]
-                             , g: arr[6], h: arr[7], i: arr[8] } );
-    }
+    function fromArr( arr: Array<Float> ): Matrix3x3 return Conversion.Arrayto3x3( arr );
     @:to public inline
-    function toArray(): Array<Float> {
-        return [ this.a, this.b, this.c 
-               , this.d, this.e, this.f
-               , this.g, this.h, this.i ];
-    }
+    function toArray(): Array<Float> return Conversion._3x3toArray( this );
     @:to public inline
-    function to2x2():Matrix2x2 {
-        return new Matrix2x2( { a: this.a, b: this.b
-                              , c: this.d, d: this.e } );
-    }
+    function to2x2():Matrix2x2 return Conversion._3x3to2x2( this );
     // assumes z is set to 0 for 3D use.
     public static inline
     function to3D( m2: Matrix2x2 ): Matrix3x3 {
@@ -328,37 +317,15 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     }
     // assumes z is set to 1 for 2D use, default 
     @:from public static inline
-    function from2x2( m2: Matrix2x2 ): Matrix3x3 {
-        return new Matrix3x3( { a: m2.a, b: m2.b, c: 0.
-                              , d: m2.c, e: m2.d, f: 0.
-                              , g: 0.,   h: 0,    i: 1. } );
-    }
+    function from2x2( m2: Matrix2x2 ): Matrix3x3 return Conversion._2x2to3x3( m2 );
     @:to public inline
-    function to4x3():Matrix4x3 {
-        return new Matrix4x3({ a: this.a, b: this.b, c: this.c, d: 0.
-                             , e: this.d, f: this.e, g: this.f, h: 0.
-                             , i: this.g, j: this.h, k: this.i, l: 0. } );
-    }
+    function to4x3():Matrix4x3 return Conversion._3x3to2x2( this );
     @:from public static inline // does not apply translations just discards 4th row and column. 
-    function from4x3( m4: Matrix4x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m4.a, b: m4.b, c: m4.c
-                              , d: m4.e, e: m4.f, f: m4.g
-                              , g: m4.i, h: m4.j, i: m4.k } );
-    }
+    function from4x3( m4: Matrix4x3 ): Matrix3x3 return Conversion._3x3to4x3( m4 );
     @:from public static inline
-    function fromVec( vec: haxe.ds.Vector<Float> ){
-        return new Matrix3x3( { a: vec.get(0), b: vec.get(1), c: vec.get(2)
-                              , d: vec.get(3), e: vec.get(4), f: vec.get(5)
-                              , g: vec.get(6), h: vec.get(7), i: vec.get(8) } );
-    }
+    function fromVec( vec: haxe.ds.Vector<Float> ): Matrix3x3 return Conversion.Vectorto3x3( vec );
     @:to public inline
-    function toVector(): haxe.ds.Vector<Float> {
-        var v = new haxe.ds.Vector<Float>(8);
-        v.set( 0, this.a ); v.set( 1, this.b ); v.set( 2, this.c );
-        v.set( 3, this.d ); v.set( 4, this.e ); v.set( 5, this.f );
-      	v.set( 6, this.g ); v.set( 7, this.h ); v.set( 8, this.i );
-        return v;
-    }
+    function toVector(): haxe.ds.Vector<Float> return Conversion._3x3toVector( this );
     public inline function setXY( x: Int, y: Int, v: Float  ): Float {
         return switch [ x, y ] {
             case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v; case [ 0,2 ]: this.c = v;

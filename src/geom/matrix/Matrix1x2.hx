@@ -567,9 +567,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      */
     @:to
     public inline
-    function toTpoint():geom.tydef.Tpoint {
-        return { x: this.x, y: this.y };
-    }
+    function toTpoint():geom.tydef.Tpoint return Conversion._1x2toTpoint( this );
     /**
      * <pre><code>
      * >>> ({ 
@@ -581,13 +579,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      */
     @:to
     public inline
-    function toVec3(): haxe.ds.Vector<Float>  {
-        var vec = new haxe.ds.Vector<Float>(3);
-        vec.set( 0, this.x );
-        vec.set( 1, this.y );
-        vec.set( 2, 1. );
-        return vec;
-    }
+    function toVec3(): haxe.ds.Vector<Float> return Conversion._1x2toVec3( this );
     /**
      * <pre><code>
      * >>> ({ 
@@ -599,9 +591,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * </code></pre>
      */
     @:from public inline static 
-    function fromVec3( v3: haxe.ds.Vector<Float>  ): Matrix1x2 {
-        return new Matrix1x2( { x: v3.get(0), y: v3.get(1)} );
-    }
+    function fromVec3( v: haxe.ds.Vector<Float>  ): Matrix1x2 return Conversion.Vectorto1x2( v );
     /**
      * <pre><code>
      * >>> Matrix1x2.fromArrayPos( [ 0., 1., 2. ], 1) ==  new Matrix1x2({x:1.,y:2.})

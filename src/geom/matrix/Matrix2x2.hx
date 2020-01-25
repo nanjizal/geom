@@ -288,37 +288,17 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         }
     }
     @:to public inline // assumes 2D use, z == 1
-    function to3x3(): Matrix3x3 {
-        return new Matrix3x3( { a: this.a, b: this.b, c: 0.
-                              , d: this.c, e: this.d, f: 0.
-                              , g: 0.,     h: 0,      i: 1. } );
-    }
+    function to3x3(): Matrix3x3 return Conversion._2x2to3x3( this );
     @:to public inline // assumes 3D use, z == 0
-    function to4x3(): Matrix4x3 {
-        return new Matrix4x3( { a: this.a, b: this.b, c: 0., d: 0.
-                              , e: this.c, f: this.d, g: 0., h: 0.
-                              , i: 0.,     j: 0.,     k: 0., l: 0. } );
-    }
+    function to4x3(): Matrix4x3 return Conversion._2x2to4x3( this );
     @:from public static inline // no translate applied
-    function from3x3( m3: Matrix3x3 ): Matrix2x2 {
-        return new Matrix2x2( { a: m3.a, b: m3.b
-                              , c: m3.d, d: m3.e } );
-    }
+    function from3x3( m3: Matrix3x3 ): Matrix2x2  return Conversion._3x3to2x2( m3 );
     @:from public static inline // no 3d info applied
-    function from4x3( m4: Matrix4x3 ): Matrix2x2 {
-        return new Matrix2x2( { a: m4.a, b: m4.b
-                              , c: m4.e, d: m4.f } );
-    }
+    function from4x3( m4: Matrix4x3 ): Matrix2x2 return Conversion._4x3to2x2( m4 );
     @:from public static inline
-    function fromArr( arr: Array<Float> ): Matrix2x2 {
-        return new Matrix2x2( { a: arr[0], b: arr[1]
-                             , c: arr[2], d: arr[3] } );
-    }
+    function fromArr( arr: Array<Float> ): Matrix2x2 return Conversion.Arrayto2x2( arr );
     @:to public inline
-    function toArray(): Array<Float> {
-        return [ this.a, this.b
-               , this.c, this.d ];
-    }
+    function toArray(): Array<Float> return Conversion._2x2toArray( this );
     /**
      * <pre><code>
      * >>> ({ 
@@ -330,10 +310,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      * </code></pre>
      */
     @:from public static inline
-    function fromVec( vec: haxe.ds.Vector<Float> ): Matrix2x2 {
-        return new Matrix2x2( { a: vec.get(0), b: vec.get(1),
-                               c: vec.get(2), d: vec.get(3) } );
-    }
+    function fromVec( vec: haxe.ds.Vector<Float> ): Matrix2x2 return Conversion.Vectorto2x2( vec );
     /**
      * <pre><code>
      * >>> ({ 
@@ -344,12 +321,7 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      * </code></pre>
      */
     @:to public inline
-    function toVector(): haxe.ds.Vector<Float> {
-        var vec = new haxe.ds.Vector<Float>(4);
-        vec.set(0, this.a); vec.set(1, this.b);
-        vec.set(2, this.c); vec.set(3, this.d);
-        return vec;
-    }
+    function toVector(): haxe.ds.Vector<Float> return Conversion._2x2toVector( this );
     /**
      * <pre><code>
      * >>> ({

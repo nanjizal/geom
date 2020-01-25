@@ -1,4 +1,6 @@
 package geom.matrix;
+import haxe.io.Float32Array;
+
 #if js
 #if (haxe_ver < 4.0 )
 import js.html.Float32Array;
@@ -6,6 +8,7 @@ import js.html.Float32Array;
 import js.lib.Float32Array;
 #end
 #end
+
 import geom.tydef.*;
 /** 
    ![4x3](../../bootstrap/img/matrix4x3.png)
@@ -14,6 +17,8 @@ import geom.tydef.*;
 abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.structure.Mat4x3 {
     public inline
     function new( m: geom.structure.Mat4x3 ){ this = m; }
+    var self(get,never):Matrix4x3;
+    inline function get_self() return (cast this : Matrix4x3);
     /**
      * <pre><code>
      * >>> ({
@@ -715,6 +720,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             });
         }
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public static inline// Maps 0,0,0 to pos,maps x-axis to dir,maps y-axis to up.maps z-axis to the right.
     function orientation( pos: Matrix1x4, dir: Matrix1x4, up: Matrix1x4 ): Matrix4x3 {
         var right = dir.cross( up );
@@ -722,6 +730,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                               , e: dir.y, f: up.y, g: right.y, h: pos.y
                               , i: dir.z, j: up.z, k: right.z, l: pos.z  } );
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public inline // check if Z should be included
     function applyRotation( p: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: this.a * p.x + this.b * p.y + this.c * p.z
@@ -729,6 +740,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , z: this.h * p.x + this.i * p.y + this.j * p.z
                              , w: 1. });
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public inline
     function applyInverseRotation( p: Matrix1x4 ): Matrix1x4 {
         return new Matrix1x4({ x: this.a * p.x + this.e * p.y + this.i * p.z
@@ -736,6 +750,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , z: this.c * p.x + this.g * p.y + this.k * p.z
                              , w: 1. });
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public inline
     function orthonormalizeRotation(){
         var new_x = new Matrix1x4({ x: this.a, y: this.e, z: this.i, w: 1. } ).normalize();
@@ -746,6 +763,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         this.i = new_x.z; this.j = new_y.z; this.k = new_z.z;
         return this;
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public inline // Swap x & z axes, negate z axis (even number of swaps
     function makeViewFromOrientation(): Matrix4x3 { // maintains right-handedness).
         var m = new Matrix4x3({ a: this.c,  b: this.b, c: -this.a, d: this.d
@@ -753,6 +773,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                               , i: this.k,  j: this.j, k: -this.i, l: this.l } );
         return m.invertNormalized();
     }
+    /**
+     * Untested - check that this matrix is not transposed
+     */
     public inline
     function invertNormalizedRotation( ): Matrix4x3 {
         return new Matrix4x3( { a: this.a, b: this.e, c: this.i, d: 0.
@@ -768,83 +791,40 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     @:to
     public inline
-    function toAffineMatrix(): TAffineMatrix {
-      return { e0: this.a, e4: this.b, e8: this.c, e12: this.d
-             , e1: this.e, e5: this.f, e9: this.g, e13: this.h
-             , e2: this.i, e6: this.j, e10: this.k, e14: this.l };
-    }
+    function toAffineMatrix(): TAffineMatrix return Conversion._4x3toTAffineMatrix( this );
     @:from
     public static inline 
-    function fromNumbered( m: Tmatrix4x4numbered ): Matrix4x3 {
-        return new Matrix4x3( { a: m._00, b: m._10, c: m._20, d: m._30
-                              , e: m._01, f: m._11, g: m._21, h: m._31
-                              , i: m._02, j: m._12, k: m._22, l: m._32 } );
-    }
+    function fromNumbered( m: Tmatrix4x4numbered ): Matrix4x3 return Conversion.Tmatrix4x4numberedto4x3( m );
     @:to
     public inline
-    function toNumbered(): Tmatrix4x4numbered {
-        return { _00: this.a, _10: this.b, _20: this.c, _30: this.d
-               , _01: this.e, _11: this.f, _21: this.g, _31: this.h
-               , _02: this.i, _12: this.j, _22: this.k, _32: this.l
-               , _03: 0.,     _13: 0.,     _23: 0.,     _33: 1. };
-    }
+    function toNumbered(): Tmatrix4x4numbered return Conversion._4x3toTmatrix4x4numbered( this );
     @:from
     public static inline
-    function fromArr( arr: Array<Float> ){
-        return new Matrix4x3( { a: arr[0],  b: arr[1],  c: arr[2],  d: arr[3]
-                              , e: arr[4],  f: arr[5],  g: arr[6],  h: arr[7]
-                              , i: arr[8],  j: arr[9],  k: arr[10], l: arr[11] } );
-    }
+    function fromArr( arr: Array<Float> ): Matrix4x3 return Conversion.ArraytoMatrix4x3( arr );
     @:to
     public inline
-    function toArray(): Array<Float> {
-        return [ this.a, this.b, this.c, this.d
-               , this.e, this.f, this.g, this.h
-               , this.i, this.j, this.k, this.l ];
-    }
-    @:from
-    public static inline
-    function fromVec( v: haxe.ds.Vector<Float> ){
-        return new Matrix4x3( { a: v.get(0),  b: v.get(1),  c: v.get(2),  d: v.get(3)
-                              , e: v.get(4),  f: v.get(5),  g: v.get(6),  h: v.get(7)
-                              , i: v.get(8),  j: v.get(9),  k: v.get(10), l: v.get(11) } );
-    }
+    function toArray(): Array<Float> return Conversion._4x3toArray( this );
     @:from // assumes z == 0
     public static inline
-    function from2x2( m2: Matrix2x2 ){
-        return new Matrix4x3( { a: m2.a,  b: m2.b,  c: 0.,  d: 0.
-                              , e: m2.c,  f: m2.d,  g: 0.,  h: 0.
-                              , i: 0.,    j: 0.,    k: 1.,  l: 0. } );
-    }
+    function from2x2( m2: Matrix2x2 ) return Conversion._2x2to4x3( m2 );
     @:to
     public inline
-    function to2x2(): Matrix2x2 {
-        return new Matrix2x2( { a: this.a,  b: this.b
-                              , c: this.e,  d: this.f } );
-    }  
+    function to2x2(): Matrix2x2 return Conversion._4x3to2x2( this );
     @:from
     public static inline
-    function from3x3( m3: Matrix3x3 ){
-        return new Matrix4x3( { a: m3.a,  b: m3.b,  c: m3.c,  d: 0.
-                              , e: m3.d,  f: m3.e,  g: m3.f,  h: 0.
-                              , i: m3.g,  j: m3.h,  k: m3.i,  l: 0. } );
-    }
+    function from3x3( m3: Matrix3x3 ) return Conversion._3x3to4x3( m3 );
     @:to
     public inline
-    function to3x3(): Matrix3x3 {
-        return new Matrix3x3( { a: this.a,  b: this.b,  c: this.c
-                              , d: this.e,  e: this.f,  f: this.g
-                              , g: this.i,  h: this.j,  i: this.k } );
-    } 
+    function to3x3(): Matrix3x3 return Conversion._4x3to3x3( this );
+    @:from
+    public static inline
+    function fromVec( v: haxe.ds.Vector<Float> ): Matrix4x3 return Conversion.Vectorto4x3( v );
     @:to
     public inline
-    function toVector(): haxe.ds.Vector<Float> {
-        var vec = new haxe.ds.Vector<Float>(12);
-        vec.set( 0, this.a ); vec.set( 1, this.b ); vec.set( 2,  this.c ); vec.set( 3,  this.d );
-        vec.set( 4, this.e ); vec.set( 5, this.f ); vec.set( 6,  this.g ); vec.set( 7,  this.h );
-        vec.set( 8, this.i ); vec.set( 9, this.j ); vec.set( 10, this.k ); vec.set( 11, this.l );
-        return vec;
-    }
+    function toVector(): haxe.ds.Vector<Float> return Conversion._4x3toVector( this );
+    /**
+     *
+     */
     public inline function setXY( x: Int, y: Int, v: Float  ): Float {
         return switch [ x, y ] {
     case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v; case [ 0,2 ]: this.c = v; case [ 0,3 ]: this.d = v;
@@ -862,18 +842,10 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     #if js     
     @:to
     public inline
-    function toWebGL(): Float32Array {
-        return new Float32Array( [ this.a, this.e, this.i, 0.
-                                 , this.b, this.f, this.j, 0.
-                                 , this.c, this.g, this.k, 0.
-                                 , this.d, this.h, this.l, 1.  ]);
-    }
+    function toWebGL(): Float32Array return Conversion._4x3toFloat32Array_( this );
     @:from
     public static inline
-    function fromWebGL( arr: Float32Array ): Matrix4x3 {
-        return new Matrix4x3( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
-                              , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
-                              , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14] } );
+    function fromWebGL( arr: Float32Array ): Matrix4x3 { return Conversion.Float32Array_to4x3( arr );
     }
     public inline
     function updateWebGL( arr: Float32Array ): Float32Array {

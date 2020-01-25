@@ -365,9 +365,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      */
     @:from
     public static inline
-    function fromVec( vec: haxe.ds.Vector<Float> ): Matrix1x4 {
-        return new Matrix1x4( { x: vec.get(0), y: vec.get(1), z: vec.get(2), w: vec.get(3) } );
-    }
+    function fromVec( vec: haxe.ds.Vector<Float> ): Matrix1x4 return Conversion.Vectorto1x4( vec );
     /**
      * <pre><code>
      * >>> ({ 
@@ -379,14 +377,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      */
     @:to
     public inline
-    function toVector(): haxe.ds.Vector<Float> {
-        var vec = new haxe.ds.Vector<Float>(4);
-        vec.set( 0, this.x );
-        vec.set( 1, this.y );
-        vec.set( 2, this.z );
-        vec.set( 3, this.w );
-        return vec;
-    }
+    function toVector(): haxe.ds.Vector<Float> return Conversion._1x4toVector( this );
     /**
      * <pre><code>
      * >>> ({ 
@@ -396,9 +387,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      * </code></pre>
      */
     @:from
-    public inline static function fromArray( arr: Array<Float> ): Matrix1x4 {
-        return new Matrix1x4( { x: arr[ 0 ], y: arr[ 1 ], z: arr[ 2 ], w: arr[ 3 ] } );
-    }
+    public inline static function fromArray( arr: Array<Float> ): Matrix1x4 return Conversion.Arrayto1x4( arr );
     /**
      * <pre><code>
      * >>> ({ 
@@ -408,7 +397,5 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      * </code></pre>
      */
     @:to
-    public inline function toArray():Array<Float> {
-        return [ this.x, this.y, this.z, this.w ];
-    }
+    public inline function toArray():Array<Float> return Conversion._1x4toArray( this );
 }
