@@ -661,7 +661,7 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/usr/local/lib/haxe/std/js/_std/Std.hx">
-		<string public="1" set="method" line="41" static="1">
+		<string public="1" set="method" line="42" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
