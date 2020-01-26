@@ -31,7 +31,7 @@ geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
       Axis2 not really used tested  
       Axis3 provides a DualQuaternion approach to pan, tilt, rotate and translations.  
       Parameter and Trinary used for stepping, Trinary is like Bool but with 3 states.  
-  - *obj*  
+  - **obj**  
       Quad2D provides 2D quad using Matrix1x2  
       Quad3D provides quad for use in 3D.  
       Tri provides 2D triangle, hitTest point, adjustWinding, and rotation.  
