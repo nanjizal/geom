@@ -20,7 +20,7 @@ geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
       UInt16Flat stores position [0] [1] and length [2] [3] since UInt16 was too low for practically storing these properties.  
   - **matrix**  
        matrix with operators and plenty of functionality such as skew.  
-       conversion for Matrix changes including to other nameing structures.  
+       conversion for Matrix changes including to alternate property naming.  
        Vectors in the form of Matrix1x2 for 2D, Matrix1x4 for 3D with constraints.  
        Matrices in the form Matrix2x2 for 2D/3D, Matrix4x3 ( optimal ) for 3D.  
        Complex for complex numbers.  
