@@ -9,15 +9,15 @@ geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
       contains some of Johnathon Selstad constraints ported to haxe using geom.matrix.Matrix1x4  
       also contains Interval and RadianInterval it allows open or closed clamping of a range or wrapping a range.  
   - **curve**  
-      Bezier single dimension equations including curveThru suited as base rather than complete solution.
-      Partially ported some Raph Levin bezier segment approximation work - WIP
-      ComplexTrig has some trig functions for geom.matrix.Complex numbers needs verification.
-      Cubic provides cubic functions to suplement Square
-      Hyperbolic maths functions needs verifications.
-      Logarithmic maths functions needs verifications.
+      Bezier single dimension equations including curveThru suited as base rather than complete solution.  
+      Partially ported some Raph Levin bezier segment approximation work - WIP  
+      ComplexTrig has some trig functions for geom.matrix.Complex numbers needs verification.  
+      Cubic provides cubic functions to suplement Square  
+      Hyperbolic maths functions needs verifications.  
+      Logarithmic maths functions needs verifications.  
   - **flat**  
-      array datastructures suitable for storing groups of data, [0] stores position and [1] stores length, allows array access of the grouped data and 'next' used to increment groups.
-      UInt16Flat stores position [0] [1] and length [2] [3] since UInt16 was too low for practically storing these properties.
+      array datastructures suitable for storing groups of data, [0] stores position and [1] stores length, allows array access of the grouped data and 'next' used to increment groups.  
+      UInt16Flat stores position [0] [1] and length [2] [3] since UInt16 was too low for practically storing these properties.  
   - **matrix**  
        matrix with operators and plenty of functionality such as skew.  
        conversion for Matrix changes including to other nameing structures.  
