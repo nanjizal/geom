@@ -1,12 +1,5 @@
 package geom.matrix;
-// TODO: consider a way to make haxe.io.Float32Array work!
-#if js
-#if (haxe_ver < 4.0 )
-import js.html.Float32Array;
-#else
-import js.lib.Float32Array;
-#end
-#end
+import haxe.io.Float32Array;
 import geom.matrix.*;
 import geom.tydef.*;
 import geom.structure.*;
@@ -248,15 +241,15 @@ class Conversion {
                               , e: v.get(4),  f: v.get(5),  g: v.get(6),  h: v.get(7)
                               , i: v.get(8),  j: v.get(9),  k: v.get(10), l: v.get(11) } );
     } 
-    // ideal if this can be haxe.io.Float32Array
-    #if js  
     // Suited to WebGL version
     public static inline
     function _4x3toFloat32Array_( m4x3: Matrix4x3 ): Float32Array {
-        return new Float32Array( [ m4x3.a, m4x3.e, m4x3.i, 0.
-                                 , m4x3.b, m4x3.f, m4x3.j, 0.
-                                 , m4x3.c, m4x3.g, m4x3.k, 0.
-                                 , m4x3.d, m4x3.h, m4x3.l, 1.  ]);
+        var arr = new Float32Array(16);
+        arr[ 0 ] = m4x3.a; arr[ 1 ] = m4x3.e; arr[ 2 ] = m4x3.i; arr[ 3 ] = 0.;
+        arr[ 4 ] = m4x3.b; arr[ 5 ] = m4x3.f; arr[ 6 ] = m4x3.j; arr[ 7 ] = 0.;
+        arr[ 8 ] = m4x3.c; arr[ 9 ] = m4x3.g; arr[ 10 ] = m4x3.k; arr[ 11 ] = 0.;
+        arr[ 12 ] = m4x3.d; arr[ 13 ] = m4x3.h; arr[ 14 ] = m4x3.l; arr[ 15 ] = 0.;
+        return arr;
     }
     // Suited to WebGL version
     public static inline
@@ -265,7 +258,6 @@ class Conversion {
                               , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
                               , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14] } );
     }
-    #end
     /**
      * check transpose
      */
@@ -309,6 +301,24 @@ class Conversion {
         return new Matrix4x3( m4x3 );
     }
     // 4x4
+    // Suited to WebGL version
+    public static inline
+    function _4x4toFloat32Array_( m4x4: Matrix4x4 ): Float32Array {
+        var arr = new Float32Array(16);
+        arr[ 0 ] = m4x4.a; arr[ 1 ] = m4x4.e; arr[ 2 ] = m4x4.i; arr[ 3 ] = m4x4.m;
+        arr[ 4 ] = m4x4.b; arr[ 5 ] = m4x4.f; arr[ 6 ] = m4x4.j; arr[ 7 ] = m4x4.n;
+        arr[ 8 ] = m4x4.c; arr[ 9 ] = m4x4.g; arr[ 10 ] = m4x4.k; arr[ 11 ] = m4x4.o;
+        arr[ 12 ] = m4x4.d; arr[ 13 ] = m4x4.h; arr[ 14 ] = m4x4.l; arr[ 15 ] = m4x4.p;
+        return arr;
+    }
+    // Suited to WebGL version
+    public static inline
+    function Float32Array_to4x4( arr: Float32Array ): Matrix4x4 {
+        return new Matrix4x4( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
+                              , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
+                              , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14]
+                              , m: arr[3],  n: arr[7],  o: arr[11], p: arr[15] } );
+    }
     public static inline
     function _4x4toTmatrix4x4( m4x4: Matrix4x4 ): Tmatrix4x4 {
         var tm: Tmatrix4x4 = { a: m4x4.a, b: m4x4.b, c: m4x4.c, d: m4x4.d
