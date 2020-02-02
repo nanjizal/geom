@@ -1,14 +1,5 @@
 package geom.matrix;
 import haxe.io.Float32Array;
-
-#if js
-#if (haxe_ver < 4.0 )
-import js.html.Float32Array;
-#else
-import js.lib.Float32Array;
-#end
-#end
-
 import geom.tydef.*;
 /** 
    ![4x3](../../bootstrap/img/matrix4x3.png)
@@ -838,8 +829,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             case [ 1, 0 ]: this.e; case [ 1, 1 ]: this.f; case [ 1, 2 ]: this.g; case [ 1, 3 ]: this.h;
             case [ 2, 0 ]: this.i; case [ 2, 1 ]: this.j; case [ 2, 2 ]: this.k; case [ 2, 3 ]: this.l;
             case _: throw ('bad get $x, $y on Matrix4x3' ); }
-    }
-    #if js     
+    }  
     @:to
     public inline
     function toWebGL(): Float32Array return Conversion._4x3toFloat32Array_( this );
@@ -849,13 +839,12 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function updateWebGL( arr: Float32Array ): Float32Array {
-        arr.set([ this.a, this.e, this.i, 0.
-                , this.b, this.f, this.j, 0.
-                , this.c, this.g, this.k, 0.
-                , this.d, this.h, this.l, 1.  ]);
+        arr[ 0 ]  = this.a; arr[ 1 ]  = this.e; arr[ 2 ]  = this.i; arr[ 3 ]  = 0.;
+        arr[ 4 ]  = this.b; arr[ 5 ]  = this.f; arr[ 6 ]  = this.j; arr[ 7 ]  = 0.;
+        arr[ 8 ]  = this.c; arr[ 9 ]  = this.g; arr[ 10 ] = this.k; arr[ 11 ] = 0.;
+        arr[ 12 ] = this.d; arr[ 13 ] = this.h; arr[ 14 ] = this.l; arr[ 15 ] = 0.;
         return arr;
     }
-    #end
     // used to print out a pretty representation of the matrix for debugging,
     // likely quite slow and not optimum.
     public inline
@@ -941,4 +930,4 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         }
         return buf.toString();
     }
-}
+ }
