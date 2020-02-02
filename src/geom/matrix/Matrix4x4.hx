@@ -1,11 +1,5 @@
 package geom.matrix;
-#if js
-#if (haxe_ver < 4.0 )
-import js.html.Float32Array;
-#else
-import js.lib.Float32Array;
-#end
-#end
+import haxe.io.Float32Array;
 import geom.tydef.*;
 /** 
    ![4x4](../../bootstrap/img/matrix4x4.png)
@@ -150,34 +144,22 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                          , e: m.e, f: m.f, g: m.g, h: m.h
                          , i: m.i, j: m.j, k: m.k, l: m.l
                          , m: 0., n: 0., o: 0., p: 1. } );
-    }
-    
-    #if js
+    }  
     @:to
     public inline
-    function toWebGL(): Float32Array {
-        return new Float32Array( [ this.a, this.e, this.i, this.m
-                , this.b, this.f, this.j, this.n
-                , this.c, this.g, this.k, this.o
-                , this.d, this.h, this.l, this.p ]);
-    }
+    function toWebGL(): Float32Array return Conversion._4x4toFloat32Array_( this );
     @:from
     public static inline
-    function fromWebGL( arr: Float32Array ): Matrix4x4 {
-        return new Matrix4x4( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
-                              , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
-                              , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14]
-                              , m: arr[3],  n: arr[4],  o: arr[11], p: arr[15] } );
+    function fromWebGL( arr: Float32Array ): Matrix4x4 { return Conversion.Float32Array_to4x4( arr );
     }
     public inline
     function updateWebGL( arr: Float32Array ): Float32Array {
-        arr.set([ this.a, this.e, this.i, this.m
-                , this.b, this.f, this.j, this.n
-                , this.c, this.g, this.k, this.o
-                , this.d, this.h, this.l, this.p ]);
+        arr[ 0 ]  = this.a; arr[ 1 ]  = this.e; arr[ 2 ]  = this.i; arr[ 3 ]  = this.m;
+        arr[ 4 ]  = this.b; arr[ 5 ]  = this.f; arr[ 6 ]  = this.j; arr[ 7 ]  = this.n;
+        arr[ 8 ]  = this.c; arr[ 9 ]  = this.g; arr[ 10 ] = this.k; arr[ 11 ] = this.o;
+        arr[ 12 ] = this.d; arr[ 13 ] = this.h; arr[ 14 ] = this.l; arr[ 15 ] = this.p;
         return arr;
     }
-    #end
     // used to print out a pretty representation of the matrix for debugging,
     // likely quite slow and not optimum.
     public inline
@@ -264,3 +246,4 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
         return buf.toString();
     }
 }
+
