@@ -51,8 +51,7 @@ geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
       
   - [**systemL**](https://nanjizal.github.io/geom/pages/geom/systemL/)  
       [LNode](https://nanjizal.github.io/geom/pages/geom/systemL/LNode) and [LNode3D](https://nanjizal.github.io/geom/pages/geom/systemL/LNode3D) ( using DualQuaternions ) for use with LSystems  
-  - [**tydef**](https://nanjizal.github.io/geom/pages/geom/tydef/)  
-      [tydef](https://nanjizal.github.io/geom/pages/geom/tydef/)  
+  - [**tydef**](https://nanjizal.github.io/geom/pages/geom/tydef/)   
       typedef alternate matrix structures for integration with other libraries.  
       
   - *Numerical* has min and max for Integers ( 2 and 3 ), Maths constants, and clz32 broken?
