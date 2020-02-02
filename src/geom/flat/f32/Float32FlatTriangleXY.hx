@@ -3,7 +3,7 @@ import geom.flat.f32.Float32Flat6;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
 @:forward
-abstract Float32FlatTexture( Float32Flat6 ){
+abstract Float32FlatTriangleXY( Float32Flat6 ){
     public inline function new( len: Int ){
         this = new Float32Flat6( len );
     }
