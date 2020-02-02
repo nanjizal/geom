@@ -20,8 +20,7 @@ geom library to provide some Vector and Matrix tools for 2D and 3D graphics.
       [Cubic](https://nanjizal.github.io/geom/pages/geom/curve/Cubic.html) provides cubic functions to suplement Square  
       [Hyperbolic](https://nanjizal.github.io/geom/pages/geom/curve/Hyperbolic.html) maths functions needs verifications.  
       [Logarithmic](https://nanjizal.github.io/geom/pages/geom/curve/Logarithmic.html) maths functions needs verifications.   
-  - **flat**
-      [flat](https://nanjizal.github.io/geom/pages/geom/flat/)  
+  - [**flat**](https://nanjizal.github.io/geom/pages/geom/flat/)  
       array datastructures suitable for storing groups of data, [0] stores position and [1] stores length, allows array access of the grouped data and 'next' used to increment groups. 
       [UInt16Flat](https://nanjizal.github.io/geom/pages/geom/flat/ui16/UInt16Flat.html) stores position [0] [1] and length [2] [3] since UInt16 was too low for practically storing these properties.  
       
