@@ -3,7 +3,7 @@ package geom.flat.float;
 // arr[1] defines length used.
 // DON'T use this one directly!!
 @:forward
-abstract FloatFlat( Array<Float> ) to Array<Float> from Array<Float> {
+abstract FloatFlat( Array<Float> ){
     
     @:op([]) //@:arrayAccess
     public inline
@@ -74,5 +74,32 @@ abstract FloatFlat( Array<Float> ) to Array<Float> from Array<Float> {
     public inline
     function getArray(): Array<Float> {
         return this.slice( 2, get_length() + 2 );
+    }
+    @:to
+    public inline
+    function toArray(): Array<Float> {
+        return this.slice( 2, get_length() + 2 );
+    }
+    @:from
+    public static inline
+    function fromArray( arr: Array<Float> ): FloatFlat {
+        var flat = new FloatFlat( arr.length );
+        flat.fill( arr );
+        return flat;
+    }
+    public inline
+    function clone(): FloatFlat {
+        var flat = new FloatFlat( this.length - 2 );
+        flat.fill( toArray() );
+        return flat;
+    }
+    public inline
+    function fill( arr: Array<Float> ){
+        var l = arr.length;
+        for( i in 0...l ){
+            this[ i + 2 ] = arr[ i ];
+        }
+        this[ 0 ] = 0;
+        this[ 1 ] = l;
     }
 }

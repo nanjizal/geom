@@ -87,8 +87,31 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
     function increment() {
         return next();
     }
+    @:to
     public inline
-    function getArray(): Float32Array {
+    function toArray(): Float32Array {
         return this.subarray( 2, get_length() + 2 );
+    }
+    @:from
+    public static inline
+    function fromArray( arr: Float32Array ): Float32Flat {
+        var flat = new Float32Flat( arr.length );
+        flat.fill( arr );
+        return flat;
+    }
+    public inline
+    function clone(): Float32Flat {
+        var flat = new Float32Flat( this.length - 2 );
+        flat.fill( toArray() );
+        return flat;
+    }
+    public inline
+    function fill( arr: Float32Array ){
+        var l = arr.length;
+        for( i in 0...l ){
+            this[ i + 2 ] = arr[ i ];
+        }
+        this[ 0 ] = 0;
+        this[ 1 ] = l;
     }
 }

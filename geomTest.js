@@ -6986,8 +6986,54 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
 	}
 	return this1[0];
 };
-geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.getArray = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.toArray = function(this1) {
 	return this1.subarray(2,Std.int(this1[1]) + 2);
+};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.fromArray = function(arr) {
+	var this1 = new Float32Array(arr.length + 2);
+	var this2 = this1;
+	this2[0] = 0.;
+	this2[1] = 0.;
+	var flat = this2;
+	var l = arr.length;
+	var _g = 0;
+	var _g1 = l;
+	while(_g < _g1) {
+		var i = _g++;
+		flat[i + 2] = arr[i];
+	}
+	flat[0] = 0;
+	flat[1] = l;
+	return flat;
+};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.clone = function(this1) {
+	var this2 = new Float32Array(this1.length - 2 + 2);
+	var this3 = this2;
+	this3[0] = 0.;
+	this3[1] = 0.;
+	var flat = this3;
+	var arr = this1.subarray(2,Std.int(this1[1]) + 2);
+	var l = arr.length;
+	var _g = 0;
+	var _g1 = l;
+	while(_g < _g1) {
+		var i = _g++;
+		flat[i + 2] = arr[i];
+	}
+	flat[0] = 0;
+	flat[1] = l;
+	return flat;
+};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.fill = function(this1,arr) {
+	var l = arr.length;
+	var _g = 0;
+	var _g1 = l;
+	while(_g < _g1) {
+		var i = _g++;
+		this1[i + 2] = arr[i];
+	}
+	this1[0] = 0;
+	this1[1] = l;
 };
 var geom_matrix__$Complex_Complex_$Impl_$ = {};
 geom_matrix__$Complex_Complex_$Impl_$.__name__ = "geom.matrix._Complex.Complex_Impl_";

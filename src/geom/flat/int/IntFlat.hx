@@ -2,7 +2,7 @@ package geom.flat.int;
 // arr[0] defines pos the position, pos is used to get items
 // arr[1] defines length populated
 @:forward
-abstract IntFlat( Array<Int> ) to Array<Int> from Array<Int> {
+abstract IntFlat( Array<Int> ) {
     @:op([]) //@:arrayAccess
     public inline
     function readItem( k: Int ): Int {
@@ -49,8 +49,31 @@ abstract IntFlat( Array<Int> ) to Array<Int> from Array<Int> {
     function increment() {
         return next();
     }
+    @:to
     public inline
-    function getArray(): Array<Int> {
+    function toArray(): Array<Int> {
         return this.slice( 2, get_length() + 2 );
+    }
+    @:from
+    public static inline
+    function fromArray( arr: Array<Int> ): IntFlat {
+        var flat = new IntFlat( arr.length );
+        flat.fill( arr );
+        return flat;
+    }
+    public inline
+    function clone(): IntFlat {
+        var flat = new IntFlat( this.length - 2 );
+        flat.fill( toArray() );
+        return flat;
+    }
+    public inline
+    function fill( arr: Array<Int> ){
+        var l = arr.length;
+        for( i in 0...l ){
+            this[ i + 2 ] = arr[ i ];
+        }
+        this[ 0 ] = 0;
+        this[ 1 ] = l;
     }
 }

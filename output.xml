@@ -1944,9 +1944,15 @@
 </f></log2>
 	</class>
 	<abstract path="geom.flat.f32.Float32Flat" params="" file="src/geom/flat/f32/Float32Flat.hx">
-		<from><icast><x path="haxe.io.Float32Array"/></icast></from>
+		<from>
+			<icast><x path="haxe.io.Float32Array"/></icast>
+			<icast field="fromArray"><x path="haxe.io.Float32Array"/></icast>
+		</from>
 		<this><x path="haxe.io.Float32Array"/></this>
-		<to><icast><x path="haxe.io.Float32Array"/></icast></to>
+		<to>
+			<icast><x path="haxe.io.Float32Array"/></icast>
+			<icast field="toArray"><x path="haxe.io.Float32Array"/></icast>
+		</to>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.f32._Float32Flat.Float32Flat_Impl_" params="" file="src/geom/flat/f32/Float32Flat.hx" private="1" module="geom.flat.f32.Float32Flat">
 	<readItem public="1" get="inline" set="null" line="17" static="1">
@@ -2074,13 +2080,38 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<getArray public="1" get="inline" set="null" line="90" static="1">
+	<toArray public="1" get="inline" set="null" line="91" static="1">
 		<f a="this">
 			<x path="haxe.io.Float32Array"/>
 			<x path="haxe.io.Float32Array"/>
 		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toArray>
+	<fromArray public="1" get="inline" set="null" line="96" static="1">
+		<f a="arr">
+			<x path="haxe.io.Float32Array"/>
+			<x path="geom.flat.f32.Float32Flat"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromArray>
+	<clone public="1" get="inline" set="null" line="102" static="1">
+		<f a="this">
+			<x path="haxe.io.Float32Array"/>
+			<x path="geom.flat.f32.Float32Flat"/>
+		</f>
 		<meta><m n=":impl"/></meta>
-	</getArray>
+	</clone>
+	<fill public="1" get="inline" set="null" line="108" static="1">
+		<f a="this:arr">
+			<x path="haxe.io.Float32Array"/>
+			<x path="haxe.io.Float32Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
 </class></impl>
 	</abstract>
 	<class path="geom.flat.f32._Float32Flat.Float32Flat_Impl_" params="" file="src/geom/flat/f32/Float32Flat.hx" private="1" module="geom.flat.f32.Float32Flat">
@@ -2209,13 +2240,38 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<getArray public="1" get="inline" set="null" line="90" static="1">
+		<toArray public="1" get="inline" set="null" line="91" static="1">
 			<f a="this">
 				<x path="haxe.io.Float32Array"/>
 				<x path="haxe.io.Float32Array"/>
 			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toArray>
+		<fromArray public="1" get="inline" set="null" line="96" static="1">
+			<f a="arr">
+				<x path="haxe.io.Float32Array"/>
+				<x path="geom.flat.f32.Float32Flat"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromArray>
+		<clone public="1" get="inline" set="null" line="102" static="1">
+			<f a="this">
+				<x path="haxe.io.Float32Array"/>
+				<x path="geom.flat.f32.Float32Flat"/>
+			</f>
 			<meta><m n=":impl"/></meta>
-		</getArray>
+		</clone>
+		<fill public="1" get="inline" set="null" line="108" static="1">
+			<f a="this:arr">
+				<x path="haxe.io.Float32Array"/>
+				<x path="haxe.io.Float32Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
 	</class>
 	<abstract path="geom.flat.f32.Float32Flat10" params="" file="src/geom/flat/f32/Float32Flat10.hx">
 		<this><x path="geom.flat.f32.Float32Flat"/></this>
@@ -4645,14 +4701,14 @@
 		</prettyAll>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<abstract path="geom.flat.f32.Float32FlatTexture" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx" module="geom.flat.f32.Float32FlatTriangleXY">
+	<abstract path="geom.flat.f32.Float32FlatTriangleXY" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx">
 		<this><x path="geom.flat.f32.Float32Flat6"/></this>
 		<meta><m n=":forward"/></meta>
-		<impl><class path="geom.flat.f32._Float32FlatTriangleXY.Float32FlatTexture_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx" private="1" module="geom.flat.f32.Float32FlatTriangleXY">
+		<impl><class path="geom.flat.f32._Float32FlatTriangleXY.Float32FlatTriangleXY_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx" private="1" module="geom.flat.f32.Float32FlatTriangleXY">
 	<_new public="1" get="inline" set="null" line="7" static="1">
 		<f a="len">
 			<x path="Int"/>
-			<x path="geom.flat.f32.Float32FlatTexture"/>
+			<x path="geom.flat.f32.Float32FlatTriangleXY"/>
 		</f>
 		<meta>
 			<m n=":impl"/>
@@ -4948,11 +5004,11 @@
 	</prettyAll>
 </class></impl>
 	</abstract>
-	<class path="geom.flat.f32._Float32FlatTriangleXY.Float32FlatTexture_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx" private="1" module="geom.flat.f32.Float32FlatTriangleXY">
+	<class path="geom.flat.f32._Float32FlatTriangleXY.Float32FlatTriangleXY_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangleXY.hx" private="1" module="geom.flat.f32.Float32FlatTriangleXY">
 		<_new public="1" get="inline" set="null" line="7" static="1">
 			<f a="len">
 				<x path="Int"/>
-				<x path="geom.flat.f32.Float32FlatTexture"/>
+				<x path="geom.flat.f32.Float32FlatTriangleXY"/>
 			</f>
 			<meta>
 				<m n=":impl"/>
@@ -5248,9 +5304,9 @@
 		</prettyAll>
 	</class>
 	<abstract path="geom.flat.float.FloatFlat" params="" file="src/geom/flat/float/FloatFlat.hx">
-		<from><icast><c path="Array"><x path="Float"/></c></icast></from>
+		<from><icast field="fromArray"><c path="Array"><x path="Float"/></c></icast></from>
 		<this><c path="Array"><x path="Float"/></c></this>
-		<to><icast><c path="Array"><x path="Float"/></c></icast></to>
+		<to><icast field="toArray"><c path="Array"><x path="Float"/></c></icast></to>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.float._FloatFlat.FloatFlat_Impl_" params="" file="src/geom/flat/float/FloatFlat.hx" private="1" module="geom.flat.float.FloatFlat">
 	<readItem public="1" get="inline" set="null" line="9" static="1">
@@ -5373,6 +5429,38 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getArray>
+	<toArray public="1" get="inline" set="null" line="79" static="1">
+		<f a="this">
+			<c path="Array"><x path="Float"/></c>
+			<c path="Array"><x path="Float"/></c>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toArray>
+	<fromArray public="1" get="inline" set="null" line="84" static="1">
+		<f a="arr">
+			<c path="Array"><x path="Float"/></c>
+			<x path="geom.flat.float.FloatFlat"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromArray>
+	<clone public="1" get="inline" set="null" line="90" static="1">
+		<f a="this">
+			<c path="Array"><x path="Float"/></c>
+			<x path="geom.flat.float.FloatFlat"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</clone>
+	<fill public="1" get="inline" set="null" line="96" static="1">
+		<f a="this:arr">
+			<c path="Array"><x path="Float"/></c>
+			<c path="Array"><x path="Float"/></c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
 </class></impl>
 	</abstract>
 	<class path="geom.flat.float._FloatFlat.FloatFlat_Impl_" params="" file="src/geom/flat/float/FloatFlat.hx" private="1" module="geom.flat.float.FloatFlat">
@@ -5496,6 +5584,38 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getArray>
+		<toArray public="1" get="inline" set="null" line="79" static="1">
+			<f a="this">
+				<c path="Array"><x path="Float"/></c>
+				<c path="Array"><x path="Float"/></c>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toArray>
+		<fromArray public="1" get="inline" set="null" line="84" static="1">
+			<f a="arr">
+				<c path="Array"><x path="Float"/></c>
+				<x path="geom.flat.float.FloatFlat"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromArray>
+		<clone public="1" get="inline" set="null" line="90" static="1">
+			<f a="this">
+				<c path="Array"><x path="Float"/></c>
+				<x path="geom.flat.float.FloatFlat"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</clone>
+		<fill public="1" get="inline" set="null" line="96" static="1">
+			<f a="this:arr">
+				<c path="Array"><x path="Float"/></c>
+				<c path="Array"><x path="Float"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
 	</class>
 	<abstract path="geom.flat.float.FloatFlat10" params="" file="src/geom/flat/float/FloatFlat10.hx">
 		<this><x path="geom.flat.float.FloatFlat"/></this>
@@ -7924,9 +8044,9 @@
 		</prettyAll>
 	</class>
 	<abstract path="geom.flat.i32.Int32Flat" params="" file="src/geom/flat/i32/Int32Flat.hx">
-		<from><icast><x path="haxe.io.Int32Array"/></icast></from>
+		<from><icast field="fromArray"><x path="haxe.io.Int32Array"/></icast></from>
 		<this><x path="haxe.io.Int32Array"/></this>
-		<to><icast><x path="haxe.io.Int32Array"/></icast></to>
+		<to><icast field="toArray"><x path="haxe.io.Int32Array"/></icast></to>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.i32._Int32Flat.Int32Flat_Impl_" params="" file="src/geom/flat/i32/Int32Flat.hx" private="1" module="geom.flat.i32.Int32Flat">
 	<readItem public="1" get="inline" set="null" line="8" static="1">
@@ -8023,13 +8143,38 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<getArray public="1" get="inline" set="null" line="53" static="1">
+	<toArray public="1" get="inline" set="null" line="54" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="haxe.io.Int32Array"/>
 		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toArray>
+	<fromArray public="1" get="inline" set="null" line="59" static="1">
+		<f a="arr">
+			<x path="haxe.io.Int32Array"/>
+			<x path="geom.flat.i32.Int32Flat"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromArray>
+	<clone public="1" get="inline" set="null" line="65" static="1">
+		<f a="this">
+			<x path="haxe.io.Int32Array"/>
+			<x path="geom.flat.i32.Int32Flat"/>
+		</f>
 		<meta><m n=":impl"/></meta>
-	</getArray>
+	</clone>
+	<fill public="1" get="inline" set="null" line="71" static="1">
+		<f a="this:arr">
+			<x path="haxe.io.Int32Array"/>
+			<x path="haxe.io.Int32Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
 </class></impl>
 	</abstract>
 	<class path="geom.flat.i32._Int32Flat.Int32Flat_Impl_" params="" file="src/geom/flat/i32/Int32Flat.hx" private="1" module="geom.flat.i32.Int32Flat">
@@ -8127,13 +8272,38 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<getArray public="1" get="inline" set="null" line="53" static="1">
+		<toArray public="1" get="inline" set="null" line="54" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="haxe.io.Int32Array"/>
 			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toArray>
+		<fromArray public="1" get="inline" set="null" line="59" static="1">
+			<f a="arr">
+				<x path="haxe.io.Int32Array"/>
+				<x path="geom.flat.i32.Int32Flat"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromArray>
+		<clone public="1" get="inline" set="null" line="65" static="1">
+			<f a="this">
+				<x path="haxe.io.Int32Array"/>
+				<x path="geom.flat.i32.Int32Flat"/>
+			</f>
 			<meta><m n=":impl"/></meta>
-		</getArray>
+		</clone>
+		<fill public="1" get="inline" set="null" line="71" static="1">
+			<f a="this:arr">
+				<x path="haxe.io.Int32Array"/>
+				<x path="haxe.io.Int32Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
 	</class>
 	<abstract path="geom.flat.i32.Int32Flat10" params="" file="src/geom/flat/i32/Int32Flat10.hx">
 		<this><x path="geom.flat.i32.Int32Flat"/></this>
@@ -10562,9 +10732,9 @@
 		</prettyAll>
 	</class>
 	<abstract path="geom.flat.int.IntFlat" params="" file="src/geom/flat/int/IntFlat.hx">
-		<from><icast><c path="Array"><x path="Int"/></c></icast></from>
+		<from><icast field="fromArray"><c path="Array"><x path="Int"/></c></icast></from>
 		<this><c path="Array"><x path="Int"/></c></this>
-		<to><icast><c path="Array"><x path="Int"/></c></icast></to>
+		<to><icast field="toArray"><c path="Array"><x path="Int"/></c></icast></to>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.int._IntFlat.IntFlat_Impl_" params="" file="src/geom/flat/int/IntFlat.hx" private="1" module="geom.flat.int.IntFlat">
 	<readItem public="1" get="inline" set="null" line="7" static="1">
@@ -10661,13 +10831,38 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<getArray public="1" get="inline" set="null" line="52" static="1">
+	<toArray public="1" get="inline" set="null" line="53" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<c path="Array"><x path="Int"/></c>
 		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toArray>
+	<fromArray public="1" get="inline" set="null" line="58" static="1">
+		<f a="arr">
+			<c path="Array"><x path="Int"/></c>
+			<x path="geom.flat.int.IntFlat"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromArray>
+	<clone public="1" get="inline" set="null" line="64" static="1">
+		<f a="this">
+			<c path="Array"><x path="Int"/></c>
+			<x path="geom.flat.int.IntFlat"/>
+		</f>
 		<meta><m n=":impl"/></meta>
-	</getArray>
+	</clone>
+	<fill public="1" get="inline" set="null" line="70" static="1">
+		<f a="this:arr">
+			<c path="Array"><x path="Int"/></c>
+			<c path="Array"><x path="Int"/></c>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
 </class></impl>
 	</abstract>
 	<class path="geom.flat.int._IntFlat.IntFlat_Impl_" params="" file="src/geom/flat/int/IntFlat.hx" private="1" module="geom.flat.int.IntFlat">
@@ -10765,13 +10960,38 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<getArray public="1" get="inline" set="null" line="52" static="1">
+		<toArray public="1" get="inline" set="null" line="53" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<c path="Array"><x path="Int"/></c>
 			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toArray>
+		<fromArray public="1" get="inline" set="null" line="58" static="1">
+			<f a="arr">
+				<c path="Array"><x path="Int"/></c>
+				<x path="geom.flat.int.IntFlat"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromArray>
+		<clone public="1" get="inline" set="null" line="64" static="1">
+			<f a="this">
+				<c path="Array"><x path="Int"/></c>
+				<x path="geom.flat.int.IntFlat"/>
+			</f>
 			<meta><m n=":impl"/></meta>
-		</getArray>
+		</clone>
+		<fill public="1" get="inline" set="null" line="70" static="1">
+			<f a="this:arr">
+				<c path="Array"><x path="Int"/></c>
+				<c path="Array"><x path="Int"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
 	</class>
 	<abstract path="geom.flat.int.IntFlat10" params="" file="src/geom/flat/int/IntFlat10.hx">
 		<this><x path="geom.flat.int.IntFlat"/></this>
@@ -13200,9 +13420,9 @@
 		</prettyAll>
 	</class>
 	<abstract path="geom.flat.ui16.UInt16Flat" params="" file="src/geom/flat/ui16/UInt16Flat.hx">
-		<from><icast><x path="haxe.io.UInt16Array"/></icast></from>
+		<from><icast field="fromArray"><x path="haxe.io.UInt16Array"/></icast></from>
 		<this><x path="haxe.io.UInt16Array"/></this>
-		<to><icast><x path="haxe.io.UInt16Array"/></icast></to>
+		<to><icast field="toArray"><x path="haxe.io.UInt16Array"/></icast></to>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.ui16._UInt16Flat.UInt16Flat_Impl_" params="" file="src/geom/flat/ui16/UInt16Flat.hx" private="1" module="geom.flat.ui16.UInt16Flat">
 	<readItem public="1" get="inline" set="null" line="10" static="1">
@@ -13349,13 +13569,38 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<getArray public="1" get="inline" set="null" line="82" static="1">
+	<toArray public="1" get="inline" set="null" line="83" static="1">
+		<f a="this">
+			<x path="haxe.io.UInt16Array"/>
+			<x path="haxe.io.UInt16Array"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":to"/>
+		</meta>
+	</toArray>
+	<fromArray public="1" get="inline" set="null" line="88" static="1">
+		<f a="arr">
+			<x path="haxe.io.UInt16Array"/>
+			<x path="geom.flat.ui16.UInt16Flat"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromArray>
+	<clone public="1" get="inline" set="null" line="94" static="1">
 		<f a="this">
 			<x path="haxe.io.UInt16Array"/>
 			<x path="haxe.io.UInt16Array"/>
 		</f>
 		<meta><m n=":impl"/></meta>
-	</getArray>
+	</clone>
+	<fill public="1" get="inline" set="null" line="100" static="1">
+		<f a="this:arr">
+			<x path="haxe.io.UInt16Array"/>
+			<x path="haxe.io.UInt16Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</fill>
 </class></impl>
 	</abstract>
 	<class path="geom.flat.ui16._UInt16Flat.UInt16Flat_Impl_" params="" file="src/geom/flat/ui16/UInt16Flat.hx" private="1" module="geom.flat.ui16.UInt16Flat">
@@ -13503,13 +13748,38 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<getArray public="1" get="inline" set="null" line="82" static="1">
+		<toArray public="1" get="inline" set="null" line="83" static="1">
+			<f a="this">
+				<x path="haxe.io.UInt16Array"/>
+				<x path="haxe.io.UInt16Array"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":to"/>
+			</meta>
+		</toArray>
+		<fromArray public="1" get="inline" set="null" line="88" static="1">
+			<f a="arr">
+				<x path="haxe.io.UInt16Array"/>
+				<x path="geom.flat.ui16.UInt16Flat"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromArray>
+		<clone public="1" get="inline" set="null" line="94" static="1">
 			<f a="this">
 				<x path="haxe.io.UInt16Array"/>
 				<x path="haxe.io.UInt16Array"/>
 			</f>
 			<meta><m n=":impl"/></meta>
-		</getArray>
+		</clone>
+		<fill public="1" get="inline" set="null" line="100" static="1">
+			<f a="this:arr">
+				<x path="haxe.io.UInt16Array"/>
+				<x path="haxe.io.UInt16Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</fill>
 	</class>
 	<abstract path="geom.flat.ui16.UInt16Flat10" params="" file="src/geom/flat/ui16/UInt16Flat10.hx">
 		<this><x path="geom.flat.ui16.UInt16Flat"/></this>

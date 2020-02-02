@@ -3,7 +3,7 @@ import haxe.io.Int32Array; // js.lib.Int32Array
 // arr[0] defines pos the position, pos is used to get items
 // arr[1] defines length used.
 @:forward
-abstract Int32Flat( Int32Array ) to Int32Array from Int32Array {
+abstract Int32Flat( Int32Array ) {
     @:op([]) //@:arrayAccess
     public inline
     function readItem( k: Int ): Int {
@@ -50,8 +50,31 @@ abstract Int32Flat( Int32Array ) to Int32Array from Int32Array {
     function increment() {
         return next();
     }
+    @:to
     public inline
-    function getArray(): Int32Array {
+    function toArray(): Int32Array {
         return this.subarray( 2, get_length() + 2 );
+    }
+    @:from
+    public static inline
+    function fromArray( arr: Int32Array ): Int32Flat {
+        var flat = new Int32Flat( arr.length );
+        flat.fill( arr );
+        return flat;
+    }
+    public inline
+    function clone(): Int32Flat {
+        var flat = new Int32Flat( this.length - 2 );
+        flat.fill( toArray() );
+        return flat;
+    }
+    public inline
+    function fill( arr: Int32Array ){
+        var l = arr.length;
+        for( i in 0...l ){
+            this[ i + 2 ] = arr[ i ];
+        }
+        this[ 0 ] = 0;
+        this[ 1 ] = l;
     }
 }

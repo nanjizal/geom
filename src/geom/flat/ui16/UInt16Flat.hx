@@ -5,7 +5,7 @@ import haxe.io.UInt16Array; // js.lib.Int16Array
 // arr[2] defines length used. 0xFFFF0000
 // arr[3] defines length used. 0x000FFFFF;
 @:forward
-abstract UInt16Flat( UInt16Array ) to UInt16Array from UInt16Array {
+abstract UInt16Flat( UInt16Array ) {
     @:op([]) //@:arrayAccess
     public inline
     function readItem( k: Int ): UInt {
@@ -79,8 +79,32 @@ abstract UInt16Flat( UInt16Array ) to UInt16Array from UInt16Array {
     function increment() {
         return next();
     }
+    @:to
     public inline
-    function getArray(): UInt16Array {
+    function toArray(): UInt16Array {
         return this.subarray( 4, this.length + 4 );
+    }
+    @:from
+    public static inline
+    function fromArray( arr: UInt16Array ): UInt16Flat  {
+        var flat = new UInt16Flat( arr.length );
+        flat.fill( arr );
+        return flat;
+    }
+    public inline
+    function clone(): UInt16Array  {
+        var flat = new UInt16Flat( this.length - 4 );
+        flat.fill( toArray() );
+        return flat;
+    }
+    public inline
+    function fill( arr: UInt16Array ){
+        var l = arr.length;
+        for( i in 0...l ){
+            this[ i + 4 ] = arr[ i ];
+        }
+        this[ 0 ] = 0;
+        this[ 1 ] = 0;
+        setLength( l );
     }
 }
