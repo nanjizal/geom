@@ -497,7 +497,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: 0., f: y,  g: 0., h: 0.
                              , i: 0., j: 0., k: 1,  l: 0. } );
     }
-    public inline scaleXY( x: Float, y: Float ){ return this * sxy( x, y ); }
+    public inline 
+    function scaleXY( x: Float, y: Float ){ return this * sxy( x, y ); }
     public static inline
     function scalarXY( x: Float, y: Float ): Matrix4x3 { return unit.scaleXY( x, y ); };    
     public static inline
