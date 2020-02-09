@@ -554,7 +554,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateXYZ( x: Float, y: Float, z: Float ): Matrix4x3 { return this * txyz( x, y, z ); }
     public static inline
-    function transformationXYZ( x: Float, y: Float, z: Float ): Matrix4x3 { return unit.transformXYZ( x, y, z ); }    
+    function transformationXYZ( x: Float, y: Float, z: Float ): Matrix4x3 { return unit.translateXYZ( x, y, z ); }    
     public static inline
     function tx( x: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
