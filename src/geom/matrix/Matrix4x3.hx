@@ -486,6 +486,13 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function rotateZ( theta: Float ) : Matrix4x3 { return this * radianZ( theta ); }
     public static inline
+    function sxy( x: Float, y: Float ): Matrix4x3 {
+       return new Matrix4x3({  a: x,  b: 0., c: 0., d: 0.
+                             , e: 0., f: y,  g: 0., h: 0.
+                             , i: 0., j: 0., k: 1,  l: 0. } );
+    }
+    public inline scaleXY( x: Float, y: Float ){ return this * sxy( x, y ); }  
+    public static inline
     function sxyz( x: Float, y: Float, z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: x,  b: 0., c: 0., d: 0.
                              , e: 0., f: y,  g: 0., h: 0.
