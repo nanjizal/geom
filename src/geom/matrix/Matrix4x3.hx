@@ -520,7 +520,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function scaleX( x: Float ): Matrix4x3 { return this * sx( x ); }
     public static inline
-    function scalarX( x: Float ): Matrix4x3 { returt unit.scaleX( x ); }
+    function scalarX( x: Float ): Matrix4x3 { return unit.scaleX( x ); }
     public static inline
     function sy( y: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
@@ -530,7 +530,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function scaleY( y: Float ): Matrix4x3 { return this * sy( y ); }
     public static inline
-    function scalarY( y: Float ): Matrix4x3 { returt unit.scaleY( y ); }    
+    function scalarY( y: Float ): Matrix4x3 { return unit.scaleY( y ); }    
     public static inline
     function sz( z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
@@ -540,11 +540,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function scaleZ( z: Float ): Matrix4x3 { return this * sz( z ); }
     public static inline
-    function scalarZ( z: Float ): Matrix4x3 { returt unit.scaleZ( z ); }    
+    function scalarZ( z: Float ): Matrix4x3 { return unit.scaleZ( z ); }    
     public inline
     function scale( s: Float ): Matrix4x3 { return this * scaleXYZ( s, s, s ); }
     public static inline
-    function scalar( s: Float ): Matrix4x3 { returt unit.scale( s ); }    
+    function scalar( s: Float ): Matrix4x3 { return unit.scale( s ); }    
     public static inline
     function txyz( x: Float, y: Float, z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
@@ -554,7 +554,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateXYZ( x: Float, y: Float, z: Float ): Matrix4x3 { return this * txyz( x, y, z ); }
     public static inline
-    function transformationXYZ( x: Flox: Float, y: Float, z: Float ): Matrix4x3 { returt unit.transformXYZ( x, y, z ); }    
+    function transformationXYZ( x: Flox: Float, y: Float, z: Float ): Matrix4x3 { return unit.transformXYZ( x, y, z ); }    
     public static inline
     function tx( x: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
