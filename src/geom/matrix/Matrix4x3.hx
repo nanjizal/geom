@@ -468,6 +468,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function rotateX( theta: Float ) : Matrix4x3 { return this * radianX( theta ); }
     public static inline
+    function rotationX( theta: Float ): Matrix4x3 { return unit.rotateX( theta ); };
+    public static inline
     function radianY( theta: Float ): Matrix4x3 {
         var c = Math.cos( theta ); var s = Math.sin( theta );
         return new Matrix4x3({ a: c,   b: 0.,  c: s,  d: 0.
@@ -476,6 +478,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function rotateY( theta: Float ) : Matrix4x3 { return this * radianY( theta ); }
+    public static inline
+    function rotationY( theta: Float ): Matrix4x3 { return unit.rotateY( theta ); };    
     public static inline
     function radianZ( theta: Float ): Matrix4x3 {
         var c = Math.cos( theta ); var s = Math.sin( theta );
@@ -486,12 +490,16 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function rotateZ( theta: Float ) : Matrix4x3 { return this * radianZ( theta ); }
     public static inline
+    function rotationZ( theta: Float ): Matrix4x3 { return unit.rotateZ( theta ); };    
+    public static inline
     function sxy( x: Float, y: Float ): Matrix4x3 {
        return new Matrix4x3({  a: x,  b: 0., c: 0., d: 0.
                              , e: 0., f: y,  g: 0., h: 0.
                              , i: 0., j: 0., k: 1,  l: 0. } );
     }
-    public inline scaleXY( x: Float, y: Float ){ return this * sxy( x, y ); }  
+    public inline scaleXY( x: Float, y: Float ){ return this * sxy( x, y ); }
+    public static inline
+    function scalarXY( x: Float, y: Float ): Matrix4x3 { return unit.scaleXY( x, y ); };    
     public static inline
     function sxyz( x: Float, y: Float, z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: x,  b: 0., c: 0., d: 0.
@@ -501,6 +509,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function scaleXYZ( x: Float, y: Float, z: Float ){ return this * sxyz( x, y, z ); }
     public static inline
+    function scalarXYZ( x: Float, y: Float, z: Float ){ return unit.scaleXYZ( x, y, z ); }
+    public static inline
     function sx( x: Float ): Matrix4x3 {
         return new Matrix4x3({ a: x,  b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
@@ -508,6 +518,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function scaleX( x: Float ): Matrix4x3 { return this * sx( x ); }
+    public static inline
+    function scalarX( x: Float ): Matrix4x3 { returt unit.scaleX( x ); }
     public static inline
     function sy( y: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
@@ -517,6 +529,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function scaleY( y: Float ): Matrix4x3 { return this * sy( y ); }
     public static inline
+    function scalarY( y: Float ): Matrix4x3 { returt unit.scaleY( y ); }    
+    public static inline
     function sz( z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
@@ -524,8 +538,12 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function scaleZ( z: Float ): Matrix4x3 { return this * sz( z ); }
+    public static inline
+    function scalarZ( z: Float ): Matrix4x3 { returt unit.scaleZ( z ); }    
     public inline
     function scale( s: Float ): Matrix4x3 { return this * scaleXYZ( s, s, s ); }
+    public static inline
+    function scalar( s: Float ): Matrix4x3 { returt unit.scale( s ); }    
     public static inline
     function txyz( x: Float, y: Float, z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
@@ -535,6 +553,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateXYZ( x: Float, y: Float, z: Float ): Matrix4x3 { return this * txyz( x, y, z ); }
     public static inline
+    function transformationXYZ( x: Flox: Float, y: Float, z: Float ): Matrix4x3 { returt unit.transformXYZ( x, y, z ); }    
+    public static inline
     function tx( x: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
                              , e: 0., f: 1., g: 0., h: 0.
@@ -542,6 +562,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function translateX( x: Float ): Matrix4x3 { return this * tx( x ); }
+    public static inline
+    function transformationX( x: Float ): Matrix4x3 { return unit.translateX( x ); }
     public static inline
     function ty( y: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
@@ -551,6 +573,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateY( y: Float ): Matrix4x3 { return this * ty( y ); }
     public static inline
+    function transformationY( y: Float ): Matrix4x3 { return unit.translateY( y ); }    
+    public static inline
     function tz( z: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
@@ -559,6 +583,8 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateZ( z: Float ): Matrix4x3 { return this * tz( z ); }
     public static inline
+    function transformationZ( z: Float ): Matrix4x3 { return unit.translateZ( z ); }    
+    public static inline
     function txy( x: Float, y: Float ): Matrix4x3 {
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: x
                              , e: 0., f: 1., g: 0., h: y
@@ -566,7 +592,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     }
     public inline
     function translateXY( x: Float, y: Float ): Matrix4x3 { return this * txy( x, y ); }
-    /**
+    public static inline
+    function transformationXY( x: Float, y: Float ): Matrix4x3 { return unit.translateXY( x, y ); }    
+   /**
      * <pre><code>
      * >>> ({ 
      * ... var a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
