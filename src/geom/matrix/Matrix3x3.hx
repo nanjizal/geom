@@ -200,6 +200,12 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     function translateXY( x: Float, y: Float ): Matrix3x3 {
         return this * txy( x, y );
     }
+    public inline
+    function transpose(): Matrix3x3 {
+        return new Matrix3x3( { a: this.a, b: this.d, c: this.g
+                              , d: this.b, e: this.e, f: this.h
+                              , g: this.c, h: this.f, i: this.i } ); 
+    }
     @:op(A + B) public static inline
     function add( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c

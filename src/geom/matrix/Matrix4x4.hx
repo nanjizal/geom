@@ -129,12 +129,11 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
     }
     public inline
     function delta( x: Float, y: Float ): Matrix4x4 {
-        var m = this;
         return new Matrix4x4( { 
-                           a: m.a, b: m.b, c: m.c, d: m.d
-                         , e: m.e, f: m.f, g: m.g, h: m.h
-                         , i: m.i, j: m.j, k: m.k, l: m.l
-                         , m: m.m + x, n: m.n + y, o: m.o, p: m.p } );
+                           a: this.a, b: this.b, c: this.c, d: this.d
+                         , e: this.e, f: this.f, g: this.g, h: this.h
+                         , i: this.i, j: this.j, k: this.k, l: this.l
+                         , m: this.m + x, n: this.n + y, o: this.o, p: this.p } );
     }
     @:from
     public static inline 
@@ -144,20 +143,26 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                          , e: m.e, f: m.f, g: m.g, h: m.h
                          , i: m.i, j: m.j, k: m.k, l: m.l
                          , m: 0., n: 0., o: 0., p: 1. } );
-    }  
-    @:to
+    } 
     public inline
-    function toWebGL(): Float32Array return Conversion._4x4toFloat32Array_( this );
-    @:from
-    public static inline
-    function fromWebGL( arr: Float32Array ): Matrix4x4 { return Conversion.Float32Array_to4x4( arr );
+    function transpose(): Matrix4x4 {
+        return new Matrix4x4( { 
+                           a: this.a, b: this.e, c: this.i, d: this.m
+                         , e: this.b, f: this.f, g: this.j, h: this.n
+                         , i: this.c, j: this.g, k: this.k, l: this.o
+                         , m: this.d, n: this.h, o: this.l, p: this.p } );
+    } 
+    public inline
+    function updateWebGL( arr: Float32Array ){
+        var here: Matrix4x4 = this;
+        Conversion._4x4toFloat32ArrayTransposeUpdate_( arr, here  );
+        return arr;
     }
+    // non transpose technically incorrect but works for texture sometimes.. ?
     public inline
-    function updateWebGL( arr: Float32Array ): Float32Array {
-        arr[ 0 ]  = this.a; arr[ 1 ]  = this.e; arr[ 2 ]  = this.i; arr[ 3 ]  = this.m;
-        arr[ 4 ]  = this.b; arr[ 5 ]  = this.f; arr[ 6 ]  = this.j; arr[ 7 ]  = this.n;
-        arr[ 8 ]  = this.c; arr[ 9 ]  = this.g; arr[ 10 ] = this.k; arr[ 11 ] = this.o;
-        arr[ 12 ] = this.d; arr[ 13 ] = this.h; arr[ 14 ] = this.l; arr[ 15 ] = this.p;
+    function updateWebGL_( arr: Float32Array ){
+        var here: Matrix4x4 = this;
+        Conversion._4x4toFloat32ArrayUpdate_( arr, here  );
         return arr;
     }
     // used to print out a pretty representation of the matrix for debugging,

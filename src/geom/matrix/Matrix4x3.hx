@@ -594,7 +594,43 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     public inline
     function translateXY( x: Float, y: Float ): Matrix4x3 { return this * txy( x, y ); }
     public static inline
-    function translationXY( x: Float, y: Float ): Matrix4x3 { return unit.translateXY( x, y ); }    
+    function translationXY( x: Float, y: Float ): Matrix4x3 { return unit.translateXY( x, y ); }
+    public static inline
+    function reflection( a: Float, b: Float, c: Float ): Matrix4x3 {
+        return new Matrix4x3({ a: -a*a + b*b + c*c,  b: - 2. * a * b,        c: -2. * a * c,   d: 0.
+                             , e: -2. * b * a,       f: - b*b + a*a + c*c,   g: -2. * b * c,   h: 0.
+                             , i: -2. * c * a,       j: -2. * c * b,         k: -c*c + b*b + a*a, l: 0. } );
+    }
+    public static inline
+    function reflectionX(): Matrix4x3 {
+        return reflection( -1, 1, 1 );
+    }
+    public static inline
+    function reflectionY(): Matrix4x3 {
+        return reflection( 1, -1, 1 );
+    }
+    public static inline
+    function reflectionZ(): Matrix4x3 {
+        return reflection( 1, 1, -1 );
+    }
+    public inline
+    function reflectX(): Matrix4x3 { return this * reflectionX(); }
+    public inline
+    function reflectY(): Matrix4x3 { return this * reflectionY(); }
+    public inline
+    function reflectZ(): Matrix4x3 { return this * reflectionZ(); }
+    
+    /**
+     * A reflection about a line or plane that does not go through the origin is not a linear transformation 
+     * — it is an affine transformation — as a 4x4 affine transformation matrix, 
+     * it can be expressed as follows (assuming the normal is a unit vector)
+    **/
+    public inline
+    function reflectionNonOrigin( a: Float, b: Float, c: Float, d: Float ): Matrix4x3 {
+        return new Matrix4x3({ a: 1. - 2.*a*a, b: -2.*b*c,     c: -2.*a*c,   d: -2.*a*d
+                             , e: -2.*b*c,     f: 1. - 2.*b*b, g: -2.*b*c,   h: -2.*b*d
+                             , i: -2.*a*c,     j: 2.*b*c,      k: 1. - 2.*c*c, l: -2*c*d } );
+    }
    /**
      * <pre><code>
      * >>> ({ 
@@ -865,20 +901,18 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
             case [ 1, 0 ]: this.e; case [ 1, 1 ]: this.f; case [ 1, 2 ]: this.g; case [ 1, 3 ]: this.h;
             case [ 2, 0 ]: this.i; case [ 2, 1 ]: this.j; case [ 2, 2 ]: this.k; case [ 2, 3 ]: this.l;
             case _: throw ('bad get $x, $y on Matrix4x3' ); }
-    }  
-    @:to
+    } 
     public inline
-    function toWebGL(): Float32Array return Conversion._4x3toFloat32Array_( this );
-    @:from
-    public static inline
-    function fromWebGL( arr: Float32Array ): Matrix4x3 { return Conversion.Float32Array_to4x3( arr );
+    function updateWebGL( arr: Float32Array ){
+        var here: Matrix4x3 = this;
+        Conversion._4x3toFloat32ArrayTransposeUpdate_( arr, here  );
+        return arr;
     }
+    // non transpose technically incorrect but works for texture sometimes.. ?
     public inline
-    function updateWebGL( arr: Float32Array ): Float32Array {
-        arr[ 0 ]  = this.a; arr[ 1 ]  = this.e; arr[ 2 ]  = this.i; arr[ 3 ]  = 0.;
-        arr[ 4 ]  = this.b; arr[ 5 ]  = this.f; arr[ 6 ]  = this.j; arr[ 7 ]  = 0.;
-        arr[ 8 ]  = this.c; arr[ 9 ]  = this.g; arr[ 10 ] = this.k; arr[ 11 ] = 0.;
-        arr[ 12 ] = this.d; arr[ 13 ] = this.h; arr[ 14 ] = this.l; arr[ 15 ] = 0.;
+    function updateWebGL_( arr: Float32Array ){
+        var here: Matrix4x3 = this;
+        Conversion._4x3toFloat32ArrayUpdate_( arr, here  );
         return arr;
     }
     // used to print out a pretty representation of the matrix for debugging,

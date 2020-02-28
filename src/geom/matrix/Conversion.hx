@@ -116,6 +116,31 @@ class Conversion {
     function Alternate2x2numberedto2x2( am: Alternate2x2numbered ): Matrix2x2 {
         return new Matrix2x2( { a: am._00, b: am._01, c: am._10, d: am._11 } );
     }
+    public static inline
+    function _2x2toFloat32ArrayTranspose_( m2x2: Matrix2x2 ): Float32Array {
+        var arr = new Float32Array(4);
+        arr[ 0 ] = m2x2.a; arr[ 1 ] = m2x2.c;
+        arr[ 2 ] = m2x2.b; arr[ 3 ] = m2x2.d;
+        return arr;
+    }
+    public static inline
+    function _2x2toFloat32Array_( m2x2: Matrix2x2 ): Float32Array {
+        var arr = new Float32Array(4);
+        arr[ 0 ] = m2x2.a; arr[ 1 ] = m2x2.b;
+        arr[ 2 ] = m2x2.c; arr[ 3 ] = m2x2.d;
+        return arr;
+    }
+    // Suited to WebGL version
+    public static inline
+    function Float32Array_to2x2Transpose( arr: Float32Array ): Matrix2x2 {
+        return new Matrix2x2( { a: arr[0],  b: arr[2]
+                              , c: arr[1],  d: arr[3] } );
+    }
+    public static inline
+    function Float32Array_2x2( arr: Float32Array ): Matrix2x2 {
+        return new Matrix2x2( { a: arr[0],  b: arr[1]
+                              , c: arr[2],  d: arr[3] } );
+    }
     // 3x3
     public static inline
     function Arrayto3x3( arr: Array<Float> ){
@@ -191,6 +216,35 @@ class Conversion {
                               , d: tm._10, e: tm._11, f: tm._12
                               , g: tm._20, h: tm._21, i: tm._22 } );
     }
+    public static inline
+    function _3x3toFloat32ArrayTranspose_( m3x3: Matrix3x3 ): Float32Array {
+        var arr = new Float32Array(9);
+        arr[ 0 ] = m3x3.a; arr[ 1 ] = m3x3.d; arr[ 2 ] = m3x3.g;
+        arr[ 3 ] = m3x3.b; arr[ 4 ] = m3x3.e; arr[ 5 ] = m3x3.h;
+        arr[ 6 ] = m3x3.c; arr[ 7 ] = m3x3.f; arr[ 8 ] = m3x3.i; 
+        return arr;
+    }
+    public static inline
+    function _3x3toFloat32Array_( m3x3: Matrix3x3 ): Float32Array {
+        var arr = new Float32Array(9);
+        arr[ 0 ] = m3x3.a; arr[ 1 ] = m3x3.b; arr[ 2 ] = m3x3.c;
+        arr[ 3 ] = m3x3.d; arr[ 4 ] = m3x3.e; arr[ 5 ] = m3x3.f;
+        arr[ 6 ] = m3x3.g; arr[ 7 ] = m3x3.h; arr[ 8 ] = m3x3.i; 
+        return arr;
+    }
+    // Suited to WebGL version
+    public static inline
+    function Float32Array_to3x3Transpose( arr: Float32Array ): Matrix3x3 {
+        return new Matrix3x3( { a: arr[0],  b: arr[3],  c: arr[6]
+                              , d: arr[1],  e: arr[4],  f: arr[7]
+                              , g: arr[2],  h: arr[5],  i: arr[8] } );
+    }
+    public static inline
+    function Float32Array_to3x3( arr: Float32Array ): Matrix3x3 {
+        return new Matrix3x3( { a: arr[0],  b: arr[1],  c: arr[2]
+                              , d: arr[3],  e: arr[4],  f: arr[5]
+                              , g: arr[6],  h: arr[7],  i: arr[8] } );
+    }
     // 4x3
     public static inline
     function _2x2to4x3( m2: Matrix2x2 ): Matrix4x3 {
@@ -240,23 +294,46 @@ class Conversion {
         return new Matrix4x3( { a: v.get(0),  b: v.get(1),  c: v.get(2),  d: v.get(3)
                               , e: v.get(4),  f: v.get(5),  g: v.get(6),  h: v.get(7)
                               , i: v.get(8),  j: v.get(9),  k: v.get(10), l: v.get(11) } );
-    } 
+    }
     // Suited to WebGL version
+    public static inline
+    function _4x3toFloat32ArrayTranspose_( m4x3: Matrix4x3 ): Float32Array {
+        var arr = new Float32Array(16);
+        return _4x3toFloat32ArrayTransposeUpdate_( arr, m4x3 );
+    }
+    public static inline
+    function _4x3toFloat32ArrayTransposeUpdate_( arr: Float32Array, m4x3: Matrix4x3 ): Float32Array {
+        arr.set( 0,  m4x3.a ); arr.set( 1,  m4x3.e ); arr.set( 2,  m4x3.i ); arr.set( 3,  0. );
+        arr.set( 4,  m4x3.b ); arr.set( 5,  m4x3.f ); arr.set( 6,  m4x3.j ); arr.set( 7,  0. );
+        arr.set( 8,  m4x3.c ); arr.set( 9,  m4x3.g ); arr.set( 10, m4x3.k ); arr.set( 11, 0. );
+        arr.set( 12, m4x3.d ); arr.set( 13, m4x3.h ); arr.set( 14, m4x3.l ); arr.set( 15, 1. );
+        return arr;
+    }
     public static inline
     function _4x3toFloat32Array_( m4x3: Matrix4x3 ): Float32Array {
         var arr = new Float32Array(16);
-        arr[ 0 ] = m4x3.a; arr[ 1 ] = m4x3.e; arr[ 2 ] = m4x3.i; arr[ 3 ] = 0.;
-        arr[ 4 ] = m4x3.b; arr[ 5 ] = m4x3.f; arr[ 6 ] = m4x3.j; arr[ 7 ] = 0.;
-        arr[ 8 ] = m4x3.c; arr[ 9 ] = m4x3.g; arr[ 10 ] = m4x3.k; arr[ 11 ] = 0.;
-        arr[ 12 ] = m4x3.d; arr[ 13 ] = m4x3.h; arr[ 14 ] = m4x3.l; arr[ 15 ] = 0.;
+        return _4x3toFloat32ArrayUpdate_( arr, m4x3 );
+    }
+    public static inline
+    function _4x3toFloat32ArrayUpdate_( arr: Float32Array, m4x3: Matrix4x3 ): Float32Array {
+        arr.set( 0,  m4x3.a ); arr.set( 1,  m4x3.b ); arr.set( 2,  m4x3.c ); arr.set( 3,  m4x3.d );
+        arr.set( 4,  m4x3.e ); arr.set( 5,  m4x3.f ); arr.set( 6,  m4x3.g ); arr.set( 7,  m4x3.h );
+        arr.set( 8,  m4x3.i ); arr.set( 9,  m4x3.j ); arr.set( 10, m4x3.k ); arr.set( 11, m4x3.l );
+        arr.set( 12, 0. ); arr.set( 13, 0. ); arr.set( 14, 0. ); arr.set( 15, 1. );
         return arr;
     }
     // Suited to WebGL version
     public static inline
-    function Float32Array_to4x3( arr: Float32Array ): Matrix4x3 {
+    function Float32Array_to4x3Transpose( arr: Float32Array ): Matrix4x3 {
         return new Matrix4x3( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
                               , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
                               , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14] } );
+    }
+    public static inline
+    function Float32Array_to4x3( arr: Float32Array ): Matrix4x3 {
+        return new Matrix4x3( { a: arr[0],  b: arr[1],  c: arr[2],  d: arr[3]
+                              , e: arr[4],  f: arr[5],  g: arr[6],  h: arr[7]
+                              , i: arr[8],  j: arr[9],  k: arr[10], l: arr[11] } );
     }
     /**
      * check transpose
@@ -303,21 +380,45 @@ class Conversion {
     // 4x4
     // Suited to WebGL version
     public static inline
-    function _4x4toFloat32Array_( m4x4: Matrix4x4 ): Float32Array {
+    function _4x4toFloat32ArrayTranspose_( m4x4: Matrix4x4 ): Float32Array {
         var arr = new Float32Array(16);
+        return _4x4toFloat32ArrayTransposeUpdate_( arr, m4x4 );
+    }
+    public static inline
+    function _4x4toFloat32ArrayTransposeUpdate_( arr: Float32Array, m4x4: Matrix4x4 ): Float32Array {
         arr[ 0 ] = m4x4.a; arr[ 1 ] = m4x4.e; arr[ 2 ] = m4x4.i; arr[ 3 ] = m4x4.m;
         arr[ 4 ] = m4x4.b; arr[ 5 ] = m4x4.f; arr[ 6 ] = m4x4.j; arr[ 7 ] = m4x4.n;
         arr[ 8 ] = m4x4.c; arr[ 9 ] = m4x4.g; arr[ 10 ] = m4x4.k; arr[ 11 ] = m4x4.o;
         arr[ 12 ] = m4x4.d; arr[ 13 ] = m4x4.h; arr[ 14 ] = m4x4.l; arr[ 15 ] = m4x4.p;
         return arr;
     }
+    public static inline
+    function _4x4toFloat32Array_( m4x4: Matrix4x4 ): Float32Array {
+        var arr = new Float32Array(16);
+        return _4x4toFloat32ArrayUpdate_( arr, m4x4 );
+    }
+    public static inline
+    function _4x4toFloat32ArrayUpdate_( arr: Float32Array, m4x4: Matrix4x4 ): Float32Array {
+        arr[ 0 ] = m4x4.a; arr[ 1 ] = m4x4.b; arr[ 2 ] = m4x4.c; arr[ 3 ] = m4x4.d;
+        arr[ 4 ] = m4x4.e; arr[ 5 ] = m4x4.f; arr[ 6 ] = m4x4.g; arr[ 7 ] = m4x4.h;
+        arr[ 8 ] = m4x4.i; arr[ 9 ] = m4x4.j; arr[ 10 ] = m4x4.k; arr[ 11 ] = m4x4.l;
+        arr[ 12 ] = m4x4.m; arr[ 13 ] = m4x4.n; arr[ 14 ] = m4x4.o; arr[ 15 ] = m4x4.p;
+        return arr;
+    }
     // Suited to WebGL version
     public static inline
-    function Float32Array_to4x4( arr: Float32Array ): Matrix4x4 {
+    function Float32Array_to4x4Transpose( arr: Float32Array ): Matrix4x4 {
         return new Matrix4x4( { a: arr[0],  b: arr[4],  c: arr[8],  d: arr[12]
                               , e: arr[1],  f: arr[5],  g: arr[9],  h: arr[13]
                               , i: arr[2],  j: arr[6],  k: arr[10], l: arr[14]
                               , m: arr[3],  n: arr[7],  o: arr[11], p: arr[15] } );
+    }
+    public static inline
+    function Float32Array_to4x4( arr: Float32Array ): Matrix4x4 {
+        return new Matrix4x4( { a: arr[0],  b: arr[1],  c: arr[2],  d: arr[3]
+                              , e: arr[4],  f: arr[5],  g: arr[6],  h: arr[7]
+                              , i: arr[8],  j: arr[9],  k: arr[10], l: arr[11]
+                              , m: arr[12],  n: arr[13],  o: arr[14], p: arr[15] } );
     }
     public static inline
     function _4x4toTmatrix4x4( m4x4: Matrix4x4 ): Tmatrix4x4 {

@@ -5185,9 +5185,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right3 = "exception: " + Std.string(((ex7) instanceof js__$Boot_HaxeError) ? ex7.val : ex7) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left3,right3)) {
-			utest_Assert.pass("Matrix3x3.hx:248 [OK] ({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\na == b; }) == true",{ lineNumber : 248, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix3x3.hx:254 [OK] ({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\na == b; }) == true",{ lineNumber : 254, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\na == b; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 248, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\na == b; }) == true --> Left side `" + Std.string(left3) + "` does not equal `" + Std.string(right3) + "`.",{ lineNumber : 254, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
 		}
 		var left4;
 		try {
@@ -5209,9 +5209,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right4 = "exception: " + Std.string(((ex9) instanceof js__$Boot_HaxeError) ? ex9.val : ex9) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left4,right4)) {
-			utest_Assert.pass("Matrix3x3.hx:272 [OK] ({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 8. });\na != b; }) == true",{ lineNumber : 272, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix3x3.hx:278 [OK] ({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 8. });\na != b; }) == true",{ lineNumber : 278, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 8. });\na != b; }) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 272, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9. });\nvar b = new Matrix3x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 8. });\na != b; }) == true --> Left side `" + Std.string(left4) + "` does not equal `" + Std.string(right4) + "`.",{ lineNumber : 278, fileName : "src/geom/matrix/Matrix3x3.hx", className : "", methodName : ""});
 		}
 	}
 	,testMatrix4x3_1: function() {
@@ -5907,9 +5907,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right28 = "exception: " + Std.string(((ex57) instanceof js__$Boot_HaxeError) ? ex57.val : ex57) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left28,right28)) {
-			utest_Assert.pass("Matrix4x3.hx:564 [OK] ({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\na == b; }) == true",{ lineNumber : 564, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix4x3.hx:636 [OK] ({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\na == b; }) == true",{ lineNumber : 636, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\na == b; }) == true --> Left side `" + Std.string(left28) + "` does not equal `" + Std.string(right28) + "`.",{ lineNumber : 564, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\na == b; }) == true --> Left side `" + Std.string(left28) + "` does not equal `" + Std.string(right28) + "`.",{ lineNumber : 636, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		}
 		var left29;
 		try {
@@ -5931,9 +5931,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right29 = "exception: " + Std.string(((ex59) instanceof js__$Boot_HaxeError) ? ex59.val : ex59) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left29,right29)) {
-			utest_Assert.pass("Matrix4x3.hx:591 [OK] ({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:11. });\na != b; }) == true",{ lineNumber : 591, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix4x3.hx:663 [OK] ({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:11. });\na != b; }) == true",{ lineNumber : 663, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:11. });\na != b; }) == true --> Left side `" + Std.string(left29) + "` does not equal `" + Std.string(right29) + "`.",{ lineNumber : 591, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });\nvar b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:11. });\na != b; }) == true --> Left side `" + Std.string(left29) + "` does not equal `" + Std.string(right29) + "`.",{ lineNumber : 663, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		}
 		var left30;
 		try {
@@ -5957,9 +5957,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right30 = "exception: " + Std.string(((ex61) instanceof js__$Boot_HaxeError) ? ex61.val : ex61) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left30,right30)) {
-			utest_Assert.pass("Matrix4x3.hx:603 [OK] ({\nvar a = Matrix4x3.unit;\na + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.\n, e: 0., f: 2., g: 0., h: 0.\n, i: 0., j: 0., k: 2., l: 0. } ); }) == true",{ lineNumber : 603, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix4x3.hx:675 [OK] ({\nvar a = Matrix4x3.unit;\na + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.\n, e: 0., f: 2., g: 0., h: 0.\n, i: 0., j: 0., k: 2., l: 0. } ); }) == true",{ lineNumber : 675, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix4x3.unit;\na + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.\n, e: 0., f: 2., g: 0., h: 0.\n, i: 0., j: 0., k: 2., l: 0. } ); }) == true --> Left side `" + Std.string(left30) + "` does not equal `" + Std.string(right30) + "`.",{ lineNumber : 603, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix4x3.unit;\na + a == new Matrix4x3( { a: 2., b: 0., c: 0., d: 0.\n, e: 0., f: 2., g: 0., h: 0.\n, i: 0., j: 0., k: 2., l: 0. } ); }) == true --> Left side `" + Std.string(left30) + "` does not equal `" + Std.string(right30) + "`.",{ lineNumber : 675, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		}
 		var left31;
 		try {
@@ -5983,9 +5983,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right31 = "exception: " + Std.string(((ex63) instanceof js__$Boot_HaxeError) ? ex63.val : ex63) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left31,right31)) {
-			utest_Assert.pass("Matrix4x3.hx:618 [OK] ({\nvar a = Matrix4x3.unit;\na - a == Matrix4x3.zero; }) == true",{ lineNumber : 618, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix4x3.hx:690 [OK] ({\nvar a = Matrix4x3.unit;\na - a == Matrix4x3.zero; }) == true",{ lineNumber : 690, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix4x3.unit;\na - a == Matrix4x3.zero; }) == true --> Left side `" + Std.string(left31) + "` does not equal `" + Std.string(right31) + "`.",{ lineNumber : 618, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix4x3.unit;\na - a == Matrix4x3.zero; }) == true --> Left side `" + Std.string(left31) + "` does not equal `" + Std.string(right31) + "`.",{ lineNumber : 690, fileName : "src/geom/matrix/Matrix4x3.hx", className : "", methodName : ""});
 		}
 	}
 	,testMatrix4x4_1: function() {
@@ -7501,6 +7501,32 @@ geom_matrix_Conversion.Alternate2x2numberedto2x2 = function(am) {
 	var this1 = new geom_structure_Mat2x2(am._00,am._01,am._10,am._11);
 	return this1;
 };
+geom_matrix_Conversion._2x2toFloat32ArrayTranspose_ = function(m2x2) {
+	var this1 = new Float32Array(4);
+	var arr = this1;
+	arr[0] = m2x2.a;
+	arr[1] = m2x2.c;
+	arr[2] = m2x2.b;
+	arr[3] = m2x2.d;
+	return arr;
+};
+geom_matrix_Conversion._2x2toFloat32Array_ = function(m2x2) {
+	var this1 = new Float32Array(4);
+	var arr = this1;
+	arr[0] = m2x2.a;
+	arr[1] = m2x2.b;
+	arr[2] = m2x2.c;
+	arr[3] = m2x2.d;
+	return arr;
+};
+geom_matrix_Conversion.Float32Array_to2x2Transpose = function(arr) {
+	var this1 = new geom_structure_Mat2x2(arr[0],arr[2],arr[1],arr[3]);
+	return this1;
+};
+geom_matrix_Conversion.Float32Array_2x2 = function(arr) {
+	var this1 = new geom_structure_Mat2x2(arr[0],arr[1],arr[2],arr[3]);
+	return this1;
+};
 geom_matrix_Conversion.Arrayto3x3 = function(arr) {
 	var this1 = new geom_structure_Mat3x3(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7],arr[8]);
 	return this1;
@@ -7559,6 +7585,42 @@ geom_matrix_Conversion.Alternate3x3numberedto3x3 = function(tm) {
 	var this1 = new geom_structure_Mat3x3(tm._00,tm._01,tm._02,tm._10,tm._11,tm._12,tm._20,tm._21,tm._22);
 	return this1;
 };
+geom_matrix_Conversion._3x3toFloat32ArrayTranspose_ = function(m3x3) {
+	var this1 = new Float32Array(9);
+	var arr = this1;
+	arr[0] = m3x3.a;
+	arr[1] = m3x3.d;
+	arr[2] = m3x3.g;
+	arr[3] = m3x3.b;
+	arr[4] = m3x3.e;
+	arr[5] = m3x3.h;
+	arr[6] = m3x3.c;
+	arr[7] = m3x3.f;
+	arr[8] = m3x3.i;
+	return arr;
+};
+geom_matrix_Conversion._3x3toFloat32Array_ = function(m3x3) {
+	var this1 = new Float32Array(9);
+	var arr = this1;
+	arr[0] = m3x3.a;
+	arr[1] = m3x3.b;
+	arr[2] = m3x3.c;
+	arr[3] = m3x3.d;
+	arr[4] = m3x3.e;
+	arr[5] = m3x3.f;
+	arr[6] = m3x3.g;
+	arr[7] = m3x3.h;
+	arr[8] = m3x3.i;
+	return arr;
+};
+geom_matrix_Conversion.Float32Array_to3x3Transpose = function(arr) {
+	var this1 = new geom_structure_Mat3x3(arr[0],arr[3],arr[6],arr[1],arr[4],arr[7],arr[2],arr[5],arr[8]);
+	return this1;
+};
+geom_matrix_Conversion.Float32Array_to3x3 = function(arr) {
+	var this1 = new geom_structure_Mat3x3(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7],arr[8]);
+	return this1;
+};
 geom_matrix_Conversion._2x2to4x3 = function(m2) {
 	var this1 = new geom_structure_Mat4x3(m2.a,m2.b,0.,0.,m2.c,m2.d,0.,0.,0.,0.,1.,0.);
 	return this1;
@@ -7603,9 +7665,12 @@ geom_matrix_Conversion.Vectorto4x3 = function(v) {
 	var this1 = new geom_structure_Mat4x3(v[0],v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11]);
 	return this1;
 };
-geom_matrix_Conversion._4x3toFloat32Array_ = function(m4x3) {
+geom_matrix_Conversion._4x3toFloat32ArrayTranspose_ = function(m4x3) {
 	var this1 = new Float32Array(16);
 	var arr = this1;
+	return geom_matrix_Conversion._4x3toFloat32ArrayTransposeUpdate_(arr,m4x3);
+};
+geom_matrix_Conversion._4x3toFloat32ArrayTransposeUpdate_ = function(arr,m4x3) {
 	arr[0] = m4x3.a;
 	arr[1] = m4x3.e;
 	arr[2] = m4x3.i;
@@ -7621,11 +7686,39 @@ geom_matrix_Conversion._4x3toFloat32Array_ = function(m4x3) {
 	arr[12] = m4x3.d;
 	arr[13] = m4x3.h;
 	arr[14] = m4x3.l;
-	arr[15] = 0.;
+	arr[15] = 1.;
 	return arr;
 };
-geom_matrix_Conversion.Float32Array_to4x3 = function(arr) {
+geom_matrix_Conversion._4x3toFloat32Array_ = function(m4x3) {
+	var this1 = new Float32Array(16);
+	var arr = this1;
+	return geom_matrix_Conversion._4x3toFloat32ArrayUpdate_(arr,m4x3);
+};
+geom_matrix_Conversion._4x3toFloat32ArrayUpdate_ = function(arr,m4x3) {
+	arr[0] = m4x3.a;
+	arr[1] = m4x3.b;
+	arr[2] = m4x3.c;
+	arr[3] = m4x3.d;
+	arr[4] = m4x3.e;
+	arr[5] = m4x3.f;
+	arr[6] = m4x3.g;
+	arr[7] = m4x3.h;
+	arr[8] = m4x3.i;
+	arr[9] = m4x3.j;
+	arr[10] = m4x3.k;
+	arr[11] = m4x3.l;
+	arr[12] = 0.;
+	arr[13] = 0.;
+	arr[14] = 0.;
+	arr[15] = 1.;
+	return arr;
+};
+geom_matrix_Conversion.Float32Array_to4x3Transpose = function(arr) {
 	var this1 = new geom_structure_Mat4x3(arr[0],arr[4],arr[8],arr[12],arr[1],arr[5],arr[9],arr[13],arr[2],arr[6],arr[10],arr[14]);
+	return this1;
+};
+geom_matrix_Conversion.Float32Array_to4x3 = function(arr) {
+	var this1 = new geom_structure_Mat4x3(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7],arr[8],arr[9],arr[10],arr[11]);
 	return this1;
 };
 geom_matrix_Conversion._4x3toTAffineMatrix = function(m4x3) {
@@ -7647,9 +7740,12 @@ geom_matrix_Conversion.Tmatrix4x3to4x3 = function(tm) {
 	var this1 = m4x3;
 	return this1;
 };
-geom_matrix_Conversion._4x4toFloat32Array_ = function(m4x4) {
+geom_matrix_Conversion._4x4toFloat32ArrayTranspose_ = function(m4x4) {
 	var this1 = new Float32Array(16);
 	var arr = this1;
+	return geom_matrix_Conversion._4x4toFloat32ArrayTransposeUpdate_(arr,m4x4);
+};
+geom_matrix_Conversion._4x4toFloat32ArrayTransposeUpdate_ = function(arr,m4x4) {
 	arr[0] = m4x4.a;
 	arr[1] = m4x4.e;
 	arr[2] = m4x4.i;
@@ -7668,8 +7764,36 @@ geom_matrix_Conversion._4x4toFloat32Array_ = function(m4x4) {
 	arr[15] = m4x4.p;
 	return arr;
 };
-geom_matrix_Conversion.Float32Array_to4x4 = function(arr) {
+geom_matrix_Conversion._4x4toFloat32Array_ = function(m4x4) {
+	var this1 = new Float32Array(16);
+	var arr = this1;
+	return geom_matrix_Conversion._4x4toFloat32ArrayUpdate_(arr,m4x4);
+};
+geom_matrix_Conversion._4x4toFloat32ArrayUpdate_ = function(arr,m4x4) {
+	arr[0] = m4x4.a;
+	arr[1] = m4x4.b;
+	arr[2] = m4x4.c;
+	arr[3] = m4x4.d;
+	arr[4] = m4x4.e;
+	arr[5] = m4x4.f;
+	arr[6] = m4x4.g;
+	arr[7] = m4x4.h;
+	arr[8] = m4x4.i;
+	arr[9] = m4x4.j;
+	arr[10] = m4x4.k;
+	arr[11] = m4x4.l;
+	arr[12] = m4x4.m;
+	arr[13] = m4x4.n;
+	arr[14] = m4x4.o;
+	arr[15] = m4x4.p;
+	return arr;
+};
+geom_matrix_Conversion.Float32Array_to4x4Transpose = function(arr) {
 	var this1 = new geom_structure_Mat4x4(arr[0],arr[4],arr[8],arr[12],arr[1],arr[5],arr[9],arr[13],arr[2],arr[6],arr[10],arr[14],arr[3],arr[7],arr[11],arr[15]);
+	return this1;
+};
+geom_matrix_Conversion.Float32Array_to4x4 = function(arr) {
+	var this1 = new geom_structure_Mat4x4(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7],arr[8],arr[9],arr[10],arr[11],arr[12],arr[13],arr[14],arr[15]);
 	return this1;
 };
 geom_matrix_Conversion._4x4toTmatrix4x4 = function(m4x4) {
@@ -8963,6 +9087,10 @@ geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.translateXY = function(this1,x,y) {
 	var this3 = new geom_structure_Mat3x3(this1.a * q.a + this1.b * q.d + this1.c * q.g,this1.a * q.b + this1.b * q.e + this1.c * q.h,this1.a * q.c + this1.b * q.f + this1.c * q.i,this1.d * q.a + this1.e * this1.d + this1.f * q.g,this1.d * q.b + this1.e * q.e + this1.f * q.h,this1.d * q.c + this1.e * q.f + this1.f * q.i,this1.g * this1.a + this1.h * q.d + this1.i * q.g,this1.g * q.b + this1.h * q.e + this1.i * q.h,this1.g * q.c + this1.h * q.f + this1.i * q.i);
 	return this3;
 };
+geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.transpose = function(this1) {
+	var this2 = new geom_structure_Mat3x3(this1.a,this1.d,this1.g,this1.b,this1.e,this1.h,this1.c,this1.f,this1.i);
+	return this2;
+};
 geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.add = function(m0,m1) {
 	var this1 = new geom_structure_Mat3x3(m0.a + m1.a,m0.b + m1.b,m0.c + m1.c,m0.d + m1.d,m0.e + m1.e,m0.f + m1.f,m0.d + m1.d,m0.h + m1.h,m0.i + m1.i);
 	return this1;
@@ -9265,6 +9393,16 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotateX = function(this1,theta) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotationX = function(theta) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,c,-s,0.,0.,s,c,0.);
+	var s1 = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s1.a + this2.b * s1.e + this2.c * s1.i,this2.a * s1.b + this2.b * s1.f + this2.c * s1.j,this2.a * s1.c + this2.b * s1.g + this2.c * s1.k,this2.a * s1.d + this2.b * s1.h + this2.c * s1.l + this2.d,this2.e * s1.a + this2.f * s1.e + this2.g * s1.i,this2.e * s1.b + this2.f * s1.f + this2.g * s1.j,this2.e * s1.c + this2.f * s1.g + this2.g * s1.k,this2.e * s1.d + this2.f * s1.h + this2.g * s1.l + this2.h,this2.i * s1.a + this2.j * s1.e + this2.k * s1.i,this2.i * s1.b + this2.j * s1.f + this2.k * s1.j,this2.i * s1.c + this2.j * s1.g + this2.k * s1.k,this2.i * s1.d + this2.j * s1.h + this2.k * s1.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.radianY = function(theta) {
 	var c = Math.cos(theta);
 	var s = Math.sin(theta);
@@ -9278,6 +9416,16 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotateY = function(this1,theta) {
 	var s1 = this2;
 	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotationY = function(theta) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this3 = new geom_structure_Mat4x3(c,0.,s,0.,0.,1.,0.,0.,-s,0.,c,0.);
+	var s1 = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s1.a + this2.b * s1.e + this2.c * s1.i,this2.a * s1.b + this2.b * s1.f + this2.c * s1.j,this2.a * s1.c + this2.b * s1.g + this2.c * s1.k,this2.a * s1.d + this2.b * s1.h + this2.c * s1.l + this2.d,this2.e * s1.a + this2.f * s1.e + this2.g * s1.i,this2.e * s1.b + this2.f * s1.f + this2.g * s1.j,this2.e * s1.c + this2.f * s1.g + this2.g * s1.k,this2.e * s1.d + this2.f * s1.h + this2.g * s1.l + this2.h,this2.i * s1.a + this2.j * s1.e + this2.k * s1.i,this2.i * s1.b + this2.j * s1.f + this2.k * s1.j,this2.i * s1.c + this2.j * s1.g + this2.k * s1.k,this2.i * s1.d + this2.j * s1.h + this2.k * s1.l + this2.l);
+	return this4;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.radianZ = function(theta) {
 	var c = Math.cos(theta);
@@ -9293,6 +9441,34 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotateZ = function(this1,theta) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s1.a + this1.b * s1.e + this1.c * s1.i,this1.a * s1.b + this1.b * s1.f + this1.c * s1.j,this1.a * s1.c + this1.b * s1.g + this1.c * s1.k,this1.a * s1.d + this1.b * s1.h + this1.c * s1.l + this1.d,this1.e * s1.a + this1.f * s1.e + this1.g * s1.i,this1.e * s1.b + this1.f * s1.f + this1.g * s1.j,this1.e * s1.c + this1.f * s1.g + this1.g * s1.k,this1.e * s1.d + this1.f * s1.h + this1.g * s1.l + this1.h,this1.i * s1.a + this1.j * s1.e + this1.k * s1.i,this1.i * s1.b + this1.j * s1.f + this1.k * s1.j,this1.i * s1.c + this1.j * s1.g + this1.k * s1.k,this1.i * s1.d + this1.j * s1.h + this1.k * s1.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.rotationZ = function(theta) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this3 = new geom_structure_Mat4x3(c,-s,0.,0.,s,c,0.,0.,0.,0.,1.,0.);
+	var s1 = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s1.a + this2.b * s1.e + this2.c * s1.i,this2.a * s1.b + this2.b * s1.f + this2.c * s1.j,this2.a * s1.c + this2.b * s1.g + this2.c * s1.k,this2.a * s1.d + this2.b * s1.h + this2.c * s1.l + this2.d,this2.e * s1.a + this2.f * s1.e + this2.g * s1.i,this2.e * s1.b + this2.f * s1.f + this2.g * s1.j,this2.e * s1.c + this2.f * s1.g + this2.g * s1.k,this2.e * s1.d + this2.f * s1.h + this2.g * s1.l + this2.h,this2.i * s1.a + this2.j * s1.e + this2.k * s1.i,this2.i * s1.b + this2.j * s1.f + this2.k * s1.j,this2.i * s1.c + this2.j * s1.g + this2.k * s1.k,this2.i * s1.d + this2.j * s1.h + this2.k * s1.l + this2.l);
+	return this4;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sxy = function(x,y) {
+	var this1 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,1,0.);
+	return this1;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleXY = function(this1,x,y) {
+	var this2 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,1,0.);
+	var s = this2;
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalarXY = function(x,y) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,1,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sxyz = function(x,y,z) {
 	var this1 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,z,0.);
 	return this1;
@@ -9302,6 +9478,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleXYZ = function(this1,x,y,z) {
 	var s = this2;
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalarXYZ = function(x,y,z) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,y,0.,0.,0.,0.,z,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sx = function(x) {
 	var this1 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
@@ -9313,6 +9497,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleX = function(this1,x) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalarX = function(x) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(x,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sy = function(y) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,y,0.,0.,0.,0.,1.,0.);
 	return this1;
@@ -9322,6 +9514,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleY = function(this1,y) {
 	var s = this2;
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalarY = function(y) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,y,0.,0.,0.,0.,1.,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sz = function(z) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,z,0.);
@@ -9333,6 +9533,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleZ = function(this1,z) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalarZ = function(z) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,z,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scale = function(this1,s) {
 	var this2 = new geom_structure_Mat4x3(s,0.,0.,0.,0.,s,0.,0.,0.,0.,s,0.);
 	var s1 = this2;
@@ -9340,6 +9548,16 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scale = function(this1,s) {
 	var s2 = this3;
 	var this4 = new geom_structure_Mat4x3(this1.a * s2.a + this1.b * s2.e + this1.c * s2.i,this1.a * s2.b + this1.b * s2.f + this1.c * s2.j,this1.a * s2.c + this1.b * s2.g + this1.c * s2.k,this1.a * s2.d + this1.b * s2.h + this1.c * s2.l + this1.d,this1.e * s2.a + this1.f * s2.e + this1.g * s2.i,this1.e * s2.b + this1.f * s2.f + this1.g * s2.j,this1.e * s2.c + this1.f * s2.g + this1.g * s2.k,this1.e * s2.d + this1.f * s2.h + this1.g * s2.l + this1.h,this1.i * s2.a + this1.j * s2.e + this1.k * s2.i,this1.i * s2.b + this1.j * s2.f + this1.k * s2.j,this1.i * s2.c + this1.j * s2.g + this1.k * s2.k,this1.i * s2.d + this1.j * s2.h + this1.k * s2.l + this1.l);
 	return this4;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scalar = function(s) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(s,0.,0.,0.,0.,s,0.,0.,0.,0.,s,0.);
+	var s1 = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s1.a + this2.b * s1.e + this2.c * s1.i,this2.a * s1.b + this2.b * s1.f + this2.c * s1.j,this2.a * s1.c + this2.b * s1.g + this2.c * s1.k,this2.a * s1.d + this2.b * s1.h + this2.c * s1.l + this2.d,this2.e * s1.a + this2.f * s1.e + this2.g * s1.i,this2.e * s1.b + this2.f * s1.f + this2.g * s1.j,this2.e * s1.c + this2.f * s1.g + this2.g * s1.k,this2.e * s1.d + this2.f * s1.h + this2.g * s1.l + this2.h,this2.i * s1.a + this2.j * s1.e + this2.k * s1.i,this2.i * s1.b + this2.j * s1.f + this2.k * s1.j,this2.i * s1.c + this2.j * s1.g + this2.k * s1.k,this2.i * s1.d + this2.j * s1.h + this2.k * s1.l + this2.l);
+	var s2 = this4;
+	var this5 = new geom_structure_Mat4x3(this2.a * s2.a + this2.b * s2.e + this2.c * s2.i,this2.a * s2.b + this2.b * s2.f + this2.c * s2.j,this2.a * s2.c + this2.b * s2.g + this2.c * s2.k,this2.a * s2.d + this2.b * s2.h + this2.c * s2.l + this2.d,this2.e * s2.a + this2.f * s2.e + this2.g * s2.i,this2.e * s2.b + this2.f * s2.f + this2.g * s2.j,this2.e * s2.c + this2.f * s2.g + this2.g * s2.k,this2.e * s2.d + this2.f * s2.h + this2.g * s2.l + this2.h,this2.i * s2.a + this2.j * s2.e + this2.k * s2.i,this2.i * s2.b + this2.j * s2.f + this2.k * s2.j,this2.i * s2.c + this2.j * s2.g + this2.k * s2.k,this2.i * s2.d + this2.j * s2.h + this2.k * s2.l + this2.l);
+	return this5;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.txyz = function(x,y,z) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,z);
@@ -9351,6 +9569,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translateXYZ = function(this1,x,y,z) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translationXYZ = function(x,y,z) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,z);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.tx = function(x) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,0.,0.,0.,1.,0.);
 	return this1;
@@ -9360,6 +9586,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translateX = function(this1,x) {
 	var s = this2;
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translationX = function(x) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,0.,0.,0.,1.,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.ty = function(y) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,y,0.,0.,1.,0.);
@@ -9371,6 +9605,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translateY = function(this1,y) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translationY = function(y) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,y,0.,0.,1.,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.tz = function(z) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,z);
 	return this1;
@@ -9381,6 +9623,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translateZ = function(this1,z) {
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
 };
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translationZ = function(z) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,z);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.txy = function(x,y) {
 	var this1 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,0.);
 	return this1;
@@ -9390,6 +9640,52 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translateXY = function(this1,x,y) {
 	var s = this2;
 	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
 	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.translationXY = function(x,y) {
+	var this1 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this2 = this1;
+	var this3 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,0.);
+	var s = this3;
+	var this4 = new geom_structure_Mat4x3(this2.a * s.a + this2.b * s.e + this2.c * s.i,this2.a * s.b + this2.b * s.f + this2.c * s.j,this2.a * s.c + this2.b * s.g + this2.c * s.k,this2.a * s.d + this2.b * s.h + this2.c * s.l + this2.d,this2.e * s.a + this2.f * s.e + this2.g * s.i,this2.e * s.b + this2.f * s.f + this2.g * s.j,this2.e * s.c + this2.f * s.g + this2.g * s.k,this2.e * s.d + this2.f * s.h + this2.g * s.l + this2.h,this2.i * s.a + this2.j * s.e + this2.k * s.i,this2.i * s.b + this2.j * s.f + this2.k * s.j,this2.i * s.c + this2.j * s.g + this2.k * s.k,this2.i * s.d + this2.j * s.h + this2.k * s.l + this2.l);
+	return this4;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflection = function(a,b,c) {
+	var this1 = new geom_structure_Mat4x3(-a * a + b * b + c * c,-2. * a * b,-2. * a * c,0.,-2. * b * a,-b * b + a * a + c * c,-2. * b * c,0.,-2. * c * a,-2. * c * b,-c * c + b * b + a * a,0.);
+	return this1;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectionX = function() {
+	var this1 = new geom_structure_Mat4x3(1,2.,2.,0.,2.,1,-2.,0.,2.,-2.,1,0.);
+	return this1;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectionY = function() {
+	var this1 = new geom_structure_Mat4x3(1,2.,-2.,0.,2.,1,2.,0.,-2.,2.,1,0.);
+	return this1;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectionZ = function() {
+	var this1 = new geom_structure_Mat4x3(1,-2.,2.,0.,-2.,1,2.,0.,2.,2.,1,0.);
+	return this1;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectX = function(this1) {
+	var this2 = new geom_structure_Mat4x3(1,2.,2.,0.,2.,1,-2.,0.,2.,-2.,1,0.);
+	var s = this2;
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectY = function(this1) {
+	var this2 = new geom_structure_Mat4x3(1,2.,-2.,0.,2.,1,2.,0.,-2.,2.,1,0.);
+	var s = this2;
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectZ = function(this1) {
+	var this2 = new geom_structure_Mat4x3(1,-2.,2.,0.,-2.,1,2.,0.,2.,2.,1,0.);
+	var s = this2;
+	var this3 = new geom_structure_Mat4x3(this1.a * s.a + this1.b * s.e + this1.c * s.i,this1.a * s.b + this1.b * s.f + this1.c * s.j,this1.a * s.c + this1.b * s.g + this1.c * s.k,this1.a * s.d + this1.b * s.h + this1.c * s.l + this1.d,this1.e * s.a + this1.f * s.e + this1.g * s.i,this1.e * s.b + this1.f * s.f + this1.g * s.j,this1.e * s.c + this1.f * s.g + this1.g * s.k,this1.e * s.d + this1.f * s.h + this1.g * s.l + this1.h,this1.i * s.a + this1.j * s.e + this1.k * s.i,this1.i * s.b + this1.j * s.f + this1.k * s.j,this1.i * s.c + this1.j * s.g + this1.k * s.k,this1.i * s.d + this1.j * s.h + this1.k * s.l + this1.l);
+	return this3;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.reflectionNonOrigin = function(this1,a,b,c,d) {
+	var this2 = new geom_structure_Mat4x3(1. - 2. * a * a,-2. * b * c,-2. * a * c,-2. * a * d,-2. * b * c,1. - 2. * b * b,-2. * b * c,-2. * b * d,-2. * a * c,2. * b * c,1. - 2. * c * c,-2 * c * d);
+	return this2;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.equal = function(a,b) {
 	var delta = 0.0000001;
@@ -9690,29 +9986,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.getXY = function(this1,x,y) {
 		throw new js__$Boot_HaxeError("bad get " + x + ", " + y + " on Matrix4x3");
 	}
 };
-geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.toWebGL = function(this1) {
-	return geom_matrix_Conversion._4x3toFloat32Array_(this1);
-};
-geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.fromWebGL = function(arr) {
-	return geom_matrix_Conversion.Float32Array_to4x3(arr);
-};
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.updateWebGL = function(this1,arr) {
-	arr[0] = this1.a;
-	arr[1] = this1.e;
-	arr[2] = this1.i;
-	arr[3] = 0.;
-	arr[4] = this1.b;
-	arr[5] = this1.f;
-	arr[6] = this1.j;
-	arr[7] = 0.;
-	arr[8] = this1.c;
-	arr[9] = this1.g;
-	arr[10] = this1.k;
-	arr[11] = 0.;
-	arr[12] = this1.d;
-	arr[13] = this1.h;
-	arr[14] = this1.l;
-	arr[15] = 0.;
+	var here = this1;
+	geom_matrix_Conversion._4x3toFloat32ArrayTransposeUpdate_(arr,here);
+	return arr;
+};
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.updateWebGL_ = function(this1,arr) {
+	var here = this1;
+	geom_matrix_Conversion._4x3toFloat32ArrayUpdate_(arr,here);
 	return arr;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.pretty = function(this1,prec) {
@@ -9859,37 +10140,25 @@ geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.multiply = function(r,s) {
 	return this1;
 };
 geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.delta = function(this1,x,y) {
-	var m = this1;
-	var this2 = new geom_structure_Mat4x4(m.a,m.b,m.c,m.d,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,m.m + x,m.n + y,m.o,m.p);
+	var this2 = new geom_structure_Mat4x4(this1.a,this1.b,this1.c,this1.d,this1.e,this1.f,this1.g,this1.h,this1.i,this1.j,this1.k,this1.l,this1.m + x,this1.n + y,this1.o,this1.p);
 	return this2;
 };
 geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.matrix4x3 = function(m) {
 	var this1 = new geom_structure_Mat4x4(m.a,m.b,m.c,m.d,m.e,m.f,m.g,m.h,m.i,m.j,m.k,m.l,0.,0.,0.,1.);
 	return this1;
 };
-geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.toWebGL = function(this1) {
-	return geom_matrix_Conversion._4x4toFloat32Array_(this1);
-};
-geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.fromWebGL = function(arr) {
-	return geom_matrix_Conversion.Float32Array_to4x4(arr);
+geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.transpose = function(this1) {
+	var this2 = new geom_structure_Mat4x4(this1.a,this1.e,this1.i,this1.m,this1.b,this1.f,this1.j,this1.n,this1.c,this1.g,this1.k,this1.o,this1.d,this1.h,this1.l,this1.p);
+	return this2;
 };
 geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.updateWebGL = function(this1,arr) {
-	arr[0] = this1.a;
-	arr[1] = this1.e;
-	arr[2] = this1.i;
-	arr[3] = this1.m;
-	arr[4] = this1.b;
-	arr[5] = this1.f;
-	arr[6] = this1.j;
-	arr[7] = this1.n;
-	arr[8] = this1.c;
-	arr[9] = this1.g;
-	arr[10] = this1.k;
-	arr[11] = this1.o;
-	arr[12] = this1.d;
-	arr[13] = this1.h;
-	arr[14] = this1.l;
-	arr[15] = this1.p;
+	var here = this1;
+	geom_matrix_Conversion._4x4toFloat32ArrayTransposeUpdate_(arr,here);
+	return arr;
+};
+geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.updateWebGL_ = function(this1,arr) {
+	var here = this1;
+	geom_matrix_Conversion._4x4toFloat32ArrayUpdate_(arr,here);
 	return arr;
 };
 geom_matrix__$Matrix4x4_Matrix4x4_$Impl_$.pretty = function(this1,prec) {
