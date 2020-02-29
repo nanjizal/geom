@@ -11,7 +11,15 @@
 ... var a = new Matrix2x2({ a: 1., b: 2., c: 3., d: 4. });
 ... a.getXY( 0, 0 ) == 1 && a.getXY( 1, 0 ) == 2 && a.getXY( 0, 1 ) == 3 && a.getXY( 1, 1 ) == 4;
 ... }) == true
-</code></pre></div></div><div class="field "><a name="inverse"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inverse"><span class="identifier">inverse</span></a>():<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="multiplyPoint"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#multiplyPoint"><span class="identifier">multiplyPoint</span></a>(<span style="white-space:nowrap">this:<a class="type" title="" href="../../geom/structure/Mat2x2.html">Mat2x2</a></span>):<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="setXY"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#setXY"><span class="identifier">setXY</span></a>(<span style="white-space:nowrap">this:<a class="type" title="" href="../../geom/structure/Mat2x2.html">Mat2x2</a>,</span> <span style="white-space:nowrap">x:<span class="type">Int</span>,</span> <span style="white-space:nowrap">y:<span class="type">Int</span></span>):<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><pre><code>
+</code></pre></div></div><div class="field "><a name="inverse"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#inverse"><span class="identifier">inverse</span></a>():<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="iterator"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#iterator"><span class="identifier">iterator</span></a>():<span class="type">Iterator</span>&lt;<span class="type">Float</span>&gt;</code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var m = Matrix2x2.counting;
+... var arr = new Array<Float>();
+... for( i in m ){
+...   arr.push(i); 
+... }
+... [1.,2.,3.,4.].toString() == arr.toString(); }) == true
+</code></pre></div></div><div class="field "><a name="multiplyPoint"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#multiplyPoint"><span class="identifier">multiplyPoint</span></a>(<span style="white-space:nowrap">this:<a class="type" title="" href="../../geom/structure/Mat2x2.html">Mat2x2</a></span>):<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="setXY"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#setXY"><span class="identifier">setXY</span></a>(<span style="white-space:nowrap">this:<a class="type" title="" href="../../geom/structure/Mat2x2.html">Mat2x2</a>,</span> <span style="white-space:nowrap">x:<span class="type">Int</span>,</span> <span style="white-space:nowrap">y:<span class="type">Int</span></span>):<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><pre><code>
 >>> ({
 ... var a = Matrix2x2.unit;
 ... a.setXY( 0, 0, 1. );
@@ -45,6 +53,8 @@
 ... Matrix2x2.bottomRight == new Matrix2x2( { a: 1., b: 0.
 ...                                           , c: 0., d: -1. } );
 ... }) == true
+</code></pre></div></div><div class="field "><a name="counting"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix2x2/Matrix2x2_Impl_.html#counting"><span class="identifier">counting</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><pre><code>
+>>> Matrix2x2.counting == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
 </code></pre></div></div><div class="field "><a name="east"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix2x2/Matrix2x2_Impl_.html#east"><span class="identifier">east</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix2x2.html">Matrix2x2</a></code></h3><div class="doc"><pre><code>
 >>> ({
 ... Matrix2x2.east == new Matrix2x2( { a: 1., b: 0.

@@ -10,6 +10,22 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
     function new( m: geom.structure.Mat4x4 ){ this = m; }
     /**
      * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix4x4.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, this.m, this.n, this.o, this.p ];
+        return arr.iterator();
+    }
+    /**
+     * <pre><code>
      * >>> ({
      * ... Matrix4x4.zero == new Matrix4x4({ a: 0., b: 0., c: 0., d: 0.
      * ...                                   , e: 0., f: 0., g: 0., h: 0.
@@ -45,6 +61,24 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                              , m: 0., n: 0., o: 0., p: 1. } );
     }
     /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix4x4.counting == new Matrix4x4({ a: 1., b: 2., c: 3., d: 4.
+     * ...                                     , e: 5., f: 6., g: 7., h: 8.
+     * ...                                     , i: 9., j: 10., k: 11., l: 12.
+     * ...                                     , m: 13., n: 14., o: 15., p: 16. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix4x4;
+    static inline
+    function get_counting(): Matrix4x4 {
+        return new Matrix4x4({ a: 1., b: 2., c: 3., d: 4.
+                             , e: 5., f: 6., g: 7., h: 8.
+                             , i: 9., j: 10., k: 11., l: 12.
+                             , m: 13., n: 14., o: 15., p: 16. } );
+    }
+    /**
      * Used for testing
      * <pre><code>
      * >>> ({ 
@@ -56,13 +90,8 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
      * </code></pre>
      */
     public static var _1_16( get, never ): Matrix4x4;
-    static inline
-    function get__1_16(): Matrix4x4 {
-        return new Matrix4x4( { a: 1.,  b: 2.,  c: 3.,  d: 4.
-                              , e: 5.,  f: 6.,  g: 7.,  h: 8.
-                              , i: 9.,  j: 10., k: 11., l: 12.
-                              , m: 13., n: 14., o: 15., p: 16. } );
-    }
+    static inline // TODO: need to locate where this is used for testing and use counting instead... alternate library?
+    function get__1_16(): Matrix4x4 return Matrix4x4.counting;
     /**
      * <pre><code>
      * >>> ({ 

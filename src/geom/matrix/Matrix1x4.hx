@@ -10,6 +10,22 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function new( m: geom.structure.Mat1x4 ){ this = m; }
     /**
      * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix1x4.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.,3.,4.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.x, this.y, this.z, this.w ];
+        return arr.iterator();
+    }
+    /**
+     * <pre><code>
      * >>> Matrix1x4.zero == new Matrix1x4({ x: 0., y: 0., z: 0., w: 0. })
      * </code></pre>
      */
@@ -27,6 +43,16 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     public static inline
     function get_unit(): Matrix1x4 {
         return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.counting == new Matrix1x4({ x: 1., y: 2., z: 3., w: 4. })
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix1x4;
+    static inline
+    function get_counting(): Matrix1x4 {
+        return new Matrix1x4( { x: 1., y: 2., z: 3., w: 4. } );
     }
     public inline
     function clone():Matrix1x4 {

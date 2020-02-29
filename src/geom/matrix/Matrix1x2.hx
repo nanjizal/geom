@@ -8,6 +8,22 @@ typedef Vec2 = Matrix1x2;
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix1x2.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.x, this.y ];
+        return arr.iterator();
+    }
     public inline
     function clone(): Matrix1x2 {
         return new Matrix1x2( { x: this.x, y: this.y } );
@@ -49,6 +65,16 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     static inline
     function get_unit(): Matrix1x2 {
         return new Matrix1x2({ x: 1., y: 1. });
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.counting == new Matrix1x2({ x: 1., y: 2. })
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix1x2;
+    static inline
+    function get_counting(): Matrix1x2 {
+        return new Matrix1x2({ x: 1., y: 2. });
     }
     /**
      * <pre><code>

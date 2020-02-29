@@ -8,6 +8,22 @@ import geom.tydef.*;
 abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.structure.Mat4x3 {
     public inline
     function new( m: geom.structure.Mat4x3 ){ this = m; }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix4x3.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l ];
+        return arr.iterator();
+    }
     var self(get,never):Matrix4x3;
     inline function get_self() return (cast this : Matrix4x3);
     /**
@@ -41,6 +57,22 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         return new Matrix4x3({ a: 1., b: 0., c: 0., d: 0.
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix4x3.counting == new Matrix4x3({ a: 1., b: 2.,  c: 3.,  d: 4.
+     * ...                                     , e: 5., f: 6.,  g: 7.,  h: 8.
+     * ...                                     , i: 9., j: 10., k: 11., l: 12. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix4x3;
+    static inline
+    function get_counting(): Matrix4x3 {
+        return new Matrix4x3({ a: 1., b: 2.,  c: 3.,  d: 4.
+                             , e: 5., f: 6.,  g: 7.,  h: 8.
+                             , i: 9., j: 10., k: 11., l: 12. } );
     }
     /**
      * <pre><code>

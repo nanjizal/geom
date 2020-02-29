@@ -54,6 +54,14 @@
 >>> ({ trace('"inTri2" untested'); true; }) == true
 </code></pre></div></div><div class="field "><a name="isLeft"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#isLeft"><span class="identifier">isLeft</span></a>(<span style="white-space:nowrap">this:<a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>,</span> <span style="white-space:nowrap">a:<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></span>):<span class="type">Float</span></code></h3><div class="doc"><pre><code>
 >>> ({ trace('"isLeft" untested'); true; }) == true
+</code></pre></div></div><div class="field "><a name="iterator"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#iterator"><span class="identifier">iterator</span></a>():<span class="type">Iterator</span>&lt;<span class="type">Float</span>&gt;</code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var m = Matrix1x2.counting;
+... var arr = new Array<Float>();
+... for( i in m ){
+...   arr.push(i); 
+... }
+... [1.,2.].toString() == arr.toString(); }) == true
 </code></pre></div></div><div class="field "><a name="lenSquare"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#lenSquare"><span class="identifier">lenSquare</span></a>():<span class="type">Float</span></code></h3><div class="doc"><pre><code>
 >>> ({ 
 ... var a = new Matrix1x2( { x: 3., y: 3. } ); 
@@ -101,7 +109,9 @@
 ... var a = new Matrix1x2( { x: 1., y: 0.5 } ); 
 ... var b = new Matrix1x2( { x: 0.5000001, y: 0.5000001 } ); 
 ... a.close( b ); }) == true
-</code></pre></div></div></div><h3 class="section">Static variables</h3><div class="fields"><div class="field "><a name="unit"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix1x2/Matrix1x2_Impl_.html#unit"><span class="identifier">unit</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><pre><code>
+</code></pre></div></div></div><h3 class="section">Static variables</h3><div class="fields"><div class="field "><a name="counting"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix1x2/Matrix1x2_Impl_.html#counting"><span class="identifier">counting</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><pre><code>
+>>> Matrix1x2.counting == new Matrix1x2({ x: 1., y: 2. })
+</code></pre></div></div><div class="field "><a name="unit"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix1x2/Matrix1x2_Impl_.html#unit"><span class="identifier">unit</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><pre><code>
 >>> Matrix1x2.unit == new Matrix1x2({ x: 1., y: 1. })
 </code></pre></div></div><div class="field "><a name="zero"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Matrix1x2/Matrix1x2_Impl_.html#zero"><span class="identifier">zero</span></a>:<a class="type" title="" href="../../geom/matrix/Matrix1x2.html">Matrix1x2</a></code></h3><div class="doc"><pre><code>
 >>> Matrix1x2.zero == new Matrix1x2({ x: 0., y: 0. })

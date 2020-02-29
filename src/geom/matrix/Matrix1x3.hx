@@ -11,6 +11,22 @@ abstract Matrix1x3( geom.structure.Mat1x3 ) from geom.structure.Mat1x3 to geom.s
     function new( m: geom.structure.Mat1x3 ){ this = m; }
     /**
      * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix1x3.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.,3.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.x, this.y, this.z ];
+        return arr.iterator();
+    }
+    /**
+     * <pre><code>
      * >>> Matrix1x3.zero == new Matrix1x3({ x: 0., y: 0., z: 0. })
      * </code></pre>
      */
@@ -28,6 +44,16 @@ abstract Matrix1x3( geom.structure.Mat1x3 ) from geom.structure.Mat1x3 to geom.s
     public static inline
     function get_unit(): Matrix1x3 {
         return new Matrix1x3( { x: 1., y: 1., z: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x3.counting == new Matrix1x3({ x: 1., y: 2., z: 3. })
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix1x3;
+    static inline
+    function get_counting(): Matrix1x3 {
+        return new Matrix1x3( { x: 1., y: 2., z: 3. } );
     }
     public inline
     function clone():Matrix1x3 {

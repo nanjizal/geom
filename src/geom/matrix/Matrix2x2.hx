@@ -6,6 +6,22 @@ package geom.matrix;
 abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.structure.Mat2x2 {
     public inline
     function new( m: geom.structure.Mat2x2 ){ this = m; }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var m = Matrix2x2.counting;
+     * ... var arr = new Array<Float>();
+     * ... for( i in m ){
+     * ...   arr.push(i); 
+     * ... }
+     * ... [1.,2.,3.,4.].toString() == arr.toString(); }) == true
+     * </code></pre>
+     */
+    public inline
+    function iterator() {
+        var arr = [ this.a, this.b, this.c, this.d ];
+        return arr.iterator();
+    }
     public inline 
     function clone(): Matrix2x2 {
         return new Matrix2x2( { a: this.a, b: this.b 
@@ -38,6 +54,17 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     function get_unit(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 1. } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.counting == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix2x2;
+    static inline
+    function get_counting(): Matrix2x2 {
+        return new Matrix2x2( { a: 1., b: 2.
+                              , c: 3., d: 4. } );
     }
     /**
      * Used for testing
