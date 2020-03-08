@@ -4,6 +4,7 @@ import utest.Runner;
 import utest.Test;
 import utest.ui.Report;
 import equals.Equal;
+import utest.Assert;
 // subfolders
 import geom.Numerical;
 import geom.constraints.*;

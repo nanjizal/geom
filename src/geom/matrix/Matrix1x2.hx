@@ -6,8 +6,24 @@ typedef Vec2 = Matrix1x2;
 **/
 @:forward
 abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.structure.Mat1x2 {
+    public static inline 
+    final rows = 1;
+    public static inline
+    final columns = 2;
     public inline
     function new( m: geom.structure.Mat1x2 ){ this = m; }
+                //-------------------
+                // Common Functionality  
+                //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.counting == Matrix1x2.counting.clone() 
+     * </code></pre>
+     */
+    public inline
+    function clone(): Matrix1x2 {
+        return new Matrix1x2( { x: this.x, y: this.y } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -20,71 +36,24 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * </code></pre>
      */
     public inline
-    function iterator() {
-        var arr = [ this.x, this.y ];
-        return arr.iterator();
+    function iterator(): Iterator<Float> {
+        return [ this.x, this.y ].iterator();
     }
-    public inline
-    function clone(): Matrix1x2 {
-        return new Matrix1x2( { x: this.x, y: this.y } );
-    }
-    
-    public inline
-    function get_self() return (cast this : Matrix1x2);
-    
-    public inline
-    function lerpClampT( p: Matrix1x2, t: Float ): Matrix1x2 {
-        return lerp( p, Interval.unit( t ) );
-    }
-    
-    public inline
-    function lerp( p: Matrix1x2, t: Float ): Matrix1x2 {
-        return get_self() + t * negate(span( p ));
-    }
-    
-    public inline
-    function sumXY(): Float {
-        return this.x + this.y;
-    }
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.zero == new Matrix1x2({ x: 0., y: 0. })
-     * </code></pre>
-     */
-    public static var zero( get, never ): Matrix1x2;
-    static inline
-    function get_zero(): Matrix1x2 {
-        return new Matrix1x2({ x: 0., y: 0. });
-    }
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.unit == new Matrix1x2({ x: 1., y: 1. })
-     * </code></pre>
-     */
-    public static var unit( get, never ): Matrix1x2;
-    static inline
-    function get_unit(): Matrix1x2 {
-        return new Matrix1x2({ x: 1., y: 1. });
-    }
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.counting == new Matrix1x2({ x: 1., y: 2. })
-     * </code></pre>
-     */
-    public static var counting( get, never ): Matrix1x2;
-    static inline
-    function get_counting(): Matrix1x2 {
-        return new Matrix1x2({ x: 1., y: 2. });
-    }
+    public var self( get, never ): Matrix1x2;
+    inline
+    function get_self() return ( cast this : Matrix1x2 );
+    //-------------------
+    // Common Magnitude  
+    //-------------------
     /**
      * <pre><code>
      * >>> ( new Matrix1x2( { x: 4., y: 3. } ) ).magnitude == 5
      * </code></pre>
      */
     public var magnitude( get, set ): Float;
-    private inline
+    inline
     function get_magnitude(): Float {
-        return Math.sqrt( this.x * this.x + this.y * this.y);
+        return Math.sqrt( this.x * this.x + this.y * this.y );
     }
     /**
      * <pre><code>
@@ -95,7 +64,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      * ... }) == true
      * </code></pre>
      */
-    private inline
+    inline
     function set_magnitude( length: Float ): Float {
         var currentLength = get_magnitude();
         return if(currentLength == 0){
@@ -107,6 +76,174 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
             magnitude;
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ trace('"normalize" untested'); true; }) == true
+     * </code></pre>
+     */
+    public inline
+    function normalize(): Float {
+        magnitude = 1.;
+        return magnitude;
+    }
+    //-------------------
+    // Common Constants  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.zero == new Matrix1x2({ x: 0., y: 0. })
+     * </code></pre>
+     */
+    public static var zero( get, never ): Matrix1x2;
+    static inline
+    function get_zero(): Matrix1x2 {
+        return new Matrix1x2({ x: 0., y: 0. });
+    }
+    var nought( get, never ): Matrix1x2;
+    inline
+    function get_nought(): Matrix1x2 {
+        return zero;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit == new Matrix1x2({ x: 1., y: 1. })
+     * </code></pre>
+     */
+    public static var unit( get, never ): Matrix1x2;
+    static inline
+    function get_unit(): Matrix1x2 {
+        return new Matrix1x2({ x: 1., y: 1. });
+    }
+    var one( get, never): Matrix1x2;
+    inline
+    function get_one(): Matrix1x2 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.minus1 == new Matrix1x2({ x: -1., y: -1. })
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix1x2;
+    static inline
+    function get_minus1(): Matrix1x2 {
+        return -Matrix1x2.unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.counting == new Matrix1x2({ x: 1., y: 2. })
+     * </code></pre>
+     */
+    public static var counting( get, never ): Matrix1x2;
+    static inline
+    function get_counting(): Matrix1x2 {
+        return new Matrix1x2({ x: 1., y: 2. });
+    }
+    var testCount( get, never ): Matrix1x2;
+    inline
+    function get_testCount(): Matrix1x2 {
+        return counting;
+    }
+    //-------------------
+    // Common operators  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2({ x: 1., y: 2. });
+     * ... var b = -a;
+     * ... b == new Matrix1x2({ x: -1., y: -2. }); }) == true
+     * </code></pre>
+     */
+    @:op( -A ) public static inline
+    function negating( a:Matrix1x2 ): Matrix1x2 {
+      	return a.negate();
+    }
+    public inline
+    function negate(): Matrix1x2 {
+        return new Matrix1x2( { x: -this.x, y: -this.y } );
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit + Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
+     * </code></pre>
+     */
+    @:op(A + B) public static inline
+    function adding( a:Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
+        //return new Matrix1x2({ x: a.x + b.x, y:  a.y + b.y });
+        return a.add( b );
+    }
+    public inline
+    function add( b: Matrix1x2 ): Matrix1x2 {
+        return new Matrix1x2({ x: this.x + b.x
+                             , y: this.y + b.y });
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit - Matrix1x2.unit == new Matrix1x2( { x: 0., y: 0. } )
+     * </code></pre>
+     */
+    @:op(A - B) public static inline
+    function subtracting( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
+        return a.subtract( b );
+    }
+    public inline
+    function subtract( b: Matrix1x2 ): Matrix1x2 {
+        return new Matrix1x2({ x: this.x - b.x
+                             , y: this.y - b.y });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x2( { x: 7., y: 6. } ); 
+     * ... var b = new Matrix1x2( { x: 7., y: 6. } ); 
+     * ... a == b; 
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op(A == B) public static inline
+    function isEqualling( a: Matrix1x2, b:Matrix1x2 ): Bool {
+        return a.isEqual( b );
+    }
+    public inline function isEqual(b: Matrix1x2 ): Bool {
+        return this.x == b.x && this.y == b.y;
+    }
+    //function multiplyScale( b: T ): T;
+    /**
+     * <pre><code>
+     * >>> Matrix1x2.unit * 2 == new Matrix1x2( { x: 2., y: 2. } )
+     * >>> 2 * Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
+     * </code></pre>
+     */
+    @:op(A * B) @:commutative public static inline
+    function scaleMultiplying( a: Matrix1x2, v: Float ): Matrix1x2 {
+        return a.scaleMultiply( v );
+    }
+    public inline
+    function scaleMultiply( v: Float ): Matrix1x2 {
+        return new Matrix1x2( { x: this.x * v
+                              , y: this.y * v } );
+    }
+    //function divideScalar( b: T ): T;
+    
+    public inline
+    function lerpClampT( p: Matrix1x2, t: Float ): Matrix1x2 {
+        return lerp( p, Interval.unit( t ) );
+    }
+    
+    public inline
+    function lerp( p: Matrix1x2, t: Float ): Matrix1x2 {
+        var s = self.span( p );
+        var n = - s;
+        var tn = t * n;
+        return s + tn;
+    }
+    
+    public inline
+    function sumXY(): Float {
+        return this.x + this.y;
+    }
+
     /**
      * <pre><code>
      * >>> Matrix1x2.topLeft() == new Matrix1x2({ x: -1., y: 1. })
@@ -179,67 +316,32 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
     function east(){
         return new Matrix1x2( { x: 1., y: 0. } );
     }
+
     
-    @:op( -A ) public static inline
-    function negate( a:Matrix1x2 ): Matrix1x2 {
-      	return new Matrix1x2({ x: -a.x, y:  -a.y });
-    }
-    
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.unit + Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
-     * </code></pre>
-     */
-    @:op(A + B) public static inline
-    function add( a:Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
-      	return new Matrix1x2({ x: a.x + b.x, y:  a.y + b.y });
-    }
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.unit - Matrix1x2.unit == new Matrix1x2( { x: 0., y: 0. } )
-     * </code></pre>
-     */
-    @:op(A - B) public static inline
-    function subtract( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
-        return new Matrix1x2({ x: a.x - b.x, y:  a.y - b.y });
-    }
     // To consider...
     @:op(A * B) public static inline
-    function dot( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
-        return new Matrix1x2({ x: a.x * b.x, y: a.y * b.y });
+    function dotting( a: Matrix1x2, b:Matrix1x2 ): Matrix1x2 {
+        return a.dot( b );
     }
-    /**
-     * <pre><code>
-     * >>> Matrix1x2.unit * 2 == new Matrix1x2( { x: 2., y: 2. } )
-     * >>> 2 * Matrix1x2.unit == new Matrix1x2( { x: 2., y: 2. } )
-     * </code></pre>
-     */
-    @:op(A * B) @:commutative public static inline
-    function scaleMultiply( a: Matrix1x2, v: Float ): Matrix1x2 {
-        return new Matrix1x2( { x: a.x * v, y: a.y * v } );
+    public inline
+    function dot( b: Matrix1x2 ): Matrix1x2 {
+        return new Matrix1x2({ x: this.x * b.x
+                             , y: this.y * b.y });
     }
+
     /**
      * <pre><code>
      * >>> Matrix1x2.unit / 2 == new Matrix1x2( { x: 0.5, y: 0.5 } )
      * </code></pre>
      */
     @:op(A / B) public static inline
-    function divide( a: Matrix1x2, v: Float ): Matrix1x2 {
-        return a * ( 1 / v );
+    function dividing( a: Matrix1x2, v: Float ): Matrix1x2 {
+        return a.divide( v );
     }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... var a = new Matrix1x2( { x: 7., y: 6. } ); 
-     * ... var b = new Matrix1x2( { x: 7., y: 6. } ); 
-     * ... a == b; 
-     * ... }) == true
-     * </code></pre>
-     */
-    @:op(A == B) public static inline
-    function equal( a: Matrix1x2, b:Matrix1x2 ): Bool {
-        return a.x == b.x && a.y == b.y;
-    }
+    public inline
+    function divide( v: Float ): Matrix1x2 {
+        return ( this: Matrix1x2 ) * ( 1 / v );
+    } 
     /**
      * <pre><code>
      * >>> ({ 
@@ -251,7 +353,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      */
     @:op(A != B) public static inline
     function notEqual( a: Matrix1x2, b:Matrix1x2 ): Bool {
-        return !equal( a, b );
+        return !a.isEqual( b );
     }
     /**
      * <pre><code>
@@ -322,17 +424,7 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
      */
     public inline
     function span( b: Matrix1x2 ): Matrix1x2 {
-        return new Matrix1x2({ x: this.x - b.x, y: this.y - b.y });
-    }
-    /**
-     * <pre><code>
-     * >>> ({ trace('"normalize" untested'); true; }) == true
-     * </code></pre>
-     */
-    public inline
-    function normalize(): Float {
-        magnitude = 1.;
-        return magnitude;
+        return new Matrix1x2( { x: this.x - b.x, y: this.y - b.y } );
     }
     /**
      * <pre><code>
@@ -640,5 +732,30 @@ abstract Matrix1x2( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.s
         arr[ pos ]     = this.x;
         arr[ pos + 1 ] = this.y;
         return arr;
+    }
+    @:op([]) //@:arrayAccess
+    public inline
+    function readItem( k: Int ): Float {
+      return switch( k ){
+            case 0:
+                this.x;
+            case 1:
+                this.y;
+            default:
+                throw( 'use index less than 2' );
+        }
+    }
+    @:op([]) //@:arrayAccess
+    public inline
+    function writeItem( k: Int, v: Float ): Float {
+        switch( k ){
+            case 0:
+                this.x = v;
+            case 1:
+                this.y = v;
+                default:
+            throw( 'use index less than 2' );
+        }
+        return v;
     }
 }

@@ -1,13 +1,33 @@
 package geom.matrix;
 import haxe.io.Float32Array;
+import geom.constraints.Precision;
 import geom.tydef.*;
 /** 
    ![4x4](../../bootstrap/img/matrix4x4.png)
 **/
-@:forward // treat like 4x4 matrix but don't store last row!
+@:forward 
 abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.structure.Mat4x4 {
+    public static inline 
+    final rows = 4;
+    public static inline
+    final columns = 4;
     public inline
     function new( m: geom.structure.Mat4x4 ){ this = m; }
+    //-------------------
+    // Common Functionality  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix4x4.counting == Matrix4x4.counting.clone() 
+     * </code></pre>
+     */
+    public inline 
+    function clone(): Matrix4x4 {
+        return new Matrix4x4( { a: this.a, b: this.b, c: this.c, d: this.d
+                              , e: this.e, f: this.f, g: this.g, h: this.h
+                              , i: this.i, j: this.j, k: this.k, l: this.l
+                              , m: this.m, n: this.n, o: this.o, p: this.p } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -21,9 +41,13 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
      */
     public inline
     function iterator() {
-        var arr = [ this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, this.m, this.n, this.o, this.p ];
-        return arr.iterator();
+        return [ this.a, this.b, this.c, this.d
+               , this.e, this.f, this.g, this.h
+               , this.i, this.j, this.k, this.l
+               , this.m, this.n, this.o, this.p ].iterator();
     }
+    public var self(get,never):Matrix4x4;
+    inline function get_self() return (cast this : Matrix4x4);
     /**
      * <pre><code>
      * >>> ({
@@ -41,6 +65,11 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0.
                              , m: 0., n: 0., o: 0., p: 0. } );
+    }
+    var nought( get, never ): Matrix4x4;
+    inline
+    function get_nought(): Matrix4x4 {
+        return zero;
     }
     /**
      * <pre><code>
@@ -60,6 +89,26 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                              , i: 0., j: 0., k: 1., l: 0. 
                              , m: 0., n: 0., o: 0., p: 1. } );
     }
+    var one( get, never): Matrix4x4;
+    inline
+    function get_one(): Matrix4x4 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> ({
+     * ... Matrix4x4.minus1 == new Matrix4x4({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: -1., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: -1., l: 0. 
+     * ...                                   , m: 0., n: 0., o: 0., p: -1. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix4x4;
+    static inline
+    function get_minus1(): Matrix4x4 {
+        return -Matrix4x4.unit;
+    }
     /**
      * <pre><code>
      * >>> ({
@@ -77,6 +126,11 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                              , e: 5., f: 6., g: 7., h: 8.
                              , i: 9., j: 10., k: 11., l: 12.
                              , m: 13., n: 14., o: 15., p: 16. } );
+    }
+    var testCount( get, never ): Matrix4x4;
+    inline
+    function get_testCount(): Matrix4x4 {
+        return counting;
     }
     /**
      * Used for testing
@@ -135,6 +189,63 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
     function notEqual( a: Matrix4x4, b:Matrix4x4 ): Bool {
         return !equal( a, b );
     }
+    //-------------------
+    // Common operators  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x4.counting;
+     * ... var b = -a;
+     * ... b == new Matrix4x4({ a: -1., b: -2., c: -3., d: -4.
+     * ...                    , e: -5., f: -6., g: -7., h: -8
+     * ...                    , i: -9., j: -10., k: -11., l: -12.
+     * ...                    , m: -13., n: -14., o:-15., p: -16. });
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op( -A ) public static inline
+    function negating( a:Matrix4x4 ): Matrix4x4 {
+      	return a.negate();
+    }
+    public inline
+    function negate(): Matrix4x4 {
+        return new Matrix4x4( { a: -this.a, b: -this.b, c: -this.c, d: -this.d
+                              , e: -this.e, f: -this.f, g: -this.g, h: -this.h
+                              , i: -this.i, j: -this.j, k: -this.k, l: -this.l
+                              , m: -this.m, n: -this.n, o: -this.o, p: -this.p } );
+    } 
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x4.unit;
+     * ... a + a == new Matrix4x4( { a: 2., b: 0., c: 0., d: 0.
+     * ...                         , e: 0., f: 2., g: 0., h: 0.
+     * ...                         , i: 0., j: 0., k: 2., l: 0. 
+     * ...                         , m: 0., n: 0., o: 0., p: 2. } ); }) == true
+     * </code></pre>
+     */
+    @:op(A + B) public static inline
+    function add( m0: Matrix4x4, m1: Matrix4x4 ): Matrix4x4 {
+        return new Matrix4x4( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c, d: m0.d + m1.d
+                              , e: m0.e + m1.e, f: m0.f + m1.f, g: m0.g + m1.g, h: m0.h + m1.h
+                              , i: m0.i + m1.i, j: m0.j + m1.j, k: m0.k + m1.k, l: m0.l + m1.l
+                              , m: m0.m + m1.m, n: m0.n + m1.n, o: m0.o + m1.o, p: m0.p + m1.p } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x4.unit;
+     * ... a - a == Matrix4x4.zero; }) == true
+     * </code></pre>
+     */
+    @:op(A - B) public static inline
+    function sub( m0: Matrix4x4, m1: Matrix4x4 ): Matrix4x4 {
+        return new Matrix4x4( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c, d: m0.d - m1.d
+                              , e: m0.e - m1.e, f: m0.f - m1.f, g: m0.g - m1.g, h: m0.h - m1.h
+                              , i: m0.i - m1.i, j: m0.j - m1.j, k: m0.k - m1.k, l: m0.l - m1.l
+                              , m: m0.m - m1.m, n: m0.n - m1.n, o: m0.o - m1.o, p: m0.p - m1.p } );
+    }
     @:op(A * B)
     public static inline
     function multiply( r: Matrix4x4, s: Matrix4x4 ): Matrix4x4 {
@@ -155,6 +266,28 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
                                 
         , m: r.m*s.a+r.n*s.e+r.o*s.i+r.p*s.m, n: r.m*s.b+r.n*s.f+r.o*s.j+r.p*s.n
                                 , o: r.m+s.c+r.n*s.g+r.o*s.k+r.p*s.o, p: r.m*s.d+r.n*s.h+r.o*s.l+r.p*s.p } );
+    }
+    @:op(A / B) public static inline
+    function scaleDivide( m: Matrix4x4, p: Matrix1x4 ): Matrix4x4 {
+        var pd = 1 / p;  
+        return new Matrix4x4( { a: m.a*pd.x, b: m.b,      c: m.c,      d: m.d
+                              , e: m.e,      f: m.f*pd.y, g: m.g,      h: m.h
+                              , i: m.i,      j: m.j,      k: m.k*pd.z, l: m.l 
+                              , m: m.m,      n: m.n,      o: m.o,      p: m.p*pd.w } );
+    }
+    @:op(A * B) public static inline
+    function scaleMultiply1( p: Matrix1x4, m: Matrix4x4 ): Matrix4x4 {
+        return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
+                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
+                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l 
+                              , m: m.m,     n: m.n,     o: m.o,     p: m.p*p.w } );
+    }
+    @:op(A * B) public static inline
+    function scaleMultiply2( m: Matrix4x4, p: Matrix1x4 ): Matrix4x4 {
+        return new Matrix4x4( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
+                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
+                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l
+                              , m: m.m,     n: m.n,     o: m.o,     p: m.p*p.w } );
     }
     public inline
     function delta( x: Float, y: Float ): Matrix4x4 {
@@ -194,22 +327,44 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
         Conversion._4x4toFloat32ArrayUpdate_( arr, here  );
         return arr;
     }
+    public inline function setXY( x: Int, y: Int, v: Float  ): Float {
+        return switch [ x, y ] {
+    case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v; case [ 0,2 ]: this.c = v; case [ 0,3 ]: this.d = v;
+    case [ 1,0 ]: this.e = v; case [ 1,1 ]: this.f = v; case [ 1,2 ]: this.g = v; case [ 1,3 ]: this.h = v;
+    case [ 2,0 ]: this.i = v; case [ 2,1 ]: this.j = v; case [ 2,2 ]: this.k = v; case [ 2,3 ]: this.l = v;
+    case [ 3,0 ]: this.m = v; case [ 3,1 ]: this.n = v; case [ 3,2 ]: this.o = v; case [ 3,3 ]: this.p = v;
+    case _: throw ('bad set $x, $y on Matrix4x4' ); }
+    }
+    public inline function getXY( x: Int, y: Int  ): Float {
+        return switch [ x, y ] {
+            case [ 0, 0 ]: this.a; case [ 0, 1 ]: this.b; case [ 0, 2 ]: this.c; case [ 0, 3 ]: this.d;
+            case [ 1, 0 ]: this.e; case [ 1, 1 ]: this.f; case [ 1, 2 ]: this.g; case [ 1, 3 ]: this.h;
+            case [ 2, 0 ]: this.i; case [ 2, 1 ]: this.j; case [ 2, 2 ]: this.k; case [ 2, 3 ]: this.l;
+            case [ 3, 0 ]: this.m; case [ 3, 1 ]: this.n; case [ 3, 2 ]: this.o; case [ 3, 3 ]: this.p;
+            case _: throw ('bad get $x, $y on Matrix4x4' ); }
+    } 
     // used to print out a pretty representation of the matrix for debugging,
     // likely quite slow and not optimum.
     public inline
     function pretty( prec: Int ):String {
-        var sa = floatToStringPrecision( this.a, prec );
-        var sb = floatToStringPrecision( this.b, prec );
-        var sc = floatToStringPrecision( this.c, prec );
-        var sd = floatToStringPrecision( this.d, prec );
-        var se = floatToStringPrecision( this.e, prec );
-        var sf = floatToStringPrecision( this.f, prec );
-        var sg = floatToStringPrecision( this.g, prec );
-        var sh = floatToStringPrecision( this.h, prec );
-        var si = floatToStringPrecision( this.i, prec );
-        var sj = floatToStringPrecision( this.j, prec );
-        var sk = floatToStringPrecision( this.k, prec );
-        var sl = floatToStringPrecision( this.l, prec );
+        var dp = Precision.floatToStringPrecision;
+        var max4 = Precision.max4;
+        var sa = dp( this.a, prec );
+        var sb = dp( this.b, prec );
+        var sc = dp( this.c, prec );
+        var sd = dp( this.d, prec );
+        var se = dp( this.e, prec );
+        var sf = dp( this.f, prec );
+        var sg = dp( this.g, prec );
+        var sh = dp( this.h, prec );
+        var si = dp( this.i, prec );
+        var sj = dp( this.j, prec );
+        var sk = dp( this.k, prec );
+        var sl = dp( this.l, prec );
+        var sm = dp( this.m, prec );
+        var sn = dp( this.n, prec );
+        var so = dp( this.o, prec );
+        var sp = dp( this.p, prec );
         var la = sa.length;
         var lb = sb.length;
         var lc = sc.length;
@@ -222,62 +377,43 @@ abstract Matrix4x4( geom.structure.Mat4x4 ) from geom.structure.Mat4x4 to geom.s
         var lj = sj.length;
         var lk = sk.length;
         var ll = sl.length;
-        var r0: Int = Math.round( Math.max( Math.max( la, le ), li ) );
-        var r1: Int = Math.round( Math.max( Math.max( lb, lf ), lj ) );
-        var r2: Int = Math.round( Math.max( Math.max( lc, lg ), lk ) );
-        var r3: Int = Math.round( Math.max( Math.max( ld, lh ), ll ) );
+        var lm = sm.length;
+        var ln = sn.length;
+        var lo = so.length;
+        var lp = sp.length;
+        var r0: Int = max4( la, le, li, lm );
+        var r1: Int = max4( lb, lf, lj, ln );
+        var r2: Int = max4( lc, lg, lk, lo );
+        var r3: Int = max4( ld, lh, ll, lp );
         var spaces = '';
         for( n in 0...r0 ) spaces = spaces + ' ';
         sa = spaces.substr( 0, r0 - la ) + sa;
         se = spaces.substr( 0, r0 - le ) + se;
         si = spaces.substr( 0, r0 - li ) + si;
+        sm = spaces.substr( 0, r0 - lm ) + sm;
         var spaces = '';
         for( n in 0...r1 ) spaces = spaces + ' ';
         sb = spaces.substr( 0, r1 - lb ) + sb;
         sf = spaces.substr( 0, r1 - lf ) + sf;
         sj = spaces.substr( 0, r1 - lj ) + sj;
+        sn = spaces.substr( 0, r1 - ln ) + sn;
         var space = '';
         for( n in 0...r2 ) spaces = spaces + ' ';
         sc = spaces.substr( 0, r2 - lc ) + sc;
         sg = spaces.substr( 0, r2 - lg ) + sg;
         sk = spaces.substr( 0, r2 - lk ) + sk;
+        so = spaces.substr( 0, r2 - lo ) + so;
         var space = '';
         for( n in 0...r3 ) spaces = spaces + ' ';
         sd = spaces.substr( 0, r3 - ld ) + sd;
         sh = spaces.substr( 0, r3 - lh ) + sh;
         sl = spaces.substr( 0, r3 - ll ) + sl;
+        sp = spaces.substr( 0, r3 - lp ) + sp;
         return '\n'
              + '/ ' + sa + ', ' + sb + ', ' + sc + ', ' + sd + ' \\\n'
              + '| ' + se + ', ' + sf + ', ' + sg + ', ' + sh + ' |\n'
-             + '\\ ' + si + ', ' + sj + ', ' + sk + ', ' + sl + ' /\n';
-    }
-    /*
-        credit: sea_jackel https://stackoverflow.com/questions/23689001/how-to-reliably-format-a-floating-point-number-to-a-specified-number-of-decimal
-    */
-    public static function floatToStringPrecision( n: Float, prec: Int ){
-        if( n==0 ) return "0." + ([for(i in 0...prec) "0"].join("")); //quick return
-        var minusSign:Bool = ( n < 0.0 );
-        n = Math.abs( n );
-        var intPart:Int = Math.floor( n );
-        var p = Math.pow( 10, prec );
-        var fracPart = Math.round( p*(n - intPart) );
-        var buf: StringBuf = new StringBuf();
-        if( minusSign ) buf.addChar( "-".code );
-        buf.add( Std.string( intPart ) );
-        if( fracPart == 0 ){
-            buf.addChar( ".".code );
-            for( i in 0...prec ) buf.addChar( "0".code );
-        } else {
-            buf.addChar( ".".code );
-            p = p/10;
-            var nZeros:Int = 0;
-            while( fracPart < p ){
-                p = p/10;
-                buf.addChar( "0".code );
-            }
-            buf.add(fracPart);
-        }
-        return buf.toString();
+             + '| ' + si + ', ' + sj + ', ' + sk + ', ' + sl + ' |\n'
+             + '\\ ' + sm + ', ' + sn + ', ' + so + ', ' + sp + ' /\n';
     }
 }
 

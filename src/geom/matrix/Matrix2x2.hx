@@ -4,8 +4,25 @@ package geom.matrix;
 **/
 @:forward
 abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.structure.Mat2x2 {
+    public static inline 
+    final row = 2;
+    public static inline
+    final col = 2; 
     public inline
     function new( m: geom.structure.Mat2x2 ){ this = m; }
+                        //-------------------
+                        // Common Functionality  
+                        //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.counting == Matrix2x2.counting.clone() 
+     * </code></pre>
+     */
+    public inline 
+    function clone(): Matrix2x2 {
+        return new Matrix2x2( { a: this.a, b: this.b 
+                              , c: this.c, d: this.d } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -19,20 +36,14 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      */
     public inline
     function iterator() {
-        var arr = [ this.a, this.b, this.c, this.d ];
-        return arr.iterator();
+        return [ this.a, this.b, this.c, this.d ].iterator();
     }
-    public inline 
-    function clone(): Matrix2x2 {
-        return new Matrix2x2( { a: this.a, b: this.b 
-                              , c: this.c, d: this.d } );
-    }
-    public inline
-    function create( a: Float, b: Float, c: Float, d: Float ): Matrix2x2 {
-        this = new Matrix2x2( { a:a, b:b 
-                              , c:c, d:d } );
-        return this;
-    }
+    public var self(get,never):Matrix2x2;
+    inline
+    function get_self() return (cast this : Matrix2x2);
+                        //-------------------
+                        // Common Constants  
+                        //-------------------
     /**
      * <pre><code>
      * >>> Matrix2x2.zero == new Matrix2x2( { a: 0., b: 0., c: 0., d: 0. } )
@@ -43,6 +54,11 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     function get_zero(): Matrix2x2 {
         return new Matrix2x2( { a: 0., b: 0.
                               , c: 0., d: 0. } );
+    }
+    var nought( get, never ): Matrix2x2;
+    inline
+    function get_nought(): Matrix2x2 {
+        return zero;
     }
     /**
      * <pre><code>
@@ -55,6 +71,21 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 1. } );
     }
+    var one( get, never): Matrix2x2;
+    inline
+    function get_one(): Matrix2x2 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix2x2.minus1 == new Matrix2x2({ a: -1., b: 0., c: 0., d: -1. })
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix2x2;
+    static inline
+    function get_minus1(): Matrix2x2 {
+        return -Matrix2x2.unit;
+    }
     /**
      * <pre><code>
      * >>> Matrix2x2.counting == new Matrix2x2( { a: 1., b: 2., c: 3., d: 4. } )
@@ -65,6 +96,11 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     function get_counting(): Matrix2x2 {
         return new Matrix2x2( { a: 1., b: 2.
                               , c: 3., d: 4. } );
+    }
+    var testCount( get, never ): Matrix2x2;
+    inline
+    function get_testCount(): Matrix2x2 {
+        return counting;
     }
     /**
      * Used for testing
@@ -190,7 +226,12 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         return new Matrix2x2( { a: 1., b: 0.
                               , c: 0., d: 0. } );
     }
-    
+    public inline
+    function create( a: Float, b: Float, c: Float, d: Float ): Matrix2x2 {
+        this = new Matrix2x2( { a:a, b:b 
+                              , c:c, d:d } );
+        return this;
+    }
     /**
      * <pre><code>
      * >>> Matrix2x2.scale( new Matrix1x2( { x: 2., y: 2. } ) ) == new Matrix2x2( { a: 2., b: 0., c: 0.,  d: 2. } )
@@ -220,7 +261,26 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
     function transpose(): Matrix2x2 {
         return new Matrix2x2( { a: this.a, b: this.c
                               , c: this.b, d: this.d } );
-    }    
+    }
+    //-------------------
+    // Common operators  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix2x2.counting;
+     * ... var b = -a;
+     * ... b == new Matrix2x2({ a: -1., b: -2., c: -3., d: -4. }); }) == true
+     * </code></pre>
+     */
+    @:op( -A ) public static inline
+    function negating( a:Matrix2x2 ): Matrix2x2 {
+      	return a.negate();
+    }
+    public inline
+    function negate(): Matrix2x2 {
+        return new Matrix2x2( { a: -this.a, b: -this.b, c: -this.c, d: -this.d } );
+    }   
     /**
      * <pre><code>
      * >>> ({

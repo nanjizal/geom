@@ -1,13 +1,32 @@
 package geom.matrix;
 import haxe.io.Float32Array;
+import geom.constraints.Precision;
 import geom.tydef.*;
 /** 
    ![4x3](../../bootstrap/img/matrix4x3.png)
 **/
 @:forward // treat like 4x4 matrix but don't store last row!
 abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.structure.Mat4x3 {
+    public static inline 
+    final rows = 4;
+    public static inline
+    final columns = 3;
     public inline
     function new( m: geom.structure.Mat4x3 ){ this = m; }
+                        //-------------------
+                        // Common Functionality  
+                        //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix4x3.counting == Matrix4x3.counting.clone() 
+     * </code></pre>
+     */
+    public inline 
+    function clone(): Matrix4x3 {
+        return new Matrix4x3( { a: this.a, b: this.b, c: this.c, d: this.d
+                              , e: this.e, f: this.f, g: this.g, h: this.h
+                              , i: this.i, j: this.j, k: this.k, l: this.l } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -24,8 +43,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         var arr = [ this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l ];
         return arr.iterator();
     }
-    var self(get,never):Matrix4x3;
+    public var self(get,never):Matrix4x3;
     inline function get_self() return (cast this : Matrix4x3);
+                        //-------------------
+                        // Common Constants  
+                        //-------------------
     /**
      * <pre><code>
      * >>> ({
@@ -41,6 +63,11 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         return new Matrix4x3({ a: 0., b: 0., c: 0., d: 0.
                              , e: 0., f: 0., g: 0., h: 0.
                              , i: 0., j: 0., k: 0., l: 0. } );
+    }
+    var nought( get, never ): Matrix4x3;
+    inline
+    function get_nought(): Matrix4x3 {
+        return zero;
     }
     /**
      * <pre><code>
@@ -58,6 +85,25 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: 0., f: 1., g: 0., h: 0.
                              , i: 0., j: 0., k: 1., l: 0. } );
     }
+    var one( get, never): Matrix4x3;
+    inline
+    function get_one(): Matrix4x3 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... Matrix4x3.minus1 == new Matrix4x3({ a: -1., b: 0., c: 0., d: 0.
+     * ...                                   , e: 0., f: -1., g: 0., h: 0.
+     * ...                                   , i: 0., j: 0., k: -1., l: 0. } );
+     * ... }) == true
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix4x3;
+    static inline
+    function get_minus1(): Matrix4x3 {
+        return -Matrix4x3.unit;
+    }
     /**
      * <pre><code>
      * >>> ({
@@ -74,6 +120,14 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: 5., f: 6.,  g: 7.,  h: 8.
                              , i: 9., j: 10., k: 11., l: 12. } );
     }
+    var testCount( get, never ): Matrix4x3;
+    inline
+    function get_testCount(): Matrix4x3 {
+        return counting;
+    }
+                        //-------------------
+                        // Specific Constants  
+                        //-------------------
     /**
      * <pre><code>
      * >>> ({
@@ -490,6 +544,9 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: 0., f: 0., g: 0.,  h: 0.
                              , i: 0., j: 0., k: -1., l: 0. } );
     }
+                        //-------------------
+                        // transforms
+                        //-------------------
     public static inline
     function radianX( theta: Float ): Matrix4x3 {
         var c = Math.cos( theta ); var s = Math.sin( theta );
@@ -663,11 +720,18 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                              , e: -2.*b*c,     f: 1. - 2.*b*b, g: -2.*b*c,   h: -2.*b*d
                              , i: -2.*a*c,     j: 2.*b*c,      k: 1. - 2.*c*c, l: -2*c*d } );
     }
+                        //-------------------
+                        // Common Equalities  
+                        //-------------------
    /**
      * <pre><code>
      * >>> ({ 
-     * ... var a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
-     * ... var b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4., e: 5., f: 6., g: 7., h: 8., i: 9., j:10., k:11., l:12. });
+     * ... var a = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4.
+     * ...                       , e: 5., f: 6., g: 7., h: 8.
+     * ...                       , i: 9., j:10., k:11., l:12. });
+     * ... var b = new Matrix4x3({ a: 1., b: 2., c: 3., d: 4.
+     * ...                       , e: 5., f: 6., g: 7., h: 8.
+     * ...                       , i: 9., j:10., k:11., l:12. });
      * ... a == b; }) == true
      * </code></pre>
      */
@@ -702,6 +766,29 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     function notEqual( a: Matrix4x3, b:Matrix4x3 ): Bool {
         return !equal( a, b );
     }
+                        //-------------------
+                        // Common operators  
+                        //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix4x3.counting;
+     * ... var b = -a;
+     * ... b == new Matrix4x3({ a: -1., b: -2., c: -3., d: -4.
+     * ...                    , e: -5., f: -6., g: -7., h: -8
+     * ...                    , i: -9., j: -10., k: -11., l: -12. }); }) == true
+     * </code></pre>
+     */
+    @:op( -A ) public static inline
+    function negating( a:Matrix4x3 ): Matrix4x3 {
+      	return a.negate();
+    }
+    public inline
+    function negate(): Matrix4x3 {
+        return new Matrix4x3( { a: -this.a, b: -this.b, c: -this.c, d: -this.d
+                              , e: -this.e, f: -this.f, g: -this.g, h: -this.h
+                              , i: -this.i, j: -this.j, k: -this.k, l: -this.l } );
+    } 
     /**
      * <pre><code>
      * >>> ({ 
@@ -925,7 +1012,7 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v; case [ 0,2 ]: this.c = v; case [ 0,3 ]: this.d = v;
     case [ 1,0 ]: this.e = v; case [ 1,1 ]: this.f = v; case [ 1,2 ]: this.g = v; case [ 1,3 ]: this.h = v;
     case [ 2,0 ]: this.i = v; case [ 2,1 ]: this.j = v; case [ 2,2 ]: this.k = v; case [ 2,3 ]: this.l = v;
-    case _: throw ('bad set $x, $y on Matrix4x4' ); }
+    case _: throw ('bad set $x, $y on Matrix4x3' ); }
     }
     public inline function getXY( x: Int, y: Int  ): Float {
         return switch [ x, y ] {
@@ -951,18 +1038,20 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
     // likely quite slow and not optimum.
     public inline
     function pretty( prec: Int ):String {
-        var sa = floatToStringPrecision( this.a, prec );
-        var sb = floatToStringPrecision( this.b, prec );
-        var sc = floatToStringPrecision( this.c, prec );
-        var sd = floatToStringPrecision( this.d, prec );
-        var se = floatToStringPrecision( this.e, prec );
-        var sf = floatToStringPrecision( this.f, prec );
-        var sg = floatToStringPrecision( this.g, prec );
-        var sh = floatToStringPrecision( this.h, prec );
-        var si = floatToStringPrecision( this.i, prec );
-        var sj = floatToStringPrecision( this.j, prec );
-        var sk = floatToStringPrecision( this.k, prec );
-        var sl = floatToStringPrecision( this.l, prec );
+        var dp = Precision.floatToStringPrecision;
+        var max3 = Precision.max3;
+        var sa = dp( this.a, prec );
+        var sb = dp( this.b, prec );
+        var sc = dp( this.c, prec );
+        var sd = dp( this.d, prec );
+        var se = dp( this.e, prec );
+        var sf = dp( this.f, prec );
+        var sg = dp( this.g, prec );
+        var sh = dp( this.h, prec );
+        var si = dp( this.i, prec );
+        var sj = dp( this.j, prec );
+        var sk = dp( this.k, prec );
+        var sl = dp( this.l, prec );
         var la = sa.length;
         var lb = sb.length;
         var lc = sc.length;
@@ -975,10 +1064,10 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
         var lj = sj.length;
         var lk = sk.length;
         var ll = sl.length;
-        var r0: Int = Math.round( Math.max( Math.max( la, le ), li ) );
-        var r1: Int = Math.round( Math.max( Math.max( lb, lf ), lj ) );
-        var r2: Int = Math.round( Math.max( Math.max( lc, lg ), lk ) );
-        var r3: Int = Math.round( Math.max( Math.max( ld, lh ), ll ) );
+        var r0: Int = max3( la, le, li );
+        var r1: Int = max3( lb, lf, lj );
+        var r2: Int = max3( lc, lg, lk );
+        var r3: Int = max3( ld, lh, ll );
         var spaces = '';
         for( n in 0...r0 ) spaces = spaces + ' ';
         sa = spaces.substr( 0, r0 - la ) + sa;
@@ -1003,33 +1092,5 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
              + '/ ' + sa + ', ' + sb + ', ' + sc + ', ' + sd + ' \\\n'
              + '| ' + se + ', ' + sf + ', ' + sg + ', ' + sh + ' |\n'
              + '\\ ' + si + ', ' + sj + ', ' + sk + ', ' + sl + ' /\n';
-    }
-    /*
-        credit: sea_jackel https://stackoverflow.com/questions/23689001/how-to-reliably-format-a-floating-point-number-to-a-specified-number-of-decimal
-    */
-    public static function floatToStringPrecision( n: Float, prec: Int ){
-        if( n==0 ) return "0." + ([for(i in 0...prec) "0"].join("")); //quick return
-        var minusSign:Bool = ( n < 0.0 );
-        n = Math.abs( n );
-        var intPart:Int = Math.floor( n );
-        var p = Math.pow( 10, prec );
-        var fracPart = Math.round( p*(n - intPart) );
-        var buf: StringBuf = new StringBuf();
-        if( minusSign ) buf.addChar( "-".code );
-        buf.add( Std.string( intPart ) );
-        if( fracPart == 0 ){
-            buf.addChar( ".".code );
-            for( i in 0...prec ) buf.addChar( "0".code );
-        } else {
-            buf.addChar( ".".code );
-            p = p/10;
-            var nZeros:Int = 0;
-            while( fracPart < p ){
-                p = p/10;
-                buf.addChar( "0".code );
-            }
-            buf.add(fracPart);
-        }
-        return buf.toString();
     }
  }

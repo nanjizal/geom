@@ -1,4 +1,3 @@
-
 package geom.matrix;
 typedef Vec4 = Matrix1x4;
 /** 
@@ -6,8 +5,24 @@ typedef Vec4 = Matrix1x4;
 **/
 @:forward
 abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
+    public static inline 
+    final rows = 1;
+    public static inline
+    final columns = 4;
     public inline
     function new( m: geom.structure.Mat1x4 ){ this = m; }
+                    //-------------------
+                    // Common Functionality  
+                    //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.counting == Matrix1x4.counting.clone() 
+     * </code></pre>
+     */
+    public inline
+    function clone():Matrix1x4 {
+        return new Matrix1x4( { x: this.x, y: this.y, z: this.z, w: this.w } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -24,9 +39,47 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
         var arr = [ this.x, this.y, this.z, this.w ];
         return arr.iterator();
     }
+    public var self( get, never ): Matrix1x4;
+    inline
+    function get_self() return ( cast this : Matrix1x4 );
+                    //-------------------
+                    // Common Magnitude  
+                    //-------------------
     /**
      * <pre><code>
-     * >>> Matrix1x4.zero == new Matrix1x4({ x: 0., y: 0., z: 0., w: 0. })
+     * >>> ({ trace('"magnitude" untested'); true; }) == true
+     * </code></pre>
+     */
+    public var magnitude( get, set ): Float;
+    private inline
+    function get_magnitude(): Float {
+        return Math.sqrt( magnitudeSquared() );
+    }
+    private inline
+    function set_magnitude( length: Float ): Float {
+        var currentLength = get_magnitude();
+        return if( currentLength == 0. ){ 
+            0.;
+        } else {
+            var mul = length / currentLength;
+            this.x *= mul;
+            this.y *= mul;
+            this.z *= mul;
+            this.w *= mul;
+            magnitude;
+        }
+    }
+    public inline
+    function normalize(): Matrix1x4 {
+        magnitude = 1.; 
+        return this;
+    }
+                    //-------------------
+                    // Common Constants  
+                    //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.zero == new Matrix1x4( { x: 0., y: 0., z: 0., w: 0. } )
      * </code></pre>
      */
     public static var zero( get, never ): Matrix1x4;
@@ -34,19 +87,39 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function get_zero(): Matrix1x4 {
         return new Matrix1x4( { x: 0., y: 0., z: 0., w: 0. } );
     }
-    /**
-     * <pre><code>
-     * >>> Matrix1x4.unit == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
-     * </code></pre>
-     */
-    public static var unit( get, never ): Matrix1x4;
-    public static inline
-    function get_unit(): Matrix1x4 {
-        return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
+    var nought( get, never ): Matrix1x4;
+    inline
+    function get_nought(): Matrix1x4 {
+        return zero;
     }
     /**
      * <pre><code>
-     * >>> Matrix1x4.counting == new Matrix1x4({ x: 1., y: 2., z: 3., w: 4. })
+     * >>> Matrix1x4.unit == new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } )
+     * </code></pre>
+     */
+    public static var unit( get, never ): Matrix1x4;
+    static inline
+    function get_unit(): Matrix1x4 {
+        return new Matrix1x4( { x: 1., y: 1., z: 1., w: 1. } );
+    }
+    var one( get, never): Matrix1x4;
+    inline
+    function get_one(): Matrix1x4 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.minus1 == new Matrix1x4( { x: -1., y: -1., z: -1., w: -1. } )
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix1x4;
+    static inline
+    function get_minus1(): Matrix1x4 {
+        return -unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix1x4.counting == new Matrix1x4( { x: 1., y: 2., z: 3., w: 4. } )
      * </code></pre>
      */
     public static var counting( get, never ): Matrix1x4;
@@ -54,10 +127,109 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function get_counting(): Matrix1x4 {
         return new Matrix1x4( { x: 1., y: 2., z: 3., w: 4. } );
     }
-    public inline
-    function clone():Matrix1x4 {
-        return new Matrix1x4( { x: this.x, y: this.y, z: this.z, w: this.w } );
+    var testCount( get, never ): Matrix1x4;
+    inline
+    function get_testCount(): Matrix1x4 {
+        return counting;
     }
+                    //-------------------
+                    // Common operators  
+                    //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = -a;
+     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: -1. }); }) == true
+     * </code></pre>
+     */
+    @:op(-A) public static inline
+    function negating( a: Matrix1x4 ):Matrix1x4 {
+        return a.negate();
+    }
+    public inline
+    function negate(): Matrix1x4 {
+        return new Matrix1x4( { x: -this.x
+                              , y: -this.y
+                              , z: -this.z
+                              , w: -this.w 
+                              } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit;
+     * ... a - a == Matrix1x4.zero;
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op(A - B) public static inline
+    function subtracting( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
+        return a.subtract( b );
+    }
+    public inline
+    function subtract( b: Matrix1x4 ): Matrix1x4 {
+        return new Matrix1x4({ x: this.x - b.x
+                      , y: this.y - b.y
+                      , z: this.z - b.z
+                      , w: this.w - b.w });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix1x4.unit;
+     * ... a + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. }); 
+     * ... }) == true
+     * </code></pre>
+     */
+    @:op(A + B) public static inline
+    function adding( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
+      	return a.add( b );
+    }
+    public inline
+    function add( b: Matrix1x4 ): Matrix1x4 {
+        return new Matrix1x4({ x: this.x + b.x
+                             , y: this.y + b.y
+                             , z: this.z + b.z
+                             , w: this.w + b.w });
+    }
+    @:op(A * B) @:commutative
+    public static inline 
+    function scaleMultiplying( a: Matrix1x4, v: Float ): Matrix1x4 {
+        return a.scaleMultiply( v );
+    }
+    public inline
+    function scaleMultiply( v: Float ): Matrix1x4 {
+        return new Matrix1x4({ x: this.x * v
+                             , y: this.y * v
+                             , z: this.z * v
+                             , w: this.w * v });
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... var b = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
+     * ... a == b; }) == true
+     * </code></pre>
+     */
+    @:op( A == B )
+    public static inline
+    function isEqualling( a: Matrix1x4, b: Matrix1x4 ): Bool {
+        return a.isEqual( b );
+    }
+    public inline
+    function isEqual( b: Matrix1x4 ): Bool {
+    var delta = 0.0000001;
+        return !(
+               Math.abs(this.x - b.x) >= delta
+            || Math.abs(this.y - b.y) >= delta
+            || Math.abs(this.z - b.z) >= delta
+            || Math.abs(this.w - b.w) >= delta
+        );
+    }
+    
+    
     /**
      * <pre><code>
      * >>> Matrix1x4.identity( Matrix1x4.zero ) == new Matrix1x4({ x: 1., y: 1., z: 1., w: 1. })
@@ -101,49 +273,8 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
             new Matrix1x4( { x: this.x / this.z, y: this.y / this.z, z: this.z, w: 1. } );
         }
     }
-    /**
-     * <pre><code>
-     * >>> ({ trace('"magnitude" untested'); true; }) == true
-     * </code></pre>
-     */
-    public var magnitude( get, set ): Float;
-    private inline
-    function get_magnitude(): Float {
-        return Math.sqrt( magnitudeSquared() );
-    }
-    private inline
-    function set_magnitude( length: Float ): Float {
-        var currentLength = get_magnitude();
-        return if( currentLength == 0. ){ 
-            0.;
-        } else {
-            var mul = length / currentLength;
-            this.x *= mul;
-            this.y *= mul;
-            this.z *= mul;
-            this.w *= mul;
-            magnitude;
-        }
-    }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
-     * ... var b = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
-     * ... a == b; }) == true
-     * </code></pre>
-     */
-    @:op( A == B )
-    public static inline
-    function equal( a: Matrix1x4, b: Matrix1x4 ): Bool {
-        var delta = 0.0000001;
-        return !(
-               Math.abs(a.x - b.x) >= delta
-            || Math.abs(a.y - b.y) >= delta
-            || Math.abs(a.z - b.z) >= delta
-            || Math.abs(a.w - b.w) >= delta
-        );
-    }
+
+
     /**
      * <pre><code>
      * >>> ({ 
@@ -154,7 +285,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      */
     @:op(A != B) public static inline
     function notEqual( a: Matrix1x4, b:Matrix1x4 ): Bool {
-        return !equal( a, b );
+        return !a.isEqual( b );
     }
     /**
      * <pre><code>
@@ -165,30 +296,7 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function magnitudeSquared(): Float {
         return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
     }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... var a = Matrix1x4.unit;
-     * ... a + a == new Matrix1x4({ x: 2., y: 2., z: 2., w: 2. }); 
-     * ... }) == true
-     * </code></pre>
-     */
-    @:op(A + B) public static inline
-    function add( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
-      	return new Matrix1x4({ x: a.x + b.x, y: a.y + b.y, z: a.z + b.z, w: a.w + b.w });
-    }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... var a = Matrix1x4.unit;
-     * ... a - a == Matrix1x4.zero;
-     * ... }) == true
-     * </code></pre>
-     */
-    @:op(A - B) public static inline
-    function subtract( a: Matrix1x4, b: Matrix1x4 ): Matrix1x4 {
-        return new Matrix1x4({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z, w: a.w - b.w });
-    }
+
     /*
     Not sure this is useful - need some consideration.
     @:op(A * B) public static inline 
@@ -205,11 +313,12 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function dotProd( b: Matrix1x4 ):Float {
         return this.x * b.x + this.y * b.y + this.z * b.z + this.w * b.w;
     }
+    /*
     @:op(A * B) @:commutative
     public static inline 
     function scaleMultiply( a: Matrix1x4, v: Float ): Matrix1x4 {
         return new Matrix1x4({ x: a.x * v, y: a.y * v, z: a.z * v, w: a.w * v });
-    }
+    }*/
     public inline
     function transformPoint( t: Matrix4x3 ): Matrix1x4 {
         return new Matrix1x4({  x: t.a * this.x + t.b * this.y + t.c * this.z + t.d
@@ -239,22 +348,6 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
                             , y: -a.y
                             , z: -a.z
                             , w: a.w 
-                            } );
-    }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... var a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });
-     * ... var b = -a;
-     * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: -1. }); }) == true
-     * </code></pre>
-     */
-    @:op(-A) public static inline
-    function negate( a: Matrix1x4 ):Matrix1x4 {
-        return new Matrix1x4( { x: -a.x
-                            , y: -a.y
-                            , z: -a.z
-                            , w: -a.w 
                             } );
     }
     public static inline
@@ -372,11 +465,6 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     }
     */
     public inline
-    function normalize(): Matrix1x4 {
-        magnitude = 1.; 
-        return this;
-    }
-    public inline
     function constrainDistance( anchor: Matrix1x4, distance: Float ): Matrix1x4 {
         return ( ( this - anchor ).normalize() * distance ) + anchor;
     }
@@ -424,4 +512,37 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
      */
     @:to
     public inline function toArray():Array<Float> return Conversion._1x4toArray( this );
+    @:op([]) //@:arrayAccess
+    public inline
+    function readItem( k: Int ): Float {
+      return switch( k ){
+            case 0:
+                this.x;
+            case 1:
+                this.y;
+            case 2:
+                this.z;
+            case 3:
+                this.w;
+            default:
+                throw('use index less than 4');
+        }
+    }
+    @:op([]) //@:arrayAccess
+    public inline
+    function writeItem( k: Int, v: Float ): Float {
+        switch( k ){
+            case 0:
+                this.x = v;
+            case 1:
+                this.y = v;
+            case 3:
+                this.z = v;
+            case 4:
+                this.w = v;
+            default:
+                throw('use index less than 4');
+        }
+        return v;
+    }
 }

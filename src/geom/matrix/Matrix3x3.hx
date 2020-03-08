@@ -6,8 +6,26 @@ import geom.matrix.Matrix4x3;
 **/
 @:forward
 abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.structure.Mat3x3 {
+    public static inline 
+    final rows = 3;
+    public static inline
+    final columns = 3;
     public inline
     function new( m: geom.structure.Mat3x3 ){ this = m; }
+                        //-------------------
+                        // Common Functionality  
+                        //-------------------
+    /**
+     * <pre><code>
+     * >>> Matrix3x3.counting == Matrix3x3.counting.clone() 
+     * </code></pre>
+     */
+    public inline 
+    function clone(): Matrix3x3 {
+        return new Matrix3x3( { a: this.a, b: this.b, c: this.c
+                              , d: this.d, e: this.e, f: this.f
+                              , g: this.g, h: this.h, i: this.i } );
+    }
     /**
      * <pre><code>
      * >>> ({ 
@@ -24,6 +42,12 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
         var arr = [ this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i ];
         return arr.iterator();
     }
+    public var self(get,never):Matrix3x3;
+    inline
+    function get_self() return (cast this : Matrix3x3);
+                        //-------------------
+                        // Common Constants  
+                        //-------------------
     /**
      * <pre><code>
      * >>> ({
@@ -39,6 +63,44 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
         return new Matrix3x3({ a: 0., b: 0., c: 0.
                              , d: 0., e: 0., f: 0.
                              , g: 0., h: 0., i: 0. });
+    }
+    var nought( get, never ): Matrix3x3;
+    inline
+    function get_nought(): Matrix3x3 {
+        return zero;
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... Matrix3x3.unit == new Matrix3x3({ a: 1., b: 0., c: 0.
+     * ...                                  , d: 0., e: 1., f: 0.
+     * ...                                  , g: 0., h: 0., i: 1. });
+     * ... }) == true
+     * </code></pre>
+     */
+    public static var unit( get, never ): Matrix3x3;
+    public static inline
+    function get_unit(): Matrix3x3 {
+      	return new Matrix3x3({ a: 1., b: 0., c: 0.
+                             , d: 0., e: 1., f: 0.
+                             , g: 0., h: 0., i: 1. });
+    }
+    var one( get, never): Matrix3x3;
+    inline
+    function get_one(): Matrix3x3 {
+        return unit;
+    }
+    /**
+     * <pre><code>
+     * >>> Matrix3x3.minus1 == new Matrix3x3({ a: -1., b: 0., c: 0.
+     * ...                                   , d: 0.,  e: -1., f: 0.
+     * ...                                   , g: 0.,  h: 0., i: -1. })
+     * </code></pre>
+     */
+    public static var minus1( get, never ): Matrix3x3;
+    static inline
+    function get_minus1(): Matrix3x3 {
+        return -Matrix3x3.unit;
     }
     /**
      * <pre><code>
@@ -56,21 +118,10 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
                              , d: 4., e: 5., f: 6.
                              , g: 7., h: 8., i: 9. });
     }
-    /**
-     * <pre><code>
-     * >>> ({ 
-     * ... Matrix3x3.unit == new Matrix3x3({ a: 1., b: 0., c: 0.
-     * ...                                  , d: 0., e: 1., f: 0.
-     * ...                                  , g: 0., h: 0., i: 1. });
-     * ... }) == true
-     * </code></pre>
-     */
-    public static var unit( get, never ): Matrix3x3;
-    public static inline
-    function get_unit(): Matrix3x3 {
-      	return new Matrix3x3({ a: 1., b: 0., c: 0.
-                             , d: 0., e: 1., f: 0.
-                             , g: 0., h: 0., i: 1. });
+    var testCount( get, never ): Matrix3x3;
+    inline
+    function get_testCount(): Matrix3x3 {
+        return counting;
     }
     /**
      * Used for testing
@@ -238,12 +289,49 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
                               , d: this.b, e: this.e, f: this.h
                               , g: this.c, h: this.f, i: this.i } ); 
     }
+    //-------------------
+    // Common operators  
+    //-------------------
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix3x3.counting;
+     * ... var b = -a;
+     * ... b == new Matrix3x3({ a: -1., b: -2., c: -3., d: -4., e: -5., f: -6., g: -7., h: -8., i: -9. }); }) == true
+     * </code></pre>
+     */
+    @:op( -A ) public static inline
+    function negating( a:Matrix3x3 ): Matrix3x3 {
+      	return a.negate();
+    }
+    public inline
+    function negate(): Matrix3x3 {
+        return new Matrix3x3( { a: -this.a, b: -this.b, c: -this.c
+                              , d: -this.d, e: -this.e, f: -this.f
+                              , g: -this.g, h: -this.h, i: -this.i } );
+    }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix3x3.unit;
+     * ... a + a == new Matrix3x3( { a: 2., b: 0., c: 0.
+     * ...                         , d: 0., e: 2., f: 0.
+     * ...                         , g: 0., h: 0., i: 2. } ); }) == true
+     * </code></pre>
+     */ 
     @:op(A + B) public static inline
     function add( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c
                               , d: m0.d + m1.d, e: m0.e + m1.e, f: m0.f + m1.f
                               , g: m0.d + m1.d, h: m0.h + m1.h, i: m0.i + m1.i } );
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... var a = Matrix3x3.unit;
+     * ... a - a == Matrix3x3.zero; }) == true
+     * </code></pre>
+     */
     @:op(A - B) public static inline
     function subtract( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
         return new Matrix3x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c
@@ -292,17 +380,21 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     @:op( A == B )
     public static inline
     function equal( a: Matrix3x3, b: Matrix3x3 ): Bool {
+        return a.isEqual( b );
+    }
+    public inline
+    function isEqual( b: Matrix3x3 ): Bool {
         var delta = 0.0000001;
         return !(
-               Math.abs(a.a - b.a) >= delta
-            || Math.abs(a.b - b.b) >= delta
-            || Math.abs(a.c - b.c) >= delta
-            || Math.abs(a.d - b.d) >= delta
-            || Math.abs(a.e - b.e) >= delta
-            || Math.abs(a.f - b.f) >= delta
-            || Math.abs(a.g - b.g) >= delta
-            || Math.abs(a.h - b.h) >= delta
-            || Math.abs(a.i - b.i) >= delta
+               Math.abs(this.a - b.a) >= delta
+            || Math.abs(this.b - b.b) >= delta
+            || Math.abs(this.c - b.c) >= delta
+            || Math.abs(this.d - b.d) >= delta
+            || Math.abs(this.e - b.e) >= delta
+            || Math.abs(this.f - b.f) >= delta
+            || Math.abs(this.g - b.g) >= delta
+            || Math.abs(this.h - b.h) >= delta
+            || Math.abs(this.i - b.i) >= delta
         );
     }
     /**
@@ -364,14 +456,16 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
     function fromVec( vec: haxe.ds.Vector<Float> ): Matrix3x3 return Conversion.Vectorto3x3( vec );
     @:to public inline
     function toVector(): haxe.ds.Vector<Float> return Conversion._3x3toVector( this );
-    public inline function setXY( x: Int, y: Int, v: Float  ): Float {
+    public inline
+    function setXY( x: Int, y: Int, v: Float  ): Float {
         return switch [ x, y ] {
             case [ 0,0 ]: this.a = v; case [ 0,1 ]: this.b = v; case [ 0,2 ]: this.c = v;
             case [ 1,0 ]: this.d = v; case [ 1,1 ]: this.e = v; case [ 1,2 ]: this.f = v;
             case [ 2,0 ]: this.g = v; case [ 2,1 ]: this.h = v; case [ 2,2 ]: this.i = v;
             case _: throw ('bad set $x, $y on Matrix3x3' ); }
     }
-    public inline function getXY( x: Int, y: Int  ): Float {
+    public inline
+    function getXY( x: Int, y: Int  ): Float {
         return switch [ x, y ] {
             case [ 0,0 ]: this.a; case [ 0,1 ]: this.b; case [ 0,2 ]: this.c;
             case [ 1,0 ]: this.d; case [ 1,1 ]: this.e; case [ 1,2 ]: this.f; 
