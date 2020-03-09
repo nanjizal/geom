@@ -290,9 +290,13 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      * </code></pre>
      */
     @:op(A + B) public static inline
-    function add( m0: Matrix2x2, m1: Matrix2x2 ): Matrix2x2 {
-        return new Matrix2x2( { a: m0.a + m1.a, b: m0.b + m1.b
-                              , c: m0.c + m1.c, d: m0.d + m1.d } );
+    function adding( a: Matrix2x2, b: Matrix2x2 ): Matrix2x2 {
+        return a.add( b );
+    }
+    public inline
+    function add( b: Matrix2x2 ): Matrix2x2 {
+        return new Matrix2x2( { a: this.a + b.a, b: this.b + b.b
+                              , c: this.c + b.c, d: this.d + b.d } );
     }
     /**
      * <pre><code>
@@ -334,9 +338,14 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
      * </code></pre>
      */
     @:op(A - B) public static inline
-    function sub( m0: Matrix2x2, m1: Matrix2x2 ): Matrix2x2 {
-        return new Matrix2x2( { a: m0.a - m1.a, b: m0.b - m1.b
-                              , c: m0.c - m1.c, d: m0.d - m1.d } );
+    function subtracting( a: Matrix2x2, b: Matrix2x2 ): Matrix2x2 {
+        return a.subtract( b );
+        
+    }
+    public inline
+    function subtract( b: Matrix2x2 ): Matrix2x2 {
+        return new Matrix2x2( { a: this.a - b.a, b: this.b - b.b
+                              , c: this.c - b.c, d: this.d - b.d } );
     }
     @:op(A * B) public static inline
     function multiplyValue( v: Float, m: Matrix2x2 ): Matrix2x2 {

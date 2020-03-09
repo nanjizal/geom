@@ -320,10 +320,14 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
      * </code></pre>
      */ 
     @:op(A + B) public static inline
-    function add( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m0.a + m1.a, b: m0.b + m1.b, c: m0.c + m1.c
-                              , d: m0.d + m1.d, e: m0.e + m1.e, f: m0.f + m1.f
-                              , g: m0.d + m1.d, h: m0.h + m1.h, i: m0.i + m1.i } );
+    function adding( a: Matrix3x3, b: Matrix3x3 ): Matrix3x3 {
+        return a.add( b );
+    }
+    public inline
+    function add( b: Matrix3x3 ): Matrix3x3 {
+        return new Matrix3x3( { a: this.a + b.a, b: this.b + b.b, c: this.c + b.c
+                              , d: this.d + b.d, e: this.e + b.e, f: this.f + b.f
+                              , g: this.d + b.d, h: this.h + b.h, i: this.i + b.i } );
     }
     /**
      * <pre><code>
@@ -333,10 +337,14 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
      * </code></pre>
      */
     @:op(A - B) public static inline
-    function subtract( m0: Matrix3x3, m1: Matrix3x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m0.a - m1.a, b: m0.b - m1.b, c: m0.c - m1.c
-                              , d: m0.d - m1.d, e: m0.e - m1.e, f: m0.f - m1.f
-                              , g: m0.g - m1.g, h: m0.h - m1.h, i: m0.i - m1.i } );
+    function subtracting( a: Matrix3x3, b: Matrix3x3 ): Matrix3x3 {
+        return a.subtract( b );
+    }
+    public inline
+    function subtract( b: Matrix3x3 ): Matrix3x3 {
+        return new Matrix3x3( { a: this.a - b.a, b: this.b - b.b, c: this.c - b.c
+                              , d: this.d - b.d, e: this.e - b.e, f: this.f - b.f
+                              , g: this.g - b.g, h: this.h - b.h, i: this.i - b.i } );
     }
     @:op(A * B) public static inline
     function scaleMultiply4D( p: Matrix1x4, m: Matrix3x3 ): Matrix3x3 {
