@@ -78,6 +78,15 @@ abstract Float32FlatTriangleXY( Float32Flat6 ){
             this.next();
         }
     }
+    public
+    function transformRange( m: Matrix4x3, start: Int, end: Int ){
+        this.pos = start;
+        if( end > this.length - 1 ) end == this.length - 1;
+        for( i in start...( end + 1 ) ){
+            transform( m );
+            this.next();
+        }
+    }
     public inline
     function fromPosition( tri: Float32FlatTriangle ) {
         this.pos = 0;

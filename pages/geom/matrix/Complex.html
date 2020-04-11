@@ -7,7 +7,7 @@
 	display: inline-block;
 	float: none;
 	text-shadow: 0 0 0 transparent;
-</style><nav class="nav"><div class="navbar"><div class="navbar-inner" style="background:#E3F9C3; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#000000" href="../../">geom API documentation</a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="icon-search"></i></span><input id="search" type="text" placeholder="Filter" autocomplete="off"/></div></form></div><div class="well sidebar-nav"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><h1><small>abstract</small> Complex(<a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>)</h1><h4><small>package <a href="../../geom/matrix/index.html">geom.matrix</a></small></h4><h4><small>from <a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>, </small><small> to <a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>, </small></h4><hr/></div><div class="body"><div class="doc doc-main"><div class="indent"><p>Complex - A Complex Float Type.<br />
+</style><nav class="nav"><div class="navbar"><div class="navbar-inner" style="background:#E3F9C3; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#000000" href="../../">geom API documentation</a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="icon-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><h1><small>abstract</small> Complex(<a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>)</h1><h4><small>package <a href="../../geom/matrix/index.html">geom.matrix</a></small></h4><h4><small>from <a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>, </small><small> to <a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a>, </small></h4></div><div class="body"><div class="doc doc-main"><p>Complex - A Complex Float Type.<br />
 { x, y }</p>
 <p>For Convinence you can declare in several ways eg:<br />
 var c0: Complex = '1 + 2i';<br />
@@ -22,51 +22,7 @@ var real = c0.real;<br />
 var imaginary = c0.i;  </p>
 <p>You can trace it.
 trace( Complex.fromString( c0 ) ); // '1. + 2. i'</p>
-<p>Trig functions are contained in geom.curve.ComplexTrig, but do not have tests beyond compile.</p></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-meta label-meta-noCompletion" title="@:noCompletion metadata">@:noCompletion</span><span class="label label-inline">inline</span><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">m:<a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a></span>)</code></h3><div class="doc"><p></p></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="i"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#i"><span class="identifier">i</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 1., y: 2. });
-... a.i == 2.; }) == true
-</code></pre></div></div><div class="field "><a name="magnitude"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#magnitude"><span class="identifier">magnitude</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 3, y: 4});
-... a.magnitude == 5.; }) == true
-</code></pre></div></div><div class="field "><a name="real"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#real"><span class="identifier">real</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 1., y: 2. });
-... a.real == 1.; }) == true
-</code></pre></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="addExponents"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#addExponents"><span class="identifier">addExponents</span></a>():<span class="type">Float</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 3., y: 2. });
-... a.addExponents() == 5;
-... }) == true
-</code></pre></div></div><div class="field "><a name="clone"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#clone"><span class="identifier">clone</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 1., y: 2. });
-... a.clone() == a; }) == true
-</code></pre></div></div><div class="field "><a name="isImaginary"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#isImaginary"><span class="identifier">isImaginary</span></a>():<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = Complex.i1;
-... a.isImaginary() == true; }) == true
-</code></pre></div></div><div class="field "><a name="isReal"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#isReal"><span class="identifier">isReal</span></a>():<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = Complex.one;
-... a.isReal() == true; }) == true
-</code></pre></div></div><div class="field "><a name="magnitudeSquared"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#magnitudeSquared"><span class="identifier">magnitudeSquared</span></a>():<span class="type">Float</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 2., y: 4. });
-... a.magnitudeSquared() == 4. + 16.; }) == true
-</code></pre></div></div><div class="field "><a name="phase"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#phase"><span class="identifier">phase</span></a>():<span class="type">Float</span></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="reciprocal"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#reciprocal"><span class="identifier">reciprocal</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="root2"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#root2"><span class="identifier">root2</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><p>root2 see pow</p></div></div><div class="field "><a name="swap"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#swap"><span class="identifier">swap</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var a = new Complex({ x: 1., y: 2. });
-... var b = new Complex({ x: 2., y: 1. });
-... a.swap() == b; }) == true
-</code></pre></div></div><div class="field "><a name="toString"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-meta label-meta-to" title="@:to metadata">@:to</span><span class="label label-inline">inline</span><a href="#toString"><span class="identifier">toString</span></a>():<span class="type">String</span></code></h3><div class="doc"><pre><code>
->>> ({ 
-... var c: Complex = { r: 1., i: 2. };
-... var s: String = c;
-... // js seems to remove the .'s from the numbers not sure on other targets
-... s == '1. + 2. i' || s == '1 + 2 i'; }) == true
-</code></pre></div></div></div><h3 class="section">Static variables</h3><div class="fields"><div class="field "><a name="i1"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#i1"><span class="identifier">i1</span></a>:<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
+<p>Trig functions are contained in geom.curve.ComplexTrig, but do not have tests beyond compile.</p></div><h3 class="section">Static variables</h3><div class="fields"><div class="field "><a name="i1"></a><h3 class="anchor"><code><span class="label label-static">static</span><span class="label">read only</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#i1"><span class="identifier">i1</span></a>:<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
 >>> ({
 ... Complex.i1 == new Complex({x: 0.
 ...                          , y: 1.}); 
@@ -325,4 +281,48 @@ trace( Complex.fromString( c0 ) ); // '1. + 2. i'</p>
 ... var a = Complex.unit;
 ... a - a == Complex.zero; 
 ... }) == true
+</code></pre></div></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-meta label-meta-noCompletion" title="@:noCompletion metadata">@:noCompletion</span><span class="label label-inline">inline</span><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">m:<a class="type" title="" href="../../geom/structure/Mat1x2.html">Mat1x2</a></span>)</code></h3><div class="doc"><p></p></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="i"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#i"><span class="identifier">i</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 1., y: 2. });
+... a.i == 2.; }) == true
+</code></pre></div></div><div class="field "><a name="magnitude"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#magnitude"><span class="identifier">magnitude</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 3, y: 4});
+... a.magnitude == 5.; }) == true
+</code></pre></div></div><div class="field "><a name="real"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><a href="../../geom/matrix/_Complex/Complex_Impl_.html#real"><span class="identifier">real</span></a>:<span class="type">Float</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 1., y: 2. });
+... a.real == 1.; }) == true
+</code></pre></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="addExponents"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#addExponents"><span class="identifier">addExponents</span></a>():<span class="type">Float</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 3., y: 2. });
+... a.addExponents() == 5;
+... }) == true
+</code></pre></div></div><div class="field "><a name="clone"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#clone"><span class="identifier">clone</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 1., y: 2. });
+... a.clone() == a; }) == true
+</code></pre></div></div><div class="field "><a name="isImaginary"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#isImaginary"><span class="identifier">isImaginary</span></a>():<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = Complex.i1;
+... a.isImaginary() == true; }) == true
+</code></pre></div></div><div class="field "><a name="isReal"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#isReal"><span class="identifier">isReal</span></a>():<span class="type">Bool</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = Complex.one;
+... a.isReal() == true; }) == true
+</code></pre></div></div><div class="field "><a name="magnitudeSquared"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#magnitudeSquared"><span class="identifier">magnitudeSquared</span></a>():<span class="type">Float</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 2., y: 4. });
+... a.magnitudeSquared() == 4. + 16.; }) == true
+</code></pre></div></div><div class="field "><a name="phase"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#phase"><span class="identifier">phase</span></a>():<span class="type">Float</span></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="reciprocal"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#reciprocal"><span class="identifier">reciprocal</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><p></p></div></div><div class="field "><a name="root2"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#root2"><span class="identifier">root2</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><p>root2 see pow</p></div></div><div class="field "><a name="swap"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-inline">inline</span><a href="#swap"><span class="identifier">swap</span></a>():<a class="type" title="Complex - A Complex Float Type." href="../../geom/matrix/Complex.html">Complex</a></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var a = new Complex({ x: 1., y: 2. });
+... var b = new Complex({ x: 2., y: 1. });
+... a.swap() == b; }) == true
+</code></pre></div></div><div class="field "><a name="toString"></a><h3 class="anchor"><code><span class="label label-meta label-meta-impl" title="@:impl metadata">@:impl</span><span class="label label-meta label-meta-to" title="@:to metadata">@:to</span><span class="label label-inline">inline</span><a href="#toString"><span class="identifier">toString</span></a>():<span class="type">String</span></code></h3><div class="doc"><pre><code>
+>>> ({ 
+... var c: Complex = { r: 1., i: 2. };
+... var s: String = c;
+... // js seems to remove the .'s from the numbers not sure on other targets
+... s == '1. + 2. i' || s == '1 + 2 i'; }) == true
 </code></pre></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#E3F9C3"><div class="container"><div class="copyright"><p style="color:#000000">&copy; 2020 &nbsp;</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>

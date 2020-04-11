@@ -106,6 +106,15 @@ abstract FloatFlatTriangle( FloatFlat9 ){
             this.next();
         }
     }
+    public
+    function transformRange( m: Matrix4x3, start: Int, end: Int ){
+        this.pos = start;
+        if( end > this.length - 1 ) end == this.length - 1;
+        for( i in start...( end + 1 ) ){
+            transform( m );
+            this.next();
+        }
+    }
     @:keep
     public function triangle( ax_: Float, ay_: Float, az_: Float
                             , bx_: Float, by_: Float, bz_: Float
