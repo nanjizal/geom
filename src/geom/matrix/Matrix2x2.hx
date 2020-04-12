@@ -352,10 +352,10 @@ abstract Matrix2x2( geom.structure.Mat2x2 ) from geom.structure.Mat2x2 to geom.s
         return new Matrix2x2( { a: m.a*v, b: m.b*v
                               , c: m.c*v, d: m.d*v } );
     }
-    @:op(A * B) public static inline
-    function scaleMultiply( p: Matrix1x2, m: Matrix2x2 ): Matrix2x2 {
-        return new Matrix2x2( { a: m.a*p.x, b: m.b
-                              , c: m.c,     d: m.d*p.y } );
+    public inline
+    function scaleByVector2( p: Matrix1x2 ): Matrix2x2 {
+        return new Matrix2x2( { a: this.a*p.x, b: this.b
+                              , c: this.c,     d: this.d*p.y } );
     }
     @:op(A * B) public static inline
     function multiply( a2: Matrix2x2, b2: Matrix2x2 ): Matrix2x2 {

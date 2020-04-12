@@ -10332,9 +10332,9 @@ geom_matrix__$Matrix2x2_Matrix2x2_$Impl_$.multiplyValue = function(v,m) {
 	var this1 = new geom_structure_Mat2x2(m.a * v,m.b * v,m.c * v,m.d * v);
 	return this1;
 };
-geom_matrix__$Matrix2x2_Matrix2x2_$Impl_$.scaleMultiply = function(p,m) {
-	var this1 = new geom_structure_Mat2x2(m.a * p.x,m.b,m.c,m.d * p.y);
-	return this1;
+geom_matrix__$Matrix2x2_Matrix2x2_$Impl_$.scaleByVector2 = function(this1,p) {
+	var this2 = new geom_structure_Mat2x2(this1.a * p.x,this1.b,this1.c,this1.d * p.y);
+	return this2;
 };
 geom_matrix__$Matrix2x2_Matrix2x2_$Impl_$.multiply = function(a2,b2) {
 	var this1 = new geom_structure_Mat2x2(a2.a * b2.a + a2.b * b2.c,a2.a * b2.b + a2.b * b2.d,a2.c * b2.a + a2.d * b2.c,a2.c * b2.b + a2.d * b2.d);
@@ -10701,17 +10701,17 @@ geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.subtract = function(this1,b) {
 	var this2 = new geom_structure_Mat3x3(this1.a - b.a,this1.b - b.b,this1.c - b.c,this1.d - b.d,this1.e - b.e,this1.f - b.f,this1.g - b.g,this1.h - b.h,this1.i - b.i);
 	return this2;
 };
-geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleMultiply4D = function(p,m) {
-	var this1 = new geom_structure_Mat3x3(m.a * p.x,m.b,m.c,m.d,m.e * p.y,m.f,m.g,m.h,m.i * p.z);
-	return this1;
+geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleVector4 = function(this1,p) {
+	var this2 = new geom_structure_Mat3x3(this1.a * p.x,this1.b,this1.c,this1.d,this1.e * p.y,this1.f,this1.g,this1.h,this1.i * p.z);
+	return this2;
 };
-geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleMultiply2D = function(p,m) {
-	var this1 = new geom_structure_Mat3x3(m.a * p.x,m.b,m.c,m.d,m.e * p.y,m.f,m.g,m.h,m.i);
-	return this1;
+geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleVector2 = function(this1,p) {
+	var this2 = new geom_structure_Mat3x3(this1.a * p.x,this1.b,this1.c,this1.d,this1.e * p.y,this1.f,this1.g,this1.h,this1.i);
+	return this2;
 };
-geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleMultiply3D = function(p,m) {
-	var this1 = new geom_structure_Mat3x3(m.a * p.x,m.b,m.c,m.d,m.e * p.y,m.f,m.g,m.h,m.i * p.y);
-	return this1;
+geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.scaleVectorT3 = function(this1,p) {
+	var this2 = new geom_structure_Mat3x3(this1.a * p.x,this1.b,this1.c,this1.d,this1.e * p.y,this1.f,this1.g,this1.h,this1.i * p.y);
+	return this2;
 };
 geom_matrix__$Matrix3x3_Matrix3x3_$Impl_$.multiplyV = function(v,m) {
 	var this1 = new geom_structure_Mat3x3(m.a * v,m.b * v,m.c * v,m.d * v,m.e * v,m.f * v,m.g * v,m.h * v,m.i * v);
@@ -11347,18 +11347,14 @@ geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.sub = function(m0,m1) {
 	var this1 = new geom_structure_Mat4x3(m0.a - m1.a,m0.b - m1.b,m0.c - m1.c,m0.d - m1.d,m0.e - m1.e,m0.f - m1.f,m0.g - m1.g,m0.h - m1.h,m0.i - m1.i,m0.j - m1.j,m0.k - m1.k,m0.l - m1.l);
 	return this1;
 };
-geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleMultiply1 = function(p,m) {
-	var this1 = new geom_structure_Mat4x3(m.a * p.x,m.b,m.c,m.d,m.e,m.f * p.y,m.g,m.h,m.i,m.j,m.k * p.z,m.l);
-	return this1;
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleDownByVector = function(this1,p) {
+	var this2 = new geom_structure_Mat1x4(1 / p.x,1 / p.y,1 / p.z,1 / p.w);
+	var pd = this2;
+	var this3 = new geom_structure_Mat4x3(this1.a * pd.x,this1.b,this1.c,this1.d,this1.e,this1.f * pd.y,this1.g,this1.h,this1.i,this1.j,this1.k * pd.z,this1.l);
+	return this3;
 };
-geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleMultiply2 = function(m,p) {
-	var this1 = new geom_structure_Mat4x3(m.a * p.x,m.b,m.c,m.d,m.e,m.f * p.y,m.g,m.h,m.i,m.j,m.k * p.z,m.l);
-	return this1;
-};
-geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleDivide = function(m,p) {
-	var this1 = new geom_structure_Mat1x4(1 / p.x,1 / p.y,1 / p.z,1 / p.w);
-	var pd = this1;
-	var this2 = new geom_structure_Mat4x3(m.a * pd.x,m.b,m.c,m.d,m.e,m.f * pd.y,m.g,m.h,m.i,m.j,m.k * pd.z,m.l);
+geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.scaleByVector = function(this1,p) {
+	var this2 = new geom_structure_Mat4x3(this1.a * p.x,this1.b,this1.c,this1.d,this1.e,this1.f * p.y,this1.g,this1.h,this1.i,this1.j,this1.k * p.z,this1.l);
 	return this2;
 };
 geom_matrix__$Matrix4x3_Matrix4x3_$Impl_$.multiply = function(r,s) {

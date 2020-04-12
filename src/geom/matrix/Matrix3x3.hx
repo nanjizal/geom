@@ -346,23 +346,23 @@ abstract Matrix3x3( geom.structure.Mat3x3 ) from geom.structure.Mat3x3 to geom.s
                               , d: this.d - b.d, e: this.e - b.e, f: this.f - b.f
                               , g: this.g - b.g, h: this.h - b.h, i: this.i - b.i } );
     }
-    @:op(A * B) public static inline
-    function scaleMultiply4D( p: Matrix1x4, m: Matrix3x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
-                              , d: m.d,     e: m.e*p.y, f: m.f
-                              , g: m.g,     h: m.h,     i: m.i*p.z } );
+    public inline
+    function scaleVector4( p: Matrix1x4 ): Matrix3x3 {
+        return new Matrix3x3( { a: this.a*p.x, b: this.b,     c: this.c
+                              , d: this.d,     e: this.e*p.y, f: this.f
+                              , g: this.g,     h: this.h,     i: this.i*p.z } );
     }
-    @:op(A * B) public static inline
-    function scaleMultiply2D( p: Matrix1x2, m: Matrix3x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
-                              , d: m.d,     e: m.e*p.y, f: m.f
-                              , g: m.g,     h: m.h,     i: m.i } );
+    public inline
+    function scaleVector2( p: Matrix1x2 ): Matrix3x3 {
+        return new Matrix3x3( { a: this.a*p.x, b: this.b,     c: this.c
+                              , d: this.d,     e: this.e*p.y, f: this.f
+                              , g: this.g,     h: this.h,     i: this.i } );
     }
-    @:op(A * B) public static inline
-    function scaleMultiply3D( p: geom.tydef.Tmatrix1x3, m: Matrix3x3 ): Matrix3x3 {
-        return new Matrix3x3( { a: m.a*p.x, b: m.b,     c: m.c
-                              , d: m.d,     e: m.e*p.y, f: m.f
-                              , g: m.g,     h: m.h,     i: m.i*p.y } );
+    public inline
+    function scaleVectorT3( p: geom.tydef.Tmatrix1x3 ): Matrix3x3 {
+        return new Matrix3x3( { a: this.a*p.x, b: this.b,     c: this.c
+                              , d: this.d,     e: this.e*p.y, f: this.f
+                              , g: this.g,     h: this.h,     i: this.i*p.y } );
     }
     @:op(A * B) public static inline
     function multiplyV( v: Float, m: Matrix3x3 ): Matrix3x3 {

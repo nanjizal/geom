@@ -817,24 +817,18 @@ abstract Matrix4x3( geom.structure.Mat4x3 ) from geom.structure.Mat4x3 to geom.s
                               , e: m0.e - m1.e, f: m0.f - m1.f, g: m0.g - m1.g, h: m0.h - m1.h
                               , i: m0.i - m1.i, j: m0.j - m1.j, k: m0.k - m1.k, l: m0.l - m1.l } );
     }
-    @:op(A * B) public static inline
-    function scaleMultiply1( p: Matrix1x4, m: Matrix4x3 ): Matrix4x3 {
-        return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
-                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
-                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
-    }
-    @:op(A * B) public static inline
-    function scaleMultiply2( m: Matrix4x3, p: Matrix1x4 ): Matrix4x3 {
-        return new Matrix4x3( { a: m.a*p.x, b: m.b,     c: m.c,     d: m.d
-                              , e: m.e,     f: m.f*p.y, g: m.g,     h: m.h
-                              , i: m.i,     j: m.j,     k: m.k*p.z, l: m.l } );
-    }
-    @:op(A / B) public static inline
-    function scaleDivide( m: Matrix4x3, p: Matrix1x4 ): Matrix4x3 {
+    public inline
+    function scaleDownByVector( p: Matrix1x4 ): Matrix4x3 {
         var pd = 1 / p;  
-        return new Matrix4x3( { a: m.a*pd.x, b: m.b,      c: m.c,      d: m.d
-                              , e: m.e,      f: m.f*pd.y, g: m.g,      h: m.h
-                              , i: m.i,      j: m.j,      k: m.k*pd.z, l: m.l } );
+        return new Matrix4x3( { a: this.a*pd.x, b: this.b,      c: this.c,      d: this.d
+                              , e: this.e,      f: this.f*pd.y, g: this.g,      h: this.h
+                              , i: this.i,      j: this.j,      k: this.k*pd.z, l: this.l } );
+    }
+    public inline
+    function scaleByVector( p: Matrix1x4 ): Matrix4x3 {
+        return new Matrix4x3( { a: this.a*p.x, b: this.b,     c: this.c,     d: this.d
+                              , e: this.e,     f: this.f*p.y, g: this.g,     h: this.h
+                              , i: this.i,     j: this.j,     k: this.k*p.z, l: this.l } );
     }
     @:op(A * B) public static inline // emulates 4x4 matrib with assumption last row is 0,0,0,1.
     function multiply( r: Matrix4x3, s: Matrix4x3 ): Matrix4x3 {
