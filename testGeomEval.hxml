@@ -1,0 +1,7 @@
+#    Eval test
+-cp src
+-lib utest
+-lib haxe-doctest
+-lib equals
+-main geom.GeomTest
+--interp

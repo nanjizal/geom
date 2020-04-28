@@ -101,7 +101,7 @@ abstract FloatFlatTriangle( FloatFlat9 ){
     public
     function transformAll( m: Matrix4x3 ) {
         this.pos = 0;
-        for( i in 0...this.length ){
+        for( i in 0...this.size ){
             transform( m );
             this.next();
         }
@@ -109,7 +109,7 @@ abstract FloatFlatTriangle( FloatFlat9 ){
     public
     function transformRange( m: Matrix4x3, start: Int, end: Int ){
         this.pos = start;
-        if( end > this.length - 1 ) end == this.length - 1;
+        if( end > this.size - 1 ) end == this.size - 1;
         for( i in start...( end + 1 ) ){
             transform( m );
             this.next();
@@ -268,7 +268,7 @@ abstract FloatFlatTriangle( FloatFlat9 ){
     function prettyAll(){
         this.pos = 0;
         var str = 'FloatFlatTriangle: \n';
-        for( i in 0...this.length ) {
+        for( i in 0...this.size ) {
             str += prettyString();
             this.next();
         }

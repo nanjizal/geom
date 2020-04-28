@@ -28,6 +28,6 @@ abstract Float32Flat2( Float32Flat ) {
     }
     public inline
     function getArray(): Float32Array {
-        return this.subarray( 2, this.length*2 + 2 );
+        return this.subarray( 2, this.size*2 + 2 );
     }
 }

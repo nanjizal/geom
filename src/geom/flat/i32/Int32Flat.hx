@@ -1,7 +1,7 @@
 package geom.flat.i32;
 import haxe.io.Int32Array; // js.lib.Int32Array
 // arr[0] defines pos the position, pos is used to get items
-// arr[1] defines length used.
+// arr[1] defines size used.
 @:forward
 abstract Int32Flat( Int32Array ) {
     @:op([]) //@:arrayAccess
@@ -19,11 +19,17 @@ abstract Int32Flat( Int32Array ) {
     function new( len: Int ){
         this = new Int32Array( len + 2 );
         this[0] = 0; // init iteratior no.
-        this[1] = 0; // init useful length
+        this[1] = 0; // init useful size
     }
-    public var length( get, never ): Int;
-    inline function get_length(): Int {
+    public var size( get, set ): Int;
+    inline function get_size(): Int {
         return this[ 1 ];
+    }
+    // set to make sure compiler does no just use the set value.
+    inline
+    function set_size( id: Int ): Int {
+        pos = cast id;
+        return id;
     }
     public var pos( get, set ): Int;
     inline
@@ -40,7 +46,7 @@ abstract Int32Flat( Int32Array ) {
         if( this[ 0 ] > this[ 1 ] ) this[ 1 ] = this[ 0 ];
     }
     public inline
-    function hasNext() return pos < get_length();
+    function hasNext() return pos < get_size();
     public inline
     function next(): Int {
         pos = pos + 1;
@@ -53,7 +59,7 @@ abstract Int32Flat( Int32Array ) {
     @:to
     public inline
     function toArray(): Int32Array {
-        return this.subarray( 2, get_length() + 2 );
+        return this.subarray( 2, get_size() + 2 );
     }
     @:from
     public static inline

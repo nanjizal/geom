@@ -27,6 +27,6 @@ abstract Int32Flat9( Int32Flat ) {
     }
     public inline
     function getArray(): Int32Array {
-        return this.subarray( 2, this.length*9 + 2 );
+        return this.subarray( 2, this.size*9 + 2 );
     }
 }

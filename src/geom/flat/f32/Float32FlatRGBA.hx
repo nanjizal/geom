@@ -107,7 +107,7 @@ abstract Float32FlatRGBA( Float32Flat4 ){
     function hexAll(){
         this.pos = 0;
         var str = 'Float32FlatRGBA: \n';
-        for( i in 0...this.length ) {
+        for( i in 0...this.size ) {
             str += hex() + '\n' ;
             this.next();
         }

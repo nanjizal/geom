@@ -27,6 +27,6 @@ abstract UInt16Flat4( UInt16Flat ) {
     }
     public inline
     function getArray(): UInt16Array {
-        return this.subarray( 4, this.length*4 + 4 );
+        return this.subarray( 4, this.size*4 + 4 );
     }
 }

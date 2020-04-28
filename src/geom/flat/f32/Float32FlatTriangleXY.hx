@@ -73,7 +73,7 @@ abstract Float32FlatTriangleXY( Float32Flat6 ){
     public
     function transformAll( m: Matrix4x3 ) {
         this.pos = 0;
-        for( i in 0...this.length ){
+        for( i in 0...this.size ){
             transform( m );
             this.next();
         }
@@ -81,7 +81,7 @@ abstract Float32FlatTriangleXY( Float32Flat6 ){
     public
     function transformRange( m: Matrix4x3, start: Int, end: Int ){
         this.pos = start;
-        if( end > this.length - 1 ) end == this.length - 1;
+        if( end > this.size - 1 ) end == this.size - 1;
         for( i in start...( end + 1 ) ){
             transform( m );
             this.next();
@@ -91,7 +91,7 @@ abstract Float32FlatTriangleXY( Float32Flat6 ){
     function fromPosition( tri: Float32FlatTriangle ) {
         this.pos = 0;
         tri.pos = 0;
-        for( i in 0...tri.length ){
+        for( i in 0...tri.size ){
             ax = tri.ax;
             ay = tri.ay;
             bx = tri.bx;
@@ -234,7 +234,7 @@ abstract Float32FlatTriangleXY( Float32Flat6 ){
     function prettyAll(){
         this.pos = 0;
         var str = 'Float32FlatTexture: \n';
-        for( i in 0...this.length ) {
+        for( i in 0...this.size ) {
             str += prettyString();
             this.next();
         }

@@ -611,7 +611,53 @@ geom_GeomTest.main = function() {
 };
 geom_GeomTest.__super__ = utest_Test;
 geom_GeomTest.prototype = $extend(utest_Test.prototype,{
-	testComplex_1: function() {
+	testMultiVector2_1: function() {
+		var left;
+		try {
+			var this1 = new geom_structure_MVec2(0.,0.,0.,0.);
+			left = this1;
+		} catch( ex ) {
+			haxe_CallStack.lastException = ex;
+			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right;
+		try {
+			var this2 = new geom_structure_MVec2(0.,0.,0.,0.);
+			right = this2;
+		} catch( ex1 ) {
+			haxe_CallStack.lastException = ex1;
+			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
+			utest_Assert.pass("MultiVector2.hx:12 [OK] MultiVector2.zero == new MultiVector2({ s:0., x:0., y:0., xy:0. })",{ lineNumber : 12, fileName : "src/geom/ga/MultiVector2.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("MultiVector2.zero == new MultiVector2({ s:0., x:0., y:0., xy:0. }) --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 12, fileName : "src/geom/ga/MultiVector2.hx", className : "", methodName : ""});
+		}
+	}
+	,testMultiVector3_1: function() {
+		var left;
+		try {
+			var this1 = new geom_structure_MVec3(0.,0.,0.,0.,0.,0.,0.,0.);
+			left = this1;
+		} catch( ex ) {
+			haxe_CallStack.lastException = ex;
+			left = "exception: " + Std.string(((ex) instanceof js__$Boot_HaxeError) ? ex.val : ex) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		var right;
+		try {
+			var this2 = new geom_structure_MVec3(0.,0.,0.,0.,0.,0.,0.,0.);
+			right = this2;
+		} catch( ex1 ) {
+			haxe_CallStack.lastException = ex1;
+			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
+		}
+		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
+			utest_Assert.pass("MultiVector3.hx:11 [OK] MultiVector3.zero == new MultiVector3({ s:0., x:0., y:0., z:0., xy:0., zx:0., yz:0., xyz:0. })",{ lineNumber : 11, fileName : "src/geom/ga/MultiVector3.hx", className : "", methodName : ""});
+		} else {
+			utest_Assert.fail("MultiVector3.zero == new MultiVector3({ s:0., x:0., y:0., z:0., xy:0., zx:0., yz:0., xyz:0. }) --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 11, fileName : "src/geom/ga/MultiVector3.hx", className : "", methodName : ""});
+		}
+	}
+	,testComplex_1: function() {
 		var left;
 		try {
 			var removeI = HxOverrides.substr("1 + 2i",0,"1 + 2i".length - 1);
@@ -2448,7 +2494,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left5;
 		try {
-			haxe_Log.trace("\"normalize\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"normalize\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left5 = true;
 		} catch( ex8 ) {
 			haxe_CallStack.lastException = ex8;
@@ -2914,7 +2960,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left26;
 		try {
-			haxe_Log.trace("\"perp\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"perp\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left26 = true;
 		} catch( ex50 ) {
 			haxe_CallStack.lastException = ex50;
@@ -3011,7 +3057,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left30;
 		try {
-			haxe_Log.trace("\"span\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"span\" untested still to consider",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left30 = true;
 		} catch( ex58 ) {
 			haxe_CallStack.lastException = ex58;
@@ -3073,7 +3119,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left33;
 		try {
-			haxe_Log.trace("\"isLeft\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"isLeft\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left33 = true;
 		} catch( ex64 ) {
 			haxe_CallStack.lastException = ex64;
@@ -3093,7 +3139,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left34;
 		try {
-			haxe_Log.trace("\"triangleArea\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"triangleArea\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left34 = true;
 		} catch( ex66 ) {
 			haxe_CallStack.lastException = ex66;
@@ -3351,7 +3397,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left45;
 		try {
-			haxe_Log.trace("\"inTri\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"inTri\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left45 = true;
 		} catch( ex88 ) {
 			haxe_CallStack.lastException = ex88;
@@ -3371,7 +3417,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left46;
 		try {
-			haxe_Log.trace("\"inTri2\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"inTri2\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left46 = true;
 		} catch( ex90 ) {
 			haxe_CallStack.lastException = ex90;
@@ -3550,7 +3596,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left52;
 		try {
-			haxe_Log.trace("\"cross\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"cross\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left52 = true;
 		} catch( ex102 ) {
 			haxe_CallStack.lastException = ex102;
@@ -3866,7 +3912,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left65;
 		try {
-			haxe_Log.trace("\"toTPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
+			haxe_Log.trace("\"toTPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x2_1"});
 			left65 = true;
 		} catch( ex128 ) {
 			haxe_CallStack.lastException = ex128;
@@ -4030,7 +4076,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left2;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x3_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x3_1"});
 			left2 = true;
 		} catch( ex4 ) {
 			haxe_CallStack.lastException = ex4;
@@ -4189,7 +4235,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left9;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x3_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x3_1"});
 			left9 = true;
 		} catch( ex18 ) {
 			haxe_CallStack.lastException = ex18;
@@ -4506,7 +4552,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left2;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left2 = true;
 		} catch( ex4 ) {
 			haxe_CallStack.lastException = ex4;
@@ -4769,7 +4815,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left13;
 		try {
-			haxe_Log.trace("\"projectPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"projectPoint\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left13 = true;
 		} catch( ex26 ) {
 			haxe_CallStack.lastException = ex26;
@@ -4813,7 +4859,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var left15;
 		try {
-			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 21, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
+			haxe_Log.trace("\"magnitude\" untested",{ fileName : "src/geom/GeomTest.hx", lineNumber : 22, className : "geom.GeomTest", methodName : "testMatrix1x4_1"});
 			left15 = true;
 		} catch( ex30 ) {
 			haxe_CallStack.lastException = ex30;
@@ -7797,6 +7843,14 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 	,__initializeUtest__: function() {
 		var _gthis = this;
 		var init = utest_Test.prototype.__initializeUtest__.call(this);
+		init.tests.push({ name : "testMultiVector2_1", execute : function() {
+			_gthis.testMultiVector2_1();
+			return utest_Async.getResolved();
+		}});
+		init.tests.push({ name : "testMultiVector3_1", execute : function() {
+			_gthis.testMultiVector3_1();
+			return utest_Async.getResolved();
+		}});
 		init.tests.push({ name : "testComplex_1", execute : function() {
 			_gthis.testComplex_1();
 			return utest_Async.getResolved();
@@ -8188,7 +8242,7 @@ geom_curve_Hyperbolic.atanh = function(x) {
 };
 var geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$ = {};
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.__name__ = "geom.flat.f32._Float32Flat.Float32Flat_Impl_";
-geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.__properties__ = {set_pos:"set_pos",get_pos:"get_pos",set_index:"set_index",get_index:"get_index",get_length:"get_length"};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.__properties__ = {set_pos:"set_pos",get_pos:"get_pos",set_index:"set_index",get_index:"get_index",set_size:"set_size",get_size:"get_size"};
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.readItem = function(this1,k) {
 	return this1[k + 2];
 };
@@ -8203,8 +8257,16 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$._new = function(len) {
 	this2[1] = 0.;
 	return this2;
 };
-geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_length = function(this1) {
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_size = function(this1) {
 	return Std.int(this1[1]);
+};
+geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_size = function(this1,id) {
+	var pos_ = id;
+	this1[0] = pos_;
+	if(this1[0] > this1[1]) {
+		this1[1] = this1[0];
+	}
+	return id;
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_index = function(this1) {
 	return Std.int(this1[0]);
@@ -8232,7 +8294,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.updateLen = function(this1) {
 	}
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.hasNext = function(this1) {
-	return this1[0] < Std.int(this1[1]);
+	return this1[0] < geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_size(this1);
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
 	var pos_ = this1[0] + 1.;
@@ -8251,7 +8313,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
 	return this1[0];
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.toArray = function(this1) {
-	return this1.subarray(2,Std.int(this1[1]) + 2);
+	return this1.subarray(2,geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_size(this1) + 2);
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.fromArray = function(arr) {
 	var this1 = new Float32Array(arr.length + 2);
@@ -8276,7 +8338,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.clone = function(this1) {
 	this3[0] = 0.;
 	this3[1] = 0.;
 	var flat = this3;
-	var arr = this1.subarray(2,Std.int(this1[1]) + 2);
+	var arr = this1.subarray(2,geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_size(this1) + 2);
 	var l = arr.length;
 	var _g = 0;
 	var _g1 = l;
@@ -8298,6 +8360,84 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.fill = function(this1,arr) {
 	}
 	this1[0] = 0;
 	this1[1] = l;
+};
+var geom_ga__$MultiVector2_MultiVector2_$Impl_$ = {};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.__name__ = "geom.ga._MultiVector2.MultiVector2_Impl_";
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.__properties__ = {get_nought:"get_nought",get_zero:"get_zero"};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$._new = function(m) {
+	var this1 = m;
+	return this1;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.get_zero = function() {
+	var this1 = new geom_structure_MVec2(0.,0.,0.,0.);
+	return this1;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.get_nought = function(this1) {
+	var this2 = new geom_structure_MVec2(0.,0.,0.,0.);
+	return this2;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.subtracting = function(a,b) {
+	var this1 = new geom_structure_MVec2(a.s - b.s,a.x - b.x,a.y - b.y,a.xy - b.xy);
+	return this1;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.subtract = function(this1,b) {
+	var this2 = new geom_structure_MVec2(this1.s - b.s,this1.x - b.x,this1.y - b.y,this1.xy - b.xy);
+	return this2;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.adding = function(a,b) {
+	var this1 = new geom_structure_MVec2(a.s + b.s,a.x + b.x,a.y + b.y,a.xy + b.xy);
+	return this1;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.add = function(this1,b) {
+	var this2 = new geom_structure_MVec2(this1.s + b.s,this1.x + b.x,this1.y + b.y,this1.xy + b.xy);
+	return this2;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.multiplying = function(a,b) {
+	var this1 = new geom_structure_MVec2(a.s * b.s + a.x * b.x + a.y * b.y - a.xy * b.xy,a.x * b.s + a.s * b.x - a.xy * b.y + a.y * b.xy,a.y * b.s + a.xy * b.x + a.s * b.y - a.x * b.xy,a.xy * b.s + a.y * b.x - a.x * b.y + a.s * b.xy);
+	return this1;
+};
+geom_ga__$MultiVector2_MultiVector2_$Impl_$.multiply = function(this1,b) {
+	var this2 = new geom_structure_MVec2(this1.s * b.s + this1.x * b.x + this1.y * b.y - this1.xy * b.xy,this1.x * b.s + this1.s * b.x - this1.xy * b.y + this1.y * b.xy,this1.y * b.s + this1.xy * b.x + this1.s * b.y - this1.x * b.xy,this1.xy * b.s + this1.y * b.x - this1.x * b.y + this1.s * b.xy);
+	return this2;
+};
+var geom_ga__$MultiVector3_MultiVector3_$Impl_$ = {};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.__name__ = "geom.ga._MultiVector3.MultiVector3_Impl_";
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.__properties__ = {get_nought:"get_nought",get_zero:"get_zero"};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$._new = function(m) {
+	var this1 = m;
+	return this1;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.get_zero = function() {
+	var this1 = new geom_structure_MVec3(0.,0.,0.,0.,0.,0.,0.,0.);
+	return this1;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.get_nought = function(this1) {
+	var this2 = new geom_structure_MVec3(0.,0.,0.,0.,0.,0.,0.,0.);
+	return this2;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.subtracting = function(a,b) {
+	var this1 = new geom_structure_MVec3(a.s - b.s,a.x - b.x,a.y - b.y,a.z - b.z,a.xy - b.xy,a.zx - b.zx,a.yz - b.yz,a.xyz - b.xyz);
+	return this1;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.subtract = function(this1,b) {
+	var this2 = new geom_structure_MVec3(this1.s - b.s,this1.x - b.x,this1.y - b.y,this1.z - b.z,this1.xy - b.xy,this1.zx - b.zx,this1.yz - b.yz,this1.xyz - b.xyz);
+	return this2;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.adding = function(a,b) {
+	var this1 = new geom_structure_MVec3(a.s + b.s,a.x + b.x,a.y + b.y,a.z + b.z,a.xy + b.xy,a.zx + b.zx,a.yz + b.yz,a.xyz + b.xyz);
+	return this1;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.add = function(this1,b) {
+	var this2 = new geom_structure_MVec3(this1.s + b.s,this1.x + b.x,this1.y + b.y,this1.z + b.z,this1.xy + b.xy,this1.zx + b.zx,this1.yz + b.yz,this1.xyz + b.xyz);
+	return this2;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.multiplying = function(a,b) {
+	var this1 = new geom_structure_MVec3(a.s * b.s + a.x * b.x + a.y * b.y + a.z * b.z - a.xy * b.xy - a.zx * a.zx - a.yz * b.yz - a.xyz * b.xyz,a.x * b.s + a.s * b.x - a.xy * b.y + a.zx * b.z + a.y * b.xy - a.z * b.zx - a.xyz * b.yz - a.yz * b.xyz,a.y * b.s + a.xy * b.x + a.s * b.y - a.yz * b.z - a.x * b.xy - a.xyz * b.zx + a.z * b.yz - a.zx * b.xyz,a.z * b.s - a.zx * b.x + a.yz * b.y + a.s * b.z - a.xyz * b.xy + a.x * b.zx - a.y * b.yz - a.xy * b.xyz,a.xy * b.s + a.y * b.x - a.x * b.y + a.xyz * b.z + a.s * b.xy + a.yz * b.zx - a.zx * b.yz + a.z * b.xyz,a.zx * b.s - a.z * b.x + a.xyz * b.y + a.x * b.z - a.yz * b.xy + a.s * b.zx + a.xy * b.yz + a.y * b.xyz,a.yz * b.s + a.xyz * b.x + a.z * b.y - a.y * b.z + a.zx * b.xy - a.xy * b.zx + a.s * b.yz + a.x * b.xyz,a.xyz * b.s + a.yz * b.x + a.zx * b.y + a.xy * b.z + a.z * b.xy + a.y * b.zx + a.x * b.yz + a.s * b.xyz);
+	return this1;
+};
+geom_ga__$MultiVector3_MultiVector3_$Impl_$.multiply = function(this1,b) {
+	var this2 = new geom_structure_MVec3(this1.s * b.s + this1.x * b.x + this1.y * b.y + this1.z * b.z - this1.xy * b.xy - this1.zx * this1.zx - this1.yz * b.yz - this1.xyz * b.xyz,this1.x * b.s + this1.s * b.x - this1.xy * b.y + this1.zx * b.z + this1.y * b.xy - this1.z * b.zx - this1.xyz * b.yz - this1.yz * b.xyz,this1.y * b.s + this1.xy * b.x + this1.s * b.y - this1.yz * b.z - this1.x * b.xy - this1.xyz * b.zx + this1.z * b.yz - this1.zx * b.xyz,this1.z * b.s - this1.zx * b.x + this1.yz * b.y + this1.s * b.z - this1.xyz * b.xy + this1.x * b.zx - this1.y * b.yz - this1.xy * b.xyz,this1.xy * b.s + this1.y * b.x - this1.x * b.y + this1.xyz * b.z + this1.s * b.xy + this1.yz * b.zx - this1.zx * b.yz + this1.z * b.xyz,this1.zx * b.s - this1.z * b.x + this1.xyz * b.y + this1.x * b.z - this1.yz * b.xy + this1.s * b.zx + this1.xy * b.yz + this1.y * b.xyz,this1.yz * b.s + this1.xyz * b.x + this1.z * b.y - this1.y * b.z + this1.zx * b.xy - this1.xy * b.zx + this1.s * b.yz + this1.x * b.xyz,this1.xyz * b.s + this1.yz * b.x + this1.zx * b.y + this1.xy * b.z + this1.z * b.xy + this1.y * b.zx + this1.x * b.yz + this1.s * b.xyz);
+	return this2;
 };
 var geom_matrix__$Complex_Complex_$Impl_$ = {};
 geom_matrix__$Complex_Complex_$Impl_$.__name__ = "geom.matrix._Complex.Complex_Impl_";
@@ -12863,6 +13003,54 @@ geom_structure_DualQ.prototype = {
 	real: null
 	,dual: null
 	,__class__: geom_structure_DualQ
+};
+var geom_structure_MVec2 = function(s,x,y,xy) {
+	this.xy = 0.;
+	this.y = 0.;
+	this.x = 0.;
+	this.s = 0.;
+	this.s = s;
+	this.x = x;
+	this.y = y;
+	this.xy = xy;
+};
+geom_structure_MVec2.__name__ = "geom.structure.MVec2";
+geom_structure_MVec2.prototype = {
+	s: null
+	,x: null
+	,y: null
+	,xy: null
+	,__class__: geom_structure_MVec2
+};
+var geom_structure_MVec3 = function(s,x,y,z,xy,zx,yz,xyz) {
+	this.xyz = 0.;
+	this.yz = 0.;
+	this.zx = 0.;
+	this.xy = 0.;
+	this.z = 0.;
+	this.y = 0.;
+	this.x = 0.;
+	this.s = 0.;
+	this.s = s;
+	this.x = x;
+	this.y = y;
+	this.z = z;
+	this.xy = xy;
+	this.zx = zx;
+	this.yz = yz;
+	this.xyz = xyz;
+};
+geom_structure_MVec3.__name__ = "geom.structure.MVec3";
+geom_structure_MVec3.prototype = {
+	s: null
+	,x: null
+	,y: null
+	,z: null
+	,xy: null
+	,zx: null
+	,yz: null
+	,xyz: null
+	,__class__: geom_structure_MVec3
 };
 var geom_structure_Mat1x2 = function(x,y) {
 	this.y = 0.;

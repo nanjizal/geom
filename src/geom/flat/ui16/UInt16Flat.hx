@@ -2,8 +2,8 @@ package geom.flat.ui16;
 import haxe.io.UInt16Array; // js.lib.Int16Array
 // arr[0] defines pos the position, pos is used to get items
 // arr[1]
-// arr[2] defines length used. 0xFFFF0000
-// arr[3] defines length used. 0x000FFFFF;
+// arr[2] defines size used. 0xFFFF0000
+// arr[3] defines size used. 0x000FFFFF;
 @:forward
 abstract UInt16Flat( UInt16Array ) {
     @:op([]) //@:arrayAccess
@@ -25,9 +25,15 @@ abstract UInt16Flat( UInt16Array ) {
         this[2] = 0; // init useful length
         this[3] = 0;
     }
-    public var length( get, never ): Int;
-    inline function get_length(): Int {
+    public var size( get, set ): Int;
+    inline function get_size(): Int {
         return getDual16( 2 );
+    }
+    // set to make sure compiler does no just use the set value.
+    inline
+    function set_size( id: Int ): Int {
+        pos = cast id;
+        return id;
     }
     public var pos( get, set ): Int;
     inline
@@ -66,10 +72,10 @@ abstract UInt16Flat( UInt16Array ) {
         return v & 0xffff;
     }
     inline function updateLen( pos_: Int ) {
-        if( pos_ > get_length() ) setLength( pos_ + 1 );
+        if( pos_ > get_size() ) setLength( pos_ + 1 );
     }
     public inline
-    function hasNext() return pos < get_length();
+    function hasNext() return pos < get_size();
     public inline
     function next(): Int {
         pos = pos + 1;

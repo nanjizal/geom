@@ -1,6 +1,6 @@
 package geom.flat.float;
 // arr[0] defines pos the position, pos is used to get items
-// arr[1] defines length used.
+// arr[1] defines size used.
 // DON'T use this one directly!!
 @:forward
 abstract FloatFlat( Array<Float> ){
@@ -21,20 +21,18 @@ abstract FloatFlat( Array<Float> ){
     function new( len: Int ){
         this = new Array<Float>();
         this[0] = 0.; // init iteratior no.
-        this[1] = 0.; // init useful length
+        this[1] = 0.; // init useful size
     }
-  	//var self(get,never):ArrayColor;
-    //function get_self() return (cast this : ArrayColor);
-    /* old length 
-    public var length( get, never ): Int;
-    inline function get_length(): Int {
-        var l = this.length - 1;
-        return ( l < 0 )? 0: Math.ceil( l / 4 );
-    }*/
-    public var length( get, never ): Int;
+    public var size( get, set ): Int;
     inline
-    function get_length(): Int {
+    function get_size(): Int {
         return Std.int( this[ 1 ] );
+    }
+    // set to make sure compiler does no just use the set value.
+    inline
+    function set_size( id: Int ): Int {
+        pos = cast id;
+        return id;
     }
     public var index( get, set ): Int;
     inline
@@ -61,7 +59,7 @@ abstract FloatFlat( Array<Float> ){
         if( this[ 0 ] > this[ 1 ] ) this[ 1 ] = this[ 0 ];
     }
     public inline
-    function hasNext() return pos < get_length();
+    function hasNext() return pos < get_size();
     public inline
     function next(): Float {
         pos = pos + 1.;
@@ -73,12 +71,12 @@ abstract FloatFlat( Array<Float> ){
     }
     public inline
     function getArray(): Array<Float> {
-        return this.slice( 2, get_length() + 2 );
+        return this.slice( 2, get_size() + 2 );
     }
     @:to
     public inline
     function toArray(): Array<Float> {
-        return this.slice( 2, get_length() + 2 );
+        return this.slice( 2, get_size() + 2 );
     }
     @:from
     public static inline

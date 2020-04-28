@@ -1,6 +1,6 @@
 package geom.flat.int;
 // arr[0] defines pos the position, pos is used to get items
-// arr[1] defines length populated
+// arr[1] defines size populated
 @:forward
 abstract IntFlat( Array<Int> ) {
     @:op([]) //@:arrayAccess
@@ -18,11 +18,17 @@ abstract IntFlat( Array<Int> ) {
     function new( len: Int ){
         this = new Array<Int>();
         this[0] = 0; // init iteratior no.
-        this[1] = 0; // init useful length
+        this[1] = 0; // init useful size
     }
-    public var length( get, never ): Int;
-    inline function get_length(): Int {
+    public var size( get, set ): Int;
+    inline function get_size(): Int {
         return this[ 1 ];
+    }
+    // set to make sure compiler does no just use the set value.
+    inline
+    function set_size( id: Int ): Int {
+        pos = cast id;
+        return id;
     }
     public var pos( get, set ): Int;
     inline
@@ -39,7 +45,7 @@ abstract IntFlat( Array<Int> ) {
         if( this[ 0 ] > this[ 1 ] ) this[ 1 ] = this[ 0 ];
     }
     public inline
-    function hasNext() return pos < get_length();
+    function hasNext() return pos < get_size();
     public inline
     function next(): Float {
         pos = pos + 1;
@@ -52,7 +58,7 @@ abstract IntFlat( Array<Int> ) {
     @:to
     public inline
     function toArray(): Array<Int> {
-        return this.slice( 2, get_length() + 2 );
+        return this.slice( 2, get_size() + 2 );
     }
     @:from
     public static inline

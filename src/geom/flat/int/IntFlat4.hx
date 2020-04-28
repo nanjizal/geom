@@ -26,6 +26,6 @@ abstract IntFlat4( IntFlat ) {
     }
     public inline
     function getArray(): Array<Int> {
-        return this.slice( 2, this.length*4 + 2 );
+        return this.slice( 2, this.size*4 + 2 );
     }
 }

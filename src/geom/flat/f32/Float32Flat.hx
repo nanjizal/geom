@@ -1,7 +1,7 @@
 package geom.flat.f32;
 import haxe.io.Float32Array; // js.lib.Float32Array
 // arr[0] defines pos the position, pos is used to get items
-// arr[1] defines internal ( populated ) length
+// arr[1] defines internal ( populated ) size
 // DON'T use this one directly!!
 @:forward
 abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
@@ -37,20 +37,18 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
     function new( len: Int ){
         this = new Float32Array( len + 2 );
         this[0] = 0.; // init iteratior no.
-        this[1] = 0.; // init useful length
+        this[1] = 0.; // init useful size
     }
-  	//var self(get,never):ArrayColor;
-    //function get_self() return (cast this : ArrayColor);
-    /* old length 
-    public var length( get, never ): Int;
-    inline function get_length(): Int {
-        var l = this.length - 1;
-        return ( l < 0 )? 0: Math.ceil( l / 4 );
-    }*/
-    public var length( get, never ): Int;
-    inline
-    function get_length(): Int {
+    public var size( get, set ): Int;
+    
+    function get_size(): Int {
         return Std.int( this[ 1 ] );
+    }
+    // set to make sure compiler does no just use the set value.
+    
+    function set_size( id: Int ): Int {
+        pos = cast id;
+        return id;
     }
     public var index( get, set ): Int;
     inline
@@ -74,10 +72,12 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
         return pos_;
     }
     inline function updateLen() {
-        if( this[ 0 ] > this[ 1 ] ) this[ 1 ] = this[ 0 ];
+        if( this[ 0 ] > this[ 1 ] ) {
+            this[ 1 ] = this[ 0 ];
+        }
     }
     public inline
-    function hasNext() return pos < get_length();
+    function hasNext() return pos < get_size();
     public inline
     function next(): Float {
         pos = pos + 1.;
@@ -90,7 +90,7 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
     @:to
     public inline
     function toArray(): Float32Array {
-        return this.subarray( 2, get_length() + 2 );
+        return this.subarray( 2, get_size() + 2 );
     }
     @:from
     public static inline

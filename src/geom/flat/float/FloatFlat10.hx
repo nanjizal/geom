@@ -26,6 +26,6 @@ abstract FloatFlat10( FloatFlat ) {
     }
     public inline
     function getArray(): Array<Float> {
-        return this.slice( 2, this.length*10 + 2 );
+        return this.slice( 2, this.size*10 + 2 );
     }
 }
