@@ -28311,6 +28311,67 @@
 		<haxe_doc>* Like boolean but 3 state with a changed variable so updates are only done when required.</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<abstract path="geom.obj.LeftisRight" params="" file="src/geom/obj/CubeTransforms.hx" module="geom.obj.CubeTransforms">
+		<from><icast><x path="Bool"/></icast></from>
+		<this><x path="Bool"/></this>
+		<to><icast><x path="Bool"/></icast></to>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="geom.obj._CubeTransforms.LeftisRight_Impl_" params="" file="src/geom/obj/CubeTransforms.hx" private="1" module="geom.obj.CubeTransforms" extern="1">
+	<LEFT public="1" get="inline" set="null" expr="cast true" line="4" static="1">
+		<x path="geom.obj.LeftisRight"/>
+		<meta>
+			<m n=":value"><e>cast true</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</LEFT>
+	<RIGHT public="1" get="inline" set="null" expr="cast false" line="5" static="1">
+		<x path="geom.obj.LeftisRight"/>
+		<meta>
+			<m n=":value"><e>cast false</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</RIGHT>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="geom.obj._CubeTransforms.LeftisRight_Impl_" params="" file="src/geom/obj/CubeTransforms.hx" private="1" module="geom.obj.CubeTransforms" extern="1">
+		<LEFT public="1" get="inline" set="null" expr="cast true" line="4" static="1">
+			<x path="geom.obj.LeftisRight"/>
+			<meta>
+				<m n=":value"><e>cast true</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</LEFT>
+		<RIGHT public="1" get="inline" set="null" expr="cast false" line="5" static="1">
+			<x path="geom.obj.LeftisRight"/>
+			<meta>
+				<m n=":value"><e>cast false</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</RIGHT>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="geom.obj.DieLayout" params="" file="src/geom/obj/CubeTransforms.hx" module="geom.obj.CubeTransforms">
+		<radius public="1"><x path="Float"/></radius>
+		<isLeft public="1"><x path="geom.obj.LeftisRight"/></isLeft>
+		<new public="1" set="method" line="11">
+			<f a="radius:?isLeft" v=":RIGHT">
+				<x path="Float"/>
+				<x path="geom.obj.LeftisRight"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ isLeft : RIGHT }</e></m></meta>
+		</new>
+		<meta><m n=":structInit"/></meta>
+	</class>
+	<class path="geom.obj.CubeTransforms" params="" file="src/geom/obj/CubeTransforms.hx"><getDieLayout public="1" get="inline" set="null" line="18" static="1"><f a="layout">
+	<c path="geom.obj.DieLayout"/>
+	<c path="Array"><x path="geom.matrix.Matrix4x3"/></c>
+</f></getDieLayout></class>
 	<class path="geom.obj.Quad2D" params="" file="src/geom/obj/Quad2D.hx">
 		<A public="1"><x path="geom.matrix.Matrix1x2"/></A>
 		<B public="1"><x path="geom.matrix.Matrix1x2"/></B>
