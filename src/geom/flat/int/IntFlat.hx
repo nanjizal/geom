@@ -42,8 +42,8 @@ abstract IntFlat( Array<Int> ) {
         return pos_;
     }
     inline function updateLen() {
-        if( this[ 0 ] > this[ 1 ] ) {
-            this[ 1 ] = this[ 0 ] + 1;
+        if( this[ 0 ] > this[ 1 ] - 1 ) {
+            this[ 1 ] = this[ 0 ];
         }
     }
     public inline
