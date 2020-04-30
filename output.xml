@@ -28315,9 +28315,17 @@
 		<from><icast><x path="Bool"/></icast></from>
 		<this><x path="Bool"/></this>
 		<to><icast><x path="Bool"/></icast></to>
+		<haxe_doc>left
+5
+1 3 6 4
+2
+right
+4
+1 2 6 5
+3</haxe_doc>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="geom.obj._CubeTransforms.LeftisRight_Impl_" params="" file="src/geom/obj/CubeTransforms.hx" private="1" module="geom.obj.CubeTransforms" extern="1">
-	<LEFT public="1" get="inline" set="null" expr="cast true" line="4" static="1">
+	<LEFT public="1" get="inline" set="null" expr="cast true" line="14" static="1">
 		<x path="geom.obj.LeftisRight"/>
 		<meta>
 			<m n=":value"><e>cast true</e></m>
@@ -28325,7 +28333,7 @@
 			<m n=":impl"/>
 		</meta>
 	</LEFT>
-	<RIGHT public="1" get="inline" set="null" expr="cast false" line="5" static="1">
+	<RIGHT public="1" get="inline" set="null" expr="cast false" line="15" static="1">
 		<x path="geom.obj.LeftisRight"/>
 		<meta>
 			<m n=":value"><e>cast false</e></m>
@@ -28337,7 +28345,7 @@
 </class></impl>
 	</abstract>
 	<class path="geom.obj._CubeTransforms.LeftisRight_Impl_" params="" file="src/geom/obj/CubeTransforms.hx" private="1" module="geom.obj.CubeTransforms" extern="1">
-		<LEFT public="1" get="inline" set="null" expr="cast true" line="4" static="1">
+		<LEFT public="1" get="inline" set="null" expr="cast true" line="14" static="1">
 			<x path="geom.obj.LeftisRight"/>
 			<meta>
 				<m n=":value"><e>cast true</e></m>
@@ -28345,7 +28353,7 @@
 				<m n=":impl"/>
 			</meta>
 		</LEFT>
-		<RIGHT public="1" get="inline" set="null" expr="cast false" line="5" static="1">
+		<RIGHT public="1" get="inline" set="null" expr="cast false" line="15" static="1">
 			<x path="geom.obj.LeftisRight"/>
 			<meta>
 				<m n=":value"><e>cast false</e></m>
@@ -28358,7 +28366,7 @@
 	<class path="geom.obj.DieLayout" params="" file="src/geom/obj/CubeTransforms.hx" module="geom.obj.CubeTransforms">
 		<radius public="1"><x path="Float"/></radius>
 		<isLeft public="1"><x path="geom.obj.LeftisRight"/></isLeft>
-		<new public="1" set="method" line="11">
+		<new public="1" set="method" line="21">
 			<f a="radius:?isLeft" v=":RIGHT">
 				<x path="Float"/>
 				<x path="geom.obj.LeftisRight"/>
@@ -28368,7 +28376,7 @@
 		</new>
 		<meta><m n=":structInit"/></meta>
 	</class>
-	<class path="geom.obj.CubeTransforms" params="" file="src/geom/obj/CubeTransforms.hx"><getDieLayout public="1" get="inline" set="null" line="18" static="1"><f a="layout">
+	<class path="geom.obj.CubeTransforms" params="" file="src/geom/obj/CubeTransforms.hx"><getDieLayout public="1" get="inline" set="null" line="28" static="1"><f a="layout">
 	<c path="geom.obj.DieLayout"/>
 	<c path="Array"><x path="geom.matrix.Matrix4x3"/></c>
 </f></getDieLayout></class>
