@@ -1,15 +1,15 @@
 package geom.obj;
 import geom.matrix.Matrix4x3;
 /**
-left
-5
-1 3 6 4
-2
-right
-4
-1 2 6 5
-3
-*/
+ * left
+ *  5
+ *  1 3 6 4
+ *  2
+ * right
+ *  4
+ *  1 2 6 5
+ *  3
+ */
 enum abstract LeftisRight( Bool ) from Bool to Bool {
     var LEFT = true;
     var RIGHT = false;
