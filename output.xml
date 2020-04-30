@@ -5501,21 +5501,21 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</updateLen>
-	<hasNext public="1" get="inline" set="null" line="61" static="1">
+	<hasNext public="1" get="inline" set="null" line="63" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</hasNext>
-	<next public="1" get="inline" set="null" line="63" static="1">
+	<next public="1" get="inline" set="null" line="65" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</next>
-	<increment public="1" get="inline" set="null" line="68" static="1">
+	<increment public="1" get="inline" set="null" line="70" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<x path="Float"/>
@@ -5525,14 +5525,14 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<getArray public="1" get="inline" set="null" line="72" static="1">
+	<getArray public="1" get="inline" set="null" line="74" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<c path="Array"><x path="Float"/></c>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getArray>
-	<toArray public="1" get="inline" set="null" line="77" static="1">
+	<toArray public="1" get="inline" set="null" line="79" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<c path="Array"><x path="Float"/></c>
@@ -5542,21 +5542,21 @@
 			<m n=":to"/>
 		</meta>
 	</toArray>
-	<fromArray public="1" get="inline" set="null" line="82" static="1">
+	<fromArray public="1" get="inline" set="null" line="84" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.flat.float.FloatFlat"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromArray>
-	<clone public="1" get="inline" set="null" line="88" static="1">
+	<clone public="1" get="inline" set="null" line="90" static="1">
 		<f a="this">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.flat.float.FloatFlat"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</clone>
-	<fill public="1" get="inline" set="null" line="94" static="1">
+	<fill public="1" get="inline" set="null" line="96" static="1">
 		<f a="this:arr">
 			<c path="Array"><x path="Float"/></c>
 			<c path="Array"><x path="Float"/></c>
@@ -5664,21 +5664,21 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</updateLen>
-		<hasNext public="1" get="inline" set="null" line="61" static="1">
+		<hasNext public="1" get="inline" set="null" line="63" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="63" static="1">
+		<next public="1" get="inline" set="null" line="65" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</next>
-		<increment public="1" get="inline" set="null" line="68" static="1">
+		<increment public="1" get="inline" set="null" line="70" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<x path="Float"/>
@@ -5688,14 +5688,14 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<getArray public="1" get="inline" set="null" line="72" static="1">
+		<getArray public="1" get="inline" set="null" line="74" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<c path="Array"><x path="Float"/></c>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getArray>
-		<toArray public="1" get="inline" set="null" line="77" static="1">
+		<toArray public="1" get="inline" set="null" line="79" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<c path="Array"><x path="Float"/></c>
@@ -5705,21 +5705,21 @@
 				<m n=":to"/>
 			</meta>
 		</toArray>
-		<fromArray public="1" get="inline" set="null" line="82" static="1">
+		<fromArray public="1" get="inline" set="null" line="84" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.flat.float.FloatFlat"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromArray>
-		<clone public="1" get="inline" set="null" line="88" static="1">
+		<clone public="1" get="inline" set="null" line="90" static="1">
 			<f a="this">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.flat.float.FloatFlat"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</clone>
-		<fill public="1" get="inline" set="null" line="94" static="1">
+		<fill public="1" get="inline" set="null" line="96" static="1">
 			<f a="this:arr">
 				<c path="Array"><x path="Float"/></c>
 				<c path="Array"><x path="Float"/></c>
@@ -8258,21 +8258,21 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</updateLen>
-	<hasNext public="1" get="inline" set="null" line="48" static="1">
+	<hasNext public="1" get="inline" set="null" line="50" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</hasNext>
-	<next public="1" get="inline" set="null" line="50" static="1">
+	<next public="1" get="inline" set="null" line="52" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</next>
-	<increment public="1" get="inline" set="null" line="55" static="1">
+	<increment public="1" get="inline" set="null" line="57" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="Int"/>
@@ -8282,7 +8282,7 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<toArray public="1" get="inline" set="null" line="60" static="1">
+	<toArray public="1" get="inline" set="null" line="62" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="haxe.io.Int32Array"/>
@@ -8292,21 +8292,21 @@
 			<m n=":to"/>
 		</meta>
 	</toArray>
-	<fromArray public="1" get="inline" set="null" line="65" static="1">
+	<fromArray public="1" get="inline" set="null" line="67" static="1">
 		<f a="arr">
 			<x path="haxe.io.Int32Array"/>
 			<x path="geom.flat.i32.Int32Flat"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromArray>
-	<clone public="1" get="inline" set="null" line="71" static="1">
+	<clone public="1" get="inline" set="null" line="73" static="1">
 		<f a="this">
 			<x path="haxe.io.Int32Array"/>
 			<x path="geom.flat.i32.Int32Flat"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</clone>
-	<fill public="1" get="inline" set="null" line="77" static="1">
+	<fill public="1" get="inline" set="null" line="79" static="1">
 		<f a="this:arr">
 			<x path="haxe.io.Int32Array"/>
 			<x path="haxe.io.Int32Array"/>
@@ -8395,21 +8395,21 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</updateLen>
-		<hasNext public="1" get="inline" set="null" line="48" static="1">
+		<hasNext public="1" get="inline" set="null" line="50" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="50" static="1">
+		<next public="1" get="inline" set="null" line="52" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</next>
-		<increment public="1" get="inline" set="null" line="55" static="1">
+		<increment public="1" get="inline" set="null" line="57" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="Int"/>
@@ -8419,7 +8419,7 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<toArray public="1" get="inline" set="null" line="60" static="1">
+		<toArray public="1" get="inline" set="null" line="62" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="haxe.io.Int32Array"/>
@@ -8429,21 +8429,21 @@
 				<m n=":to"/>
 			</meta>
 		</toArray>
-		<fromArray public="1" get="inline" set="null" line="65" static="1">
+		<fromArray public="1" get="inline" set="null" line="67" static="1">
 			<f a="arr">
 				<x path="haxe.io.Int32Array"/>
 				<x path="geom.flat.i32.Int32Flat"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromArray>
-		<clone public="1" get="inline" set="null" line="71" static="1">
+		<clone public="1" get="inline" set="null" line="73" static="1">
 			<f a="this">
 				<x path="haxe.io.Int32Array"/>
 				<x path="geom.flat.i32.Int32Flat"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</clone>
-		<fill public="1" get="inline" set="null" line="77" static="1">
+		<fill public="1" get="inline" set="null" line="79" static="1">
 			<f a="this:arr">
 				<x path="haxe.io.Int32Array"/>
 				<x path="haxe.io.Int32Array"/>
@@ -10982,21 +10982,21 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</updateLen>
-	<hasNext public="1" get="inline" set="null" line="47" static="1">
+	<hasNext public="1" get="inline" set="null" line="49" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<x path="Bool"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</hasNext>
-	<next public="1" get="inline" set="null" line="49" static="1">
+	<next public="1" get="inline" set="null" line="51" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</next>
-	<increment public="1" get="inline" set="null" line="54" static="1">
+	<increment public="1" get="inline" set="null" line="56" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<x path="Float"/>
@@ -11006,7 +11006,7 @@
 			<m n=":op"><e>A++</e></m>
 		</meta>
 	</increment>
-	<toArray public="1" get="inline" set="null" line="59" static="1">
+	<toArray public="1" get="inline" set="null" line="61" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<c path="Array"><x path="Int"/></c>
@@ -11016,21 +11016,21 @@
 			<m n=":to"/>
 		</meta>
 	</toArray>
-	<fromArray public="1" get="inline" set="null" line="64" static="1">
+	<fromArray public="1" get="inline" set="null" line="66" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Int"/></c>
 			<x path="geom.flat.int.IntFlat"/>
 		</f>
 		<meta><m n=":from"/></meta>
 	</fromArray>
-	<clone public="1" get="inline" set="null" line="70" static="1">
+	<clone public="1" get="inline" set="null" line="72" static="1">
 		<f a="this">
 			<c path="Array"><x path="Int"/></c>
 			<x path="geom.flat.int.IntFlat"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</clone>
-	<fill public="1" get="inline" set="null" line="76" static="1">
+	<fill public="1" get="inline" set="null" line="78" static="1">
 		<f a="this:arr">
 			<c path="Array"><x path="Int"/></c>
 			<c path="Array"><x path="Int"/></c>
@@ -11119,21 +11119,21 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</updateLen>
-		<hasNext public="1" get="inline" set="null" line="47" static="1">
+		<hasNext public="1" get="inline" set="null" line="49" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<x path="Bool"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</hasNext>
-		<next public="1" get="inline" set="null" line="49" static="1">
+		<next public="1" get="inline" set="null" line="51" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</next>
-		<increment public="1" get="inline" set="null" line="54" static="1">
+		<increment public="1" get="inline" set="null" line="56" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<x path="Float"/>
@@ -11143,7 +11143,7 @@
 				<m n=":op"><e>A++</e></m>
 			</meta>
 		</increment>
-		<toArray public="1" get="inline" set="null" line="59" static="1">
+		<toArray public="1" get="inline" set="null" line="61" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<c path="Array"><x path="Int"/></c>
@@ -11153,21 +11153,21 @@
 				<m n=":to"/>
 			</meta>
 		</toArray>
-		<fromArray public="1" get="inline" set="null" line="64" static="1">
+		<fromArray public="1" get="inline" set="null" line="66" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Int"/></c>
 				<x path="geom.flat.int.IntFlat"/>
 			</f>
 			<meta><m n=":from"/></meta>
 		</fromArray>
-		<clone public="1" get="inline" set="null" line="70" static="1">
+		<clone public="1" get="inline" set="null" line="72" static="1">
 			<f a="this">
 				<c path="Array"><x path="Int"/></c>
 				<x path="geom.flat.int.IntFlat"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</clone>
-		<fill public="1" get="inline" set="null" line="76" static="1">
+		<fill public="1" get="inline" set="null" line="78" static="1">
 			<f a="this:arr">
 				<c path="Array"><x path="Int"/></c>
 				<c path="Array"><x path="Int"/></c>

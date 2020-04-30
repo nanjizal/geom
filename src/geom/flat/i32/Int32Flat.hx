@@ -43,7 +43,9 @@ abstract Int32Flat( Int32Array ) {
         return pos_;
     }
     inline function updateLen() {
-        if( this[ 0 ] > this[ 1 ] ) this[ 1 ] = this[ 0 ];
+        if( this[ 0 ] > this[ 1 ] - 1 ) {
+            this[ 1 ] = this[ 0 ];
+        }
     }
     public inline
     function hasNext() return pos < get_size();

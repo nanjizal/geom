@@ -72,7 +72,7 @@ abstract Float32Flat( Float32Array ) to Float32Array from Float32Array {
         return pos_;
     }
     inline function updateLen() {
-        if( this[ 0 ] > this[ 1 ] ) {
+        if( this[ 0 ] > ( this[ 1 ] - 1 ) ) {
             this[ 1 ] = this[ 0 ];
         }
     }

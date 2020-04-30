@@ -8263,7 +8263,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_size = function(this1) {
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_size = function(this1,id) {
 	var pos_ = id;
 	this1[0] = pos_;
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 	return id;
@@ -8273,7 +8273,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_index = function(this1) {
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_index = function(this1,id) {
 	this1[0] = id;
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 	return id;
@@ -8283,13 +8283,13 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.get_pos = function(this1) {
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.set_pos = function(this1,pos_) {
 	this1[0] = pos_;
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 	return pos_;
 };
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.updateLen = function(this1) {
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 };
@@ -8299,7 +8299,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.hasNext = function(this1) {
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
 	var pos_ = this1[0] + 1.;
 	this1[0] = pos_;
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 	return this1[0];
@@ -8307,7 +8307,7 @@ geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.next = function(this1) {
 geom_flat_f32__$Float32Flat_Float32Flat_$Impl_$.increment = function(this1) {
 	var pos_ = this1[0] + 1.;
 	this1[0] = pos_;
-	if(this1[0] > this1[1]) {
+	if(this1[0] > this1[1] - 1) {
 		this1[1] = this1[0];
 	}
 	return this1[0];

@@ -72,7 +72,7 @@ abstract UInt16Flat( UInt16Array ) {
         return v & 0xffff;
     }
     inline function updateLen( pos_: Int ) {
-        if( pos_ > get_size() ) setLength( pos_ + 1 );
+        if( pos_ > get_size() - 1 ) setLength( pos_ );
     }
     public inline
     function hasNext() return pos < get_size();
@@ -88,7 +88,7 @@ abstract UInt16Flat( UInt16Array ) {
     @:to
     public inline
     function toArray(): UInt16Array {
-        return this.subarray( 4, this.length + 4 );
+        return this.subarray( 4, get_size() + 4 );
     }
     @:from
     public static inline
