@@ -166,7 +166,10 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
     
     /**
      * <pre><code>
-     * >>> Quaternion.identity( Quaternion.zero ) == new Quaternion({ x: 1., y: 1., z: 1., w: 1. })
+     * >>> ({ 
+     * ... var a = Quaternion.identity( Quaternion.zero );
+     * ... var b = Quaternion.zeroNormal;
+     * ... a == b; }) == true
      * </code></pre>
      */
     public static inline
