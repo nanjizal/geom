@@ -12,14 +12,14 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
     function new( dq: geom.structure.DualQ ){ this = dq; }
     /**
      * <pre><code>
-     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:1.}})
      * </code></pre>
      */
     public static var zero( get, never ): DualQuaternion;
-    static inline
+    static inline // TODO: Check!!!
     function get_zero(): DualQuaternion {
         return new DualQuaternion( { real: Quaternion.zeroNormal
-                                   , dual: Quaternion.zero } );
+                                   , dual: Quaternion.zeroNormal } );
     }
     public inline
     function clone(): DualQuaternion {

@@ -2152,7 +2152,7 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		var left;
 		try {
 			var this1 = new geom_structure_Mat1x4(0.,0.,0.,1.);
-			var this2 = new geom_structure_Mat1x4(0.,0.,0.,0.);
+			var this2 = new geom_structure_Mat1x4(0.,0.,0.,1.);
 			var this3 = new geom_structure_DualQ(this1,this2);
 			left = this3;
 		} catch( ex ) {
@@ -2161,16 +2161,16 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 		}
 		var right;
 		try {
-			var this4 = new geom_structure_DualQ(new geom_structure_Mat1x4(0.,0.,0.,1.),new geom_structure_Mat1x4(0.,0.,0.,0.));
+			var this4 = new geom_structure_DualQ(new geom_structure_Mat1x4(0.,0.,0.,1.),new geom_structure_Mat1x4(0.,0.,0.,1.));
 			right = this4;
 		} catch( ex1 ) {
 			haxe_CallStack.lastException = ex1;
 			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
-			utest_Assert.pass("DualQuaternion.hx:15 [OK] DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})",{ lineNumber : 15, fileName : "src/geom/matrix/DualQuaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("DualQuaternion.hx:15 [OK] DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:1.}})",{ lineNumber : 15, fileName : "src/geom/matrix/DualQuaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}}) --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 15, fileName : "src/geom/matrix/DualQuaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:1.}}) --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 15, fileName : "src/geom/matrix/DualQuaternion.hx", className : "", methodName : ""});
 		}
 		var left1;
 		try {
@@ -9237,7 +9237,7 @@ geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$._new = function(dq) {
 };
 geom_matrix__$DualQuaternion_DualQuaternion_$Impl_$.get_zero = function() {
 	var this1 = new geom_structure_Mat1x4(0.,0.,0.,1.);
-	var this2 = new geom_structure_Mat1x4(0.,0.,0.,0.);
+	var this2 = new geom_structure_Mat1x4(0.,0.,0.,1.);
 	var this3 = new geom_structure_DualQ(this1,this2);
 	return this3;
 };

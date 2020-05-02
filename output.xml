@@ -17526,7 +17526,7 @@
 	<zero public="1" get="accessor" set="null" static="1">
 		<x path="geom.matrix.DualQuaternion"/>
 		<haxe_doc><![CDATA[* <pre><code>
-     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:1.}})
      * </code></pre>]]></haxe_doc>
 	</zero>
 	<get_zero get="inline" set="null" line="19" static="1"><f a=""><x path="geom.matrix.DualQuaternion"/></f></get_zero>
@@ -17724,7 +17724,7 @@
 		<zero public="1" get="accessor" set="null" static="1">
 			<x path="geom.matrix.DualQuaternion"/>
 			<haxe_doc><![CDATA[* <pre><code>
-     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:0.}})
+     * >>> DualQuaternion.zero == new DualQuaternion({real:{ x: 0., y: 0., z: 0., w: 1. },dual:{x:0.,y:0.,z:0.,w:1.}})
      * </code></pre>]]></haxe_doc>
 		</zero>
 		<get_zero get="inline" set="null" line="19" static="1"><f a=""><x path="geom.matrix.DualQuaternion"/></f></get_zero>
