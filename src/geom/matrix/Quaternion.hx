@@ -7,6 +7,18 @@ import geom.matrix.Matrix4x3;
 // Untested
 /**
    { x, y, z, w }
+w	x	y	z	Description
+1	0	0	0	Identity quaternion, no rotation
+0	1	0	0	180° turn around X axis
+0	0	1	0	180° turn around Y axis
+0	0	0	1	180° turn around Z axis
+sqrt(0.5)	sqrt(0.5)	0	0	90° rotation around X axis
+sqrt(0.5)	0	sqrt(0.5)	0	90° rotation around Y axis
+sqrt(0.5)	0	0	sqrt(0.5)	90° rotation around Z axis
+sqrt(0.5)	-sqrt(0.5)	0	0	-90° rotation around X axis
+sqrt(0.5)	0	-sqrt(0.5)	0	-90° rotation around Y axis
+sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis
+
 **/
 @:forward
 abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
@@ -91,6 +103,34 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         return new Quaternion({ x: 0., y: 0., z: halfSqrt, w: halfSqrt });
     }
     
+    public static inline
+    function xPI(): Quaternion {
+        return new Quaternion( { x: 1., y: 0., z: 0, w: 0. } );
+    }
+    public static inline
+    function yPI(): Quaternion {
+        return new Quaternion({ x: 0., y: 1., z: 0., w: 0. });
+    }
+    public static inline 
+    function zPI(): Quaternion {
+        return new Quaternion({ x: 0., y: 0., z: 1., w: 0. });
+    }
+    
+    public static inline
+    function xPIhalfMinus(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion( { x: -halfSqrt, y: 0., z: 0, w: halfSqrt } );
+    }
+    public static inline
+    function yPIhalfMinus(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion({ x: 0., y: -halfSqrt, z: 0., w: halfSqrt });
+    }
+    public static inline 
+    function zPIhalfMinus(): Quaternion {
+        var halfSqrt = Math.sqrt( 0.5 );
+        return new Quaternion({ x: 0., y: 0., z: -halfSqrt, w: halfSqrt });
+    }
     
     public static inline 
     function createFromAxisAngle( x: Float, y: Float, z: Float, theta: Float ){
@@ -131,9 +171,9 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
      */
     public static inline
     function identity( out: Quaternion ):Quaternion {
-            out.x = 1.;
-            out.y = 1.;
-            out.z = 1.;
+            out.x = 0.;
+            out.y = 0.;
+            out.z = 0.;
             out.w = 1.;
             return out;
     }
