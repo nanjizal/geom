@@ -20848,7 +20848,50 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</dotProd>
-	<transformPoint public="1" get="inline" set="null" line="322" static="1">
+	<rotateX public="1" get="inline" set="null" line="316" static="1">
+		<f a="this:theta">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="Float"/>
+			<x path="geom.matrix.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</rotateX>
+	<rotateY public="1" get="inline" set="null" line="320" static="1">
+		<f a="this:theta">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="Float"/>
+			<x path="geom.matrix.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</rotateY>
+	<rotateZ public="1" get="inline" set="null" line="324" static="1">
+		<f a="this:theta">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="Float"/>
+			<x path="geom.matrix.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</rotateZ>
+	<translateXY public="1" get="inline" set="null" line="328" static="1">
+		<f a="this:x:y">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="geom.matrix.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</translateXY>
+	<translateXYZ public="1" get="inline" set="null" line="332" static="1">
+		<f a="this:x:y:z">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="geom.matrix.Matrix1x4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</translateXYZ>
+	<transformPoint public="1" get="inline" set="null" line="343" static="1">
 		<f a="this:t">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -20856,7 +20899,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformPoint>
-	<divide public="1" get="inline" set="null" line="329" static="1">
+	<divide public="1" get="inline" set="null" line="350" static="1">
 		<f a="a:v">
 			<x path="geom.matrix.Matrix1x4"/>
 			<x path="Float"/>
@@ -20864,7 +20907,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</divide>
-	<divide2 public="1" get="inline" set="null" line="333" static="1">
+	<divide2 public="1" get="inline" set="null" line="354" static="1">
 		<f a="v:a">
 			<x path="Float"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20872,7 +20915,7 @@
 		</f>
 		<meta><m n=":op"><e>A / B</e></m></meta>
 	</divide2>
-	<conjugate public="1" get="inline" set="null" line="345" static="1">
+	<conjugate public="1" get="inline" set="null" line="366" static="1">
 		<f a="a">
 			<x path="geom.matrix.Matrix1x4"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20885,19 +20928,19 @@
      * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true
      * </code></pre>]]></haxe_doc>
 	</conjugate>
-	<multiplyV public="1" get="inline" set="null" line="353" static="1"><f a="a:b:out">
+	<multiplyV public="1" get="inline" set="null" line="374" static="1"><f a="a:b:out">
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></multiplyV>
-	<multiplyQ public="1" get="inline" set="null" line="369" static="1"><f a="q:v:out">
+	<multiplyQ public="1" get="inline" set="null" line="390" static="1"><f a="q:v:out">
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></multiplyQ>
-	<cross public="1" get="inline" set="null" line="384" static="1">
+	<cross public="1" get="inline" set="null" line="405" static="1">
 		<f a="this:v">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20905,7 +20948,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</cross>
-	<constrainDistance public="1" get="inline" set="null" line="467" static="1">
+	<constrainDistance public="1" get="inline" set="null" line="488" static="1">
 		<f a="this:anchor:distance">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20914,7 +20957,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</constrainDistance>
-	<fromVec public="1" get="inline" set="null" line="481" static="1">
+	<fromVec public="1" get="inline" set="null" line="502" static="1">
 		<f a="vec">
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20928,7 +20971,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</fromVec>
-	<toVector public="1" get="inline" set="null" line="493" static="1">
+	<toVector public="1" get="inline" set="null" line="514" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -20945,7 +20988,7 @@
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toVector>
-	<fromArray public="1" get="inline" set="null" line="504" static="1">
+	<fromArray public="1" get="inline" set="null" line="525" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -20958,7 +21001,7 @@
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 	</fromArray>
-	<toArray public="1" get="inline" set="null" line="514" static="1">
+	<toArray public="1" get="inline" set="null" line="535" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<c path="Array"><x path="Float"/></c>
@@ -20974,7 +21017,7 @@
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toArray>
-	<readItem public="1" get="inline" set="null" line="516" static="1">
+	<readItem public="1" get="inline" set="null" line="537" static="1">
 		<f a="this:k">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Int"/>
@@ -20985,7 +21028,7 @@
 			<m n=":op"><e>[]</e></m>
 		</meta>
 	</readItem>
-	<writeItem public="1" get="inline" set="null" line="532" static="1">
+	<writeItem public="1" get="inline" set="null" line="553" static="1">
 		<f a="this:k:v">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="Int"/>
@@ -21320,7 +21363,50 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</dotProd>
-		<transformPoint public="1" get="inline" set="null" line="322" static="1">
+		<rotateX public="1" get="inline" set="null" line="316" static="1">
+			<f a="this:theta">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="Float"/>
+				<x path="geom.matrix.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</rotateX>
+		<rotateY public="1" get="inline" set="null" line="320" static="1">
+			<f a="this:theta">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="Float"/>
+				<x path="geom.matrix.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</rotateY>
+		<rotateZ public="1" get="inline" set="null" line="324" static="1">
+			<f a="this:theta">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="Float"/>
+				<x path="geom.matrix.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</rotateZ>
+		<translateXY public="1" get="inline" set="null" line="328" static="1">
+			<f a="this:x:y">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="geom.matrix.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</translateXY>
+		<translateXYZ public="1" get="inline" set="null" line="332" static="1">
+			<f a="this:x:y:z">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="geom.matrix.Matrix1x4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</translateXYZ>
+		<transformPoint public="1" get="inline" set="null" line="343" static="1">
 			<f a="this:t">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -21328,7 +21414,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformPoint>
-		<divide public="1" get="inline" set="null" line="329" static="1">
+		<divide public="1" get="inline" set="null" line="350" static="1">
 			<f a="a:v">
 				<x path="geom.matrix.Matrix1x4"/>
 				<x path="Float"/>
@@ -21336,7 +21422,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</divide>
-		<divide2 public="1" get="inline" set="null" line="333" static="1">
+		<divide2 public="1" get="inline" set="null" line="354" static="1">
 			<f a="v:a">
 				<x path="Float"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21344,7 +21430,7 @@
 			</f>
 			<meta><m n=":op"><e>A / B</e></m></meta>
 		</divide2>
-		<conjugate public="1" get="inline" set="null" line="345" static="1">
+		<conjugate public="1" get="inline" set="null" line="366" static="1">
 			<f a="a">
 				<x path="geom.matrix.Matrix1x4"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21357,19 +21443,19 @@
      * ... b == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true
      * </code></pre>]]></haxe_doc>
 		</conjugate>
-		<multiplyV public="1" get="inline" set="null" line="353" static="1"><f a="a:b:out">
+		<multiplyV public="1" get="inline" set="null" line="374" static="1"><f a="a:b:out">
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></multiplyV>
-		<multiplyQ public="1" get="inline" set="null" line="369" static="1"><f a="q:v:out">
+		<multiplyQ public="1" get="inline" set="null" line="390" static="1"><f a="q:v:out">
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 	<x path="geom.matrix.Matrix1x4"/>
 </f></multiplyQ>
-		<cross public="1" get="inline" set="null" line="384" static="1">
+		<cross public="1" get="inline" set="null" line="405" static="1">
 			<f a="this:v">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21377,7 +21463,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</cross>
-		<constrainDistance public="1" get="inline" set="null" line="467" static="1">
+		<constrainDistance public="1" get="inline" set="null" line="488" static="1">
 			<f a="this:anchor:distance">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21386,7 +21472,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</constrainDistance>
-		<fromVec public="1" get="inline" set="null" line="481" static="1">
+		<fromVec public="1" get="inline" set="null" line="502" static="1">
 			<f a="vec">
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21400,7 +21486,7 @@
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</fromVec>
-		<toVector public="1" get="inline" set="null" line="493" static="1">
+		<toVector public="1" get="inline" set="null" line="514" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -21417,7 +21503,7 @@
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toVector>
-		<fromArray public="1" get="inline" set="null" line="504" static="1">
+		<fromArray public="1" get="inline" set="null" line="525" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -21430,7 +21516,7 @@
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 		</fromArray>
-		<toArray public="1" get="inline" set="null" line="514" static="1">
+		<toArray public="1" get="inline" set="null" line="535" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<c path="Array"><x path="Float"/></c>
@@ -21446,7 +21532,7 @@
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toArray>
-		<readItem public="1" get="inline" set="null" line="516" static="1">
+		<readItem public="1" get="inline" set="null" line="537" static="1">
 			<f a="this:k">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Int"/>
@@ -21457,7 +21543,7 @@
 				<m n=":op"><e>[]</e></m>
 			</meta>
 		</readItem>
-		<writeItem public="1" get="inline" set="null" line="532" static="1">
+		<writeItem public="1" get="inline" set="null" line="553" static="1">
 			<f a="this:k:v">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="Int"/>
@@ -27576,7 +27662,18 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</normalize>
-	<fromVec public="1" get="inline" set="null" line="483" static="1">
+	<lookAt public="1" set="method" line="474" static="1">
+		<f a="this:target:current:eye:up">
+			<c path="geom.structure.Mat1x4"/>
+			<x path="geom.matrix.Matrix1x4"/>
+			<x path="geom.matrix.Matrix1x4"/>
+			<x path="geom.matrix.Matrix1x4"/>
+			<x path="geom.matrix.Matrix1x4"/>
+			<x path="geom.matrix.Quaternion"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</lookAt>
+	<fromVec public="1" get="inline" set="null" line="524" static="1">
 		<f a="vec">
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
 			<x path="geom.matrix.Quaternion"/>
@@ -27590,7 +27687,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 	</fromVec>
-	<toVector public="1" get="inline" set="null" line="497" static="1">
+	<toVector public="1" get="inline" set="null" line="538" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -27607,7 +27704,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toVector>
-	<fromArray public="1" get="inline" set="null" line="514" static="1">
+	<fromArray public="1" get="inline" set="null" line="555" static="1">
 		<f a="arr">
 			<c path="Array"><x path="Float"/></c>
 			<x path="geom.matrix.Quaternion"/>
@@ -27620,7 +27717,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 	</fromArray>
-	<toArray public="1" get="inline" set="null" line="526" static="1">
+	<toArray public="1" get="inline" set="null" line="567" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<c path="Array"><x path="Float"/></c>
@@ -27636,7 +27733,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 	</toArray>
-	<toMatrix4x3 public="1" get="inline" set="null" line="532" static="1">
+	<toMatrix4x3 public="1" get="inline" set="null" line="573" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -27646,7 +27743,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			<m n=":to"/>
 		</meta>
 	</toMatrix4x3>
-	<toMatrix3x3 public="1" get="inline" set="null" line="552" static="1">
+	<toMatrix3x3 public="1" get="inline" set="null" line="593" static="1">
 		<f a="this">
 			<c path="geom.structure.Mat1x4"/>
 			<x path="geom.matrix.Matrix3x3"/>
@@ -27656,7 +27753,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			<m n=":to"/>
 		</meta>
 	</toMatrix3x3>
-	<fromMatrix4x3 public="1" get="inline" set="null" line="571" static="1">
+	<fromMatrix4x3 public="1" get="inline" set="null" line="612" static="1">
 		<f a="m4x3">
 			<x path="geom.matrix.Matrix4x3"/>
 			<x path="geom.matrix.Quaternion"/>
@@ -27664,7 +27761,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		<meta><m n=":from"/></meta>
 		<haxe_doc>*</haxe_doc>
 	</fromMatrix4x3>
-	<fromMatrix3x3 public="1" get="inline" set="null" line="580" static="1">
+	<fromMatrix3x3 public="1" get="inline" set="null" line="621" static="1">
 		<f a="m">
 			<x path="geom.matrix.Matrix3x3"/>
 			<x path="geom.matrix.Quaternion"/>
@@ -28022,7 +28119,18 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</normalize>
-		<fromVec public="1" get="inline" set="null" line="483" static="1">
+		<lookAt public="1" set="method" line="474" static="1">
+			<f a="this:target:current:eye:up">
+				<c path="geom.structure.Mat1x4"/>
+				<x path="geom.matrix.Matrix1x4"/>
+				<x path="geom.matrix.Matrix1x4"/>
+				<x path="geom.matrix.Matrix1x4"/>
+				<x path="geom.matrix.Matrix1x4"/>
+				<x path="geom.matrix.Quaternion"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</lookAt>
+		<fromVec public="1" get="inline" set="null" line="524" static="1">
 			<f a="vec">
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
 				<x path="geom.matrix.Quaternion"/>
@@ -28036,7 +28144,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... a == b; }) == true
      * </code></pre>]]></haxe_doc>
 		</fromVec>
-		<toVector public="1" get="inline" set="null" line="497" static="1">
+		<toVector public="1" get="inline" set="null" line="538" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="haxe.ds.Vector"><x path="Float"/></x>
@@ -28053,7 +28161,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( b, c ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toVector>
-		<fromArray public="1" get="inline" set="null" line="514" static="1">
+		<fromArray public="1" get="inline" set="null" line="555" static="1">
 			<f a="arr">
 				<c path="Array"><x path="Float"/></c>
 				<x path="geom.matrix.Quaternion"/>
@@ -28066,7 +28174,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( a, b ); }) == true
      * </code></pre>]]></haxe_doc>
 		</fromArray>
-		<toArray public="1" get="inline" set="null" line="526" static="1">
+		<toArray public="1" get="inline" set="null" line="567" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<c path="Array"><x path="Float"/></c>
@@ -28082,7 +28190,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
      * ... Equal.equals( b, [ 1., 1., 1., 1. ] ); }) == true
      * </code></pre>]]></haxe_doc>
 		</toArray>
-		<toMatrix4x3 public="1" get="inline" set="null" line="532" static="1">
+		<toMatrix4x3 public="1" get="inline" set="null" line="573" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -28092,7 +28200,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 				<m n=":to"/>
 			</meta>
 		</toMatrix4x3>
-		<toMatrix3x3 public="1" get="inline" set="null" line="552" static="1">
+		<toMatrix3x3 public="1" get="inline" set="null" line="593" static="1">
 			<f a="this">
 				<c path="geom.structure.Mat1x4"/>
 				<x path="geom.matrix.Matrix3x3"/>
@@ -28102,7 +28210,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 				<m n=":to"/>
 			</meta>
 		</toMatrix3x3>
-		<fromMatrix4x3 public="1" get="inline" set="null" line="571" static="1">
+		<fromMatrix4x3 public="1" get="inline" set="null" line="612" static="1">
 			<f a="m4x3">
 				<x path="geom.matrix.Matrix4x3"/>
 				<x path="geom.matrix.Quaternion"/>
@@ -28110,7 +28218,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			<meta><m n=":from"/></meta>
 			<haxe_doc>*</haxe_doc>
 		</fromMatrix4x3>
-		<fromMatrix3x3 public="1" get="inline" set="null" line="580" static="1">
+		<fromMatrix3x3 public="1" get="inline" set="null" line="621" static="1">
 			<f a="m">
 				<x path="geom.matrix.Matrix3x3"/>
 				<x path="geom.matrix.Quaternion"/>

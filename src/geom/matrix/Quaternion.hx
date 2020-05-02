@@ -469,7 +469,48 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
         //this = scaled(1.0 / magnitude);
         return this;
     }
-    
+    // untested needs to change so that it's inline, ie stop early returns after checked if works ok
+    // https://www.euclideanspace.com/maths/algebra/vectors/lookat/index.htm
+    public //inline
+    function lookAt(  target:  Matrix1x4
+                    , current: Matrix1x4
+                    , eye:     Matrix1x4
+                    , up:      Matrix1x4  ): Quaternion { 
+        // turn vectors into unit vectors 
+        var n1 = ( current - eye ).normalize();
+        var n2 = ( target  - eye ).normalize();
+        var d =  n1.dotProd( n2 ); 
+        // if no noticable rotation is available return zero rotation
+        // this way we avoid Cross product artifacts 
+        if( d > 0.9998 ) return new Quaternion( { x: 0., y: 0., z: 1., w: 0. } ); 
+        // in this case there are 2 lines on the same axis 
+        if( d < -0.9998 ){ 
+            n1 = n1.rotateX( 0.5 ); 
+            // there are an infinite number of normals 
+            // in this case. Anyone of these normals will be 
+            // a valid rotation (180 degrees). so rotate the curr axis by 0.5 radians this way we get one of these normals 
+        } 
+        var axis = n1;
+        axis.cross( n2 );
+        var pointToTarget: Quaternion = { x: axis.x, y: axis.y, z: axis.z, w: 1.0 + d }; 
+        pointToTarget.normalize();
+        // now twist around the target vector, so that the 'up' vector points along the z axis
+        var a = pointToTarget.x;
+        var b = pointToTarget.y;
+        var c = pointToTarget.z;
+        var projectionMatrix: Matrix4x3 = new Matrix4x3({ a: b*b+c*c, b: -a*b,    c: -b*a,    d: 0
+                                          , e: -b*a,    f: a*a+c*c, g: -b*c,    h: 0
+                                          , i: -c*a,    j: -c*b,    k: a*a+b*b, l: 0 });
+        var upProjected    = up.transformPoint( projectionMatrix );
+        var y: Matrix1x4   = { x: 0., y: 0., z: 0., w: 1. };
+        var yaxisProjected = y.transformPoint( projectionMatrix );
+        d = upProjected.dotProd( yaxisProjected );
+        // so the axis of twist is n2 and the angle is arcos(d)
+        //convert this to quat as follows   
+        var s = Math.sqrt( 1.0 - d*d ); // squareroot
+        var twist: Quaternion = { x: n2.x*s, y: n2.y*s, z: n2.z*s, w: d };
+        return pointToTarget * twist;
+    } 
     
     /**
      * <pre><code>

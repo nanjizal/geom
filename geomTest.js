@@ -4899,9 +4899,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right16 = "exception: " + Std.string(((ex33) instanceof js__$Boot_HaxeError) ? ex33.val : ex33) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left16,right16)) {
-			utest_Assert.pass("Matrix1x4.hx:339 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 339, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:360 [OK] ({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true",{ lineNumber : 360, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right16) + "`.",{ lineNumber : 339, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = new Matrix1x4({ x: 1., y: 2., z: 3., w: 1. });\nvar b = ~a;\nb == new Matrix1x4({ x: -1., y: -2., z: -3., w: 1. }); }) == true --> Left side `" + Std.string(left16) + "` does not equal `" + Std.string(right16) + "`.",{ lineNumber : 360, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left17;
 		try {
@@ -4924,9 +4924,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right17 = "exception: " + Std.string(((ex35) instanceof js__$Boot_HaxeError) ? ex35.val : ex35) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left17,right17)) {
-			utest_Assert.pass("Matrix1x4.hx:473 [OK] ({\nvar a = Matrix1x4.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true",{ lineNumber : 473, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:494 [OK] ({\nvar a = Matrix1x4.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true",{ lineNumber : 494, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true --> Left side `" + Std.string(left17) + "` does not equal `" + Std.string(right17) + "`.",{ lineNumber : 473, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Matrix1x4 = b;\na == b; }) == true --> Left side `" + Std.string(left17) + "` does not equal `" + Std.string(right17) + "`.",{ lineNumber : 494, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left18;
 		try {
@@ -4947,9 +4947,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right18 = "exception: " + Std.string(((ex37) instanceof js__$Boot_HaxeError) ? ex37.val : ex37) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left18,right18)) {
-			utest_Assert.pass("Matrix1x4.hx:485 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 485, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:506 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 506, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left18) + "` does not equal `" + Std.string(right18) + "`.",{ lineNumber : 485, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left18) + "` does not equal `" + Std.string(right18) + "`.",{ lineNumber : 506, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left19;
 		try {
@@ -4969,9 +4969,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right19 = "exception: " + Std.string(((ex39) instanceof js__$Boot_HaxeError) ? ex39.val : ex39) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left19,right19)) {
-			utest_Assert.pass("Matrix1x4.hx:497 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: Matrix1x4 = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 497, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:518 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: Matrix1x4 = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 518, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: Matrix1x4 = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left19) + "` does not equal `" + Std.string(right19) + "`.",{ lineNumber : 497, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: Matrix1x4 = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left19) + "` does not equal `" + Std.string(right19) + "`.",{ lineNumber : 518, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		}
 		var left20;
 		try {
@@ -4991,9 +4991,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right20 = "exception: " + Std.string(((ex41) instanceof js__$Boot_HaxeError) ? ex41.val : ex41) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left20,right20)) {
-			utest_Assert.pass("Matrix1x4.hx:507 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 507, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.pass("Matrix1x4.hx:528 [OK] ({\nvar a = Matrix1x4.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 528, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left20) + "` does not equal `" + Std.string(right20) + "`.",{ lineNumber : 507, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Matrix1x4.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left20) + "` does not equal `" + Std.string(right20) + "`.",{ lineNumber : 528, fileName : "src/geom/matrix/Matrix1x4.hx", className : "", methodName : ""});
 		}
 	}
 	,testMatrix2x2_1: function() {
@@ -7708,9 +7708,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right12 = "exception: " + Std.string(((ex25) instanceof js__$Boot_HaxeError) ? ex25.val : ex25) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left12,right12)) {
-			utest_Assert.pass("Quaternion.hx:476 [OK] ({\nvar a = Quaternion.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 476, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:517 [OK] ({\nvar a = Quaternion.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true",{ lineNumber : 517, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 476, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nvar c: Quaternion = b;\na == b; }) == true --> Left side `" + Std.string(left12) + "` does not equal `" + Std.string(right12) + "`.",{ lineNumber : 517, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left13;
 		try {
@@ -7737,9 +7737,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right13 = "exception: " + Std.string(((ex27) instanceof js__$Boot_HaxeError) ? ex27.val : ex27) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left13,right13)) {
-			utest_Assert.pass("Quaternion.hx:489 [OK] ({\nvar a = Quaternion.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 489, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:530 [OK] ({\nvar a = Quaternion.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true",{ lineNumber : 530, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 489, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: haxe.ds.Vector<Float> = a;\nvar c = haxe.ds.Vector.fromArrayCopy([ 1., 1., 1., 1. ]);\nEqual.equals( b, c ); }) == true --> Left side `" + Std.string(left13) + "` does not equal `" + Std.string(right13) + "`.",{ lineNumber : 530, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left14;
 		try {
@@ -7764,9 +7764,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right14 = "exception: " + Std.string(((ex29) instanceof js__$Boot_HaxeError) ? ex29.val : ex29) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left14,right14)) {
-			utest_Assert.pass("Quaternion.hx:508 [OK] ({\nvar a = Quaternion.unit;\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 508, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:549 [OK] ({\nvar a = Quaternion.unit;\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true",{ lineNumber : 549, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 508, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: Quaternion = [ 1., 1., 1., 1. ];\nEqual.equals( a, b ); }) == true --> Left side `" + Std.string(left14) + "` does not equal `" + Std.string(right14) + "`.",{ lineNumber : 549, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 		var left15;
 		try {
@@ -7786,9 +7786,9 @@ geom_GeomTest.prototype = $extend(utest_Test.prototype,{
 			right15 = "exception: " + Std.string(((ex31) instanceof js__$Boot_HaxeError) ? ex31.val : ex31) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left15,right15)) {
-			utest_Assert.pass("Quaternion.hx:520 [OK] ({\nvar a = Quaternion.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 520, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.pass("Quaternion.hx:561 [OK] ({\nvar a = Quaternion.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true",{ lineNumber : 561, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 520, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\nvar a = Quaternion.unit;\nvar b: Array<Float> = a;\nEqual.equals( b, [ 1., 1., 1., 1. ] ); }) == true --> Left side `" + Std.string(left15) + "` does not equal `" + Std.string(right15) + "`.",{ lineNumber : 561, fileName : "src/geom/matrix/Quaternion.hx", className : "", methodName : ""});
 		}
 	}
 	,testFloat32Flat_1: function() {
@@ -10225,6 +10225,62 @@ geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.scalarProduct = function(a,b) {
 };
 geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.dotProd = function(this1,b) {
 	return this1.x * b.x + this1.y * b.y + this1.z * b.z + this1.w * b.w;
+};
+geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.rotateX = function(this1,theta) {
+	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this3 = this2;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this4 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,c,-s,0.,0.,s,c,0.);
+	var s1 = this4;
+	var this5 = new geom_structure_Mat4x3(this3.a * s1.a + this3.b * s1.e + this3.c * s1.i,this3.a * s1.b + this3.b * s1.f + this3.c * s1.j,this3.a * s1.c + this3.b * s1.g + this3.c * s1.k,this3.a * s1.d + this3.b * s1.h + this3.c * s1.l + this3.d,this3.e * s1.a + this3.f * s1.e + this3.g * s1.i,this3.e * s1.b + this3.f * s1.f + this3.g * s1.j,this3.e * s1.c + this3.f * s1.g + this3.g * s1.k,this3.e * s1.d + this3.f * s1.h + this3.g * s1.l + this3.h,this3.i * s1.a + this3.j * s1.e + this3.k * s1.i,this3.i * s1.b + this3.j * s1.f + this3.k * s1.j,this3.i * s1.c + this3.j * s1.g + this3.k * s1.k,this3.i * s1.d + this3.j * s1.h + this3.k * s1.l + this3.l);
+	var t = this5;
+	var this6 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
+	return this6;
+};
+geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.rotateY = function(this1,theta) {
+	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this3 = this2;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this4 = new geom_structure_Mat4x3(c,0.,s,0.,0.,1.,0.,0.,-s,0.,c,0.);
+	var s1 = this4;
+	var this5 = new geom_structure_Mat4x3(this3.a * s1.a + this3.b * s1.e + this3.c * s1.i,this3.a * s1.b + this3.b * s1.f + this3.c * s1.j,this3.a * s1.c + this3.b * s1.g + this3.c * s1.k,this3.a * s1.d + this3.b * s1.h + this3.c * s1.l + this3.d,this3.e * s1.a + this3.f * s1.e + this3.g * s1.i,this3.e * s1.b + this3.f * s1.f + this3.g * s1.j,this3.e * s1.c + this3.f * s1.g + this3.g * s1.k,this3.e * s1.d + this3.f * s1.h + this3.g * s1.l + this3.h,this3.i * s1.a + this3.j * s1.e + this3.k * s1.i,this3.i * s1.b + this3.j * s1.f + this3.k * s1.j,this3.i * s1.c + this3.j * s1.g + this3.k * s1.k,this3.i * s1.d + this3.j * s1.h + this3.k * s1.l + this3.l);
+	var t = this5;
+	var this6 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
+	return this6;
+};
+geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.rotateZ = function(this1,theta) {
+	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this3 = this2;
+	var c = Math.cos(theta);
+	var s = Math.sin(theta);
+	var this4 = new geom_structure_Mat4x3(c,-s,0.,0.,s,c,0.,0.,0.,0.,1.,0.);
+	var s1 = this4;
+	var this5 = new geom_structure_Mat4x3(this3.a * s1.a + this3.b * s1.e + this3.c * s1.i,this3.a * s1.b + this3.b * s1.f + this3.c * s1.j,this3.a * s1.c + this3.b * s1.g + this3.c * s1.k,this3.a * s1.d + this3.b * s1.h + this3.c * s1.l + this3.d,this3.e * s1.a + this3.f * s1.e + this3.g * s1.i,this3.e * s1.b + this3.f * s1.f + this3.g * s1.j,this3.e * s1.c + this3.f * s1.g + this3.g * s1.k,this3.e * s1.d + this3.f * s1.h + this3.g * s1.l + this3.h,this3.i * s1.a + this3.j * s1.e + this3.k * s1.i,this3.i * s1.b + this3.j * s1.f + this3.k * s1.j,this3.i * s1.c + this3.j * s1.g + this3.k * s1.k,this3.i * s1.d + this3.j * s1.h + this3.k * s1.l + this3.l);
+	var t = this5;
+	var this6 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
+	return this6;
+};
+geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.translateXY = function(this1,x,y) {
+	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this3 = this2;
+	var this4 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,0.);
+	var s = this4;
+	var this5 = new geom_structure_Mat4x3(this3.a * s.a + this3.b * s.e + this3.c * s.i,this3.a * s.b + this3.b * s.f + this3.c * s.j,this3.a * s.c + this3.b * s.g + this3.c * s.k,this3.a * s.d + this3.b * s.h + this3.c * s.l + this3.d,this3.e * s.a + this3.f * s.e + this3.g * s.i,this3.e * s.b + this3.f * s.f + this3.g * s.j,this3.e * s.c + this3.f * s.g + this3.g * s.k,this3.e * s.d + this3.f * s.h + this3.g * s.l + this3.h,this3.i * s.a + this3.j * s.e + this3.k * s.i,this3.i * s.b + this3.j * s.f + this3.k * s.j,this3.i * s.c + this3.j * s.g + this3.k * s.k,this3.i * s.d + this3.j * s.h + this3.k * s.l + this3.l);
+	var t = this5;
+	var this6 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
+	return this6;
+};
+geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.translateXYZ = function(this1,x,y,z) {
+	var this2 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+	var this3 = this2;
+	var this4 = new geom_structure_Mat4x3(1.,0.,0.,x,0.,1.,0.,y,0.,0.,1.,z);
+	var s = this4;
+	var this5 = new geom_structure_Mat4x3(this3.a * s.a + this3.b * s.e + this3.c * s.i,this3.a * s.b + this3.b * s.f + this3.c * s.j,this3.a * s.c + this3.b * s.g + this3.c * s.k,this3.a * s.d + this3.b * s.h + this3.c * s.l + this3.d,this3.e * s.a + this3.f * s.e + this3.g * s.i,this3.e * s.b + this3.f * s.f + this3.g * s.j,this3.e * s.c + this3.f * s.g + this3.g * s.k,this3.e * s.d + this3.f * s.h + this3.g * s.l + this3.h,this3.i * s.a + this3.j * s.e + this3.k * s.i,this3.i * s.b + this3.j * s.f + this3.k * s.j,this3.i * s.c + this3.j * s.g + this3.k * s.k,this3.i * s.d + this3.j * s.h + this3.k * s.l + this3.l);
+	var t = this5;
+	var this6 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
+	return this6;
 };
 geom_matrix__$Matrix1x4_Matrix1x4_$Impl_$.transformPoint = function(this1,t) {
 	var this2 = new geom_structure_Mat1x4(t.a * this1.x + t.b * this1.y + t.c * this1.z + t.d,t.e * this1.x + t.f * this1.y + t.g * this1.z + t.h,t.i * this1.x + t.j * this1.y + t.k * this1.z + t.l,1.);
@@ -12929,6 +12985,76 @@ geom_matrix__$Quaternion_Quaternion_$Impl_$.normalize = function(this1) {
 		var tmp = this1.x * this1.x + this1.y * this1.y + this1.z * this1.z + this1.w * this1.w;
 	}
 	return this1;
+};
+geom_matrix__$Quaternion_Quaternion_$Impl_$.lookAt = function(this1,target,current,eye,up) {
+	var this2 = new geom_structure_Mat1x4(current.x - eye.x,current.y - eye.y,current.z - eye.z,current.w - eye.w);
+	var this3 = this2;
+	var currentLength = Math.sqrt(this3.x * this3.x + this3.y * this3.y + this3.z * this3.z + this3.w * this3.w);
+	if(currentLength != 0.) {
+		var mul = 1. / currentLength;
+		this3.x *= mul;
+		this3.y *= mul;
+		this3.z *= mul;
+		this3.w *= mul;
+		var tmp = this3.x * this3.x + this3.y * this3.y + this3.z * this3.z + this3.w * this3.w;
+	}
+	var n1 = this3;
+	var this4 = new geom_structure_Mat1x4(target.x - eye.x,target.y - eye.y,target.z - eye.z,target.w - eye.w);
+	var this5 = this4;
+	var currentLength1 = Math.sqrt(this5.x * this5.x + this5.y * this5.y + this5.z * this5.z + this5.w * this5.w);
+	if(currentLength1 != 0.) {
+		var mul1 = 1. / currentLength1;
+		this5.x *= mul1;
+		this5.y *= mul1;
+		this5.z *= mul1;
+		this5.w *= mul1;
+		var tmp1 = this5.x * this5.x + this5.y * this5.y + this5.z * this5.z + this5.w * this5.w;
+	}
+	var n2 = this5;
+	var d = n1.x * n2.x + n1.y * n2.y + n1.z * n2.z + n1.w * n2.w;
+	if(d > 0.9998) {
+		var this6 = new geom_structure_Mat1x4(0.,0.,1.,0.);
+		return this6;
+	}
+	if(d < -0.9998) {
+		var this7 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,1.,0.,0.,0.,0.,1.,0.);
+		var this8 = this7;
+		var c = Math.cos(0.5);
+		var s = Math.sin(0.5);
+		var this9 = new geom_structure_Mat4x3(1.,0.,0.,0.,0.,c,-s,0.,0.,s,c,0.);
+		var s1 = this9;
+		var this10 = new geom_structure_Mat4x3(this8.a * s1.a + this8.b * s1.e + this8.c * s1.i,this8.a * s1.b + this8.b * s1.f + this8.c * s1.j,this8.a * s1.c + this8.b * s1.g + this8.c * s1.k,this8.a * s1.d + this8.b * s1.h + this8.c * s1.l + this8.d,this8.e * s1.a + this8.f * s1.e + this8.g * s1.i,this8.e * s1.b + this8.f * s1.f + this8.g * s1.j,this8.e * s1.c + this8.f * s1.g + this8.g * s1.k,this8.e * s1.d + this8.f * s1.h + this8.g * s1.l + this8.h,this8.i * s1.a + this8.j * s1.e + this8.k * s1.i,this8.i * s1.b + this8.j * s1.f + this8.k * s1.j,this8.i * s1.c + this8.j * s1.g + this8.k * s1.k,this8.i * s1.d + this8.j * s1.h + this8.k * s1.l + this8.l);
+		var t = this10;
+		var this11 = new geom_structure_Mat1x4(t.a * n1.x + t.b * n1.y + t.c * n1.z + t.d,t.e * n1.x + t.f * n1.y + t.g * n1.z + t.h,t.i * n1.x + t.j * n1.y + t.k * n1.z + t.l,1.);
+		n1 = this11;
+	}
+	var axis = n1;
+	var this12 = new geom_structure_Mat1x4(axis.y * n2.z - axis.z * n2.y,axis.z * n2.x - axis.x * n2.z,axis.x * n2.y - axis.y * n2.x,axis.w * n2.w);
+	var pointToTarget = new geom_structure_Mat1x4(axis.x,axis.y,axis.z,1.0 + d);
+	var currentLength2 = Math.sqrt(pointToTarget.x * pointToTarget.x + pointToTarget.y * pointToTarget.y + pointToTarget.z * pointToTarget.z + pointToTarget.w * pointToTarget.w);
+	if(currentLength2 != 0.) {
+		var mul2 = 1. / currentLength2;
+		pointToTarget.x *= mul2;
+		pointToTarget.y *= mul2;
+		pointToTarget.z *= mul2;
+		pointToTarget.w *= mul2;
+		var tmp2 = pointToTarget.x * pointToTarget.x + pointToTarget.y * pointToTarget.y + pointToTarget.z * pointToTarget.z + pointToTarget.w * pointToTarget.w;
+	}
+	var a = pointToTarget.x;
+	var b = pointToTarget.y;
+	var c1 = pointToTarget.z;
+	var this13 = new geom_structure_Mat4x3(b * b + c1 * c1,-a * b,-b * a,0,-b * a,a * a + c1 * c1,-b * c1,0,-c1 * a,-c1 * b,a * a + b * b,0);
+	var projectionMatrix = this13;
+	var this14 = new geom_structure_Mat1x4(projectionMatrix.a * up.x + projectionMatrix.b * up.y + projectionMatrix.c * up.z + projectionMatrix.d,projectionMatrix.e * up.x + projectionMatrix.f * up.y + projectionMatrix.g * up.z + projectionMatrix.h,projectionMatrix.i * up.x + projectionMatrix.j * up.y + projectionMatrix.k * up.z + projectionMatrix.l,1.);
+	var upProjected = this14;
+	var y = new geom_structure_Mat1x4(0.,0.,0.,1.);
+	var this15 = new geom_structure_Mat1x4(projectionMatrix.a * y.x + projectionMatrix.b * y.y + projectionMatrix.c * y.z + projectionMatrix.d,projectionMatrix.e * y.x + projectionMatrix.f * y.y + projectionMatrix.g * y.z + projectionMatrix.h,projectionMatrix.i * y.x + projectionMatrix.j * y.y + projectionMatrix.k * y.z + projectionMatrix.l,1.);
+	var yaxisProjected = this15;
+	d = upProjected.x * yaxisProjected.x + upProjected.y * yaxisProjected.y + upProjected.z * yaxisProjected.z + upProjected.w * yaxisProjected.w;
+	var s2 = Math.sqrt(1.0 - d * d);
+	var twist = new geom_structure_Mat1x4(n2.x * s2,n2.y * s2,n2.z * s2,d);
+	var this16 = new geom_structure_Mat1x4(pointToTarget.x * twist.w + pointToTarget.y * twist.z - pointToTarget.z * twist.y + pointToTarget.w * twist.x,-pointToTarget.x * twist.z + pointToTarget.y * twist.w + pointToTarget.z * twist.x + pointToTarget.w * twist.y,pointToTarget.x * twist.y - pointToTarget.y * twist.x + pointToTarget.z * twist.w + pointToTarget.w * twist.z,-pointToTarget.x * twist.x - pointToTarget.y * twist.y - pointToTarget.z * twist.z + pointToTarget.w * twist.w);
+	return this16;
 };
 geom_matrix__$Quaternion_Quaternion_$Impl_$.fromVec = function(vec) {
 	var this1 = new geom_structure_Mat1x4(vec[0],vec[1],vec[2],vec[3]);

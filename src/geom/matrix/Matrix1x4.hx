@@ -313,6 +313,27 @@ abstract Matrix1x4( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.s
     function dotProd( b: Matrix1x4 ):Float {
         return this.x * b.x + this.y * b.y + this.z * b.z + this.w * b.w;
     }
+    public inline
+    function rotateX( theta: Float ): Matrix1x4 {
+        return transformPoint( Matrix4x3.rotationX( theta ) );
+    }
+    public inline
+    function rotateY( theta: Float ): Matrix1x4 {
+        return transformPoint( Matrix4x3.rotationY( theta ) );
+    }
+    public inline 
+    function rotateZ( theta: Float ): Matrix1x4 {
+        return transformPoint( Matrix4x3.rotationZ( theta ) );
+    }
+    public inline
+    function translateXY( x: Float, y: Float ): Matrix1x4 {
+        return transformPoint( Matrix4x3.translationXY( x, y ) );
+    }
+    public inline
+    function translateXYZ( x: Float, y: Float, z: Float ): Matrix1x4 {
+        return transformPoint( Matrix4x3.translationXYZ( x, y, z ) );
+    }
+    
     /*
     @:op(A * B) @:commutative
     public static inline 
