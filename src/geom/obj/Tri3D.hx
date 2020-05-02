@@ -24,6 +24,17 @@ abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.struc
     function scaleMultiply( tv: Tri3D, p: Matrix1x4 ): Tri3D {
         return new Tri3D( { a: tv.a * p.x, b: tv.b * p.y, c: tv.c * p.z } );    
     }
+    public inline
+    function magnitudeSquaredFrom( centre: Matrix1x4 ){
+        var maximum = 0.;
+        var ca = ( centre - this.a ).magnitudeSquared();
+        if( ca > maximum ) maximum = ca;
+        var cb = ( centre - this.b ).magnitudeSquared();
+        if( cb > maximum ) maximum = cb;
+        var cb = ( centre - this.b ).magnitudeSquared();
+        if( cb > maximum ) maximum = cb;
+        return maximum;
+    }
     public inline 
     function centre(): Matrix1x4 {
         return ( this.a + this.b + this.c )/3;
