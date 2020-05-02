@@ -1,5 +1,7 @@
 package geom.obj;
 import geom.matrix.Matrix1x4;
+import geom.matrix.Matrix4x3;
+import geom.matrix.Quaternion;
 /** 
    ![triVec](../bootstrap/img/tri3D.png)
 **/
@@ -25,6 +27,18 @@ abstract Tri3D( geom.structure.TriVec ) to geom.structure.TriVec from geom.struc
     public inline 
     function centre(): Matrix1x4 {
         return ( this.a + this.b + this.c )/3;
+    }
+    public inline
+    function transform( m: Matrix4x3 ): Tri3D {
+        this.a = this.a.transformPoint( m );
+        this.b = this.b.transformPoint( m );
+        this.c = this.c.transformPoint( m );
+        return new Tri3D( this );
+    }
+    public inline
+    function quatRotation( q: Quaternion ): Tri3D {
+        var m: Matrix4x3 = q;
+        return transform( m );
     }
     // Quaterion rotation
     // maybe better approach

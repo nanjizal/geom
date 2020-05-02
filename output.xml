@@ -28588,7 +28588,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		<haxe_doc>![triVec](../bootstrap/img/tri3D.png)</haxe_doc>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.obj._Tri3D.Tri3D_Impl_" params="" file="src/geom/obj/Tri3D.hx" private="1" module="geom.obj.Tri3D">
-	<_new public="1" set="method" line="8" static="1">
+	<_new public="1" set="method" line="10" static="1">
 		<f a="tv">
 			<c path="geom.structure.TriVec"/>
 			<x path="geom.obj.Tri3D"/>
@@ -28598,7 +28598,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			<m n=":noCompletion"/>
 		</meta>
 	</_new>
-	<add0 public="1" get="inline" set="null" line="9" static="1">
+	<add0 public="1" get="inline" set="null" line="11" static="1">
 		<f a="tv:p">
 			<x path="geom.obj.Tri3D"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -28606,7 +28606,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		</f>
 		<meta><m n=":op"><e>A + B</e></m></meta>
 	</add0>
-	<add1 public="1" get="inline" set="null" line="13" static="1">
+	<add1 public="1" get="inline" set="null" line="15" static="1">
 		<f a="p:tv">
 			<x path="geom.matrix.Matrix1x4"/>
 			<x path="geom.obj.Tri3D"/>
@@ -28614,7 +28614,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		</f>
 		<meta><m n=":op"><e>A + B</e></m></meta>
 	</add1>
-	<sub public="1" get="inline" set="null" line="17" static="1">
+	<sub public="1" get="inline" set="null" line="19" static="1">
 		<f a="tv:p">
 			<x path="geom.obj.Tri3D"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -28622,7 +28622,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		</f>
 		<meta><m n=":op"><e>A - B</e></m></meta>
 	</sub>
-	<scaleMultiply public="1" get="inline" set="null" line="21" static="1">
+	<scaleMultiply public="1" get="inline" set="null" line="23" static="1">
 		<f a="tv:p">
 			<x path="geom.obj.Tri3D"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -28630,14 +28630,30 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</scaleMultiply>
-	<centre public="1" get="inline" set="null" line="25" static="1">
+	<centre public="1" get="inline" set="null" line="27" static="1">
 		<f a="this">
 			<c path="geom.structure.TriVec"/>
 			<x path="geom.matrix.Matrix1x4"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</centre>
-	<multiplyQ public="1" get="inline" set="null" line="31" static="1">
+	<transform public="1" get="inline" set="null" line="31" static="1">
+		<f a="this:m">
+			<c path="geom.structure.TriVec"/>
+			<x path="geom.matrix.Matrix4x3"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</transform>
+	<quatRotation public="1" get="inline" set="null" line="38" static="1">
+		<f a="this:q">
+			<c path="geom.structure.TriVec"/>
+			<x path="geom.matrix.Quaternion"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</quatRotation>
+	<multiplyQ public="1" get="inline" set="null" line="45" static="1">
 		<f a="this:q">
 			<c path="geom.structure.TriVec"/>
 			<x path="geom.matrix.Matrix1x4"/>
@@ -28648,7 +28664,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 </class></impl>
 	</abstract>
 	<class path="geom.obj._Tri3D.Tri3D_Impl_" params="" file="src/geom/obj/Tri3D.hx" private="1" module="geom.obj.Tri3D">
-		<_new public="1" set="method" line="8" static="1">
+		<_new public="1" set="method" line="10" static="1">
 			<f a="tv">
 				<c path="geom.structure.TriVec"/>
 				<x path="geom.obj.Tri3D"/>
@@ -28658,7 +28674,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 				<m n=":noCompletion"/>
 			</meta>
 		</_new>
-		<add0 public="1" get="inline" set="null" line="9" static="1">
+		<add0 public="1" get="inline" set="null" line="11" static="1">
 			<f a="tv:p">
 				<x path="geom.obj.Tri3D"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -28666,7 +28682,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			</f>
 			<meta><m n=":op"><e>A + B</e></m></meta>
 		</add0>
-		<add1 public="1" get="inline" set="null" line="13" static="1">
+		<add1 public="1" get="inline" set="null" line="15" static="1">
 			<f a="p:tv">
 				<x path="geom.matrix.Matrix1x4"/>
 				<x path="geom.obj.Tri3D"/>
@@ -28674,7 +28690,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			</f>
 			<meta><m n=":op"><e>A + B</e></m></meta>
 		</add1>
-		<sub public="1" get="inline" set="null" line="17" static="1">
+		<sub public="1" get="inline" set="null" line="19" static="1">
 			<f a="tv:p">
 				<x path="geom.obj.Tri3D"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -28682,7 +28698,7 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			</f>
 			<meta><m n=":op"><e>A - B</e></m></meta>
 		</sub>
-		<scaleMultiply public="1" get="inline" set="null" line="21" static="1">
+		<scaleMultiply public="1" get="inline" set="null" line="23" static="1">
 			<f a="tv:p">
 				<x path="geom.obj.Tri3D"/>
 				<x path="geom.matrix.Matrix1x4"/>
@@ -28690,14 +28706,30 @@ sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis</haxe_doc>
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</scaleMultiply>
-		<centre public="1" get="inline" set="null" line="25" static="1">
+		<centre public="1" get="inline" set="null" line="27" static="1">
 			<f a="this">
 				<c path="geom.structure.TriVec"/>
 				<x path="geom.matrix.Matrix1x4"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</centre>
-		<multiplyQ public="1" get="inline" set="null" line="31" static="1">
+		<transform public="1" get="inline" set="null" line="31" static="1">
+			<f a="this:m">
+				<c path="geom.structure.TriVec"/>
+				<x path="geom.matrix.Matrix4x3"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</transform>
+		<quatRotation public="1" get="inline" set="null" line="38" static="1">
+			<f a="this:q">
+				<c path="geom.structure.TriVec"/>
+				<x path="geom.matrix.Quaternion"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</quatRotation>
+		<multiplyQ public="1" get="inline" set="null" line="45" static="1">
 			<f a="this:q">
 				<c path="geom.structure.TriVec"/>
 				<x path="geom.matrix.Matrix1x4"/>
