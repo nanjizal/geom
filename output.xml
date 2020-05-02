@@ -3992,7 +3992,7 @@
 		<this><x path="geom.flat.f32.Float32Flat9"/></this>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.f32._Float32FlatTriangle.Float32FlatTriangle_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangle.hx" private="1" module="geom.flat.f32.Float32FlatTriangle">
-	<_new public="1" get="inline" set="null" line="8" static="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
 		<f a="len">
 			<x path="Int"/>
 			<x path="geom.flat.f32.Float32FlatTriangle"/>
@@ -4006,14 +4006,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</ax>
-	<get_ax set="method" line="12" static="1">
+	<get_ax set="method" line="13" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ax>
-	<set_ax set="method" line="15" static="1">
+	<set_ax set="method" line="16" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4025,14 +4025,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</ay>
-	<get_ay set="method" line="20" static="1">
+	<get_ay set="method" line="21" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ay>
-	<set_ay set="method" line="23" static="1">
+	<set_ay set="method" line="24" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4044,14 +4044,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</az>
-	<get_az set="method" line="28" static="1">
+	<get_az set="method" line="29" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_az>
-	<set_az set="method" line="31" static="1">
+	<set_az set="method" line="32" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4063,14 +4063,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bx>
-	<get_bx set="method" line="36" static="1">
+	<get_bx set="method" line="37" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bx>
-	<set_bx set="method" line="39" static="1">
+	<set_bx set="method" line="40" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4082,14 +4082,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</by>
-	<get_by set="method" line="44" static="1">
+	<get_by set="method" line="45" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_by>
-	<set_by set="method" line="47" static="1">
+	<set_by set="method" line="48" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4101,14 +4101,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bz>
-	<get_bz set="method" line="52" static="1">
+	<get_bz set="method" line="53" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bz>
-	<set_bz set="method" line="55" static="1">
+	<set_bz set="method" line="56" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4120,14 +4120,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cx>
-	<get_cx set="method" line="60" static="1">
+	<get_cx set="method" line="61" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cx>
-	<set_cx set="method" line="63" static="1">
+	<set_cx set="method" line="64" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4139,14 +4139,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cy>
-	<get_cy set="method" line="68" static="1">
+	<get_cy set="method" line="69" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cy>
-	<set_cy set="method" line="71" static="1">
+	<set_cy set="method" line="72" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4158,14 +4158,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cz>
-	<get_cz set="method" line="76" static="1">
+	<get_cz set="method" line="77" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cz>
-	<set_cz set="method" line="79" static="1">
+	<set_cz set="method" line="80" static="1">
 		<f a="this:v">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4173,7 +4173,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_cz>
-	<transform public="1" set="method" line="83" static="1">
+	<transform public="1" set="method" line="84" static="1">
 		<f a="this:m">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -4181,7 +4181,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transform>
-	<transformAll public="1" set="method" line="101" static="1">
+	<transformAll public="1" set="method" line="102" static="1">
 		<f a="this:m">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -4189,7 +4189,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformAll>
-	<transformRange public="1" set="method" line="109" static="1">
+	<transformRange public="1" set="method" line="110" static="1">
 		<f a="this:m:start:end">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -4199,7 +4199,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformRange>
-	<triangle public="1" set="method" line="119" static="1">
+	<getTri3D public="1" get="inline" set="null" line="119" static="1">
+		<f a="this">
+			<x path="geom.flat.f32.Float32Flat9"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</getTri3D>
+	<triangle public="1" set="method" line="127" static="1">
 		<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4218,7 +4225,7 @@
 			<m n=":keep"/>
 		</meta>
 	</triangle>
-	<adjustWinding public="1" set="method" line="143" static="1">
+	<adjustWinding public="1" set="method" line="151" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Bool"/>
@@ -4229,14 +4236,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</x>
-	<get_x get="inline" set="null" line="147" static="1">
+	<get_x get="inline" set="null" line="155" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_x>
-	<set_x get="inline" set="null" line="151" static="1">
+	<set_x get="inline" set="null" line="159" static="1">
 		<f a="this:x">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4248,14 +4255,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</y>
-	<get_y get="inline" set="null" line="160" static="1">
+	<get_y get="inline" set="null" line="168" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_y>
-	<set_y get="inline" set="null" line="164" static="1">
+	<set_y get="inline" set="null" line="172" static="1">
 		<f a="this:y">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4267,14 +4274,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</z>
-	<get_z get="inline" set="null" line="173" static="1">
+	<get_z get="inline" set="null" line="181" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_z>
-	<set_z get="inline" set="null" line="177" static="1">
+	<set_z get="inline" set="null" line="185" static="1">
 		<f a="this:z">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4286,7 +4293,7 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</right>
-	<get_right get="inline" set="null" line="186" static="1">
+	<get_right get="inline" set="null" line="194" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4297,7 +4304,7 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bottom>
-	<get_bottom get="inline" set="null" line="191" static="1">
+	<get_bottom get="inline" set="null" line="199" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4308,14 +4315,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</back>
-	<get_back get="inline" set="null" line="196" static="1">
+	<get_back get="inline" set="null" line="204" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_back>
-	<moveDelta set="method" line="200" static="1">
+	<moveDelta set="method" line="208" static="1">
 		<f a="this:dx:dy">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4324,11 +4331,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</moveDelta>
-	<sign public="1" get="inline" set="null" line="208" static="1"><f a="n">
+	<sign public="1" get="inline" set="null" line="216" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></sign>
-	<liteHit public="1" get="inline" set="null" line="213" static="1">
+	<liteHit public="1" get="inline" set="null" line="221" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4337,7 +4344,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</liteHit>
-	<fullHit public="1" set="method" line="221" static="1">
+	<fullHit public="1" set="method" line="229" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4346,7 +4353,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</fullHit>
-	<rotate public="1" get="inline" set="null" line="226" static="1">
+	<rotate public="1" get="inline" set="null" line="234" static="1">
 		<f a="this:x:y:theta">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4356,7 +4363,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotate>
-	<rotateTrig public="1" get="inline" set="null" line="232" static="1">
+	<rotateTrig public="1" get="inline" set="null" line="240" static="1">
 		<f a="this:x:y:cos:sin">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<x path="Float"/>
@@ -4367,14 +4374,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateTrig>
-	<prettyString public="1" get="inline" set="null" line="261" static="1">
+	<prettyString public="1" get="inline" set="null" line="269" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</prettyString>
-	<prettyAll public="1" get="inline" set="null" line="267" static="1">
+	<prettyAll public="1" get="inline" set="null" line="275" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat9"/>
 			<c path="String"/>
@@ -4385,7 +4392,7 @@
 </class></impl>
 	</abstract>
 	<class path="geom.flat.f32._Float32FlatTriangle.Float32FlatTriangle_Impl_" params="" file="src/geom/flat/f32/Float32FlatTriangle.hx" private="1" module="geom.flat.f32.Float32FlatTriangle">
-		<_new public="1" get="inline" set="null" line="8" static="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
 			<f a="len">
 				<x path="Int"/>
 				<x path="geom.flat.f32.Float32FlatTriangle"/>
@@ -4399,14 +4406,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</ax>
-		<get_ax set="method" line="12" static="1">
+		<get_ax set="method" line="13" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ax>
-		<set_ax set="method" line="15" static="1">
+		<set_ax set="method" line="16" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4418,14 +4425,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</ay>
-		<get_ay set="method" line="20" static="1">
+		<get_ay set="method" line="21" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ay>
-		<set_ay set="method" line="23" static="1">
+		<set_ay set="method" line="24" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4437,14 +4444,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</az>
-		<get_az set="method" line="28" static="1">
+		<get_az set="method" line="29" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_az>
-		<set_az set="method" line="31" static="1">
+		<set_az set="method" line="32" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4456,14 +4463,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bx>
-		<get_bx set="method" line="36" static="1">
+		<get_bx set="method" line="37" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bx>
-		<set_bx set="method" line="39" static="1">
+		<set_bx set="method" line="40" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4475,14 +4482,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</by>
-		<get_by set="method" line="44" static="1">
+		<get_by set="method" line="45" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_by>
-		<set_by set="method" line="47" static="1">
+		<set_by set="method" line="48" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4494,14 +4501,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bz>
-		<get_bz set="method" line="52" static="1">
+		<get_bz set="method" line="53" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bz>
-		<set_bz set="method" line="55" static="1">
+		<set_bz set="method" line="56" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4513,14 +4520,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cx>
-		<get_cx set="method" line="60" static="1">
+		<get_cx set="method" line="61" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cx>
-		<set_cx set="method" line="63" static="1">
+		<set_cx set="method" line="64" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4532,14 +4539,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cy>
-		<get_cy set="method" line="68" static="1">
+		<get_cy set="method" line="69" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cy>
-		<set_cy set="method" line="71" static="1">
+		<set_cy set="method" line="72" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4551,14 +4558,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cz>
-		<get_cz set="method" line="76" static="1">
+		<get_cz set="method" line="77" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cz>
-		<set_cz set="method" line="79" static="1">
+		<set_cz set="method" line="80" static="1">
 			<f a="this:v">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4566,7 +4573,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_cz>
-		<transform public="1" set="method" line="83" static="1">
+		<transform public="1" set="method" line="84" static="1">
 			<f a="this:m">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -4574,7 +4581,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transform>
-		<transformAll public="1" set="method" line="101" static="1">
+		<transformAll public="1" set="method" line="102" static="1">
 			<f a="this:m">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -4582,7 +4589,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformAll>
-		<transformRange public="1" set="method" line="109" static="1">
+		<transformRange public="1" set="method" line="110" static="1">
 			<f a="this:m:start:end">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -4592,7 +4599,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformRange>
-		<triangle public="1" set="method" line="119" static="1">
+		<getTri3D public="1" get="inline" set="null" line="119" static="1">
+			<f a="this">
+				<x path="geom.flat.f32.Float32Flat9"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</getTri3D>
+		<triangle public="1" set="method" line="127" static="1">
 			<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4611,7 +4625,7 @@
 				<m n=":keep"/>
 			</meta>
 		</triangle>
-		<adjustWinding public="1" set="method" line="143" static="1">
+		<adjustWinding public="1" set="method" line="151" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Bool"/>
@@ -4622,14 +4636,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</x>
-		<get_x get="inline" set="null" line="147" static="1">
+		<get_x get="inline" set="null" line="155" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_x>
-		<set_x get="inline" set="null" line="151" static="1">
+		<set_x get="inline" set="null" line="159" static="1">
 			<f a="this:x">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4641,14 +4655,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</y>
-		<get_y get="inline" set="null" line="160" static="1">
+		<get_y get="inline" set="null" line="168" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_y>
-		<set_y get="inline" set="null" line="164" static="1">
+		<set_y get="inline" set="null" line="172" static="1">
 			<f a="this:y">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4660,14 +4674,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</z>
-		<get_z get="inline" set="null" line="173" static="1">
+		<get_z get="inline" set="null" line="181" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_z>
-		<set_z get="inline" set="null" line="177" static="1">
+		<set_z get="inline" set="null" line="185" static="1">
 			<f a="this:z">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4679,7 +4693,7 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</right>
-		<get_right get="inline" set="null" line="186" static="1">
+		<get_right get="inline" set="null" line="194" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4690,7 +4704,7 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bottom>
-		<get_bottom get="inline" set="null" line="191" static="1">
+		<get_bottom get="inline" set="null" line="199" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4701,14 +4715,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</back>
-		<get_back get="inline" set="null" line="196" static="1">
+		<get_back get="inline" set="null" line="204" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_back>
-		<moveDelta set="method" line="200" static="1">
+		<moveDelta set="method" line="208" static="1">
 			<f a="this:dx:dy">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4717,11 +4731,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</moveDelta>
-		<sign public="1" get="inline" set="null" line="208" static="1"><f a="n">
+		<sign public="1" get="inline" set="null" line="216" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></sign>
-		<liteHit public="1" get="inline" set="null" line="213" static="1">
+		<liteHit public="1" get="inline" set="null" line="221" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4730,7 +4744,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</liteHit>
-		<fullHit public="1" set="method" line="221" static="1">
+		<fullHit public="1" set="method" line="229" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4739,7 +4753,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</fullHit>
-		<rotate public="1" get="inline" set="null" line="226" static="1">
+		<rotate public="1" get="inline" set="null" line="234" static="1">
 			<f a="this:x:y:theta">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4749,7 +4763,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotate>
-		<rotateTrig public="1" get="inline" set="null" line="232" static="1">
+		<rotateTrig public="1" get="inline" set="null" line="240" static="1">
 			<f a="this:x:y:cos:sin">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<x path="Float"/>
@@ -4760,14 +4774,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateTrig>
-		<prettyString public="1" get="inline" set="null" line="261" static="1">
+		<prettyString public="1" get="inline" set="null" line="269" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</prettyString>
-		<prettyAll public="1" get="inline" set="null" line="267" static="1">
+		<prettyAll public="1" get="inline" set="null" line="275" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat9"/>
 				<c path="String"/>
@@ -7392,7 +7406,7 @@
 		<this><x path="geom.flat.float.FloatFlat9"/></this>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.float._FloatFlatTriangle.FloatFlatTriangle_Impl_" params="" file="src/geom/flat/float/FloatFlatTriangle.hx" private="1" module="geom.flat.float.FloatFlatTriangle">
-	<_new public="1" get="inline" set="null" line="8" static="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
 		<f a="len">
 			<x path="Int"/>
 			<x path="geom.flat.float.FloatFlatTriangle"/>
@@ -7406,14 +7420,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</ax>
-	<get_ax set="method" line="12" static="1">
+	<get_ax set="method" line="13" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ax>
-	<set_ax set="method" line="15" static="1">
+	<set_ax set="method" line="16" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7425,14 +7439,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</ay>
-	<get_ay set="method" line="20" static="1">
+	<get_ay set="method" line="21" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ay>
-	<set_ay set="method" line="23" static="1">
+	<set_ay set="method" line="24" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7444,14 +7458,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</az>
-	<get_az set="method" line="28" static="1">
+	<get_az set="method" line="29" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_az>
-	<set_az set="method" line="31" static="1">
+	<set_az set="method" line="32" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7463,14 +7477,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bx>
-	<get_bx set="method" line="36" static="1">
+	<get_bx set="method" line="37" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bx>
-	<set_bx set="method" line="39" static="1">
+	<set_bx set="method" line="40" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7482,14 +7496,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</by>
-	<get_by set="method" line="44" static="1">
+	<get_by set="method" line="45" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_by>
-	<set_by set="method" line="47" static="1">
+	<set_by set="method" line="48" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7501,14 +7515,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bz>
-	<get_bz set="method" line="52" static="1">
+	<get_bz set="method" line="53" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bz>
-	<set_bz set="method" line="55" static="1">
+	<set_bz set="method" line="56" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7520,14 +7534,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cx>
-	<get_cx set="method" line="60" static="1">
+	<get_cx set="method" line="61" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cx>
-	<set_cx set="method" line="63" static="1">
+	<set_cx set="method" line="64" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7539,14 +7553,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cy>
-	<get_cy set="method" line="68" static="1">
+	<get_cy set="method" line="69" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cy>
-	<set_cy set="method" line="71" static="1">
+	<set_cy set="method" line="72" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7558,14 +7572,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</cz>
-	<get_cz set="method" line="76" static="1">
+	<get_cz set="method" line="77" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cz>
-	<set_cz set="method" line="79" static="1">
+	<set_cz set="method" line="80" static="1">
 		<f a="this:v">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7573,7 +7587,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_cz>
-	<transform public="1" set="method" line="83" static="1">
+	<transform public="1" set="method" line="84" static="1">
 		<f a="this:m">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -7581,7 +7595,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transform>
-	<transformAll public="1" set="method" line="101" static="1">
+	<transformAll public="1" set="method" line="102" static="1">
 		<f a="this:m">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -7589,7 +7603,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformAll>
-	<transformRange public="1" set="method" line="109" static="1">
+	<transformRange public="1" set="method" line="110" static="1">
 		<f a="this:m:start:end">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -7599,7 +7613,17 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformRange>
-	<triangle public="1" set="method" line="119" static="1">
+	<getTri3D public="1" get="inline" set="null" line="120" static="1">
+		<f a="this">
+			<x path="geom.flat.float.FloatFlat9"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":keep"/>
+		</meta>
+	</getTri3D>
+	<triangle public="1" set="method" line="128" static="1">
 		<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7618,7 +7642,7 @@
 			<m n=":keep"/>
 		</meta>
 	</triangle>
-	<adjustWinding public="1" set="method" line="143" static="1">
+	<adjustWinding public="1" set="method" line="152" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Bool"/>
@@ -7629,14 +7653,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</x>
-	<get_x get="inline" set="null" line="147" static="1">
+	<get_x get="inline" set="null" line="156" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_x>
-	<set_x get="inline" set="null" line="151" static="1">
+	<set_x get="inline" set="null" line="160" static="1">
 		<f a="this:x">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7648,14 +7672,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</y>
-	<get_y get="inline" set="null" line="160" static="1">
+	<get_y get="inline" set="null" line="169" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_y>
-	<set_y get="inline" set="null" line="164" static="1">
+	<set_y get="inline" set="null" line="173" static="1">
 		<f a="this:y">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7667,14 +7691,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</z>
-	<get_z get="inline" set="null" line="173" static="1">
+	<get_z get="inline" set="null" line="182" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_z>
-	<set_z get="inline" set="null" line="177" static="1">
+	<set_z get="inline" set="null" line="186" static="1">
 		<f a="this:z">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7686,7 +7710,7 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</right>
-	<get_right get="inline" set="null" line="186" static="1">
+	<get_right get="inline" set="null" line="195" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7697,7 +7721,7 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</bottom>
-	<get_bottom get="inline" set="null" line="191" static="1">
+	<get_bottom get="inline" set="null" line="200" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7708,14 +7732,14 @@
 		<x path="Float"/>
 		<meta><m n=":impl"/></meta>
 	</back>
-	<get_back get="inline" set="null" line="196" static="1">
+	<get_back get="inline" set="null" line="205" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_back>
-	<moveDelta set="method" line="200" static="1">
+	<moveDelta set="method" line="209" static="1">
 		<f a="this:dx:dy">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7724,11 +7748,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</moveDelta>
-	<sign public="1" get="inline" set="null" line="208" static="1"><f a="n">
+	<sign public="1" get="inline" set="null" line="217" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></sign>
-	<liteHit public="1" get="inline" set="null" line="213" static="1">
+	<liteHit public="1" get="inline" set="null" line="222" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7737,7 +7761,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</liteHit>
-	<fullHit public="1" set="method" line="221" static="1">
+	<fullHit public="1" set="method" line="230" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7746,7 +7770,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</fullHit>
-	<rotate public="1" get="inline" set="null" line="226" static="1">
+	<rotate public="1" get="inline" set="null" line="235" static="1">
 		<f a="this:x:y:theta">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7756,7 +7780,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotate>
-	<rotateTrig public="1" get="inline" set="null" line="232" static="1">
+	<rotateTrig public="1" get="inline" set="null" line="241" static="1">
 		<f a="this:x:y:cos:sin">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<x path="Float"/>
@@ -7767,14 +7791,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateTrig>
-	<prettyString public="1" get="inline" set="null" line="261" static="1">
+	<prettyString public="1" get="inline" set="null" line="270" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</prettyString>
-	<prettyAll public="1" get="inline" set="null" line="267" static="1">
+	<prettyAll public="1" get="inline" set="null" line="276" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat9"/>
 			<c path="String"/>
@@ -7784,7 +7808,7 @@
 </class></impl>
 	</abstract>
 	<class path="geom.flat.float._FloatFlatTriangle.FloatFlatTriangle_Impl_" params="" file="src/geom/flat/float/FloatFlatTriangle.hx" private="1" module="geom.flat.float.FloatFlatTriangle">
-		<_new public="1" get="inline" set="null" line="8" static="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
 			<f a="len">
 				<x path="Int"/>
 				<x path="geom.flat.float.FloatFlatTriangle"/>
@@ -7798,14 +7822,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</ax>
-		<get_ax set="method" line="12" static="1">
+		<get_ax set="method" line="13" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ax>
-		<set_ax set="method" line="15" static="1">
+		<set_ax set="method" line="16" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7817,14 +7841,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</ay>
-		<get_ay set="method" line="20" static="1">
+		<get_ay set="method" line="21" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ay>
-		<set_ay set="method" line="23" static="1">
+		<set_ay set="method" line="24" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7836,14 +7860,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</az>
-		<get_az set="method" line="28" static="1">
+		<get_az set="method" line="29" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_az>
-		<set_az set="method" line="31" static="1">
+		<set_az set="method" line="32" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7855,14 +7879,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bx>
-		<get_bx set="method" line="36" static="1">
+		<get_bx set="method" line="37" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bx>
-		<set_bx set="method" line="39" static="1">
+		<set_bx set="method" line="40" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7874,14 +7898,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</by>
-		<get_by set="method" line="44" static="1">
+		<get_by set="method" line="45" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_by>
-		<set_by set="method" line="47" static="1">
+		<set_by set="method" line="48" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7893,14 +7917,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bz>
-		<get_bz set="method" line="52" static="1">
+		<get_bz set="method" line="53" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bz>
-		<set_bz set="method" line="55" static="1">
+		<set_bz set="method" line="56" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7912,14 +7936,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cx>
-		<get_cx set="method" line="60" static="1">
+		<get_cx set="method" line="61" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cx>
-		<set_cx set="method" line="63" static="1">
+		<set_cx set="method" line="64" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7931,14 +7955,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cy>
-		<get_cy set="method" line="68" static="1">
+		<get_cy set="method" line="69" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cy>
-		<set_cy set="method" line="71" static="1">
+		<set_cy set="method" line="72" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7950,14 +7974,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</cz>
-		<get_cz set="method" line="76" static="1">
+		<get_cz set="method" line="77" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cz>
-		<set_cz set="method" line="79" static="1">
+		<set_cz set="method" line="80" static="1">
 			<f a="this:v">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -7965,7 +7989,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_cz>
-		<transform public="1" set="method" line="83" static="1">
+		<transform public="1" set="method" line="84" static="1">
 			<f a="this:m">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -7973,7 +7997,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transform>
-		<transformAll public="1" set="method" line="101" static="1">
+		<transformAll public="1" set="method" line="102" static="1">
 			<f a="this:m">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -7981,7 +8005,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformAll>
-		<transformRange public="1" set="method" line="109" static="1">
+		<transformRange public="1" set="method" line="110" static="1">
 			<f a="this:m:start:end">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -7991,7 +8015,17 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformRange>
-		<triangle public="1" set="method" line="119" static="1">
+		<getTri3D public="1" get="inline" set="null" line="120" static="1">
+			<f a="this">
+				<x path="geom.flat.float.FloatFlat9"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":keep"/>
+			</meta>
+		</getTri3D>
+		<triangle public="1" set="method" line="128" static="1">
 			<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8010,7 +8044,7 @@
 				<m n=":keep"/>
 			</meta>
 		</triangle>
-		<adjustWinding public="1" set="method" line="143" static="1">
+		<adjustWinding public="1" set="method" line="152" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Bool"/>
@@ -8021,14 +8055,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</x>
-		<get_x get="inline" set="null" line="147" static="1">
+		<get_x get="inline" set="null" line="156" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_x>
-		<set_x get="inline" set="null" line="151" static="1">
+		<set_x get="inline" set="null" line="160" static="1">
 			<f a="this:x">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8040,14 +8074,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</y>
-		<get_y get="inline" set="null" line="160" static="1">
+		<get_y get="inline" set="null" line="169" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_y>
-		<set_y get="inline" set="null" line="164" static="1">
+		<set_y get="inline" set="null" line="173" static="1">
 			<f a="this:y">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8059,14 +8093,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</z>
-		<get_z get="inline" set="null" line="173" static="1">
+		<get_z get="inline" set="null" line="182" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_z>
-		<set_z get="inline" set="null" line="177" static="1">
+		<set_z get="inline" set="null" line="186" static="1">
 			<f a="this:z">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8078,7 +8112,7 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</right>
-		<get_right get="inline" set="null" line="186" static="1">
+		<get_right get="inline" set="null" line="195" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8089,7 +8123,7 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</bottom>
-		<get_bottom get="inline" set="null" line="191" static="1">
+		<get_bottom get="inline" set="null" line="200" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8100,14 +8134,14 @@
 			<x path="Float"/>
 			<meta><m n=":impl"/></meta>
 		</back>
-		<get_back get="inline" set="null" line="196" static="1">
+		<get_back get="inline" set="null" line="205" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_back>
-		<moveDelta set="method" line="200" static="1">
+		<moveDelta set="method" line="209" static="1">
 			<f a="this:dx:dy">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8116,11 +8150,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</moveDelta>
-		<sign public="1" get="inline" set="null" line="208" static="1"><f a="n">
+		<sign public="1" get="inline" set="null" line="217" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Int"/>
 </f></sign>
-		<liteHit public="1" get="inline" set="null" line="213" static="1">
+		<liteHit public="1" get="inline" set="null" line="222" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8129,7 +8163,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</liteHit>
-		<fullHit public="1" set="method" line="221" static="1">
+		<fullHit public="1" set="method" line="230" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8138,7 +8172,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</fullHit>
-		<rotate public="1" get="inline" set="null" line="226" static="1">
+		<rotate public="1" get="inline" set="null" line="235" static="1">
 			<f a="this:x:y:theta">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8148,7 +8182,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotate>
-		<rotateTrig public="1" get="inline" set="null" line="232" static="1">
+		<rotateTrig public="1" get="inline" set="null" line="241" static="1">
 			<f a="this:x:y:cos:sin">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<x path="Float"/>
@@ -8159,14 +8193,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateTrig>
-		<prettyString public="1" get="inline" set="null" line="261" static="1">
+		<prettyString public="1" get="inline" set="null" line="270" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</prettyString>
-		<prettyAll public="1" get="inline" set="null" line="267" static="1">
+		<prettyAll public="1" get="inline" set="null" line="276" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat9"/>
 				<c path="String"/>
@@ -10116,7 +10150,7 @@
 		<this><x path="geom.flat.i32.Int32Flat9"/></this>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.i32._Int32FlatTriangle.Int32FlatTriangle_Impl_" params="" file="src/geom/flat/i32/Int32FlatTriangle.hx" private="1" module="geom.flat.i32.Int32FlatTriangle">
-	<_new public="1" get="inline" set="null" line="9" static="1">
+	<_new public="1" get="inline" set="null" line="10" static="1">
 		<f a="len">
 			<x path="Int"/>
 			<x path="geom.flat.i32.Int32FlatTriangle"/>
@@ -10130,14 +10164,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</ax>
-	<get_ax set="method" line="13" static="1">
+	<get_ax set="method" line="14" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ax>
-	<set_ax set="method" line="16" static="1">
+	<set_ax set="method" line="17" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10149,14 +10183,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</ay>
-	<get_ay set="method" line="21" static="1">
+	<get_ay set="method" line="22" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ay>
-	<set_ay set="method" line="24" static="1">
+	<set_ay set="method" line="25" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10168,14 +10202,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</az>
-	<get_az set="method" line="29" static="1">
+	<get_az set="method" line="30" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_az>
-	<set_az set="method" line="32" static="1">
+	<set_az set="method" line="33" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10187,14 +10221,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bx>
-	<get_bx set="method" line="37" static="1">
+	<get_bx set="method" line="38" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bx>
-	<set_bx set="method" line="40" static="1">
+	<set_bx set="method" line="41" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10206,14 +10240,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</by>
-	<get_by set="method" line="45" static="1">
+	<get_by set="method" line="46" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_by>
-	<set_by set="method" line="48" static="1">
+	<set_by set="method" line="49" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10225,14 +10259,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bz>
-	<get_bz set="method" line="53" static="1">
+	<get_bz set="method" line="54" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bz>
-	<set_bz set="method" line="56" static="1">
+	<set_bz set="method" line="57" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10244,14 +10278,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cx>
-	<get_cx set="method" line="61" static="1">
+	<get_cx set="method" line="62" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cx>
-	<set_cx set="method" line="64" static="1">
+	<set_cx set="method" line="65" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10263,14 +10297,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cy>
-	<get_cy set="method" line="69" static="1">
+	<get_cy set="method" line="70" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cy>
-	<set_cy set="method" line="72" static="1">
+	<set_cy set="method" line="73" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10282,14 +10316,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cz>
-	<get_cz set="method" line="77" static="1">
+	<get_cz set="method" line="78" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cz>
-	<set_cz set="method" line="80" static="1">
+	<set_cz set="method" line="81" static="1">
 		<f a="this:v">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10297,7 +10331,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_cz>
-	<triangle public="1" set="method" line="85" static="1">
+	<triangle public="1" set="method" line="86" static="1">
 		<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10316,7 +10350,7 @@
 			<m n=":keep"/>
 		</meta>
 	</triangle>
-	<adjustWinding public="1" set="method" line="109" static="1">
+	<adjustWinding public="1" set="method" line="110" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Bool"/>
@@ -10327,14 +10361,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</x>
-	<get_x get="inline" set="null" line="113" static="1">
+	<get_x get="inline" set="null" line="114" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_x>
-	<set_x get="inline" set="null" line="117" static="1">
+	<set_x get="inline" set="null" line="118" static="1">
 		<f a="this:x_">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10346,14 +10380,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</y>
-	<get_y get="inline" set="null" line="126" static="1">
+	<get_y get="inline" set="null" line="127" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_y>
-	<set_y get="inline" set="null" line="130" static="1">
+	<set_y get="inline" set="null" line="131" static="1">
 		<f a="this:y_">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10365,14 +10399,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</z>
-	<get_z get="inline" set="null" line="139" static="1">
+	<get_z get="inline" set="null" line="140" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_z>
-	<set_z get="inline" set="null" line="143" static="1">
+	<set_z get="inline" set="null" line="144" static="1">
 		<f a="this:z_">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10384,7 +10418,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</right>
-	<get_right get="inline" set="null" line="152" static="1">
+	<get_right get="inline" set="null" line="153" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10395,7 +10429,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bottom>
-	<get_bottom get="inline" set="null" line="157" static="1">
+	<get_bottom get="inline" set="null" line="158" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10406,14 +10440,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</back>
-	<get_back get="inline" set="null" line="162" static="1">
+	<get_back get="inline" set="null" line="163" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_back>
-	<transform public="1" set="method" line="166" static="1">
+	<transform public="1" set="method" line="167" static="1">
 		<f a="this:m">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -10421,7 +10455,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transform>
-	<transformAll public="1" set="method" line="184" static="1">
+	<transformAll public="1" set="method" line="185" static="1">
 		<f a="this:m">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -10429,7 +10463,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformAll>
-	<transformRange public="1" set="method" line="192" static="1">
+	<transformRange public="1" set="method" line="193" static="1">
 		<f a="this:m:start:end">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -10439,7 +10473,17 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformRange>
-	<moveDelta get="inline" set="null" line="201" static="1">
+	<getTri3D public="1" get="inline" set="null" line="203" static="1">
+		<f a="this">
+			<x path="geom.flat.i32.Int32Flat9"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":keep"/>
+		</meta>
+	</getTri3D>
+	<moveDelta get="inline" set="null" line="210" static="1">
 		<f a="this:dx:dy">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Int"/>
@@ -10448,11 +10492,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</moveDelta>
-	<sign public="1" get="inline" set="null" line="210" static="1"><f a="n">
+	<sign public="1" get="inline" set="null" line="219" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></sign>
-	<liteHit public="1" get="inline" set="null" line="215" static="1">
+	<liteHit public="1" get="inline" set="null" line="224" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Float"/>
@@ -10461,7 +10505,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</liteHit>
-	<fullHit public="1" set="method" line="223" static="1">
+	<fullHit public="1" set="method" line="232" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Float"/>
@@ -10470,7 +10514,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</fullHit>
-	<rotate public="1" get="inline" set="null" line="228" static="1">
+	<rotate public="1" get="inline" set="null" line="237" static="1">
 		<f a="this:x:y:theta">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Float"/>
@@ -10480,7 +10524,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotate>
-	<rotateTrig public="1" get="inline" set="null" line="234" static="1">
+	<rotateTrig public="1" get="inline" set="null" line="243" static="1">
 		<f a="this:x:y:cos:sin">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<x path="Float"/>
@@ -10491,14 +10535,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateTrig>
-	<prettyString public="1" get="inline" set="null" line="269" static="1">
+	<prettyString public="1" get="inline" set="null" line="278" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</prettyString>
-	<prettyAll public="1" get="inline" set="null" line="275" static="1">
+	<prettyAll public="1" get="inline" set="null" line="284" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat9"/>
 			<c path="String"/>
@@ -10508,7 +10552,7 @@
 </class></impl>
 	</abstract>
 	<class path="geom.flat.i32._Int32FlatTriangle.Int32FlatTriangle_Impl_" params="" file="src/geom/flat/i32/Int32FlatTriangle.hx" private="1" module="geom.flat.i32.Int32FlatTriangle">
-		<_new public="1" get="inline" set="null" line="9" static="1">
+		<_new public="1" get="inline" set="null" line="10" static="1">
 			<f a="len">
 				<x path="Int"/>
 				<x path="geom.flat.i32.Int32FlatTriangle"/>
@@ -10522,14 +10566,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</ax>
-		<get_ax set="method" line="13" static="1">
+		<get_ax set="method" line="14" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ax>
-		<set_ax set="method" line="16" static="1">
+		<set_ax set="method" line="17" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10541,14 +10585,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</ay>
-		<get_ay set="method" line="21" static="1">
+		<get_ay set="method" line="22" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ay>
-		<set_ay set="method" line="24" static="1">
+		<set_ay set="method" line="25" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10560,14 +10604,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</az>
-		<get_az set="method" line="29" static="1">
+		<get_az set="method" line="30" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_az>
-		<set_az set="method" line="32" static="1">
+		<set_az set="method" line="33" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10579,14 +10623,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bx>
-		<get_bx set="method" line="37" static="1">
+		<get_bx set="method" line="38" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bx>
-		<set_bx set="method" line="40" static="1">
+		<set_bx set="method" line="41" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10598,14 +10642,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</by>
-		<get_by set="method" line="45" static="1">
+		<get_by set="method" line="46" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_by>
-		<set_by set="method" line="48" static="1">
+		<set_by set="method" line="49" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10617,14 +10661,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bz>
-		<get_bz set="method" line="53" static="1">
+		<get_bz set="method" line="54" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bz>
-		<set_bz set="method" line="56" static="1">
+		<set_bz set="method" line="57" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10636,14 +10680,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cx>
-		<get_cx set="method" line="61" static="1">
+		<get_cx set="method" line="62" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cx>
-		<set_cx set="method" line="64" static="1">
+		<set_cx set="method" line="65" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10655,14 +10699,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cy>
-		<get_cy set="method" line="69" static="1">
+		<get_cy set="method" line="70" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cy>
-		<set_cy set="method" line="72" static="1">
+		<set_cy set="method" line="73" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10674,14 +10718,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cz>
-		<get_cz set="method" line="77" static="1">
+		<get_cz set="method" line="78" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cz>
-		<set_cz set="method" line="80" static="1">
+		<set_cz set="method" line="81" static="1">
 			<f a="this:v">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10689,7 +10733,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_cz>
-		<triangle public="1" set="method" line="85" static="1">
+		<triangle public="1" set="method" line="86" static="1">
 			<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10708,7 +10752,7 @@
 				<m n=":keep"/>
 			</meta>
 		</triangle>
-		<adjustWinding public="1" set="method" line="109" static="1">
+		<adjustWinding public="1" set="method" line="110" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Bool"/>
@@ -10719,14 +10763,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</x>
-		<get_x get="inline" set="null" line="113" static="1">
+		<get_x get="inline" set="null" line="114" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_x>
-		<set_x get="inline" set="null" line="117" static="1">
+		<set_x get="inline" set="null" line="118" static="1">
 			<f a="this:x_">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10738,14 +10782,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</y>
-		<get_y get="inline" set="null" line="126" static="1">
+		<get_y get="inline" set="null" line="127" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_y>
-		<set_y get="inline" set="null" line="130" static="1">
+		<set_y get="inline" set="null" line="131" static="1">
 			<f a="this:y_">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10757,14 +10801,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</z>
-		<get_z get="inline" set="null" line="139" static="1">
+		<get_z get="inline" set="null" line="140" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_z>
-		<set_z get="inline" set="null" line="143" static="1">
+		<set_z get="inline" set="null" line="144" static="1">
 			<f a="this:z_">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10776,7 +10820,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</right>
-		<get_right get="inline" set="null" line="152" static="1">
+		<get_right get="inline" set="null" line="153" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10787,7 +10831,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bottom>
-		<get_bottom get="inline" set="null" line="157" static="1">
+		<get_bottom get="inline" set="null" line="158" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10798,14 +10842,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</back>
-		<get_back get="inline" set="null" line="162" static="1">
+		<get_back get="inline" set="null" line="163" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_back>
-		<transform public="1" set="method" line="166" static="1">
+		<transform public="1" set="method" line="167" static="1">
 			<f a="this:m">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -10813,7 +10857,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transform>
-		<transformAll public="1" set="method" line="184" static="1">
+		<transformAll public="1" set="method" line="185" static="1">
 			<f a="this:m">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -10821,7 +10865,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformAll>
-		<transformRange public="1" set="method" line="192" static="1">
+		<transformRange public="1" set="method" line="193" static="1">
 			<f a="this:m:start:end">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -10831,7 +10875,17 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformRange>
-		<moveDelta get="inline" set="null" line="201" static="1">
+		<getTri3D public="1" get="inline" set="null" line="203" static="1">
+			<f a="this">
+				<x path="geom.flat.i32.Int32Flat9"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":keep"/>
+			</meta>
+		</getTri3D>
+		<moveDelta get="inline" set="null" line="210" static="1">
 			<f a="this:dx:dy">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Int"/>
@@ -10840,11 +10894,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</moveDelta>
-		<sign public="1" get="inline" set="null" line="210" static="1"><f a="n">
+		<sign public="1" get="inline" set="null" line="219" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></sign>
-		<liteHit public="1" get="inline" set="null" line="215" static="1">
+		<liteHit public="1" get="inline" set="null" line="224" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Float"/>
@@ -10853,7 +10907,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</liteHit>
-		<fullHit public="1" set="method" line="223" static="1">
+		<fullHit public="1" set="method" line="232" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Float"/>
@@ -10862,7 +10916,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</fullHit>
-		<rotate public="1" get="inline" set="null" line="228" static="1">
+		<rotate public="1" get="inline" set="null" line="237" static="1">
 			<f a="this:x:y:theta">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Float"/>
@@ -10872,7 +10926,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotate>
-		<rotateTrig public="1" get="inline" set="null" line="234" static="1">
+		<rotateTrig public="1" get="inline" set="null" line="243" static="1">
 			<f a="this:x:y:cos:sin">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<x path="Float"/>
@@ -10883,14 +10937,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateTrig>
-		<prettyString public="1" get="inline" set="null" line="269" static="1">
+		<prettyString public="1" get="inline" set="null" line="278" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</prettyString>
-		<prettyAll public="1" get="inline" set="null" line="275" static="1">
+		<prettyAll public="1" get="inline" set="null" line="284" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat9"/>
 				<c path="String"/>
@@ -12840,7 +12894,7 @@
 		<this><x path="geom.flat.int.IntFlat9"/></this>
 		<meta><m n=":forward"/></meta>
 		<impl><class path="geom.flat.int._IntFlatTriangle.IntFlatTriangle_Impl_" params="" file="src/geom/flat/int/IntFlatTriangle.hx" private="1" module="geom.flat.int.IntFlatTriangle">
-	<_new public="1" get="inline" set="null" line="8" static="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
 		<f a="len">
 			<x path="Int"/>
 			<x path="geom.flat.int.IntFlatTriangle"/>
@@ -12854,14 +12908,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</ax>
-	<get_ax set="method" line="12" static="1">
+	<get_ax set="method" line="13" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ax>
-	<set_ax set="method" line="15" static="1">
+	<set_ax set="method" line="16" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12873,14 +12927,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</ay>
-	<get_ay set="method" line="20" static="1">
+	<get_ay set="method" line="21" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_ay>
-	<set_ay set="method" line="23" static="1">
+	<set_ay set="method" line="24" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12892,14 +12946,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</az>
-	<get_az set="method" line="28" static="1">
+	<get_az set="method" line="29" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_az>
-	<set_az set="method" line="31" static="1">
+	<set_az set="method" line="32" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12911,14 +12965,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bx>
-	<get_bx set="method" line="36" static="1">
+	<get_bx set="method" line="37" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bx>
-	<set_bx set="method" line="39" static="1">
+	<set_bx set="method" line="40" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12930,14 +12984,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</by>
-	<get_by set="method" line="44" static="1">
+	<get_by set="method" line="45" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_by>
-	<set_by set="method" line="47" static="1">
+	<set_by set="method" line="48" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12949,14 +13003,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bz>
-	<get_bz set="method" line="52" static="1">
+	<get_bz set="method" line="53" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_bz>
-	<set_bz set="method" line="55" static="1">
+	<set_bz set="method" line="56" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12968,14 +13022,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cx>
-	<get_cx set="method" line="60" static="1">
+	<get_cx set="method" line="61" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cx>
-	<set_cx set="method" line="63" static="1">
+	<set_cx set="method" line="64" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -12987,14 +13041,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cy>
-	<get_cy set="method" line="68" static="1">
+	<get_cy set="method" line="69" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cy>
-	<set_cy set="method" line="71" static="1">
+	<set_cy set="method" line="72" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13006,14 +13060,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</cz>
-	<get_cz set="method" line="76" static="1">
+	<get_cz set="method" line="77" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_cz>
-	<set_cz set="method" line="79" static="1">
+	<set_cz set="method" line="80" static="1">
 		<f a="this:v">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13021,7 +13075,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_cz>
-	<triangle public="1" set="method" line="84" static="1">
+	<triangle public="1" set="method" line="85" static="1">
 		<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13040,7 +13094,7 @@
 			<m n=":keep"/>
 		</meta>
 	</triangle>
-	<adjustWinding public="1" set="method" line="108" static="1">
+	<adjustWinding public="1" set="method" line="109" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Bool"/>
@@ -13051,14 +13105,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</x>
-	<get_x get="inline" set="null" line="112" static="1">
+	<get_x get="inline" set="null" line="113" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_x>
-	<set_x get="inline" set="null" line="116" static="1">
+	<set_x get="inline" set="null" line="117" static="1">
 		<f a="this:x_">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13070,14 +13124,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</y>
-	<get_y get="inline" set="null" line="125" static="1">
+	<get_y get="inline" set="null" line="126" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_y>
-	<set_y get="inline" set="null" line="129" static="1">
+	<set_y get="inline" set="null" line="130" static="1">
 		<f a="this:y_">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13089,14 +13143,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</z>
-	<get_z get="inline" set="null" line="138" static="1">
+	<get_z get="inline" set="null" line="139" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_z>
-	<set_z get="inline" set="null" line="142" static="1">
+	<set_z get="inline" set="null" line="143" static="1">
 		<f a="this:z_">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13108,7 +13162,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</right>
-	<get_right get="inline" set="null" line="151" static="1">
+	<get_right get="inline" set="null" line="152" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13119,7 +13173,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</bottom>
-	<get_bottom get="inline" set="null" line="156" static="1">
+	<get_bottom get="inline" set="null" line="157" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13130,14 +13184,14 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</back>
-	<get_back get="inline" set="null" line="161" static="1">
+	<get_back get="inline" set="null" line="162" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</get_back>
-	<transform public="1" set="method" line="165" static="1">
+	<transform public="1" set="method" line="166" static="1">
 		<f a="this:m">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -13145,7 +13199,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transform>
-	<transformAll public="1" set="method" line="183" static="1">
+	<transformAll public="1" set="method" line="184" static="1">
 		<f a="this:m">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -13153,7 +13207,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformAll>
-	<transformRange public="1" set="method" line="191" static="1">
+	<transformRange public="1" set="method" line="192" static="1">
 		<f a="this:m:start:end">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -13163,7 +13217,17 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</transformRange>
-	<moveDelta get="inline" set="null" line="200" static="1">
+	<getTri3D public="1" get="inline" set="null" line="202" static="1">
+		<f a="this">
+			<x path="geom.flat.int.IntFlat9"/>
+			<x path="geom.obj.Tri3D"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":keep"/>
+		</meta>
+	</getTri3D>
+	<moveDelta get="inline" set="null" line="209" static="1">
 		<f a="this:dx:dy">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Int"/>
@@ -13172,11 +13236,11 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</moveDelta>
-	<sign public="1" get="inline" set="null" line="209" static="1"><f a="n">
+	<sign public="1" get="inline" set="null" line="218" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></sign>
-	<liteHit public="1" get="inline" set="null" line="214" static="1">
+	<liteHit public="1" get="inline" set="null" line="223" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Float"/>
@@ -13185,7 +13249,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</liteHit>
-	<fullHit public="1" set="method" line="222" static="1">
+	<fullHit public="1" set="method" line="231" static="1">
 		<f a="this:px:py">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Float"/>
@@ -13194,7 +13258,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</fullHit>
-	<rotate public="1" get="inline" set="null" line="227" static="1">
+	<rotate public="1" get="inline" set="null" line="236" static="1">
 		<f a="this:x:y:theta">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Float"/>
@@ -13204,7 +13268,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotate>
-	<rotateTrig public="1" get="inline" set="null" line="233" static="1">
+	<rotateTrig public="1" get="inline" set="null" line="242" static="1">
 		<f a="this:x:y:cos:sin">
 			<x path="geom.flat.int.IntFlat9"/>
 			<x path="Float"/>
@@ -13215,14 +13279,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</rotateTrig>
-	<prettyString public="1" get="inline" set="null" line="268" static="1">
+	<prettyString public="1" get="inline" set="null" line="277" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<c path="String"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</prettyString>
-	<prettyAll public="1" get="inline" set="null" line="274" static="1">
+	<prettyAll public="1" get="inline" set="null" line="283" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat9"/>
 			<c path="String"/>
@@ -13232,7 +13296,7 @@
 </class></impl>
 	</abstract>
 	<class path="geom.flat.int._IntFlatTriangle.IntFlatTriangle_Impl_" params="" file="src/geom/flat/int/IntFlatTriangle.hx" private="1" module="geom.flat.int.IntFlatTriangle">
-		<_new public="1" get="inline" set="null" line="8" static="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
 			<f a="len">
 				<x path="Int"/>
 				<x path="geom.flat.int.IntFlatTriangle"/>
@@ -13246,14 +13310,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</ax>
-		<get_ax set="method" line="12" static="1">
+		<get_ax set="method" line="13" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ax>
-		<set_ax set="method" line="15" static="1">
+		<set_ax set="method" line="16" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13265,14 +13329,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</ay>
-		<get_ay set="method" line="20" static="1">
+		<get_ay set="method" line="21" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_ay>
-		<set_ay set="method" line="23" static="1">
+		<set_ay set="method" line="24" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13284,14 +13348,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</az>
-		<get_az set="method" line="28" static="1">
+		<get_az set="method" line="29" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_az>
-		<set_az set="method" line="31" static="1">
+		<set_az set="method" line="32" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13303,14 +13367,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bx>
-		<get_bx set="method" line="36" static="1">
+		<get_bx set="method" line="37" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bx>
-		<set_bx set="method" line="39" static="1">
+		<set_bx set="method" line="40" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13322,14 +13386,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</by>
-		<get_by set="method" line="44" static="1">
+		<get_by set="method" line="45" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_by>
-		<set_by set="method" line="47" static="1">
+		<set_by set="method" line="48" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13341,14 +13405,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bz>
-		<get_bz set="method" line="52" static="1">
+		<get_bz set="method" line="53" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_bz>
-		<set_bz set="method" line="55" static="1">
+		<set_bz set="method" line="56" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13360,14 +13424,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cx>
-		<get_cx set="method" line="60" static="1">
+		<get_cx set="method" line="61" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cx>
-		<set_cx set="method" line="63" static="1">
+		<set_cx set="method" line="64" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13379,14 +13443,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cy>
-		<get_cy set="method" line="68" static="1">
+		<get_cy set="method" line="69" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cy>
-		<set_cy set="method" line="71" static="1">
+		<set_cy set="method" line="72" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13398,14 +13462,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</cz>
-		<get_cz set="method" line="76" static="1">
+		<get_cz set="method" line="77" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_cz>
-		<set_cz set="method" line="79" static="1">
+		<set_cz set="method" line="80" static="1">
 			<f a="this:v">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13413,7 +13477,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_cz>
-		<triangle public="1" set="method" line="84" static="1">
+		<triangle public="1" set="method" line="85" static="1">
 			<f a="this:ax_:ay_:az_:bx_:by_:bz_:cx_:cy_:cz_">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13432,7 +13496,7 @@
 				<m n=":keep"/>
 			</meta>
 		</triangle>
-		<adjustWinding public="1" set="method" line="108" static="1">
+		<adjustWinding public="1" set="method" line="109" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Bool"/>
@@ -13443,14 +13507,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</x>
-		<get_x get="inline" set="null" line="112" static="1">
+		<get_x get="inline" set="null" line="113" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_x>
-		<set_x get="inline" set="null" line="116" static="1">
+		<set_x get="inline" set="null" line="117" static="1">
 			<f a="this:x_">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13462,14 +13526,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</y>
-		<get_y get="inline" set="null" line="125" static="1">
+		<get_y get="inline" set="null" line="126" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_y>
-		<set_y get="inline" set="null" line="129" static="1">
+		<set_y get="inline" set="null" line="130" static="1">
 			<f a="this:y_">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13481,14 +13545,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</z>
-		<get_z get="inline" set="null" line="138" static="1">
+		<get_z get="inline" set="null" line="139" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_z>
-		<set_z get="inline" set="null" line="142" static="1">
+		<set_z get="inline" set="null" line="143" static="1">
 			<f a="this:z_">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13500,7 +13564,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</right>
-		<get_right get="inline" set="null" line="151" static="1">
+		<get_right get="inline" set="null" line="152" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13511,7 +13575,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</bottom>
-		<get_bottom get="inline" set="null" line="156" static="1">
+		<get_bottom get="inline" set="null" line="157" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13522,14 +13586,14 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</back>
-		<get_back get="inline" set="null" line="161" static="1">
+		<get_back get="inline" set="null" line="162" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</get_back>
-		<transform public="1" set="method" line="165" static="1">
+		<transform public="1" set="method" line="166" static="1">
 			<f a="this:m">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -13537,7 +13601,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transform>
-		<transformAll public="1" set="method" line="183" static="1">
+		<transformAll public="1" set="method" line="184" static="1">
 			<f a="this:m">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -13545,7 +13609,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformAll>
-		<transformRange public="1" set="method" line="191" static="1">
+		<transformRange public="1" set="method" line="192" static="1">
 			<f a="this:m:start:end">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="geom.matrix.Matrix4x3"/>
@@ -13555,7 +13619,17 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</transformRange>
-		<moveDelta get="inline" set="null" line="200" static="1">
+		<getTri3D public="1" get="inline" set="null" line="202" static="1">
+			<f a="this">
+				<x path="geom.flat.int.IntFlat9"/>
+				<x path="geom.obj.Tri3D"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":keep"/>
+			</meta>
+		</getTri3D>
+		<moveDelta get="inline" set="null" line="209" static="1">
 			<f a="this:dx:dy">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Int"/>
@@ -13564,11 +13638,11 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</moveDelta>
-		<sign public="1" get="inline" set="null" line="209" static="1"><f a="n">
+		<sign public="1" get="inline" set="null" line="218" static="1"><f a="n">
 	<x path="Float"/>
 	<x path="Float"/>
 </f></sign>
-		<liteHit public="1" get="inline" set="null" line="214" static="1">
+		<liteHit public="1" get="inline" set="null" line="223" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Float"/>
@@ -13577,7 +13651,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</liteHit>
-		<fullHit public="1" set="method" line="222" static="1">
+		<fullHit public="1" set="method" line="231" static="1">
 			<f a="this:px:py">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Float"/>
@@ -13586,7 +13660,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</fullHit>
-		<rotate public="1" get="inline" set="null" line="227" static="1">
+		<rotate public="1" get="inline" set="null" line="236" static="1">
 			<f a="this:x:y:theta">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Float"/>
@@ -13596,7 +13670,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotate>
-		<rotateTrig public="1" get="inline" set="null" line="233" static="1">
+		<rotateTrig public="1" get="inline" set="null" line="242" static="1">
 			<f a="this:x:y:cos:sin">
 				<x path="geom.flat.int.IntFlat9"/>
 				<x path="Float"/>
@@ -13607,14 +13681,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</rotateTrig>
-		<prettyString public="1" get="inline" set="null" line="268" static="1">
+		<prettyString public="1" get="inline" set="null" line="277" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<c path="String"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</prettyString>
-		<prettyAll public="1" get="inline" set="null" line="274" static="1">
+		<prettyAll public="1" get="inline" set="null" line="283" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat9"/>
 				<c path="String"/>

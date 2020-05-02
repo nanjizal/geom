@@ -1,5 +1,6 @@
 package geom.flat.float;
 import geom.flat.float.FloatFlat9;
+import geom.obj.Tri3D;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
 // effectively 2D with z coordinates for depth etc... at the moment.
@@ -114,6 +115,14 @@ abstract FloatFlatTriangle( FloatFlat9 ){
             transform( m );
             this.next();
         }
+    }
+    @:keep
+    public inline
+    function getTri3D(): Tri3D {
+        var pa = new Matrix1x4( { x: ax, y: ay, z: az, w: 1. } );
+        var pb = new Matrix1x4( { x: bx, y: by, z: bz, w: 1. } );
+        var pc = new Matrix1x4( { x: cx, y: cy, z: cz, w: 1. } );
+        return { a: pa, b: pb, c: pc };
     }
     @:keep
     public function triangle( ax_: Float, ay_: Float, az_: Float

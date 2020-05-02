@@ -2,6 +2,7 @@ package geom.flat.int;
 import geom.flat.int.IntFlat9;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
+import geom.obj.Tri3D;
 // effectively 2D with z coordinates for depth etc... at the moment.
 @:forward
 abstract IntFlatTriangle( IntFlat9 ){
@@ -197,6 +198,14 @@ abstract IntFlatTriangle( IntFlat9 ){
             this.next();
         }
     }  
+    @:keep
+    public inline
+    function getTri3D(): Tri3D {
+        var pa = new Matrix1x4( { x: ax, y: ay, z: az, w: 1. } );
+        var pb = new Matrix1x4( { x: bx, y: by, z: bz, w: 1. } );
+        var pc = new Matrix1x4( { x: cx, y: cy, z: cz, w: 1. } );
+        return { a: pa, b: pb, c: pc };
+    }
     inline
     function moveDelta( dx: Int, dy: Int ){
         ax += dx;

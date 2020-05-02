@@ -1,5 +1,6 @@
 package geom.flat.i32;
 import geom.flat.i32.Int32Flat9;
+import geom.obj.Tri3D;
 import geom.matrix.Matrix4x3;
 import geom.matrix.Matrix1x4;
 import geom.Numerical;
@@ -197,7 +198,15 @@ abstract Int32FlatTriangle( Int32Flat9 ){
             transform( m );
             this.next();
         }
-    }   
+    }
+    @:keep
+    public inline
+    function getTri3D(): Tri3D {
+        var pa = new Matrix1x4( { x: ax, y: ay, z: az, w: 1. } );
+        var pb = new Matrix1x4( { x: bx, y: by, z: bz, w: 1. } );
+        var pc = new Matrix1x4( { x: cx, y: cy, z: cz, w: 1. } );
+        return { a: pa, b: pb, c: pc };
+    }
     inline
     function moveDelta( dx: Int, dy: Int ){
         ax += dx;
