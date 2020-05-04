@@ -4,21 +4,20 @@ import geom.matrix.Matrix4x4;
 import geom.matrix.Matrix3x3;
 import geom.matrix.Matrix4x3;
 // Needs revisiting especially in relation to *, but also in relation to being similar but different to Matrix1x4
-// Untested
+// Notes
+// w	x	y	z	Description  
+//1	0	0	0	Identity quaternion, no rotation  
+//0	1	0	0	180° turn around X axis  
+//0	0	1	0	180° turn around Y axis  
+//0	0	0	1	180° turn around Z axis  
+//sqrt(0.5)	sqrt(0.5)	0	0	90° rotation around X axis  
+//sqrt(0.5)	0	sqrt(0.5)	0	90° rotation around Y axis  
+//sqrt(0.5)	0	0	sqrt(0.5)	90° rotation around Z axis  
+//sqrt(0.5)	-sqrt(0.5)	0	0	-90° rotation around X axis  
+//sqrt(0.5)	0	-sqrt(0.5)	0	-90° rotation around Y axis  
+//sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis  
 /**
-   { x, y, z, w }
-w	x	y	z	Description
-1	0	0	0	Identity quaternion, no rotation
-0	1	0	0	180° turn around X axis
-0	0	1	0	180° turn around Y axis
-0	0	0	1	180° turn around Z axis
-sqrt(0.5)	sqrt(0.5)	0	0	90° rotation around X axis
-sqrt(0.5)	0	sqrt(0.5)	0	90° rotation around Y axis
-sqrt(0.5)	0	0	sqrt(0.5)	90° rotation around Z axis
-sqrt(0.5)	-sqrt(0.5)	0	0	-90° rotation around X axis
-sqrt(0.5)	0	-sqrt(0.5)	0	-90° rotation around Y axis
-sqrt(0.5)	0	0	-sqrt(0.5)	-90° rotation around Z axis
-
+   { x, y, z, w }  
 **/
 @:forward
 abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.structure.Mat1x4 {
@@ -146,10 +145,12 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
 
         return new Quaternion({ x: x, y: y, z: z, w: w } ).normalize();
     }
-    
-    public inline 
-    function dot(){
-       return (((this.x * this.x) + (this.y * this.y)) + (this.z * this.z)) + (this.w * this.w);
+    // returns angle in radians
+    public inline
+    function getAngleAxis(): { axis: Matrix1x3, angle: Float } {
+        var sqrt = Math.sqrt(1 - this.w * this.w);
+        return { axis: new Matrix1x3({ x: this.x/sqrt, y: this.y/sqrt, z: this.z/sqrt })
+               , angle: 2*Math.acos( this.w ) };
     }
     /*
     public inline
@@ -220,6 +221,14 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
             magnitude;
         }
     }
+    public inline 
+    function dot(){
+       return (((this.x * this.x) + (this.y * this.y)) + (this.z * this.z)) + (this.w * this.w);
+    }
+    public inline
+    function dotProd( b: Quaternion ): Float {
+        return dotProduct( this, b );
+    }
     public static inline
     function dotProduct( a: Quaternion, b: Quaternion ):Float {
         return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
@@ -241,6 +250,22 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
             || Math.abs(a.z - b.z) >= delta
             || Math.abs(a.w - b.w) >= delta
         );
+    }
+    /**
+     * provides a distance measure between Quaternions between 1 ( Math.PI ) and 0 ( 0 );
+     */
+    public inline
+    function distanceZeroOne( q: Quaternion ): Float {
+        var dot_ = dotProd( q );
+        return 1 - dot_ * dot_;
+    }
+    /**
+     * angle in radians between to quaternions
+     */
+    public inline
+    function theta( q: Quaternion ): Float {
+        var d = dotProd( q );
+        return Math.acos( 2 * d * d - 1 );
     }
     /**
      * <pre><code>
@@ -326,6 +351,15 @@ abstract Quaternion( geom.structure.Mat1x4 ) from geom.structure.Mat1x4 to geom.
                             , z: -a.z
                             , w: -a.w 
                             } );
+    }
+    public inline
+    function invert(): Quaternion {
+        return inversion( this );
+    }
+    public static inline
+    function inversion( q1: Quaternion ): Quaternion {
+        var sqNorm = q1.magnitudeSquared();
+        return new Quaternion({ x: q1.x/-sqNorm, y: q1.y/-sqNorm, z: q1.z/-sqNorm, w: q1.w/sqNorm } );
     }
     @:op(A * B) public static inline
     function multiplyQ( q1: Quaternion, q2: Quaternion ):Quaternion {
