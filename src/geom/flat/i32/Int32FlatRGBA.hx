@@ -1,5 +1,6 @@
 package geom.flat.i32;
 import geom.flat.i32.Int32Flat4;
+import geom.obj.TriColors;
 // Not yet tested this version, colours may need some tweaking.
 @:forward
 abstract Int32FlatRGBA( Int32Flat4 ){
@@ -98,6 +99,16 @@ abstract Int32FlatRGBA( Int32Flat4 ){
         this.next();
         argb = colorC;
         this.next();
+    }
+    public inline
+    function getTriColors(): TriColors {
+        var a = argb;
+        this.next();
+        var b = argb;
+        this.next();
+        var c = argb;
+        this.next();
+        return new TriColors({ a: a, b: b, c: c });
     }
     public inline
     function hex(): String {

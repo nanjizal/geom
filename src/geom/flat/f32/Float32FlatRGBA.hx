@@ -1,5 +1,6 @@
 package geom.flat.f32;
 import geom.flat.f32.Float32Flat4;
+import geom.obj.TriColors;
 @:forward
 abstract Float32FlatRGBA( Float32Flat4 ){
     public inline
@@ -98,6 +99,16 @@ abstract Float32FlatRGBA( Float32Flat4 ){
         this.next();
         argb = colorC;
         this.next();
+    }
+    public inline
+    function getTriColors(): TriColors {
+        var a = argb;
+        this.next();
+        var b = argb;
+        this.next();
+        var c = argb;
+        this.next();
+        return new TriColors({ a: a, b: b, c: c });
     }
     public inline
     function hex(): String {
