@@ -158,11 +158,13 @@ abstract DualQuaternion( DualQ ) from geom.structure.DualQ to geom.structure.Dua
         q = q * ~this.real;
         return new Matrix1x4({ x: q.x, y: q.y, z: q.z, w: 1. });
     }
+    
     @:op(A * B) public static inline
     function multiplyQ( q1: DualQuaternion, q2: DualQuaternion ):DualQuaternion {
         return new DualQuaternion({ real: q2.real * q1.real
-                                  , dual: q2.dual * q1.real + q1.dual * q2.real });
+                                  , dual: q2.dual * q1.real + q2.real * q1.dual });
     }
+    
     @:to public inline
     function toMatrix4x3(): Matrix4x3 {
         var q = normalize();

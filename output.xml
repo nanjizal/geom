@@ -3761,11 +3761,7 @@
 	<getTriColors public="1" get="inline" set="null" line="103" static="1">
 		<f a="this">
 			<x path="geom.flat.f32.Float32Flat4"/>
-			<a>
-				<c><x path="Int"/></c>
-				<b><x path="Int"/></b>
-				<a><x path="Int"/></a>
-			</a>
+			<x path="geom.obj.TriColors"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTriColors>
@@ -3971,11 +3967,7 @@
 		<getTriColors public="1" get="inline" set="null" line="103" static="1">
 			<f a="this">
 				<x path="geom.flat.f32.Float32Flat4"/>
-				<a>
-					<c><x path="Int"/></c>
-					<b><x path="Int"/></b>
-					<a><x path="Int"/></a>
-				</a>
+				<x path="geom.obj.TriColors"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTriColors>
@@ -7197,11 +7189,7 @@
 	<getTriColors public="1" get="inline" set="null" line="103" static="1">
 		<f a="this">
 			<x path="geom.flat.float.FloatFlat4"/>
-			<a>
-				<c><x path="Int"/></c>
-				<b><x path="Int"/></b>
-				<a><x path="Int"/></a>
-			</a>
+			<x path="geom.obj.TriColors"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTriColors>
@@ -7407,11 +7395,7 @@
 		<getTriColors public="1" get="inline" set="null" line="103" static="1">
 			<f a="this">
 				<x path="geom.flat.float.FloatFlat4"/>
-				<a>
-					<c><x path="Int"/></c>
-					<b><x path="Int"/></b>
-					<a><x path="Int"/></a>
-				</a>
+				<x path="geom.obj.TriColors"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTriColors>
@@ -9963,11 +9947,7 @@
 	<getTriColors public="1" get="inline" set="null" line="103" static="1">
 		<f a="this">
 			<x path="geom.flat.i32.Int32Flat4"/>
-			<a>
-				<c><x path="Int"/></c>
-				<b><x path="Int"/></b>
-				<a><x path="Int"/></a>
-			</a>
+			<x path="geom.obj.TriColors"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTriColors>
@@ -10173,11 +10153,7 @@
 		<getTriColors public="1" get="inline" set="null" line="103" static="1">
 			<f a="this">
 				<x path="geom.flat.i32.Int32Flat4"/>
-				<a>
-					<c><x path="Int"/></c>
-					<b><x path="Int"/></b>
-					<a><x path="Int"/></a>
-				</a>
+				<x path="geom.obj.TriColors"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTriColors>
@@ -12729,11 +12705,7 @@
 	<getTriColors public="1" get="inline" set="null" line="103" static="1">
 		<f a="this">
 			<x path="geom.flat.int.IntFlat4"/>
-			<a>
-				<c><x path="Int"/></c>
-				<b><x path="Int"/></b>
-				<a><x path="Int"/></a>
-			</a>
+			<x path="geom.obj.TriColors"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTriColors>
@@ -12939,11 +12911,7 @@
 		<getTriColors public="1" get="inline" set="null" line="103" static="1">
 			<f a="this">
 				<x path="geom.flat.int.IntFlat4"/>
-				<a>
-					<c><x path="Int"/></c>
-					<b><x path="Int"/></b>
-					<a><x path="Int"/></a>
-				</a>
+				<x path="geom.obj.TriColors"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTriColors>
@@ -17852,7 +17820,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</getTranslation>
-	<multiplyQ public="1" get="inline" set="null" line="161" static="1">
+	<multiplyQ public="1" get="inline" set="null" line="162" static="1">
 		<f a="q1:q2">
 			<x path="geom.matrix.DualQuaternion"/>
 			<x path="geom.matrix.DualQuaternion"/>
@@ -17860,7 +17828,7 @@
 		</f>
 		<meta><m n=":op"><e>A * B</e></m></meta>
 	</multiplyQ>
-	<toMatrix4x3 public="1" get="inline" set="null" line="166" static="1">
+	<toMatrix4x3 public="1" get="inline" set="null" line="168" static="1">
 		<f a="this">
 			<c path="geom.structure.DualQ"/>
 			<x path="geom.matrix.Matrix4x3"/>
@@ -18050,7 +18018,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</getTranslation>
-		<multiplyQ public="1" get="inline" set="null" line="161" static="1">
+		<multiplyQ public="1" get="inline" set="null" line="162" static="1">
 			<f a="q1:q2">
 				<x path="geom.matrix.DualQuaternion"/>
 				<x path="geom.matrix.DualQuaternion"/>
@@ -18058,7 +18026,7 @@
 			</f>
 			<meta><m n=":op"><e>A * B</e></m></meta>
 		</multiplyQ>
-		<toMatrix4x3 public="1" get="inline" set="null" line="166" static="1">
+		<toMatrix4x3 public="1" get="inline" set="null" line="168" static="1">
 			<f a="this">
 				<c path="geom.structure.DualQ"/>
 				<x path="geom.matrix.Matrix4x3"/>
