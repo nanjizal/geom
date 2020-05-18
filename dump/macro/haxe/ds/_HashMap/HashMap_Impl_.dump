@@ -1,0 +1,60 @@
+private class haxe.ds._HashMap.HashMap_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new() {
+		var this;
+		this = new haxe.ds._HashMap.HashMapData();
+		return cast this;
+	}
+
+	@:impl @:arrayAccess
+	public static inline function set(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>, k:haxe.ds.HashMap.K, v:haxe.ds.HashMap.V) {
+		this.keys.set(k.hashCode(), k);
+		this.values.set(k.hashCode(), v);
+	}
+
+	@:impl @:arrayAccess
+	public static inline function get(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>, k:haxe.ds.HashMap.K) {
+		return this.values.get(k.hashCode());
+	}
+
+	@:impl
+	public static inline function exists(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>, k:haxe.ds.HashMap.K) {
+		return this.values.exists(k.hashCode());
+	}
+
+	@:impl
+	public static inline function remove(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>, k:haxe.ds.HashMap.K) {
+		this.values.remove(k.hashCode());
+		return this.keys.remove(k.hashCode());
+	}
+
+	@:impl
+	public static inline function keys(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>) {
+		return this.keys.iterator();
+	}
+
+	@:impl
+	public static function copy(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>) {
+		var copied = new haxe.ds._HashMap.HashMapData();
+		copied.keys = this.keys.copy();
+		copied.values = this.values.copy();
+		return cast copied;
+	}
+
+	@:impl
+	public static inline function iterator(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>) {
+		return this.values.iterator();
+	}
+
+	@:impl
+	public static inline function keyValueIterator(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>) {
+		return new haxe.iterators.HashMapKeyValueIterator(cast this);
+	}
+
+	@:impl
+	public static inline function clear(this:haxe.ds._HashMap.HashMapData<haxe.ds.HashMap.K, haxe.ds.HashMap.V>) {
+		this.keys.clear();
+		this.values.clear();
+	}
+}

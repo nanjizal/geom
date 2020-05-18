@@ -1,0 +1,89 @@
+@:used
+private class geom.constraints._Interval.Interval_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new(interval:geom.structure.Range) {
+		var this = interval;
+		return cast this;
+	}
+
+	@:impl
+	public static inline function valid(this:geom.structure.Range) {
+		return this.u > this.l;
+	}
+
+	@:impl
+	public static inline function fix(this:geom.structure.Range) {
+		if ((! (cast this.u > cast this.l))) {
+			var l = this.u;
+			this.u = this.l;
+			this.l = l;
+		};
+	}
+
+	@:impl
+	public static inline function clampClosed(this:geom.structure.Range, v:Float) {
+		if ((v <= this.l)) return this.l else if ((v >= this.u)) return this.u else return v;
+	}
+
+	@:impl
+	public static inline function clampOpen(this:geom.structure.Range, v:Float) {
+		if ((v < cast this.l)) return this.l else if ((v > cast this.u)) return this.u else return v;
+	}
+
+	@:value({ delta : 0.00001 }) @:impl
+	public static inline function close(this:geom.structure.Range, v:Float, delta:Float = 0.00001) {
+		var interval = new geom.structure.Range(this.u + delta, this.l - delta);
+		return v == (if ((v <= cast interval.l)) cast interval.l else if ((v >= cast interval.u)) cast interval.u else v);
+	}
+
+	@:impl
+	public static inline function above(this:geom.structure.Range, v:Float) {
+		return v > this.u;
+	}
+
+	@:impl
+	public static inline function below(this:geom.structure.Range, v:Float) {
+		return v < this.l;
+	}
+
+	@:impl
+	public static inline function inClampOpen(this:geom.structure.Range, v:Float) {
+		return v == (if ((v < cast this.l)) cast this.l else if ((v > cast this.u)) cast this.u else v);
+	}
+
+	@:impl
+	public static inline function inClampClosed(this:geom.structure.Range, v:Float) {
+		return v == (if ((v <= cast this.l)) cast this.l else if ((v >= cast this.u)) cast this.u else v);
+	}
+
+	public static inline function unit(v:Float) {
+		var interval = new geom.structure.Range(1., 0.);
+		if ((v <= cast interval.l)) return cast interval.l else if ((v >= cast interval.u)) return cast interval.u else return v;
+	}
+
+	public static inline function unitFloat(v:Float) {
+		var interval = new geom.structure.Range(1., -1.);
+		if ((v <= cast interval.l)) return cast interval.l else if ((v >= cast interval.u)) return cast interval.u else return v;
+	}
+
+	public static inline function unitNegative(v:Float) {
+		var interval = new geom.structure.Range(1., -1.);
+		if ((v <= cast interval.l)) return cast interval.l else if ((v >= cast interval.u)) return cast interval.u else return v;
+	}
+
+	public static inline function inUnitFloat(v:Float) {
+		var interval = new geom.structure.Range(1., -1.);
+		return v == (if ((v <= cast interval.l)) cast interval.l else if ((v >= cast interval.u)) cast interval.u else v);
+	}
+
+	@:impl
+	public static inline function random(this:geom.structure.Range) {
+		return Math.random() * (this.u - this.l) + this.l;
+	}
+
+	@:impl
+	public static inline function randomInt(this:geom.structure.Range) {
+		return Math.round(Math.random() * (cast this.u - cast this.l) + cast this.l);
+	}
+}

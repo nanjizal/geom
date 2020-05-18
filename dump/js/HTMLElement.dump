@@ -1,0 +1,9 @@
+@:realPath("js.html.Element") @:used @:native("HTMLElement")
+extern class HTMLElement extends Element {
+
+	function click():Void;
+
+	function focus():Void;
+
+	function blur():Void;
+}

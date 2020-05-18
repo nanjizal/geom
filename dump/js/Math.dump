@@ -1,0 +1,60 @@
+@:keep @:directlyUsed @:used @:keepInit
+extern class Math {
+
+	static var PI(default,null):Float;
+
+	@:pure
+	static function abs(v:Float):Float;
+
+	@:pure
+	static function acos(v:Float):Float;
+
+	@:pure
+	static function asin(v:Float):Float;
+
+	@:pure
+	static function atan(v:Float):Float;
+
+	@:pure
+	static function atan2(y:Float, x:Float):Float;
+
+	@:pure
+	static function ceil(v:Float):Int;
+
+	@:pure
+	static function cos(v:Float):Float;
+
+	@:pure
+	static function exp(v:Float):Float;
+
+	@:pure
+	static function floor(v:Float):Int;
+
+	@:pure
+	static function log(v:Float):Float;
+
+	@:pure
+	static function max(a:Float, b:Float):Float;
+
+	@:pure
+	static function min(a:Float, b:Float):Float;
+
+	@:pure
+	static function pow(v:Float, exp:Float):Float;
+
+	static function random():Float;
+
+	@:pure
+	static function round(v:Float):Int;
+
+	@:pure
+	static function sin(v:Float):Float;
+
+	@:pure
+	static function sqrt(v:Float):Float;
+
+	@:pure
+	static function tan(v:Float):Float;
+
+	static function __init__() __feature__("Type.resolveClass", $hxClasses["Math"] = Math)
+}

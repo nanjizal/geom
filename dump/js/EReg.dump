@@ -1,0 +1,16 @@
+@:keep @:directlyUsed @:used @:coreApi
+class EReg {
+
+	public function new(r:String, opt:String) {
+		this.r = new RegExp(r, opt.split("u").join(""));
+	}
+
+	var r:RegExp;
+
+	public function match(s:String) {
+		if ((this.r.global)) this.r.lastIndex = 0;
+		this.r.m = this.r.exec(s);
+		this.r.s = s;
+		return this.r.m != null;
+	}
+}

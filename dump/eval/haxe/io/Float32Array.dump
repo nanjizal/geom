@@ -1,0 +1,2 @@
+@:used
+abstract haxe.io.Float32Array {}

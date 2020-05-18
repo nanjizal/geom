@@ -1,0 +1,5 @@
+@:realPath("js.html.DivElement") @:native("HTMLDivElement")
+extern class HTMLDivElement extends HTMLElement {
+
+	var align:String;
+}

@@ -1,0 +1,15 @@
+@:realPath("js.html.TableColElement") @:native("HTMLTableColElement")
+extern class HTMLTableColElement extends HTMLElement {
+
+	var span:Int;
+
+	var align:String;
+
+	var ch:String;
+
+	var chOff:String;
+
+	var vAlign:String;
+
+	var width:String;
+}

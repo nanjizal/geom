@@ -1,0 +1,1 @@
+typedef geom.tydef.Tmatrix4x4 = { p : Float, o : Float, n : Float, m : Float, l : Float, k : Float, j : Float, i : Float, h : Float, g : Float, f : Float, e : Float, d : Float, c : Float, b : Float, a : Float }

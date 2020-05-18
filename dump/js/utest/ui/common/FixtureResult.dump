@@ -1,0 +1,94 @@
+@:directlyUsed @:used
+class utest.ui.common.FixtureResult {
+
+	public function new(methodName:String) {
+		this.methodName = methodName;
+		this.list = new haxe.ds.List();
+		this.hasTestError = false;
+		this.hasSetupError = false;
+		this.hasTeardownError = false;
+		this.hasTimeoutError = false;
+		this.hasAsyncError = false;
+		this.stats = new utest.ui.common.ResultStats();
+	}
+
+	public var methodName(default,null):String;
+
+	public var hasTestError(default,null):Bool;
+
+	public var hasSetupError(default,null):Bool;
+
+	public var hasTeardownError(default,null):Bool;
+
+	public var hasTimeoutError(default,null):Bool;
+
+	public var hasAsyncError(default,null):Bool;
+
+	public var stats(default,null):utest.ui.common.ResultStats;
+
+	var list(default,null):List<utest.Assertation>;
+
+	public function iterator() {
+		return this.list.iterator();
+	}
+
+	public function add(assertation:utest.Assertation) {
+		this.list.add(assertation);
+		switch ((@:exhaustive enumIndex assertation)) {
+			case 0: {
+				var _g = assertation[0];
+				this.stats.addSuccesses(1);
+			};
+			case 1: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				this.stats.addFailures(1);
+			};
+			case 2: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				this.stats.addErrors(1);
+			};
+			case 3: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				{
+					this.stats.addErrors(1);
+					this.hasSetupError = true;
+				};
+			};
+			case 4: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				{
+					this.stats.addErrors(1);
+					this.hasTeardownError = true;
+				};
+			};
+			case 5: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				{
+					this.stats.addErrors(1);
+					this.hasTimeoutError = true;
+				};
+			};
+			case 6: {
+				var _g = assertation[1];
+				var _g = assertation[0];
+				{
+					this.stats.addErrors(1);
+					this.hasAsyncError = true;
+				};
+			};
+			case 7: {
+				var _g = assertation[0];
+				this.stats.addWarnings(1);
+			};
+			case 8: {
+				var _g = assertation[0];
+				this.stats.addIgnores(1);
+			};
+		};
+	}
+}

@@ -1,0 +1,1 @@
+typedef js.html.EventListener = { handleEvent : (event : Event) -> Void }

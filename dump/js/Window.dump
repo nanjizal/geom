@@ -1,0 +1,476 @@
+@:realPath("js.html.Window") @:used @:native("Window")
+extern class Window extends EventTarget {
+
+	var window(default,null):Window;
+
+	var self(default,null):Window;
+
+	var document(default,null):HTMLDocument;
+
+	var name:String;
+
+	var location(default,null):Location;
+
+	var history(default,null):History;
+
+	var locationbar(default,null):BarProp;
+
+	var menubar(default,null):BarProp;
+
+	var personalbar(default,null):BarProp;
+
+	var scrollbars(default,null):BarProp;
+
+	var statusbar(default,null):BarProp;
+
+	var toolbar(default,null):BarProp;
+
+	var status:String;
+
+	var closed(default,null):Bool;
+
+	var event(default,null):Dynamic;
+
+	var frames(default,null):Window;
+
+	var length(default,null):Int;
+
+	var top(default,null):Window;
+
+	var opener:Dynamic;
+
+	var parent(default,null):Window;
+
+	var frameElement(default,null):HTMLElement;
+
+	var navigator(default,null):Navigator;
+
+	var console(default,null):js.html.ConsoleInstance;
+
+	var screen(default,null):Screen;
+
+	var innerWidth:Dynamic;
+
+	var innerHeight:Dynamic;
+
+	var scrollX(default,null):Float;
+
+	var pageXOffset(default,null):Float;
+
+	var scrollY(default,null):Float;
+
+	var pageYOffset(default,null):Float;
+
+	var screenX:Dynamic;
+
+	var screenY:Dynamic;
+
+	var outerWidth:Dynamic;
+
+	var outerHeight:Dynamic;
+
+	var performance(default,null):Performance;
+
+	var devicePixelRatio(default,null):Float;
+
+	var scrollMaxX(default,null):Int;
+
+	var scrollMaxY(default,null):Int;
+
+	var fullScreen:Bool;
+
+	var ondevicemotion:haxe.Function;
+
+	var ondeviceorientation:haxe.Function;
+
+	var onabsolutedeviceorientation:haxe.Function;
+
+	var ondeviceproximity:haxe.Function;
+
+	var onuserproximity:haxe.Function;
+
+	var ondevicelight:haxe.Function;
+
+	var content(default,null):Dynamic;
+
+	var orientation(default,null):Int;
+
+	var onorientationchange:haxe.Function;
+
+	var crypto(default,null):Crypto;
+
+	var onabort:haxe.Function;
+
+	var onblur:haxe.Function;
+
+	var onfocus:haxe.Function;
+
+	var onauxclick:haxe.Function;
+
+	var oncanplay:haxe.Function;
+
+	var oncanplaythrough:haxe.Function;
+
+	var onchange:haxe.Function;
+
+	var onclick:haxe.Function;
+
+	var onclose:haxe.Function;
+
+	var oncontextmenu:haxe.Function;
+
+	var ondblclick:haxe.Function;
+
+	var ondrag:haxe.Function;
+
+	var ondragend:haxe.Function;
+
+	var ondragenter:haxe.Function;
+
+	var ondragexit:haxe.Function;
+
+	var ondragleave:haxe.Function;
+
+	var ondragover:haxe.Function;
+
+	var ondragstart:haxe.Function;
+
+	var ondrop:haxe.Function;
+
+	var ondurationchange:haxe.Function;
+
+	var onemptied:haxe.Function;
+
+	var onended:haxe.Function;
+
+	var oninput:haxe.Function;
+
+	var oninvalid:haxe.Function;
+
+	var onkeydown:haxe.Function;
+
+	var onkeypress:haxe.Function;
+
+	var onkeyup:haxe.Function;
+
+	var onload:haxe.Function;
+
+	var onloadeddata:haxe.Function;
+
+	var onloadedmetadata:haxe.Function;
+
+	var onloadend:haxe.Function;
+
+	var onloadstart:haxe.Function;
+
+	var onmousedown:haxe.Function;
+
+	var onmouseenter:haxe.Function;
+
+	var onmouseleave:haxe.Function;
+
+	var onmousemove:haxe.Function;
+
+	var onmouseout:haxe.Function;
+
+	var onmouseover:haxe.Function;
+
+	var onmouseup:haxe.Function;
+
+	var onwheel:haxe.Function;
+
+	var onpause:haxe.Function;
+
+	var onplay:haxe.Function;
+
+	var onplaying:haxe.Function;
+
+	var onprogress:haxe.Function;
+
+	var onratechange:haxe.Function;
+
+	var onreset:haxe.Function;
+
+	var onresize:haxe.Function;
+
+	var onscroll:haxe.Function;
+
+	var onseeked:haxe.Function;
+
+	var onseeking:haxe.Function;
+
+	var onselect:haxe.Function;
+
+	var onshow:haxe.Function;
+
+	var onstalled:haxe.Function;
+
+	var onsubmit:haxe.Function;
+
+	var onsuspend:haxe.Function;
+
+	var ontimeupdate:haxe.Function;
+
+	var onvolumechange:haxe.Function;
+
+	var onwaiting:haxe.Function;
+
+	var onselectstart:haxe.Function;
+
+	var ontoggle:haxe.Function;
+
+	var onpointercancel:haxe.Function;
+
+	var onpointerdown:haxe.Function;
+
+	var onpointerup:haxe.Function;
+
+	var onpointermove:haxe.Function;
+
+	var onpointerout:haxe.Function;
+
+	var onpointerover:haxe.Function;
+
+	var onpointerenter:haxe.Function;
+
+	var onpointerleave:haxe.Function;
+
+	var ongotpointercapture:haxe.Function;
+
+	var onlostpointercapture:haxe.Function;
+
+	var onanimationcancel:haxe.Function;
+
+	var onanimationend:haxe.Function;
+
+	var onanimationiteration:haxe.Function;
+
+	var onanimationstart:haxe.Function;
+
+	var ontransitioncancel:haxe.Function;
+
+	var ontransitionend:haxe.Function;
+
+	var ontransitionrun:haxe.Function;
+
+	var ontransitionstart:haxe.Function;
+
+	var onwebkitanimationend:haxe.Function;
+
+	var onwebkitanimationiteration:haxe.Function;
+
+	var onwebkitanimationstart:haxe.Function;
+
+	var onwebkittransitionend:haxe.Function;
+
+	var onerror:(haxe.extern.EitherType<Event, String>, String, Int, Int, Dynamic) -> Dynamic;
+
+	var speechSynthesis(default,null):SpeechSynthesis;
+
+	var ontouchstart:haxe.Function;
+
+	var ontouchend:haxe.Function;
+
+	var ontouchmove:haxe.Function;
+
+	var ontouchcancel:haxe.Function;
+
+	var onafterprint:haxe.Function;
+
+	var onbeforeprint:haxe.Function;
+
+	var onbeforeunload:Event -> Null<String>;
+
+	var onhashchange:haxe.Function;
+
+	var onlanguagechange:haxe.Function;
+
+	var onmessage:haxe.Function;
+
+	var onmessageerror:haxe.Function;
+
+	var onoffline:haxe.Function;
+
+	var ononline:haxe.Function;
+
+	var onpagehide:haxe.Function;
+
+	var onpageshow:haxe.Function;
+
+	var onpopstate:haxe.Function;
+
+	var onstorage:haxe.Function;
+
+	var onunload:haxe.Function;
+
+	var localStorage(default,null):Storage;
+
+	var origin(default,null):String;
+
+	var isSecureContext(default,null):Bool;
+
+	var indexedDB(default,null):IDBFactory;
+
+	var caches(default,null):CacheStorage;
+
+	var sessionStorage(default,null):Storage;
+
+	function close():Void;
+
+	function stop():Void;
+
+	function focus():Void;
+
+	function blur():Void;
+
+	@:value({ features : "", target : "", url : "" })
+	function open(url:String, target:String, features:String):Window;
+
+	function alert(message:String):Void;
+
+	function alert():Void;
+
+	@:value({ message : "" })
+	function confirm(message:String):Bool;
+
+	@:value({ default_ : "", message : "" })
+	function prompt(message:String, default_:String):String;
+
+	function print():Void;
+
+	function postMessage(message:Dynamic, targetOrigin:String, transfer:Null<Array<Dynamic>>):Void;
+
+	function captureEvents():Void;
+
+	function releaseEvents():Void;
+
+	function getSelection():Selection;
+
+	@:value({ pseudoElt : "" })
+	function getComputedStyle(elt:HTMLElement, pseudoElt:String):CSSStyleDeclaration;
+
+	function matchMedia(query:String):MediaQueryList;
+
+	function moveTo(x:Int, y:Int):Void;
+
+	function moveBy(x:Int, y:Int):Void;
+
+	function resizeTo(x:Int, y:Int):Void;
+
+	function resizeBy(x:Int, y:Int):Void;
+
+	function scroll(options:Null<js.html.ScrollToOptions>):Void;
+
+	function scroll(x:Float, y:Float):Void;
+
+	function scrollTo(options:Null<js.html.ScrollToOptions>):Void;
+
+	function scrollTo(x:Float, y:Float):Void;
+
+	function scrollBy(options:Null<js.html.ScrollToOptions>):Void;
+
+	function scrollBy(x:Float, y:Float):Void;
+
+	function requestAnimationFrame(callback:Float -> Void):Int;
+
+	function cancelAnimationFrame(handle:Int):Void;
+
+	@:value({ pseudoElt : "" })
+	function getDefaultComputedStyle(elt:HTMLElement, pseudoElt:String):CSSStyleDeclaration;
+
+	function scrollByLines(numLines:Int, options:Null<js.html.ScrollOptions>):Void;
+
+	function scrollByPages(numPages:Int, options:Null<js.html.ScrollOptions>):Void;
+
+	function sizeToContent():Void;
+
+	@:value({ reason : 0 })
+	function updateCommands(action:String, sel:Null<Selection>, reason:Int):Void;
+
+	@:value({ showDialog : false, searchInFrames : false, wholeWord : false, wrapAround : false, backwards : false, caseSensitive : false, str : "" })
+	function find(str:String, caseSensitive:Bool, backwards:Bool, wrapAround:Bool, wholeWord:Bool, searchInFrames:Bool, showDialog:Bool):Bool;
+
+	function dump(str:String):Void;
+
+	function setResizable(resizable:Bool):Void;
+
+	function btoa(btoa:String):String;
+
+	function atob(atob:String):String;
+
+	@:value({ timeout : 0 })
+	function setTimeout(handler:String, timeout:Float, unused:haxe.extern.Rest<Dynamic>):Int;
+
+	@:value({ timeout : 0 })
+	function setTimeout(handler:haxe.Function, timeout:Float, arguments:haxe.extern.Rest<Dynamic>):Int;
+
+	@:value({ handle : 0 })
+	function clearTimeout(handle:Int):Void;
+
+	@:value({ timeout : 0 })
+	function setInterval(handler:String, timeout:Float, unused:haxe.extern.Rest<Dynamic>):Int;
+
+	@:value({ timeout : 0 })
+	function setInterval(handler:haxe.Function, timeout:Float, arguments:haxe.extern.Rest<Dynamic>):Int;
+
+	@:value({ handle : 0 })
+	function clearInterval(handle:Int):Void;
+
+	function createImageBitmap(aImage:HTMLImageElement, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLVideoElement):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLCanvasElement):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:Blob):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageData):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:CanvasRenderingContext2D):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageBitmap):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:js.lib.ArrayBufferView):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ArrayBuffer):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLVideoElement, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLCanvasElement, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:Blob, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageData, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:CanvasRenderingContext2D, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageBitmap, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:js.lib.ArrayBufferView, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ArrayBuffer, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLVideoElement, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLCanvasElement, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:Blob, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageData, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:CanvasRenderingContext2D, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ImageBitmap, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:js.lib.ArrayBufferView, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:ArrayBuffer, aOffset:Int, aLength:Int, aFormat:js.html.ImageBitmapFormat, aLayout:Array<js.html.ChannelPixelLayout>):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLImageElement):Promise<ImageBitmap>;
+
+	function createImageBitmap(aImage:HTMLImageElement, aSx:Int, aSy:Int, aSw:Int, aSh:Int):Promise<ImageBitmap>;
+
+	function fetch(input:Request, init:Null<js.html.RequestInit>):Promise<Response>;
+
+	function fetch(input:String, init:Null<js.html.RequestInit>):Promise<Response>;
+}

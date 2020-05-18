@@ -1,0 +1,35 @@
+@:realPath("js.html.FontFaceSet") @:native("FontFaceSet")
+extern class FontFaceSet extends EventTarget {
+
+	var size(default,null):Int;
+
+	var onloading:haxe.Function;
+
+	var onloadingdone:haxe.Function;
+
+	var onloadingerror:haxe.Function;
+
+	var ready(default,null):Promise<Void>;
+
+	var status(default,null):js.html.FontFaceSetLoadStatus;
+
+	function add(font:FontFace):Void;
+
+	function has(font:FontFace):Bool;
+
+	function delete(font:FontFace):Bool;
+
+	function clear():Void;
+
+	function entries():js.html.FontFaceSetIterator;
+
+	function values():js.html.FontFaceSetIterator;
+
+	function forEach(cb:(FontFace, FontFace, FontFaceSet) -> Void, thisArg:Null<Dynamic>):Void;
+
+	@:value({ text : " " })
+	function load(font:String, text:String):Promise<Array<FontFace>>;
+
+	@:value({ text : " " })
+	function check(font:String, text:String):Bool;
+}

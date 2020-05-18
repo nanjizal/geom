@@ -1,0 +1,1 @@
+typedef hscript.Metadata = Array<{ params : Array<hscript.Expr>, name : String }>

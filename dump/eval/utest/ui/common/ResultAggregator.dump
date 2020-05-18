@@ -1,0 +1,125 @@
+@:directlyUsed @:used
+class utest.ui.common.ResultAggregator {
+
+	@:value({ flattenPackage : false })
+	public function new(runner:utest.Runner, flattenPackage:Bool = false) {
+		if ((runner == null)) throw haxe.Exception.thrown("runner argument is null");
+		this.flattenPackage = flattenPackage;
+		this.runner = runner;
+		runner.onStart.add(this.start);
+		runner.onProgress.add(this.progress);
+		runner.onComplete.add(this.complete);
+		this.onStart = new utest.Notifier();
+		this.onComplete = new utest.Dispatcher();
+		this.onProgress = new utest.Dispatcher();
+	}
+
+	var runner:utest.Runner;
+
+	var flattenPackage:Bool;
+
+	public var root(default,null):utest.ui.common.PackageResult;
+
+	public var onStart(default,null):utest.Notifier;
+
+	public var onComplete(default,null):utest.Dispatcher<utest.ui.common.PackageResult>;
+
+	public var onProgress(default,null):utest.Dispatcher<{ totals : Int, done : Int }>;
+
+	function start(runner:utest.Runner) {
+		this.checkNonITest();
+		this.root = new utest.ui.common.PackageResult(null);
+		this.onStart.dispatch();
+	}
+
+	function checkNonITest() {
+		var first = null;
+		var total = 0;
+		{
+			var ` = 0;
+			var `1 = this.runner.length;
+			while ((` < `1)) {
+				var i = ` ++;
+				var fixture = this.runner.getFixture(i);
+				if ((! fixture.isITest)) {
+					++ total;
+					if ((first == null)) first = Type.getClassName(Type.getClass(fixture.target));
+				};
+			};
+		};
+		if ((total > 0)) {
+			var baseMsg = "implement utest.ITest. Non-ITest tests are deprecated. Implement utest.ITest or extend utest.Test.";
+			var msg;
+			switch ((total)) {
+				case 1: msg = "" + first + " doesn't " + baseMsg;
+				case 2: msg = "" + first + " and 1 other don't " + baseMsg;
+				default: msg = "" + first + " and " + total + " others don't " + baseMsg
+			};
+			haxe.Log.trace(msg, {fileName : "utest/ui/common/ResultAggregator.hx", lineNumber : 54, className : "utest.ui.common.ResultAggregator", methodName : "checkNonITest"});
+		};
+	}
+
+	function getOrCreatePackage(pack:String, flat:Bool, ref:Null<utest.ui.common.PackageResult> = null) {
+		if ((ref == null)) ref = this.root;
+		if ((pack == null || pack == "")) return ref;
+		if ((flat)) {
+			if ((ref.existsPackage(pack))) return ref.getPackage(pack);
+			var p = new utest.ui.common.PackageResult(pack);
+			ref.addPackage(p);
+			return p;
+		} else {
+			var parts = pack.split(".");
+			{
+				var ` = 0;
+				while ((` < parts.length)) {
+					var part = parts[`];
+					++ `;
+					ref = this.getOrCreatePackage(part, true, ref);
+				};
+			};
+			return ref;
+		};
+	}
+
+	function getOrCreateClass(pack:utest.ui.common.PackageResult, cls:String, setup:String, teardown:String) {
+		if ((pack.existsClass(cls))) return pack.getClass(cls);
+		var c = new utest.ui.common.ClassResult(cls, setup, teardown);
+		pack.addClass(c);
+		return c;
+	}
+
+	function createFixture(result:utest.TestResult) {
+		var f = new utest.ui.common.FixtureResult(result.method);
+		{
+			var `_head = result.assertations.h;
+			while ((`_head != null)) {
+				var val = `_head.item;
+				`_head = `_head.next;
+				var assertation = val;
+				f.add(assertation);
+			};
+		};
+		return f;
+	}
+
+	function progress(e:{ totals : Int, result : utest.TestResult, done : Int }) {
+		this.root.addResult(e.result, this.flattenPackage);
+		this.onProgress.dispatch(e);
+	}
+
+	function complete(runner:utest.Runner) {
+		if ((this.root.isEmpty)) this.root.addResult(this.createNoTestsResult(), false);
+		this.onComplete.dispatch(this.root);
+	}
+
+	function createNoTestsResult() {
+		var result = new utest.TestResult();
+		result.pack = "";
+		result.cls = "";
+		result.method = "";
+		result.assertations = new haxe.ds.List();
+		var pos = {fileName : "", lineNumber : 1, className : "utest.Runner", methodName : "run"};
+		result.assertations.add(utest.Assertation.Failure("No tests executed.", pos));
+		return result;
+	}
+}

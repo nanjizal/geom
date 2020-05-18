@@ -1,0 +1,25 @@
+@:realPath("js.html.FieldSetElement") @:native("HTMLFieldSetElement")
+extern class HTMLFieldSetElement extends HTMLElement {
+
+	var disabled:Bool;
+
+	var form(default,null):HTMLFormElement;
+
+	var name:String;
+
+	var type(default,null):String;
+
+	var elements(default,null):HTMLCollection;
+
+	var willValidate(default,null):Bool;
+
+	var validity(default,null):ValidityState;
+
+	var validationMessage(default,null):String;
+
+	function checkValidity():Bool;
+
+	function reportValidity():Bool;
+
+	function setCustomValidity(error:String):Void;
+}

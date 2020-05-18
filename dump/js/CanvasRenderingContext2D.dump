@@ -1,0 +1,185 @@
+@:realPath("js.html.CanvasRenderingContext2D") @:native("CanvasRenderingContext2D")
+extern class CanvasRenderingContext2D {
+
+	var canvas(default,null):HTMLCanvasElement;
+
+	var globalAlpha:Float;
+
+	var globalCompositeOperation:String;
+
+	var strokeStyle:haxe.extern.EitherType<String, haxe.extern.EitherType<CanvasGradient, CanvasPattern>>;
+
+	var fillStyle:haxe.extern.EitherType<String, haxe.extern.EitherType<CanvasGradient, CanvasPattern>>;
+
+	var filter:String;
+
+	var imageSmoothingEnabled:Bool;
+
+	var lineWidth:Float;
+
+	var lineCap:String;
+
+	var lineJoin:String;
+
+	var miterLimit:Float;
+
+	var lineDashOffset:Float;
+
+	var shadowOffsetX:Float;
+
+	var shadowOffsetY:Float;
+
+	var shadowBlur:Float;
+
+	var shadowColor:String;
+
+	var font:String;
+
+	var textAlign:String;
+
+	var textBaseline:String;
+
+	function drawImage(image:HTMLImageElement, sx:Float, sy:Float, sw:Float, sh:Float, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:SVGImageElement, dx:Float, dy:Float):Void;
+
+	function drawImage(image:HTMLCanvasElement, dx:Float, dy:Float):Void;
+
+	function drawImage(image:HTMLVideoElement, dx:Float, dy:Float):Void;
+
+	function drawImage(image:ImageBitmap, dx:Float, dy:Float):Void;
+
+	function drawImage(image:SVGImageElement, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:HTMLCanvasElement, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:HTMLVideoElement, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:ImageBitmap, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:SVGImageElement, sx:Float, sy:Float, sw:Float, sh:Float, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:HTMLCanvasElement, sx:Float, sy:Float, sw:Float, sh:Float, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:HTMLVideoElement, sx:Float, sy:Float, sw:Float, sh:Float, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:ImageBitmap, sx:Float, sy:Float, sw:Float, sh:Float, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function drawImage(image:HTMLImageElement, dx:Float, dy:Float):Void;
+
+	function drawImage(image:HTMLImageElement, dx:Float, dy:Float, dw:Float, dh:Float):Void;
+
+	function beginPath():Void;
+
+	@:value({ winding : NONZERO })
+	function fill(path:Path2D, winding:js.html.CanvasWindingRule):Void;
+
+	@:value({ winding : NONZERO })
+	function fill(winding:js.html.CanvasWindingRule):Void;
+
+	function stroke(path:Path2D):Void;
+
+	function stroke():Void;
+
+	@:value({ winding : NONZERO })
+	function clip(path:Path2D, winding:js.html.CanvasWindingRule):Void;
+
+	@:value({ winding : NONZERO })
+	function clip(winding:js.html.CanvasWindingRule):Void;
+
+	@:value({ winding : NONZERO })
+	function isPointInPath(path:Path2D, x:Float, y:Float, winding:js.html.CanvasWindingRule):Bool;
+
+	@:value({ winding : NONZERO })
+	function isPointInPath(x:Float, y:Float, winding:js.html.CanvasWindingRule):Bool;
+
+	function isPointInStroke(path:Path2D, x:Float, y:Float):Bool;
+
+	function isPointInStroke(x:Float, y:Float):Bool;
+
+	function createLinearGradient(x0:Float, y0:Float, x1:Float, y1:Float):CanvasGradient;
+
+	function createRadialGradient(x0:Float, y0:Float, r0:Float, x1:Float, y1:Float, r1:Float):CanvasGradient;
+
+	function createPattern(image:HTMLImageElement, repetition:String):CanvasPattern;
+
+	function createPattern(image:SVGImageElement, repetition:String):CanvasPattern;
+
+	function createPattern(image:HTMLCanvasElement, repetition:String):CanvasPattern;
+
+	function createPattern(image:HTMLVideoElement, repetition:String):CanvasPattern;
+
+	function createPattern(image:ImageBitmap, repetition:String):CanvasPattern;
+
+	function addHitRegion(options:Null<js.html.HitRegionOptions>):Void;
+
+	function removeHitRegion(id:String):Void;
+
+	function clearHitRegions():Void;
+
+	function createImageData(imagedata:ImageData):ImageData;
+
+	function createImageData(sw:Float, sh:Float):ImageData;
+
+	function getImageData(sx:Float, sy:Float, sw:Float, sh:Float):ImageData;
+
+	function putImageData(imagedata:ImageData, dx:Float, dy:Float, dirtyX:Float, dirtyY:Float, dirtyWidth:Float, dirtyHeight:Float):Void;
+
+	function putImageData(imagedata:ImageData, dx:Float, dy:Float):Void;
+
+	function setLineDash(segments:Array<Float>):Void;
+
+	function getLineDash():Array<Float>;
+
+	function closePath():Void;
+
+	function moveTo(x:Float, y:Float):Void;
+
+	function lineTo(x:Float, y:Float):Void;
+
+	function quadraticCurveTo(cpx:Float, cpy:Float, x:Float, y:Float):Void;
+
+	function bezierCurveTo(cp1x:Float, cp1y:Float, cp2x:Float, cp2y:Float, x:Float, y:Float):Void;
+
+	function arcTo(x1:Float, y1:Float, x2:Float, y2:Float, radius:Float):Void;
+
+	function rect(x:Float, y:Float, w:Float, h:Float):Void;
+
+	@:value({ anticlockwise : false })
+	function arc(x:Float, y:Float, radius:Float, startAngle:Float, endAngle:Float, anticlockwise:Bool):Void;
+
+	@:value({ anticlockwise : false })
+	function ellipse(x:Float, y:Float, radiusX:Float, radiusY:Float, rotation:Float, startAngle:Float, endAngle:Float, anticlockwise:Bool):Void;
+
+	function clearRect(x:Float, y:Float, w:Float, h:Float):Void;
+
+	function fillRect(x:Float, y:Float, w:Float, h:Float):Void;
+
+	function strokeRect(x:Float, y:Float, w:Float, h:Float):Void;
+
+	function save():Void;
+
+	function restore():Void;
+
+	function fillText(text:String, x:Float, y:Float, maxWidth:Null<Float>):Void;
+
+	function strokeText(text:String, x:Float, y:Float, maxWidth:Null<Float>):Void;
+
+	function measureText(text:String):TextMetrics;
+
+	function scale(x:Float, y:Float):Void;
+
+	function rotate(angle:Float):Void;
+
+	function translate(x:Float, y:Float):Void;
+
+	function transform(a:Float, b:Float, c:Float, d:Float, e:Float, f:Float):Void;
+
+	function setTransform(a:Float, b:Float, c:Float, d:Float, e:Float, f:Float):Void;
+
+	function resetTransform():Void;
+
+	function drawFocusIfNeeded(element:HTMLElement):Void;
+
+	function drawCustomFocusRing(element:HTMLElement):Bool;
+}

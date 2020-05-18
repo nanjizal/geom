@@ -1,0 +1,11 @@
+@:realPath("js.html.OListElement") @:native("HTMLOListElement")
+extern class HTMLOListElement extends HTMLElement {
+
+	var reversed:Bool;
+
+	var start:Int;
+
+	var type:String;
+
+	var compact:Bool;
+}

@@ -1,0 +1,7 @@
+@:realPath("js.html.PermissionStatus") @:native("PermissionStatus")
+extern class PermissionStatus extends EventTarget {
+
+	var state(default,null):js.html.PermissionState;
+
+	var onchange:haxe.Function;
+}

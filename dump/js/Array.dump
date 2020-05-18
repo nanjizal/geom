@@ -1,0 +1,29 @@
+@:keep @:directlyUsed @:used @:coreApi
+extern class Array<T : Array.T> {
+
+	function new():Void;
+
+	var length(default,null):Int;
+
+	function join(sep:String):String;
+
+	function pop():Null<Array.T>;
+
+	function push(x:Array.T):Int;
+
+	function shift():Null<Array.T>;
+
+	function slice(pos:Int, end:Null<Int>):Array<Array.T>;
+
+	function sort(f:(Array.T, Array.T) -> Int):Void;
+
+	function splice(pos:Int, len:Int):Array<Array.T>;
+
+	function toString():String;
+
+	@:pure
+	function indexOf(x:Array.T, fromIndex:Null<Int>):Int;
+
+	@:maybeUsed @:runtime
+	inline function iterator():haxe.iterators.ArrayIterator<Array.T>;
+}

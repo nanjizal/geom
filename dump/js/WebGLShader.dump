@@ -1,0 +1,3 @@
+@:realPath("js.html.webgl.Shader") @:used @:native("WebGLShader")
+extern class WebGLShader {
+}

@@ -1,0 +1,31 @@
+@:realPath("js.html.idb.Database") @:native("IDBDatabase")
+extern class IDBDatabase extends EventTarget {
+
+	var name(default,null):String;
+
+	var version(default,null):Int;
+
+	var objectStoreNames(default,null):DOMStringList;
+
+	var onabort:haxe.Function;
+
+	var onclose:haxe.Function;
+
+	var onerror:haxe.Function;
+
+	var onversionchange:haxe.Function;
+
+	function createObjectStore(name:String, optionalParameters:Null<js.html.idb.ObjectStoreParameters>):IDBObjectStore;
+
+	function deleteObjectStore(name:String):Void;
+
+	@:value({ mode : READONLY })
+	function transaction(storeNames:String, mode:js.html.idb.TransactionMode):IDBTransaction;
+
+	@:value({ mode : READONLY })
+	function transaction(storeNames:Array<String>, mode:js.html.idb.TransactionMode):IDBTransaction;
+
+	function close():Void;
+
+	function createMutableFile(name:String, type:Null<String>):IDBRequest;
+}

@@ -1,0 +1,5 @@
+@:realPath("js.html.TextMetrics") @:native("TextMetrics")
+extern class TextMetrics {
+
+	var width(default,null):Float;
+}

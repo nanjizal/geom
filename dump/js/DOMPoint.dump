@@ -1,0 +1,8 @@
+@:realPath("js.html.DOMPoint") @:native("DOMPoint")
+extern class DOMPoint extends DOMPointReadOnly {
+
+	@:value({ w : 1.0, z : 0.0, y : 0.0, x : 0.0 })
+	function new(x:Float, y:Float, z:Float, w:Float):Void;
+
+	static function fromPoint(other:Null<js.html.DOMPointInit>):DOMPoint;
+}

@@ -1,0 +1,57 @@
+@:realPath("js.html.ObjectElement") @:native("HTMLObjectElement")
+extern class HTMLObjectElement extends HTMLElement {
+
+	var data:String;
+
+	var type:String;
+
+	var typeMustMatch:Bool;
+
+	var name:String;
+
+	var useMap:String;
+
+	var form(default,null):HTMLFormElement;
+
+	var width:String;
+
+	var height:String;
+
+	var contentDocument(default,null):HTMLDocument;
+
+	var contentWindow(default,null):Window;
+
+	var willValidate(default,null):Bool;
+
+	var validity(default,null):ValidityState;
+
+	var validationMessage(default,null):String;
+
+	var align:String;
+
+	var archive:String;
+
+	var code:String;
+
+	var declare:Bool;
+
+	var hspace:Int;
+
+	var standby:String;
+
+	var vspace:Int;
+
+	var codeBase:String;
+
+	var codeType:String;
+
+	var border:String;
+
+	function checkValidity():Bool;
+
+	function reportValidity():Bool;
+
+	function setCustomValidity(error:String):Void;
+
+	function getSVGDocument():HTMLDocument;
+}

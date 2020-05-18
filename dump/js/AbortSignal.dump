@@ -1,0 +1,7 @@
+@:realPath("js.html.AbortSignal") @:native("AbortSignal")
+extern class AbortSignal extends EventTarget {
+
+	var aborted(default,null):Bool;
+
+	var onabort:haxe.Function;
+}

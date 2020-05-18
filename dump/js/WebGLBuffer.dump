@@ -1,0 +1,3 @@
+@:realPath("js.html.webgl.Buffer") @:used @:native("WebGLBuffer")
+extern class WebGLBuffer {
+}

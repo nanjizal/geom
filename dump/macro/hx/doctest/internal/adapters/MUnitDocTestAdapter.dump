@@ -1,0 +1,25 @@
+@:noDoc @:dox(hide)
+class hx.doctest.internal.adapters.MUnitDocTestAdapter extends hx.doctest.internal.adapters.DocTestAdapter {
+
+	public function new() {}
+
+	public function getFrameworkName() {
+		return "massive.munit";
+	}
+
+	@:has_untyped
+	public function generateTestFail(assertion:hx.doctest.internal.DocTestAssertion, errorMsg:String) {
+		return cast {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("massive")), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 656, 663)}, "munit"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 656, 669)}, "Assert"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 656, 676)}, "fail"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 656, 681)}, [{expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CString("" + assertion.expression + " --> " + errorMsg, haxe.macro.StringLiteralKind.SingleQuotes)), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 682, 721)}, haxe.macro.Context.makeExpr(assertion.getPosInfos(null), $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 725, 750))]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 656, 751)}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 642, 762)};
+	}
+
+	@:has_untyped
+	public function generateTestSuccess(assertion:hx.doctest.internal.DocTestAssertion) {
+		return cast {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("mconsole")), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 894, 902)}, "Console"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 894, 910)}, "info"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 894, 915)}, [{expr : haxe.macro.ExprDef.EBinop(haxe.macro.Binop.OpAdd, {expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CString("\n" + assertion.file.fileName + ":" + assertion.lineNumber + " [OK] ", haxe.macro.StringLiteralKind.SingleQuotes)), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 916, 976)}, haxe.macro.Context.makeExpr(assertion.expression, $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 981, 1003))), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 916, 1003)}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 894, 1004)}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/adapters/MUnitDocTestAdapter.hx", 880, 1015)};
+	}
+
+	public function generateTestMethod(methodName:String, descr:String, assertions:Array<haxe.macro.Expr>) {
+		var field = super.generateTestMethod(methodName, descr, assertions);
+		field.meta.push({name : "Test", pos : haxe.macro.Context.currentPos()});
+		return field;
+	}
+}

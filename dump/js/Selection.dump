@@ -1,0 +1,53 @@
+@:realPath("js.html.Selection") @:native("Selection")
+extern class Selection {
+
+	var anchorNode(default,null):Node;
+
+	var anchorOffset(default,null):Int;
+
+	var focusNode(default,null):Node;
+
+	var focusOffset(default,null):Int;
+
+	var isCollapsed(default,null):Bool;
+
+	var rangeCount(default,null):Int;
+
+	var type(default,null):String;
+
+	var caretBidiLevel:Int;
+
+	function getRangeAt(index:Int):Range;
+
+	function addRange(range:Range):Void;
+
+	function removeRange(range:Range):Void;
+
+	function removeAllRanges():Void;
+
+	function empty():Void;
+
+	@:value({ offset : 0 })
+	function collapse(node:Node, offset:Int):Void;
+
+	@:value({ offset : 0 })
+	function setPosition(node:Node, offset:Int):Void;
+
+	function collapseToStart():Void;
+
+	function collapseToEnd():Void;
+
+	@:value({ offset : 0 })
+	function extend(node:Node, offset:Int):Void;
+
+	function setBaseAndExtent(anchorNode:Node, anchorOffset:Int, focusNode:Node, focusOffset:Int):Void;
+
+	function selectAllChildren(node:Node):Void;
+
+	function deleteFromDocument():Void;
+
+	@:value({ allowPartialContainment : false })
+	function containsNode(node:Node, allowPartialContainment:Bool):Bool;
+
+	function modify(alter:String, direction:String, granularity:String):Void;
+}

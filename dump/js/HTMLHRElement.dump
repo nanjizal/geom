@@ -1,0 +1,13 @@
+@:realPath("js.html.HRElement") @:native("HTMLHRElement")
+extern class HTMLHRElement extends HTMLElement {
+
+	var align:String;
+
+	var color:String;
+
+	var noShade:Bool;
+
+	var size:String;
+
+	var width:String;
+}

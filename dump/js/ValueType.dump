@@ -1,0 +1,12 @@
+@:directlyUsed @:used
+enum ValueType {
+	TNull;
+	TInt;
+	TFloat;
+	TBool;
+	TObject;
+	TFunction;
+	TClass(c:Class<Dynamic>);
+	TEnum(e:Enum<Dynamic>);
+	TUnknown;
+}

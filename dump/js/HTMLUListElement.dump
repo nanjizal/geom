@@ -1,0 +1,7 @@
+@:realPath("js.html.UListElement") @:native("HTMLUListElement")
+extern class HTMLUListElement extends HTMLElement {
+
+	var compact:Bool;
+
+	var type:String;
+}

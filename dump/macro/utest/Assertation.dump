@@ -1,0 +1,11 @@
+enum utest.Assertation {
+	Success(pos:haxe.PosInfos);
+	Failure(msg:String, pos:haxe.PosInfos);
+	Error(e:Dynamic, stack:Array<haxe.StackItem>);
+	SetupError(e:Dynamic, stack:Array<haxe.StackItem>);
+	TeardownError(e:Dynamic, stack:Array<haxe.StackItem>);
+	TimeoutError(missedAsyncs:Int, stack:Array<haxe.StackItem>);
+	AsyncError(e:Dynamic, stack:Array<haxe.StackItem>);
+	Warning(msg:String);
+	Ignore(reason:String);
+}

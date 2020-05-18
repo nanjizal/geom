@@ -1,0 +1,9 @@
+@:realPath("js.html.FontElement") @:native("HTMLFontElement")
+extern class HTMLFontElement extends HTMLElement {
+
+	var color:String;
+
+	var face:String;
+
+	var size:String;
+}

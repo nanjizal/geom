@@ -1,0 +1,45 @@
+@:realPath("js.html.Request") @:native("Request")
+extern class Request {
+
+	function new(input:Request, init:Null<js.html.RequestInit>):Void;
+
+	function new(input:String, init:Null<js.html.RequestInit>):Request;
+
+	var method(default,null):String;
+
+	var url(default,null):String;
+
+	var headers(default,null):Headers;
+
+	var destination(default,null):js.html.RequestDestination;
+
+	var referrer(default,null):String;
+
+	var referrerPolicy(default,null):js.html.ReferrerPolicy;
+
+	var mode(default,null):js.html.RequestMode;
+
+	var credentials(default,null):js.html.RequestCredentials;
+
+	var cache(default,null):js.html.RequestCache;
+
+	var redirect(default,null):js.html.RequestRedirect;
+
+	var integrity(default,null):String;
+
+	var signal(default,null):AbortSignal;
+
+	var bodyUsed(default,null):Bool;
+
+	function clone():Request;
+
+	function arrayBuffer():Promise<ArrayBuffer>;
+
+	function blob():Promise<Blob>;
+
+	function formData():Promise<FormData>;
+
+	function json():Promise<Dynamic>;
+
+	function text():Promise<String>;
+}

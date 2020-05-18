@@ -1,0 +1,12 @@
+@:realPath("js.html.webgl.extension.ANGLEInstancedArrays") @:native("ANGLE_instanced_arrays")
+extern class ANGLE_instanced_arrays {
+
+	function drawArraysInstancedANGLE(mode:Int, first:Int, count:Int, primcount:Int):Void;
+
+	function drawElementsInstancedANGLE(mode:Int, count:Int, type:Int, offset:Int, primcount:Int):Void;
+
+	function vertexAttribDivisorANGLE(index:Int, divisor:Int):Void;
+
+	@:value(35070)
+	static inline var VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE:Int = 35070;
+}

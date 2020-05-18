@@ -1,0 +1,23 @@
+@:realPath("js.html.ScriptElement") @:native("HTMLScriptElement")
+extern class HTMLScriptElement extends HTMLElement {
+
+	var src:String;
+
+	var type:String;
+
+	var charset:String;
+
+	var async:Bool;
+
+	var defer:Bool;
+
+	var crossOrigin:String;
+
+	var text:String;
+
+	var event:String;
+
+	var htmlFor:String;
+
+	var integrity:String;
+}

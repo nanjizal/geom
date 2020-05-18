@@ -1,0 +1,11 @@
+@:realPath("js.html.svg.Element") @:used @:native("SVGElement")
+extern class SVGElement extends Element {
+
+	var ownerSVGElement(default,null):SVGSVGElement;
+
+	var viewportElement(default,null):SVGElement;
+
+	function focus():Void;
+
+	function blur():Void;
+}

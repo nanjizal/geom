@@ -1,0 +1,50 @@
+@:realPath("js.html.Response") @:native("Response")
+extern class Response {
+
+	function new(body:Null<Blob>, init:Null<js.html.ResponseInit>):Void;
+
+	function new(body:Null<js.lib.ArrayBufferView>, init:Null<js.html.ResponseInit>):Response;
+
+	function new(body:Null<ArrayBuffer>, init:Null<js.html.ResponseInit>):Response;
+
+	function new(body:Null<FormData>, init:Null<js.html.ResponseInit>):Response;
+
+	function new(body:Null<URLSearchParams>, init:Null<js.html.ResponseInit>):Response;
+
+	function new(body:Null<Dynamic>, init:Null<js.html.ResponseInit>):Response;
+
+	function new(body:Null<String>, init:Null<js.html.ResponseInit>):Response;
+
+	var type(default,null):js.html.ResponseType;
+
+	var url(default,null):String;
+
+	var redirected(default,null):Bool;
+
+	var status(default,null):Int;
+
+	var ok(default,null):Bool;
+
+	var statusText(default,null):String;
+
+	var headers(default,null):Headers;
+
+	var bodyUsed(default,null):Bool;
+
+	function clone():Response;
+
+	function arrayBuffer():Promise<ArrayBuffer>;
+
+	function blob():Promise<Blob>;
+
+	function formData():Promise<FormData>;
+
+	function json():Promise<Dynamic>;
+
+	function text():Promise<String>;
+
+	static function error():Response;
+
+	@:value({ status : 302 })
+	static function redirect(url:String, status:Int):Response;
+}

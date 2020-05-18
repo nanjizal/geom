@@ -1,0 +1,10 @@
+class haxe.macro.ComplexTypeTools {
+
+	public static function toString(c:haxe.macro.ComplexType) return new haxe.macro.Printer(null).printComplexType(c)
+
+	public static function toType(c:haxe.macro.ComplexType) return if (c == null) {
+		null;
+	} else {
+		haxe.macro.Context.resolveType(c, haxe.macro.Context.currentPos());
+	}
+}

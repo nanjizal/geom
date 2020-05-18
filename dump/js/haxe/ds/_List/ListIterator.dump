@@ -1,0 +1,21 @@
+@:keep @:directlyUsed @:used
+private class haxe.ds._List.ListIterator<T : haxe.ds._List.ListIterator.T> {
+
+	public function new(head:haxe.ds._List.ListNode<haxe.ds._List.ListIterator.T>) {
+		this.head = head;
+	}
+
+	var head:haxe.ds._List.ListNode<haxe.ds._List.ListIterator.T>;
+
+	@:maybeUsed
+	public function hasNext() {
+		return this.head != null;
+	}
+
+	@:maybeUsed
+	public function next() {
+		var val = this.head.item;
+		this.head = this.head.next;
+		return val;
+	}
+}

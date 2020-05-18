@@ -1,0 +1,1 @@
+typedef js.html.EventInit = { ?composed : Null<Bool>, ?cancelable : Null<Bool>, ?bubbles : Null<Bool> }

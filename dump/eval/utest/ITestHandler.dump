@@ -1,0 +1,112 @@
+@:directlyUsed @:used
+class utest.ITestHandler<T : utest.ITestHandler.T> extends utest.TestHandler<utest.ITestHandler.T> {
+
+	public function new(fixture:utest.TestFixture) {
+		super(fixture);
+		if ((! fixture.isITest)) throw haxe.Exception.thrown("Invalid fixture type for utest.ITestHandler");
+		this.testCase = cast (fixture.target,utest.ITest);
+		this.test = fixture.test;
+		if ((this.test == null)) throw haxe.Exception.thrown("Fixture is missing test data");
+	}
+
+	var testCase:utest.ITest;
+
+	var test:utest.TestData;
+
+	var setupAsync:Null<utest.Async>;
+
+	var testAsync:Null<utest.Async>;
+
+	var teardownAsync:Null<utest.Async>;
+
+	public function execute() {
+		if ((cast this.fixture.ignoringInfo != null)) {
+			this.executeFinally();
+			return;
+		};
+		this.bindHandler();
+		this.runSetup();
+	}
+
+	function runSetup() {
+		try {
+			this.setupAsync = this.fixture.setupMethod();
+		} catch (`1815:Dynamic) {
+			{
+				null;
+			};
+			var e = cast haxe.Exception.caught(`1815).unwrap();
+			this.results.add(utest.Assertation.SetupError(e, haxe._CallStack.CallStack_Impl_.exceptionStack()));
+			this.completedFinally();
+			return;
+		};
+		this.setupAsync.then(this.checkSetup);
+	}
+
+	function checkSetup() {
+		if ((this.setupAsync.timedOut)) {
+			this.results.add(utest.Assertation.SetupError("Setup timeout", []));
+			this.completedFinally();
+		} else this.runTest();
+	}
+
+	function runTest() {
+		try {
+			this.testAsync = this.test.execute();
+		} catch (`1818:Dynamic) {
+			{
+				null;
+			};
+			var e = cast haxe.Exception.caught(`1818).unwrap();
+			this.results.add(utest.Assertation.Error(e, haxe._CallStack.CallStack_Impl_.exceptionStack()));
+			this.runTeardown();
+			return;
+		};
+		this.testAsync.then(this.checkTest);
+	}
+
+	function checkTest() {
+		this.onPrecheck.dispatch(this);
+		if ((this.testAsync.timedOut)) {
+			this.results.add(utest.Assertation.TimeoutError(1, []));
+			this.onTimeout.dispatch(this);
+		} else if ((this.testAsync.resolved)) {
+			if ((this.results.length == 0)) this.results.add(utest.Assertation.Warning("no assertions"));
+			this.onTested.dispatch(this);
+		} else throw haxe.Exception.thrown("Unexpected test state");
+		this.runTeardown();
+	}
+
+	function runTeardown() {
+		try {
+			this.teardownAsync = this.fixture.teardownMethod();
+		} catch (`1821:Dynamic) {
+			{
+				null;
+			};
+			var e = cast haxe.Exception.caught(`1821).unwrap();
+			this.results.add(utest.Assertation.TeardownError(e, haxe._CallStack.CallStack_Impl_.exceptionStack()));
+			this.completedFinally();
+			return;
+		};
+		this.teardownAsync.then(this.checkTeardown);
+	}
+
+	function checkTeardown() {
+		if ((this.teardownAsync.timedOut)) this.results.add(utest.Assertation.TeardownError("Teardown timeout", []));
+		this.completedFinally();
+	}
+
+	function bindHandler() {
+		if ((this.wasBound)) return;
+		utest.Assert.results = this.results;
+		var msg = " is not allowed in tests extending utest.ITest. Add `async:utest.Async` argument to the test method instead.";
+		utest.Assert.createAsync = function(f:Null<Void -> Void> = null, t:Null<Int> = null) {
+			throw haxe.Exception.thrown("Assert.createAsync() " + msg);
+		};
+		utest.Assert.createEvent = function(f:Unknown<2> -> Void, t:Null<Int> = null) {
+			throw haxe.Exception.thrown("Assert.createEvent() " + msg);
+		};
+		this.wasBound = true;
+	}
+}

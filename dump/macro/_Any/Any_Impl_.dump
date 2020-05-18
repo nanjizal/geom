@@ -1,0 +1,11 @@
+private class _Any.Any_Impl_ {
+
+	@:impl @:noCompletion @:to
+	static inline function __promote<T : __promote.T>(this:Dynamic) return this
+
+	@:noCompletion @:from
+	static inline function __cast<T : __cast.T>(value:__cast.T) return cast value
+
+	@:impl @:noCompletion
+	static inline function toString(this:Dynamic) return Std.string(this)
+}

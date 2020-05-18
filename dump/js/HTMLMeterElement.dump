@@ -1,0 +1,17 @@
+@:realPath("js.html.MeterElement") @:native("HTMLMeterElement")
+extern class HTMLMeterElement extends HTMLElement {
+
+	var value:Float;
+
+	var min:Float;
+
+	var max:Float;
+
+	var low:Float;
+
+	var high:Float;
+
+	var optimum:Float;
+
+	var labels(default,null):NodeList;
+}

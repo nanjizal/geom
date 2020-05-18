@@ -1,0 +1,9 @@
+@:used
+interface utest.ui.common.IReport<T : utest.ui.common.IReport.T> {
+
+	var displaySuccessResults:utest.ui.common.SuccessResultsDisplayMode;
+
+	var displayHeader:utest.ui.common.HeaderDisplayMode;
+
+	function setHandler(handler:utest.ui.common.IReport.T -> Void):Void;
+}

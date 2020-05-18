@@ -1,0 +1,10 @@
+class utest.utils.AsyncUtils {
+
+	public static function orResolved(async:Null<utest.Async>) {
+		return if (async == null) {
+			utest.Async.getResolved();
+		} else {
+			async;
+		};
+	}
+}

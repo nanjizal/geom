@@ -1,0 +1,35 @@
+@:realPath("js.html.LinkElement") @:native("HTMLLinkElement")
+extern class HTMLLinkElement extends HTMLElement {
+
+	var disabled:Bool;
+
+	var href:String;
+
+	var crossOrigin:String;
+
+	var rel:String;
+
+	var relList(default,null):DOMTokenList;
+
+	var media:String;
+
+	var hreflang:String;
+
+	var type:String;
+
+	var referrerPolicy:String;
+
+	var sizes(default,null):DOMTokenList;
+
+	var charset:String;
+
+	var rev:String;
+
+	var target:String;
+
+	var integrity:String;
+
+	var as:String;
+
+	var sheet(default,null):StyleSheet;
+}

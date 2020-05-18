@@ -1,0 +1,2 @@
+@:forward(concat, copy, filter, indexOf, iterator, join, lastIndexOf, map, slice, toString)
+abstract haxe.ds.ReadOnlyArray<T : haxe.ds.ReadOnlyArray.T> from Array<haxe.ds.ReadOnlyArray.T> to Iterable<haxe.ds.ReadOnlyArray.T> {}

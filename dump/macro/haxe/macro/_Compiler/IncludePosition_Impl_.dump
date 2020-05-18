@@ -1,0 +1,12 @@
+@:enum
+private class haxe.macro._Compiler.IncludePosition_Impl_ {
+
+	@:value(cast "top") @:enum @:impl
+	public static inline var Top:haxe.macro.IncludePosition = cast "top";
+
+	@:value(cast "closure") @:enum @:impl
+	public static inline var Closure:haxe.macro.IncludePosition = cast "closure";
+
+	@:value(cast "inline") @:enum @:impl
+	public static inline var Inline:haxe.macro.IncludePosition = cast "inline";
+}

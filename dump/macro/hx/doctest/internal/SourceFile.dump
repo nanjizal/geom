@@ -1,0 +1,139 @@
+@:noDoc @:dox(hide)
+class hx.doctest.internal.SourceFile {
+
+	public function new(filePath:String, docTestIdentifier:String, docTestNextLineIdentifier:String) {
+		this.lineAhead = null;
+		this.currentLineNumber = 0;
+		this.currentLine = null;
+		hx.doctest.internal.Logger.log(hx.doctest.internal.Level.INFO, "Scanning [" + filePath + "]...", null, {fileName : "/usr/local/lib/haxeLibrary/haxe-doctest/git/src/hx/doctest/internal/SourceFile.hx", lineNumber : 31, className : "hx.doctest.internal.SourceFile", methodName : "new"});
+		this.filePath = filePath;
+		this.docTestIdentifier = docTestIdentifier;
+		this.docTestNextLineIdentifier = docTestNextLineIdentifier;
+		this.fileName = hx.doctest.internal.DocTestUtils.substringAfterLast(filePath, "/");
+		this.fileInput = sys.io.File.read(filePath, false);
+		this.haxePackage = "";
+		try {
+			while ((! this.isLastLine())) {
+				var line = this.fileInput.readLine();
+				if ((hx.doctest.internal.SourceFile.REGEX_PACKAGE_NAME.match(line))) {
+					this.haxePackage = hx.doctest.internal.SourceFile.REGEX_PACKAGE_NAME.matched(1);
+					break;
+				};
+			};
+		} catch (_g:Dynamic) {
+			if ((! Std.isOfType(cast haxe.Exception.caught(_g).unwrap(), haxe.io.Eof))) throw _g;
+		};
+		this.fileInput.seek(0, sys.io.FileSeek.SeekBegin);
+		this.haxeModuleName = hx.doctest.internal.DocTestUtils.substringBefore(this.fileName, ".");
+		this.haxeModuleFQName = if ((this.haxePackage.length > 0)) this.haxePackage + "." + this.haxeModuleName else this.haxeModuleName;
+	}
+
+	var fileInput:sys.io.FileInput;
+
+	public var docTestIdentifier:String;
+
+	public var docTestNextLineIdentifier:String;
+
+	public var filePath:String;
+
+	public var fileName:String;
+
+	public var haxePackage:String;
+
+	public var haxeModuleName:String;
+
+	public var haxeModuleFQName:String;
+
+	@:value(null)
+	public var currentLine(default,null):hx.doctest.internal.LineType;
+
+	@:value(0)
+	public var currentLineNumber(default,null):Int;
+
+	var lines:Array<String>;
+
+	public function isLastLine() {
+		return this.fileInput == null || this.fileInput.eof();
+	}
+
+	@:value(null)
+	var lineAhead:String;
+
+	public function nextLine() {
+		while (! this.isLastLine()) {
+			var line;
+			try {
+				line = if (this.lineAhead == null) {
+					StringTools.trim(this.fileInput.readLine());
+				} else {
+					this.lineAhead;
+				};
+				this.lineAhead = null;
+			} catch (`87:Dynamic) {
+				var `88 = haxe.Exception.caught(`87);
+				var `89 = `88.unwrap();
+				if (Std.isOfType(`89, haxe.io.Eof)) {
+					{};
+					{
+						break;
+					};
+				} else throw `87;
+			};
+			this.currentLineNumber ++;
+			if (line == "#else") {
+				this.currentLine = hx.doctest.internal.LineType.CompilerConditionElse;
+				return true;
+			};
+			if (line == "#end") {
+				this.currentLine = hx.doctest.internal.LineType.CompilerConditionEnd;
+				return true;
+			};
+			if (StringTools.startsWith(line, "#if ")) {
+				this.currentLine = hx.doctest.internal.LineType.CompilerConditionStart(hx.doctest.internal.DocTestUtils.substringAfter(line, "#if "));
+				return true;
+			};
+			if (StringTools.startsWith(line, "#elseif ")) {
+				this.currentLine = hx.doctest.internal.LineType.CompilerConditionElseIf(hx.doctest.internal.DocTestUtils.substringAfter(line, "#elseif "));
+				return true;
+			};
+			var docTestExpression = StringTools.trim(hx.doctest.internal.DocTestUtils.substringAfter(line, this.docTestIdentifier));
+			if (docTestExpression == "") {
+				continue;
+			};
+			var docTestExpressionLineNumber = this.currentLineNumber;
+			while (! this.isLastLine()) {
+				try {
+					this.lineAhead = StringTools.trim(this.fileInput.readLine());
+				} catch (`90:Dynamic) {
+					var `91 = haxe.Exception.caught(`90);
+					var `92 = `91.unwrap();
+					if (Std.isOfType(`92, haxe.io.Eof)) {
+						{};
+						{
+							this.lineAhead = null;
+							break;
+						};
+					} else throw `90;
+				};
+				var docTestExpressionNextLine = StringTools.trim(hx.doctest.internal.DocTestUtils.substringAfter(this.lineAhead, this.docTestNextLineIdentifier));
+				if (docTestExpressionNextLine == "") {
+					break;
+				} else {
+					this.lineAhead = null;
+					this.currentLineNumber ++;
+					docTestExpression = docTestExpression + "\n" + docTestExpressionNextLine;
+				};
+			};
+			this.currentLine = hx.doctest.internal.LineType.DocTestAssertion(new hx.doctest.internal.DocTestAssertion(this, docTestExpression, docTestExpressionLineNumber, line.indexOf(this.docTestIdentifier, null) + this.docTestIdentifier.length, line.length));
+			return true;
+		};
+		if (this.fileInput != null) {
+			this.fileInput.close();
+			this.fileInput = null;
+		};
+		return false;
+	}
+
+	@:value(~/package\s+(([a-zA-Z_]{1}[a-zA-Z]*){2,10}\.([a-zA-Z_]{1}[a-zA-Z0-9_]*){1,30}((\.([a-zA-Z_]{1}[a-zA-Z0-9_]*){1,61})*)?)\s?;/)
+	static var REGEX_PACKAGE_NAME:EReg = new EReg("package\\s+(([a-zA-Z_]{1}[a-zA-Z]*){2,10}\\.([a-zA-Z_]{1}[a-zA-Z0-9_]*){1,30}((\\.([a-zA-Z_]{1}[a-zA-Z0-9_]*){1,61})*)?)\\s?;", "g");
+}

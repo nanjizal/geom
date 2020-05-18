@@ -1,0 +1,2646 @@
+class haxe.macro.Printer {
+
+	@:value({ tabString : "\t" })
+	public function new(tabString:Null<String> = "\t") {
+		this.tabs = "";
+		this.tabString = tabString;
+	}
+
+	var tabs:String;
+
+	var tabString:String;
+
+	public function printUnop(op:haxe.macro.Unop) return @:ast(switch (op) {
+	case OpIncrement:
+		"++";	
+	case OpDecrement:
+		"--";	
+	case OpNot:
+		"!";	
+	case OpNeg:
+		"-";	
+	case OpNegBits:
+		"~";	
+}) switch (@:exhaustive enumIndex op) {
+		case 0: {
+			{
+				"++";
+			};
+		};
+		case 1: {
+			{
+				"--";
+			};
+		};
+		case 2: {
+			{
+				"!";
+			};
+		};
+		case 3: {
+			{
+				"-";
+			};
+		};
+		case 4: {
+			{
+				"~";
+			};
+		};
+	}
+
+	public function printBinop(op:haxe.macro.Binop) return @:ast(switch (op) {
+	case OpAdd:
+		"+";	
+	case OpMult:
+		"*";	
+	case OpDiv:
+		"/";	
+	case OpSub:
+		"-";	
+	case OpAssign:
+		"=";	
+	case OpEq:
+		"==";	
+	case OpNotEq:
+		"!=";	
+	case OpGt:
+		">";	
+	case OpGte:
+		">=";	
+	case OpLt:
+		"<";	
+	case OpLte:
+		"<=";	
+	case OpAnd:
+		"&";	
+	case OpOr:
+		"|";	
+	case OpXor:
+		"^";	
+	case OpBoolAnd:
+		"&&";	
+	case OpBoolOr:
+		"||";	
+	case OpShl:
+		"<<";	
+	case OpShr:
+		">>";	
+	case OpUShr:
+		">>>";	
+	case OpMod:
+		"%";	
+	case OpInterval:
+		"...";	
+	case OpArrow:
+		"=>";	
+	case OpIn:
+		"in";	
+	case OpAssignOp(op):
+		printBinop(op) + "=";	
+}) switch (@:exhaustive enumIndex op) {
+		case 0: {
+			{
+				"+";
+			};
+		};
+		case 1: {
+			{
+				"*";
+			};
+		};
+		case 2: {
+			{
+				"/";
+			};
+		};
+		case 3: {
+			{
+				"-";
+			};
+		};
+		case 4: {
+			{
+				"=";
+			};
+		};
+		case 5: {
+			{
+				"==";
+			};
+		};
+		case 6: {
+			{
+				"!=";
+			};
+		};
+		case 7: {
+			{
+				">";
+			};
+		};
+		case 8: {
+			{
+				">=";
+			};
+		};
+		case 9: {
+			{
+				"<";
+			};
+		};
+		case 10: {
+			{
+				"<=";
+			};
+		};
+		case 11: {
+			{
+				"&";
+			};
+		};
+		case 12: {
+			{
+				"|";
+			};
+		};
+		case 13: {
+			{
+				"^";
+			};
+		};
+		case 14: {
+			{
+				"&&";
+			};
+		};
+		case 15: {
+			{
+				"||";
+			};
+		};
+		case 16: {
+			{
+				"<<";
+			};
+		};
+		case 17: {
+			{
+				">>";
+			};
+		};
+		case 18: {
+			{
+				">>>";
+			};
+		};
+		case 19: {
+			{
+				"%";
+			};
+		};
+		case 20: {
+			var ` = op[0];
+			{
+				var op = `;
+				{
+					this.printBinop(op) + "=";
+				};
+			};
+		};
+		case 21: {
+			{
+				"...";
+			};
+		};
+		case 22: {
+			{
+				"=>";
+			};
+		};
+		case 23: {
+			{
+				"in";
+			};
+		};
+	}
+
+	function escapeString(s:String, delim:String) {
+		return delim + StringTools.replace(StringTools.replace(StringTools.replace(StringTools.replace(StringTools.replace(StringTools.replace(s, "\n", "\\n"), "\t", "\\t"), "\r", "\\r"), "'", "\\'"), "\"", "\\\""), "\x00", "\\x00") + delim;
+	}
+
+	public function printFormatString(s:String) {
+		return this.escapeString(s, "'");
+	}
+
+	public function printString(s:String) {
+		return this.escapeString(s, "\"");
+	}
+
+	public function printConstant(c:haxe.macro.Constant) return @:ast(switch (c) {
+	case CString(s):
+		printString(s);	
+	case CIdent(s), CInt(s), CFloat(s):
+		s;	
+	case CRegexp(s, opt):
+		"~/$s/$opt";	
+}) switch (@:exhaustive enumIndex c) {
+		case 0: {
+			var `1 = c[0];
+			{
+				var s = `1;
+				{
+					s;
+				};
+			};
+		};
+		case 1: {
+			var `2 = c[0];
+			{
+				var s = `2;
+				{
+					s;
+				};
+			};
+		};
+		case 2: {
+			var `6 = c[1];
+			var `5 = c[0];
+			{
+				var s = `5;
+				{
+					this.printString(s);
+				};
+			};
+		};
+		case 3: {
+			var ` = c[0];
+			{
+				var s = `;
+				{
+					s;
+				};
+			};
+		};
+		case 4: {
+			var `4 = c[1];
+			var `3 = c[0];
+			{
+				var opt = `4;
+				var s = `3;
+				{
+					"~/" + s + "/" + opt;
+				};
+			};
+		};
+	}
+
+	public function printTypeParam(param:haxe.macro.TypeParam) return @:ast(switch (param) {
+	case TPType(ct):
+		printComplexType(ct);	
+	case TPExpr(e):
+		printExpr(e);	
+}) switch (@:exhaustive enumIndex param) {
+		case 0: {
+			var `1 = param[0];
+			{
+				var ct = `1;
+				{
+					this.printComplexType(ct);
+				};
+			};
+		};
+		case 1: {
+			var ` = param[0];
+			{
+				var e = `;
+				{
+					this.printExpr(e);
+				};
+			};
+		};
+	}
+
+	public function printTypePath(tp:haxe.macro.TypePath) return (if (tp.pack.length > 0) {
+		tp.pack.join(".") + ".";
+	} else {
+		"";
+	}) + tp.name + (if (tp.sub != null) {
+		"." + tp.sub;
+	} else {
+		"";
+	}) + (if (tp.params == null) {
+		"";
+	} else {
+		if (tp.params.length > 0) {
+			"<" + {
+				var _this = tp.params;
+				var f = this.printTypeParam;
+				{
+					var ` = [];
+					{
+						var `1 = 0;
+						var `2 = _this;
+						while (`1 < `2.length) {
+							var v = `2[`1];
+							++ `1;
+							`.push(f(v));
+						};
+					};
+					`;
+				};
+			}.join(", ") + ">";
+		} else {
+			"";
+		};
+	})
+
+	public function printComplexType(ct:haxe.macro.ComplexType) return @:ast(switch (ct) {
+	case TPath(tp):
+		printTypePath(tp);	
+	case TFunction(args, ret):
+		var wrapArgumentsInParentheses = switch args {
+			case [TParent(t)]:
+				false;			
+			case [TPath(_) | TOptional(TPath(_))]:
+				false;			
+			default:
+				true;			
+		};
+		var argStr = args.map(printComplexType).join(", ");
+		(wrapArgumentsInParentheses ? "($argStr)" : argStr) + " -> " + (switch ret {
+			case TFunction(_):
+				"(${printComplexType(ret)})";			
+			default:
+				((printComplexType(ret) : String));			
+		});	
+	case TAnonymous(fields):
+		"{ " + [for (f  in  fields) printField(f) + "; "].join("") + "}";	
+	case TParent(ct):
+		"(" + printComplexType(ct) + ")";	
+	case TOptional(ct):
+		"?" + printComplexType(ct);	
+	case TNamed(n, ct):
+		n + ":" + printComplexType(ct);	
+	case TExtend(tpl, fields):
+		"{> ${tpl.map(printTypePath).join(\" >, \")}, ${fields.map(printField).join(\", \")} }";	
+	case TIntersection(tl):
+		tl.map(printComplexType).join(" & ");	
+}) switch (@:exhaustive enumIndex ct) {
+		case 0: {
+			var `6 = ct[0];
+			{
+				var tp = `6;
+				{
+					this.printTypePath(tp);
+				};
+			};
+		};
+		case 1: {
+			var `3 = ct[1];
+			var `2 = ct[0];
+			{
+				var ret = `3;
+				var args = `2;
+				{
+					var wrapArgumentsInParentheses = @:ast(switch args {
+	case [TParent(t)]:
+		false;	
+	case [TPath(_) | TOptional(TPath(_))]:
+		false;	
+	default:
+		true;	
+}) if (args.length == 1) {
+						var ` = args[0];
+						switch (enumIndex `) {
+							case 0: {
+								var `2 = `[0];
+								{
+									false;
+								};
+							};
+							case 3: {
+								var `1 = `[0];
+								{
+									var t = `1;
+									{
+										false;
+									};
+								};
+							};
+							case 5: {
+								var `3 = `[0];
+								if (enumIndex `3 == 0) {
+									var `4 = `3[0];
+									{
+										false;
+									};
+								} else {
+									true;
+								};
+							};
+							default: {
+								true;
+							}
+						};
+					} else {
+						true;
+					};
+					var argStr = {
+						var f = this.printComplexType;
+						{
+							var ` = [];
+							{
+								var `1 = 0;
+								var `2 = args;
+								while (`1 < `2.length) {
+									var v = `2[`1];
+									++ `1;
+									`.push(f(v));
+								};
+							};
+							`;
+						};
+					}.join(", ");
+					(if (wrapArgumentsInParentheses) {
+						"(" + argStr + ")";
+					} else {
+						argStr;
+					}) + " -> " + (@:ast(switch ret {
+	case TFunction(_):
+		"(${printComplexType(ret)})";	
+	default:
+		((printComplexType(ret) : String));	
+}) if (enumIndex ret == 1) {
+						var `6 = ret[1];
+						var `5 = ret[0];
+						{
+							"(" + this.printComplexType(ret) + ")";
+						};
+					} else {
+						(cast this.printComplexType(ret));
+					});
+				};
+			};
+		};
+		case 2: {
+			var `7 = ct[0];
+			{
+				var fields = `7;
+				{
+					"{ " + {
+						var ` = [];
+						{
+							var `1 = 0;
+							while (`1 < fields.length) {
+								var f = fields[`1];
+								++ `1;
+								`.push(this.printField(f) + "; ");
+							};
+						};
+						`;
+					}.join("") + "}";
+				};
+			};
+		};
+		case 3: {
+			var `1 = ct[0];
+			{
+				var ct = `1;
+				{
+					"(" + this.printComplexType(ct) + ")";
+				};
+			};
+		};
+		case 4: {
+			var `10 = ct[1];
+			var `9 = ct[0];
+			{
+				var fields = `10;
+				var tpl = `9;
+				{
+					"{> " + {
+						var f = this.printTypePath;
+						{
+							var ` = [];
+							{
+								var `1 = 0;
+								var `2 = tpl;
+								while (`1 < `2.length) {
+									var v = `2[`1];
+									++ `1;
+									`.push(f(v));
+								};
+							};
+							`;
+						};
+					}.join(" >, ") + ", " + {
+						var f = this.printField;
+						{
+							var ` = [];
+							{
+								var `1 = 0;
+								var `2 = fields;
+								while (`1 < `2.length) {
+									var v = `2[`1];
+									++ `1;
+									`.push(f(v));
+								};
+							};
+							`;
+						};
+					}.join(", ") + " }";
+				};
+			};
+		};
+		case 5: {
+			var `8 = ct[0];
+			{
+				var ct = `8;
+				{
+					"?" + this.printComplexType(ct);
+				};
+			};
+		};
+		case 6: {
+			var `5 = ct[1];
+			var `4 = ct[0];
+			{
+				var ct = `5;
+				var n = `4;
+				{
+					n + ":" + this.printComplexType(ct);
+				};
+			};
+		};
+		case 7: {
+			var ` = ct[0];
+			{
+				var tl = `;
+				{
+					{
+						var f = this.printComplexType;
+						{
+							var ` = [];
+							{
+								var `1 = 0;
+								var `2 = tl;
+								while (`1 < `2.length) {
+									var v = `2[`1];
+									++ `1;
+									`.push(f(v));
+								};
+							};
+							`;
+						};
+					}.join(" & ");
+				};
+			};
+		};
+	}
+
+	public function printMetadata(meta:haxe.macro.MetadataEntry) return "@" + meta.name + (if ((meta.params != null && meta.params.length > 0)) {
+		"(" + this.printExprs(meta.params, ", ") + ")";
+	} else {
+		"";
+	})
+
+	public function printAccess(access:haxe.macro.Access) return @:ast(switch (access) {
+	case AStatic:
+		"static";	
+	case APublic:
+		"public";	
+	case APrivate:
+		"private";	
+	case AOverride:
+		"override";	
+	case AInline:
+		"inline";	
+	case ADynamic:
+		"dynamic";	
+	case AMacro:
+		"macro";	
+	case AFinal:
+		"final";	
+	case AExtern:
+		"extern";	
+}) switch (@:exhaustive enumIndex access) {
+		case 0: {
+			{
+				"public";
+			};
+		};
+		case 1: {
+			{
+				"private";
+			};
+		};
+		case 2: {
+			{
+				"static";
+			};
+		};
+		case 3: {
+			{
+				"override";
+			};
+		};
+		case 4: {
+			{
+				"dynamic";
+			};
+		};
+		case 5: {
+			{
+				"inline";
+			};
+		};
+		case 6: {
+			{
+				"macro";
+			};
+		};
+		case 7: {
+			{
+				"final";
+			};
+		};
+		case 8: {
+			{
+				"extern";
+			};
+		};
+	}
+
+	public function printField(field:haxe.macro.Field) {
+		{};
+		return (if (field.doc != null && field.doc != "") {
+			"/**\n" + this.tabs + this.tabString + StringTools.replace(field.doc, "\n", "\n" + this.tabs + this.tabString) + "\n" + this.tabs + "**/\n" + this.tabs;
+		} else {
+			"";
+		}) + (if (field.meta != null && field.meta.length > 0) {
+			{
+				var _this = field.meta;
+				var f = this.printMetadata;
+				{
+					var ` = [];
+					{
+						var `1 = 0;
+						var `2 = _this;
+						while (`1 < `2.length) {
+							var v = `2[`1];
+							++ `1;
+							`.push(f(v));
+						};
+					};
+					`;
+				};
+			}.join("\n" + this.tabs) + "\n" + this.tabs;
+		} else {
+			"";
+		}) + (if (field.access != null && field.access.length > 0) {
+			{
+				var _this = {
+					var access = field.access;
+					if (Lambda.has(access, haxe.macro.Access.AFinal)) {
+						{
+							var ` = [];
+							{
+								var `1 = 0;
+								var `2 = access;
+								while (`1 < `2.length) {
+									var v = `2[`1];
+									++ `1;
+									if (function(a:haxe.macro.Access) {
+										return ! (if ((enumIndex a == 7)) true else false);
+									}(v)) {
+										`.push(v);
+									};
+								};
+							};
+							`;
+						}.concat([haxe.macro.Access.AFinal]);
+					} else {
+						access;
+					};
+				};
+				var f = this.printAccess;
+				{
+					var ` = [];
+					{
+						var `1 = 0;
+						var `2 = _this;
+						while (`1 < `2.length) {
+							var v = `2[`1];
+							++ `1;
+							`.push(f(v));
+						};
+					};
+					`;
+				};
+			}.join(" ") + " ";
+		} else {
+			"";
+		}) + @:ast(switch (field.kind) {
+	case FVar(t, eo):
+		((field.access != null && field.access.has(AFinal)) ? "" : "var ") + "${field.name}" + opt(t, printComplexType, " : ") + opt(eo, printExpr, " = ");	
+	case FProp(get, set, t, eo):
+		"var ${field.name}($get, $set)" + opt(t, printComplexType, " : ") + opt(eo, printExpr, " = ");	
+	case FFun(func):
+		"function ${field.name}" + printFunction(func);	
+}) {
+			var ` = field.kind;
+			switch (@:exhaustive enumIndex `) {
+				case 0: {
+					var `6 = `[1];
+					var `5 = `[0];
+					{
+						var eo = `6;
+						var t = `5;
+						{
+							(if ((field.access != null && Lambda.has(field.access, haxe.macro.Access.AFinal))) {
+								"";
+							} else {
+								"var ";
+							}) + "" + field.name + this.opt(t, this.printComplexType, " : ") + this.opt(eo, this.printExpr, " = ");
+						};
+					};
+				};
+				case 1: {
+					var `7 = `[0];
+					{
+						var func = `7;
+						{
+							"function " + field.name + this.printFunction(func, null);
+						};
+					};
+				};
+				case 2: {
+					var `4 = `[3];
+					var `3 = `[2];
+					var `2 = `[1];
+					var `1 = `[0];
+					{
+						var eo = `4;
+						var t = `3;
+						var set = `2;
+						var get = `1;
+						{
+							"var " + field.name + "(" + get + ", " + set + ")" + this.opt(t, this.printComplexType, " : ") + this.opt(eo, this.printExpr, " = ");
+						};
+					};
+				};
+			};
+		};
+	}
+
+	public function printTypeParamDecl(tpd:haxe.macro.TypeParamDecl) return tpd.name + (if (tpd.params != null && tpd.params.length > 0) {
+		"<" + {
+			var _this = tpd.params;
+			var f = this.printTypeParamDecl;
+			{
+				var ` = [];
+				{
+					var `1 = 0;
+					var `2 = _this;
+					while (`1 < `2.length) {
+						var v = `2[`1];
+						++ `1;
+						`.push(f(v));
+					};
+				};
+				`;
+			};
+		}.join(", ") + ">";
+	} else {
+		"";
+	}) + (if (tpd.constraints != null && tpd.constraints.length > 0) {
+		":(" + {
+			var _this = tpd.constraints;
+			var f = this.printComplexType;
+			{
+				var ` = [];
+				{
+					var `1 = 0;
+					var `2 = _this;
+					while (`1 < `2.length) {
+						var v = `2[`1];
+						++ `1;
+						`.push(f(v));
+					};
+				};
+				`;
+			};
+		}.join(", ") + ")";
+	} else {
+		"";
+	})
+
+	public function printFunctionArg(arg:haxe.macro.FunctionArg) return (if (arg.opt) {
+		"?";
+	} else {
+		"";
+	}) + arg.name + this.opt(arg.type, this.printComplexType, ":") + this.opt(arg.value, this.printExpr, " = ")
+
+	public function printFunction(func:haxe.macro.Function, kind:Null<haxe.macro.FunctionKind> = null) {
+		var skipParentheses = @:ast(switch func.args {
+	case [{ type : null }]:
+		kind == FArrow;	
+	case _:
+		false;	
+}) {
+			var ` = func.args;
+			if (`.length == 1) {
+				var `1 = `[0];
+				{
+					var `6 = `1.value;
+					var `5 = `1.type;
+					var `4 = `1.opt;
+					var `3 = `1.name;
+					var `2 = `1.meta;
+					if (`5 == null) {
+						kind == haxe.macro.FunctionKind.FArrow;
+					} else {
+						false;
+					};
+				};
+			} else {
+				false;
+			};
+		};
+		return (if (func.params == null) {
+			"";
+		} else {
+			if (func.params.length > 0) {
+				"<" + {
+					var _this = func.params;
+					var f = this.printTypeParamDecl;
+					{
+						var ` = [];
+						{
+							var `1 = 0;
+							var `2 = _this;
+							while (`1 < `2.length) {
+								var v = `2[`1];
+								++ `1;
+								`.push(f(v));
+							};
+						};
+						`;
+					};
+				}.join(", ") + ">";
+			} else {
+				"";
+			};
+		}) + (if (skipParentheses) {
+			"";
+		} else {
+			"(";
+		}) + {
+			var _this = func.args;
+			var f = this.printFunctionArg;
+			{
+				var ` = [];
+				{
+					var `1 = 0;
+					var `2 = _this;
+					while (`1 < `2.length) {
+						var v = `2[`1];
+						++ `1;
+						`.push(f(v));
+					};
+				};
+				`;
+			};
+		}.join(", ") + (if (skipParentheses) {
+			"";
+		} else {
+			")";
+		}) + (if (kind == haxe.macro.FunctionKind.FArrow) {
+			" ->";
+		} else {
+			"";
+		}) + this.opt(func.ret, this.printComplexType, ":") + this.opt(func.expr, this.printExpr, " ");
+	}
+
+	public function printVar(v:haxe.macro.Var) return v.name + this.opt(v.type, this.printComplexType, ":") + this.opt(v.expr, this.printExpr, " = ")
+
+	public function printObjectFieldKey(of:haxe.macro.ObjectField) {
+		return @:ast(switch (of.quotes) {
+	case null | Unquoted:
+		of.field;	
+	case Quoted:
+		"\"${of.field}\"";	
+}) {
+			var ` = of.quotes;
+			if (` == null) {
+				of.field;
+			} else switch (@:exhaustive enumIndex `) {
+				case 0: {
+					{
+						of.field;
+					};
+				};
+				case 1: {
+					{
+						"\"" + of.field + "\"";
+					};
+				};
+			};
+		};
+	}
+
+	public function printObjectField(of:haxe.macro.ObjectField) {
+		return "" + this.printObjectFieldKey(of) + " : " + this.printExpr(of.expr);
+	}
+
+	public function printExpr(e:haxe.macro.Expr) {
+		var `this = this;
+		return if (e == null) {
+			"#NULL";
+		} else {
+			@:ast(switch (e.expr) {
+	case EConst(CString(s)):
+		haxe.macro.MacroStringTools.isFormatExpr(e) ? printFormatString(s) : printString(s);	
+	case EConst(c):
+		printConstant(c);	
+	case EArray(e1, e2):
+		"${printExpr(e1)}[${printExpr(e2)}]";	
+	case EBinop(op, e1, e2):
+		"${printExpr(e1)} ${printBinop(op)} ${printExpr(e2)}";	
+	case EField(e1, n):
+		"${printExpr(e1)}.$n";	
+	case EParenthesis(e1):
+		"(${printExpr(e1)})";	
+	case EObjectDecl(fl):
+		"{ " + fl.map(function(fld) return printObjectField(fld)).join(", ") + " }";	
+	case EArrayDecl(el):
+		"[${printExprs(el, \", \")}]";	
+	case ECall(e1, el):
+		"${printExpr(e1)}(${printExprs(el, \", \")})";	
+	case ENew(tp, el):
+		"new ${printTypePath(tp)}(${printExprs(el, \", \")})";	
+	case EUnop(op, true, e1):
+		printExpr(e1) + printUnop(op);	
+	case EUnop(op, false, e1):
+		printUnop(op) + printExpr(e1);	
+	case EFunction(FNamed(no, inlined), func):
+		(inlined ? "inline " : "") + "function $no" + printFunction(func);	
+	case EFunction(kind, func):
+		(kind != FArrow ? "function" : "") + printFunction(func, kind);	
+	case EVars(vl):
+		"var " + vl.map(printVar).join(", ");	
+	case EBlock([]):
+		"{ }";	
+	case EBlock(el):
+		var old = tabs;
+		tabs += tabString;
+		var s = "{\n$tabs" + printExprs(el, ";\n$tabs");
+		tabs = old;
+		s + ";\n$tabs}";	
+	case EFor(e1, e2):
+		"for (${printExpr(e1)}) ${printExpr(e2)}";	
+	case EIf(econd, eif, null):
+		"if (${printExpr(econd)}) ${printExpr(eif)}";	
+	case EIf(econd, eif, eelse):
+		"if (${printExpr(econd)}) ${printExpr(eif)} else ${printExpr(eelse)}";	
+	case EWhile(econd, e1, true):
+		"while (${printExpr(econd)}) ${printExpr(e1)}";	
+	case EWhile(econd, e1, false):
+		"do ${printExpr(e1)} while (${printExpr(econd)})";	
+	case ESwitch(e1, cl, edef):
+		var old = tabs;
+		tabs += tabString;
+		var s = "switch ${printExpr(e1)} {\n$tabs" + cl.map(function(c) return "case ${printExprs(c.values, \", \")}" + (c.guard != null ? " if (${printExpr(c.guard)}):" : ":") + (c.expr != null ? (opt(c.expr, printExpr)) + ";" : "")).join("\n$tabs");
+		if (edef != null) s += "\n${tabs}default:" + (edef.expr == null ? "" : printExpr(edef) + ";");
+		tabs = old;
+		s + "\n$tabs}";	
+	case ETry(e1, cl):
+		"try ${printExpr(e1)}" + cl.map(function(c) return " catch(${c.name}${c.type == null ? '' : (':' + printComplexType(c.type))}) ${printExpr(c.expr)}").join("");	
+	case EReturn(eo):
+		"return" + opt(eo, printExpr, " ");	
+	case EBreak:
+		"break";	
+	case EContinue:
+		"continue";	
+	case EUntyped(e1):
+		"untyped " + printExpr(e1);	
+	case EThrow(e1):
+		"throw " + printExpr(e1);	
+	case ECast(e1, cto) if (cto != null):
+		"cast(${printExpr(e1)}, ${printComplexType(cto)})";	
+	case ECast(e1, _):
+		"cast " + printExpr(e1);	
+	case EDisplay(e1, _):
+		"#DISPLAY(${printExpr(e1)})";	
+	case EDisplayNew(tp):
+		"#DISPLAY(${printTypePath(tp)})";	
+	case ETernary(econd, eif, eelse):
+		"${printExpr(econd)} ? ${printExpr(eif)} : ${printExpr(eelse)}";	
+	case ECheckType(e1, ct):
+		"(${printExpr(e1)} : ${printComplexType(ct)})";	
+	case EMeta({ name : ":implicitReturn" }, { expr : EReturn(e1) }):
+		printExpr(e1);	
+	case EMeta(meta, e1):
+		printMetadata(meta) + " " + printExpr(e1);	
+}) {
+				var ` = e.expr;
+				switch (@:exhaustive enumIndex `) {
+					case 0: {
+						var `56 = `[0];
+						if (enumIndex `56 == 2) {
+							var `58 = `56[1];
+							var `57 = `56[0];
+							{
+								var s = `57;
+								{
+									if (haxe.macro.MacroStringTools.isFormatExpr(e)) {
+										this.printFormatString(s);
+									} else {
+										this.printString(s);
+									};
+								};
+							};
+						} else {
+							var c = `56;
+							{
+								this.printConstant(c);
+							};
+						};
+					};
+					case 1: {
+						var `44 = `[1];
+						var `43 = `[0];
+						{
+							var e2 = `44;
+							var e1 = `43;
+							{
+								"" + this.printExpr(e1) + "[" + this.printExpr(e2) + "]";
+							};
+						};
+					};
+					case 2: {
+						var `52 = `[2];
+						var `51 = `[1];
+						var `50 = `[0];
+						{
+							var e2 = `52;
+							var e1 = `51;
+							var op = `50;
+							{
+								"" + this.printExpr(e1) + " " + this.printBinop(op) + " " + this.printExpr(e2);
+							};
+						};
+					};
+					case 3: {
+						var `46 = `[1];
+						var `45 = `[0];
+						{
+							var n = `46;
+							var e1 = `45;
+							{
+								"" + this.printExpr(e1) + "." + n;
+							};
+						};
+					};
+					case 4: {
+						var `6 = `[0];
+						{
+							var e1 = `6;
+							{
+								"(" + this.printExpr(e1) + ")";
+							};
+						};
+					};
+					case 5: {
+						var `1 = `[0];
+						{
+							var fl = `1;
+							{
+								"{ " + {
+									var ` = [];
+									{
+										var `1 = 0;
+										var `2 = fl;
+										while (`1 < `2.length) {
+											var v = `2[`1];
+											++ `1;
+											`.push(function(fld:haxe.macro.ObjectField) {
+												return `this.printObjectField(fld);
+											}(v));
+										};
+									};
+									`;
+								}.join(", ") + " }";
+							};
+						};
+					};
+					case 6: {
+						var `47 = `[0];
+						{
+							var el = `47;
+							{
+								"[" + this.printExprs(el, ", ") + "]";
+							};
+						};
+					};
+					case 7: {
+						var `3 = `[1];
+						var `2 = `[0];
+						{
+							var el = `3;
+							var e1 = `2;
+							{
+								"" + this.printExpr(e1) + "(" + this.printExprs(el, ", ") + ")";
+							};
+						};
+					};
+					case 8: {
+						var `8 = `[1];
+						var `7 = `[0];
+						{
+							var el = `8;
+							var tp = `7;
+							{
+								"new " + this.printTypePath(tp) + "(" + this.printExprs(el, ", ") + ")";
+							};
+						};
+					};
+					case 9: {
+						var `26 = `[2];
+						var `25 = `[1];
+						var `24 = `[0];
+						if (`25) {
+							{
+								var e1 = `26;
+								var op = `24;
+								{
+									this.printExpr(e1) + this.printUnop(op);
+								};
+							};
+						} else {
+							{
+								var e1 = `26;
+								var op = `24;
+								{
+									this.printUnop(op) + this.printExpr(e1);
+								};
+							};
+						};
+					};
+					case 10: {
+						var `39 = `[0];
+						{
+							var vl = `39;
+							{
+								"var " + {
+									var f = this.printVar;
+									{
+										var ` = [];
+										{
+											var `1 = 0;
+											var `2 = vl;
+											while (`1 < `2.length) {
+												var v = `2[`1];
+												++ `1;
+												`.push(f(v));
+											};
+										};
+										`;
+									};
+								}.join(", ");
+							};
+						};
+					};
+					case 11: {
+						var `28 = `[1];
+						var `27 = `[0];
+						if (`27 == null) {
+							var func = `28;
+							var kind = `27;
+							{
+								(if (kind != haxe.macro.FunctionKind.FArrow) {
+									"function";
+								} else {
+									"";
+								}) + this.printFunction(func, kind);
+							};
+						} else if (enumIndex `27 == 1) {
+							var `30 = `27[1];
+							var `29 = `27[0];
+							{
+								var func = `28;
+								var inlined = `30;
+								var no = `29;
+								{
+									(if (inlined) {
+										"inline ";
+									} else {
+										"";
+									}) + "function " + no + this.printFunction(func, null);
+								};
+							};
+						} else {
+							var func = `28;
+							var kind = `27;
+							{
+								(if (kind != haxe.macro.FunctionKind.FArrow) {
+									"function";
+								} else {
+									"";
+								}) + this.printFunction(func, kind);
+							};
+						};
+					};
+					case 12: {
+						var `31 = `[0];
+						if (`31.length == 0) {
+							{
+								"{ }";
+							};
+						} else {
+							var el = `31;
+							{
+								var old = this.tabs;
+								this.tabs += this.tabString;
+								var s = "{\n" + this.tabs + this.printExprs(el, ";\n" + this.tabs);
+								this.tabs = old;
+								s + ";\n" + this.tabs + "}";
+							};
+						};
+					};
+					case 13: {
+						var `10 = `[1];
+						var `9 = `[0];
+						{
+							var e2 = `10;
+							var e1 = `9;
+							{
+								"for (" + this.printExpr(e1) + ") " + this.printExpr(e2);
+							};
+						};
+					};
+					case 14: {
+						var `13 = `[2];
+						var `12 = `[1];
+						var `11 = `[0];
+						if (`13 == null) {
+							var econd = `11;
+							var eif = `12;
+							{
+								"if (" + this.printExpr(econd) + ") " + this.printExpr(eif);
+							};
+						} else {
+							var econd = `11;
+							var eif = `12;
+							var eelse = `13;
+							{
+								"if (" + this.printExpr(econd) + ") " + this.printExpr(eif) + " else " + this.printExpr(eelse);
+							};
+						};
+					};
+					case 15: {
+						var `42 = `[2];
+						var `41 = `[1];
+						var `40 = `[0];
+						if (`42) {
+							{
+								var econd = `40;
+								var e1 = `41;
+								{
+									"while (" + this.printExpr(econd) + ") " + this.printExpr(e1);
+								};
+							};
+						} else {
+							{
+								var econd = `40;
+								var e1 = `41;
+								{
+									"do " + this.printExpr(e1) + " while (" + this.printExpr(econd) + ")";
+								};
+							};
+						};
+					};
+					case 16: {
+						var `38 = `[2];
+						var `37 = `[1];
+						var `36 = `[0];
+						{
+							var edef = `38;
+							var cl = `37;
+							var e1 = `36;
+							{
+								var old = this.tabs;
+								this.tabs += this.tabString;
+								var s = "switch " + this.printExpr(e1) + " {\n" + this.tabs + {
+									var ` = [];
+									{
+										var `1 = 0;
+										var `2 = cl;
+										while (`1 < `2.length) {
+											var v = `2[`1];
+											++ `1;
+											`.push(function(c:haxe.macro.Case) {
+												return "case " + `this.printExprs(c.values, ", ") + (if ((c.guard != null)) " if (" + `this.printExpr(c.guard) + "):" else ":") + (if ((c.expr != null)) `this.opt(c.expr, `this.printExpr, null) + ";" else "");
+											}(v));
+										};
+									};
+									`;
+								}.join("\n" + this.tabs);
+								if (edef != null) {
+									s += "\n" + this.tabs + "default:" + (if (edef.expr == null) {
+										"";
+									} else {
+										this.printExpr(edef) + ";";
+									});
+								};
+								this.tabs = old;
+								s + "\n" + this.tabs + "}";
+							};
+						};
+					};
+					case 17: {
+						var `35 = `[1];
+						var `34 = `[0];
+						{
+							var cl = `35;
+							var e1 = `34;
+							{
+								"try " + this.printExpr(e1) + {
+									var ` = [];
+									{
+										var `1 = 0;
+										var `2 = cl;
+										while (`1 < `2.length) {
+											var v = `2[`1];
+											++ `1;
+											`.push(function(c:haxe.macro.Catch) {
+												return " catch(" + c.name + (if ((c.type == null)) "" else ":" + `this.printComplexType(c.type)) + ") " + `this.printExpr(c.expr);
+											}(v));
+										};
+									};
+									`;
+								}.join("");
+							};
+						};
+					};
+					case 18: {
+						var `59 = `[0];
+						{
+							var eo = `59;
+							{
+								"return" + this.opt(eo, this.printExpr, " ");
+							};
+						};
+					};
+					case 19: {
+						{
+							"break";
+						};
+					};
+					case 20: {
+						{
+							"continue";
+						};
+					};
+					case 21: {
+						var `14 = `[0];
+						{
+							var e1 = `14;
+							{
+								"untyped " + this.printExpr(e1);
+							};
+						};
+					};
+					case 22: {
+						var `15 = `[0];
+						{
+							var e1 = `15;
+							{
+								"throw " + this.printExpr(e1);
+							};
+						};
+					};
+					case 23: {
+						var `5 = `[1];
+						var `4 = `[0];
+						{
+							var cto = `5;
+							var e1 = `4;
+							if (cto != null) {
+								"cast(" + this.printExpr(e1) + ", " + this.printComplexType(cto) + ")";
+							} else {
+								var e1 = `4;
+								{
+									"cast " + this.printExpr(e1);
+								};
+							};
+						};
+					};
+					case 24: {
+						var `49 = `[1];
+						var `48 = `[0];
+						{
+							var e1 = `48;
+							{
+								"#DISPLAY(" + this.printExpr(e1) + ")";
+							};
+						};
+					};
+					case 25: {
+						var `60 = `[0];
+						{
+							var tp = `60;
+							{
+								"#DISPLAY(" + this.printTypePath(tp) + ")";
+							};
+						};
+					};
+					case 26: {
+						var `55 = `[2];
+						var `54 = `[1];
+						var `53 = `[0];
+						{
+							var eelse = `55;
+							var eif = `54;
+							var econd = `53;
+							{
+								"" + this.printExpr(econd) + " ? " + this.printExpr(eif) + " : " + this.printExpr(eelse);
+							};
+						};
+					};
+					case 27: {
+						var `33 = `[1];
+						var `32 = `[0];
+						{
+							var ct = `33;
+							var e1 = `32;
+							{
+								"(" + this.printExpr(e1) + " : " + this.printComplexType(ct) + ")";
+							};
+						};
+					};
+					case 28: {
+						var `17 = `[1];
+						var `16 = `[0];
+						{
+							var `20 = `16.pos;
+							var `19 = `16.params;
+							var `18 = `16.name;
+							if (`18 == ":implicitReturn") {
+								{
+									var `22 = `17.pos;
+									var `21 = `17.expr;
+									if (enumIndex `21 == 18) {
+										var `23 = `21[0];
+										{
+											var e1 = `23;
+											{
+												this.printExpr(e1);
+											};
+										};
+									} else {
+										var meta = `16;
+										var e1 = `17;
+										{
+											this.printMetadata(meta) + " " + this.printExpr(e1);
+										};
+									};
+								};
+							} else {
+								var e1 = `17;
+								var meta = `16;
+								{
+									this.printMetadata(meta) + " " + this.printExpr(e1);
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	}
+
+	public function printExprs(el:Array<haxe.macro.Expr>, sep:String) {
+		return {
+			var f = this.printExpr;
+			{
+				var ` = [];
+				{
+					var `1 = 0;
+					var `2 = el;
+					while (`1 < `2.length) {
+						var v = `2[`1];
+						++ `1;
+						`.push(f(v));
+					};
+				};
+				`;
+			};
+		}.join(sep);
+	}
+
+	function printExtension(tpl:Array<haxe.macro.TypePath>, fields:Array<haxe.macro.Field>) {
+		return "{\n" + this.tabs + ">" + {
+			var f = this.printTypePath;
+			{
+				var ` = [];
+				{
+					var `1 = 0;
+					var `2 = tpl;
+					while (`1 < `2.length) {
+						var v = `2[`1];
+						++ `1;
+						`.push(f(v));
+					};
+				};
+				`;
+			};
+		}.join(",\n" + this.tabs + ">") + "," + (if (fields.length > 0) {
+			("\n" + this.tabs + {
+				var f = this.printField;
+				{
+					var ` = [];
+					{
+						var `1 = 0;
+						var `2 = fields;
+						while (`1 < `2.length) {
+							var v = `2[`1];
+							++ `1;
+							`.push(f(v));
+						};
+					};
+					`;
+				};
+			}.join(";\n" + this.tabs) + ";\n}");
+		} else {
+			("\n}");
+		});
+	}
+
+	function printStructure(fields:Array<haxe.macro.Field>) {
+		return if (fields.length == 0) {
+			"{ }";
+		} else {
+			"{\n" + this.tabs + {
+				var f = this.printField;
+				{
+					var ` = [];
+					{
+						var `1 = 0;
+						var `2 = fields;
+						while (`1 < `2.length) {
+							var v = `2[`1];
+							++ `1;
+							`.push(f(v));
+						};
+					};
+					`;
+				};
+			}.join(";\n" + this.tabs) + ";\n}";
+		};
+	}
+
+	@:value({ printPackage : true })
+	public function printTypeDefinition(t:haxe.macro.TypeDefinition, printPackage:Bool = true) {
+		var old = this.tabs;
+		this.tabs = this.tabString;
+		var str = if (t == null) {
+			"#NULL";
+		} else {
+			(if (printPackage && t.pack.length > 0 && t.pack[0] != "") {
+				"package " + t.pack.join(".") + ";\n";
+			} else {
+				"";
+			}) + (if (t.doc != null && t.doc != "") {
+				"/**\n" + this.tabString + StringTools.replace(t.doc, "\n", "\n" + this.tabString) + "\n**/\n";
+			} else {
+				"";
+			}) + (if (t.meta != null && t.meta.length > 0) {
+				{
+					var _this = t.meta;
+					var f = this.printMetadata;
+					{
+						var ` = [];
+						{
+							var `1 = 0;
+							var `2 = _this;
+							while (`1 < `2.length) {
+								var v = `2[`1];
+								++ `1;
+								`.push(f(v));
+							};
+						};
+						`;
+					};
+				}.join(" ") + " ";
+			} else {
+				"";
+			}) + (if (t.isExtern) {
+				"extern ";
+			} else {
+				"";
+			}) + @:ast(switch (t.kind) {
+	case TDEnum:
+		"enum " + t.name + ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "") + " {\n" + [for (field  in  t.fields) tabs + (field.doc != null && field.doc != "" ? "/**\n" + tabs + tabString + StringTools.replace(field.doc, "\n", "\n" + tabs + tabString) + "\n" + tabs + "**/\n" + tabs : "") + (field.meta != null && field.meta.length > 0 ? field.meta.map(printMetadata).join(" ") + " " : "") + (switch (field.kind) {
+			case FVar(t, _):
+				field.name + opt(t, printComplexType, ":");			
+			case FProp(_, _, _, _):
+				throw "FProp is invalid for TDEnum.";			
+			case FFun(func):
+				field.name + printFunction(func);			
+		}) + ";"].join("\n") + "\n}";	
+	case TDStructure:
+		"typedef " + t.name + ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "") + " = {\n" + [for (f  in  t.fields) {
+			tabs + printField(f) + ";";
+		}].join("\n") + "\n}";	
+	case TDClass(superClass, interfaces, isInterface, isFinal):
+		(isFinal ? "final " : "") + (isInterface ? "interface " : "class ") + t.name + (t.params != null && t.params.length > 0 ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "") + (superClass != null ? " extends " + printTypePath(superClass) : "") + (interfaces != null ? (isInterface ? [for (tp  in  interfaces) " extends " + printTypePath(tp)] : [for (tp  in  interfaces) " implements " + printTypePath(tp)]).join("") : "") + " {\n" + [for (f  in  t.fields) {
+			tabs + printFieldWithDelimiter(f);
+		}].join("\n") + "\n}";	
+	case TDAlias(ct):
+		"typedef " + t.name + ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "") + " = " + (switch (ct) {
+			case TExtend(tpl, fields):
+				printExtension(tpl, fields);			
+			case TAnonymous(fields):
+				printStructure(fields);			
+			case _:
+				printComplexType(ct);			
+		}) + ";";	
+	case TDAbstract(tthis, from, to):
+		"abstract " + t.name + ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "") + (tthis == null ? "" : "(" + printComplexType(tthis) + ")") + (from == null ? "" : [for (f  in  from) " from " + printComplexType(f)].join("")) + (to == null ? "" : [for (t  in  to) " to " + printComplexType(t)].join("")) + " {\n" + [for (f  in  t.fields) {
+			tabs + printFieldWithDelimiter(f);
+		}].join("\n") + "\n}";	
+}) {
+				var ` = t.kind;
+				switch (@:exhaustive enumIndex `) {
+					case 0: {
+						{
+							"enum " + t.name + (if ((t.params != null && t.params.length > 0)) {
+								"<" + {
+									var _this = t.params;
+									var f = this.printTypeParamDecl;
+									{
+										var ` = [];
+										{
+											var `1 = 0;
+											var `2 = _this;
+											while (`1 < `2.length) {
+												var v = `2[`1];
+												++ `1;
+												`.push(f(v));
+											};
+										};
+										`;
+									};
+								}.join(", ") + ">";
+							} else {
+								"";
+							}) + " {\n" + {
+								var ` = [];
+								{
+									var `1 = 0;
+									var `2 = t.fields;
+									while (`1 < `2.length) {
+										var field = `2[`1];
+										++ `1;
+										`.push(this.tabs + (if (field.doc != null && field.doc != "") {
+											"/**\n" + this.tabs + this.tabString + StringTools.replace(field.doc, "\n", "\n" + this.tabs + this.tabString) + "\n" + this.tabs + "**/\n" + this.tabs;
+										} else {
+											"";
+										}) + (if (field.meta != null && field.meta.length > 0) {
+											{
+												var _this = field.meta;
+												var f = this.printMetadata;
+												{
+													var ` = [];
+													{
+														var `1 = 0;
+														var `2 = _this;
+														while (`1 < `2.length) {
+															var v = `2[`1];
+															++ `1;
+															`.push(f(v));
+														};
+													};
+													`;
+												};
+											}.join(" ") + " ";
+										} else {
+											"";
+										}) + (@:ast(switch (field.kind) {
+	case FVar(t, _):
+		field.name + opt(t, printComplexType, ":");	
+	case FProp(_, _, _, _):
+		throw "FProp is invalid for TDEnum.";	
+	case FFun(func):
+		field.name + printFunction(func);	
+}) {
+											var `1 = field.kind;
+											switch (@:exhaustive enumIndex `1) {
+												case 0: {
+													var `7 = `1[1];
+													var `6 = `1[0];
+													{
+														var t = `6;
+														{
+															field.name + this.opt(t, this.printComplexType, ":");
+														};
+													};
+												};
+												case 1: {
+													var `8 = `1[0];
+													{
+														var func = `8;
+														{
+															field.name + this.printFunction(func, null);
+														};
+													};
+												};
+												case 2: {
+													var `5 = `1[3];
+													var `4 = `1[2];
+													var `3 = `1[1];
+													var `2 = `1[0];
+													{
+														throw throw haxe.Exception.thrown("FProp is invalid for TDEnum.");
+													};
+												};
+											};
+										}) + ";");
+									};
+								};
+								`;
+							}.join("\n") + "\n}";
+						};
+					};
+					case 1: {
+						{
+							"typedef " + t.name + (if ((t.params != null && t.params.length > 0)) {
+								"<" + {
+									var _this = t.params;
+									var f = this.printTypeParamDecl;
+									{
+										var ` = [];
+										{
+											var `1 = 0;
+											var `2 = _this;
+											while (`1 < `2.length) {
+												var v = `2[`1];
+												++ `1;
+												`.push(f(v));
+											};
+										};
+										`;
+									};
+								}.join(", ") + ">";
+							} else {
+								"";
+							}) + " = {\n" + {
+								var ` = [];
+								{
+									var `1 = 0;
+									var `2 = t.fields;
+									while (`1 < `2.length) {
+										var f = `2[`1];
+										++ `1;
+										`.push(this.tabs + this.printField(f) + ";");
+									};
+								};
+								`;
+							}.join("\n") + "\n}";
+						};
+					};
+					case 2: {
+						var `4 = `[3];
+						var `3 = `[2];
+						var `2 = `[1];
+						var `1 = `[0];
+						{
+							var isFinal = `4;
+							var isInterface = `3;
+							var interfaces = `2;
+							var superClass = `1;
+							{
+								(if (isFinal) {
+									"final ";
+								} else {
+									"";
+								}) + (if (isInterface) {
+									"interface ";
+								} else {
+									"class ";
+								}) + t.name + (if (t.params != null && t.params.length > 0) {
+									"<" + {
+										var _this = t.params;
+										var f = this.printTypeParamDecl;
+										{
+											var ` = [];
+											{
+												var `1 = 0;
+												var `2 = _this;
+												while (`1 < `2.length) {
+													var v = `2[`1];
+													++ `1;
+													`.push(f(v));
+												};
+											};
+											`;
+										};
+									}.join(", ") + ">";
+								} else {
+									"";
+								}) + (if (superClass != null) {
+									" extends " + this.printTypePath(superClass);
+								} else {
+									"";
+								}) + (if (interfaces != null) {
+									(if (isInterface) {
+										{
+											var ` = [];
+											{
+												var `1 = 0;
+												while (`1 < interfaces.length) {
+													var tp = interfaces[`1];
+													++ `1;
+													`.push(" extends " + this.printTypePath(tp));
+												};
+											};
+											`;
+										};
+									} else {
+										{
+											var ` = [];
+											{
+												var `1 = 0;
+												while (`1 < interfaces.length) {
+													var tp = interfaces[`1];
+													++ `1;
+													`.push(" implements " + this.printTypePath(tp));
+												};
+											};
+											`;
+										};
+									}).join("");
+								} else {
+									"";
+								}) + " {\n" + {
+									var ` = [];
+									{
+										var `1 = 0;
+										var `2 = t.fields;
+										while (`1 < `2.length) {
+											var f = `2[`1];
+											++ `1;
+											`.push(this.tabs + this.printFieldWithDelimiter(f));
+										};
+									};
+									`;
+								}.join("\n") + "\n}";
+							};
+						};
+					};
+					case 3: {
+						var `8 = `[0];
+						{
+							var ct = `8;
+							{
+								"typedef " + t.name + (if ((t.params != null && t.params.length > 0)) {
+									"<" + {
+										var _this = t.params;
+										var f = this.printTypeParamDecl;
+										{
+											var ` = [];
+											{
+												var `1 = 0;
+												var `2 = _this;
+												while (`1 < `2.length) {
+													var v = `2[`1];
+													++ `1;
+													`.push(f(v));
+												};
+											};
+											`;
+										};
+									}.join(", ") + ">";
+								} else {
+									"";
+								}) + " = " + (@:ast(switch (ct) {
+	case TExtend(tpl, fields):
+		printExtension(tpl, fields);	
+	case TAnonymous(fields):
+		printStructure(fields);	
+	case _:
+		printComplexType(ct);	
+}) switch (enumIndex ct) {
+									case 2: {
+										var ` = ct[0];
+										{
+											var fields = `;
+											{
+												this.printStructure(fields);
+											};
+										};
+									};
+									case 4: {
+										var `2 = ct[1];
+										var `1 = ct[0];
+										{
+											var fields = `2;
+											var tpl = `1;
+											{
+												this.printExtension(tpl, fields);
+											};
+										};
+									};
+									default: {
+										this.printComplexType(ct);
+									}
+								}) + ";";
+							};
+						};
+					};
+					case 4: {
+						var `7 = `[2];
+						var `6 = `[1];
+						var `5 = `[0];
+						{
+							var to = `7;
+							var from = `6;
+							var tthis = `5;
+							{
+								"abstract " + t.name + (if ((t.params != null && t.params.length > 0)) {
+									"<" + {
+										var _this = t.params;
+										var f = this.printTypeParamDecl;
+										{
+											var ` = [];
+											{
+												var `1 = 0;
+												var `2 = _this;
+												while (`1 < `2.length) {
+													var v = `2[`1];
+													++ `1;
+													`.push(f(v));
+												};
+											};
+											`;
+										};
+									}.join(", ") + ">";
+								} else {
+									"";
+								}) + (if (tthis == null) {
+									"";
+								} else {
+									"(" + this.printComplexType(tthis) + ")";
+								}) + (if (from == null) {
+									"";
+								} else {
+									{
+										var ` = [];
+										{
+											var `1 = 0;
+											while (`1 < from.length) {
+												var f = from[`1];
+												++ `1;
+												`.push(" from " + this.printComplexType(f));
+											};
+										};
+										`;
+									}.join("");
+								}) + (if (to == null) {
+									"";
+								} else {
+									{
+										var ` = [];
+										{
+											var `1 = 0;
+											while (`1 < to.length) {
+												var t = to[`1];
+												++ `1;
+												`.push(" to " + this.printComplexType(t));
+											};
+										};
+										`;
+									}.join("");
+								}) + " {\n" + {
+									var ` = [];
+									{
+										var `1 = 0;
+										var `2 = t.fields;
+										while (`1 < `2.length) {
+											var f = `2[`1];
+											++ `1;
+											`.push(this.tabs + this.printFieldWithDelimiter(f));
+										};
+									};
+									`;
+								}.join("\n") + "\n}";
+							};
+						};
+					};
+				};
+			};
+		};
+		this.tabs = old;
+		return str;
+	}
+
+	function printFieldWithDelimiter(f:haxe.macro.Field) {
+		return this.printField(f) + @:ast(switch (f.kind) {
+	case FVar(_, _), FProp(_, _, _, _):
+		";";	
+	case FFun({ expr : null }):
+		";";	
+	case FFun({ expr : { expr : EBlock(_) } }):
+		"";	
+	case FFun(_):
+		";";	
+	case _:
+		"";	
+}) {
+			var ` = f.kind;
+			switch (@:exhaustive enumIndex `) {
+				case 0: {
+					var `6 = `[1];
+					var `5 = `[0];
+					{
+						";";
+					};
+				};
+				case 1: {
+					var `7 = `[0];
+					{
+						var `11 = `7.ret;
+						var `10 = `7.params;
+						var `9 = `7.expr;
+						var `8 = `7.args;
+						if (`9 == null) {
+							";";
+						} else {
+							var `13 = `9.pos;
+							var `12 = `9.expr;
+							if (enumIndex `12 == 12) {
+								var `14 = `12[0];
+								{
+									"";
+								};
+							} else {
+								";";
+							};
+						};
+					};
+				};
+				case 2: {
+					var `4 = `[3];
+					var `3 = `[2];
+					var `2 = `[1];
+					var `1 = `[0];
+					{
+						";";
+					};
+				};
+			};
+		};
+	}
+
+	@:value({ prefix : "" })
+	function opt<T : opt.T>(v:opt.T, f:opt.T -> String, prefix:String = "") return if (v == null) {
+		"";
+	} else {
+		(prefix + f(v));
+	}
+
+	public function printExprWithPositions(e:haxe.macro.Expr) {
+		var `this = this;
+		var buffer = new StringBuf();
+		var format4 = function(i:Int) {
+			return StringTools.lpad(Std.string(i), " ", 4);
+		};
+		var loop = [null];
+		loop[0] = function(tabs:String, e:haxe.macro.Expr) {
+			var add = function(s:String, p:Null<haxe.macro.Position> = null) {
+				if (p == null) {
+					p = e.pos;
+				};
+				var p = haxe.macro.Context.getPosInfos(p);
+				buffer.add("" + format4(p.min) + "-" + format4(p.max) + " " + tabs + s + "\n");
+			};
+			var loopI = function(e:haxe.macro.Expr) loop[0](tabs + `this.tabString, e);
+			@:ast(switch (e.expr) {
+	case EConst(c):
+		add(printConstant(c));	
+	case EArray(e1, e2):
+		add("EArray");
+		loopI(e1);
+		loopI(e2);	
+	case EBinop(op, e1, e2):
+		add("EBinop " + printBinop(op));
+		loopI(e1);
+		loopI(e2);	
+	case EField(e, field):
+		add("EField " + field);
+		loopI(e);	
+	case EParenthesis(e):
+		add("EParenthesis");
+		loopI(e);	
+	case EObjectDecl(fields):
+		add("EObjectDecl");
+		for (field  in  fields) {
+			add(field.field);
+			loopI(field.expr);
+		};	
+	case EArrayDecl(values):
+		add("EArrayDecl");
+		values.iter(loopI);	
+	case ECall(e, params):
+		add("ECall");
+		loopI(e);
+		params.iter(loopI);	
+	case ENew(tp, params):
+		add("ENew " + printTypePath(tp));
+		params.iter(loopI);	
+	case EUnop(op, postFix, e):
+		add("EUnop " + printUnop(op));
+		loopI(e);	
+	case EVars(vars):
+		add("EVars");
+		for (v  in  vars) {
+			if (v.expr != null) {
+				add(v.name);
+				loopI(v.expr);
+			};
+		};	
+	case EFunction(_, f):
+		add("EFunction");
+		if (f.expr != null) {
+			loopI(f.expr);
+		};	
+	case EBlock(exprs):
+		add("EBlock");
+		exprs.iter(loopI);	
+	case EFor(it, expr):
+		add("EFor");
+		loopI(it);
+		loopI(expr);	
+	case EIf(econd, eif, eelse):
+		add("EIf");
+		loopI(econd);
+		loopI(eif);
+		if (eelse != null) {
+			loopI(eelse);
+		};	
+	case EWhile(econd, e, normalWhile):
+		add("EWhile");
+		loopI(econd);
+		loopI(e);	
+	case ESwitch(e, cases, edef):
+		add("ESwitch");
+		loopI(e);
+		for (c  in  cases) {
+			for (pat  in  c.values) {
+				loop(tabs + tabString + tabString, pat);
+			};
+			if (c.expr != null) {
+				loop(tabs + tabString + tabString + tabString, c.expr);
+			};
+		};
+		if (edef != null) {
+			loop(tabs + tabString + tabString + tabString, edef);
+		};	
+	case ETry(e, catches):
+		add("ETry");
+		loopI(e);
+		for (c  in  catches) {
+			loop(tabs + tabString + tabString, c.expr);
+		};	
+	case EReturn(e):
+		add("EReturn");
+		if (e != null) {
+			loopI(e);
+		};	
+	case EBreak:
+		add("EBreak");	
+	case EContinue:
+		add("EContinue");	
+	case EUntyped(e):
+		add("EUntyped");
+		loopI(e);	
+	case EThrow(e):
+		add("EThrow");
+		loopI(e);	
+	case ECast(e, t):
+		add("ECast");
+		loopI(e);	
+	case EDisplay(e, displayKind):
+		add("EDisplay");
+		loopI(e);	
+	case EDisplayNew(t):
+		add("EDisplayNew");	
+	case ETernary(econd, eif, eelse):
+		add("ETernary");
+		loopI(econd);
+		loopI(eif);
+		loopI(eelse);	
+	case ECheckType(e, t):
+		add("ECheckType");
+		loopI(e);	
+	case EMeta(s, e):
+		add("EMeta " + printMetadata(s));
+		loopI(e);	
+}) {
+				var ` = e.expr;
+				switch (@:exhaustive enumIndex `) {
+					case 0: {
+						var `48 = `[0];
+						{
+							var c = `48;
+							{
+								add(`this.printConstant(c), null);
+							};
+						};
+					};
+					case 1: {
+						var `36 = `[1];
+						var `35 = `[0];
+						{
+							var e2 = `36;
+							var e1 = `35;
+							{
+								add("EArray", null);
+								loopI(e1);
+								loopI(e2);
+							};
+						};
+					};
+					case 2: {
+						var `44 = `[2];
+						var `43 = `[1];
+						var `42 = `[0];
+						{
+							var e2 = `44;
+							var e1 = `43;
+							var op = `42;
+							{
+								add("EBinop " + `this.printBinop(op), null);
+								loopI(e1);
+								loopI(e2);
+							};
+						};
+					};
+					case 3: {
+						var `38 = `[1];
+						var `37 = `[0];
+						{
+							var field = `38;
+							var e = `37;
+							{
+								add("EField " + field, null);
+								loopI(e);
+							};
+						};
+					};
+					case 4: {
+						var `6 = `[0];
+						{
+							var e = `6;
+							{
+								add("EParenthesis", null);
+								loopI(e);
+							};
+						};
+					};
+					case 5: {
+						var `1 = `[0];
+						{
+							var fields = `1;
+							{
+								add("EObjectDecl", null);
+								{
+									var ` = 0;
+									while (` < fields.length) {
+										var field = fields[`];
+										++ `;
+										add(field.field, null);
+										loopI(field.expr);
+									};
+								};
+							};
+						};
+					};
+					case 6: {
+						var `39 = `[0];
+						{
+							var values = `39;
+							{
+								add("EArrayDecl", null);
+								Lambda.iter(values, loopI);
+							};
+						};
+					};
+					case 7: {
+						var `3 = `[1];
+						var `2 = `[0];
+						{
+							var params = `3;
+							var e = `2;
+							{
+								add("ECall", null);
+								loopI(e);
+								Lambda.iter(params, loopI);
+							};
+						};
+					};
+					case 8: {
+						var `8 = `[1];
+						var `7 = `[0];
+						{
+							var params = `8;
+							var tp = `7;
+							{
+								add("ENew " + `this.printTypePath(tp), null);
+								Lambda.iter(params, loopI);
+							};
+						};
+					};
+					case 9: {
+						var `20 = `[2];
+						var `19 = `[1];
+						var `18 = `[0];
+						{
+							var e = `20;
+							var postFix = `19;
+							var op = `18;
+							{
+								add("EUnop " + `this.printUnop(op), null);
+								loopI(e);
+							};
+						};
+					};
+					case 10: {
+						var `31 = `[0];
+						{
+							var vars = `31;
+							{
+								add("EVars", null);
+								{
+									var ` = 0;
+									while (` < vars.length) {
+										var v = vars[`];
+										++ `;
+										if (v.expr != null) {
+											add(v.name, null);
+											loopI(v.expr);
+										};
+									};
+								};
+							};
+						};
+					};
+					case 11: {
+						var `22 = `[1];
+						var `21 = `[0];
+						{
+							var f = `22;
+							{
+								add("EFunction", null);
+								if (f.expr != null) {
+									loopI(f.expr);
+								};
+							};
+						};
+					};
+					case 12: {
+						var `23 = `[0];
+						{
+							var exprs = `23;
+							{
+								add("EBlock", null);
+								Lambda.iter(exprs, loopI);
+							};
+						};
+					};
+					case 13: {
+						var `10 = `[1];
+						var `9 = `[0];
+						{
+							var expr = `10;
+							var it = `9;
+							{
+								add("EFor", null);
+								loopI(it);
+								loopI(expr);
+							};
+						};
+					};
+					case 14: {
+						var `13 = `[2];
+						var `12 = `[1];
+						var `11 = `[0];
+						{
+							var eelse = `13;
+							var eif = `12;
+							var econd = `11;
+							{
+								add("EIf", null);
+								loopI(econd);
+								loopI(eif);
+								if (eelse != null) {
+									loopI(eelse);
+								};
+							};
+						};
+					};
+					case 15: {
+						var `34 = `[2];
+						var `33 = `[1];
+						var `32 = `[0];
+						{
+							var normalWhile = `34;
+							var e = `33;
+							var econd = `32;
+							{
+								add("EWhile", null);
+								loopI(econd);
+								loopI(e);
+							};
+						};
+					};
+					case 16: {
+						var `30 = `[2];
+						var `29 = `[1];
+						var `28 = `[0];
+						{
+							var edef = `30;
+							var cases = `29;
+							var e = `28;
+							{
+								add("ESwitch", null);
+								loopI(e);
+								{
+									var ` = 0;
+									while (` < cases.length) {
+										var c = cases[`];
+										++ `;
+										{
+											var ` = 0;
+											var `1 = c.values;
+											while (` < `1.length) {
+												var pat = `1[`];
+												++ `;
+												loop[0](tabs + `this.tabString + `this.tabString, pat);
+											};
+										};
+										if (c.expr != null) {
+											loop[0](tabs + `this.tabString + `this.tabString + `this.tabString, c.expr);
+										};
+									};
+								};
+								if (edef != null) {
+									loop[0](tabs + `this.tabString + `this.tabString + `this.tabString, edef);
+								};
+							};
+						};
+					};
+					case 17: {
+						var `27 = `[1];
+						var `26 = `[0];
+						{
+							var catches = `27;
+							var e = `26;
+							{
+								add("ETry", null);
+								loopI(e);
+								{
+									var ` = 0;
+									while (` < catches.length) {
+										var c = catches[`];
+										++ `;
+										loop[0](tabs + `this.tabString + `this.tabString, c.expr);
+									};
+								};
+							};
+						};
+					};
+					case 18: {
+						var `49 = `[0];
+						{
+							var e = `49;
+							{
+								add("EReturn", null);
+								if (e != null) {
+									loopI(e);
+								};
+							};
+						};
+					};
+					case 19: {
+						{
+							add("EBreak", null);
+						};
+					};
+					case 20: {
+						{
+							add("EContinue", null);
+						};
+					};
+					case 21: {
+						var `14 = `[0];
+						{
+							var e = `14;
+							{
+								add("EUntyped", null);
+								loopI(e);
+							};
+						};
+					};
+					case 22: {
+						var `15 = `[0];
+						{
+							var e = `15;
+							{
+								add("EThrow", null);
+								loopI(e);
+							};
+						};
+					};
+					case 23: {
+						var `5 = `[1];
+						var `4 = `[0];
+						{
+							var t = `5;
+							var e = `4;
+							{
+								add("ECast", null);
+								loopI(e);
+							};
+						};
+					};
+					case 24: {
+						var `41 = `[1];
+						var `40 = `[0];
+						{
+							var displayKind = `41;
+							var e = `40;
+							{
+								add("EDisplay", null);
+								loopI(e);
+							};
+						};
+					};
+					case 25: {
+						var `50 = `[0];
+						{
+							var t = `50;
+							{
+								add("EDisplayNew", null);
+							};
+						};
+					};
+					case 26: {
+						var `47 = `[2];
+						var `46 = `[1];
+						var `45 = `[0];
+						{
+							var eelse = `47;
+							var eif = `46;
+							var econd = `45;
+							{
+								add("ETernary", null);
+								loopI(econd);
+								loopI(eif);
+								loopI(eelse);
+							};
+						};
+					};
+					case 27: {
+						var `25 = `[1];
+						var `24 = `[0];
+						{
+							var t = `25;
+							var e = `24;
+							{
+								add("ECheckType", null);
+								loopI(e);
+							};
+						};
+					};
+					case 28: {
+						var `17 = `[1];
+						var `16 = `[0];
+						{
+							var e = `17;
+							var s = `16;
+							{
+								add("EMeta " + `this.printMetadata(s), null);
+								loopI(e);
+							};
+						};
+					};
+				};
+			};
+		};
+		loop[0]("", e);
+		return buffer.toString();
+	}
+}

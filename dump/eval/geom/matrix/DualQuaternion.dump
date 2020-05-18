@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.matrix.DualQuaternion from geom.structure.DualQ to geom.structure.DualQ {}

@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.ga.MultiVector2 from geom.structure.MVec2 to geom.structure.MVec2 {}

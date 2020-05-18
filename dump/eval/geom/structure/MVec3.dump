@@ -1,0 +1,46 @@
+@:directlyUsed @:used @:structInit
+class geom.structure.MVec3 {
+
+	function new(s:Float, x:Float, y:Float, z:Float, xy:Float, zx:Float, yz:Float, xyz:Float) {
+		this.xyz = 0.;
+		this.yz = 0.;
+		this.zx = 0.;
+		this.xy = 0.;
+		this.z = 0.;
+		this.y = 0.;
+		this.x = 0.;
+		this.s = 0.;
+		this.s = s;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.xy = xy;
+		this.zx = zx;
+		this.yz = yz;
+		this.xyz = xyz;
+	}
+
+	@:value(0.)
+	public var s:Float;
+
+	@:value(0.)
+	public var x:Float;
+
+	@:value(0.)
+	public var y:Float;
+
+	@:value(0.)
+	public var z:Float;
+
+	@:value(0.)
+	public var xy:Float;
+
+	@:value(0.)
+	public var zx:Float;
+
+	@:value(0.)
+	public var yz:Float;
+
+	@:value(0.)
+	public var xyz:Float;
+}

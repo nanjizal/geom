@@ -1,0 +1,21 @@
+@:realPath("js.lib.Symbol") @:native("Symbol")
+extern class Symbol {
+
+	@:pure @:selfCall
+	function new(description:Null<String>):Void;
+
+	@:pure
+	function toString():String;
+
+	inline function ofObject<T : ofObject.T>(object:{ }):Null<ofObject.T>;
+
+	@:realPath("for_") @:native("for")
+	static function for(key:String):Symbol;
+
+	@:pure
+	static function keyFor(sym:Symbol):Null<String>;
+
+	static var iterator(default,null):Symbol;
+
+	static var asyncIterator(default,null):Symbol;
+}

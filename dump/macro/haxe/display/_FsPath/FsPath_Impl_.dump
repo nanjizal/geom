@@ -1,0 +1,14 @@
+private class haxe.display._FsPath.FsPath_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new(path:String) {
+		var this;
+		this = path;
+		return cast this;
+	}
+
+	@:impl
+	public static inline function toString(this:String) {
+		return this;
+	}
+}

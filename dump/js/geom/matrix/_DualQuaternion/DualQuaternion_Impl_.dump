@@ -1,0 +1,279 @@
+@:used
+private class geom.matrix._DualQuaternion.DualQuaternion_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new(dq:geom.structure.DualQ) {
+		var this1 = dq;
+		return cast this1;
+	}
+
+	public static var zero(get,never):geom.matrix.DualQuaternion;
+
+	static inline function get_zero() {
+		var this1 = new geom.structure.Mat1x4(0., 0., 0., 1.);
+		var this2 = new geom.structure.Mat1x4(0., 0., 0., 1.);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:impl
+	public static inline function clone(this1:geom.structure.DualQ) {
+		var this2 = this1.real;
+		var this3 = new geom.structure.Mat1x4(this2.x, this2.y, this2.z, this2.w);
+		var this2 = this1.dual;
+		var this1 = new geom.structure.Mat1x4(this2.x, this2.y, this2.z, this2.w);
+		var this2 = new geom.structure.DualQ(cast this3, cast this1);
+		return cast this2;
+	}
+
+	@:op(A == B)
+	public static inline function equal(a:geom.matrix.DualQuaternion, b:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var b1 = b.real;
+		var delta = 0.0000001;
+		if ((! (Math.abs(a1.x - b1.x) >= delta || Math.abs(a1.y - b1.y) >= delta || Math.abs(a1.z - b1.z) >= delta || Math.abs(a1.w - b1.w) >= delta))) {
+			var a1 = a.dual;
+			var b1 = b.dual;
+			var delta = 0.0000001;
+			return ! (Math.abs(a1.x - b1.x) >= delta || Math.abs(a1.y - b1.y) >= delta || Math.abs(a1.z - b1.z) >= delta || Math.abs(a1.w - b1.w) >= delta);
+		} else return false;
+	}
+
+	@:op(A != B)
+	public static inline function notEqual(a:geom.matrix.DualQuaternion, b:geom.matrix.DualQuaternion) {
+		var tmp;
+		var a1 = a.real;
+		var b1 = b.real;
+		var delta = 0.0000001;
+		if ((! (Math.abs(a1.x - b1.x) >= delta || Math.abs(a1.y - b1.y) >= delta || Math.abs(a1.z - b1.z) >= delta || Math.abs(a1.w - b1.w) >= delta))) {
+			var a1 = a.dual;
+			var b1 = b.dual;
+			var delta = 0.0000001;
+			tmp = ! (Math.abs(a1.x - b1.x) >= delta || Math.abs(a1.y - b1.y) >= delta || Math.abs(a1.z - b1.z) >= delta || Math.abs(a1.w - b1.w) >= delta);
+		} else tmp = false;
+		return ! tmp;
+	}
+
+	@:op(A * B) @:commutative
+	public static inline function scaleMultiply(a:geom.matrix.DualQuaternion, v:Float) {
+		var a1 = a.real;
+		var this1 = new geom.structure.Mat1x4(a1.x * v, a1.y * v, a1.z * v, a1.w * v);
+		var a1 = a.dual;
+		var this2 = new geom.structure.Mat1x4(a1.x * v, a1.y * v, a1.z * v, a1.w * v);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:op(A / B)
+	public static inline function divide(a:geom.matrix.DualQuaternion, v:Float) {
+		var v1 = 1 / v;
+		var a1 = a.real;
+		var this1 = new geom.structure.Mat1x4(a1.x * v1, a1.y * v1, a1.z * v1, a1.w * v1);
+		var a1 = a.dual;
+		var this2 = new geom.structure.Mat1x4(a1.x * v1, a1.y * v1, a1.z * v1, a1.w * v1);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:op(A + B)
+	public static inline function add(a:geom.matrix.DualQuaternion, b:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var b1 = b.real;
+		var this1 = new geom.structure.Mat1x4(a1.x + b1.x, a1.y + b1.y, a1.z + b1.z, a1.w + b1.w);
+		var a1 = a.dual;
+		var b1 = b.dual;
+		var this2 = new geom.structure.Mat1x4(a1.x + b1.x, a1.y + b1.y, a1.z + b1.z, a1.w + b1.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:op(A - B)
+	public static inline function subtract(a:geom.matrix.DualQuaternion, b:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var b1 = b.real;
+		var this1 = new geom.structure.Mat1x4(a1.x - b1.x, a1.y - b1.y, a1.z - b1.z, a1.w - b1.w);
+		var a1 = a.dual;
+		var b1 = b.dual;
+		var this2 = new geom.structure.Mat1x4(a1.x - b1.x, a1.y - b1.y, a1.z - b1.z, a1.w - b1.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:op(-A)
+	public static inline function negate(a:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var this1 = new geom.structure.Mat1x4(- a1.x, - a1.y, - a1.z, - a1.w);
+		var a1 = a.dual;
+		var this2 = new geom.structure.Mat1x4(- a1.x, - a1.y, - a1.z, - a1.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	public static inline function create(r:geom.matrix.Quaternion, t:geom.matrix.Matrix1x4) {
+		{
+			var currentLength = Math.sqrt(cast r.x * cast r.x + cast r.y * cast r.y + cast r.z * cast r.z + cast r.w * cast r.w);
+			if ((currentLength != 0.)) {
+				var mul = 1. / currentLength;
+				cast r.x *= mul;
+				cast r.y *= mul;
+				cast r.z *= mul;
+				cast r.w *= mul;
+				var real = cast r.x * cast r.x + cast r.y * cast r.y + cast r.z * cast r.z + cast r.w * cast r.w;
+			};
+		};
+		var real = cast cast r;
+		var this1 = new geom.structure.Mat1x4(t.x, t.y, t.z, 0.);
+		var q = cast this1;
+		var this1 = new geom.structure.Mat1x4(q.x * 0.5, q.y * 0.5, q.z * 0.5, q.w * 0.5);
+		q = cast this1;
+		var this1 = new geom.structure.Mat1x4(q.x * real.w + q.y * real.z - q.z * real.y + q.w * real.x, - q.x * real.z + q.y * real.w + q.z * real.x + q.w * real.y, q.x * real.y - q.y * real.x + q.z * real.w + q.w * real.z, - q.x * real.x - q.y * real.y - q.z * real.z + q.w * real.w);
+		var dual = cast this1;
+		var this1 = new geom.structure.DualQ(real, dual);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function applyScale(this1:geom.structure.DualQ, s:Float) {
+		var this2 = cast this1.real;
+		var this3 = new geom.structure.Mat1x4(this2.x, this2.y, this2.z, this2.w);
+		var this2 = cast this1.dual;
+		var this1 = new geom.structure.Mat1x4(this2.x, this2.y, this2.z, this2.w);
+		var this2 = new geom.structure.DualQ(cast this3, cast this1);
+		var cloned = cast this2;
+		var this1 = new geom.structure.Mat1x4(cast 0, cast 0, cast 0, Math.sqrt(s));
+		var this2 = new geom.structure.Mat1x4(0., 0., 0., 0.);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		var q2 = cast this3;
+		var q1 = q2.real;
+		var q21 = cloned.real;
+		var this1 = new geom.structure.Mat1x4(q1.x * q21.w + q1.y * q21.z - q1.z * q21.y + q1.w * q21.x, - q1.x * q21.z + q1.y * q21.w + q1.z * q21.x + q1.w * q21.y, q1.x * q21.y - q1.y * q21.x + q1.z * q21.w + q1.w * q21.z, - q1.x * q21.x - q1.y * q21.y - q1.z * q21.z + q1.w * q21.w);
+		var q1 = q2.dual;
+		var q21 = cloned.real;
+		var this2 = new geom.structure.Mat1x4(q1.x * q21.w + q1.y * q21.z - q1.z * q21.y + q1.w * q21.x, - q1.x * q21.z + q1.y * q21.w + q1.z * q21.x + q1.w * q21.y, q1.x * q21.y - q1.y * q21.x + q1.z * q21.w + q1.w * q21.z, - q1.x * q21.x - q1.y * q21.y - q1.z * q21.z + q1.w * q21.w);
+		var a = cast this2;
+		var q1 = q2.real;
+		var q2 = cloned.dual;
+		var this2 = new geom.structure.Mat1x4(q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x, - q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y, q1.x * q2.y - q1.y * q2.x + q1.z * q2.w + q1.w * q2.z, - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z + q1.w * q2.w);
+		var b = cast this2;
+		var this2 = new geom.structure.Mat1x4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		cloned = cast this3;
+		return cloned;
+	}
+
+	public static inline function scalar(s:Float) {
+		var this1 = new geom.structure.Mat1x4(cast 0, cast 0, cast 0, Math.sqrt(s));
+		var this2 = new geom.structure.Mat1x4(0., 0., 0., 0.);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	public static inline function dotProduct(a:geom.matrix.DualQuaternion, b:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var b1 = b.real;
+		return a1.x * b1.x + a1.y * b1.y + a1.z * b1.z + a1.w * b1.w;
+	}
+
+	@:impl
+	public static inline function normalize(this1:geom.structure.DualQ) {
+		var a = this1.real;
+		var b = this1.real;
+		var mag = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+		if ((mag < 0)) return null;
+		var oneOver = 1 / mag;
+		var a = this1.real;
+		var this2 = new geom.structure.Mat1x4(a.x * oneOver, a.y * oneOver, a.z * oneOver, a.w * oneOver);
+		var a = this1.dual;
+		var this1 = new geom.structure.Mat1x4(a.x * oneOver, a.y * oneOver, a.z * oneOver, a.w * oneOver);
+		var this3 = new geom.structure.DualQ(cast this2, cast this1);
+		return cast this3;
+	}
+
+	@:op(~A)
+	public static inline function conjugate(a:geom.matrix.DualQuaternion) {
+		var a1 = a.real;
+		var this1 = new geom.structure.Mat1x4(- a1.x, - a1.y, - a1.z, a1.w);
+		var a1 = a.dual;
+		var this2 = new geom.structure.Mat1x4(- a1.x, - a1.y, - a1.z, a1.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:impl
+	public static inline function getTranslation(this1:geom.structure.DualQ) {
+		var a = this1.dual;
+		var this2 = new geom.structure.Mat1x4(a.x * 2., a.y * 2., a.z * 2., a.w * 2.);
+		var q = cast this2;
+		var a = this1.real;
+		var this1 = new geom.structure.Mat1x4(- a.x, - a.y, - a.z, a.w);
+		var q2 = cast this1;
+		var this1 = new geom.structure.Mat1x4(q.x * q2.w + q.y * q2.z - q.z * q2.y + q.w * q2.x, - q.x * q2.z + q.y * q2.w + q.z * q2.x + q.w * q2.y, q.x * q2.y - q.y * q2.x + q.z * q2.w + q.w * q2.z, - q.x * q2.x - q.y * q2.y - q.z * q2.z + q.w * q2.w);
+		q = cast this1;
+		var this1 = new geom.structure.Mat1x4(q.x, q.y, q.z, 1.);
+		return cast this1;
+	}
+
+	@:op(A * B)
+	public static inline function multiplyQ(q1:geom.matrix.DualQuaternion, q2:geom.matrix.DualQuaternion) {
+		var q11 = q2.real;
+		var q21 = q1.real;
+		var this1 = new geom.structure.Mat1x4(q11.x * q21.w + q11.y * q21.z - q11.z * q21.y + q11.w * q21.x, - q11.x * q21.z + q11.y * q21.w + q11.z * q21.x + q11.w * q21.y, q11.x * q21.y - q11.y * q21.x + q11.z * q21.w + q11.w * q21.z, - q11.x * q21.x - q11.y * q21.y - q11.z * q21.z + q11.w * q21.w);
+		var q11 = q2.dual;
+		var q21 = q1.real;
+		var this2 = new geom.structure.Mat1x4(q11.x * q21.w + q11.y * q21.z - q11.z * q21.y + q11.w * q21.x, - q11.x * q21.z + q11.y * q21.w + q11.z * q21.x + q11.w * q21.y, q11.x * q21.y - q11.y * q21.x + q11.z * q21.w + q11.w * q21.z, - q11.x * q21.x - q11.y * q21.y - q11.z * q21.z + q11.w * q21.w);
+		var a = cast this2;
+		var q11 = q2.real;
+		var q2 = q1.dual;
+		var this2 = new geom.structure.Mat1x4(q11.x * q2.w + q11.y * q2.z - q11.z * q2.y + q11.w * q2.x, - q11.x * q2.z + q11.y * q2.w + q11.z * q2.x + q11.w * q2.y, q11.x * q2.y - q11.y * q2.x + q11.z * q2.w + q11.w * q2.z, - q11.x * q2.x - q11.y * q2.y - q11.z * q2.z + q11.w * q2.w);
+		var b = cast this2;
+		var this2 = new geom.structure.Mat1x4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+		var this3 = new geom.structure.DualQ(cast this1, cast this2);
+		return cast this3;
+	}
+
+	@:impl @:to
+	public static inline function toMatrix4x3(this1:geom.structure.DualQ) {
+		var a = cast this1.real;
+		var b = cast this1.real;
+		var mag = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+		var q;
+		if ((mag < 0)) q = null else {
+			var oneOver = 1 / mag;
+			var a = cast this1.real;
+			var this2 = new geom.structure.Mat1x4(a.x * oneOver, a.y * oneOver, a.z * oneOver, a.w * oneOver);
+			var a = cast this1.dual;
+			var this1 = new geom.structure.Mat1x4(a.x * oneOver, a.y * oneOver, a.z * oneOver, a.w * oneOver);
+			var this3 = new geom.structure.DualQ(cast this2, cast this1);
+			q = cast this3;
+		};
+		var this1 = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var m = cast this1;
+		var w = q.real.w;
+		var x = q.real.x;
+		var y = q.real.y;
+		var z = q.real.z;
+		m.a = w * w + x * x - y * y - z * z;
+		m.e = 2 * x * y + 2 * w * z;
+		m.i = 2 * x * z - 2 * w * y;
+		m.b = 2 * x * y - 2 * w * z;
+		m.f = w * w + y * y - x * x - z * z;
+		m.j = 2 * y * z + 2 * w * x;
+		m.c = 2 * x * z + 2 * w * y;
+		m.g = 2 * y * z - 2 * w * x;
+		m.k = w * w + z * z - x * x - y * y;
+		var a = cast q.dual;
+		var this1 = new geom.structure.Mat1x4(a.x * 2., a.y * 2., a.z * 2., a.w * 2.);
+		var q1 = cast this1;
+		var a = cast q.real;
+		var this1 = new geom.structure.Mat1x4(- a.x, - a.y, - a.z, a.w);
+		var q2 = cast this1;
+		var this1 = new geom.structure.Mat1x4(q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x, - q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y, q1.x * q2.y - q1.y * q2.x + q1.z * q2.w + q1.w * q2.z, - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z + q1.w * q2.w);
+		q1 = cast this1;
+		var this1 = new geom.structure.Mat1x4(q1.x, q1.y, q1.z, 1.);
+		var t = cast this1;
+		m.d = t.x;
+		m.h = t.y;
+		m.l = t.z;
+		return m;
+	}
+}

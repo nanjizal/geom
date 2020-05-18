@@ -1,0 +1,68 @@
+@:keep @:directlyUsed @:used @:coreApi
+class haxe.Exception extends Error {
+
+	@:has_untyped
+	public function new(message:String, previous:Null<haxe.Exception> = null, native:Null<Any> = null) {
+		super(message);
+		cast this.message = message;
+		this.__previousException = previous;
+		this.__nativeException = if ((native != null)) native else cast this;
+		__feature__("haxe.Exception.stack", {
+			this.__skipStack = 0;
+			var old = js.Syntax.code("Error.prepareStackTrace");
+			js.Syntax.code("Error.prepareStackTrace = function(e) { return e.stack; }");
+			if ((js.Syntax.instanceof(native, Error))) cast this.stack = native.stack else {
+				var e = null;
+				if ((cast Error.captureStackTrace)) {
+					cast Error.captureStackTrace(this, haxe.Exception);
+					e = cast this;
+				} else {
+					e = new Error();
+					if ((js.Syntax.typeof(e.stack) == "undefined")) {
+						js.Syntax.code("try { throw {0}; } catch(_) {}", e);
+						this.__skipStack ++;
+					};
+				};
+				cast this.stack = e.stack;
+			};
+			js.Syntax.code("Error.prepareStackTrace = {0}", old);
+		});
+	}
+
+	public var native(get,never):Any;
+
+	@:ifFeature("haxe.Exception.get_stack") @:noCompletion
+	var __skipStack:Int;
+
+	@:noCompletion
+	var __nativeException:Any;
+
+	@:noCompletion
+	var __previousException:Null<haxe.Exception>;
+
+	function unwrap() {
+		return this.__nativeException;
+	}
+
+	@:noCompletion @:ifFeature("haxe.Exception.get_stack")
+	function __shiftStack() {
+		this.__skipStack ++;
+	}
+
+	function get_native() {
+		return this.__nativeException;
+	}
+
+	static function caught(value:Any) {
+		if ((js.Syntax.instanceof(value, haxe.Exception))) return @:implicitCast cast cast value else if ((js.Syntax.instanceof(value, Error))) return new haxe.Exception(cast value.message, null, value) else return new haxe.ValueException(value, null, value);
+	}
+
+	@:has_untyped
+	static function thrown(value:Any) {
+		if ((js.Syntax.instanceof(value, haxe.Exception))) return @:implicitCast cast cast value.get_native() else if ((js.Syntax.instanceof(value, Error))) return value else {
+			var e = new haxe.ValueException(value);
+			__feature__("haxe.Exception.get_stack", e.__shiftStack());
+			return @:implicitCast cast e;
+		};
+	}
+}

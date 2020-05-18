@@ -1,0 +1,52 @@
+class haxe.MainEvent {
+
+	function new(f:Void -> Void, p:Int) {
+		this.isBlocking = true;
+		this.f = f;
+		this.priority = p;
+		this.nextRun = Math.NEGATIVE_INFINITY;
+	}
+
+	var f:Void -> Void;
+
+	var prev:haxe.MainEvent;
+
+	var next:haxe.MainEvent;
+
+	@:value(true)
+	public var isBlocking:Bool;
+
+	public var nextRun(default,null):Float;
+
+	public var priority(default,null):Int;
+
+	public function delay(t:Null<Float>) {
+		this.nextRun = if (t == null) {
+			Math.NEGATIVE_INFINITY;
+		} else {
+			haxe.Timer.stamp() + t;
+		};
+	}
+
+	public function call() {
+		if (this.f != null) {
+			this.f();
+		};
+	}
+
+	public function stop() {
+		if (this.f == null) {
+			return;
+		};
+		this.f = null;
+		this.nextRun = Math.NEGATIVE_INFINITY;
+		if (this.prev == null) {
+			haxe.MainLoop.pending = this.next;
+		} else {
+			this.prev.next = this.next;
+		};
+		if (this.next != null) {
+			this.next.prev = this.prev;
+		};
+	}
+}

@@ -1,0 +1,15 @@
+@:used
+class utest.AccessoryName {
+
+	@:value("setup")
+	public static inline var SETUP_NAME:String = "setup";
+
+	@:value("setupClass")
+	public static inline var SETUP_CLASS_NAME:String = "setupClass";
+
+	@:value("teardown")
+	public static inline var TEARDOWN_NAME:String = "teardown";
+
+	@:value("teardownClass")
+	public static inline var TEARDOWN_CLASS_NAME:String = "teardownClass";
+}

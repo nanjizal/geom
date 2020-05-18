@@ -1,0 +1,14 @@
+@:keep @:directlyUsed @:used
+class js.Lib {
+
+	public static var undefined(get,never):Dynamic;
+
+	static function get_undefined() {
+		return js.Syntax.code("undefined");
+	}
+
+	@:has_untyped @:allow(haxe.ds.ObjectMap.assignId)
+	static function getNextHaxeUID() {
+		return js.Syntax.code("{0}.$haxeUID++", __define_feature__("$global.$haxeUID", cast __define_feature__("js.Lib.global", js.Syntax.code("$global"))));
+	}
+}

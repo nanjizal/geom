@@ -1,0 +1,5 @@
+@:realPath("js.html.svg.Number") @:native("SVGNumber")
+extern class SVGNumber {
+
+	var value:Float;
+}

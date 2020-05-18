@@ -1,0 +1,21 @@
+@:realPath("js.html.DOMTokenList") @:native("DOMTokenList")
+extern class DOMTokenList implements ArrayAccess<String> {
+
+	var length(default,null):Int;
+
+	var value:String;
+
+	function item(index:Int):String;
+
+	function contains(token:String):Bool;
+
+	function add(tokens:haxe.extern.Rest<String>):Void;
+
+	function remove(tokens:haxe.extern.Rest<String>):Void;
+
+	function replace(token:String, newToken:String):Bool;
+
+	function toggle(token:String, force:Null<Bool>):Bool;
+
+	function supports(token:String):Bool;
+}

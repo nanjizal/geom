@@ -1,0 +1,1 @@
+typedef js.html.PositionOptions = { ?timeout : Null<Int>, ?maximumAge : Null<Int>, ?enableHighAccuracy : Null<Bool> }

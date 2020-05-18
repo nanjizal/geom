@@ -1,0 +1,31 @@
+@:realPath("js.html.Notification") @:native("Notification")
+extern class Notification extends EventTarget {
+
+	function new(title:String, options:Null<js.html.NotificationOptions>):Void;
+
+	var onclick:haxe.Function;
+
+	var onshow:haxe.Function;
+
+	var onerror:haxe.Function;
+
+	var onclose:haxe.Function;
+
+	var title(default,null):String;
+
+	var dir(default,null):js.html.NotificationDirection;
+
+	var lang(default,null):String;
+
+	var body(default,null):String;
+
+	var tag(default,null):String;
+
+	var icon(default,null):String;
+
+	var data(default,null):Dynamic;
+
+	function close():Void;
+
+	static var permission(default,null):js.html.NotificationPermission;
+}

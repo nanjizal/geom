@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.matrix.Complex from geom.structure.Mat1x2 to geom.structure.Mat1x2 {}

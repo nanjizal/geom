@@ -1,0 +1,17 @@
+@:realPath("js.html.EmbedElement") @:native("HTMLEmbedElement")
+extern class HTMLEmbedElement extends HTMLElement {
+
+	var src:String;
+
+	var type:String;
+
+	var width:String;
+
+	var height:String;
+
+	var align:String;
+
+	var name:String;
+
+	function getSVGDocument():HTMLDocument;
+}

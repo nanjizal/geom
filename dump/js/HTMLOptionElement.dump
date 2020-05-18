@@ -1,0 +1,19 @@
+@:realPath("js.html.OptionElement") @:native("HTMLOptionElement")
+extern class HTMLOptionElement extends HTMLElement {
+
+	var disabled:Bool;
+
+	var form(default,null):HTMLFormElement;
+
+	var label:String;
+
+	var defaultSelected:Bool;
+
+	var selected:Bool;
+
+	var value:String;
+
+	var text:String;
+
+	var index(default,null):Int;
+}

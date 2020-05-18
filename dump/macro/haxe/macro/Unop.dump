@@ -1,0 +1,8 @@
+@:flatEnum
+enum haxe.macro.Unop {
+	OpIncrement;
+	OpDecrement;
+	OpNot;
+	OpNeg;
+	OpNegBits;
+}

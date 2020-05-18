@@ -1,0 +1,1 @@
+typedef hscript.FunctionDecl = { ret : Null<hscript.CType>, expr : hscript.Expr, args : Array<hscript.Argument> }

@@ -1,0 +1,9 @@
+@:realPath("js.html.eme.MediaKeySystemAccess") @:native("MediaKeySystemAccess")
+extern class MediaKeySystemAccess {
+
+	var keySystem(default,null):String;
+
+	function getConfiguration():js.html.eme.MediaKeySystemConfiguration;
+
+	function createMediaKeys():Promise<MediaKeys>;
+}

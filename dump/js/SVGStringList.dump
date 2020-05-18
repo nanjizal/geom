@@ -1,0 +1,21 @@
+@:realPath("js.html.svg.StringList") @:native("SVGStringList")
+extern class SVGStringList implements ArrayAccess<String> {
+
+	var length(default,null):Int;
+
+	var numberOfItems(default,null):Int;
+
+	function clear():Void;
+
+	function initialize(newItem:String):String;
+
+	function getItem(index:Int):String;
+
+	function insertItemBefore(newItem:String, index:Int):String;
+
+	function replaceItem(newItem:String, index:Int):String;
+
+	function removeItem(index:Int):String;
+
+	function appendItem(newItem:String):String;
+}

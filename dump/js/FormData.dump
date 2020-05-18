@@ -1,0 +1,29 @@
+@:realPath("js.html.FormData") @:native("FormData")
+extern class FormData {
+
+	function new(form:Null<HTMLFormElement>):Void;
+
+	function append(name:String, value:String):Void;
+
+	function append(name:String, value:Blob, filename:Null<String>):Void;
+
+	function delete(name:String):Void;
+
+	function get(name:String):haxe.extern.EitherType<Blob, haxe.extern.EitherType<Directory, String>>;
+
+	function getAll(name:String):Array<haxe.extern.EitherType<Blob, haxe.extern.EitherType<Directory, String>>>;
+
+	function has(name:String):Bool;
+
+	function set(name:String, value:String):Void;
+
+	function set(name:String, value:Blob, filename:Null<String>):Void;
+
+	function entries():js.html.FormDataIterator;
+
+	function keys():js.html.FormDataIterator;
+
+	function values():js.html.FormDataIterator;
+
+	function forEach(callback:Dynamic, thisArg:Null<Dynamic>):Void;
+}

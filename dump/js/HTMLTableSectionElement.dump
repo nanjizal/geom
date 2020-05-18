@@ -1,0 +1,18 @@
+@:realPath("js.html.TableSectionElement") @:native("HTMLTableSectionElement")
+extern class HTMLTableSectionElement extends HTMLElement {
+
+	var rows(default,null):HTMLCollection;
+
+	var align:String;
+
+	var ch:String;
+
+	var chOff:String;
+
+	var vAlign:String;
+
+	@:value({ index : -1 })
+	function insertRow(index:Int):HTMLElement;
+
+	function deleteRow(index:Int):Void;
+}

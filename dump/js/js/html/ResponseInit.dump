@@ -1,0 +1,1 @@
+typedef js.html.ResponseInit = { ?statusText : Null<String>, ?status : Null<Int>, ?headers : Null<haxe.extern.EitherType<Headers, haxe.extern.EitherType<Array<Array<String>>, haxe.DynamicAccess<String>>>> }

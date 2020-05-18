@@ -1,0 +1,12 @@
+enum hscript.Error {
+	EInvalidChar(c:Int);
+	EUnexpected(s:String);
+	EUnterminatedString;
+	EUnterminatedComment;
+	EInvalidPreprocessor(msg:String);
+	EUnknownVariable(v:String);
+	EInvalidIterator(v:String);
+	EInvalidOp(op:String);
+	EInvalidAccess(f:String);
+	ECustom(msg:String);
+}

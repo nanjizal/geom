@@ -1,0 +1,1 @@
+typedef js.lib.IteratorStep<T : js.lib.IteratorStep.T> = { ?value : Null<js.lib.IteratorStep.T>, done : Bool }

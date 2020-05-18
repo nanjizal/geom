@@ -1,0 +1,5 @@
+@:realPath("js.lib.TypeError") @:native("TypeError")
+extern class TypeError extends Error {
+
+	function new(message:Null<String>):Void;
+}

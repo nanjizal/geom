@@ -1,0 +1,1 @@
+typedef js.html.ScrollIntoViewOptions = { ?inline_ : Null<js.html.ScrollLogicalPosition>, ?block : Null<js.html.ScrollLogicalPosition>, ?behavior : Null<js.html.ScrollBehavior> }

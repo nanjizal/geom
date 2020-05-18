@@ -1,0 +1,59 @@
+@:keep @:directlyUsed @:used @:keepInit @:coreApi
+class Std {
+
+	public static function is(v:Dynamic, t:Dynamic) {
+		return Std.isOfType(v, t);
+	}
+
+	public static function isOfType(v:Dynamic, t:Dynamic) {
+		return js.Boot.__instanceof(v, t);
+	}
+
+	@:pure
+	public static function string(s:Dynamic) {
+		return js.Boot.__string_rec(s, "");
+	}
+
+	public static function int(x:Float) {
+		return cast x | 0;
+	}
+
+	@:pure
+	public static function parseInt(x:String) {
+		if ((x != null)) {
+			var _g = 0;
+			var _g1 = x.length;
+			while ((_g < _g1)) {
+				var i = _g ++;
+				var c = StringTools.fastCodeAt(x, i);
+				if ((c <= 8 || c >= 14 && c != 32 && c != 45)) {
+					var nc = StringTools.fastCodeAt(x, i + 1);
+					var v = cast js.Syntax.code("parseInt")(x, if ((nc == 120 || nc == 88)) 16 else 10);
+					if ((@:pure cast js.Syntax.code("isNaN")(v))) return null else return cast v;
+				};
+			};
+		};
+		return null;
+	}
+
+	public static function parseFloat(x:String) {
+		return js.Syntax.code("parseFloat({0})", x);
+	}
+
+	static function __init__() {
+		__feature__("js.Boot.getClass", String.prototype.__class__ = __feature__("Type.resolveClass", $hxClasses["String"] = String, String));
+		__feature__("js.Boot.isClass", String.__name__ = __feature__("Type.getClassName", "String", true));
+		__feature__("Type.resolveClass", $hxClasses["Array"] = Array);
+		__feature__("js.Boot.isClass", Array.__name__ = __feature__("Type.getClassName", "Array", true));
+		__feature__("Date.*", {
+			__feature__("js.Boot.getClass", js.Syntax.code("Date").prototype.__class__ = __feature__("Type.resolveClass", $hxClasses["Date"] = js.Syntax.code("Date"), js.Syntax.code("Date")));
+			__feature__("js.Boot.isClass", js.Syntax.code("Date").__name__ = "Date");
+		});
+		__feature__("Int.*", js.Syntax.code("var Int = { };"));
+		__feature__("Dynamic.*", js.Syntax.code("var Dynamic = { };"));
+		__feature__("Float.*", js.Syntax.code("var Float = Number"));
+		__feature__("Bool.*", js.Syntax.code("var Bool = Boolean"));
+		__feature__("Class.*", js.Syntax.code("var Class = { };"));
+		__feature__("Enum.*", js.Syntax.code("var Enum = { };"));
+	}
+}

@@ -1,0 +1,179 @@
+@:keep @:directlyUsed @:used @:dox(hide)
+class js.Boot {
+
+	@:has_untyped
+	static function isClass(o:Dynamic) {
+		return __define_feature__("js.Boot.isClass", o.__name__);
+	}
+
+	@:has_untyped
+	static function isInterface(o:Class<Dynamic>) {
+		return __define_feature__("js.Boot.isInterface", o.__isInterface__);
+	}
+
+	@:has_untyped
+	static function isEnum(e:Dynamic) {
+		return __define_feature__("js.Boot.isEnum", e.__ename__);
+	}
+
+	@:has_untyped @:pure
+	static function getClass(o:Null<Dynamic>) {
+		if ((o == null)) return null else if ((js.Syntax.instanceof(o, Array))) return Array else {
+			var cl = __define_feature__("js.Boot.getClass", o.__class__);
+			if ((cl != null)) return cl;
+			var name = js.Boot.__nativeClassName(o);
+			if ((name != null)) return js.Boot.__resolveNativeClass(name);
+			return null;
+		};
+	}
+
+	@:has_untyped @:ifFeature("has_enum")
+	static function __string_rec(o:{ toString : Void -> String, length : Int, hasOwnProperty : String -> Bool, _hx_index : Int, __enum__ : Bool }, s:String) {
+		if ((o == null)) return "null";
+		if ((s.length >= 5)) return "<...>";
+		var t = js.Syntax.typeof(o);
+		if ((t == "function" && (js.Boot.isClass(o) || js.Boot.isEnum(o)))) t = "object";
+		switch ((t)) {
+			case "function": return "<function>";
+			case "object": {
+				__feature__("has_enum", if ((o.__enum__)) {
+					var e = $hxEnums[o.__enum__];
+					var n = e.__constructs__[o._hx_index];
+					var con = e[n];
+					if ((con.__params__)) {
+						s = s + "\t";
+						return n + "(" + ({
+							var _g = [];
+							{
+								var _g1 = 0;
+								var _g2 = cast con.__params__;
+								while ((true)) {
+									if ((! (_g1 < _g2.length))) break;
+									var p = _g2[_g1];
+									_g1 = _g1 + 1;
+									_g.push(js.Boot.__string_rec(o[p], s));
+								};
+							};
+							_g;
+						}).join(",") + ")";
+					} else return n;
+				});
+				if ((js.Syntax.instanceof(o, Array))) {
+					var str = "[";
+					s += "\t";
+					{
+						var _g = 0;
+						var _g1 = o.length;
+						while ((_g < _g1)) {
+							var i = _g ++;
+							str += (if ((i > 0)) "," else "") + js.Boot.__string_rec(o[i], s);
+						};
+					};
+					str += "]";
+					return str;
+				};
+				var tostr;
+				try {
+					tostr = o.toString;
+				} catch (_g:Dynamic) {
+					haxe.NativeStackTrace.saveStack(_g);
+					return "???";
+				};
+				if ((tostr != null && tostr != js.Syntax.code("Object.toString") && js.Syntax.typeof(tostr) == "function")) {
+					var s2 = o.toString();
+					if ((s2 != "[object Object]")) return s2;
+				};
+				var str = "{\n";
+				s += "\t";
+				var hasp = o.hasOwnProperty != null;
+				var k = null;
+				js.Syntax.code("for( {0} in {1} ) {", k, o);
+				if ((hasp && ! o.hasOwnProperty(k))) js.Syntax.code("continue");
+				if ((k == "prototype" || k == "__class__" || k == "__super__" || k == "__interfaces__" || k == "__properties__")) js.Syntax.code("continue");
+				if ((str.length != 2)) str += ", \n";
+				str += s + k + " : " + js.Boot.__string_rec(o[k], s);
+				js.Syntax.code("}");
+				s = s.substring(1);
+				str += "\n" + s + "}";
+				return str;
+			};
+			case "string": return o;
+			default: return String(o)
+		};
+	}
+
+	@:pure
+	static function __interfLoop(cc:Dynamic, cl:Dynamic) {
+		if ((cc == null)) return false;
+		if ((cc == cl)) return true;
+		var intf = cc.__interfaces__;
+		if ((intf != null)) {
+			var _g = 0;
+			var _g1 = cast intf.length;
+			while ((_g < _g1)) {
+				var i = _g ++;
+				var i1 = intf[i];
+				if ((i1 == cl || js.Boot.__interfLoop(i1, cl))) return true;
+			};
+		};
+		return js.Boot.__interfLoop(cc.__super__, cl);
+	}
+
+	@:has_untyped @:pure
+	static function __instanceof(o:Dynamic, cl:Dynamic) {
+		if ((cl == null)) return false;
+		switch ((cl)) {
+			case Array: return js.Syntax.instanceof(o, Array);
+			case Bool: return js.Syntax.typeof(o) == "boolean";
+			case Dynamic: return o != null;
+			case Float: return js.Syntax.typeof(o) == "number";
+			case Int: if ((js.Syntax.typeof(o) == "number")) return js.Syntax.strictEq(o | 0, o) else return false;
+			case String: return js.Syntax.typeof(o) == "string";
+			default: {
+				if ((o != null)) {
+					if ((js.Syntax.typeof(cl) == "function")) {
+						if ((js.Boot.__downcastCheck(o, cl))) return true;
+					} else if ((js.Syntax.typeof(cl) == "object" && js.Boot.__isNativeObj(cl))) {
+						if ((js.Syntax.instanceof(o, cl))) return true;
+					};
+				} else return false;
+				__feature__("Class.*", if ((if ((cl == Class)) o.__name__ != null else false)) return true);
+				__feature__("Enum.*", if ((if ((cl == Enum)) o.__ename__ != null else false)) return true);
+				return __feature__("has_enum", if ((o.__enum__ != null)) $hxEnums[o.__enum__] == cl else false, false);
+			}
+		};
+	}
+
+	static function __downcastCheck(o:Dynamic, cl:Class<Dynamic>) {
+		if ((! js.Syntax.instanceof(o, cl))) {
+			if ((js.Boot.isInterface(cl))) return js.Boot.__interfLoop(js.Boot.getClass(o), cl) else return false;
+		} else return true;
+	}
+
+	static function __implements(o:Dynamic, iface:Class<Dynamic>) {
+		return js.Boot.__interfLoop(js.Boot.getClass(o), iface);
+	}
+
+	@:ifFeature("typed_cast")
+	static function __cast(o:Dynamic, t:Dynamic) {
+		if ((o == null || js.Boot.__instanceof(o, t))) return o else throw haxe.Exception.thrown("Cannot cast " + Std.string(o) + " to " + Std.string(t));
+	}
+
+	static var __toStr:Function;
+
+	static function __nativeClassName(o:Dynamic) {
+		var name = js.Boot.__toStr.call(o).slice(8, -1);
+		if ((name == "Object" || name == "Function" || name == "Math" || name == "JSON")) return null;
+		return name;
+	}
+
+	static function __isNativeObj(o:Dynamic) {
+		return js.Boot.__nativeClassName(o) != null;
+	}
+
+	static function __resolveNativeClass(name:String) {
+		return cast __define_feature__("js.Lib.global", js.Syntax.code("$global"))[cast name];
+	}
+
+	static function __init__() js.Boot.__toStr = cast {}.toString
+}

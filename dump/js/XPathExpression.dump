@@ -1,0 +1,6 @@
+@:realPath("js.html.XPathExpression") @:native("XPathExpression")
+extern class XPathExpression {
+
+	@:value({ type : 0 })
+	function evaluate(contextNode:Node, type:Int, result:Null<Dynamic>):XPathResult;
+}

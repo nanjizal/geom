@@ -1,0 +1,5 @@
+@:realPath("js.html.eme.MediaKeyError") @:native("MediaKeyError")
+extern class MediaKeyError extends Event {
+
+	var systemCode(default,null):Int;
+}

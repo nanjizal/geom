@@ -1,0 +1,1 @@
+typedef haxe.macro.Position = { min : Int, max : Int, file : String }

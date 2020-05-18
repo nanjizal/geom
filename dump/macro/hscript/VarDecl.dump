@@ -1,0 +1,1 @@
+typedef hscript.VarDecl = { type : Null<hscript.CType>, set : Null<String>, get : Null<String>, expr : Null<hscript.Expr> }

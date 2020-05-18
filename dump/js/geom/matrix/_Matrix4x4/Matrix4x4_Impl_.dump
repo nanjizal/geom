@@ -1,0 +1,357 @@
+@:used
+private class geom.matrix._Matrix4x4.Matrix4x4_Impl_ {
+
+	@:value(4)
+	public static inline var rows:Int = 4;
+
+	@:value(4)
+	public static inline var columns:Int = 4;
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.Mat4x4) {
+		var this1 = m;
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function clone(this1:geom.structure.Mat4x4) {
+		var this2 = new geom.structure.Mat4x4(this1.a, this1.b, this1.c, this1.d, this1.e, this1.f, this1.g, this1.h, this1.i, this1.j, this1.k, this1.l, this1.m, this1.n, this1.o, this1.p);
+		return cast this2;
+	}
+
+	@:impl
+	public static inline function iterator(this1:geom.structure.Mat4x4) {
+		return new haxe.iterators.ArrayIterator([this1.a, this1.b, this1.c, this1.d, this1.e, this1.f, this1.g, this1.h, this1.i, this1.j, this1.k, this1.l, this1.m, this1.n, this1.o, this1.p]);
+	}
+
+	@:impl
+	public static var self(get,never):geom.matrix.Matrix4x4;
+
+	@:impl
+	static inline function get_self(this1:geom.structure.Mat4x4) {
+		return cast this1;
+	}
+
+	public static var zero(get,never):geom.matrix.Matrix4x4;
+
+	static inline function get_zero() {
+		var this1 = new geom.structure.Mat4x4(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this1;
+	}
+
+	@:impl
+	static var nought(get,never):geom.matrix.Matrix4x4;
+
+	@:impl
+	static inline function get_nought(this1:geom.structure.Mat4x4) {
+		var this1 = new geom.structure.Mat4x4(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this1;
+	}
+
+	public static var unit(get,never):geom.matrix.Matrix4x4;
+
+	static inline function get_unit() {
+		var this1 = new geom.structure.Mat4x4(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.);
+		return cast this1;
+	}
+
+	@:impl
+	static var one(get,never):geom.matrix.Matrix4x4;
+
+	@:impl
+	static inline function get_one(this1:geom.structure.Mat4x4) {
+		var this1 = new geom.structure.Mat4x4(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.);
+		return cast this1;
+	}
+
+	public static var minus1(get,never):geom.matrix.Matrix4x4;
+
+	static inline function get_minus1() {
+		var this1 = new geom.structure.Mat4x4(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.);
+		var a = cast this1;
+		var this1 = new geom.structure.Mat4x4(- cast a.a, - cast a.b, - cast a.c, - cast a.d, - cast a.e, - cast a.f, - cast a.g, - cast a.h, - cast a.i, - cast a.j, - cast a.k, - cast a.l, - cast a.m, - cast a.n, - cast a.o, - cast a.p);
+		return cast this1;
+	}
+
+	public static var counting(get,never):geom.matrix.Matrix4x4;
+
+	static inline function get_counting() {
+		var this1 = new geom.structure.Mat4x4(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14., 15., 16.);
+		return cast this1;
+	}
+
+	@:impl
+	static var testCount(get,never):geom.matrix.Matrix4x4;
+
+	@:impl
+	static inline function get_testCount(this1:geom.structure.Mat4x4) {
+		var this1 = new geom.structure.Mat4x4(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14., 15., 16.);
+		return cast this1;
+	}
+
+	public static var _1_16(get,never):geom.matrix.Matrix4x4;
+
+	static inline function get__1_16() {
+		var this1 = new geom.structure.Mat4x4(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14., 15., 16.);
+		return cast this1;
+	}
+
+	@:op(A == B)
+	public static inline function equal(a:geom.matrix.Matrix4x4, b:geom.matrix.Matrix4x4) {
+		var delta = 0.0000001;
+		return ! (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta || Math.abs(a.m - b.m) >= delta || Math.abs(a.n - b.n) >= delta || Math.abs(a.o - b.o) >= delta || Math.abs(a.p - b.p) >= delta);
+	}
+
+	@:op(A != B)
+	public static inline function notEqual(a:geom.matrix.Matrix4x4, b:geom.matrix.Matrix4x4) {
+		var delta = 0.0000001;
+		return (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta || Math.abs(a.m - b.m) >= delta || Math.abs(a.n - b.n) >= delta || Math.abs(a.o - b.o) >= delta || Math.abs(a.p - b.p) >= delta);
+	}
+
+	@:op(-A)
+	public static inline function negating(a:geom.matrix.Matrix4x4) {
+		var this1 = new geom.structure.Mat4x4(- cast a.a, - cast a.b, - cast a.c, - cast a.d, - cast a.e, - cast a.f, - cast a.g, - cast a.h, - cast a.i, - cast a.j, - cast a.k, - cast a.l, - cast a.m, - cast a.n, - cast a.o, - cast a.p);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function negate(this1:geom.structure.Mat4x4) {
+		var this2 = new geom.structure.Mat4x4(- this1.a, - this1.b, - this1.c, - this1.d, - this1.e, - this1.f, - this1.g, - this1.h, - this1.i, - this1.j, - this1.k, - this1.l, - this1.m, - this1.n, - this1.o, - this1.p);
+		return cast this2;
+	}
+
+	@:op(A + B)
+	public static inline function add(m0:geom.matrix.Matrix4x4, m1:geom.matrix.Matrix4x4) {
+		var this1 = new geom.structure.Mat4x4(m0.a + m1.a, m0.b + m1.b, m0.c + m1.c, m0.d + m1.d, m0.e + m1.e, m0.f + m1.f, m0.g + m1.g, m0.h + m1.h, m0.i + m1.i, m0.j + m1.j, m0.k + m1.k, m0.l + m1.l, m0.m + m1.m, m0.n + m1.n, m0.o + m1.o, m0.p + m1.p);
+		return cast this1;
+	}
+
+	@:op(A - B)
+	public static inline function sub(m0:geom.matrix.Matrix4x4, m1:geom.matrix.Matrix4x4) {
+		var this1 = new geom.structure.Mat4x4(m0.a - m1.a, m0.b - m1.b, m0.c - m1.c, m0.d - m1.d, m0.e - m1.e, m0.f - m1.f, m0.g - m1.g, m0.h - m1.h, m0.i - m1.i, m0.j - m1.j, m0.k - m1.k, m0.l - m1.l, m0.m - m1.m, m0.n - m1.n, m0.o - m1.o, m0.p - m1.p);
+		return cast this1;
+	}
+
+	@:op(A * B)
+	public static inline function multiply(r:geom.matrix.Matrix4x4, s:geom.matrix.Matrix4x4) {
+		var this1 = new geom.structure.Mat4x4(r.a * s.a + r.b * s.e + r.c * s.i + r.d * s.m, r.a * s.b + r.b * s.f + r.c * s.j + r.d * s.n, r.a * s.c + r.b * s.g + r.c * s.k + r.d * s.o, r.a * s.d + r.b * s.h + r.c * s.l + r.d * s.p, r.e * s.a + r.f * s.e + r.g * s.i + r.h * s.m, r.e * s.b + r.f * s.f + r.g * s.j + r.h * s.n, r.e * s.c + r.f * s.g + r.g * s.k + r.h * s.o, r.e * s.d + r.f * s.h + r.g * s.l + r.h * s.p, r.i * s.a + r.j * s.e + r.k * s.i + r.l * s.m, r.i * s.b + r.j * s.f + r.k * s.j + r.l * s.n, r.i * s.c + r.j * s.g + r.k * s.k + r.l * s.o, r.i * s.d + r.j * s.h + r.k * s.l + r.l * s.p, r.m * s.a + r.n * s.e + r.o * s.i + r.p * s.m, r.m * s.b + r.n * s.f + r.o * s.j + r.p * s.n, r.m + s.c + r.n * s.g + r.o * s.k + r.p * s.o, r.m * s.d + r.n * s.h + r.o * s.l + r.p * s.p);
+		return cast this1;
+	}
+
+	@:op(A / B)
+	public static inline function scaleDivide(m:geom.matrix.Matrix4x4, p:geom.matrix.Matrix1x4) {
+		var this1 = new geom.structure.Mat1x4(1 / p.x, 1 / p.y, 1 / p.z, 1 / p.w);
+		var pd = cast this1;
+		var this1 = new geom.structure.Mat4x4(m.a * pd.x, m.b, m.c, m.d, m.e, m.f * pd.y, m.g, m.h, m.i, m.j, m.k * pd.z, m.l, m.m, m.n, m.o, m.p * pd.w);
+		return cast this1;
+	}
+
+	@:op(A * B)
+	public static inline function scaleMultiply1(p:geom.matrix.Matrix1x4, m:geom.matrix.Matrix4x4) {
+		var this1 = new geom.structure.Mat4x4(m.a * p.x, m.b, m.c, m.d, m.e, m.f * p.y, m.g, m.h, m.i, m.j, m.k * p.z, m.l, m.m, m.n, m.o, m.p * p.w);
+		return cast this1;
+	}
+
+	@:op(A * B)
+	public static inline function scaleMultiply2(m:geom.matrix.Matrix4x4, p:geom.matrix.Matrix1x4) {
+		var this1 = new geom.structure.Mat4x4(m.a * p.x, m.b, m.c, m.d, m.e, m.f * p.y, m.g, m.h, m.i, m.j, m.k * p.z, m.l, m.m, m.n, m.o, m.p * p.w);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function delta(this1:geom.structure.Mat4x4, x:Float, y:Float) {
+		var this2 = new geom.structure.Mat4x4(this1.a, this1.b, this1.c, this1.d, this1.e, this1.f, this1.g, this1.h, this1.i, this1.j, this1.k, this1.l, this1.m + x, this1.n + y, this1.o, this1.p);
+		return cast this2;
+	}
+
+	@:from
+	public static inline function matrix4x3(m:geom.matrix.Matrix4x3) {
+		var this1 = new geom.structure.Mat4x4(m.a, m.b, m.c, m.d, m.e, m.f, m.g, m.h, m.i, m.j, m.k, m.l, 0., 0., 0., 1.);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function transpose(this1:geom.structure.Mat4x4) {
+		var this2 = new geom.structure.Mat4x4(this1.a, this1.e, this1.i, this1.m, this1.b, this1.f, this1.j, this1.n, this1.c, this1.g, this1.k, this1.o, this1.d, this1.h, this1.l, this1.p);
+		return cast this2;
+	}
+
+	@:impl
+	public static inline function updateWebGL(this1:geom.structure.Mat4x4, arr:haxe.io.Float32Array) {
+		var here = this1;
+		geom.matrix.Conversion._4x4toFloat32ArrayTransposeUpdate_(arr, here);
+		return arr;
+	}
+
+	@:impl
+	public static inline function updateWebGL_(this1:geom.structure.Mat4x4, arr:haxe.io.Float32Array) {
+		var here = this1;
+		geom.matrix.Conversion._4x4toFloat32ArrayUpdate_(arr, here);
+		return arr;
+	}
+
+	@:impl
+	public static inline function setXY(this1:geom.structure.Mat4x4, x:Int, y:Int, v:Float) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: return this1.a = v;
+				case 1: return this1.b = v;
+				case 2: return this1.c = v;
+				case 3: return this1.d = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x4")
+			};
+			case 1: switch ((y)) {
+				case 0: return this1.e = v;
+				case 1: return this1.f = v;
+				case 2: return this1.g = v;
+				case 3: return this1.h = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x4")
+			};
+			case 2: switch ((y)) {
+				case 0: return this1.i = v;
+				case 1: return this1.j = v;
+				case 2: return this1.k = v;
+				case 3: return this1.l = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x4")
+			};
+			case 3: switch ((y)) {
+				case 0: return this1.m = v;
+				case 1: return this1.n = v;
+				case 2: return this1.o = v;
+				case 3: return this1.p = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x4")
+			};
+			default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x4")
+		};
+	}
+
+	@:impl
+	public static inline function getXY(this1:geom.structure.Mat4x4, x:Int, y:Int) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: return this1.a;
+				case 1: return this1.b;
+				case 2: return this1.c;
+				case 3: return this1.d;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x4")
+			};
+			case 1: switch ((y)) {
+				case 0: return this1.e;
+				case 1: return this1.f;
+				case 2: return this1.g;
+				case 3: return this1.h;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x4")
+			};
+			case 2: switch ((y)) {
+				case 0: return this1.i;
+				case 1: return this1.j;
+				case 2: return this1.k;
+				case 3: return this1.l;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x4")
+			};
+			case 3: switch ((y)) {
+				case 0: return this1.m;
+				case 1: return this1.n;
+				case 2: return this1.o;
+				case 3: return this1.p;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x4")
+			};
+			default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x4")
+		};
+	}
+
+	@:impl
+	public static inline function pretty(this1:geom.structure.Mat4x4, prec:Int) {
+		var dp = geom.constraints.Precision.floatToStringPrecision;
+		var max4 = geom.constraints.Precision.max4;
+		var sa = dp(this1.a, prec);
+		var sb = dp(this1.b, prec);
+		var sc = dp(this1.c, prec);
+		var sd = dp(this1.d, prec);
+		var se = dp(this1.e, prec);
+		var sf = dp(this1.f, prec);
+		var sg = dp(this1.g, prec);
+		var sh = dp(this1.h, prec);
+		var si = dp(this1.i, prec);
+		var sj = dp(this1.j, prec);
+		var sk = dp(this1.k, prec);
+		var sl = dp(this1.l, prec);
+		var sm = dp(this1.m, prec);
+		var sn = dp(this1.n, prec);
+		var so = dp(this1.o, prec);
+		var sp = dp(this1.p, prec);
+		var la = sa.length;
+		var lb = sb.length;
+		var lc = sc.length;
+		var ld = sd.length;
+		var le = se.length;
+		var lf = sf.length;
+		var lg = sg.length;
+		var lh = sh.length;
+		var li = si.length;
+		var lj = sj.length;
+		var lk = sk.length;
+		var ll = sl.length;
+		var lm = sm.length;
+		var ln = sn.length;
+		var lo = so.length;
+		var lp = sp.length;
+		var r0 = max4(la, le, li, lm);
+		var r1 = max4(lb, lf, lj, ln);
+		var r2 = max4(lc, lg, lk, lo);
+		var r3 = max4(ld, lh, ll, lp);
+		var spaces = "";
+		{
+			var _g = 0;
+			var _g1 = r0;
+			while ((_g < _g1)) {
+				var n = _g ++;
+				spaces += " ";
+			};
+		};
+		sa = @:pure HxOverrides.substr(spaces, 0, r0 - la) + sa;
+		se = @:pure HxOverrides.substr(spaces, 0, r0 - le) + se;
+		si = @:pure HxOverrides.substr(spaces, 0, r0 - li) + si;
+		sm = @:pure HxOverrides.substr(spaces, 0, r0 - lm) + sm;
+		var spaces = "";
+		{
+			var _g = 0;
+			var _g1 = r1;
+			while ((_g < _g1)) {
+				var n = _g ++;
+				spaces += " ";
+			};
+		};
+		sb = @:pure HxOverrides.substr(spaces, 0, r1 - lb) + sb;
+		sf = @:pure HxOverrides.substr(spaces, 0, r1 - lf) + sf;
+		sj = @:pure HxOverrides.substr(spaces, 0, r1 - lj) + sj;
+		sn = @:pure HxOverrides.substr(spaces, 0, r1 - ln) + sn;
+		var space = "";
+		{
+			var _g = 0;
+			var _g1 = r2;
+			while ((_g < _g1)) {
+				var n = _g ++;
+				spaces += " ";
+			};
+		};
+		sc = @:pure HxOverrides.substr(spaces, 0, r2 - lc) + sc;
+		sg = @:pure HxOverrides.substr(spaces, 0, r2 - lg) + sg;
+		sk = @:pure HxOverrides.substr(spaces, 0, r2 - lk) + sk;
+		so = @:pure HxOverrides.substr(spaces, 0, r2 - lo) + so;
+		var space = "";
+		{
+			var _g = 0;
+			var _g1 = r3;
+			while ((_g < _g1)) {
+				var n = _g ++;
+				spaces += " ";
+			};
+		};
+		sd = @:pure HxOverrides.substr(spaces, 0, r3 - ld) + sd;
+		sh = @:pure HxOverrides.substr(spaces, 0, r3 - lh) + sh;
+		sl = @:pure HxOverrides.substr(spaces, 0, r3 - ll) + sl;
+		sp = @:pure HxOverrides.substr(spaces, 0, r3 - lp) + sp;
+		return "\n" + "/ " + sa + ", " + sb + ", " + sc + ", " + sd + " \\\n" + "| " + se + ", " + sf + ", " + sg + ", " + sh + " |\n" + "| " + si + ", " + sj + ", " + sk + ", " + sl + " |\n" + "\\ " + sm + ", " + sn + ", " + so + ", " + sp + " /\n";
+	}
+}

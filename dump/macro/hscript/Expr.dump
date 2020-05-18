@@ -1,0 +1,29 @@
+enum hscript.Expr {
+	EConst(c:hscript.Const);
+	EIdent(v:String);
+	EVar(n:String, ?t:Null<hscript.CType>, ?e:Null<hscript.Expr>);
+	EParent(e:hscript.Expr);
+	EBlock(e:Array<hscript.Expr>);
+	EField(e:hscript.Expr, f:String);
+	EBinop(op:String, e1:hscript.Expr, e2:hscript.Expr);
+	EUnop(op:String, prefix:Bool, e:hscript.Expr);
+	ECall(e:hscript.Expr, params:Array<hscript.Expr>);
+	EIf(cond:hscript.Expr, e1:hscript.Expr, ?e2:Null<hscript.Expr>);
+	EWhile(cond:hscript.Expr, e:hscript.Expr);
+	EFor(v:String, it:hscript.Expr, e:hscript.Expr);
+	EBreak;
+	EContinue;
+	EFunction(args:Array<hscript.Argument>, e:hscript.Expr, ?name:Null<String>, ?ret:Null<hscript.CType>);
+	EReturn(?e:Null<hscript.Expr>);
+	EArray(e:hscript.Expr, index:hscript.Expr);
+	EArrayDecl(e:Array<hscript.Expr>);
+	ENew(cl:String, params:Array<hscript.Expr>);
+	EThrow(e:hscript.Expr);
+	ETry(e:hscript.Expr, v:String, t:Null<hscript.CType>, ecatch:hscript.Expr);
+	EObject(fl:Array<{ name : String, e : hscript.Expr }>);
+	ETernary(cond:hscript.Expr, e1:hscript.Expr, e2:hscript.Expr);
+	ESwitch(e:hscript.Expr, cases:Array<{ values : Array<hscript.Expr>, expr : hscript.Expr }>, ?defaultExpr:Null<hscript.Expr>);
+	EDoWhile(cond:hscript.Expr, e:hscript.Expr);
+	EMeta(name:String, args:Array<hscript.Expr>, e:hscript.Expr);
+	ECheckType(e:hscript.Expr, t:hscript.CType);
+}

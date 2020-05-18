@@ -1,0 +1,178 @@
+@:realPath("js.html.HTMLDocument") @:used @:native("HTMLDocument")
+extern class HTMLDocument extends Document {
+
+	var domain:String;
+
+	var cookie:String;
+
+	var designMode:String;
+
+	var fgColor:String;
+
+	var linkColor:String;
+
+	var vlinkColor:String;
+
+	var alinkColor:String;
+
+	var bgColor:String;
+
+	var all(default,null):HTMLAllCollection;
+
+	@:value({ replace : false })
+	function open(url:String, name:String, features:String, replace:Bool):Window;
+
+	@:value({ replace : "" })
+	function open(type:Null<String>, replace:String):HTMLDocument;
+
+	function close():Void;
+
+	function write(text:haxe.extern.Rest<String>):Void;
+
+	function writeln(text:haxe.extern.Rest<String>):Void;
+
+	@:value({ value : "", showUI : false })
+	function execCommand(commandId:String, showUI:Bool, value:String):Bool;
+
+	function queryCommandEnabled(commandId:String):Bool;
+
+	function queryCommandIndeterm(commandId:String):Bool;
+
+	function queryCommandState(commandId:String):Bool;
+
+	function queryCommandSupported(commandId:String):Bool;
+
+	function queryCommandValue(commandId:String):String;
+
+	function clear():Void;
+
+	function captureEvents():Void;
+
+	function releaseEvents():Void;
+
+	inline function createTableCellElement():HTMLTableCellElement;
+
+	inline function createSelectElement():HTMLSelectElement;
+
+	inline function createFontElement():HTMLFontElement;
+
+	inline function createDListElement():HTMLDListElement;
+
+	inline function createFrameElement():HTMLFrameElement;
+
+	inline function createOListElement():HTMLOListElement;
+
+	inline function createLIElement():HTMLLIElement;
+
+	inline function createHRElement():HTMLHRElement;
+
+	inline function createParamElement():HTMLParamElement;
+
+	inline function createLabelElement():HTMLLabelElement;
+
+	inline function createTrackElement():HTMLTrackElement;
+
+	inline function createDivElement():HTMLDivElement;
+
+	inline function createTitleElement():HTMLTitleElement;
+
+	inline function createAnchorElement():HTMLAnchorElement;
+
+	inline function createStyleElement():HTMLStyleElement;
+
+	inline function createEmbedElement():HTMLEmbedElement;
+
+	inline function createMeterElement():HTMLMeterElement;
+
+	inline function createPictureElement():HTMLPictureElement;
+
+	inline function createPreElement():HTMLPreElement;
+
+	inline function createTableSectionElement():HTMLTableSectionElement;
+
+	inline function createHeadElement():HTMLHeadElement;
+
+	inline function createOptGroupElement():HTMLOptGroupElement;
+
+	inline function createAudioElement():HTMLAudioElement;
+
+	inline function createVideoElement():HTMLVideoElement;
+
+	inline function createLegendElement():HTMLLegendElement;
+
+	inline function createUListElement():HTMLUListElement;
+
+	inline function createDirectoryElement():HTMLDirectoryElement;
+
+	inline function createTableElement():HTMLTableElement;
+
+	inline function createSlotElement():HTMLSlotElement;
+
+	inline function createSourceElement():HTMLSourceElement;
+
+	inline function createLinkElement():HTMLLinkElement;
+
+	inline function createIFrameElement():HTMLIFrameElement;
+
+	inline function createMediaElement():HTMLMediaElement;
+
+	inline function createMapElement():HTMLMapElement;
+
+	inline function createFormElement():HTMLFormElement;
+
+	inline function createOptionElement():HTMLOptionElement;
+
+	inline function createMetaElement():HTMLMetaElement;
+
+	inline function createObjectElement():HTMLObjectElement;
+
+	inline function createTableCaptionElement():HTMLTableCaptionElement;
+
+	inline function createImageElement():HTMLImageElement;
+
+	inline function createTextAreaElement():HTMLTextAreaElement;
+
+	inline function createScriptElement():HTMLScriptElement;
+
+	inline function createDataListElement():HTMLDataListElement;
+
+	inline function createModElement():HTMLModElement;
+
+	inline function createOutputElement():HTMLOutputElement;
+
+	inline function createAreaElement():HTMLAreaElement;
+
+	inline function createProgressElement():HTMLProgressElement;
+
+	inline function createButtonElement():HTMLButtonElement;
+
+	inline function createFieldSetElement():HTMLFieldSetElement;
+
+	inline function createMenuElement():HTMLMenuElement;
+
+	inline function createBRElement():HTMLBRElement;
+
+	inline function createSpanElement():HTMLSpanElement;
+
+	inline function createDetailsElement():HTMLDetailsElement;
+
+	inline function createBodyElement():HTMLBodyElement;
+
+	inline function createInputElement():HTMLInputElement;
+
+	inline function createBaseElement():HTMLBaseElement;
+
+	inline function createQuoteElement():HTMLQuoteElement;
+
+	inline function createFrameSetElement():HTMLFrameSetElement;
+
+	inline function createCanvasElement():HTMLCanvasElement;
+
+	inline function createParagraphElement():HTMLParagraphElement;
+
+	inline function createTableColElement():HTMLTableColElement;
+
+	inline function createTableRowElement():HTMLTableRowElement;
+
+	inline function createHtmlElement():HTMLHtmlElement;
+}

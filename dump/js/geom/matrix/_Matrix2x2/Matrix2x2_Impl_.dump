@@ -1,0 +1,343 @@
+@:used
+private class geom.matrix._Matrix2x2.Matrix2x2_Impl_ {
+
+	@:value(2)
+	public static inline var row:Int = 2;
+
+	@:value(2)
+	public static inline var col:Int = 2;
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.Mat2x2) {
+		var this1 = m;
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function clone(this1:geom.structure.Mat2x2) {
+		var this2 = new geom.structure.Mat2x2(this1.a, this1.b, this1.c, this1.d);
+		return cast this2;
+	}
+
+	@:impl
+	public static inline function iterator(this1:geom.structure.Mat2x2) {
+		return new haxe.iterators.ArrayIterator([this1.a, this1.b, this1.c, this1.d]);
+	}
+
+	@:impl
+	public static var self(get,never):geom.matrix.Matrix2x2;
+
+	@:impl
+	static inline function get_self(this1:geom.structure.Mat2x2) {
+		return cast this1;
+	}
+
+	public static var zero(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_zero() {
+		var this1 = new geom.structure.Mat2x2(0., 0., 0., 0.);
+		return cast this1;
+	}
+
+	@:impl
+	static var nought(get,never):geom.matrix.Matrix2x2;
+
+	@:impl
+	static inline function get_nought(this1:geom.structure.Mat2x2) {
+		var this1 = new geom.structure.Mat2x2(0., 0., 0., 0.);
+		return cast this1;
+	}
+
+	public static var unit(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_unit() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., 1.);
+		return cast this1;
+	}
+
+	@:impl
+	static var one(get,never):geom.matrix.Matrix2x2;
+
+	@:impl
+	static inline function get_one(this1:geom.structure.Mat2x2) {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., 1.);
+		return cast this1;
+	}
+
+	public static var minus1(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_minus1() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., 1.);
+		var a = cast this1;
+		var this1 = new geom.structure.Mat2x2(- cast a.a, - cast a.b, - cast a.c, - cast a.d);
+		return cast this1;
+	}
+
+	public static var counting(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_counting() {
+		var this1 = new geom.structure.Mat2x2(1., 2., 3., 4.);
+		return cast this1;
+	}
+
+	@:impl
+	static var testCount(get,never):geom.matrix.Matrix2x2;
+
+	@:impl
+	static inline function get_testCount(this1:geom.structure.Mat2x2) {
+		var this1 = new geom.structure.Mat2x2(1., 2., 3., 4.);
+		return cast this1;
+	}
+
+	public static var _1234(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get__1234() {
+		var this1 = new geom.structure.Mat2x2(1., 2., 3., 4.);
+		return cast this1;
+	}
+
+	public static var topLeft(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_topLeft() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., -1.);
+		return cast this1;
+	}
+
+	public static var topRight(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_topRight() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., 1.);
+		return cast this1;
+	}
+
+	public static var bottomLeft(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_bottomLeft() {
+		var this1 = new geom.structure.Mat2x2(-1., 0., 0., -1.);
+		return cast this1;
+	}
+
+	public static var bottomRight(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_bottomRight() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., -1.);
+		return cast this1;
+	}
+
+	public static var north(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_north() {
+		var this1 = new geom.structure.Mat2x2(0., 0., 0., 1.);
+		return cast this1;
+	}
+
+	public static var south(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_south() {
+		var this1 = new geom.structure.Mat2x2(0., 0., 0., -1.);
+		return cast this1;
+	}
+
+	public static var west(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_west() {
+		var this1 = new geom.structure.Mat2x2(-1., 0., 0., 0.);
+		return cast this1;
+	}
+
+	public static var east(get,never):geom.matrix.Matrix2x2;
+
+	static inline function get_east() {
+		var this1 = new geom.structure.Mat2x2(1., 0., 0., 0.);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function create(this1:geom.structure.Mat2x2, a:Float, b:Float, c:Float, d:Float) {
+		var this2 = new geom.structure.Mat2x2(a, b, c, d);
+		this1 = cast this2;
+		return this1;
+	}
+
+	public static inline function scale(p:geom.matrix.Matrix1x2) {
+		var this1 = new geom.structure.Mat2x2(p.x, 0., 0., p.y);
+		return cast this1;
+	}
+
+	public static inline function rotation(alpha:Float) {
+		var this1 = new geom.structure.Mat2x2(Math.cos(alpha), - Math.sin(alpha), Math.sin(alpha), Math.cos(alpha));
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function transpose(this1:geom.structure.Mat2x2) {
+		var this2 = new geom.structure.Mat2x2(this1.a, this1.c, this1.b, this1.d);
+		return cast this2;
+	}
+
+	@:op(-A)
+	public static inline function negating(a:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat2x2(- cast a.a, - cast a.b, - cast a.c, - cast a.d);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function negate(this1:geom.structure.Mat2x2) {
+		var this2 = new geom.structure.Mat2x2(- this1.a, - this1.b, - this1.c, - this1.d);
+		return cast this2;
+	}
+
+	@:op(A + B)
+	public static inline function adding(a:geom.matrix.Matrix2x2, b:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat2x2(cast a.a + b.a, cast a.b + b.b, cast a.c + b.c, cast a.d + b.d);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function add(this1:geom.structure.Mat2x2, b:geom.matrix.Matrix2x2) {
+		var this2 = new geom.structure.Mat2x2(this1.a + b.a, this1.b + b.b, this1.c + b.c, this1.d + b.d);
+		return cast this2;
+	}
+
+	@:op(A == B)
+	public static inline function equal(a:geom.matrix.Matrix2x2, b:geom.matrix.Matrix2x2) {
+		var delta = 0.0000001;
+		return ! (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta);
+	}
+
+	@:op(A != B)
+	public static inline function notEqual(a:geom.matrix.Matrix2x2, b:geom.matrix.Matrix2x2) {
+		var delta = 0.0000001;
+		return (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta);
+	}
+
+	@:op(A - B)
+	public static inline function subtracting(a:geom.matrix.Matrix2x2, b:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat2x2(cast a.a - b.a, cast a.b - b.b, cast a.c - b.c, cast a.d - b.d);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function subtract(this1:geom.structure.Mat2x2, b:geom.matrix.Matrix2x2) {
+		var this2 = new geom.structure.Mat2x2(this1.a - b.a, this1.b - b.b, this1.c - b.c, this1.d - b.d);
+		return cast this2;
+	}
+
+	@:op(A * B)
+	public static inline function multiplyValue(v:Float, m:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat2x2(m.a * v, m.b * v, m.c * v, m.d * v);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function scaleByVector2(this1:geom.structure.Mat2x2, p:geom.matrix.Matrix1x2) {
+		var this2 = new geom.structure.Mat2x2(this1.a * p.x, this1.b, this1.c, this1.d * p.y);
+		return cast this2;
+	}
+
+	@:op(A * B)
+	public static inline function multiply(a2:geom.matrix.Matrix2x2, b2:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat2x2(a2.a * b2.a + a2.b * b2.c, a2.a * b2.b + a2.b * b2.d, a2.c * b2.a + a2.d * b2.c, a2.c * b2.b + a2.d * b2.d);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function multiplyPoint(this1:geom.structure.Mat2x2, p:geom.matrix.Matrix1x2) {
+		var x = this1.a * p.x + this1.c * p.y;
+		var y = this1.b * p.x + this1.d * p.y;
+		var this1 = new geom.structure.Mat1x2(x, y);
+		return cast this1;
+	}
+
+	@:impl
+	public static inline function det(this1:geom.structure.Mat2x2) {
+		return this1.a * this1.d - this1.b * this1.c;
+	}
+
+	@:impl
+	public static inline function inverse(this1:geom.structure.Mat2x2) {
+		var d = cast this1.a * cast this1.d - cast this1.b * cast this1.c;
+		if ((d == 0)) return null else {
+			var this2 = new geom.structure.Mat2x2(this1.d, - this1.b, - this1.c, this1.a);
+			var adj = cast this2;
+			var v = 1 / d;
+			var this1 = new geom.structure.Mat2x2(adj.a * v, adj.b * v, adj.c * v, adj.d * v);
+			return cast this1;
+		};
+	}
+
+	@:impl @:to
+	public static inline function to3x3(this1:geom.structure.Mat2x2) {
+		return geom.matrix.Conversion._2x2to3x3(this1);
+	}
+
+	@:impl @:to
+	public static inline function to4x3(this1:geom.structure.Mat2x2) {
+		return geom.matrix.Conversion._2x2to4x3(this1);
+	}
+
+	@:from
+	public static inline function from3x3(m3:geom.matrix.Matrix3x3) {
+		return geom.matrix.Conversion._3x3to2x2(m3);
+	}
+
+	@:from
+	public static inline function from4x3(m4:geom.matrix.Matrix4x3) {
+		return geom.matrix.Conversion._4x3to2x2(m4);
+	}
+
+	@:from
+	public static inline function fromArr(arr:Array<Float>) {
+		return geom.matrix.Conversion.Arrayto2x2(arr);
+	}
+
+	@:impl @:to
+	public static inline function toArray(this1:geom.structure.Mat2x2) {
+		return geom.matrix.Conversion._2x2toArray(this1);
+	}
+
+	@:from
+	public static inline function fromVec(vec:haxe.ds.Vector<Float>) {
+		return geom.matrix.Conversion.Vectorto2x2(vec);
+	}
+
+	@:impl @:to
+	public static inline function toVector(this1:geom.structure.Mat2x2) {
+		return geom.matrix.Conversion._2x2toVector(this1);
+	}
+
+	@:impl
+	public static inline function setXY(this1:geom.structure.Mat2x2, x:Int, y:Int, v:Float) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: this1.a = v;
+				case 1: this1.c = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix2x2")
+			};
+			case 1: switch ((y)) {
+				case 0: this1.b = v;
+				case 1: this1.d = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix2x2")
+			};
+			default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix2x2")
+		};
+		return this1;
+	}
+
+	@:impl
+	public static inline function getXY(this1:geom.structure.Mat2x2, x:Int, y:Int) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: return this1.a;
+				case 1: return this1.c;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix2x2")
+			};
+			case 1: switch ((y)) {
+				case 0: return this1.b;
+				case 1: return this1.d;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix2x2")
+			};
+			default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix2x2")
+		};
+	}
+}

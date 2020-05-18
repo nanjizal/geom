@@ -1,0 +1,511 @@
+@:directlyUsed @:used
+class utest.ui.text.HtmlReport implements utest.ui.common.IReport<utest.ui.text.HtmlReport> {
+
+	@:value({ traceRedirected : true })
+	public function new(runner:utest.Runner, outputHandler:Null<utest.ui.text.HtmlReport -> Void> = null, traceRedirected:Bool = true) {
+		this.aggregator = new utest.ui.common.ResultAggregator(runner, true);
+		runner.onStart.add(this.start);
+		this.aggregator.onComplete.add(this.complete);
+		if ((null == outputHandler)) this.setHandler(this._handler) else this.setHandler(outputHandler);
+		if ((traceRedirected)) this.redirectTrace();
+		this.displaySuccessResults = utest.ui.common.SuccessResultsDisplayMode.AlwaysShowSuccessResults;
+		this.displayHeader = utest.ui.common.HeaderDisplayMode.AlwaysShowHeader;
+	}
+
+	public var traceRedirected(default,null):Bool;
+
+	public var displaySuccessResults:utest.ui.common.SuccessResultsDisplayMode;
+
+	public var displayHeader:utest.ui.common.HeaderDisplayMode;
+
+	public var handler:utest.ui.text.HtmlReport -> Void;
+
+	var aggregator:utest.ui.common.ResultAggregator;
+
+	var oldTrace:Dynamic;
+
+	var _traces:Array<{ time : Float, stack : Array<haxe.StackItem>, msg : String, infos : haxe.PosInfos, delta : Float }>;
+
+	public function setHandler(handler:utest.ui.text.HtmlReport -> Void) {
+		this.handler = handler;
+	}
+
+	public function redirectTrace() {
+		if ((this.traceRedirected)) return;
+		this._traces = [];
+		this.oldTrace = haxe.Log.trace;
+		haxe.Log.trace = this._trace;
+	}
+
+	public function restoreTrace() {
+		if ((! this.traceRedirected)) return;
+		haxe.Log.trace = this.oldTrace;
+	}
+
+	var _traceTime:Null<Float>;
+
+	function _trace(v:Dynamic, infos:Null<haxe.PosInfos> = null) {
+		var time = haxe.Timer.stamp();
+		var delta = if ((this._traceTime == null)) 0 else time - this._traceTime;
+		this._traces.push({msg : StringTools.htmlEscape(Std.string(v)), infos : infos, time : time - this.startTime, delta : delta, stack : haxe._CallStack.CallStack_Impl_.callStack()});
+		this._traceTime = haxe.Timer.stamp();
+	}
+
+	var startTime:Float;
+
+	function start(e:utest.Runner) {
+		this.startTime = haxe.Timer.stamp();
+	}
+
+	function cls(stats:utest.ui.common.ResultStats) {
+		if ((stats.hasErrors)) return "error" else if ((stats.hasFailures)) return "failure" else if ((stats.hasWarnings)) return "warn" else return "ok";
+	}
+
+	function resultNumbers(buf:StringBuf, stats:utest.ui.common.ResultStats) {
+		var numbers = [];
+		if ((stats.assertations == 1)) numbers.push("<strong>1</strong> test") else numbers.push("<strong>" + stats.assertations + "</strong> tests");
+		if ((stats.successes != stats.assertations)) {
+			if ((stats.successes == 1)) numbers.push("<strong>1</strong> pass") else if ((stats.successes > 0)) numbers.push("<strong>" + stats.successes + "</strong> passes");
+		};
+		if ((stats.errors == 1)) numbers.push("<strong>1</strong> error") else if ((stats.errors > 0)) numbers.push("<strong>" + stats.errors + "</strong> errors");
+		if ((stats.failures == 1)) numbers.push("<strong>1</strong> failure") else if ((stats.failures > 0)) numbers.push("<strong>" + stats.failures + "</strong> failures");
+		if ((stats.warnings == 1)) numbers.push("<strong>1</strong> warning") else if ((stats.warnings > 0)) numbers.push("<strong>" + stats.warnings + "</strong> warnings");
+		buf.add(numbers.join(", "));
+	}
+
+	function blockNumbers(buf:StringBuf, stats:utest.ui.common.ResultStats) {
+		buf.add("<div class=\"" + this.cls(stats) + "bg statnumbers\">");
+		this.resultNumbers(buf, stats);
+		buf.add("</div>");
+	}
+
+	@:value({ addNL : true })
+	function formatStack(stack:Array<haxe.StackItem>, addNL:Bool = true) {
+		var parts = [];
+		var nl = if ((addNL)) "\n" else "";
+		var last = null;
+		var count = 1;
+		{
+			var _g = 0;
+			var _g1 = haxe._CallStack.CallStack_Impl_.toString(stack).split("\n");
+			while ((_g < _g1.length)) {
+				var part = _g1[_g];
+				++ _g;
+				if ((StringTools.trim(part) == "")) continue;
+				if ((-1 < part.indexOf("Called from utest."))) continue;
+				if ((part == last)) parts[parts.length - 1] = part + " (#" + ++ count + ")" else {
+					count = 1;
+					last = part;
+					parts.push(last);
+				};
+			};
+		};
+		var s = "<ul><li>" + parts.join("</li>" + nl + "<li>") + "</li></ul>" + nl;
+		return "<div>" + s + "</div>" + nl;
+	}
+
+	function addFixture(buf:StringBuf, result:utest.ui.common.FixtureResult, name:String, isOk:Bool) {
+		if ((utest.ui.common.ReportTools.skipResult(this, result.stats, isOk))) return;
+		buf.add("<li class=\"fixture\"><div class=\"li\">");
+		buf.add("<span class=\"" + this.cls(result.stats) + "bg fixtureresult\">");
+		if ((result.stats.isOk)) buf.add("OK ") else if ((result.stats.hasErrors)) buf.add("ERROR ") else if ((result.stats.hasFailures)) buf.add("FAILURE ") else if ((result.stats.hasWarnings)) buf.add("WARNING ");
+		buf.add("</span>");
+		buf.add("<div class=\"fixturedetails\">");
+		buf.add("<strong>" + name + "</strong>");
+		buf.add(": ");
+		this.resultNumbers(buf, result.stats);
+		var messages = [];
+		{
+			var assertation = result.iterator();
+			while ((assertation.hasNext())) {
+				var assertation1 = assertation.next();
+				switch ((@:exhaustive enumIndex assertation1)) {
+					case 0: {
+						var _g = assertation1[0];
+					};
+					case 1: {
+						var pos = assertation1[1];
+						var msg = assertation1[0];
+						messages.push("<strong>line " + pos.lineNumber + "</strong>: <em>" + StringTools.htmlEscape(msg) + "</em>");
+					};
+					case 2: {
+						var s = assertation1[1];
+						var e = assertation1[0];
+						messages.push("<strong>error</strong>: <em>" + this.getErrorDescription(e) + "</em>\n<br/><strong>stack</strong>:" + this.getErrorStack(s, e));
+					};
+					case 3: {
+						var s1 = assertation1[1];
+						var e1 = assertation1[0];
+						messages.push("<strong>setup error</strong>: " + this.getErrorDescription(e1) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s1, e1));
+					};
+					case 4: {
+						var s2 = assertation1[1];
+						var e2 = assertation1[0];
+						messages.push("<strong>tear-down error</strong>: " + this.getErrorDescription(e2) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s2, e2));
+					};
+					case 5: {
+						var _g1 = assertation1[1];
+						{
+							var missedAsyncs = assertation1[0];
+							messages.push("<strong>missed async call(s)</strong>: " + missedAsyncs);
+						};
+					};
+					case 6: {
+						var s3 = assertation1[1];
+						var e3 = assertation1[0];
+						messages.push("<strong>async error</strong>: " + this.getErrorDescription(e3) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s3, e3));
+					};
+					case 7: {
+						var msg1 = assertation1[0];
+						messages.push(StringTools.htmlEscape(msg1));
+					};
+					case 8: {
+						var reason = assertation1[0];
+						messages.push(StringTools.htmlEscape(reason));
+					};
+				};
+			};
+		};
+		if ((messages.length > 0)) {
+			buf.add("<div class=\"testoutput\">");
+			buf.add(messages.join("<br/>"));
+			buf.add("</div>\n");
+		};
+		buf.add("</div>\n");
+		buf.add("</div></li>\n");
+	}
+
+	function getErrorDescription(e:Dynamic) {
+		return Std.string(e);
+	}
+
+	function getErrorStack(s:Array<haxe.StackItem>, e:Dynamic) {
+		return this.formatStack(s);
+	}
+
+	function addClass(buf:StringBuf, result:utest.ui.common.ClassResult, name:String, isOk:Bool) {
+		if ((utest.ui.common.ReportTools.skipResult(this, result.stats, isOk))) return;
+		buf.add("<li>");
+		buf.add("<h2 class=\"classname\">" + name + "</h2>");
+		this.blockNumbers(buf, result.stats);
+		buf.add("<ul>\n");
+		{
+			var _g = 0;
+			var _g1 = result.methodNames();
+			while ((_g < _g1.length)) {
+				var mname = _g1[_g];
+				++ _g;
+				this.addFixture(buf, result.get(mname), mname, isOk);
+			};
+		};
+		buf.add("</ul>\n");
+		buf.add("</li>\n");
+	}
+
+	function addPackages(buf:StringBuf, result:utest.ui.common.PackageResult, isOk:Bool) {
+		if ((utest.ui.common.ReportTools.skipResult(this, result.stats, isOk))) return;
+		buf.add("<ul id=\"utest-results-packages\">\n");
+		{
+			var _g = 0;
+			var _g1 = result.packageNames(false);
+			while ((_g < _g1.length)) {
+				var name = _g1[_g];
+				++ _g;
+				this.addPackage(buf, result.getPackage(name), name, isOk);
+			};
+		};
+		buf.add("</ul>\n");
+	}
+
+	function addPackage(buf:StringBuf, result:utest.ui.common.PackageResult, name:String, isOk:Bool) {
+		if ((utest.ui.common.ReportTools.skipResult(this, result.stats, isOk))) return;
+		if ((name == "" && result.classNames().length == 0)) return;
+		buf.add("<li>");
+		buf.add("<h2>" + name + "</h2>");
+		this.blockNumbers(buf, result.stats);
+		buf.add("<ul>\n");
+		{
+			var _g = 0;
+			var _g1 = result.classNames();
+			while ((_g < _g1.length)) {
+				var cname = _g1[_g];
+				++ _g;
+				this.addClass(buf, result.getClass(cname), cname, isOk);
+			};
+		};
+		buf.add("</ul>\n");
+		buf.add("</li>\n");
+	}
+
+	public function getTextResults() {
+		var newline = "\n";
+		var indents = function(count:Int) {
+			var _g = [];
+			{
+				var _g1 = 0;
+				var _g2 = count;
+				while ((_g1 < _g2)) {
+					var i = _g1 ++;
+					_g.push("  ");
+				};
+			};
+			return _g.join("");
+		};
+		var dumpStack = function(stack:Array<haxe.StackItem>) {
+			if ((stack.length == 0)) return "";
+			var parts = haxe._CallStack.CallStack_Impl_.toString(stack).split("\n");
+			var r = [];
+			{
+				var _g = 0;
+				while ((_g < parts.length)) {
+					var part = parts[_g];
+					++ _g;
+					if ((part.indexOf(" utest.") >= 0)) continue;
+					r.push(part);
+				};
+			};
+			return r.join(newline);
+		};
+		var buf = new StringBuf();
+		{
+			var _g = 0;
+			var _g1 = this.result.packageNames();
+			while ((_g < _g1.length)) {
+				var pname = _g1[_g];
+				++ _g;
+				var pack = this.result.getPackage(pname);
+				if ((utest.ui.common.ReportTools.skipResult(this, pack.stats, this.result.stats.isOk))) continue;
+				{
+					var _g2 = 0;
+					var _g3 = pack.classNames();
+					while ((_g2 < _g3.length)) {
+						var cname = _g3[_g2];
+						++ _g2;
+						var cls = pack.getClass(cname);
+						if ((utest.ui.common.ReportTools.skipResult(this, cls.stats, this.result.stats.isOk))) continue;
+						buf.add((if ((pname == "")) "" else pname + ".") + cname + newline);
+						{
+							var _g4 = 0;
+							var _g5 = cls.methodNames();
+							while ((_g4 < _g5.length)) {
+								var mname = _g5[_g4];
+								++ _g4;
+								var fix = cls.get(mname);
+								if ((utest.ui.common.ReportTools.skipResult(this, fix.stats, this.result.stats.isOk))) continue;
+								buf.add(indents(1) + mname + ": ");
+								if ((fix.stats.isOk)) buf.add("OK ") else if ((fix.stats.hasErrors)) buf.add("ERROR ") else if ((fix.stats.hasFailures)) buf.add("FAILURE ") else if ((fix.stats.hasWarnings)) buf.add("WARNING ");
+								var messages = "";
+								{
+									var assertation = fix.iterator();
+									while ((assertation.hasNext())) {
+										var assertation1 = assertation.next();
+										switch ((@:exhaustive enumIndex assertation1)) {
+											case 0: {
+												var _g6 = assertation1[0];
+												buf.add(".");
+											};
+											case 1: {
+												var pos = assertation1[1];
+												var msg = assertation1[0];
+												{
+													buf.add("F");
+													messages += indents(2) + "line: " + pos.lineNumber + ", " + msg + newline;
+												};
+											};
+											case 2: {
+												var s = assertation1[1];
+												var e = assertation1[0];
+												{
+													buf.add("E");
+													messages += indents(2) + Std.string(e) + dumpStack(s) + newline;
+												};
+											};
+											case 3: {
+												var s1 = assertation1[1];
+												var e1 = assertation1[0];
+												{
+													buf.add("S");
+													messages += indents(2) + Std.string(e1) + dumpStack(s1) + newline;
+												};
+											};
+											case 4: {
+												var s2 = assertation1[1];
+												var e2 = assertation1[0];
+												{
+													buf.add("T");
+													messages += indents(2) + Std.string(e2) + dumpStack(s2) + newline;
+												};
+											};
+											case 5: {
+												var s3 = assertation1[1];
+												var missedAsyncs = assertation1[0];
+												{
+													buf.add("O");
+													messages += indents(2) + "missed async calls: " + missedAsyncs + dumpStack(s3) + newline;
+												};
+											};
+											case 6: {
+												var s4 = assertation1[1];
+												var e3 = assertation1[0];
+												{
+													buf.add("A");
+													messages += indents(2) + Std.string(e3) + dumpStack(s4) + newline;
+												};
+											};
+											case 7: {
+												var msg1 = assertation1[0];
+												{
+													buf.add("W");
+													messages += indents(2) + msg1 + newline;
+												};
+											};
+											case 8: {
+												var reason = assertation1[0];
+												{
+													buf.add("I");
+													if ((reason != null && reason != "")) messages += indents(2) + ("With reason: " + reason) + newline;
+												};
+											};
+										};
+									};
+								};
+								buf.add(newline);
+								buf.add(messages);
+							};
+						};
+					};
+				};
+			};
+		};
+		return buf.toString();
+	}
+
+	public function getHeader() {
+		var buf = new StringBuf();
+		if ((! utest.ui.common.ReportTools.hasHeader(this, this.result.stats))) return "";
+		var end = haxe.Timer.stamp();
+		var time = Std.int((end - this.startTime) * 1000) / 1000;
+		var msg = "TEST OK";
+		if ((this.result.stats.hasErrors)) msg = "TEST ERRORS" else if ((this.result.stats.hasFailures)) msg = "TEST FAILED" else if ((this.result.stats.hasWarnings)) msg = "WARNING REPORTED";
+		buf.add("<h1 class=\"" + this.cls(this.result.stats) + "bg header\">" + msg + "</h1>\n");
+		buf.add("<div class=\"headerinfo\">");
+		this.resultNumbers(buf, this.result.stats);
+		buf.add(" performed on <strong>" + utest.ui.text.HtmlReport.platform + "</strong>, executed in <strong> " + time + " sec. </strong></div >\n ");
+		return buf.toString();
+	}
+
+	public function getTrace() {
+		var buf = new StringBuf();
+		if ((this._traces == null || this._traces.length == 0)) return "";
+		buf.add("<div class=\"trace\"><h2>traces</h2><ol>");
+		{
+			var _g = 0;
+			var _g1 = this._traces;
+			while ((_g < _g1.length)) {
+				var t = _g1[_g];
+				++ _g;
+				buf.add("<li><div class=\"li\">");
+				var stack = StringTools.replace(this.formatStack(t.stack, false), "'", "\\'");
+				var method = "<span class=\"tracepackage\">" + t.infos.className + "</span><br/>" + t.infos.methodName + "(" + t.infos.lineNumber + ")";
+				buf.add("<span class=\"tracepos\" onmouseover=\"utestTooltip(this.parentNode, '" + stack + "')\" onmouseout=\"utestRemoveTooltip()\">");
+				buf.add(method);
+				buf.add("</span><span class=\"tracetime\">");
+				buf.add("@ " + this.formatTime(t.time));
+				if ((Math.round(t.delta * 1000) > 0)) buf.add(", ~" + this.formatTime(t.delta));
+				buf.add("</span><span class=\"tracemsg\">");
+				buf.add(StringTools.replace(StringTools.trim(t.msg), "\n", "<br/>\n"));
+				buf.add("</span><div class=\"clr\"></div></div></li>");
+			};
+		};
+		buf.add("</ol></div>");
+		return buf.toString();
+	}
+
+	public function getResults() {
+		var buf = new StringBuf();
+		this.addPackages(buf, this.result, this.result.stats.isOk);
+		return buf.toString();
+	}
+
+	public function getAll() {
+		if ((! utest.ui.common.ReportTools.hasOutput(this, this.result.stats))) return "" else return this.getHeader() + this.getTrace() + this.getResults();
+	}
+
+	public function getHtml(title:Null<String> = null) {
+		if ((null == title)) title = "utest: " + utest.ui.text.HtmlReport.platform;
+		var s = this.getAll();
+		if (("" == s)) return "" else return this.wrapHtml(title, s);
+	}
+
+	var result:utest.ui.common.PackageResult;
+
+	@:has_untyped
+	function complete(result:utest.ui.common.PackageResult) {
+		this.result = result;
+		this.handler(this);
+		this.restoreTrace();
+		var exposedResult = {isOk : result.stats.isOk, message : this.getTextResults()};
+		if ((__js__("'undefined' != typeof window"))) __js__("window").utest_result = exposedResult;
+	}
+
+	function formatTime(t:Float) {
+		return Math.round(t * 1000) + " ms";
+	}
+
+	function cssStyle() {
+		return "body, dd, dt {\n  font-family: Verdana, Arial, Sans-serif;\n  font-size: 12px;\n}\ndl {\n  width: 180px;\n}\ndd, dt {\n  margin : 0;\n  padding : 2px 5px;\n  border-top: 1px solid #f0f0f0;\n  border-left: 1px solid #f0f0f0;\n  border-right: 1px solid #CCCCCC;\n  border-bottom: 1px solid #CCCCCC;\n}\ndd.value {\n  text-align: center;\n  background-color: #eeeeee;\n}\ndt {\n  text-align: left;\n  background-color: #e6e6e6;\n  float: left;\n  width: 100px;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0 4px 0;\n  font-family: Arial, Sans-serif;\n  font-size: 18px;\n  border-top: 1px solid #f0f0f0;\n  border-left: 1px solid #f0f0f0;\n  border-right: 1px solid #CCCCCC;\n  border-bottom: 1px solid #CCCCCC;\n  margin: 0 2px 0px 2px;\n}\n\nh2 {\n  font-weight: bold;\n  padding: 2px 0 2px 8px;\n  font-family: Arial, Sans-serif;\n  font-size: 13px;\n  border-top: 1px solid #f0f0f0;\n  border-left: 1px solid #f0f0f0;\n  border-right: 1px solid #CCCCCC;\n  border-bottom: 1px solid #CCCCCC;\n  margin: 0 0 0px 0;\n  background-color: #FFFFFF;\n  color: #777777;\n}\n\nh2.classname {\n  color: #000000;\n}\n\n.okbg {\n  background-color: #66FF55;\n}\n.errorbg {\n  background-color: #CC1100;\n}\n.failurebg {\n  background-color: #EE3322;\n}\n.warnbg {\n  background-color: #FFCC99;\n}\n.headerinfo {\n  text-align: right;\n  font-size: 11px;\n  font - color: 0xCCCCCC;\n  margin: 0 2px 5px 2px;\n  border-left: 1px solid #f0f0f0;\n  border-right: 1px solid #CCCCCC;\n  border-bottom: 1px solid #CCCCCC;\n  padding: 2px;\n}\n\nli {\n  padding: 4px;\n  margin: 2px;\n  border-top: 1px solid #f0f0f0;\n  border-left: 1px solid #f0f0f0;\n  border-right: 1px solid #CCCCCC;\n  border-bottom: 1px solid #CCCCCC;\n  background-color: #e6e6e6;\n}\n\nli.fixture {\n  background-color: #f6f6f6;\n  padding-bottom: 6px;\n}\n\ndiv.fixturedetails {\n  padding-left: 108px;\n}\n\nul {\n  padding: 0;\n  margin: 6px 0 0 0;\n  list-style-type: none;\n}\n\nol {\n  padding: 0 0 0 28px;\n  margin: 0px 0 0 0;\n}\n\n.statnumbers {\n  padding: 2px 8px;\n}\n\n.fixtureresult {\n  width: 100px;\n  text-align: center;\n  display: block;\n  float: left;\n  font-weight: bold;\n  padding: 1px;\n  margin: 0 0 0 0;\n}\n\n.testoutput {\n  border: 1px dashed #CCCCCC;\n  margin: 4px 0 0 0;\n  padding: 4px 8px;\n  background-color: #eeeeee;\n}\n\nspan.tracepos, span.traceposempty {\n  display: block;\n  float: left;\n  font-weight: bold;\n  font-size: 9px;\n  width: 170px;\n  margin: 2px 0 0 2px;\n}\n\nspan.tracepos:hover {\n  cursor : pointer;\n  background-color: #ffff99;\n}\n\nspan.tracemsg {\n  display: block;\n  margin-left: 180px;\n  background-color: #eeeeee;\n  padding: 7px;\n}\n\nspan.tracetime {\n  display: block;\n  float: right;\n  margin: 2px;\n  font-size: 9px;\n  color: #777777;\n}\n\n\ndiv.trace ol {\n  padding: 0 0 0 40px;\n  color: #777777;\n}\n\ndiv.trace li {\n  padding: 0;\n}\n\ndiv.trace li div.li {\n  color: #000000;\n}\n\ndiv.trace h2 {\n  margin: 0 2px 0px 2px;\n  padding-left: 4px;\n}\n\n.tracepackage {\n  color: #777777;\n  font-weight: normal;\n}\n\n.clr {\n  clear: both;\n}\n\n#utesttip {\n  margin-top: -3px;\n  margin-left: 170px;\n  font-size: 9px;\n}\n\n#utesttip li {\n  margin: 0;\n  background-color: #ffff99;\n  padding: 2px 4px;\n  border: 0;\n  border-bottom: 1px dashed #ffff33;\n}";
+	}
+
+	function jsScript() {
+		return "function utestTooltip(ref, text) {\n  var el = document.getElementById(\"utesttip\");\n  if(!el) {\n    var el = document.createElement(\"div\")\n    el.id = \"utesttip\";\n    el.style.position = \"absolute\";\n    document.body.appendChild(el)\n  }\n  var p = utestFindPos(ref);\n  el.style.left = (4 + p[0]) + \"px\";\n  el.style.top = (p[1] - 1) + \"px\";\n  el.innerHTML =  text;\n}\n\nfunction utestFindPos(el) {\n  var left = 0;\n  var top = 0;\n  do {\n    left += el.offsetLeft;\n    top += el.offsetTop;\n  } while(el = el.offsetParent)\n  return [left, top];\n}\n\nfunction utestRemoveTooltip() {\n  var el = document.getElementById(\"utesttip\")\n  if(el)\n    document.body.removeChild(el)\n}";
+	}
+
+	function wrapHtml(title:String, s:String) {
+		return "<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />\n<title>" + title + "</title>\n      <style type=\"text/css\">" + this.cssStyle() + "</style>\n      <script type=\"text/javascript\">\n" + this.jsScript() + "\n</" + "script>\n</head>\n      <body>\n" + s + "\n</body>\n</html>";
+	}
+
+	@:has_untyped
+	function _handler(report:utest.ui.text.HtmlReport) {
+		var _gthis = this;
+		if ((cast js.Syntax.code("window").document.readyState == "loading")) {
+			var onReadyStateChange = null;
+			onReadyStateChange = function() {
+				if ((cast js.Syntax.code("window").document.readyState != "loading")) {
+					cast js.Syntax.code("window").document.removeEventListener("readystatechange", onReadyStateChange);
+					_gthis._handler(report);
+				};
+			};
+			cast js.Syntax.code("window").document.addEventListener("readystatechange", onReadyStateChange);
+			return;
+		};
+		var isDef = function(v:String) {
+			return __js__("typeof v != 'undefined'");
+		};
+		var hasProcess = __js__("typeof process != 'undefined'");
+		if ((hasProcess)) {
+			__js__("process.stdout.write")(report.getHtml());
+			return;
+		};
+		var head = cast js.Syntax.code("window").document.getElementsByTagName("head")[0];
+		var script = cast js.Syntax.code("window").document.createElement("script");
+		script.type = "text/javascript";
+		var sjs = report.jsScript();
+		if ((isDef(script.text))) script.text = sjs else script.innerHTML = sjs;
+		head.appendChild(script);
+		var style = cast js.Syntax.code("window").document.createElement("style");
+		style.type = "text/css";
+		var scss = report.cssStyle();
+		if ((isDef(style.styleSheet))) style.styleSheet.cssText = scss else if ((isDef(style.cssText))) style.cssText = scss else if ((isDef(style.innerText))) style.innerText = scss else style.innerHTML = scss;
+		head.appendChild(style);
+		var el = cast js.Syntax.code("window").document.getElementById("utest-results");
+		if ((null == el)) {
+			el = cast js.Syntax.code("window").document.createElement("div");
+			el.id = "utest-results";
+			cast js.Syntax.code("window").document.body.appendChild(el);
+		};
+		el.innerHTML = report.getAll();
+	}
+
+	@:value("javascript")
+	static var platform:String = "javascript";
+}

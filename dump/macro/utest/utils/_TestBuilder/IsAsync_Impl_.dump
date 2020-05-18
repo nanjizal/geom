@@ -1,0 +1,12 @@
+@:enum
+private class utest.utils._TestBuilder.IsAsync_Impl_ {
+
+	@:value(cast 1) @:enum @:impl
+	public static inline var Yes:utest.utils._TestBuilder.IsAsync = cast 1;
+
+	@:value(cast 0) @:enum @:impl
+	public static inline var No:utest.utils._TestBuilder.IsAsync = cast 0;
+
+	@:value(cast -1) @:enum @:impl
+	public static inline var Unknown:utest.utils._TestBuilder.IsAsync = cast -1;
+}

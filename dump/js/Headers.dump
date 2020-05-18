@@ -1,0 +1,27 @@
+@:realPath("js.html.Headers") @:native("Headers")
+extern class Headers {
+
+	function new(init:Null<Headers>):Void;
+
+	function new(init:Null<Array<Array<String>>>):Headers;
+
+	function new(init:Null<haxe.DynamicAccess<String>>):Headers;
+
+	function append(name:String, value:String):Void;
+
+	function delete(name:String):Void;
+
+	function get(name:String):String;
+
+	function has(name:String):Bool;
+
+	function set(name:String, value:String):Void;
+
+	function entries():js.html.HeadersIterator;
+
+	function keys():js.html.HeadersIterator;
+
+	function values():js.html.HeadersIterator;
+
+	function forEach(callback:Dynamic, thisArg:Null<Dynamic>):Void;
+}

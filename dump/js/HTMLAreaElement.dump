@@ -1,0 +1,45 @@
+@:realPath("js.html.AreaElement") @:native("HTMLAreaElement")
+extern class HTMLAreaElement extends HTMLElement {
+
+	var alt:String;
+
+	var coords:String;
+
+	var shape:String;
+
+	var target:String;
+
+	var download:String;
+
+	var ping:String;
+
+	var rel:String;
+
+	var referrerPolicy:String;
+
+	var relList(default,null):DOMTokenList;
+
+	var noHref:Bool;
+
+	var href:String;
+
+	var origin(default,null):String;
+
+	var protocol:String;
+
+	var username:String;
+
+	var password:String;
+
+	var host:String;
+
+	var hostname:String;
+
+	var port:String;
+
+	var pathname:String;
+
+	var search:String;
+
+	var hash:String;
+}

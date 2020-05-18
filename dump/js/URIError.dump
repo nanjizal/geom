@@ -1,0 +1,5 @@
+@:realPath("js.lib.URIError") @:native("URIError")
+extern class URIError extends Error {
+
+	function new(message:Null<String>):Void;
+}

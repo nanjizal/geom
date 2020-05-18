@@ -1,0 +1,37 @@
+@:keep @:directlyUsed @:used @:coreApi
+class haxe.ds.StringMap<T : haxe.ds.StringMap.T> implements haxe.IMap<String, haxe.ds.StringMap.T> {
+
+	public function new() {
+		this.h = Object.create(null);
+	}
+
+	var h:Dynamic;
+
+	public function exists(key:String) {
+		return Object.prototype.hasOwnProperty.call(this.h, key);
+	}
+
+	public function get(key:String) {
+		return this.h[cast key];
+	}
+
+	public function set(key:String, value:haxe.ds.StringMap.T) {
+		this.h[cast key] = value;
+	}
+
+	public function keys() {
+		return haxe.ds.StringMap.keysIterator(this.h);
+	}
+
+	static function keysIterator(h:Dynamic) {
+		var keys = Object.keys(h);
+		var len = keys.length;
+		var idx = 0;
+		return {hasNext : function() {
+			return idx < len;
+		}, next : function() {
+			idx += 1;
+			return keys[idx - 1];
+		}};
+	}
+}

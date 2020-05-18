@@ -1,0 +1,76 @@
+@:realPath("js.html.Range") @:native("Range")
+extern class Range {
+
+	function new():Void;
+
+	var startContainer(default,null):Node;
+
+	var startOffset(default,null):Int;
+
+	var endContainer(default,null):Node;
+
+	var endOffset(default,null):Int;
+
+	var collapsed(default,null):Bool;
+
+	var commonAncestorContainer(default,null):Node;
+
+	function setStart(refNode:Node, offset:Int):Void;
+
+	function setEnd(refNode:Node, offset:Int):Void;
+
+	function setStartBefore(refNode:Node):Void;
+
+	function setStartAfter(refNode:Node):Void;
+
+	function setEndBefore(refNode:Node):Void;
+
+	function setEndAfter(refNode:Node):Void;
+
+	@:value({ toStart : false })
+	function collapse(toStart:Bool):Void;
+
+	function selectNode(refNode:Node):Void;
+
+	function selectNodeContents(refNode:Node):Void;
+
+	function compareBoundaryPoints(how:Int, sourceRange:Range):Int;
+
+	function deleteContents():Void;
+
+	function extractContents():DocumentFragment;
+
+	function cloneContents():DocumentFragment;
+
+	function insertNode(node:Node):Void;
+
+	function surroundContents(newParent:Node):Void;
+
+	function cloneRange():Range;
+
+	function detach():Void;
+
+	function isPointInRange(node:Node, offset:Int):Bool;
+
+	function comparePoint(node:Node, offset:Int):Int;
+
+	function intersectsNode(node:Node):Bool;
+
+	function createContextualFragment(fragment:String):DocumentFragment;
+
+	function getClientRects():DOMRectList;
+
+	function getBoundingClientRect():DOMRect;
+
+	@:value(0)
+	static inline var START_TO_START:Int = 0;
+
+	@:value(1)
+	static inline var START_TO_END:Int = 1;
+
+	@:value(2)
+	static inline var END_TO_END:Int = 2;
+
+	@:value(3)
+	static inline var END_TO_START:Int = 3;
+}

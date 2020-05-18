@@ -1,0 +1,5 @@
+@:realPath("js.html.DocumentTimeline") @:native("DocumentTimeline")
+extern class DocumentTimeline extends AnimationTimeline {
+
+	function new(options:Null<js.html.DocumentTimelineOptions>):Void;
+}

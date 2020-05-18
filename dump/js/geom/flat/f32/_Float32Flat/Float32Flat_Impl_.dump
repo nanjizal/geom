@@ -1,0 +1,170 @@
+@:used
+private class geom.flat.f32._Float32Flat.Float32Flat_Impl_ {
+
+	@:impl @:op([])
+	public static inline function readItem(this1:haxe.io.Float32Array, k:Int) {
+		return cast this1[k + 2];
+	}
+
+	@:impl @:op([])
+	public static inline function writeItem(this1:haxe.io.Float32Array, k:Int, v:Float) {
+		cast this1[k + 2] = v;
+		return v;
+	}
+
+	@:impl @:noCompletion
+	public static inline function _new(len:Int) {
+		var this1 = new Float32Array(len + 2);
+		var this2 = cast this1;
+		cast this2[0] = 0.;
+		cast this2[1] = 0.;
+		return cast this2;
+	}
+
+	@:impl
+	public static var size(get,set):Int;
+
+	@:impl
+	static function get_size(this1:haxe.io.Float32Array) {
+		return Std.int(cast this1[1]);
+	}
+
+	@:impl
+	static function set_size(this1:haxe.io.Float32Array, id:Int) {
+		{
+			var pos_ = cast id;
+			cast this1[0] = pos_;
+			if ((cast this1[0] > cast this1[1] - 1)) cast this1[1] = cast this1[0];
+		};
+		return id;
+	}
+
+	@:impl
+	public static var index(get,set):Int;
+
+	@:impl
+	static inline function get_index(this1:haxe.io.Float32Array) {
+		return Std.int(cast this1[0]);
+	}
+
+	@:impl
+	static inline function set_index(this1:haxe.io.Float32Array, id:Int) {
+		{
+			cast this1[0] = id;
+			if ((cast this1[0] > cast this1[1] - 1)) cast this1[1] = cast this1[0];
+		};
+		return id;
+	}
+
+	@:impl
+	public static var pos(get,set):Float;
+
+	@:impl
+	static inline function get_pos(this1:haxe.io.Float32Array) {
+		return cast this1[0];
+	}
+
+	@:impl
+	static inline function set_pos(this1:haxe.io.Float32Array, pos_:Float) {
+		cast this1[0] = pos_;
+		if ((cast cast this1[0] > cast cast this1[1] - 1)) cast cast this1[1] = cast cast this1[0];
+		return pos_;
+	}
+
+	@:impl
+	static inline function updateLen(this1:haxe.io.Float32Array) {
+		if ((cast this1[0] > cast this1[1] - 1)) cast this1[1] = cast this1[0];
+	}
+
+	@:impl
+	public static inline function hasNext(this1:haxe.io.Float32Array) {
+		return cast this1[0] < geom.flat.f32._Float32Flat.Float32Flat_Impl_.get_size(this1);
+	}
+
+	@:impl
+	public static inline function next(this1:haxe.io.Float32Array) {
+		{
+			var pos_ = cast this1[0] + 1.;
+			cast this1[0] = pos_;
+			if ((cast this1[0] > cast this1[1] - 1)) cast this1[1] = cast this1[0];
+		};
+		return cast this1[0];
+	}
+
+	@:impl @:op(A++)
+	public static inline function increment(this1:haxe.io.Float32Array) {
+		{
+			var pos_ = cast cast this1[0] + 1.;
+			cast cast this1[0] = pos_;
+			if ((cast cast this1[0] > cast cast this1[1] - 1)) cast cast this1[1] = cast cast this1[0];
+		};
+		return cast cast this1[0];
+	}
+
+	@:impl @:to
+	public static inline function toArray(this1:haxe.io.Float32Array) {
+		return cast cast this1.subarray(2, geom.flat.f32._Float32Flat.Float32Flat_Impl_.get_size(this1) + 2);
+	}
+
+	@:from
+	public static inline function fromArray(arr:haxe.io.Float32Array) {
+		var this1 = new Float32Array(cast arr.length + 2);
+		var this2 = cast this1;
+		cast this2[0] = 0.;
+		cast this2[1] = 0.;
+		var flat = cast this2;
+		{
+			var l = cast arr.length;
+			{
+				var _g = 0;
+				var _g1 = l;
+				while ((_g < _g1)) {
+					var i = _g ++;
+					cast cast flat[i + 2] = cast arr[i];
+				};
+			};
+			cast cast flat[0] = 0;
+			cast cast flat[1] = l;
+		};
+		return flat;
+	}
+
+	@:impl
+	public static inline function clone(this1:haxe.io.Float32Array) {
+		var this2 = new Float32Array(cast this1.length - 2 + 2);
+		var this3 = cast this2;
+		cast this3[0] = 0.;
+		cast this3[1] = 0.;
+		var flat = cast this3;
+		{
+			var arr = cast cast cast this1.subarray(2, geom.flat.f32._Float32Flat.Float32Flat_Impl_.get_size(cast this1) + 2);
+			var l = cast arr.length;
+			{
+				var _g = 0;
+				var _g1 = l;
+				while ((_g < _g1)) {
+					var i = _g ++;
+					cast cast flat[i + 2] = cast arr[i];
+				};
+			};
+			cast cast flat[0] = 0;
+			cast cast flat[1] = l;
+		};
+		return flat;
+	}
+
+	@:impl
+	public static inline function fill(this1:haxe.io.Float32Array, arr:haxe.io.Float32Array) {
+		var l = cast arr.length;
+		{
+			var _g = 0;
+			var _g1 = l;
+			while ((_g < _g1)) {
+				var i = _g ++;
+				cast this1[i + 2] = cast arr[i];
+			};
+		};
+		cast this1[0] = 0;
+		cast this1[1] = l;
+	}
+}

@@ -1,0 +1,17 @@
+@:keep @:directlyUsed @:used
+class haxe.ValueException extends haxe.Exception {
+
+	public function new(value:Any, previous:Null<haxe.Exception> = null, native:Null<Any> = null) {
+		{
+			super(js.Syntax.code("String({0})", value), previous, native);
+			this.value = value;
+		};
+		this.__shiftStack();
+	}
+
+	public var value(default,null):Any;
+
+	function unwrap() {
+		return this.value;
+	}
+}

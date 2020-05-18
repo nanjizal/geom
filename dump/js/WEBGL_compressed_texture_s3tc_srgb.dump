@@ -1,0 +1,15 @@
+@:realPath("js.html.webgl.extension.WEBGLCompressedTextureS3tcSrgb") @:native("WEBGL_compressed_texture_s3tc_srgb")
+extern class WEBGL_compressed_texture_s3tc_srgb {
+
+	@:value(35916)
+	static inline var COMPRESSED_SRGB_S3TC_DXT1_EXT:Int = 35916;
+
+	@:value(35917)
+	static inline var COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT:Int = 35917;
+
+	@:value(35918)
+	static inline var COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT:Int = 35918;
+
+	@:value(35919)
+	static inline var COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT:Int = 35919;
+}

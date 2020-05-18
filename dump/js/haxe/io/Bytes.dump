@@ -1,0 +1,27 @@
+@:keep @:directlyUsed @:used @:coreApi
+class haxe.io.Bytes {
+
+	@:has_untyped
+	function new(data:haxe.io.BytesData) {
+		this.length = data.byteLength;
+		this.b = new Uint8Array(data);
+		{
+			this.b.bufferValue = data;
+			data.hxBytes = this;
+			data.bytes = this.b;
+		};
+	}
+
+	public var length(default,null):Int;
+
+	var b:Uint8Array;
+
+	public function get(pos:Int) {
+		return this.b[pos];
+	}
+
+	@:has_untyped
+	public function getData() {
+		return this.b.bufferValue;
+	}
+}

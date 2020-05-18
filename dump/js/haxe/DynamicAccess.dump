@@ -1,0 +1,2 @@
+@:used
+abstract haxe.DynamicAccess<T : haxe.DynamicAccess.T> from Dynamic<haxe.DynamicAccess.T> to Dynamic<haxe.DynamicAccess.T> {}

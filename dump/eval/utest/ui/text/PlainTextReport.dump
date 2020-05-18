@@ -1,0 +1,201 @@
+@:used
+class utest.ui.text.PlainTextReport implements utest.ui.common.IReport<utest.ui.text.PlainTextReport> {
+
+	public function new(runner:utest.Runner, outputHandler:Null<utest.ui.text.PlainTextReport -> Void> = null) {
+		this.aggregator = new utest.ui.common.ResultAggregator(runner, true);
+		runner.onStart.add(this.start);
+		this.aggregator.onComplete.add(this.complete);
+		if ((null != outputHandler)) this.setHandler(outputHandler);
+		this.displaySuccessResults = utest.ui.common.SuccessResultsDisplayMode.AlwaysShowSuccessResults;
+		this.displayHeader = utest.ui.common.HeaderDisplayMode.AlwaysShowHeader;
+	}
+
+	public var displaySuccessResults:utest.ui.common.SuccessResultsDisplayMode;
+
+	public var displayHeader:utest.ui.common.HeaderDisplayMode;
+
+	public var handler:utest.ui.text.PlainTextReport -> Void;
+
+	var aggregator:utest.ui.common.ResultAggregator;
+
+	var newline:String;
+
+	var indent:String;
+
+	public function setHandler(handler:utest.ui.text.PlainTextReport -> Void) {
+		this.handler = handler;
+	}
+
+	var startTime:Float;
+
+	function start(e:utest.Runner) {
+		this.startTime = this.getTime();
+	}
+
+	function getTime() {
+		return Sys.time();
+	}
+
+	function indents(c:Int) {
+		var s = "";
+		while ((-- c >= 0)) s += this.indent;
+		return s;
+	}
+
+	function dumpStack(stack:Array<haxe.StackItem>) {
+		if ((stack.length == 0)) return "";
+		var parts = haxe._CallStack.CallStack_Impl_.toString(stack).split("\n");
+		var r = [];
+		{
+			var ` = 0;
+			while ((` < parts.length)) {
+				var part = parts[`];
+				++ `;
+				if ((part.indexOf(" utest.", null) >= 0)) continue;
+				r.push(part);
+			};
+		};
+		return r.join(this.newline);
+	}
+
+	function addHeader(buf:StringBuf, result:utest.ui.common.PackageResult) {
+		if ((! utest.ui.common.ReportTools.hasHeader(this, result.stats))) return;
+		var end = this.getTime();
+		var time = Std.int((end - this.startTime) * 1000) / 1000;
+		buf.add("\nassertations: " + result.stats.assertations + this.newline);
+		buf.add("successes: " + result.stats.successes + this.newline);
+		buf.add("errors: " + result.stats.errors + this.newline);
+		buf.add("failures: " + result.stats.failures + this.newline);
+		buf.add("warnings: " + result.stats.warnings + this.newline);
+		buf.add("execution time: " + time + this.newline);
+		buf.add(this.newline);
+		buf.add("results: " + (if ((result.stats.isOk)) "ALL TESTS OK (success: true)" else "SOME TESTS FAILURES (success: false)"));
+		buf.add(this.newline);
+	}
+
+	var result:utest.ui.common.PackageResult;
+
+	public function getResults() {
+		var buf = new StringBuf();
+		this.addHeader(buf, this.result);
+		{
+			var ` = 0;
+			var `1 = this.result.packageNames(null);
+			while ((` < `1.length)) {
+				var pname = `1[`];
+				++ `;
+				var pack = this.result.getPackage(pname);
+				if ((utest.ui.common.ReportTools.skipResult(this, pack.stats, this.result.stats.isOk))) continue;
+				{
+					var ` = 0;
+					var `1 = pack.classNames(null);
+					while ((` < `1.length)) {
+						var cname = `1[`];
+						++ `;
+						var cls = pack.getClass(cname);
+						if ((utest.ui.common.ReportTools.skipResult(this, cls.stats, this.result.stats.isOk))) continue;
+						buf.add((if ((pname == "")) "" else pname + ".") + cname + this.newline);
+						{
+							var ` = 0;
+							var `1 = cls.methodNames(null);
+							while ((` < `1.length)) {
+								var mname = `1[`];
+								++ `;
+								var fix = cls.get(mname);
+								if ((utest.ui.common.ReportTools.skipResult(this, fix.stats, this.result.stats.isOk))) continue;
+								buf.add(this.indents(1) + mname + ": ");
+								if ((fix.stats.isOk)) buf.add("OK ") else if ((fix.stats.hasErrors)) buf.add("ERROR ") else if ((fix.stats.hasFailures)) buf.add("FAILURE ") else if ((fix.stats.hasWarnings)) buf.add("WARNING ");
+								var messages = "";
+								{
+									var ` = fix.iterator();
+									while ((`.head != null)) {
+										var val = `.head.item;
+										`.head = `.head.next;
+										var assertation = val;
+										switch ((@:exhaustive enumIndex assertation)) {
+											case 0: {
+												var `9 = assertation[0];
+												buf.add(".");
+											};
+											case 1: {
+												var pos = assertation[1];
+												var msg = assertation[0];
+												{
+													buf.add("F");
+													messages += this.indents(2) + "line: " + pos.lineNumber + ", " + msg + this.newline;
+												};
+											};
+											case 2: {
+												var s = assertation[1];
+												var e = assertation[0];
+												{
+													buf.add("E");
+													messages += this.indents(2) + Std.string(e) + this.dumpStack(s) + this.newline;
+												};
+											};
+											case 3: {
+												var s = assertation[1];
+												var e = assertation[0];
+												{
+													buf.add("S");
+													messages += this.indents(2) + Std.string(e) + this.dumpStack(s) + this.newline;
+												};
+											};
+											case 4: {
+												var s = assertation[1];
+												var e = assertation[0];
+												{
+													buf.add("T");
+													messages += this.indents(2) + Std.string(e) + this.dumpStack(s) + this.newline;
+												};
+											};
+											case 5: {
+												var s = assertation[1];
+												var missedAsyncs = assertation[0];
+												{
+													buf.add("O");
+													messages += this.indents(2) + "missed async calls: " + missedAsyncs + this.dumpStack(s) + this.newline;
+												};
+											};
+											case 6: {
+												var s = assertation[1];
+												var e = assertation[0];
+												{
+													buf.add("A");
+													messages += this.indents(2) + Std.string(e) + this.dumpStack(s) + this.newline;
+												};
+											};
+											case 7: {
+												var msg = assertation[0];
+												{
+													buf.add("W");
+													messages += this.indents(2) + msg + this.newline;
+												};
+											};
+											case 8: {
+												var reason = assertation[0];
+												{
+													buf.add("I");
+													if ((reason != null && reason != "")) messages += this.indents(2) + ("With reason: " + reason) + this.newline;
+												};
+											};
+										};
+									};
+								};
+								buf.add(this.newline);
+								buf.add(messages);
+							};
+						};
+					};
+				};
+			};
+		};
+		return buf.toString();
+	}
+
+	function complete(result:utest.ui.common.PackageResult) {
+		this.result = result;
+		if ((this.handler != null)) this.handler(this);
+		Sys.exit(if ((result.stats.isOk)) 0 else 1);
+	}
+}

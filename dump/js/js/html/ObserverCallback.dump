@@ -1,0 +1,1 @@
+typedef js.html.ObserverCallback = { handleEvent : (observer : FetchObserver) -> Void }

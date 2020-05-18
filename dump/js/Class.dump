@@ -1,0 +1,2 @@
+@:valueUsed @:used @:coreType @:runtimeValue
+abstract Class<T : Class.T> {}

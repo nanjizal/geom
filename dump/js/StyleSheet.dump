@@ -1,0 +1,17 @@
+@:realPath("js.html.StyleSheet") @:native("StyleSheet")
+extern class StyleSheet {
+
+	var type(default,null):String;
+
+	var href(default,null):String;
+
+	var ownerNode(default,null):Node;
+
+	var parentStyleSheet(default,null):StyleSheet;
+
+	var title(default,null):String;
+
+	var media(default,null):MediaList;
+
+	var disabled:Bool;
+}

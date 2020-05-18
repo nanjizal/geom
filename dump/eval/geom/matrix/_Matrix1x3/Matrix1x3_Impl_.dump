@@ -1,0 +1,305 @@
+@:used
+private class geom.matrix._Matrix1x3.Matrix1x3_Impl_ {
+
+	@:value(1)
+	public static inline var rows:Int = 1;
+
+	@:value(3)
+	public static inline var columns:Int = 3;
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.Mat1x3) {
+		var this = m;
+		return cast this;
+	}
+
+	@:impl
+	public static inline function clone(this:geom.structure.Mat1x3) {
+		var this = new geom.structure.Mat1x3(this.x, this.y, this.z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function iterator(this:geom.structure.Mat1x3) {
+		return new haxe.iterators.ArrayIterator([this.x, this.y, this.z]);
+	}
+
+	@:impl
+	public static var self(get,never):geom.matrix.Matrix1x3;
+
+	@:impl
+	static inline function get_self(this:geom.structure.Mat1x3) {
+		return cast this;
+	}
+
+	@:impl
+	public static var magnitude(get,set):Float;
+
+	@:impl
+	static inline function get_magnitude(this:geom.structure.Mat1x3) {
+		return Math.sqrt(cast this.x * cast this.x + cast this.y * cast this.y + cast this.z * cast this.z);
+	}
+
+	@:impl
+	static inline function set_magnitude(this:geom.structure.Mat1x3, length:Float) {
+		var currentLength = Math.sqrt(cast this.x * cast this.x + cast this.y * cast this.y + cast this.z * cast this.z);
+		if ((currentLength == 0.)) return 0. else {
+			var mul = length / currentLength;
+			this.x *= mul;
+			this.y *= mul;
+			this.z *= mul;
+			return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+		};
+	}
+
+	@:impl
+	public static inline function normalize(this:geom.structure.Mat1x3) {
+		{
+			var currentLength = Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+			if ((currentLength != 0.)) {
+				var mul = 1. / currentLength;
+				this.x *= mul;
+				this.y *= mul;
+				this.z *= mul;
+				var tmp = this.x * this.x + this.y * this.y + this.z * this.z;
+			};
+		};
+		return this;
+	}
+
+	public static var zero(get,never):geom.matrix.Matrix1x3;
+
+	static inline function get_zero() {
+		var this = new geom.structure.Mat1x3(0., 0., 0.);
+		return cast this;
+	}
+
+	@:impl
+	static var nought(get,never):geom.matrix.Matrix1x3;
+
+	@:impl
+	static inline function get_nought(this:geom.structure.Mat1x3) {
+		var this = new geom.structure.Mat1x3(0., 0., 0.);
+		return cast this;
+	}
+
+	public static var unit(get,never):geom.matrix.Matrix1x3;
+
+	public static inline function get_unit() {
+		var this = new geom.structure.Mat1x3(1., 1., 1.);
+		return cast this;
+	}
+
+	@:impl
+	static var one(get,never):geom.matrix.Matrix1x3;
+
+	@:impl
+	static inline function get_one(this:geom.structure.Mat1x3) {
+		var this = new geom.structure.Mat1x3(1., 1., 1.);
+		return cast this;
+	}
+
+	public static var minus1(get,never):geom.matrix.Matrix1x3;
+
+	static inline function get_minus1() {
+		var this = new geom.structure.Mat1x3(1., 1., 1.);
+		var a = cast this;
+		var this = new geom.structure.Mat1x3(- cast a.x, - cast a.y, - cast a.z);
+		return cast this;
+	}
+
+	public static var counting(get,never):geom.matrix.Matrix1x3;
+
+	static inline function get_counting() {
+		var this = new geom.structure.Mat1x3(1., 2., 3.);
+		return cast this;
+	}
+
+	@:impl
+	static var testCount(get,never):geom.matrix.Matrix1x3;
+
+	@:impl
+	static inline function get_testCount(this:geom.structure.Mat1x3) {
+		var this = new geom.structure.Mat1x3(1., 2., 3.);
+		return cast this;
+	}
+
+	public static inline function identity(out:geom.matrix.Matrix1x3) {
+		out.x = 1.;
+		out.y = 1.;
+		out.z = 1.;
+		return out;
+	}
+
+	public static inline function copy(pin:geom.matrix.Matrix1x3, pout:geom.matrix.Matrix1x3) {
+		pout.x = pin.x;
+		pout.y = pin.y;
+		pout.z = pin.z;
+		return pout;
+	}
+
+	@:impl
+	public static inline function magnitudeSquared(this:geom.structure.Mat1x3) {
+		return this.x * this.x + this.y * this.y + this.z * this.z;
+	}
+
+	public static inline function scalarProduct(a:geom.matrix.Matrix1x3, b:geom.matrix.Matrix1x3) {
+		return a.x * b.x + a.y * b.y + a.z * b.z;
+	}
+
+	@:impl
+	public static inline function dotProd(this:geom.structure.Mat1x3, b:geom.matrix.Matrix1x3) {
+		return this.x * b.x + this.y * b.y + this.z * b.z;
+	}
+
+	@:impl
+	public static inline function transformPoint(this:geom.structure.Mat1x3, t:geom.matrix.Matrix4x3) {
+		var this = new geom.structure.Mat1x3(t.a * this.x + t.b * this.y + t.c * this.z + t.d, t.e * this.x + t.f * this.y + t.g * this.z + t.h, t.i * this.x + t.j * this.y + t.k * this.z + t.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function cross(this:geom.structure.Mat1x3, v:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(this.y * v.z - this.z * v.y, this.z * v.x - this.x * v.z, this.x * v.y - this.y * v.x);
+		return cast this;
+	}
+
+	@:op(A / B)
+	public static inline function divide(a:geom.matrix.Matrix1x3, v:Float) {
+		var v = 1 / v;
+		var this = new geom.structure.Mat1x3(cast a.x * v, cast a.y * v, cast a.z * v);
+		return cast this;
+	}
+
+	@:op(A / B)
+	public static inline function divide2(v:Float, a:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(v / a.x, v / a.y, v / a.z);
+		return cast this;
+	}
+
+	@:op(A != B)
+	public static inline function notEqual(a:geom.matrix.Matrix1x3, b:geom.matrix.Matrix1x3) {
+		var delta = 0.0000001;
+		return (Math.abs(cast a.x - b.x) >= delta || Math.abs(cast a.y - b.y) >= delta || Math.abs(cast a.z - b.z) >= delta);
+	}
+
+	@:op(-A)
+	public static inline function negating(a:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(- cast a.x, - cast a.y, - cast a.z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function negate(this:geom.structure.Mat1x3) {
+		var this = new geom.structure.Mat1x3(- this.x, - this.y, - this.z);
+		return cast this;
+	}
+
+	@:op(A - B)
+	public static inline function subtracting(a:geom.matrix.Matrix1x3, b:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(cast a.x - b.x, cast a.y - b.y, cast a.z - b.z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function subtract(this:geom.structure.Mat1x3, b:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(this.x - b.x, this.y - b.y, this.z - b.z);
+		return cast this;
+	}
+
+	@:op(A + B)
+	public static inline function adding(a:geom.matrix.Matrix1x3, b:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(cast a.x + b.x, cast a.y + b.y, cast a.z + b.z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function add(this:geom.structure.Mat1x3, b:geom.matrix.Matrix1x3) {
+		var this = new geom.structure.Mat1x3(this.x + b.x, this.y + b.y, this.z + b.z);
+		return cast this;
+	}
+
+	@:op(A * B) @:commutative
+	public static inline function scaleMultiplying(a:geom.matrix.Matrix1x3, v:Float) {
+		var this = new geom.structure.Mat1x3(cast a.x * v, cast a.y * v, cast a.z * v);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleMultiply(this:geom.structure.Mat1x3, v:Float) {
+		var this = new geom.structure.Mat1x3(this.x * v, this.y * v, this.z * v);
+		return cast this;
+	}
+
+	@:op(A == B)
+	public static inline function isEqualling(a:geom.matrix.Matrix1x3, b:geom.matrix.Matrix1x3) {
+		var delta = 0.0000001;
+		return ! (Math.abs(cast a.x - b.x) >= delta || Math.abs(cast a.y - b.y) >= delta || Math.abs(cast a.z - b.z) >= delta);
+	}
+
+	@:impl
+	public static inline function isEqual(this:geom.structure.Mat1x3, b:geom.matrix.Matrix1x3) {
+		var delta = 0.0000001;
+		return ! (Math.abs(this.x - b.x) >= delta || Math.abs(this.y - b.y) >= delta || Math.abs(this.z - b.z) >= delta);
+	}
+
+	@:from
+	public static inline function fromVec(vec:haxe.ds.Vector<Float>) {
+		var this = new geom.structure.Mat1x3(cast vec[0], cast vec[1], cast vec[2]);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function staticFromVec(this:geom.structure.Mat1x3, vec:haxe.ds.Vector<Float>) {
+		var this = new geom.structure.Mat1x3(cast vec[0], cast vec[1], cast vec[2]);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function toVector(this:geom.structure.Mat1x3) {
+		var this = new eval.Vector(3);
+		var vec = cast this;
+		cast vec[0] = this.x;
+		cast vec[1] = this.y;
+		cast vec[2] = this.z;
+		return vec;
+	}
+
+	@:from
+	public static inline function fromArray(arr:Array<Float>) {
+		var this = new geom.structure.Mat1x3(arr[0], arr[1], arr[2]);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function staticFromArray(this:geom.structure.Mat1x3, arr:Array<Float>) {
+		var this = new geom.structure.Mat1x3(arr[0], arr[1], arr[2]);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function toArray(this:geom.structure.Mat1x3) {
+		return [this.x, this.y, this.z];
+	}
+
+	@:impl @:op([])
+	public static inline function readItem(this:geom.structure.Mat1x3, k:Int) {
+		switch ((k)) {
+			case 0: return this.x;
+			case 1: return this.y;
+			case 2: return this.z;
+			default: throw haxe.Exception.thrown("index needs to be below 4")
+		};
+	}
+
+	@:impl @:op([])
+	public static inline function writeItem(this:geom.structure.Mat1x3, k:Int, v:Float) {
+		switch ((k)) {
+			case 0: this.x = v;
+			case 1: this.y = v;
+			case 3: this.z = v;
+			default: throw haxe.Exception.thrown("index needs to be below 4")
+		};
+		return v;
+	}
+}

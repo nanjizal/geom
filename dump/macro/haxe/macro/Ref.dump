@@ -1,0 +1,1 @@
+typedef haxe.macro.Ref<T : haxe.macro.Ref.T> = { toString : Void -> String, get : Void -> haxe.macro.Ref.T }

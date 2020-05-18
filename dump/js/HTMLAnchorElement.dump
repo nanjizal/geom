@@ -1,0 +1,53 @@
+@:realPath("js.html.AnchorElement") @:native("HTMLAnchorElement")
+extern class HTMLAnchorElement extends HTMLElement {
+
+	var target:String;
+
+	var download:String;
+
+	var ping:String;
+
+	var rel:String;
+
+	var referrerPolicy:String;
+
+	var relList(default,null):DOMTokenList;
+
+	var hreflang:String;
+
+	var type:String;
+
+	var text:String;
+
+	var coords:String;
+
+	var charset:String;
+
+	var name:String;
+
+	var rev:String;
+
+	var shape:String;
+
+	var href:String;
+
+	var origin(default,null):String;
+
+	var protocol:String;
+
+	var username:String;
+
+	var password:String;
+
+	var host:String;
+
+	var hostname:String;
+
+	var port:String;
+
+	var pathname:String;
+
+	var search:String;
+
+	var hash:String;
+}

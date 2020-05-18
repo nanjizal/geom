@@ -1,0 +1,23 @@
+@:realPath("js.html.FrameElement") @:native("HTMLFrameElement")
+extern class HTMLFrameElement extends HTMLElement {
+
+	var name:String;
+
+	var scrolling:String;
+
+	var src:String;
+
+	var frameBorder:String;
+
+	var longDesc:String;
+
+	var noResize:Bool;
+
+	var contentDocument(default,null):HTMLDocument;
+
+	var contentWindow(default,null):Window;
+
+	var marginHeight:String;
+
+	var marginWidth:String;
+}

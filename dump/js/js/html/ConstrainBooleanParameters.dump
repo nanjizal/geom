@@ -1,0 +1,1 @@
+typedef js.html.ConstrainBooleanParameters = { ?ideal : Null<Bool>, ?exact : Null<Bool> }

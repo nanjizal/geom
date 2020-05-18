@@ -1,0 +1,13 @@
+@:realPath("js.html.TextTrackList") @:native("TextTrackList")
+extern class TextTrackList extends EventTarget implements ArrayAccess<TextTrack> {
+
+	var length(default,null):Int;
+
+	var onchange:haxe.Function;
+
+	var onaddtrack:haxe.Function;
+
+	var onremovetrack:haxe.Function;
+
+	function getTrackById(id:String):TextTrack;
+}

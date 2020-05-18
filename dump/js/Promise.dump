@@ -1,0 +1,20 @@
+@:realPath("js.lib.Promise") @:native("Promise")
+extern class Promise<T : js.lib.Promise.T> {
+
+	function new(init:(resolve : ((value : js.lib.Promise.T) -> Void), reject : ((reason : Dynamic) -> Void)) -> Void):Void;
+
+	function then<TOut : then.TOut>(onFulfilled:Null<js.lib.PromiseHandler<js.lib.Promise.T, then.TOut>>, onRejected:Null<js.lib.PromiseHandler<Dynamic, then.TOut>>):Promise<then.TOut>;
+
+	@:realPath("catchError") @:native("catch")
+	function catch<TOut : catchError.TOut>(onRejected:js.lib.PromiseHandler<Dynamic, catchError.TOut>):Promise<catchError.TOut>;
+
+	static function resolve<T : resolve.T>(thenable:js.lib.Thenable<resolve.T>):Promise<resolve.T>;
+
+	static function resolve<T : resolve.T>(value:Null<resolve.T>):Promise<resolve.T>;
+
+	static function reject<T : reject.T>(reason:Null<Dynamic>):Promise<reject.T>;
+
+	static function all(iterable:Array<Dynamic>):Promise<Array<Dynamic>>;
+
+	static function race(iterable:Array<Dynamic>):Promise<Dynamic>;
+}

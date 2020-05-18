@@ -1,0 +1,52 @@
+class haxe.macro.MacroStringTools {
+
+	public static function formatString(s:String, pos:haxe.macro.Position) {
+		return haxe.macro.Context.load("format_string", 2)(s, pos);
+	}
+
+	public static function isFormatExpr(e:haxe.macro.ExprOf<String>) {
+		return haxe.macro.Context.load("is_fmt_string", 1)(e.pos);
+	}
+
+	static function isFmtString(p:haxe.macro.Position) {
+		return false;
+	}
+
+	@:has_untyped
+	public static function toFieldExpr(sl:Array<String>, pos:Null<haxe.macro.Position> = null) {
+		if (pos == null) {
+			return Lambda.fold(sl, function(s:String, e:haxe.macro.Expr) return if (e == null) {
+				(cast {expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent(s)), pos : $__mk_pos__("/usr/local/lib/haxe/std/haxe/macro/MacroStringTools.hx", 2713, 2716)});
+			} else {
+				(cast {expr : haxe.macro.ExprDef.EField(e, s), pos : $__mk_pos__("/usr/local/lib/haxe/std/haxe/macro/MacroStringTools.hx", 2727, 2732)});
+			}, null);
+		};
+		var e = null;
+		{
+			var ` = 0;
+			while (` < sl.length) {
+				var v = sl[`];
+				++ `;
+				if (e == null) {
+					e = {expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent(v)), pos : pos};
+				} else {
+					e = {expr : haxe.macro.ExprDef.EField(e, v), pos : pos};
+				};
+			};
+		};
+		return e;
+	}
+
+	public static function toDotPath(pack:Array<String>, name:String) {
+		return if (pack.length == 0) {
+			name;
+		} else {
+			pack.join(".") + "." + name;
+		};
+	}
+
+	public static function toComplex(path:String) {
+		var pack = path.split(".");
+		return haxe.macro.ComplexType.TPath({pack : pack, name : pack.pop(), params : []});
+	}
+}

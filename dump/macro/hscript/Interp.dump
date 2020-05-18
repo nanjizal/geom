@@ -1,0 +1,1802 @@
+class hscript.Interp {
+
+	public function new() {
+		var `this = this;
+		this.variables = {
+			{};
+			new haxe.ds.StringMap();
+		};
+		this.locals = {
+			{};
+			new haxe.ds.StringMap();
+		};
+		this.declared = new Array();
+		{
+			var this = this.variables;
+			var value = null;
+			cast this.set("null", value);
+		};
+		{
+			var this = this.variables;
+			cast this.set("true", true);
+		};
+		{
+			var this = this.variables;
+			cast this.set("false", false);
+		};
+		{
+			var this = this.variables;
+			var value = cast Reflect.makeVarArgs(function(el:Array<Dynamic>) {
+				var inf = `this.posInfos();
+				var v = el.shift();
+				if ((el.length > 0)) inf.customParams = el;
+				haxe.Log.trace(Std.string(v), inf);
+			});
+			cast this.set("trace", value);
+		};
+		this.initOps();
+	}
+
+	public var variables:Map<String, Dynamic>;
+
+	var locals:Map<String, { r : Dynamic }>;
+
+	var binops:Map<String, (hscript.Expr, hscript.Expr) -> Dynamic>;
+
+	var depth:Int;
+
+	var inTry:Bool;
+
+	var declared:Array<{ old : { r : Dynamic }, n : String }>;
+
+	var returnValue:Dynamic;
+
+	public function posInfos() {
+		return cast {fileName : "hscript", lineNumber : 0};
+	}
+
+	function initOps() {
+		var me = this;
+		this.binops = {
+			{};
+			new haxe.ds.StringMap();
+		};
+		{
+			var this = this.binops;
+			cast this.set("+", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) + me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("-", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) - me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("*", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) * me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("/", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) / me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("%", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) % me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("&", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) & me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("|", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) | me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("^", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) ^ me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("<<", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) << me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set(">>", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) >> me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set(">>>", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) >>> me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("==", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) == me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("!=", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) != me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set(">=", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) >= me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("<=", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) <= me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set(">", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) > me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("<", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) < me.expr(e2);
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("||", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) == true || me.expr(e2) == true;
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("&&", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.expr(e1) == true && me.expr(e2) == true;
+			});
+		};
+		{
+			var this = this.binops;
+			cast this.set("=", this.assign);
+		};
+		{
+			var this = this.binops;
+			cast this.set("...", function(e1:hscript.Expr, e2:hscript.Expr) {
+				return new IntIterator(me.expr(e1), me.expr(e2));
+			});
+		};
+		this.assignOp("+=", function(v1:Dynamic, v2:Dynamic) return v1 + v2);
+		this.assignOp("-=", function(v1:Float, v2:Float) return v1 - v2);
+		this.assignOp("*=", function(v1:Float, v2:Float) return v1 * v2);
+		this.assignOp("/=", function(v1:Float, v2:Float) return v1 / v2);
+		this.assignOp("%=", function(v1:Float, v2:Float) return v1 % v2);
+		this.assignOp("&=", function(v1:Int, v2:Int) return v1 & v2);
+		this.assignOp("|=", function(v1:Int, v2:Int) return v1 | v2);
+		this.assignOp("^=", function(v1:Int, v2:Int) return v1 ^ v2);
+		this.assignOp("<<=", function(v1:Int, v2:Int) return v1 << v2);
+		this.assignOp(">>=", function(v1:Int, v2:Int) return v1 >> v2);
+		this.assignOp(">>>=", function(v1:Int, v2:Int) return v1 >>> v2);
+	}
+
+	function assign(e1:hscript.Expr, e2:hscript.Expr) {
+		var v = this.expr(e2);
+		@:ast(switch (Tools.expr(e1)) {
+	case EIdent(id):
+		var l = locals.get(id);
+		if (l == null) variables.set(id, v) else l.r = v;	
+	case EField(e, f):
+		v = set(expr(e), f, v);	
+	case EArray(e, index):
+		var arr:Dynamic = expr(e);
+		var index:Dynamic = expr(index);
+		if (isMap(arr)) {
+			setMapValue(arr, index, v);
+		} else {
+			arr[index] = v;
+		};	
+	default:
+		error(EInvalidOp("="));	
+}) {
+			var ` = hscript.Tools.expr(e1);
+			switch (enumIndex `) {
+				case 1: {
+					var `3 = `[0];
+					{
+						var id = `3;
+						{
+							var l = {
+								var this = this.locals;
+								cast this.get(id);
+							};
+							if (l == null) {
+								{
+									var this = this.variables;
+									cast this.set(id, v);
+								};
+							} else {
+								l.r = v;
+							};
+						};
+					};
+				};
+				case 5: {
+					var `5 = `[1];
+					var `4 = `[0];
+					{
+						var f = `5;
+						var e = `4;
+						{
+							v = this.set(this.expr(e), f, v);
+						};
+					};
+				};
+				case 16: {
+					var `2 = `[1];
+					var `1 = `[0];
+					{
+						var index = `2;
+						var e = `1;
+						{
+							var arr = this.expr(e);
+							var index = this.expr(index);
+							if (this.isMap(arr)) {
+								this.setMapValue(arr, index, v);
+							} else {
+								arr[index] = v;
+							};
+						};
+					};
+				};
+				default: {
+					this.error(hscript.Error.EInvalidOp("="), null);
+				}
+			};
+		};
+		return v;
+	}
+
+	function assignOp(op:String, fop:(Dynamic, Dynamic) -> Dynamic) {
+		var me = this;
+		{
+			var this = this.binops;
+			cast this.set(op, function(e1:hscript.Expr, e2:hscript.Expr) {
+				return me.evalAssignOp(op, fop, e1, e2);
+			});
+		};
+	}
+
+	function evalAssignOp(op:String, fop:(Dynamic, Dynamic) -> Unknown<0>, e1:hscript.Expr, e2:hscript.Expr) {
+		var v;
+		@:ast(switch (Tools.expr(e1)) {
+	case EIdent(id):
+		var l = locals.get(id);
+		v = fop(expr(e1), expr(e2));
+		if (l == null) variables.set(id, v) else l.r = v;	
+	case EField(e, f):
+		var obj = expr(e);
+		v = fop(get(obj, f), expr(e2));
+		v = set(obj, f, v);	
+	case EArray(e, index):
+		var arr:Dynamic = expr(e);
+		var index:Dynamic = expr(index);
+		if (isMap(arr)) {
+			v = fop(getMapValue(arr, index), expr(e2));
+			setMapValue(arr, index, v);
+		} else {
+			v = fop(arr[index], expr(e2));
+			arr[index] = v;
+		};	
+	default:
+		return error(EInvalidOp(op));	
+}) {
+			var ` = hscript.Tools.expr(e1);
+			switch (enumIndex `) {
+				case 1: {
+					var `3 = `[0];
+					{
+						var id = `3;
+						{
+							var l = {
+								var this = this.locals;
+								cast this.get(id);
+							};
+							v = fop(this.expr(e1), this.expr(e2));
+							if (l == null) {
+								{
+									var this = this.variables;
+									cast this.set(id, v);
+								};
+							} else {
+								l.r = v;
+							};
+						};
+					};
+				};
+				case 5: {
+					var `5 = `[1];
+					var `4 = `[0];
+					{
+						var f = `5;
+						var e = `4;
+						{
+							var obj = this.expr(e);
+							v = fop(this.get(obj, f), this.expr(e2));
+							v = this.set(obj, f, v);
+						};
+					};
+				};
+				case 16: {
+					var `2 = `[1];
+					var `1 = `[0];
+					{
+						var index = `2;
+						var e = `1;
+						{
+							var arr = this.expr(e);
+							var index = this.expr(index);
+							if (this.isMap(arr)) {
+								v = fop(this.getMapValue(arr, index), this.expr(e2));
+								this.setMapValue(arr, index, v);
+							} else {
+								v = fop(arr[index], this.expr(e2));
+								arr[index] = v;
+							};
+						};
+					};
+				};
+				default: {
+					return this.error(hscript.Error.EInvalidOp(op), null);
+				}
+			};
+		};
+		return v;
+	}
+
+	function increment(e:hscript.Expr, prefix:Bool, delta:Int) {
+		@:ast(switch (e) {
+	case EIdent(id):
+		var l = locals.get(id);
+		var v:Dynamic = (l == null) ? variables.get(id) : l.r;
+		if (prefix) {
+			v += delta;
+			if (l == null) variables.set(id, v) else l.r = v;
+		} else if (l == null) variables.set(id, v + delta) else l.r = v + delta;
+		return v;	
+	case EField(e, f):
+		var obj = expr(e);
+		var v:Dynamic = get(obj, f);
+		if (prefix) {
+			v += delta;
+			set(obj, f, v);
+		} else set(obj, f, v + delta);
+		return v;	
+	case EArray(e, index):
+		var arr:Dynamic = expr(e);
+		var index:Dynamic = expr(index);
+		if (isMap(arr)) {
+			var v = getMapValue(arr, index);
+			if (prefix) {
+				v += delta;
+				setMapValue(arr, index, v);
+			} else {
+				setMapValue(arr, index, v + delta);
+			};
+			return v;
+		} else {
+			var v = arr[index];
+			if (prefix) {
+				v += delta;
+				arr[index] = v;
+			} else arr[index] = v + delta;
+			return v;
+		};	
+	default:
+		return error(EInvalidOp((delta > 0) ? "++" : "--"));	
+}) switch (enumIndex e) {
+			case 1: {
+				var `2 = e[0];
+				{
+					var id = `2;
+					{
+						var l = {
+							var this = this.locals;
+							cast this.get(id);
+						};
+						var v = if ((l == null)) {
+							{
+								var this = this.variables;
+								cast this.get(id);
+							};
+						} else {
+							l.r;
+						};
+						if (prefix) {
+							v += delta;
+							if (l == null) {
+								{
+									var this = this.variables;
+									cast this.set(id, cast v);
+								};
+							} else {
+								l.r = v;
+							};
+						} else {
+							if (l == null) {
+								{
+									var this = this.variables;
+									cast this.set(id, cast v + delta);
+								};
+							} else {
+								l.r = v + delta;
+							};
+						};
+						return v;
+					};
+				};
+			};
+			case 5: {
+				var `4 = e[1];
+				var `3 = e[0];
+				{
+					var f = `4;
+					var e = `3;
+					{
+						var obj = this.expr(e);
+						var v = this.get(obj, f);
+						if (prefix) {
+							v += delta;
+							this.set(obj, f, v);
+						} else {
+							this.set(obj, f, v + delta);
+						};
+						return v;
+					};
+				};
+			};
+			case 16: {
+				var `1 = e[1];
+				var ` = e[0];
+				{
+					var index = `1;
+					var e = `;
+					{
+						var arr = this.expr(e);
+						var index = this.expr(index);
+						if (this.isMap(arr)) {
+							var v = this.getMapValue(arr, index);
+							if (prefix) {
+								v += delta;
+								this.setMapValue(arr, index, v);
+							} else {
+								this.setMapValue(arr, index, v + delta);
+							};
+							return v;
+						} else {
+							var v = arr[index];
+							if (prefix) {
+								v += delta;
+								arr[index] = v;
+							} else {
+								arr[index] = v + delta;
+							};
+							return v;
+						};
+					};
+				};
+			};
+			default: {
+				return this.error(hscript.Error.EInvalidOp(if ((delta > 0)) {
+					"++";
+				} else {
+					"--";
+				}), null);
+			}
+		};
+	}
+
+	public function execute(expr:hscript.Expr) {
+		this.depth = 0;
+		this.locals = {
+			{};
+			new haxe.ds.StringMap();
+		};
+		this.declared = new Array();
+		return this.exprReturn(expr);
+	}
+
+	function exprReturn(e:hscript.Expr) {
+		try {
+			return this.expr(e);
+		} catch (`24:Dynamic) {
+			var `25 = haxe.Exception.caught(`24);
+			var `26 = `25.unwrap();
+			if (Std.isOfType(`26, hscript._Interp.Stop)) {
+				var e = cast `26;
+				{
+					@:ast(switch (e) {
+	case SBreak:
+		throw "Invalid break";	
+	case SContinue:
+		throw "Invalid continue";	
+	case SReturn:
+		var v = returnValue;
+		returnValue = null;
+		return v;	
+}) switch (@:exhaustive enumIndex e) {
+						case 0: {
+							{
+								throw throw haxe.Exception.thrown("Invalid break");
+							};
+						};
+						case 1: {
+							{
+								throw throw haxe.Exception.thrown("Invalid continue");
+							};
+						};
+						case 2: {
+							{
+								var v = this.returnValue;
+								this.returnValue = null;
+								return v;
+							};
+						};
+					};
+				};
+			} else throw `24;
+		};
+		return null;
+	}
+
+	function duplicate<T : duplicate.T>(h:Map<String, duplicate.T>) {
+		var h2 = {
+			{};
+			new haxe.ds.StringMap();
+		};
+		for (k in h.keys()) {
+			{
+				var value = h.get(k);
+				h2.set(k, value);
+			};
+		};
+		return h2;
+	}
+
+	function restore(old:Int) {
+		while (this.declared.length > old) {
+			var d = this.declared.pop();
+			{
+				var this = this.locals;
+				var key = d.n;
+				var value = d.old;
+				cast this.set(key, value);
+			};
+		};
+	}
+
+	@:value({ rethrow : false })
+	function error(e:hscript.Error, rethrow:Bool = false) {
+		if (rethrow) {
+			this.rethrow(e);
+		} else {
+			throw throw haxe.Exception.thrown(e);
+		};
+		return null;
+	}
+
+	function rethrow(e:Dynamic) {
+		throw throw haxe.Exception.thrown(e);
+	}
+
+	function resolve(id:String) {
+		var l = {
+			var this = this.locals;
+			cast this.get(id);
+		};
+		if (l != null) {
+			return l.r;
+		};
+		var v = {
+			var this = this.variables;
+			cast this.get(id);
+		};
+		if (v == null && ! {
+			var this = this.variables;
+			cast this.exists(id);
+		}) {
+			this.error(hscript.Error.EUnknownVariable(id), null);
+		};
+		return v;
+	}
+
+	public function expr(e:hscript.Expr) {
+		var `this = this;
+		@:ast(switch (e) {
+	case EConst(c):
+		switch (c) {
+			case CInt(v):
+				return v;			
+			case CFloat(f):
+				return f;			
+			case CString(s):
+				return s;			
+		};	
+	case EIdent(id):
+		return resolve(id);	
+	case EVar(n, _, e):
+		declared.push({ n : n, old : locals.get(n) });
+		locals.set(n, { r : (e == null) ? null : expr(e) });
+		return null;	
+	case EParent(e):
+		return expr(e);	
+	case EBlock(exprs):
+		var old = declared.length;
+		var v = null;
+		for (e  in  exprs) v = expr(e);
+		restore(old);
+		return v;	
+	case EField(e, f):
+		return get(expr(e), f);	
+	case EBinop(op, e1, e2):
+		var fop = binops.get(op);
+		if (fop == null) error(EInvalidOp(op));
+		return fop(e1, e2);	
+	case EUnop(op, prefix, e):
+		switch (op) {
+			case "!":
+				return expr(e) != true;			
+			case "-":
+				return -expr(e);			
+			case "++":
+				return increment(e, prefix, 1);			
+			case "--":
+				return increment(e, prefix, -1);			
+			case "~":
+				return ~expr(e);			
+			default:
+				error(EInvalidOp(op));			
+		};	
+	case ECall(e, params):
+		var args = new Array();
+		for (p  in  params) args.push(expr(p));
+		switch (Tools.expr(e)) {
+			case EField(e, f):
+				var obj = expr(e);
+				if (obj == null) error(EInvalidAccess(f));
+				return fcall(obj, f, args);			
+			default:
+				return call(null, expr(e), args);			
+		};	
+	case EIf(econd, e1, e2):
+		return if (expr(econd) == true) expr(e1) else if (e2 == null) null else expr(e2);	
+	case EWhile(econd, e):
+		whileLoop(econd, e);
+		return null;	
+	case EDoWhile(econd, e):
+		doWhileLoop(econd, e);
+		return null;	
+	case EFor(v, it, e):
+		forLoop(v, it, e);
+		return null;	
+	case EBreak:
+		throw SBreak;	
+	case EContinue:
+		throw SContinue;	
+	case EReturn(e):
+		returnValue = e == null ? null : expr(e);
+		throw SReturn;	
+	case EFunction(params, fexpr, name, _):
+		var capturedLocals = duplicate(locals);
+		var me = this;
+		var hasOpt = false, minParams = 0;
+		for (p  in  params) if (p.opt) hasOpt = true else minParams++;
+		var f = function(args:Array<Dynamic>) {
+			if (args.length != params.length) {
+				if (args.length < minParams) {
+					var str = "Invalid number of parameters. Got " + args.length + ", required " + minParams;
+					if (name != null) str += " for function '" + name + "'";
+					throw str;
+				};
+				var args2 = [];
+				var extraParams = args.length - minParams;
+				var pos = 0;
+				for (p  in  params) if (p.opt) {
+					if (extraParams > 0) {
+						args2.push(args[pos++]);
+						extraParams--;
+					} else args2.push(null);
+				} else args2.push(args[pos++]);
+				args = args2;
+			};
+			var old = me.locals, depth = me.depth;
+			me.depth++;
+			me.locals = me.duplicate(capturedLocals);
+			for (i  in  0 ... params.length) me.locals.set(params[i].name, { r : args[i] });
+			var r = null;
+			if (inTry) try {
+				r = me.exprReturn(fexpr);
+			} catch(e:Dynamic) {
+				me.locals = old;
+				me.depth = depth;
+				throw e;
+			} else r = me.exprReturn(fexpr);
+			me.locals = old;
+			me.depth = depth;
+			return r;
+		};
+		var f = Reflect.makeVarArgs(f);
+		if (name != null) {
+			if (depth == 0) {
+				variables.set(name, f);
+			} else {
+				declared.push({ n : name, old : locals.get(name) });
+				var ref = { r : f };
+				locals.set(name, ref);
+				capturedLocals.set(name, ref);
+			};
+		};
+		return f;	
+	case EArrayDecl(arr):
+		if (arr.length > 0 && Tools.expr(arr[0]).match(EBinop("=>", _))) {
+			var isAllString:Bool = true;
+			var isAllInt:Bool = true;
+			var isAllObject:Bool = true;
+			var isAllEnum:Bool = true;
+			var keys:Array<Dynamic> = [];
+			var values:Array<Dynamic> = [];
+			for (e  in  arr) {
+				switch (Tools.expr(e)) {
+					case EBinop("=>", eKey, eValue):
+						{
+							var key:Dynamic = expr(eKey);
+							var value:Dynamic = expr(eValue);
+							isAllString = isAllString && Std.is(key, String);
+							isAllInt = isAllInt && Std.is(key, Int);
+							isAllObject = isAllObject && Reflect.isObject(key);
+							isAllEnum = isAllEnum && Reflect.isEnumValue(key);
+							keys.push(key);
+							values.push(value);
+						};					
+					default:
+						throw ("=> expected");					
+				};
+			};
+			var map:Dynamic = {
+				if (isAllInt) new haxe.ds.IntMap<Dynamic>() else if (isAllString) new haxe.ds.StringMap<Dynamic>() else if (isAllEnum) new haxe.ds.EnumValueMap<Dynamic,Dynamic>() else if (isAllObject) new haxe.ds.ObjectMap<Dynamic,Dynamic>() else throw "Inconsistent key types";
+			};
+			for (n  in  0 ... keys.length) {
+				setMapValue(map, keys[n], values[n]);
+			};
+			return map;
+		} else {
+			var a = new Array();
+			for (e  in  arr) {
+				a.push(expr(e));
+			};
+			return a;
+		};	
+	case EArray(e, index):
+		var arr:Dynamic = expr(e);
+		var index:Dynamic = expr(index);
+		if (isMap(arr)) {
+			return getMapValue(arr, index);
+		} else {
+			return arr[index];
+		};	
+	case ENew(cl, params):
+		var a = new Array();
+		for (e  in  params) a.push(expr(e));
+		return cnew(cl, a);	
+	case EThrow(e):
+		throw expr(e);	
+	case ETry(e, n, _, ecatch):
+		var old = declared.length;
+		var oldTry = inTry;
+		try {
+			inTry = true;
+			var v:Dynamic = expr(e);
+			restore(old);
+			inTry = oldTry;
+			return v;
+		} catch(err:Stop) {
+			inTry = oldTry;
+			throw err;
+		} catch(err:Dynamic) {
+			restore(old);
+			inTry = oldTry;
+			declared.push({ n : n, old : locals.get(n) });
+			locals.set(n, { r : err });
+			var v:Dynamic = expr(ecatch);
+			restore(old);
+			return v;
+		};	
+	case EObject(fl):
+		var o = { };
+		for (f  in  fl) set(o, f.name, expr(f.e));
+		return o;	
+	case ETernary(econd, e1, e2):
+		return if (expr(econd) == true) expr(e1) else expr(e2);	
+	case ESwitch(e, cases, def):
+		var val:Dynamic = expr(e);
+		var match = false;
+		for (c  in  cases) {
+			for (v  in  c.values) if (expr(v) == val) {
+				match = true;
+				break;
+			};
+			if (match) {
+				val = expr(c.expr);
+				break;
+			};
+		};
+		if (!match) val = def == null ? null : expr(def);
+		return val;	
+	case EMeta(_, _, e):
+		return expr(e);	
+	case ECheckType(e, _):
+		return expr(e);	
+}) switch (@:exhaustive enumIndex e) {
+			case 0: {
+				var `19 = e[0];
+				{
+					var c = `19;
+					{
+						@:ast(switch (c) {
+	case CInt(v):
+		return v;	
+	case CFloat(f):
+		return f;	
+	case CString(s):
+		return s;	
+}) switch (@:exhaustive enumIndex c) {
+							case 0: {
+								var ` = c[0];
+								{
+									var v = `;
+									{
+										return v;
+									};
+								};
+							};
+							case 1: {
+								var `2 = c[0];
+								{
+									var f = `2;
+									{
+										return f;
+									};
+								};
+							};
+							case 2: {
+								var `1 = c[0];
+								{
+									var s = `1;
+									{
+										return s;
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+			case 1: {
+				var `27 = e[0];
+				{
+					var id = `27;
+					{
+						return this.resolve(id);
+					};
+				};
+			};
+			case 2: {
+				var `33 = e[2];
+				var `32 = e[1];
+				var `31 = e[0];
+				{
+					var e = `33;
+					var n = `31;
+					{
+						this.declared.push({n : n, old : {
+							var this = this.locals;
+							cast this.get(n);
+						}});
+						{
+							var this = this.locals;
+							var value = {r : if ((e == null)) null else this.expr(e)};
+							cast this.set(n, value);
+						};
+						return null;
+					};
+				};
+			};
+			case 3: {
+				var `47 = e[0];
+				{
+					var e = `47;
+					{
+						return this.expr(e);
+					};
+				};
+			};
+			case 4: {
+				var `20 = e[0];
+				{
+					var exprs = `20;
+					{
+						var old = this.declared.length;
+						var v = null;
+						{
+							var ` = 0;
+							while (` < exprs.length) {
+								var e = exprs[`];
+								++ `;
+								v = this.expr(e);
+							};
+						};
+						this.restore(old);
+						return v;
+					};
+				};
+			};
+			case 5: {
+				var `49 = e[1];
+				var `48 = e[0];
+				{
+					var f = `49;
+					var e = `48;
+					{
+						return this.get(this.expr(e), f);
+					};
+				};
+			};
+			case 6: {
+				var `38 = e[2];
+				var `37 = e[1];
+				var `36 = e[0];
+				{
+					var e2 = `38;
+					var e1 = `37;
+					var op = `36;
+					{
+						var fop = {
+							var this = this.binops;
+							cast this.get(op);
+						};
+						if (fop == null) {
+							this.error(hscript.Error.EInvalidOp(op), null);
+						};
+						return fop(e1, e2);
+					};
+				};
+			};
+			case 7: {
+				var `14 = e[2];
+				var `13 = e[1];
+				var `12 = e[0];
+				{
+					var e = `14;
+					var prefix = `13;
+					var op = `12;
+					{
+						@:ast(switch (op) {
+	case "!":
+		return expr(e) != true;	
+	case "-":
+		return -expr(e);	
+	case "++":
+		return increment(e, prefix, 1);	
+	case "--":
+		return increment(e, prefix, -1);	
+	case "~":
+		return ~expr(e);	
+	default:
+		error(EInvalidOp(op));	
+}) switch (op) {
+							case "!": {
+								{
+									return this.expr(e) != true;
+								};
+							};
+							case "++": {
+								{
+									return this.increment(e, prefix, 1);
+								};
+							};
+							case "-": {
+								{
+									return - this.expr(e);
+								};
+							};
+							case "--": {
+								{
+									return this.increment(e, prefix, -1);
+								};
+							};
+							case "~": {
+								{
+									return ~ this.expr(e);
+								};
+							};
+							default: {
+								this.error(hscript.Error.EInvalidOp(op), null);
+							}
+						};
+					};
+				};
+			};
+			case 8: {
+				var `8 = e[1];
+				var `7 = e[0];
+				{
+					var params = `8;
+					var e = `7;
+					{
+						var args = new Array();
+						{
+							var ` = 0;
+							while (` < params.length) {
+								var p = params[`];
+								++ `;
+								args.push(this.expr(p));
+							};
+						};
+						@:ast(switch (Tools.expr(e)) {
+	case EField(e, f):
+		var obj = expr(e);
+		if (obj == null) error(EInvalidAccess(f));
+		return fcall(obj, f, args);	
+	default:
+		return call(null, expr(e), args);	
+}) {
+							var `1 = hscript.Tools.expr(e);
+							if (enumIndex `1 == 5) {
+								var `3 = `1[1];
+								var `2 = `1[0];
+								{
+									var f = `3;
+									var e = `2;
+									{
+										var obj = this.expr(e);
+										if (obj == null) {
+											this.error(hscript.Error.EInvalidAccess(f), null);
+										};
+										return this.fcall(obj, f, args);
+									};
+								};
+							} else {
+								return this.call(null, this.expr(e), args);
+							};
+						};
+					};
+				};
+			};
+			case 9: {
+				var `2 = e[2];
+				var `1 = e[1];
+				var ` = e[0];
+				{
+					var e2 = `2;
+					var e1 = `1;
+					var econd = `;
+					{
+						return if (this.expr(econd) == true) {
+							this.expr(e1);
+						} else {
+							if (e2 == null) {
+								null;
+							} else {
+								this.expr(e2);
+							};
+						};
+					};
+				};
+			};
+			case 10: {
+				var `22 = e[1];
+				var `21 = e[0];
+				{
+					var e = `22;
+					var econd = `21;
+					{
+						this.whileLoop(econd, e);
+						return null;
+					};
+				};
+			};
+			case 11: {
+				var `30 = e[2];
+				var `29 = e[1];
+				var `28 = e[0];
+				{
+					var e = `30;
+					var it = `29;
+					var v = `28;
+					{
+						this.forLoop(v, it, e);
+						return null;
+					};
+				};
+			};
+			case 12: {
+				{
+					throw throw haxe.Exception.thrown(hscript._Interp.Stop.SBreak);
+				};
+			};
+			case 13: {
+				{
+					throw throw haxe.Exception.thrown(hscript._Interp.Stop.SContinue);
+				};
+			};
+			case 14: {
+				var `44 = e[3];
+				var `43 = e[2];
+				var `42 = e[1];
+				var `41 = e[0];
+				{
+					var name = `43;
+					var fexpr = `42;
+					var params = `41;
+					{
+						var capturedLocals = this.duplicate(this.locals);
+						var me = this;
+						var hasOpt = false;
+						var minParams = 0;
+						{
+							var ` = 0;
+							while (` < params.length) {
+								var p = params[`];
+								++ `;
+								if (p.opt) {
+									hasOpt = true;
+								} else {
+									minParams ++;
+								};
+							};
+						};
+						var f = function(args:Array<Dynamic>) {
+							if (args.length != params.length) {
+								if (args.length < minParams) {
+									var str = "Invalid number of parameters. Got " + args.length + ", required " + minParams;
+									if (name != null) {
+										str += " for function '" + name + "'";
+									};
+									throw throw haxe.Exception.thrown(str);
+								};
+								var args2 = [];
+								var extraParams = args.length - minParams;
+								var pos = 0;
+								{
+									var `1 = 0;
+									while (`1 < params.length) {
+										var p = params[`1];
+										++ `1;
+										if (p.opt) {
+											if (extraParams > 0) {
+												args2.push(args[pos ++]);
+												extraParams --;
+											} else {
+												args2.push(null);
+											};
+										} else {
+											args2.push(args[pos ++]);
+										};
+									};
+								};
+								args = args2;
+							};
+							var old = me.locals;
+							var depth = me.depth;
+							me.depth ++;
+							me.locals = me.duplicate(capturedLocals);
+							{
+								var `1 = 0;
+								var `2 = params.length;
+								while (`1 < `2) {
+									var i = `1 ++;
+									{
+										var this = me.locals;
+										var key = params[i].name;
+										cast this.set(key, {r : args[i]});
+									};
+								};
+							};
+							var r = null;
+							if (`this.inTry) {
+								try {
+									r = me.exprReturn(fexpr);
+								} catch (`27:Dynamic) {
+									var `28 = haxe.Exception.caught(`27);
+									var `29 = `28.unwrap();
+									if (true) {
+										var e = `29;
+										{
+											me.locals = old;
+											me.depth = depth;
+											throw throw haxe.Exception.thrown(e);
+										};
+									} else throw `27;
+								};
+							} else {
+								r = me.exprReturn(fexpr);
+							};
+							me.locals = old;
+							me.depth = depth;
+							return r;
+						};
+						var f = Reflect.makeVarArgs(f);
+						if (name != null) {
+							if (this.depth == 0) {
+								{
+									var this = this.variables;
+									cast this.set(name, f);
+								};
+							} else {
+								this.declared.push({n : name, old : {
+									var this = this.locals;
+									cast this.get(name);
+								}});
+								var ref = {r : f};
+								{
+									var this = this.locals;
+									cast this.set(name, ref);
+								};
+								{
+									capturedLocals.set(name, ref);
+								};
+							};
+						};
+						return f;
+					};
+				};
+			};
+			case 15: {
+				var `50 = e[0];
+				{
+					var e = `50;
+					{
+						this.returnValue = if (e == null) {
+							null;
+						} else {
+							this.expr(e);
+						};
+						throw throw haxe.Exception.thrown(hscript._Interp.Stop.SReturn);
+					};
+				};
+			};
+			case 16: {
+				var `16 = e[1];
+				var `15 = e[0];
+				{
+					var index = `16;
+					var e = `15;
+					{
+						var arr = this.expr(e);
+						var index = this.expr(index);
+						if (this.isMap(arr)) {
+							return this.getMapValue(arr, index);
+						} else {
+							return arr[index];
+						};
+					};
+				};
+			};
+			case 17: {
+				var `34 = e[0];
+				{
+					var arr = `34;
+					{
+						if (arr.length > 0 && {
+							var ` = hscript.Tools.expr(arr[0]);
+							if (enumIndex ` == 6) {
+								var `3 = `[2];
+								var `2 = `[1];
+								var `1 = `[0];
+								if (`1 == "=>") {
+									true;
+								} else false;
+							} else false;
+						}) {
+							var isAllString = true;
+							var isAllInt = true;
+							var isAllObject = true;
+							var isAllEnum = true;
+							var keys = [];
+							var values = [];
+							{
+								var `4 = 0;
+								while (`4 < arr.length) {
+									var e = arr[`4];
+									++ `4;
+									@:ast(switch (Tools.expr(e)) {
+	case EBinop("=>", eKey, eValue):
+		{
+			var key:Dynamic = expr(eKey);
+			var value:Dynamic = expr(eValue);
+			isAllString = isAllString && Std.is(key, String);
+			isAllInt = isAllInt && Std.is(key, Int);
+			isAllObject = isAllObject && Reflect.isObject(key);
+			isAllEnum = isAllEnum && Reflect.isEnumValue(key);
+			keys.push(key);
+			values.push(value);
+		};	
+	default:
+		throw ("=> expected");	
+}) {
+										var `4 = hscript.Tools.expr(e);
+										if (enumIndex `4 == 6) {
+											var `7 = `4[2];
+											var `6 = `4[1];
+											var `5 = `4[0];
+											if (`5 == "=>") {
+												{
+													var eValue = `7;
+													var eKey = `6;
+													{
+														{
+															var key = this.expr(eKey);
+															var value = this.expr(eValue);
+															isAllString = isAllString && Std.is(key, String);
+															isAllInt = isAllInt && Std.is(key, Int);
+															isAllObject = isAllObject && Reflect.isObject(key);
+															isAllEnum = isAllEnum && Reflect.isEnumValue(key);
+															keys.push(key);
+															values.push(value);
+														};
+													};
+												};
+											} else {
+												throw throw haxe.Exception.thrown(("=> expected"));
+											};
+										} else {
+											throw throw haxe.Exception.thrown(("=> expected"));
+										};
+									};
+								};
+							};
+							var map = {
+								if (isAllInt) {
+									new haxe.ds.IntMap();
+								} else {
+									if (isAllString) {
+										new haxe.ds.StringMap();
+									} else {
+										if (isAllEnum) {
+											new haxe.ds.EnumValueMap();
+										} else {
+											if (isAllObject) {
+												new haxe.ds.ObjectMap();
+											} else {
+												throw throw haxe.Exception.thrown("Inconsistent key types");
+											};
+										};
+									};
+								};
+							};
+							{
+								var `5 = 0;
+								var `6 = keys.length;
+								while (`5 < `6) {
+									var n = `5 ++;
+									this.setMapValue(map, keys[n], values[n]);
+								};
+							};
+							return map;
+						} else {
+							var a = new Array();
+							{
+								var `4 = 0;
+								while (`4 < arr.length) {
+									var e = arr[`4];
+									++ `4;
+									a.push(this.expr(e));
+								};
+							};
+							return a;
+						};
+					};
+				};
+			};
+			case 18: {
+				var `18 = e[1];
+				var `17 = e[0];
+				{
+					var params = `18;
+					var cl = `17;
+					{
+						var a = new Array();
+						{
+							var ` = 0;
+							while (` < params.length) {
+								var e = params[`];
+								++ `;
+								a.push(this.expr(e));
+							};
+						};
+						return this.cnew(cl, a);
+					};
+				};
+			};
+			case 19: {
+				var `23 = e[0];
+				{
+					var e = `23;
+					{
+						throw throw haxe.Exception.thrown(this.expr(e));
+					};
+				};
+			};
+			case 20: {
+				var `6 = e[3];
+				var `5 = e[2];
+				var `4 = e[1];
+				var `3 = e[0];
+				{
+					var ecatch = `6;
+					var n = `4;
+					var e = `3;
+					{
+						var old = this.declared.length;
+						var oldTry = this.inTry;
+						try {
+							this.inTry = true;
+							var v = this.expr(e);
+							this.restore(old);
+							this.inTry = oldTry;
+							return v;
+						} catch (`30:Dynamic) {
+							var `31 = haxe.Exception.caught(`30);
+							var `32 = `31.unwrap();
+							if (Std.isOfType(`32, hscript._Interp.Stop)) {
+								var err = cast `32;
+								{
+									this.inTry = oldTry;
+									throw throw haxe.Exception.thrown(err);
+								};
+							} else if (true) {
+								var err = `32;
+								{
+									this.restore(old);
+									this.inTry = oldTry;
+									this.declared.push({n : n, old : {
+										var this = this.locals;
+										cast this.get(n);
+									}});
+									{
+										var this = this.locals;
+										cast this.set(n, {r : err});
+									};
+									var v = this.expr(ecatch);
+									this.restore(old);
+									return v;
+								};
+							} else throw `30;
+						};
+					};
+				};
+			};
+			case 21: {
+				var `35 = e[0];
+				{
+					var fl = `35;
+					{
+						var o = {};
+						{
+							var ` = 0;
+							while (` < fl.length) {
+								var f = fl[`];
+								++ `;
+								this.set(o, f.name, this.expr(f.e));
+							};
+						};
+						return o;
+					};
+				};
+			};
+			case 22: {
+				var `11 = e[2];
+				var `10 = e[1];
+				var `9 = e[0];
+				{
+					var e2 = `11;
+					var e1 = `10;
+					var econd = `9;
+					{
+						return if (this.expr(econd) == true) {
+							this.expr(e1);
+						} else {
+							this.expr(e2);
+						};
+					};
+				};
+			};
+			case 23: {
+				var `26 = e[2];
+				var `25 = e[1];
+				var `24 = e[0];
+				{
+					var def = `26;
+					var cases = `25;
+					var e = `24;
+					{
+						var val = this.expr(e);
+						var match = false;
+						{
+							var ` = 0;
+							while (` < cases.length) {
+								var c = cases[`];
+								++ `;
+								{
+									var ` = 0;
+									var `1 = c.values;
+									while (` < `1.length) {
+										var v = `1[`];
+										++ `;
+										if (this.expr(v) == val) {
+											match = true;
+											break;
+										};
+									};
+								};
+								if (match) {
+									val = this.expr(c.expr);
+									break;
+								};
+							};
+						};
+						if (! match) {
+							val = if (def == null) {
+								null;
+							} else {
+								this.expr(def);
+							};
+						};
+						return val;
+					};
+				};
+			};
+			case 24: {
+				var `40 = e[1];
+				var `39 = e[0];
+				{
+					var e = `40;
+					var econd = `39;
+					{
+						this.doWhileLoop(econd, e);
+						return null;
+					};
+				};
+			};
+			case 25: {
+				var `53 = e[2];
+				var `52 = e[1];
+				var `51 = e[0];
+				{
+					var e = `53;
+					{
+						return this.expr(e);
+					};
+				};
+			};
+			case 26: {
+				var `46 = e[1];
+				var `45 = e[0];
+				{
+					var e = `45;
+					{
+						return this.expr(e);
+					};
+				};
+			};
+		};
+		return null;
+	}
+
+	function doWhileLoop(econd:hscript.Expr, e:hscript.Expr) {
+		var old = this.declared.length;
+		do ({
+			try {
+				this.expr(e);
+			} catch (`33:Dynamic) {
+				var `34 = haxe.Exception.caught(`33);
+				var `35 = `34.unwrap();
+				if (Std.isOfType(`35, hscript._Interp.Stop)) {
+					var err = cast `35;
+					{
+						@:ast(switch (err) {
+	case SContinue:
+	case SBreak:
+		break;	
+	case SReturn:
+		throw err;	
+}) switch (@:exhaustive enumIndex err) {
+							case 0: {
+								{
+									break;
+								};
+							};
+							case 1: {
+								{};
+							};
+							case 2: {
+								{
+									throw throw haxe.Exception.thrown(err);
+								};
+							};
+						};
+					};
+				} else throw `33;
+			};
+		}) while(this.expr(econd) == true);
+		this.restore(old);
+	}
+
+	function whileLoop(econd:hscript.Expr, e:hscript.Expr) {
+		var old = this.declared.length;
+		while (this.expr(econd) == true) {
+			try {
+				this.expr(e);
+			} catch (`36:Dynamic) {
+				var `37 = haxe.Exception.caught(`36);
+				var `38 = `37.unwrap();
+				if (Std.isOfType(`38, hscript._Interp.Stop)) {
+					var err = cast `38;
+					{
+						@:ast(switch (err) {
+	case SContinue:
+	case SBreak:
+		break;	
+	case SReturn:
+		throw err;	
+}) switch (@:exhaustive enumIndex err) {
+							case 0: {
+								{
+									break;
+								};
+							};
+							case 1: {
+								{};
+							};
+							case 2: {
+								{
+									throw throw haxe.Exception.thrown(err);
+								};
+							};
+						};
+					};
+				} else throw `36;
+			};
+		};
+		this.restore(old);
+	}
+
+	function makeIterator(v:Dynamic) {
+		try {
+			v = v.iterator();
+		} catch (`39:Dynamic) {
+			{};
+			{};
+			if (true) {
+				{};
+				{};
+			} else throw `39;
+		};
+		if (v.hasNext == null || v.next == null) {
+			this.error(hscript.Error.EInvalidIterator(v), null);
+		};
+		return v;
+	}
+
+	function forLoop(n:String, it:hscript.Expr, e:hscript.Expr) {
+		var old = this.declared.length;
+		this.declared.push({n : n, old : {
+			var this = this.locals;
+			cast this.get(n);
+		}});
+		var it = this.makeIterator(this.expr(it));
+		while (it.hasNext()) {
+			{
+				var this = this.locals;
+				var value = {r : it.next()};
+				cast this.set(n, value);
+			};
+			try {
+				this.expr(e);
+			} catch (`42:Dynamic) {
+				var `43 = haxe.Exception.caught(`42);
+				var `44 = `43.unwrap();
+				if (Std.isOfType(`44, hscript._Interp.Stop)) {
+					var err = cast `44;
+					{
+						@:ast(switch (err) {
+	case SContinue:
+	case SBreak:
+		break;	
+	case SReturn:
+		throw err;	
+}) switch (@:exhaustive enumIndex err) {
+							case 0: {
+								{
+									break;
+								};
+							};
+							case 1: {
+								{};
+							};
+							case 2: {
+								{
+									throw throw haxe.Exception.thrown(err);
+								};
+							};
+						};
+					};
+				} else throw `42;
+			};
+		};
+		this.restore(old);
+	}
+
+	function isMap(o:Dynamic) {
+		return Std.is(o, haxe.IMap);
+	}
+
+	function getMapValue(map:Dynamic, key:Dynamic) {
+		return cast (map,haxe.IMap).get(key);
+	}
+
+	function setMapValue(map:Dynamic, key:Dynamic, value:Dynamic) {
+		cast (map,haxe.IMap).set(key, value);
+	}
+
+	function get(o:Dynamic, f:String) {
+		if (o == null) {
+			this.error(hscript.Error.EInvalidAccess(f), null);
+		};
+		return {
+			Reflect.getProperty(o, f);
+		};
+	}
+
+	function set(o:Dynamic, f:String, v:Dynamic) {
+		if (o == null) {
+			this.error(hscript.Error.EInvalidAccess(f), null);
+		};
+		Reflect.setProperty(o, f, v);
+		return v;
+	}
+
+	function fcall(o:Dynamic, f:String, args:Array<Dynamic>) {
+		return this.call(o, this.get(o, f), args);
+	}
+
+	function call(o:Dynamic, f:Dynamic, args:Array<Dynamic>) {
+		return Reflect.callMethod(o, f, args);
+	}
+
+	function cnew(cl:String, args:Array<Dynamic>) {
+		var c = Type.resolveClass(cl);
+		if (c == null) {
+			c = this.resolve(cl);
+		};
+		return Type.createInstance(c, args);
+	}
+}

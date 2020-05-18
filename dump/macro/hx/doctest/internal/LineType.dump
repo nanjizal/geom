@@ -1,0 +1,7 @@
+enum hx.doctest.internal.LineType {
+	DocTestAssertion(assertion:hx.doctest.internal.DocTestAssertion);
+	CompilerConditionStart(condition:String);
+	CompilerConditionElseIf(condition:String);
+	CompilerConditionElse;
+	CompilerConditionEnd;
+}

@@ -1,0 +1,6 @@
+@:flatEnum
+private enum hscript._Interp.Stop {
+	SBreak;
+	SContinue;
+	SReturn;
+}

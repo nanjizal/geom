@@ -1,0 +1,2 @@
+@:dox(hide)
+typedef haxe.macro.TMacroStringTools = haxe.macro.MacroStringTools

@@ -1,0 +1,61 @@
+@:used
+private class geom.ga._MultiVector2.MultiVector2_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.MVec2) {
+		var this = m;
+		return cast this;
+	}
+
+	public static var zero(get,never):geom.ga.MultiVector2;
+
+	static inline function get_zero() {
+		var this = new geom.structure.MVec2(0., 0., 0., 0.);
+		return cast this;
+	}
+
+	@:impl
+	static var nought(get,never):geom.ga.MultiVector2;
+
+	@:impl
+	static inline function get_nought(this:geom.structure.MVec2) {
+		var this = new geom.structure.MVec2(0., 0., 0., 0.);
+		return cast this;
+	}
+
+	@:op(A - B)
+	public static inline function subtracting(a:geom.ga.MultiVector2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(cast a.s - b.s, cast a.x - b.x, cast a.y - b.y, cast a.xy - b.xy);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function subtract(this:geom.structure.MVec2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(this.s - b.s, this.x - b.x, this.y - b.y, this.xy - b.xy);
+		return cast this;
+	}
+
+	@:op(A + B)
+	public static inline function adding(a:geom.ga.MultiVector2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(cast a.s + b.s, cast a.x + b.x, cast a.y + b.y, cast a.xy + b.xy);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function add(this:geom.structure.MVec2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(this.s + b.s, this.x + b.x, this.y + b.y, this.xy + b.xy);
+		return cast this;
+	}
+
+	@:op(A * B)
+	public static inline function multiplying(a:geom.ga.MultiVector2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(cast a.s * b.s + cast a.x * b.x + cast a.y * b.y - cast a.xy * b.xy, cast a.x * b.s + cast a.s * b.x - cast a.xy * b.y + cast a.y * b.xy, cast a.y * b.s + cast a.xy * b.x + cast a.s * b.y - cast a.x * b.xy, cast a.xy * b.s + cast a.y * b.x - cast a.x * b.y + cast a.s * b.xy);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function multiply(this:geom.structure.MVec2, b:geom.ga.MultiVector2) {
+		var this = new geom.structure.MVec2(this.s * b.s + this.x * b.x + this.y * b.y - this.xy * b.xy, this.x * b.s + this.s * b.x - this.xy * b.y + this.y * b.xy, this.y * b.s + this.xy * b.x + this.s * b.y - this.x * b.xy, this.xy * b.s + this.y * b.x - this.x * b.y + this.s * b.xy);
+		return cast this;
+	}
+}

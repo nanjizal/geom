@@ -1,0 +1,41 @@
+@:realPath("js.html.Animation") @:native("Animation")
+extern class Animation extends EventTarget {
+
+	function new(effect:Null<AnimationEffect>, timeline:Null<AnimationTimeline>):Void;
+
+	var id:String;
+
+	var effect:AnimationEffect;
+
+	var timeline:AnimationTimeline;
+
+	var startTime:Float;
+
+	var currentTime:Float;
+
+	var playbackRate:Float;
+
+	var playState(default,null):js.html.AnimationPlayState;
+
+	var pending(default,null):Bool;
+
+	var ready(default,null):Promise<Animation>;
+
+	var finished(default,null):Promise<Animation>;
+
+	var onfinish:haxe.Function;
+
+	var oncancel:haxe.Function;
+
+	function cancel():Void;
+
+	function finish():Void;
+
+	function play():Void;
+
+	function pause():Void;
+
+	function updatePlaybackRate(playbackRate:Float):Void;
+
+	function reverse():Void;
+}

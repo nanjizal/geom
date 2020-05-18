@@ -1,0 +1,7 @@
+@:realPath("js.html.Crypto") @:native("Crypto")
+extern class Crypto {
+
+	var subtle(default,null):SubtleCrypto;
+
+	function getRandomValues(array:js.lib.ArrayBufferView):js.lib.ArrayBufferView;
+}

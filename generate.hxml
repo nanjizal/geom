@@ -7,3 +7,4 @@
 --no-output
 -xml output.xml
 -js foo
+-D dump==pretty

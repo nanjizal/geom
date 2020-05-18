@@ -1,0 +1,30 @@
+class haxe.iterators.StringIteratorUnicode {
+
+	public function new(s:String) {
+		this.offset = 0;
+		this.s = s;
+	}
+
+	@:value(0)
+	var offset:Int;
+
+	var s:String;
+
+	@:maybeUsed
+	public function hasNext() {
+		return this.offset < this.s.length;
+	}
+
+	@:maybeUsed @:access(StringTools)
+	public function next() {
+		var c = StringTools.utf16CodePointAt(this.s, this.offset ++);
+		if (c >= 65536) {
+			this.offset ++;
+		};
+		return c;
+	}
+
+	public static function unicodeIterator(s:String) {
+		return new haxe.iterators.StringIteratorUnicode(s);
+	}
+}

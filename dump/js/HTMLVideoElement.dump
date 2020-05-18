@@ -1,0 +1,15 @@
+@:realPath("js.html.VideoElement") @:native("HTMLVideoElement")
+extern class HTMLVideoElement extends HTMLMediaElement {
+
+	var width:Int;
+
+	var height:Int;
+
+	var videoWidth(default,null):Int;
+
+	var videoHeight(default,null):Int;
+
+	var poster:String;
+
+	function getVideoPlaybackQuality():VideoPlaybackQuality;
+}

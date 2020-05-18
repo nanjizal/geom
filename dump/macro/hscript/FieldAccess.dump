@@ -1,0 +1,9 @@
+@:flatEnum
+enum hscript.FieldAccess {
+	APublic;
+	APrivate;
+	AInline;
+	AOverride;
+	AStatic;
+	AMacro;
+}

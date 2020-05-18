@@ -1,0 +1,1 @@
+typedef js.html.URLSearchParamsIterator = { next : Void -> Dynamic }

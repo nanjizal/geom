@@ -1,0 +1,11 @@
+class haxe.ds.GenericCell<T : haxe.ds.GenericCell.T> {
+
+	public function new(elt:haxe.ds.GenericCell.T, next:haxe.ds.GenericCell<haxe.ds.GenericCell.T>) {
+		this.elt = elt;
+		this.next = next;
+	}
+
+	public var elt:haxe.ds.GenericCell.T;
+
+	public var next:haxe.ds.GenericCell<haxe.ds.GenericCell.T>;
+}

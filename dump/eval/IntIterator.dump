@@ -1,0 +1,25 @@
+@:used @:keep
+class IntIterator {
+
+	@:keep
+	public inline function new(min:Int, max:Int) {
+		this.min = min;
+		this.max = max;
+	}
+
+	@:keep
+	var min:Int;
+
+	@:keep
+	var max:Int;
+
+	@:keep
+	public inline function hasNext() {
+		return this.min < this.max;
+	}
+
+	@:keep
+	public inline function next() {
+		return this.min ++;
+	}
+}

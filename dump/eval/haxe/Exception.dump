@@ -1,0 +1,64 @@
+@:keep @:directlyUsed @:used @:coreApi
+class haxe.Exception {
+
+	public function new(message:String, previous:Null<haxe.Exception> = null, native:Null<Any> = null) {
+		this.__skipStack = 0;
+		this.__exceptionMessage = message;
+		this.__previousException = previous;
+		if ((native != null)) {
+			this.__nativeStack = haxe.NativeStackTrace.exceptionStack();
+			this.__nativeException = native;
+		} else {
+			this.__nativeStack = haxe.NativeStackTrace.callStack();
+			this.__nativeException = @:implicitCast cast this;
+		};
+	}
+
+	public var message(get,never):String;
+
+	public var native(get,never):Any;
+
+	@:noCompletion
+	var __exceptionMessage:String;
+
+	@:noCompletion
+	var __nativeStack:haxe.CallStack;
+
+	@:value(0) @:noCompletion @:ifFeature("haxe.Exception.get_stack")
+	var __skipStack:Int;
+
+	@:noCompletion
+	var __nativeException:Any;
+
+	@:noCompletion
+	var __previousException:Null<haxe.Exception>;
+
+	function unwrap() {
+		return this.__nativeException;
+	}
+
+	@:ifFeature("haxe.Exception.thrown")
+	public function toString() {
+		return this.get_message();
+	}
+
+	function get_message() {
+		return this.__exceptionMessage;
+	}
+
+	function get_native() {
+		return this.__nativeException;
+	}
+
+	static function caught(value:Any) {
+		if ((Std.is(value, haxe.Exception))) return @:implicitCast cast cast value else return new haxe.ValueException(value, null, value);
+	}
+
+	static function thrown(value:Any) {
+		if ((Std.isOfType(value, haxe.Exception))) return @:implicitCast cast cast value.get_native() else {
+			var e = new haxe.ValueException(value, null, null);
+			e.__skipStack ++;
+			return @:implicitCast cast e;
+		};
+	}
+}

@@ -1,0 +1,47 @@
+@:realPath("js.html.PerformanceTiming") @:deprecated("PerformanceTiming is deprecated, use the PerformanceNavigationTiming interface instead") @:native("PerformanceTiming")
+extern class PerformanceTiming {
+
+	var navigationStart(default,null):Int;
+
+	var unloadEventStart(default,null):Int;
+
+	var unloadEventEnd(default,null):Int;
+
+	var redirectStart(default,null):Int;
+
+	var redirectEnd(default,null):Int;
+
+	var fetchStart(default,null):Int;
+
+	var domainLookupStart(default,null):Int;
+
+	var domainLookupEnd(default,null):Int;
+
+	var connectStart(default,null):Int;
+
+	var connectEnd(default,null):Int;
+
+	var secureConnectionStart(default,null):Int;
+
+	var requestStart(default,null):Int;
+
+	var responseStart(default,null):Int;
+
+	var responseEnd(default,null):Int;
+
+	var domLoading(default,null):Int;
+
+	var domInteractive(default,null):Int;
+
+	var domContentLoadedEventStart(default,null):Int;
+
+	var domContentLoadedEventEnd(default,null):Int;
+
+	var domComplete(default,null):Int;
+
+	var loadEventStart(default,null):Int;
+
+	var loadEventEnd(default,null):Int;
+
+	function toJSON():Dynamic;
+}

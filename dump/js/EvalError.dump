@@ -1,0 +1,5 @@
+@:realPath("js.lib.EvalError") @:native("EvalError")
+extern class EvalError extends Error {
+
+	function new(message:Null<String>):Void;
+}

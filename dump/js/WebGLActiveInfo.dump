@@ -1,0 +1,9 @@
+@:realPath("js.html.webgl.ActiveInfo") @:used @:native("WebGLActiveInfo")
+extern class WebGLActiveInfo {
+
+	var size(default,null):Int;
+
+	var type(default,null):Int;
+
+	var name(default,null):String;
+}

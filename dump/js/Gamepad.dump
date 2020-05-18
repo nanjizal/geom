@@ -1,0 +1,17 @@
+@:realPath("js.html.Gamepad") @:native("Gamepad")
+extern class Gamepad {
+
+	var id(default,null):String;
+
+	var index(default,null):Int;
+
+	var mapping(default,null):js.html.GamepadMappingType;
+
+	var connected(default,null):Bool;
+
+	var buttons(default,null):Array<GamepadButton>;
+
+	var axes(default,null):Array<Float>;
+
+	var timestamp(default,null):Float;
+}

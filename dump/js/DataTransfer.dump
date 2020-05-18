@@ -1,0 +1,25 @@
+@:realPath("js.html.DataTransfer") @:native("DataTransfer")
+extern class DataTransfer {
+
+	function new():Void;
+
+	var dropEffect:String;
+
+	var effectAllowed:String;
+
+	var items(default,null):DataTransferItemList;
+
+	var types(default,null):Array<String>;
+
+	var files(default,null):FileList;
+
+	function setDragImage(image:HTMLElement, x:Int, y:Int):Void;
+
+	function getData(format:String):String;
+
+	function setData(format:String, data:String):Void;
+
+	function clearData(format:Null<String>):Void;
+
+	function addElement(element:HTMLElement):Void;
+}

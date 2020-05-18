@@ -1,0 +1,85 @@
+@:used
+class geom.curve.ComplexTrig {
+
+	public static function sin(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(Math.sin(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var this1 = new geom.structure.Mat1x2(Math.sin(cast c.x) * geom.curve.Hyperbolic.cosh(cast c.y), Math.cos(cast c.x) * geom.curve.Hyperbolic.sinh(cast c.y));
+			return cast this1;
+		};
+	}
+
+	public static function cos(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(Math.cos(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var this1 = new geom.structure.Mat1x2(Math.cos(cast c.x) * geom.curve.Hyperbolic.cosh(cast c.y), - Math.sin(cast c.x) * geom.curve.Hyperbolic.sinh(cast c.y));
+			return cast this1;
+		};
+	}
+
+	public static function tan(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(Math.tan(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var s = geom.curve.ComplexTrig.sin(c);
+			var c1 = geom.curve.ComplexTrig.cos(c);
+			var this1 = new geom.structure.Mat1x2(c1.x, - c1.y);
+			var conj = cast this1;
+			var this1 = new geom.structure.Mat1x2(s.x * conj.x - s.y * conj.y, s.x * conj.y + s.y * conj.x);
+			var numr = cast this1;
+			var this1 = new geom.structure.Mat1x2(c1.x * conj.x - c1.y * conj.y, c1.x * conj.y + c1.y * conj.x);
+			var demr = cast this1;
+			var dval = cast demr.x + cast demr.y;
+			var this1 = new geom.structure.Mat1x2(cast numr.x / dval, cast numr.y / dval);
+			return cast this1;
+		};
+	}
+
+	public static function sinh(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(geom.curve.Hyperbolic.sinh(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var this1 = new geom.structure.Mat1x2(geom.curve.Hyperbolic.sinh(cast c.x) * Math.cos(cast c.y), geom.curve.Hyperbolic.cosh(cast c.x) * Math.sin(cast c.y));
+			return cast this1;
+		};
+	}
+
+	public static function cosh(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(geom.curve.Hyperbolic.cosh(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var this1 = new geom.structure.Mat1x2(geom.curve.Hyperbolic.cosh(cast c.x) * Math.cos(cast c.y), geom.curve.Hyperbolic.sinh(cast c.x) * Math.sin(cast c.y));
+			return cast this1;
+		};
+	}
+
+	public static function tanh(c:geom.matrix.Complex) {
+		if ((cast c.y == 0 == true)) {
+			var this1 = new geom.structure.Mat1x2(geom.curve.Hyperbolic.tanh(cast c.x), cast 0);
+			return cast this1;
+		} else {
+			var hx = geom.curve.Hyperbolic.tanh(cast c.x);
+			var ty = Math.tan(cast c.y);
+			var this1 = new geom.structure.Mat1x2(hx, ty);
+			var n = cast this1;
+			var this1 = new geom.structure.Mat1x2(cast 1, hx * ty);
+			var d = cast this1;
+			var this1 = new geom.structure.Mat1x2(d.x, - d.y);
+			var conj = cast this1;
+			var this1 = new geom.structure.Mat1x2(n.x * conj.x - n.y * conj.y, n.x * conj.y + n.y * conj.x);
+			var numr = cast this1;
+			var this1 = new geom.structure.Mat1x2(d.x * conj.x - d.y * conj.y, d.x * conj.y + d.y * conj.x);
+			var demr = cast this1;
+			var dval = cast demr.x + cast demr.y;
+			var this1 = new geom.structure.Mat1x2(cast numr.x / dval, cast numr.y / dval);
+			return cast this1;
+		};
+	}
+}

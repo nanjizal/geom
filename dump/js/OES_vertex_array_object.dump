@@ -1,0 +1,14 @@
+@:realPath("js.html.webgl.extension.OESVertexArrayObject") @:native("OES_vertex_array_object")
+extern class OES_vertex_array_object {
+
+	function createVertexArrayOES():WebGLVertexArrayObject;
+
+	function deleteVertexArrayOES(arrayObject:WebGLVertexArrayObject):Void;
+
+	function isVertexArrayOES(arrayObject:WebGLVertexArrayObject):Bool;
+
+	function bindVertexArrayOES(arrayObject:WebGLVertexArrayObject):Void;
+
+	@:value(34229)
+	static inline var VERTEX_ARRAY_BINDING_OES:Int = 34229;
+}

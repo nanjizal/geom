@@ -1,0 +1,50 @@
+private class sys.thread._Thread.Thread_Impl_ {
+
+	@:impl @:noCompletion
+	static inline function _new(h:eval.vm.NativeThread) {
+		var this;
+		this = h;
+		return cast this;
+	}
+
+	@:impl
+	public static inline function sendMessage(this:eval.vm.NativeThread, msg:Dynamic) {
+		this.sendMessage(msg);
+	}
+
+	public static inline function current() {
+		return {
+			var h = eval.vm.NativeThread.self();
+			var this;
+			this = h;
+			cast this;
+		};
+	}
+
+	public static inline function create(callb:Void -> Void) {
+		return {
+			var h = new eval.vm.NativeThread(callb);
+			var this;
+			this = h;
+			cast this;
+		};
+	}
+
+	public static inline function readMessage(block:Bool) {
+		return eval.vm.NativeThread.readMessage(block);
+	}
+
+	public static inline function yield() {
+		eval.vm.NativeThread.yield();
+	}
+
+	@:impl @:op(A == B)
+	public static inline function equals(this:eval.vm.NativeThread, other:sys.thread.Thread) {
+		return cast this.id() == cast other.id();
+	}
+
+	@:impl
+	static inline function getHandle(this:eval.vm.NativeThread) {
+		return this;
+	}
+}

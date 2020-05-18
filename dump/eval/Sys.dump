@@ -1,0 +1,8 @@
+@:keep @:directlyUsed @:used @:require(sys) @:coreApi
+class Sys {
+
+	static function __init__() {
+		var _ = null;
+		var _ = null;
+	}
+}

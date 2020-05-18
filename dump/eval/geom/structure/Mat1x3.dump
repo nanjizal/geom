@@ -1,0 +1,21 @@
+@:directlyUsed @:used @:structInit
+class geom.structure.Mat1x3 {
+
+	function new(x:Float, y:Float, z:Float) {
+		this.z = 0.;
+		this.y = 0.;
+		this.x = 0.;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	@:value(0.)
+	public var x:Float;
+
+	@:value(0.)
+	public var y:Float;
+
+	@:value(0.)
+	public var z:Float;
+}

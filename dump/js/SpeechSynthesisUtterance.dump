@@ -1,0 +1,33 @@
+@:realPath("js.html.SpeechSynthesisUtterance") @:native("SpeechSynthesisUtterance")
+extern class SpeechSynthesisUtterance extends EventTarget {
+
+	function new(text:String):Void;
+
+	function new():Void;
+
+	var text:String;
+
+	var lang:String;
+
+	var voice:SpeechSynthesisVoice;
+
+	var volume:Float;
+
+	var rate:Float;
+
+	var pitch:Float;
+
+	var onstart:haxe.Function;
+
+	var onend:haxe.Function;
+
+	var onerror:haxe.Function;
+
+	var onpause:haxe.Function;
+
+	var onresume:haxe.Function;
+
+	var onmark:haxe.Function;
+
+	var onboundary:haxe.Function;
+}

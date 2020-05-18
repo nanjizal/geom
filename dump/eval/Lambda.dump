@@ -1,0 +1,26 @@
+@:keep @:directlyUsed @:used
+class Lambda {
+
+	public static function array<A : array.A>(it:Iterable<array.A>) {
+		var a = new Array();
+		{
+			var i = it.iterator();
+			while ((i.hasNext())) {
+				var i = i.next();
+				a.push(i);
+			};
+		};
+		return a;
+	}
+
+	public static function has<A : has.A>(it:Iterable<has.A>, elt:has.A) {
+		{
+			var x = it.iterator();
+			while ((x.hasNext())) {
+				var x = x.next();
+				if ((x == elt)) return true;
+			};
+		};
+		return false;
+	}
+}

@@ -1,0 +1,72 @@
+class utest.TestFixture {
+
+	public function new(target:{ }, method:String, setup:Null<String> = null, teardown:Null<String> = null, setupAsync:Null<String> = null, teardownAsync:Null<String> = null) {
+		this.isITest = false;
+		this.target = target;
+		this.method = method;
+		this.setup = setup;
+		this.setupAsync = setupAsync;
+		this.teardown = teardown;
+		this.teardownAsync = teardownAsync;
+		this.ignoringInfo = this.getIgnored();
+	}
+
+	public var target(default,null):{ };
+
+	public var method(default,null):String;
+
+	public var setup(default,null):String;
+
+	public var setupAsync(default,null):String;
+
+	public var teardown(default,null):String;
+
+	public var teardownAsync(default,null):String;
+
+	public var ignoringInfo(default,null):utest.IgnoredFixture;
+
+	@:value(false) @:allow(utest)
+	var isITest:Bool;
+
+	@:allow(utest)
+	var test:Null<utest.TestData>;
+
+	@:allow(utest)
+	var setupMethod:Void -> utest.Async;
+
+	@:allow(utest)
+	var teardownMethod:Void -> utest.Async;
+
+	function checkMethod(name:String, arg:String) {
+		var field = Reflect.field(this.target, name);
+		if (field == null) {
+			throw throw haxe.Exception.thrown(arg + " function " + name + " is not a field of target");
+		};
+		if (! Reflect.isFunction(field)) {
+			throw throw haxe.Exception.thrown(arg + " function " + name + " is not a function");
+		};
+	}
+
+	function getIgnored() {
+		var metas = haxe.rtti.Meta.getFields(Type.getClass(this.target));
+		var metasForTestMetas = Reflect.getProperty(metas, this.method);
+		if (metasForTestMetas == null || ! Reflect.hasField(metasForTestMetas, "Ignored")) {
+			return utest._IgnoredFixture.IgnoredFixture_Impl_.NotIgnored();
+		};
+		var ignoredArgs = cast Reflect.getProperty(metasForTestMetas, "Ignored");
+		if (ignoredArgs == null || ignoredArgs.length == 0 || ignoredArgs[0] == null) {
+			return utest._IgnoredFixture.IgnoredFixture_Impl_.Ignored(null);
+		};
+		var ignoredReason = Std.string(ignoredArgs[0]);
+		return utest._IgnoredFixture.IgnoredFixture_Impl_.Ignored(ignoredReason);
+	}
+
+	public static function ofData(target:utest.ITest, test:utest.TestData, accessories:utest.Accessories) {
+		var fixture = new utest.TestFixture(target, test.name, null, null, null, null);
+		fixture.isITest = true;
+		fixture.test = test;
+		fixture.setupMethod = utest.utils.AccessoriesUtils.getSetup(accessories);
+		fixture.teardownMethod = utest.utils.AccessoriesUtils.getTeardown(accessories);
+		return fixture;
+	}
+}

@@ -1,0 +1,9 @@
+@:realPath("js.html.HTMLCollection") @:used @:native("HTMLCollection")
+extern class HTMLCollection implements ArrayAccess<HTMLElement> {
+
+	var length(default,null):Int;
+
+	function item(index:Int):HTMLElement;
+
+	function namedItem(name:String):HTMLElement;
+}

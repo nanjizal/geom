@@ -1,0 +1,28 @@
+@:realPath("js.html.Text") @:native("Text")
+extern class Text extends CharacterData {
+
+	@:value({ data : "" })
+	function new(data:String):Void;
+
+	var wholeText(default,null):String;
+
+	function splitText(offset:Int):Text;
+
+	function convertQuadFromNode(quad:DOMQuad, from:Text, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertQuadFromNode(quad:DOMQuad, from:HTMLElement, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertQuadFromNode(quad:DOMQuad, from:HTMLDocument, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertRectFromNode(rect:DOMRectReadOnly, from:Text, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertRectFromNode(rect:DOMRectReadOnly, from:HTMLElement, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertRectFromNode(rect:DOMRectReadOnly, from:HTMLDocument, options:Null<js.html.ConvertCoordinateOptions>):DOMQuad;
+
+	function convertPointFromNode(point:js.html.DOMPointInit, from:Text, options:Null<js.html.ConvertCoordinateOptions>):DOMPoint;
+
+	function convertPointFromNode(point:js.html.DOMPointInit, from:HTMLElement, options:Null<js.html.ConvertCoordinateOptions>):DOMPoint;
+
+	function convertPointFromNode(point:js.html.DOMPointInit, from:HTMLDocument, options:Null<js.html.ConvertCoordinateOptions>):DOMPoint;
+}

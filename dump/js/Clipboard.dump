@@ -1,0 +1,11 @@
+@:realPath("js.html.Clipboard") @:native("Clipboard")
+extern class Clipboard extends EventTarget {
+
+	function read():Promise<DataTransfer>;
+
+	function readText():Promise<String>;
+
+	function write(data:DataTransfer):Promise<Void>;
+
+	function writeText(data:String):Promise<Void>;
+}

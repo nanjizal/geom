@@ -1,0 +1,15 @@
+@:realPath("js.html.EventTarget") @:used @:native("EventTarget")
+extern class EventTarget {
+
+	function new():Void;
+
+	function addEventListener(type:String, listener:haxe.Function, options:Null<haxe.extern.EitherType<js.html.AddEventListenerOptions, Bool>>, wantsUntrusted:Null<Bool>):Void;
+
+	function addEventListener(type:String, listener:js.html.EventListener, options:Null<haxe.extern.EitherType<js.html.AddEventListenerOptions, Bool>>, wantsUntrusted:Null<Bool>):Void;
+
+	function removeEventListener(type:String, listener:haxe.Function, options:Null<haxe.extern.EitherType<js.html.EventListenerOptions, Bool>>):Void;
+
+	function removeEventListener(type:String, listener:js.html.EventListener, options:Null<haxe.extern.EitherType<js.html.EventListenerOptions, Bool>>):Void;
+
+	function dispatchEvent(event:Event):Bool;
+}

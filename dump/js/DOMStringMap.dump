@@ -1,0 +1,3 @@
+@:realPath("js.html.DOMStringMap") @:native("DOMStringMap")
+extern class DOMStringMap {
+}

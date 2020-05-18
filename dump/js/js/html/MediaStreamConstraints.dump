@@ -1,0 +1,1 @@
+typedef js.html.MediaStreamConstraints = { ?video : Null<haxe.extern.EitherType<Bool, js.html.MediaTrackConstraints>>, ?picture : Null<Bool>, ?peerIdentity : Null<String>, ?fake : Null<Bool>, ?audio : Null<haxe.extern.EitherType<Bool, js.html.MediaTrackConstraints>> }

@@ -1,0 +1,29 @@
+@:realPath("js.html.idb.Index") @:native("IDBIndex")
+extern class IDBIndex {
+
+	var name:String;
+
+	var objectStore(default,null):IDBObjectStore;
+
+	var keyPath(default,null):Dynamic;
+
+	var multiEntry(default,null):Bool;
+
+	var unique(default,null):Bool;
+
+	@:value({ direction : NEXT })
+	function openCursor(range:Null<Dynamic>, direction:js.html.idb.CursorDirection):IDBRequest;
+
+	@:value({ direction : NEXT })
+	function openKeyCursor(range:Null<Dynamic>, direction:js.html.idb.CursorDirection):IDBRequest;
+
+	function get(key:Dynamic):IDBRequest;
+
+	function getKey(key:Dynamic):IDBRequest;
+
+	function count(key:Null<Dynamic>):IDBRequest;
+
+	function getAll(key:Null<Dynamic>, limit:Null<Int>):IDBRequest;
+
+	function getAllKeys(key:Null<Dynamic>, limit:Null<Int>):IDBRequest;
+}

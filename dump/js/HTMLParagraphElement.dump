@@ -1,0 +1,5 @@
+@:realPath("js.html.ParagraphElement") @:native("HTMLParagraphElement")
+extern class HTMLParagraphElement extends HTMLElement {
+
+	var align:String;
+}

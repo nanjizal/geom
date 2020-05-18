@@ -1,0 +1,1197 @@
+@:used
+private class geom.matrix._Matrix4x3.Matrix4x3_Impl_ {
+
+	@:value(4)
+	public static inline var rows:Int = 4;
+
+	@:value(3)
+	public static inline var columns:Int = 3;
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.Mat4x3) {
+		var this = m;
+		return cast this;
+	}
+
+	@:impl
+	public static inline function clone(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function iterator(this:geom.structure.Mat4x3) {
+		var arr = [this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l];
+		return new haxe.iterators.ArrayIterator(arr);
+	}
+
+	@:impl
+	public static var self(get,never):geom.matrix.Matrix4x3;
+
+	@:impl
+	static inline function get_self(this:geom.structure.Mat4x3) {
+		return cast this;
+	}
+
+	public static var zero(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_zero() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	@:impl
+	static var nought(get,never):geom.matrix.Matrix4x3;
+
+	@:impl
+	static inline function get_nought(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var unit(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_unit() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	static var one(get,never):geom.matrix.Matrix4x3;
+
+	@:impl
+	static inline function get_one(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var minus1(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_minus1() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var a = cast this;
+		var this = new geom.structure.Mat4x3(- cast a.a, - cast a.b, - cast a.c, - cast a.d, - cast a.e, - cast a.f, - cast a.g, - cast a.h, - cast a.i, - cast a.j, - cast a.k, - cast a.l);
+		return cast this;
+	}
+
+	public static var counting(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_counting() {
+		var this = new geom.structure.Mat4x3(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12.);
+		return cast this;
+	}
+
+	@:impl
+	static var testCount(get,never):geom.matrix.Matrix4x3;
+
+	@:impl
+	static inline function get_testCount(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12.);
+		return cast this;
+	}
+
+	public static var topLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_topLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var topRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_topRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var bottomLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_bottomLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., -1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var bottomRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_bottomRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., -1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var north(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_north() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var south(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_south() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., -1., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var west(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_west() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var east(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_east() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	public static var front(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_front() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontNorth(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontNorth() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontTopLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontTopLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontTopRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontTopRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontBottomLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontBottomLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., -1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontBottomRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontBottomRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., -1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontSouth(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontSouth() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., -1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontWest(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontWest() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var frontEast(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_frontEast() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	public static var back(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_back() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 0., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backTopLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backTopLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backTopRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backTopRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backBottomLeft(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backBottomLeft() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., -1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backBottomRight(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backBottomRight() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., -1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backNorth(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backNorth() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., 1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backSouth(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backSouth() {
+		var this = new geom.structure.Mat4x3(0., 0., 0., 0., 0., -1., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backWest(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backWest() {
+		var this = new geom.structure.Mat4x3(-1., 0., 0., 0., 0., 0., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static var backEast(get,never):geom.matrix.Matrix4x3;
+
+	static inline function get_backEast() {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 0., 0., 0., 0., 0., -1., 0.);
+		return cast this;
+	}
+
+	public static inline function radianX(theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., c, - s, 0., 0., s, c, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function rotateX(this:geom.structure.Mat4x3, theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., c, - s, 0., 0., s, c, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function rotationX(theta:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., c, - s, 0., 0., s, c, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function radianY(theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, 0., s, 0., 0., 1., 0., 0., - s, 0., c, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function rotateY(this:geom.structure.Mat4x3, theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, 0., s, 0., 0., 1., 0., 0., - s, 0., c, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function rotationY(theta:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, 0., s, 0., 0., 1., 0., 0., - s, 0., c, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function radianZ(theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, - s, 0., 0., s, c, 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function rotateZ(this:geom.structure.Mat4x3, theta:Float) {
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, - s, 0., 0., s, c, 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function rotationZ(theta:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var c = Math.cos(theta);
+		var s = Math.sin(theta);
+		var this = new geom.structure.Mat4x3(c, - s, 0., 0., s, c, 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function sxy(x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., cast 1, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleXY(this:geom.structure.Mat4x3, x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., cast 1, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalarXY(x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., cast 1, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function sxyz(x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., z, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleXYZ(this:geom.structure.Mat4x3, x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., z, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalarXYZ(x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., y, 0., 0., 0., 0., z, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function sx(x:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleX(this:geom.structure.Mat4x3, x:Float) {
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalarX(x:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(x, 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function sy(y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., y, 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleY(this:geom.structure.Mat4x3, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., y, 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalarY(y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., y, 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function sz(z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., z, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleZ(this:geom.structure.Mat4x3, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., z, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalarZ(z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., z, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scale(this:geom.structure.Mat4x3, s:Float) {
+		var this = new geom.structure.Mat4x3(s, 0., 0., 0., 0., s, 0., 0., 0., 0., s, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(cast this.a * s.a + cast this.b * s.e + cast this.c * s.i, cast this.a * s.b + cast this.b * s.f + cast this.c * s.j, cast this.a * s.c + cast this.b * s.g + cast this.c * s.k, cast this.a * s.d + cast this.b * s.h + cast this.c * s.l + cast this.d, cast this.e * s.a + cast this.f * s.e + cast this.g * s.i, cast this.e * s.b + cast this.f * s.f + cast this.g * s.j, cast this.e * s.c + cast this.f * s.g + cast this.g * s.k, cast this.e * s.d + cast this.f * s.h + cast this.g * s.l + cast this.h, cast this.i * s.a + cast this.j * s.e + cast this.k * s.i, cast this.i * s.b + cast this.j * s.f + cast this.k * s.j, cast this.i * s.c + cast this.j * s.g + cast this.k * s.k, cast this.i * s.d + cast this.j * s.h + cast this.k * s.l + cast this.l);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function scalar(s:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(s, 0., 0., 0., 0., s, 0., 0., 0., 0., s, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(cast this.a * s.a + cast this.b * s.e + cast this.c * s.i, cast this.a * s.b + cast this.b * s.f + cast this.c * s.j, cast this.a * s.c + cast this.b * s.g + cast this.c * s.k, cast this.a * s.d + cast this.b * s.h + cast this.c * s.l + cast this.d, cast this.e * s.a + cast this.f * s.e + cast this.g * s.i, cast this.e * s.b + cast this.f * s.f + cast this.g * s.j, cast this.e * s.c + cast this.f * s.g + cast this.g * s.k, cast this.e * s.d + cast this.f * s.h + cast this.g * s.l + cast this.h, cast this.i * s.a + cast this.j * s.e + cast this.k * s.i, cast this.i * s.b + cast this.j * s.f + cast this.k * s.j, cast this.i * s.c + cast this.j * s.g + cast this.k * s.k, cast this.i * s.d + cast this.j * s.h + cast this.k * s.l + cast this.l);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function txyz(x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function translateXYZ(this:geom.structure.Mat4x3, x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., z);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function translationXYZ(x:Float, y:Float, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., z);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function tx(x:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function translateX(this:geom.structure.Mat4x3, x:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function translationX(x:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., 0., 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function ty(y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., y, 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function translateY(this:geom.structure.Mat4x3, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., y, 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function translationY(y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., y, 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function tz(z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function translateZ(this:geom.structure.Mat4x3, z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., z);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function translationZ(z:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., z);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function txy(x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function translateXY(this:geom.structure.Mat4x3, x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function translationXY(x:Float, y:Float) {
+		var this = new geom.structure.Mat4x3(1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.);
+		var this = cast this;
+		var this = new geom.structure.Mat4x3(1., 0., 0., x, 0., 1., 0., y, 0., 0., 1., 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	public static inline function reflection(a:Float, b:Float, c:Float) {
+		var this = new geom.structure.Mat4x3(- a * a + b * b + c * c, -2. * a * b, -2. * a * c, 0., -2. * b * a, - b * b + a * a + c * c, -2. * b * c, 0., -2. * c * a, -2. * c * b, - c * c + b * b + a * a, 0.);
+		return cast this;
+	}
+
+	public static inline function reflectionX() {
+		var this = new geom.structure.Mat4x3(1, 2., 2., 0., 2., 1, -2., 0., 2., -2., 1, 0.);
+		return cast this;
+	}
+
+	public static inline function reflectionY() {
+		var this = new geom.structure.Mat4x3(1, 2., -2., 0., 2., 1, 2., 0., -2., 2., 1, 0.);
+		return cast this;
+	}
+
+	public static inline function reflectionZ() {
+		var this = new geom.structure.Mat4x3(1, -2., 2., 0., -2., 1, 2., 0., 2., 2., 1, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function reflectX(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(1, 2., 2., 0., 2., 1, -2., 0., 2., -2., 1, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function reflectY(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(1, 2., -2., 0., 2., 1, 2., 0., -2., 2., 1, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function reflectZ(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(1, -2., 2., 0., -2., 1, 2., 0., 2., 2., 1, 0.);
+		var s = cast this;
+		var this = new geom.structure.Mat4x3(this.a * s.a + this.b * s.e + this.c * s.i, this.a * s.b + this.b * s.f + this.c * s.j, this.a * s.c + this.b * s.g + this.c * s.k, this.a * s.d + this.b * s.h + this.c * s.l + this.d, this.e * s.a + this.f * s.e + this.g * s.i, this.e * s.b + this.f * s.f + this.g * s.j, this.e * s.c + this.f * s.g + this.g * s.k, this.e * s.d + this.f * s.h + this.g * s.l + this.h, this.i * s.a + this.j * s.e + this.k * s.i, this.i * s.b + this.j * s.f + this.k * s.j, this.i * s.c + this.j * s.g + this.k * s.k, this.i * s.d + this.j * s.h + this.k * s.l + this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function reflectionNonOrigin(this:geom.structure.Mat4x3, a:Float, b:Float, c:Float, d:Float) {
+		var this = new geom.structure.Mat4x3(1. - 2. * a * a, -2. * b * c, -2. * a * c, -2. * a * d, -2. * b * c, 1. - 2. * b * b, -2. * b * c, -2. * b * d, -2. * a * c, 2. * b * c, 1. - 2. * c * c, -2 * c * d);
+		return cast this;
+	}
+
+	@:op(A == B)
+	public static inline function equal(a:geom.matrix.Matrix4x3, b:geom.matrix.Matrix4x3) {
+		var delta = 0.0000001;
+		return ! (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta);
+	}
+
+	@:op(A != B)
+	public static inline function notEqual(a:geom.matrix.Matrix4x3, b:geom.matrix.Matrix4x3) {
+		var delta = 0.0000001;
+		return (Math.abs(a.a - b.a) >= delta || Math.abs(a.b - b.b) >= delta || Math.abs(a.c - b.c) >= delta || Math.abs(a.d - b.d) >= delta || Math.abs(a.e - b.e) >= delta || Math.abs(a.f - b.f) >= delta || Math.abs(a.g - b.g) >= delta || Math.abs(a.h - b.h) >= delta || Math.abs(a.i - b.i) >= delta || Math.abs(a.j - b.j) >= delta || Math.abs(a.k - b.k) >= delta || Math.abs(a.l - b.l) >= delta);
+	}
+
+	@:op(-A)
+	public static inline function negating(a:geom.matrix.Matrix4x3) {
+		var this = new geom.structure.Mat4x3(- cast a.a, - cast a.b, - cast a.c, - cast a.d, - cast a.e, - cast a.f, - cast a.g, - cast a.h, - cast a.i, - cast a.j, - cast a.k, - cast a.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function negate(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(- this.a, - this.b, - this.c, - this.d, - this.e, - this.f, - this.g, - this.h, - this.i, - this.j, - this.k, - this.l);
+		return cast this;
+	}
+
+	@:op(A + B)
+	public static inline function add(m0:geom.matrix.Matrix4x3, m1:geom.matrix.Matrix4x3) {
+		var this = new geom.structure.Mat4x3(m0.a + m1.a, m0.b + m1.b, m0.c + m1.c, m0.d + m1.d, m0.e + m1.e, m0.f + m1.f, m0.g + m1.g, m0.h + m1.h, m0.i + m1.i, m0.j + m1.j, m0.k + m1.k, m0.l + m1.l);
+		return cast this;
+	}
+
+	@:op(A - B)
+	public static inline function sub(m0:geom.matrix.Matrix4x3, m1:geom.matrix.Matrix4x3) {
+		var this = new geom.structure.Mat4x3(m0.a - m1.a, m0.b - m1.b, m0.c - m1.c, m0.d - m1.d, m0.e - m1.e, m0.f - m1.f, m0.g - m1.g, m0.h - m1.h, m0.i - m1.i, m0.j - m1.j, m0.k - m1.k, m0.l - m1.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleDownByVector(this:geom.structure.Mat4x3, p:geom.matrix.Matrix1x4) {
+		var this = new geom.structure.Mat1x4(1 / p.x, 1 / p.y, 1 / p.z, 1 / p.w);
+		var pd = cast this;
+		var this = new geom.structure.Mat4x3(this.a * pd.x, this.b, this.c, this.d, this.e, this.f * pd.y, this.g, this.h, this.i, this.j, this.k * pd.z, this.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function scaleByVector(this:geom.structure.Mat4x3, p:geom.matrix.Matrix1x4) {
+		var this = new geom.structure.Mat4x3(this.a * p.x, this.b, this.c, this.d, this.e, this.f * p.y, this.g, this.h, this.i, this.j, this.k * p.z, this.l);
+		return cast this;
+	}
+
+	@:op(A * B)
+	public static inline function multiply(r:geom.matrix.Matrix4x3, s:geom.matrix.Matrix4x3) {
+		var this = new geom.structure.Mat4x3(r.a * s.a + r.b * s.e + r.c * s.i, r.a * s.b + r.b * s.f + r.c * s.j, r.a * s.c + r.b * s.g + r.c * s.k, r.a * s.d + r.b * s.h + r.c * s.l + r.d, r.e * s.a + r.f * s.e + r.g * s.i, r.e * s.b + r.f * s.f + r.g * s.j, r.e * s.c + r.f * s.g + r.g * s.k, r.e * s.d + r.f * s.h + r.g * s.l + r.h, r.i * s.a + r.j * s.e + r.k * s.i, r.i * s.b + r.j * s.f + r.k * s.j, r.i * s.c + r.j * s.g + r.k * s.k, r.i * s.d + r.j * s.h + r.k * s.l + r.l);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function cofactor(this:geom.structure.Mat4x3, a:Float, b:Float, c:Float, d:Float, e:Float, f:Float, g:Float, h:Float, i:Float) {
+		return a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g);
+	}
+
+	@:impl
+	public static inline function det(this:geom.structure.Mat4x3) {
+		var m = 0.;
+		var n = 0.;
+		var o = 0.;
+		var p = 1.;
+		var d = this.j;
+		var e = this.k;
+		var f = this.l;
+		var d = this.i;
+		var e = this.k;
+		var f = this.l;
+		var d = this.i;
+		var e = this.j;
+		var f = this.l;
+		var d = this.i;
+		var e = this.j;
+		var f = this.k;
+		return this.a * (this.f * (e * p - f * o) - this.g * (d * p - f * n) + this.h * (d * o - e * n)) - this.b * (this.e * (e * p - f * o) - this.g * (d * p - f * m) + this.h * (d * o - e * m)) + this.c * (this.e * (e * n - f * p) - this.f * (d * n - f * m) + this.h * (d * p - e * m)) - this.d * (this.e * (e * o - f * n) - this.f * (d * o - f * m) + this.g * (d * n - e * m));
+	}
+
+	@:impl
+	public static inline function inverse(this:geom.structure.Mat4x3) {
+		var a = this.a;
+		var b = this.b;
+		var c = this.c;
+		var d = this.d;
+		var e = this.e;
+		var f = this.f;
+		var g = this.g;
+		var h = this.h;
+		var i = this.i;
+		var j = this.j;
+		var k = this.k;
+		var l = this.l;
+		var m = 0.;
+		var n = 0.;
+		var o = 0.;
+		var p = 1.;
+		var q = j * o * h - n * k * h + n * g * l - f * o * l - j * g * p + f * k * p;
+		var r = m * k * h - i * o * h - m * g * l + e * o * l + i * g * p - e * k * p;
+		var s = i * n * h - m * j * h + m * f * l - e * n * l - i * f * p + e * j * p;
+		var t = m * j * g - i * n * g - m * f * k + e * n * k + i * f * o - e * j * o;
+		var det = a * q + b * r + c * s + d * t;
+		if ((det == 0)) return null else {
+			var detI = 1 / det;
+			var this = new geom.structure.Mat4x3(q * detI, (n * k * d - j * o * d - n * c * l + b * o * l + j * c * p - b * k * p) * detI, (f * o * d - n * g * d + n * c * h - b * o * h - f * c * p + b * g * p) * detI, (j * g * d - f * k * d - j * c * h + b * k * h + f * c * l - b * g * l) * detI, r * detI, (i * o * d - m * k * d + m * c * l - a * o * l - i * c * p + a * k * p) * detI, (m * g * d - e * o * d - m * c * h + a * o * h + e * c * p - a * g * p) * detI, (e * k * d - i * g * d + i * c * h - a * k * h - e * c * l + a * g * l) * detI, s * detI, (m * j * d - i * n * d - m * b * l + a * n * l + i * b * p - a * j * p) * detI, (e * n * d - m * f * d + m * b * h - a * n * h - e * b * p + a * f * p) * detI, (i * f * d - e * j * d - i * b * h + a * j * h + e * b * l - a * f * l) * detI);
+			return cast this;
+		};
+	}
+
+	public static inline function orientation(pos:geom.matrix.Matrix1x4, dir:geom.matrix.Matrix1x4, up:geom.matrix.Matrix1x4) {
+		var this = new geom.structure.Mat1x4(cast dir.y * up.z - cast dir.z * up.y, cast dir.z * up.x - cast dir.x * up.z, cast dir.x * up.y - cast dir.y * up.x, cast dir.w * up.w);
+		var right = cast this;
+		var this = new geom.structure.Mat4x3(dir.x, up.x, right.x, pos.x, dir.y, up.y, right.y, pos.y, dir.z, up.z, right.z, pos.z);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function applyRotation(this:geom.structure.Mat4x3, p:geom.matrix.Matrix1x4) {
+		var this = new geom.structure.Mat1x4(this.a * p.x + this.b * p.y + this.c * p.z, this.e * p.x + this.f * p.y + this.g * p.z, this.h * p.x + this.i * p.y + this.j * p.z, 1.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function applyInverseRotation(this:geom.structure.Mat4x3, p:geom.matrix.Matrix1x4) {
+		var this = new geom.structure.Mat1x4(this.a * p.x + this.e * p.y + this.i * p.z, this.b * p.x + this.f * p.y + this.j * p.z, this.c * p.x + this.g * p.y + this.k * p.z, 1.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function orthonormalizeRotation(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat1x4(this.a, this.e, this.i, 1.);
+		var this = cast this;
+		{
+			var currentLength = Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
+			if ((currentLength != 0.)) {
+				var mul = 1. / currentLength;
+				this.x *= mul;
+				this.y *= mul;
+				this.z *= mul;
+				this.w *= mul;
+				var tmp = this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
+			};
+		};
+		var new_x = this;
+		var this = new geom.structure.Mat1x4(this.b, this.f, this.j, 1.);
+		var v = cast this;
+		var this = new geom.structure.Mat1x4(cast new_x.y * v.z - cast new_x.z * v.y, cast new_x.z * v.x - cast new_x.x * v.z, cast new_x.x * v.y - cast new_x.y * v.x, cast new_x.w * v.w);
+		var this = cast this;
+		{
+			var currentLength = Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
+			if ((currentLength != 0.)) {
+				var mul = 1. / currentLength;
+				this.x *= mul;
+				this.y *= mul;
+				this.z *= mul;
+				this.w *= mul;
+				var tmp = this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
+			};
+		};
+		var new_z = this;
+		var this = new geom.structure.Mat1x4(cast new_z.y * new_x.z - cast new_z.z * new_x.y, cast new_z.z * new_x.x - cast new_z.x * new_x.z, cast new_z.x * new_x.y - cast new_z.y * new_x.x, cast new_z.w * new_x.w);
+		var new_y = cast this;
+		this.a = new_x.x;
+		this.b = new_y.x;
+		this.c = new_z.x;
+		this.e = new_x.y;
+		this.f = new_y.y;
+		this.g = new_z.y;
+		this.i = new_x.z;
+		this.j = new_y.z;
+		this.k = new_z.z;
+		return this;
+	}
+
+	@:impl
+	public static inline function makeViewFromOrientation(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(this.c, this.b, - this.a, this.d, this.g, this.f, - this.e, this.h, this.k, this.j, - this.i, this.l);
+		var m = cast this;
+		var this = new geom.structure.Mat4x3(cast m.a, cast m.e, cast m.i, 0., cast m.b, cast m.f, cast m.j, 0., cast m.c, cast m.g, cast m.k, 0.);
+		var m = cast this;
+		var this = new geom.structure.Mat1x4(cast m.d, cast m.h, cast m.l, 1.);
+		var this = cast this;
+		var this = new geom.structure.Mat1x4(m.a * this.x + m.b * this.y + m.c * this.z + m.d, m.e * this.x + m.f * this.y + m.g * this.z + m.h, m.i * this.x + m.j * this.y + m.k * this.z + m.l, 1.);
+		var trans_prime = cast this;
+		m.d = - trans_prime.x;
+		m.h = - trans_prime.y;
+		m.l = - trans_prime.z;
+		return m;
+	}
+
+	@:impl
+	public static inline function invertNormalizedRotation(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(this.a, this.e, this.i, 0., this.b, this.f, this.j, 0., this.c, this.g, this.k, 0.);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function invertNormalized(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat4x3(cast this.a, cast this.e, cast this.i, 0., cast this.b, cast this.f, cast this.j, 0., cast this.c, cast this.g, cast this.k, 0.);
+		var m = cast this;
+		var this = new geom.structure.Mat1x4(this.d, this.h, this.l, 1.);
+		var this = cast this;
+		var this = new geom.structure.Mat1x4(m.a * this.x + m.b * this.y + m.c * this.z + m.d, m.e * this.x + m.f * this.y + m.g * this.z + m.h, m.i * this.x + m.j * this.y + m.k * this.z + m.l, 1.);
+		var trans_prime = cast this;
+		m.d = - trans_prime.x;
+		m.h = - trans_prime.y;
+		m.l = - trans_prime.z;
+		return m;
+	}
+
+	@:impl @:to
+	public static inline function toAffineMatrix(this:geom.structure.Mat4x3) {
+		return {e0 : this.a, e4 : this.b, e8 : this.c, e12 : this.d, e1 : this.e, e5 : this.f, e9 : this.g, e13 : this.h, e2 : this.i, e6 : this.j, e10 : this.k, e14 : this.l};
+	}
+
+	@:from
+	public static inline function fromNumbered(m:geom.tydef.Tmatrix4x4numbered) {
+		var this = new geom.structure.Mat4x3(m._00, m._10, m._20, m._30, m._01, m._11, m._21, m._31, m._02, m._12, m._22, m._32);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function toNumbered(this:geom.structure.Mat4x3) {
+		return {_00 : this.a, _10 : this.b, _20 : this.c, _30 : this.d, _01 : this.e, _11 : this.f, _21 : this.g, _31 : this.h, _02 : this.i, _12 : this.j, _22 : this.k, _32 : this.l, _03 : 0., _13 : 0., _23 : 0., _33 : 1.};
+	}
+
+	@:from
+	public static inline function fromArr(arr:Array<Float>) {
+		var this = new geom.structure.Mat4x3(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9], arr[10], arr[11]);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function toArray(this:geom.structure.Mat4x3) {
+		return [this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l];
+	}
+
+	@:from
+	public static inline function from2x2(m2:geom.matrix.Matrix2x2) {
+		var this = new geom.structure.Mat4x3(m2.a, m2.b, 0., 0., m2.c, m2.d, 0., 0., 0., 0., 1., 0.);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function to2x2(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat2x2(this.a, this.b, this.e, this.f);
+		return cast this;
+	}
+
+	@:from
+	public static inline function from3x3(m3:geom.matrix.Matrix3x3) {
+		var this = new geom.structure.Mat4x3(m3.a, m3.b, m3.c, 0., m3.d, m3.e, m3.f, 0., m3.g, m3.h, m3.i, 0.);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function to3x3(this:geom.structure.Mat4x3) {
+		var this = new geom.structure.Mat3x3(this.a, this.b, this.c, this.e, this.f, this.g, this.i, this.j, this.k);
+		return cast this;
+	}
+
+	@:from
+	public static inline function fromVec(v:haxe.ds.Vector<Float>) {
+		var this = new geom.structure.Mat4x3(cast v[0], cast v[1], cast v[2], cast v[3], cast v[4], cast v[5], cast v[6], cast v[7], cast v[8], cast v[9], cast v[10], cast v[11]);
+		return cast this;
+	}
+
+	@:impl @:to
+	public static inline function toVector(this:geom.structure.Mat4x3) {
+		var this = new eval.Vector(12);
+		var vec = cast this;
+		cast vec[0] = this.a;
+		cast vec[1] = this.b;
+		cast vec[2] = this.c;
+		cast vec[3] = this.d;
+		cast vec[4] = this.e;
+		cast vec[5] = this.f;
+		cast vec[6] = this.g;
+		cast vec[7] = this.h;
+		cast vec[8] = this.i;
+		cast vec[9] = this.j;
+		cast vec[10] = this.k;
+		cast vec[11] = this.l;
+		return vec;
+	}
+
+	@:impl
+	public static inline function setXY(this:geom.structure.Mat4x3, x:Int, y:Int, v:Float) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: return this.a = v;
+				case 1: return this.b = v;
+				case 2: return this.c = v;
+				case 3: return this.d = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x3")
+			};
+			case 1: switch ((y)) {
+				case 0: return this.e = v;
+				case 1: return this.f = v;
+				case 2: return this.g = v;
+				case 3: return this.h = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x3")
+			};
+			case 2: switch ((y)) {
+				case 0: return this.i = v;
+				case 1: return this.j = v;
+				case 2: return this.k = v;
+				case 3: return this.l = v;
+				default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x3")
+			};
+			default: throw haxe.Exception.thrown("bad set " + x + ", " + y + " on Matrix4x3")
+		};
+	}
+
+	@:impl
+	public static inline function getXY(this:geom.structure.Mat4x3, x:Int, y:Int) {
+		switch ((x)) {
+			case 0: switch ((y)) {
+				case 0: return this.a;
+				case 1: return this.b;
+				case 2: return this.c;
+				case 3: return this.d;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x3")
+			};
+			case 1: switch ((y)) {
+				case 0: return this.e;
+				case 1: return this.f;
+				case 2: return this.g;
+				case 3: return this.h;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x3")
+			};
+			case 2: switch ((y)) {
+				case 0: return this.i;
+				case 1: return this.j;
+				case 2: return this.k;
+				case 3: return this.l;
+				default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x3")
+			};
+			default: throw haxe.Exception.thrown("bad get " + x + ", " + y + " on Matrix4x3")
+		};
+	}
+
+	@:impl
+	public static inline function updateWebGL(this:geom.structure.Mat4x3, arr:haxe.io.Float32Array) {
+		var here = this;
+		{
+			{
+				var value = here.a;
+				if ((0 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(cast arr.byteOffset, value);
+			};
+			{
+				var value = here.e;
+				if ((1 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(4 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.i;
+				if ((2 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(8 + cast arr.byteOffset, value);
+			};
+			if ((3 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(12 + cast arr.byteOffset, 0.);
+			{
+				var value = here.b;
+				if ((4 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(16 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.f;
+				if ((5 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(20 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.j;
+				if ((6 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(24 + cast arr.byteOffset, value);
+			};
+			if ((7 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(28 + cast arr.byteOffset, 0.);
+			{
+				var value = here.c;
+				if ((8 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(32 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.g;
+				if ((9 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(36 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.k;
+				if ((10 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(40 + cast arr.byteOffset, value);
+			};
+			if ((11 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(44 + cast arr.byteOffset, 0.);
+			{
+				var value = here.d;
+				if ((12 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(48 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.h;
+				if ((13 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(52 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.l;
+				if ((14 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(56 + cast arr.byteOffset, value);
+			};
+			if ((15 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(60 + cast arr.byteOffset, 1.);
+		};
+		return arr;
+	}
+
+	@:impl
+	public static inline function updateWebGL_(this:geom.structure.Mat4x3, arr:haxe.io.Float32Array) {
+		var here = this;
+		{
+			{
+				var value = here.a;
+				if ((0 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(cast arr.byteOffset, value);
+			};
+			{
+				var value = here.b;
+				if ((1 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(4 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.c;
+				if ((2 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(8 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.d;
+				if ((3 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(12 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.e;
+				if ((4 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(16 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.f;
+				if ((5 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(20 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.g;
+				if ((6 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(24 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.h;
+				if ((7 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(28 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.i;
+				if ((8 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(32 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.j;
+				if ((9 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(36 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.k;
+				if ((10 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(40 + cast arr.byteOffset, value);
+			};
+			{
+				var value = here.l;
+				if ((11 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(44 + cast arr.byteOffset, value);
+			};
+			if ((12 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(48 + cast arr.byteOffset, 0.);
+			if ((13 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(52 + cast arr.byteOffset, 0.);
+			if ((14 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(56 + cast arr.byteOffset, 0.);
+			if ((15 < cast arr.byteLength >> 2)) cast arr.bytes.setFloat(60 + cast arr.byteOffset, 1.);
+		};
+		return arr;
+	}
+
+	@:impl
+	public static inline function pretty(this:geom.structure.Mat4x3, prec:Int) {
+		var dp = geom.constraints.Precision.floatToStringPrecision;
+		var max3 = geom.constraints.Precision.max3;
+		var sa = dp(this.a, prec);
+		var sb = dp(this.b, prec);
+		var sc = dp(this.c, prec);
+		var sd = dp(this.d, prec);
+		var se = dp(this.e, prec);
+		var sf = dp(this.f, prec);
+		var sg = dp(this.g, prec);
+		var sh = dp(this.h, prec);
+		var si = dp(this.i, prec);
+		var sj = dp(this.j, prec);
+		var sk = dp(this.k, prec);
+		var sl = dp(this.l, prec);
+		var la = sa.length;
+		var lb = sb.length;
+		var lc = sc.length;
+		var ld = sd.length;
+		var le = se.length;
+		var lf = sf.length;
+		var lg = sg.length;
+		var lh = sh.length;
+		var li = si.length;
+		var lj = sj.length;
+		var lk = sk.length;
+		var ll = sl.length;
+		var r0 = max3(la, le, li);
+		var r1 = max3(lb, lf, lj);
+		var r2 = max3(lc, lg, lk);
+		var r3 = max3(ld, lh, ll);
+		var spaces = "";
+		{
+			var ` = 0;
+			var `1 = r0;
+			while ((` < `1)) {
+				var n = ` ++;
+				spaces += " ";
+			};
+		};
+		sa = spaces.substr(0, r0 - la) + sa;
+		se = spaces.substr(0, r0 - le) + se;
+		si = spaces.substr(0, r0 - li) + si;
+		var spaces = "";
+		{
+			var `2 = 0;
+			var `3 = r1;
+			while ((`2 < `3)) {
+				var n = `2 ++;
+				spaces += " ";
+			};
+		};
+		sb = spaces.substr(0, r1 - lb) + sb;
+		sf = spaces.substr(0, r1 - lf) + sf;
+		sj = spaces.substr(0, r1 - lj) + sj;
+		var space = "";
+		{
+			var `4 = 0;
+			var `5 = r2;
+			while ((`4 < `5)) {
+				var n = `4 ++;
+				spaces += " ";
+			};
+		};
+		sc = spaces.substr(0, r2 - lc) + sc;
+		sg = spaces.substr(0, r2 - lg) + sg;
+		sk = spaces.substr(0, r2 - lk) + sk;
+		var space = "";
+		{
+			var `6 = 0;
+			var `7 = r3;
+			while ((`6 < `7)) {
+				var n = `6 ++;
+				spaces += " ";
+			};
+		};
+		sd = spaces.substr(0, r3 - ld) + sd;
+		sh = spaces.substr(0, r3 - lh) + sh;
+		sl = spaces.substr(0, r3 - ll) + sl;
+		return "\n" + "/ " + sa + ", " + sb + ", " + sc + ", " + sd + " \\\n" + "| " + se + ", " + sf + ", " + sg + ", " + sh + " |\n" + "\\ " + si + ", " + sj + ", " + sk + ", " + sl + " /\n";
+	}
+}

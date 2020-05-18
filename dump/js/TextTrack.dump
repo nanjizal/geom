@@ -1,0 +1,25 @@
+@:realPath("js.html.TextTrack") @:native("TextTrack")
+extern class TextTrack extends EventTarget {
+
+	var kind(default,null):js.html.TextTrackKind;
+
+	var label(default,null):String;
+
+	var language(default,null):String;
+
+	var id(default,null):String;
+
+	var inBandMetadataTrackDispatchType(default,null):String;
+
+	var mode:js.html.TextTrackMode;
+
+	var cues(default,null):TextTrackCueList;
+
+	var activeCues(default,null):TextTrackCueList;
+
+	var oncuechange:haxe.Function;
+
+	function addCue(cue:VTTCue):Void;
+
+	function removeCue(cue:VTTCue):Void;
+}

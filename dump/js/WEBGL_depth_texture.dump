@@ -1,0 +1,6 @@
+@:realPath("js.html.webgl.extension.WEBGLDepthTexture") @:native("WEBGL_depth_texture")
+extern class WEBGL_depth_texture {
+
+	@:value(34042)
+	static inline var UNSIGNED_INT_24_8_WEBGL:Int = 34042;
+}

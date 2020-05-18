@@ -1,0 +1,11 @@
+private class haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_ {
+
+	@:impl
+	public static var length(get,never):Int;
+
+	@:impl
+	static inline function get_length(this:Array<haxe.ds.ReadOnlyArray.T>) return this.length
+
+	@:impl @:arrayAccess
+	static inline function get(this:Array<haxe.ds.ReadOnlyArray.T>, i:Int) return this[i]
+}

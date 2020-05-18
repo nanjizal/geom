@@ -1,0 +1,1 @@
+typedef js.html.FontFaceDescriptors = { ?weight : Null<String>, ?variationSettings : Null<String>, ?variant : Null<String>, ?unicodeRange : Null<String>, ?style : Null<String>, ?stretch : Null<String>, ?featureSettings : Null<String>, ?display : Null<String> }

@@ -1,0 +1,101 @@
+@:directlyUsed @:used
+class equals.Equal {
+
+	static function isNull(a:Dynamic) {
+		if ((enumIndex Type.typeof(a) == 0)) return true else return false;
+	}
+
+	static function isFunction(a:Dynamic) {
+		if ((enumIndex Type.typeof(a) == 5)) return true else return false;
+	}
+
+	public static function equals<T : equals.T>(a:equals.T, b:equals.T) {
+		if ((a == b)) return true;
+		if ((equals.Equal.isNull(a) || equals.Equal.isNull(b))) return false;
+		{
+			var ` = Type.typeof(a);
+			switch ((@:exhaustive enumIndex `)) {
+				case 2: if ((Math.isNaN(cast a))) return Math.isNaN(cast b) else return false;
+				case 4: {};
+				case 5: return Reflect.compareMethods(a, b);
+				case 6: {
+					var `1 = `[0];
+					{
+						if ((Std.is(a, Array))) {
+							var a = cast (a,Array);
+							var b = cast (b,Array);
+							if ((a.length != b.length)) return false;
+							{
+								var ` = 0;
+								var `1 = a.length;
+								while ((` < `1)) {
+									var i = ` ++;
+									if ((! equals.Equal.equals(a[i], b[i]))) return false;
+								};
+							};
+							return true;
+						};
+						if ((Std.is(a, haxe.IMap))) {
+							var a = cast (a,haxe.IMap);
+							var b = cast (b,haxe.IMap);
+							var ` = [];
+							{
+								var key = a.keys();
+								while ((key.hasNext())) {
+									var key = key.next();
+									`.push(key);
+								};
+							};
+							var a_keys = `;
+							var `1 = [];
+							{
+								var key = b.keys();
+								while ((key.hasNext())) {
+									var key = key.next();
+									`1.push(key);
+								};
+							};
+							var b_keys = `1;
+							if ((! equals.Equal.equals(a_keys, b_keys))) return false;
+							{
+								var `2 = 0;
+								while ((`2 < a_keys.length)) {
+									var key = a_keys[`2];
+									++ `2;
+									if ((! equals.Equal.equals(a.get(key), b.get(key)))) return false;
+								};
+							};
+							return true;
+						};
+						if ((Std.is(a, Date))) return (cast (a,Date)).getTime() == (cast (b,Date)).getTime();
+						if ((Std.is(a, haxe.io.Bytes))) return equals.Equal.equals((cast (a,haxe.io.Bytes)).getData(), (cast (b,haxe.io.Bytes)).getData());
+					};
+				};
+				case 7: {
+					var `2 = `[0];
+					if ((Type.enumIndex(cast a) != Type.enumIndex(cast b))) return false;
+					var a_args = Type.enumParameters(cast a);
+					var b_args = Type.enumParameters(cast b);
+					return equals.Equal.equals(a_args, b_args);
+				};
+				case 0, 1, 3, 8: return a == b;
+			};
+		};
+		{
+			var `3 = 0;
+			var `4 = Reflect.fields(a);
+			while ((`3 < `4.length)) {
+				var field = `4[`3];
+				++ `3;
+				var pa = Reflect.field(a, field);
+				var pb = Reflect.field(b, field);
+				if ((equals.Equal.isFunction(pa))) {
+					if ((equals.Equal.isNull(pa) != equals.Equal.isNull(pb))) return false;
+					continue;
+				};
+				if ((! equals.Equal.equals(pa, pb))) return false;
+			};
+		};
+		return true;
+	}
+}

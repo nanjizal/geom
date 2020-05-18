@@ -1,0 +1,25 @@
+@:realPath("js.html.svg.GraphicsElement") @:native("SVGGraphicsElement")
+extern class SVGGraphicsElement extends SVGElement {
+
+	var transform(default,null):SVGAnimatedTransformList;
+
+	var nearestViewportElement(default,null):SVGElement;
+
+	var farthestViewportElement(default,null):SVGElement;
+
+	var requiredFeatures(default,null):SVGStringList;
+
+	var requiredExtensions(default,null):SVGStringList;
+
+	var systemLanguage(default,null):SVGStringList;
+
+	function getBBox(aOptions:Null<js.html.svg.BoundingBoxOptions>):SVGRect;
+
+	function getCTM():SVGMatrix;
+
+	function getScreenCTM():SVGMatrix;
+
+	function getTransformToElement(element:SVGGraphicsElement):SVGMatrix;
+
+	function hasExtension(extension:String):Bool;
+}

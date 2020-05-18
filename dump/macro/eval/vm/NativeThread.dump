@@ -1,0 +1,22 @@
+extern class eval.vm.NativeThread {
+
+	function new(f:Void -> Void):Void;
+
+	function id():Int;
+
+	function kill():Int;
+
+	function sendMessage<T : sendMessage.T>(msg:sendMessage.T):Void;
+
+	static function delay(f:Float):Void;
+
+	static function exit():Void;
+
+	static function join(thread:eval.vm.NativeThread):Void;
+
+	static function self():eval.vm.NativeThread;
+
+	static function yield():Void;
+
+	static function readMessage<T : readMessage.T>(block:Bool):readMessage.T;
+}

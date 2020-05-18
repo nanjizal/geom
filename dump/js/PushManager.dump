@@ -1,0 +1,11 @@
+@:realPath("js.html.push.PushManager") @:native("PushManager")
+extern class PushManager {
+
+	function new(scope:String):Void;
+
+	function subscribe(options:Null<js.html.push.PushSubscriptionOptionsInit>):Promise<PushSubscription>;
+
+	function getSubscription():Promise<PushSubscription>;
+
+	function permissionState(options:Null<js.html.push.PushSubscriptionOptionsInit>):Promise<js.html.push.PushPermissionState>;
+}

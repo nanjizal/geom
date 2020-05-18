@@ -1,0 +1,9 @@
+@:realPath("js.html.File") @:native("File")
+extern class File extends Blob {
+
+	function new(fileBits:Array<haxe.extern.EitherType<haxe.extern.EitherType<js.lib.ArrayBufferView, ArrayBuffer>, haxe.extern.EitherType<Blob, String>>>, fileName:String, options:Null<js.html.FilePropertyBag>):Void;
+
+	var name(default,null):String;
+
+	var lastModified(default,null):Int;
+}

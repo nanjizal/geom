@@ -1,0 +1,2 @@
+@:used @:valueUsed @:coreType @:runtimeValue
+abstract Dynamic<T : Dynamic.T> {}

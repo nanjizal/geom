@@ -1,0 +1,11 @@
+@:realPath("js.html.DOMImplementation") @:native("DOMImplementation")
+extern class DOMImplementation {
+
+	function hasFeature():Bool;
+
+	function createDocumentType(qualifiedName:String, publicId:String, systemId:String):DocumentType;
+
+	function createDocument(namespace:String, qualifiedName:String, doctype:Null<DocumentType>):HTMLDocument;
+
+	function createHTMLDocument(title:Null<String>):HTMLDocument;
+}

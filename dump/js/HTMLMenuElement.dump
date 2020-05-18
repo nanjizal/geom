@@ -1,0 +1,9 @@
+@:realPath("js.html.MenuElement") @:native("HTMLMenuElement")
+extern class HTMLMenuElement extends HTMLElement {
+
+	var type:String;
+
+	var label:String;
+
+	var compact:Bool;
+}

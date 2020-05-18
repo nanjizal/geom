@@ -1,0 +1,81 @@
+@:realPath("js.html.Navigator") @:native("Navigator")
+extern class Navigator {
+
+	var permissions(default,null):Permissions;
+
+	var mimeTypes(default,null):MimeTypeArray;
+
+	var plugins(default,null):PluginArray;
+
+	var doNotTrack(default,null):String;
+
+	var maxTouchPoints(default,null):Int;
+
+	var oscpu(default,null):String;
+
+	var vendor(default,null):String;
+
+	var vendorSub(default,null):String;
+
+	var productSub(default,null):String;
+
+	var cookieEnabled(default,null):Bool;
+
+	var buildID(default,null):String;
+
+	var mediaDevices(default,null):MediaDevices;
+
+	var serviceWorker(default,null):ServiceWorkerContainer;
+
+	var clipboard(default,null):Clipboard;
+
+	var hardwareConcurrency(default,null):Int;
+
+	var geolocation(default,null):js.html.Geolocation;
+
+	var appCodeName(default,null):String;
+
+	var appName(default,null):String;
+
+	var appVersion(default,null):String;
+
+	var platform(default,null):String;
+
+	var userAgent(default,null):String;
+
+	var product(default,null):String;
+
+	var language(default,null):String;
+
+	var languages(default,null):Array<String>;
+
+	var onLine(default,null):Bool;
+
+	var storage(default,null):StorageManager;
+
+	function vibrate(pattern:Array<Int>):Bool;
+
+	function vibrate(duration:Int):Bool;
+
+	function javaEnabled():Bool;
+
+	function getGamepads():Array<Gamepad>;
+
+	function requestMIDIAccess(options:Null<js.html.midi.MIDIOptions>):Promise<MIDIAccess>;
+
+	function sendBeacon(url:String, data:Null<Blob>):Bool;
+
+	function sendBeacon(url:String, data:Null<js.lib.ArrayBufferView>):Bool;
+
+	function sendBeacon(url:String, data:Null<ArrayBuffer>):Bool;
+
+	function sendBeacon(url:String, data:Null<FormData>):Bool;
+
+	function sendBeacon(url:String, data:Null<URLSearchParams>):Bool;
+
+	function sendBeacon(url:String, data:Null<String>):Bool;
+
+	function requestMediaKeySystemAccess(keySystem:String, supportedConfigurations:Array<js.html.eme.MediaKeySystemConfiguration>):Promise<MediaKeySystemAccess>;
+
+	function taintEnabled():Bool;
+}

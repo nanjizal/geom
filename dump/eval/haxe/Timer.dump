@@ -1,0 +1,33 @@
+@:keep @:directlyUsed @:used
+class haxe.Timer {
+
+	public function new(time_ms:Int) {
+		var `this = this;
+		var dt = time_ms / 1000;
+		this.event = haxe.MainLoop.add(function() {
+			`this.event.nextRun += dt;
+			`this.run();
+		}, null);
+		this.event.delay(dt);
+	}
+
+	var event:haxe.MainEvent;
+
+	public function stop() {
+		if ((this.event != null)) {
+			this.event.stop();
+			this.event = null;
+		};
+	}
+
+	public dynamic function run() {}
+
+	public static function delay(f:Void -> Void, time_ms:Int) {
+		var t = new haxe.Timer(time_ms);
+		t.run = function() {
+			t.stop();
+			f();
+		};
+		return t;
+	}
+}

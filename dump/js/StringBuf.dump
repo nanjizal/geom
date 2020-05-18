@@ -1,0 +1,21 @@
+@:keep @:directlyUsed @:used
+class StringBuf {
+
+	public function new() {
+		this.b = "";
+	}
+
+	var b:String;
+
+	public function add<T : add.T>(x:add.T) {
+		this.b += Std.string(x);
+	}
+
+	public function addChar(c:Int) {
+		this.b += @:pure __define_feature__("String.fromCharCode", js.Syntax.code("String.fromCodePoint({0})", c));
+	}
+
+	public function toString() {
+		return this.b;
+	}
+}

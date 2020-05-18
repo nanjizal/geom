@@ -1,0 +1,70 @@
+@:realPath("js.html.svg.SVGElement") @:native("SVGSVGElement")
+extern class SVGSVGElement extends SVGGraphicsElement {
+
+	var x(default,null):SVGAnimatedLength;
+
+	var y(default,null):SVGAnimatedLength;
+
+	var width(default,null):SVGAnimatedLength;
+
+	var height(default,null):SVGAnimatedLength;
+
+	var useCurrentView(default,null):Bool;
+
+	var currentScale:Float;
+
+	var currentTranslate(default,null):SVGPoint;
+
+	var viewBox(default,null):SVGAnimatedRect;
+
+	var preserveAspectRatio(default,null):SVGAnimatedPreserveAspectRatio;
+
+	var zoomAndPan:Int;
+
+	function suspendRedraw(maxWaitMilliseconds:Int):Int;
+
+	function unsuspendRedraw(suspendHandleID:Int):Void;
+
+	function unsuspendRedrawAll():Void;
+
+	function forceRedraw():Void;
+
+	function pauseAnimations():Void;
+
+	function unpauseAnimations():Void;
+
+	function animationsPaused():Bool;
+
+	function getCurrentTime():Float;
+
+	function setCurrentTime(seconds:Float):Void;
+
+	function deselectAll():Void;
+
+	function createSVGNumber():SVGNumber;
+
+	function createSVGLength():SVGLength;
+
+	function createSVGAngle():SVGAngle;
+
+	function createSVGPoint():SVGPoint;
+
+	function createSVGMatrix():SVGMatrix;
+
+	function createSVGRect():SVGRect;
+
+	function createSVGTransform():SVGTransform;
+
+	function createSVGTransformFromMatrix(matrix:SVGMatrix):SVGTransform;
+
+	function getElementById(elementId:String):HTMLElement;
+
+	@:value(0)
+	static inline var SVG_ZOOMANDPAN_UNKNOWN:Int = 0;
+
+	@:value(1)
+	static inline var SVG_ZOOMANDPAN_DISABLE:Int = 1;
+
+	@:value(2)
+	static inline var SVG_ZOOMANDPAN_MAGNIFY:Int = 2;
+}

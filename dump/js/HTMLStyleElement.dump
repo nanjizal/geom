@@ -1,0 +1,11 @@
+@:realPath("js.html.StyleElement") @:native("HTMLStyleElement")
+extern class HTMLStyleElement extends HTMLElement {
+
+	var disabled:Bool;
+
+	var media:String;
+
+	var type:String;
+
+	var sheet(default,null):StyleSheet;
+}

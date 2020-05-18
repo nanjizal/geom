@@ -1,0 +1,29 @@
+@:realPath("js.html.FontFace") @:native("FontFace")
+extern class FontFace {
+
+	function new(family:String, source:String, descriptors:Null<js.html.FontFaceDescriptors>):Void;
+
+	function new(family:String, source:ArrayBuffer, descriptors:Null<js.html.FontFaceDescriptors>):FontFace;
+
+	function new(family:String, source:js.lib.ArrayBufferView, descriptors:Null<js.html.FontFaceDescriptors>):FontFace;
+
+	var family:String;
+
+	var style:String;
+
+	var weight:String;
+
+	var stretch:String;
+
+	var unicodeRange:String;
+
+	var variant:String;
+
+	var featureSettings:String;
+
+	var status(default,null):js.html.FontFaceLoadStatus;
+
+	var loaded(default,null):Promise<FontFace>;
+
+	function load():Promise<FontFace>;
+}

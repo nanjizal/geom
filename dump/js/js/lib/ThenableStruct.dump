@@ -1,0 +1,1 @@
+typedef js.lib.ThenableStruct<T : js.lib.ThenableStruct.T> = { then : (onFulfilled : Null<js.lib.PromiseHandler<js.lib.ThenableStruct.T, then.TOut>>, ?onRejected : js.lib.PromiseHandler<Dynamic, then.TOut>) -> js.lib.Thenable<then.TOut> }

@@ -1,0 +1,12 @@
+class haxe.macro.Error extends haxe.Exception {
+
+	public function new(message:String, pos:haxe.macro.Position, previous:Null<haxe.Exception> = null) {
+		{
+			super(message, previous, null);
+			this.pos = pos;
+		};
+		this.__shiftStack();
+	}
+
+	public var pos:haxe.macro.Position;
+}

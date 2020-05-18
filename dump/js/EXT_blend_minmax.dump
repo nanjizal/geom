@@ -1,0 +1,9 @@
+@:realPath("js.html.webgl.extension.EXTBlendMinmax") @:native("EXT_blend_minmax")
+extern class EXT_blend_minmax {
+
+	@:value(32775)
+	static inline var MIN_EXT:Int = 32775;
+
+	@:value(32776)
+	static inline var MAX_EXT:Int = 32776;
+}

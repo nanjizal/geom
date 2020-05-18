@@ -1,0 +1,4 @@
+enum hscript.FieldKind {
+	KFunction(f:hscript.FunctionDecl);
+	KVar(v:hscript.VarDecl);
+}

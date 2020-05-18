@@ -1,0 +1,1 @@
+typedef hscript.FieldDecl = { name : String, meta : hscript.Metadata, kind : hscript.FieldKind, access : Array<hscript.FieldAccess> }

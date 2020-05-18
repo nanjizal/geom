@@ -1,0 +1,383 @@
+class utest.utils.TestBuilder {
+
+	@:value("test")
+	static inline var TEST_PREFIX:String = "test";
+
+	@:value("spec")
+	static inline var SPEC_PREFIX:String = "spec";
+
+	@:value(":utestProcessed")
+	static inline var PROCESSED_META:String = ":utestProcessed";
+
+	@:value(":timeout")
+	static inline var TIMEOUT_META:String = ":timeout";
+
+	@:has_untyped
+	public static macro function build() {
+		if (haxe.macro.Context.defined("display")) {
+			return null;
+		};
+		var cls = haxe.macro.Context.getLocalClass().get();
+		if (cls.isInterface || cls.meta.has(":utestProcessed")) {
+			return null;
+		};
+		cls.meta.add(":utestProcessed", [], cls.pos);
+		var isOverriding = utest.utils.TestBuilder.ancestorHasInitializeUtest(cls);
+		var initExprs = utest.utils.TestBuilder.initialExpressions(isOverriding);
+		var fields = haxe.macro.Context.getBuildFields();
+		{
+			var ` = 0;
+			while (` < fields.length) {
+				var field = fields[`];
+				++ `;
+				@:ast(switch (field.kind) {
+	case FFun(fn):
+		var isStatic = field.access == null ? false : field.access.has(AStatic);
+		if (!isStatic && isTestName(field.name)) {
+			processTest(cls, field, fn, initExprs);
+		} else if (isAccessoryMethod(field.name)) {
+			processAccessory(cls, field, fn, initExprs);
+		} else {
+			checkPossibleTypo(field);
+		};	
+	case _:
+}) {
+					var ` = field.kind;
+					if (enumIndex ` == 1) {
+						var `1 = `[0];
+						{
+							var fn = `1;
+							{
+								var isStatic = if (field.access == null) {
+									false;
+								} else {
+									Lambda.has(field.access, haxe.macro.Access.AStatic);
+								};
+								if (! isStatic && utest.utils.TestBuilder.isTestName(field.name)) {
+									utest.utils.TestBuilder.processTest(cls, field, fn, initExprs);
+								} else {
+									if (utest.utils.TestBuilder.isAccessoryMethod(field.name)) {
+										utest.utils.TestBuilder.processAccessory(cls, field, fn, initExprs);
+									} else {
+										utest.utils.TestBuilder.checkPossibleTypo(field);
+									};
+								};
+							};
+						};
+					} else {};
+				};
+			};
+		};
+		initExprs.push(cast {expr : haxe.macro.ExprDef.EReturn({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("init")), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1365, 1369)}), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1358, 1369)});
+		var initialize = (cast {pack : [], name : "Dummy", pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1399, 1528), meta : [], params : [], isExtern : cast false, kind : haxe.macro.TypeDefKind.TDClass(null, [], false, false), fields : [{name : "__initializeUtest__", access : [haxe.macro.Access.APublic], kind : haxe.macro.FieldType.FFun({args : [], ret : haxe.macro.ComplexType.TPath({pack : ["utest"], name : "TestData", params : [], sub : "InitializeUtest"}), expr : {expr : haxe.macro.ExprDef.EBlock(initExprs), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1513, 1524)}, params : []}), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1438, 1524), meta : [{name : ":noCompletion", params : [], pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1416, 1430)}, {name : ":keep", params : [], pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1431, 1437)}]}]}).fields[0];
+		if (isOverriding) {
+			initialize.access.push(haxe.macro.Access.AOverride);
+		};
+		fields.push(initialize);
+		return fields;
+	}
+
+	@:has_untyped
+	static function initialExpressions(isOverriding:Bool) {
+		var initExprs = [];
+		if (isOverriding) {
+			initExprs.push(cast {expr : haxe.macro.ExprDef.EVars([{name : "init", type : null, expr : {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("super")), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1801, 1806)}, "__initializeUtest__"), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1801, 1826)}, []), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1801, 1828)}, isFinal : cast false}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1790, 1793)});
+		} else {
+			initExprs.push(cast {expr : haxe.macro.ExprDef.EVars([{name : "init", type : haxe.macro.ComplexType.TPath({pack : ["utest"], name : "TestData", params : [], sub : "InitializeUtest"}), expr : {expr : haxe.macro.ExprDef.EObjectDecl([{field : "tests", expr : {expr : haxe.macro.ExprDef.EArrayDecl([]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1915, 1917)}, quotes : haxe.macro.QuoteStatus.Unquoted}, {field : "accessories", expr : {expr : haxe.macro.ExprDef.EBlock([]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1931, 1933)}, quotes : haxe.macro.QuoteStatus.Unquoted}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1908, 1934)}, isFinal : cast false}]), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 1866, 1869)});
+		};
+		return initExprs;
+	}
+
+	static function processTest(cls:haxe.macro.ClassType, field:haxe.macro.Field, fn:haxe.macro.Function, initExprs:Array<haxe.macro.Expr>) {
+		var test = field.name;
+		@:ast(switch (fn.args.length) {
+	case 0:
+		initExprs.push(({ expr : ECall({ expr : EField({ expr : EField({ expr : EConst(CIdent("init")), pos : field.pos }, "tests"), pos : field.pos }, "push"), pos : field.pos }, [{ expr : EObjectDecl([{ field : "name", expr : haxe.macro.Context.makeExpr(@$v test, field.pos), quotes : Unquoted }, { field : "execute", expr : { expr : EFunction(FAnonymous, { args : [], ret : null, expr : { expr : EBlock([{ expr : ECall({ expr : EField({ expr : EConst(CIdent("this")), pos : field.pos }, test), pos : field.pos }, []), pos : field.pos }, { expr : EReturn({ expr : EMeta({ name : ":privateAccess", params : [], pos : field.pos }, { expr : ECall({ expr : EField({ expr : EField({ expr : EConst(CIdent("utest")), pos : field.pos }, "Async"), pos : field.pos }, "getResolved"), pos : field.pos }, []), pos : field.pos }), pos : field.pos }), pos : field.pos }]), pos : field.pos }, params : [] }), pos : field.pos }, quotes : Unquoted }]), pos : field.pos }]), pos : field.pos } : haxe.macro.Expr));	
+	case 1:
+		initExprs.push(({ expr : ECall({ expr : EField({ expr : EField({ expr : EConst(CIdent("init")), pos : field.pos }, "tests"), pos : field.pos }, "push"), pos : field.pos }, [{ expr : EObjectDecl([{ field : "name", expr : haxe.macro.Context.makeExpr(@$v test, field.pos), quotes : Unquoted }, { field : "execute", expr : { expr : EFunction(FAnonymous, { args : [], ret : null, expr : { expr : EBlock([{ expr : EVars([{ name : "async", type : null, expr : { expr : EMeta({ name : ":privateAccess", params : [], pos : field.pos }, { expr : ENew({ pack : ["utest"], name : "Async", params : [] }, [getTimeoutExpr(cls, field)]), pos : field.pos }), pos : field.pos }, isFinal : false }]), pos : field.pos }, { expr : ECall({ expr : EField({ expr : EConst(CIdent("this")), pos : field.pos }, test), pos : field.pos }, [{ expr : EConst(CIdent("async")), pos : field.pos }]), pos : field.pos }, { expr : EReturn({ expr : EConst(CIdent("async")), pos : field.pos }), pos : field.pos }]), pos : field.pos }, params : [] }), pos : field.pos }, quotes : Unquoted }]), pos : field.pos }]), pos : field.pos } : haxe.macro.Expr));	
+	case _:
+		Context.error("Wrong arguments count. The only supported argument is utest.Async for asynchronous tests.", field.pos);	
+}) {
+			var ` = fn.args.length;
+			switch (`) {
+				case 0: {
+					{
+						initExprs.push(cast {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("init")), pos : field.pos}, "tests"), pos : field.pos}, "push"), pos : field.pos}, [{expr : haxe.macro.ExprDef.EObjectDecl([{field : "name", expr : haxe.macro.Context.makeExpr(test, field.pos), quotes : haxe.macro.QuoteStatus.Unquoted}, {field : "execute", expr : {expr : haxe.macro.ExprDef.EFunction(haxe.macro.FunctionKind.FAnonymous, {args : [], ret : null, expr : {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("this")), pos : field.pos}, test), pos : field.pos}, []), pos : field.pos}, {expr : haxe.macro.ExprDef.EReturn({expr : haxe.macro.ExprDef.EMeta({name : ":privateAccess", params : [], pos : field.pos}, {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("utest")), pos : field.pos}, "Async"), pos : field.pos}, "getResolved"), pos : field.pos}, []), pos : field.pos}), pos : field.pos}), pos : field.pos}]), pos : field.pos}, params : []}), pos : field.pos}, quotes : haxe.macro.QuoteStatus.Unquoted}]), pos : field.pos}]), pos : field.pos});
+					};
+				};
+				case 1: {
+					{
+						initExprs.push(cast {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("init")), pos : field.pos}, "tests"), pos : field.pos}, "push"), pos : field.pos}, [{expr : haxe.macro.ExprDef.EObjectDecl([{field : "name", expr : haxe.macro.Context.makeExpr(test, field.pos), quotes : haxe.macro.QuoteStatus.Unquoted}, {field : "execute", expr : {expr : haxe.macro.ExprDef.EFunction(haxe.macro.FunctionKind.FAnonymous, {args : [], ret : null, expr : {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.EVars([{name : "async", type : null, expr : {expr : haxe.macro.ExprDef.EMeta({name : ":privateAccess", params : [], pos : field.pos}, {expr : haxe.macro.ExprDef.ENew({pack : ["utest"], name : "Async", params : []}, [utest.utils.TestBuilder.getTimeoutExpr(cls, field)]), pos : field.pos}), pos : field.pos}, isFinal : cast false}]), pos : field.pos}, {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("this")), pos : field.pos}, test), pos : field.pos}, [{expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("async")), pos : field.pos}]), pos : field.pos}, {expr : haxe.macro.ExprDef.EReturn({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("async")), pos : field.pos}), pos : field.pos}]), pos : field.pos}, params : []}), pos : field.pos}, quotes : haxe.macro.QuoteStatus.Unquoted}]), pos : field.pos}]), pos : field.pos});
+					};
+				};
+				default: {
+					haxe.macro.Context.error("Wrong arguments count. The only supported argument is utest.Async for asynchronous tests.", field.pos);
+				}
+			};
+		};
+		if (field.name.indexOf("spec", null) == 0 && fn.expr != null) {
+			fn.expr = utest.utils.TestBuilder.prepareSpec(fn.expr);
+		};
+	}
+
+	static function processAccessory(cls:haxe.macro.ClassType, field:haxe.macro.Field, fn:haxe.macro.Function, initExprs:Array<haxe.macro.Expr>) {
+		var name = field.name;
+		@:ast(switch (fn.args.length) {
+	case 0:
+		initExprs.push(({ expr : EBinop(OpAssign, { expr : EField({ expr : EField({ expr : EConst(CIdent("init")), pos : field.pos }, "accessories"), pos : field.pos }, name), pos : field.pos }, { expr : EFunction(FAnonymous, { args : [], ret : null, expr : { expr : EBlock([{ expr : ECall({ expr : EField({ expr : EConst(CIdent("this")), pos : field.pos }, name), pos : field.pos }, []), pos : field.pos }, { expr : EReturn({ expr : EMeta({ name : ":privateAccess", params : [], pos : field.pos }, { expr : ECall({ expr : EField({ expr : EField({ expr : EConst(CIdent("utest")), pos : field.pos }, "Async"), pos : field.pos }, "getResolved"), pos : field.pos }, []), pos : field.pos }), pos : field.pos }), pos : field.pos }]), pos : field.pos }, params : [] }), pos : field.pos }), pos : field.pos } : haxe.macro.Expr));	
+	case 1:
+		initExprs.push(({ expr : EBinop(OpAssign, { expr : EField({ expr : EField({ expr : EConst(CIdent("init")), pos : field.pos }, "accessories"), pos : field.pos }, name), pos : field.pos }, { expr : EFunction(FAnonymous, { args : [], ret : null, expr : { expr : EBlock([{ expr : EVars([{ name : "async", type : null, expr : { expr : EMeta({ name : ":privateAccess", params : [], pos : field.pos }, { expr : ENew({ pack : ["utest"], name : "Async", params : [] }, [getTimeoutExpr(cls, field)]), pos : field.pos }), pos : field.pos }, isFinal : false }]), pos : field.pos }, { expr : ECall({ expr : EField({ expr : EConst(CIdent("this")), pos : field.pos }, name), pos : field.pos }, [{ expr : EConst(CIdent("async")), pos : field.pos }]), pos : field.pos }, { expr : EReturn({ expr : EConst(CIdent("async")), pos : field.pos }), pos : field.pos }]), pos : field.pos }, params : [] }), pos : field.pos }), pos : field.pos } : haxe.macro.Expr));	
+	case _:
+		Context.error("Wrong arguments count. The only supported argument is utest.Async for asynchronous methods.", field.pos);	
+}) {
+			var ` = fn.args.length;
+			switch (`) {
+				case 0: {
+					{
+						initExprs.push(cast {expr : haxe.macro.ExprDef.EBinop(haxe.macro.Binop.OpAssign, {expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("init")), pos : field.pos}, "accessories"), pos : field.pos}, name), pos : field.pos}, {expr : haxe.macro.ExprDef.EFunction(haxe.macro.FunctionKind.FAnonymous, {args : [], ret : null, expr : {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("this")), pos : field.pos}, name), pos : field.pos}, []), pos : field.pos}, {expr : haxe.macro.ExprDef.EReturn({expr : haxe.macro.ExprDef.EMeta({name : ":privateAccess", params : [], pos : field.pos}, {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("utest")), pos : field.pos}, "Async"), pos : field.pos}, "getResolved"), pos : field.pos}, []), pos : field.pos}), pos : field.pos}), pos : field.pos}]), pos : field.pos}, params : []}), pos : field.pos}), pos : field.pos});
+					};
+				};
+				case 1: {
+					{
+						initExprs.push(cast {expr : haxe.macro.ExprDef.EBinop(haxe.macro.Binop.OpAssign, {expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("init")), pos : field.pos}, "accessories"), pos : field.pos}, name), pos : field.pos}, {expr : haxe.macro.ExprDef.EFunction(haxe.macro.FunctionKind.FAnonymous, {args : [], ret : null, expr : {expr : haxe.macro.ExprDef.EBlock([{expr : haxe.macro.ExprDef.EVars([{name : "async", type : null, expr : {expr : haxe.macro.ExprDef.EMeta({name : ":privateAccess", params : [], pos : field.pos}, {expr : haxe.macro.ExprDef.ENew({pack : ["utest"], name : "Async", params : []}, [utest.utils.TestBuilder.getTimeoutExpr(cls, field)]), pos : field.pos}), pos : field.pos}, isFinal : cast false}]), pos : field.pos}, {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("this")), pos : field.pos}, name), pos : field.pos}, [{expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("async")), pos : field.pos}]), pos : field.pos}, {expr : haxe.macro.ExprDef.EReturn({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("async")), pos : field.pos}), pos : field.pos}]), pos : field.pos}, params : []}), pos : field.pos}), pos : field.pos});
+					};
+				};
+				default: {
+					haxe.macro.Context.error("Wrong arguments count. The only supported argument is utest.Async for asynchronous methods.", field.pos);
+				}
+			};
+		};
+	}
+
+	static function isTestName(name:String) {
+		return name.indexOf("test", null) == 0 || name.indexOf("spec", null) == 0;
+	}
+
+	static function isAccessoryMethod(name:String) {
+		return @:ast(switch (name) {
+	case AccessoryName.SETUP_NAME:
+		true;	
+	case AccessoryName.SETUP_CLASS_NAME:
+		true;	
+	case AccessoryName.TEARDOWN_NAME:
+		true;	
+	case AccessoryName.TEARDOWN_CLASS_NAME:
+		true;	
+	case _:
+		false;	
+}) switch (name) {
+			case "setup": {
+				{
+					true;
+				};
+			};
+			case "setupClass": {
+				{
+					true;
+				};
+			};
+			case "teardown": {
+				{
+					true;
+				};
+			};
+			case "teardownClass": {
+				{
+					true;
+				};
+			};
+			default: {
+				false;
+			}
+		};
+	}
+
+	static function ancestorHasInitializeUtest(cls:haxe.macro.ClassType) {
+		if (cls.superClass == null) {
+			return false;
+		};
+		var superClass = cls.superClass.t.get();
+		{
+			var ` = 0;
+			var `1 = superClass.fields.get();
+			while (` < `1.length) {
+				var field = `1[`];
+				++ `;
+				if (field.name == "__initializeUtest__") {
+					return true;
+				};
+			};
+		};
+		return utest.utils.TestBuilder.ancestorHasInitializeUtest(superClass);
+	}
+
+	static function prepareSpec(expr:haxe.macro.Expr) {
+		return @:ast(switch (expr.expr) {
+	case EBlock(exprs):
+		var newExprs = [];
+		for (expr  in  exprs) {
+			if (isSpecOp(expr)) {
+				newExprs.push(({ expr : ECall({ expr : EField({ expr : EField({ expr : EConst(CIdent("utest")), pos : expr.pos }, "Assert"), pos : expr.pos }, "isTrue"), pos : expr.pos }, [expr]), pos : expr.pos } : haxe.macro.Expr));
+			} else {
+				newExprs.push(ExprTools.map(expr, prepareSpec));
+			};
+		};
+		{ expr : EBlock(newExprs), pos : expr.pos };	
+	case _:
+		ExprTools.map(expr, prepareSpec);	
+}) {
+			var ` = expr.expr;
+			if (enumIndex ` == 12) {
+				var `1 = `[0];
+				{
+					var exprs = `1;
+					{
+						var newExprs = [];
+						{
+							var ` = 0;
+							while (` < exprs.length) {
+								var expr = exprs[`];
+								++ `;
+								if (utest.utils.TestBuilder.isSpecOp(expr)) {
+									newExprs.push(cast {expr : haxe.macro.ExprDef.ECall({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EField({expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CIdent("utest")), pos : expr.pos}, "Assert"), pos : expr.pos}, "isTrue"), pos : expr.pos}, [expr]), pos : expr.pos});
+								} else {
+									newExprs.push(haxe.macro.ExprTools.map(expr, utest.utils.TestBuilder.prepareSpec));
+								};
+							};
+						};
+						{expr : haxe.macro.ExprDef.EBlock(newExprs), pos : expr.pos};
+					};
+				};
+			} else {
+				haxe.macro.ExprTools.map(expr, utest.utils.TestBuilder.prepareSpec);
+			};
+		};
+	}
+
+	static function isSpecOp(expr:haxe.macro.Expr) {
+		return @:ast(switch (expr.expr) {
+	case EBinop(op, _, _):
+		switch (op) {
+			case OpEq | OpNotEq | OpGt | OpGte | OpLt | OpLte:
+				true;			
+			case _:
+				false;			
+		};	
+	case EUnop(op, false, _):
+		switch (op) {
+			case OpNot:
+				true;			
+			case _:
+				false;			
+		};	
+	case _:
+		false;	
+}) {
+			var ` = expr.expr;
+			switch (enumIndex `) {
+				case 2: {
+					var `6 = `[2];
+					var `5 = `[1];
+					var `4 = `[0];
+					{
+						var op = `4;
+						{
+							@:ast(switch (op) {
+	case OpEq | OpNotEq | OpGt | OpGte | OpLt | OpLte:
+		true;	
+	case _:
+		false;	
+}) switch (enumIndex op) {
+								case 5, 6, 7, 8, 9, 10: {
+									{
+										true;
+									};
+								};
+								default: {
+									false;
+								}
+							};
+						};
+					};
+				};
+				case 9: {
+					var `3 = `[2];
+					var `2 = `[1];
+					var `1 = `[0];
+					if (`2 == false) {
+						{
+							var op = `1;
+							{
+								@:ast(switch (op) {
+	case OpNot:
+		true;	
+	case _:
+		false;	
+}) if (enumIndex op == 2) {
+									{
+										true;
+									};
+								} else {
+									false;
+								};
+							};
+						};
+					} else {
+						false;
+					};
+				};
+				default: {
+					false;
+				}
+			};
+		};
+	}
+
+	@:value([AccessoryName.SETUP_CLASS_NAME, AccessoryName.SETUP_NAME, AccessoryName.TEARDOWN_CLASS_NAME, AccessoryName.TEARDOWN_NAME])
+	static var names:Array<String> = ["setupClass", "setup", "teardownClass", "teardown"];
+
+	static function checkPossibleTypo(field:haxe.macro.Field) {
+		var pos = haxe.macro.Context.currentPos();
+		var lowercasedName = field.name.toLowerCase();
+		{
+			var ` = 0;
+			var `1 = utest.utils.TestBuilder.names;
+			while (` < `1.length) {
+				var name = `1[`];
+				++ `;
+				if (lowercasedName == name.toLowerCase()) {
+					haxe.macro.Context.warning("Did you mean \"" + name + "\"?", pos);
+				};
+			};
+		};
+	}
+
+	@:has_untyped
+	static function getTimeoutExpr(cls:haxe.macro.ClassType, field:haxe.macro.Field) {
+		var getValue = function(meta:haxe.macro.MetadataEntry) {
+			if (meta.params == null || meta.params.length != 1) {
+				haxe.macro.Context.error("@:timeout meta should have one argument. E.g. @:timeout(250)", meta.pos);
+				return cast {expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CInt("250")), pos : $__mk_pos__("/usr/local/lib/haxeLibrary/utest/1,9,6/src/utest/utils/TestBuilder.hx", 5910, 5913)};
+			} else {
+				return meta.params[0];
+			};
+		};
+		if (field.meta != null) {
+			{
+				var ` = 0;
+				var `1 = field.meta;
+				while (` < `1.length) {
+					var meta = `1[`];
+					++ `;
+					if (meta.name == ":timeout") {
+						return getValue(meta);
+					};
+				};
+			};
+		};
+		if (cls.meta.has(":timeout")) {
+			return getValue(cls.meta.extract(":timeout")[0]);
+		};
+		return cast {expr : haxe.macro.ExprDef.EConst(haxe.macro.Constant.CInt("250")), pos : field.pos};
+	}
+}

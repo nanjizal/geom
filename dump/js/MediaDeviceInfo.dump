@@ -1,0 +1,13 @@
+@:realPath("js.html.MediaDeviceInfo") @:native("MediaDeviceInfo")
+extern class MediaDeviceInfo {
+
+	var deviceId(default,null):String;
+
+	var kind(default,null):js.html.MediaDeviceKind;
+
+	var label(default,null):String;
+
+	var groupId(default,null):String;
+
+	function toJSON():Dynamic;
+}

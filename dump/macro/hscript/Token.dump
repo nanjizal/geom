@@ -1,0 +1,19 @@
+enum hscript.Token {
+	TEof;
+	TConst(c:hscript.Const);
+	TId(s:String);
+	TOp(s:String);
+	TPOpen;
+	TPClose;
+	TBrOpen;
+	TBrClose;
+	TDot;
+	TComma;
+	TSemicolon;
+	TBkOpen;
+	TBkClose;
+	TQuestion;
+	TDoubleDot;
+	TMeta(s:String);
+	TPrepro(s:String);
+}

@@ -1,0 +1,27 @@
+@:realPath("js.html.DocumentFragment") @:used @:native("DocumentFragment")
+extern class DocumentFragment extends Node {
+
+	function new():Void;
+
+	var children(default,null):HTMLCollection;
+
+	var firstElementChild(default,null):HTMLElement;
+
+	var lastElementChild(default,null):HTMLElement;
+
+	var childElementCount(default,null):Int;
+
+	function getElementById(elementId:String):HTMLElement;
+
+	function querySelector(selectors:String):HTMLElement;
+
+	function querySelectorAll(selectors:String):NodeList;
+
+	function prepend(nodes:haxe.extern.Rest<Node>):Void;
+
+	function prepend(nodes:haxe.extern.Rest<String>):Void;
+
+	function append(nodes:haxe.extern.Rest<Node>):Void;
+
+	function append(nodes:haxe.extern.Rest<String>):Void;
+}

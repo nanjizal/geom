@@ -1,0 +1,3 @@
+@:realPath("js.html.HeadElement") @:native("HTMLHeadElement")
+extern class HTMLHeadElement extends HTMLElement {
+}

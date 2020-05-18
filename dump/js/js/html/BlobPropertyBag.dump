@@ -1,0 +1,1 @@
+typedef js.html.BlobPropertyBag = { ?type : Null<String>, ?endings : Null<js.html.EndingTypes> }

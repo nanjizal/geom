@@ -1,0 +1,50 @@
+@:realPath("js.html.TableElement") @:native("HTMLTableElement")
+extern class HTMLTableElement extends HTMLElement {
+
+	var caption:HTMLTableCaptionElement;
+
+	var tHead:HTMLTableSectionElement;
+
+	var tFoot:HTMLTableSectionElement;
+
+	var tBodies(default,null):HTMLCollection;
+
+	var rows(default,null):HTMLCollection;
+
+	var align:String;
+
+	var border:String;
+
+	var frame:String;
+
+	var rules:String;
+
+	var summary:String;
+
+	var width:String;
+
+	var bgColor:String;
+
+	var cellPadding:String;
+
+	var cellSpacing:String;
+
+	function createCaption():HTMLElement;
+
+	function deleteCaption():Void;
+
+	function createTHead():HTMLElement;
+
+	function deleteTHead():Void;
+
+	function createTFoot():HTMLElement;
+
+	function deleteTFoot():Void;
+
+	function createTBody():HTMLElement;
+
+	@:value({ index : -1 })
+	function insertRow(index:Int):HTMLElement;
+
+	function deleteRow(index:Int):Void;
+}

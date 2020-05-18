@@ -1,0 +1,17 @@
+@:realPath("js.html.CacheStorage") @:native("CacheStorage")
+extern class CacheStorage {
+
+	function new(namespace:js.html.CacheStorageNamespace, principal:Dynamic):Void;
+
+	function match(request:Request, options:Null<js.html.CacheQueryOptions>):Promise<Response>;
+
+	function match(request:String, options:Null<js.html.CacheQueryOptions>):Promise<Response>;
+
+	function has(cacheName:String):Promise<Bool>;
+
+	function open(cacheName:String):Promise<Cache>;
+
+	function delete(cacheName:String):Promise<Bool>;
+
+	function keys():Promise<Array<String>>;
+}

@@ -1,0 +1,15 @@
+@:realPath("js.html.webgl.extension.WEBGLCompressedTexturePvrtc") @:native("WEBGL_compressed_texture_pvrtc")
+extern class WEBGL_compressed_texture_pvrtc {
+
+	@:value(35840)
+	static inline var COMPRESSED_RGB_PVRTC_4BPPV1_IMG:Int = 35840;
+
+	@:value(35841)
+	static inline var COMPRESSED_RGB_PVRTC_2BPPV1_IMG:Int = 35841;
+
+	@:value(35842)
+	static inline var COMPRESSED_RGBA_PVRTC_4BPPV1_IMG:Int = 35842;
+
+	@:value(35843)
+	static inline var COMPRESSED_RGBA_PVRTC_2BPPV1_IMG:Int = 35843;
+}

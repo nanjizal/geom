@@ -1,0 +1,31 @@
+@:realPath("js.html.Path2D") @:native("Path2D")
+extern class Path2D {
+
+	function new(pathString:String):Void;
+
+	function new():Void;
+
+	function new(other:Path2D):Void;
+
+	function addPath(path:Path2D, transformation:Null<SVGMatrix>):Void;
+
+	function closePath():Void;
+
+	function moveTo(x:Float, y:Float):Void;
+
+	function lineTo(x:Float, y:Float):Void;
+
+	function quadraticCurveTo(cpx:Float, cpy:Float, x:Float, y:Float):Void;
+
+	function bezierCurveTo(cp1x:Float, cp1y:Float, cp2x:Float, cp2y:Float, x:Float, y:Float):Void;
+
+	function arcTo(x1:Float, y1:Float, x2:Float, y2:Float, radius:Float):Void;
+
+	function rect(x:Float, y:Float, w:Float, h:Float):Void;
+
+	@:value({ anticlockwise : false })
+	function arc(x:Float, y:Float, radius:Float, startAngle:Float, endAngle:Float, anticlockwise:Bool):Void;
+
+	@:value({ anticlockwise : false })
+	function ellipse(x:Float, y:Float, radiusX:Float, radiusY:Float, rotation:Float, startAngle:Float, endAngle:Float, anticlockwise:Bool):Void;
+}

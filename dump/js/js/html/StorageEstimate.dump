@@ -1,0 +1,1 @@
+typedef js.html.StorageEstimate = { ?usage : Null<Int>, ?quota : Null<Int> }

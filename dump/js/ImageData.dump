@@ -1,0 +1,13 @@
+@:realPath("js.html.ImageData") @:native("ImageData")
+extern class ImageData {
+
+	function new(data:Uint8ClampedArray, sw:Int, sh:Null<Int>):Void;
+
+	function new(sw:Int, sh:Int):Void;
+
+	var width(default,null):Int;
+
+	var height(default,null):Int;
+
+	var data(default,null):Uint8ClampedArray;
+}

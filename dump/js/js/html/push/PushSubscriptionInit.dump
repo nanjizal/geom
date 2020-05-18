@@ -1,0 +1,1 @@
+typedef js.html.push.PushSubscriptionInit = { scope : String, ?p256dhKey : Null<ArrayBuffer>, endpoint : String, ?authSecret : Null<ArrayBuffer>, ?appServerKey : Null<haxe.extern.EitherType<js.lib.ArrayBufferView, ArrayBuffer>> }

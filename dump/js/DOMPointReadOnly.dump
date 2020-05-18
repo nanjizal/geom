@@ -1,0 +1,18 @@
+@:realPath("js.html.DOMPointReadOnly") @:native("DOMPointReadOnly")
+extern class DOMPointReadOnly {
+
+	@:value({ w : 1.0, z : 0.0, y : 0.0, x : 0.0 })
+	function new(x:Float, y:Float, z:Float, w:Float):Void;
+
+	var x(default,null):Float;
+
+	var y(default,null):Float;
+
+	var z(default,null):Float;
+
+	var w(default,null):Float;
+
+	function toJSON():Dynamic;
+
+	static function fromPoint(other:Null<js.html.DOMPointInit>):DOMPointReadOnly;
+}

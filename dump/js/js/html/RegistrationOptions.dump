@@ -1,0 +1,1 @@
+typedef js.html.RegistrationOptions = { ?updateViaCache : Null<js.html.ServiceWorkerUpdateViaCache>, ?scope : Null<String> }

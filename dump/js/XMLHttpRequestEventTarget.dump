@@ -1,0 +1,17 @@
+@:realPath("js.html.XMLHttpRequestEventTarget") @:native("XMLHttpRequestEventTarget")
+extern class XMLHttpRequestEventTarget extends EventTarget {
+
+	var onloadstart:haxe.Function;
+
+	var onprogress:haxe.Function;
+
+	var onabort:haxe.Function;
+
+	var onerror:haxe.Function;
+
+	var onload:haxe.Function;
+
+	var ontimeout:haxe.Function;
+
+	var onloadend:haxe.Function;
+}

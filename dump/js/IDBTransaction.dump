@@ -1,0 +1,21 @@
+@:realPath("js.html.idb.Transaction") @:native("IDBTransaction")
+extern class IDBTransaction extends EventTarget {
+
+	var mode(default,null):js.html.idb.TransactionMode;
+
+	var db(default,null):IDBDatabase;
+
+	var error(default,null):DOMException;
+
+	var onabort:haxe.Function;
+
+	var oncomplete:haxe.Function;
+
+	var onerror:haxe.Function;
+
+	var objectStoreNames(default,null):DOMStringList;
+
+	function objectStore(name:String):IDBObjectStore;
+
+	function abort():Void;
+}

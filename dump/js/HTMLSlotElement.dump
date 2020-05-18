@@ -1,0 +1,7 @@
+@:realPath("js.html.SlotElement") @:native("HTMLSlotElement")
+extern class HTMLSlotElement extends HTMLElement {
+
+	var name:String;
+
+	function assignedNodes(options:Null<js.html.AssignedNodesOptions>):Array<Node>;
+}

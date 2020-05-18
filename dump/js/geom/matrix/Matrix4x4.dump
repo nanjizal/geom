@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.matrix.Matrix4x4 from geom.structure.Mat4x4 to geom.structure.Mat4x4 {}

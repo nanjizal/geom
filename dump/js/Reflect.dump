@@ -1,0 +1,75 @@
+@:keep @:directlyUsed @:used @:coreApi
+class Reflect {
+
+	@:pure
+	public static function hasField(o:Dynamic, field:String) {
+		return Object.prototype.hasOwnProperty.call(o, field);
+	}
+
+	@:pure
+	public static function field(o:Dynamic, field:String) {
+		try {
+			return o[cast field];
+		} catch (_g:Dynamic) {
+			haxe.NativeStackTrace.saveStack(_g);
+			return null;
+		};
+	}
+
+	@:has_untyped
+	public static function getProperty(o:Dynamic, field:String) {
+		var tmp;
+		if ((o == null)) return __define_feature__("Reflect.getProperty", null) else {
+			var tmp1;
+			if ((o.__properties__)) {
+				tmp = o.__properties__["get_" + field];
+				tmp1 = tmp;
+			} else tmp1 = false;
+			if ((tmp1)) return o[tmp]() else return o[field];
+		};
+	}
+
+	public static function callMethod(o:Dynamic, func:haxe.Function, args:Array<Dynamic>) {
+		return cast func.apply(o, args);
+	}
+
+	@:has_untyped
+	public static function fields(o:Dynamic) {
+		var a = [];
+		if ((o != null)) {
+			var hasOwnProperty = Object.prototype.hasOwnProperty;
+			js.Syntax.code("for( var f in o ) {");
+			if ((f != "__id__" && f != "hx__closures__" && hasOwnProperty.call(o, f))) a.push(f);
+			js.Syntax.code("}");
+		};
+		return a;
+	}
+
+	@:access(js.Boot)
+	public static function isFunction(f:Dynamic) {
+		if ((js.Syntax.typeof(f) == "function")) return ! (js.Boot.isClass(f) || js.Boot.isEnum(f)) else return false;
+	}
+
+	public static function compare<T : compare.T>(a:compare.T, b:compare.T) {
+		if ((a == b)) return 0 else if ((cast a > cast b)) return 1 else return -1;
+	}
+
+	public static function compareMethods(f1:Dynamic, f2:Dynamic) {
+		if ((f1 == f2)) return true;
+		if ((! Reflect.isFunction(f1) || ! Reflect.isFunction(f2))) return false;
+		if ((f1.scope == f2.scope && f1.method == f2.method)) return f1.method != null else return false;
+	}
+
+	@:access(js.Boot)
+	public static function isObject(v:Dynamic) {
+		if ((v == null)) return false;
+		var t = js.Syntax.typeof(v);
+		if ((! (t == "string" || t == "object" && v.__enum__ == null))) {
+			if ((t == "function")) return (js.Boot.isClass(v) || js.Boot.isEnum(v)) != null else return false;
+		} else return true;
+	}
+
+	public static function isEnumValue(v:Dynamic) {
+		if ((v != null)) return v.__enum__ != null else return false;
+	}
+}

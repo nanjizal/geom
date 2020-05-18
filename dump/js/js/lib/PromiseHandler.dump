@@ -1,0 +1,1 @@
+abstract js.lib.PromiseHandler<T : js.lib.PromiseHandler.T,TOut : js.lib.PromiseHandler.TOut> from js.lib.PromiseHandler.T -> Promise<js.lib.PromiseHandler.TOut>  from js.lib.PromiseHandler.T -> js.lib.Thenable<js.lib.PromiseHandler.TOut>  from js.lib.PromiseHandler.T -> js.lib.PromiseHandler.TOut {}

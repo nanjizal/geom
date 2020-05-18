@@ -1,0 +1,29 @@
+@:directlyUsed @:used @:noClosure
+extern class js.Syntax {
+
+	static function code(code:String, args:haxe.extern.Rest<Dynamic>):Dynamic;
+
+	static function plainCode(code:String):Dynamic;
+
+	static function construct<T : construct.T>(cl:Class<construct.T>, args:haxe.extern.Rest<Dynamic>):construct.T;
+
+	static function construct(cl:String, args:haxe.extern.Rest<Dynamic>):Dynamic;
+
+	@:pure
+	static function instanceof(v:Dynamic, cl:Class<Dynamic>):Bool;
+
+	@:pure
+	static function typeof(o:Dynamic):String;
+
+	@:pure
+	static function strictEq(a:Dynamic, b:Dynamic):Bool;
+
+	@:pure
+	static function strictNeq(a:Dynamic, b:Dynamic):Bool;
+
+	static function delete(o:Dynamic, f:String):Bool;
+
+	static function delete(o:Dynamic, f:Int):Bool;
+
+	static function field(o:Dynamic, f:String):Dynamic;
+}

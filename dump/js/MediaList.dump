@@ -1,0 +1,13 @@
+@:realPath("js.html.MediaList") @:native("MediaList")
+extern class MediaList implements ArrayAccess<String> {
+
+	var mediaText:String;
+
+	var length(default,null):Int;
+
+	function item(index:Int):String;
+
+	function deleteMedium(oldMedium:String):Void;
+
+	function appendMedium(newMedium:String):Void;
+}

@@ -1,0 +1,3 @@
+@:realPath("js.html.webgl.Sync") @:native("WebGLSync")
+extern class WebGLSync {
+}

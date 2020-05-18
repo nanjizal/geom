@@ -1,0 +1,7 @@
+@:keep @:directlyUsed @:used
+interface haxe.IMap<K : haxe.IMap.K,V : haxe.IMap.V> {
+
+	function get(k:haxe.IMap.K):Null<haxe.IMap.V>;
+
+	function keys():Iterator<haxe.IMap.K>;
+}

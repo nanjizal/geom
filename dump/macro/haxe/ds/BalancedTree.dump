@@ -1,0 +1,245 @@
+class haxe.ds.BalancedTree<K : haxe.ds.BalancedTree.K,V : haxe.ds.BalancedTree.V> implements haxe.IMap<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V> {
+
+	public function new() {}
+
+	var root:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>;
+
+	public function set(key:haxe.ds.BalancedTree.K, value:haxe.ds.BalancedTree.V) {
+		this.root = this.setLoop(key, value, this.root);
+	}
+
+	public function get(key:haxe.ds.BalancedTree.K) {
+		var node = this.root;
+		while (node != null) {
+			var c = this.compare(key, node.key);
+			if (c == 0) {
+				return node.value;
+			};
+			if (c < 0) {
+				node = node.left;
+			} else {
+				node = node.right;
+			};
+		};
+		return null;
+	}
+
+	public function remove(key:haxe.ds.BalancedTree.K) {
+		try {
+			this.root = this.removeLoop(key, this.root);
+			return true;
+		} catch (`:Dynamic) {
+			var `1 = haxe.Exception.caught(`);
+			var `2 = `1.unwrap();
+			if (Std.isOfType(`2, String)) {
+				{};
+				{
+					return false;
+				};
+			} else throw `;
+		};
+	}
+
+	public function exists(key:haxe.ds.BalancedTree.K) {
+		var node = this.root;
+		while (node != null) {
+			var c = this.compare(key, node.key);
+			if (c == 0) {
+				return true;
+			} else {
+				if (c < 0) {
+					node = node.left;
+				} else {
+					node = node.right;
+				};
+			};
+		};
+		return false;
+	}
+
+	public function iterator() {
+		var ret = [];
+		haxe.ds.BalancedTree.iteratorLoop(this.root, ret);
+		return new haxe.iterators.ArrayIterator(ret);
+	}
+
+	@:runtime
+	public function keyValueIterator() {
+		return new haxe.iterators.MapKeyValueIterator(this);
+	}
+
+	public function keys() {
+		var ret = [];
+		this.keysLoop(this.root, ret);
+		return new haxe.iterators.ArrayIterator(ret);
+	}
+
+	public function copy() {
+		var copied = new haxe.ds.BalancedTree();
+		copied.root = this.root;
+		return copied;
+	}
+
+	function setLoop(k:haxe.ds.BalancedTree.K, v:haxe.ds.BalancedTree.V, node:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		if (node == null) {
+			return new haxe.ds.TreeNode(null, k, v, null, null);
+		};
+		var c = this.compare(k, node.key);
+		return if (c == 0) {
+			new haxe.ds.TreeNode(node.left, k, v, node.right, if (node == null) {
+				0;
+			} else {
+				node._height;
+			});
+		} else {
+			if (c < 0) {
+				var nl = this.setLoop(k, v, node.left);
+				this.balance(nl, node.key, node.value, node.right);
+			} else {
+				var nr = this.setLoop(k, v, node.right);
+				this.balance(node.left, node.key, node.value, nr);
+			};
+		};
+	}
+
+	function removeLoop(k:haxe.ds.BalancedTree.K, node:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		if (node == null) {
+			throw throw haxe.Exception.thrown("Not_found");
+		};
+		var c = this.compare(k, node.key);
+		return if (c == 0) {
+			this.merge(node.left, node.right);
+		} else {
+			if (c < 0) {
+				this.balance(this.removeLoop(k, node.left), node.key, node.value, node.right);
+			} else {
+				this.balance(node.left, node.key, node.value, this.removeLoop(k, node.right));
+			};
+		};
+	}
+
+	function keysLoop(node:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>, acc:Array<haxe.ds.BalancedTree.K>) {
+		if (node != null) {
+			this.keysLoop(node.left, acc);
+			acc.push(node.key);
+			this.keysLoop(node.right, acc);
+		};
+	}
+
+	function merge(t1:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>, t2:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		if (t1 == null) {
+			return t2;
+		};
+		if (t2 == null) {
+			return t1;
+		};
+		var t = this.minBinding(t2);
+		return this.balance(t1, t.key, t.value, this.removeMinBinding(t2));
+	}
+
+	function minBinding(t:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		return if (t == null) {
+			throw throw haxe.Exception.thrown("Not_found");
+		} else {
+			if (t.left == null) {
+				t;
+			} else {
+				this.minBinding(t.left);
+			};
+		};
+	}
+
+	function removeMinBinding(t:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		return if (t.left == null) {
+			t.right;
+		} else {
+			this.balance(this.removeMinBinding(t.left), t.key, t.value, t.right);
+		};
+	}
+
+	function balance(l:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>, k:haxe.ds.BalancedTree.K, v:haxe.ds.BalancedTree.V, r:haxe.ds.TreeNode<haxe.ds.BalancedTree.K, haxe.ds.BalancedTree.V>) {
+		var hl = if (l == null) {
+			0;
+		} else {
+			l._height;
+		};
+		var hr = if (r == null) {
+			0;
+		} else {
+			r._height;
+		};
+		return if (hl > hr + 2) {
+			if ({
+				var _this = l.left;
+				if (_this == null) {
+					0;
+				} else {
+					_this._height;
+				};
+			} >= {
+				var _this = l.right;
+				if (_this == null) {
+					0;
+				} else {
+					_this._height;
+				};
+			}) {
+				new haxe.ds.TreeNode(l.left, l.key, l.value, new haxe.ds.TreeNode(l.right, k, v, r, null), null);
+			} else {
+				new haxe.ds.TreeNode(new haxe.ds.TreeNode(l.left, l.key, l.value, l.right.left, null), l.right.key, l.right.value, new haxe.ds.TreeNode(l.right.right, k, v, r, null), null);
+			};
+		} else {
+			if (hr > hl + 2) {
+				if ({
+					var _this = r.right;
+					if (_this == null) {
+						0;
+					} else {
+						_this._height;
+					};
+				} > {
+					var _this = r.left;
+					if (_this == null) {
+						0;
+					} else {
+						_this._height;
+					};
+				}) {
+					new haxe.ds.TreeNode(new haxe.ds.TreeNode(l, k, v, r.left, null), r.key, r.value, r.right, null);
+				} else {
+					new haxe.ds.TreeNode(new haxe.ds.TreeNode(l, k, v, r.left.left, null), r.left.key, r.left.value, new haxe.ds.TreeNode(r.left.right, r.key, r.value, r.right, null), null);
+				};
+			} else {
+				new haxe.ds.TreeNode(l, k, v, r, (if (hl > hr) {
+					hl;
+				} else {
+					hr;
+				}) + 1);
+			};
+		};
+	}
+
+	function compare(k1:haxe.ds.BalancedTree.K, k2:haxe.ds.BalancedTree.K) {
+		return Reflect.compare(k1, k2);
+	}
+
+	public function toString() {
+		return if (this.root == null) {
+			"{}";
+		} else {
+			"{" + this.root.toString() + "}";
+		};
+	}
+
+	public function clear() {
+		this.root = null;
+	}
+
+	static function iteratorLoop<K : iteratorLoop.K,V : iteratorLoop.V>(node:haxe.ds.TreeNode<iteratorLoop.K, iteratorLoop.V>, acc:Array<iteratorLoop.V>) {
+		if (node != null) {
+			haxe.ds.BalancedTree.iteratorLoop(node.left, acc);
+			acc.push(node.value);
+			haxe.ds.BalancedTree.iteratorLoop(node.right, acc);
+		};
+	}
+}

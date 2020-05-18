@@ -1,0 +1,494 @@
+@:directlyUsed @:used
+class geom.matrix.Conversion {
+
+	public static function _1x2toTpoint(m1x2:geom.matrix.Matrix1x2) {
+		return {x : m1x2.x, y : m1x2.y};
+	}
+
+	public static function _1x2toVec3(m1x2:geom.matrix.Matrix1x2) {
+		var this1 = js.Syntax.construct(Array, 3);
+		var vec = cast this1;
+		cast vec[0] = m1x2.x;
+		cast vec[1] = m1x2.y;
+		cast vec[2] = 1.;
+		return vec;
+	}
+
+	public static function Vectorto1x2(v:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat1x2(cast v[0], cast v[1]);
+		return cast this1;
+	}
+
+	public static function Vectorto1x3(vec:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat1x3(cast vec[0], cast vec[1], cast vec[2]);
+		return cast this1;
+	}
+
+	public static function _1x3toVector(m1x3:geom.matrix.Matrix1x3) {
+		var this1 = js.Syntax.construct(Array, 3);
+		var vec = cast this1;
+		cast vec[0] = m1x3.x;
+		cast vec[1] = m1x3.y;
+		cast vec[2] = m1x3.z;
+		return vec;
+	}
+
+	public static function Arrayto1x3(arr:Array<Float>) {
+		var this1 = new geom.structure.Mat1x3(arr[0], arr[1], arr[2]);
+		return cast this1;
+	}
+
+	public static function _1x3toArray(m1x3:geom.matrix.Matrix1x3) {
+		return [m1x3.x, m1x3.y, m1x3.z];
+	}
+
+	public static function Vectorto1x4(vec:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat1x4(cast vec[0], cast vec[1], cast vec[2], cast vec[3]);
+		return cast this1;
+	}
+
+	public static function _1x4toVector(m1x4:geom.matrix.Matrix1x4) {
+		var this1 = js.Syntax.construct(Array, 4);
+		var vec = cast this1;
+		cast vec[0] = m1x4.x;
+		cast vec[1] = m1x4.y;
+		cast vec[2] = m1x4.z;
+		cast vec[3] = m1x4.w;
+		return vec;
+	}
+
+	public static function Arrayto1x4(arr:Array<Float>) {
+		var this1 = new geom.structure.Mat1x4(arr[0], arr[1], arr[2], arr[3]);
+		return cast this1;
+	}
+
+	public static function _1x4toArray(m1x4:geom.matrix.Matrix1x4) {
+		return [m1x4.x, m1x4.y, m1x4.z, m1x4.w];
+	}
+
+	public static function Arrayto2x2(arr:Array<Float>) {
+		var this1 = new geom.structure.Mat2x2(arr[0], arr[1], arr[2], arr[3]);
+		return cast this1;
+	}
+
+	public static function _2x2toArray(m2x2:geom.matrix.Matrix2x2) {
+		return [m2x2.a, m2x2.b, m2x2.c, m2x2.d];
+	}
+
+	public static function Vectorto2x2(vec:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat2x2(cast vec[0], cast vec[1], cast vec[2], cast vec[3]);
+		return cast this1;
+	}
+
+	public static function _2x2toVector(m2x2:geom.matrix.Matrix2x2) {
+		var this1 = js.Syntax.construct(Array, 4);
+		var vec = cast this1;
+		cast vec[0] = m2x2.a;
+		cast vec[1] = m2x2.b;
+		cast vec[2] = m2x2.c;
+		cast vec[3] = m2x2.d;
+		return vec;
+	}
+
+	public static function toTmatrix2x2(m2x2:geom.matrix.Matrix2x2) {
+		var tm = {a : m2x2.a, b : m2x2.b, c : m2x2.c, d : m2x2.d};
+		return tm;
+	}
+
+	public static function Tmatrix2x2to2x2(tm:geom.tydef.Tmatrix2x2) {
+		var m2x2 = cast tm;
+		var this1 = m2x2;
+		return cast this1;
+	}
+
+	public static function _2x2toTmatrix2x2numbered(m2x2:geom.matrix.Matrix2x2) {
+		var tm = {_00 : m2x2.a, _10 : m2x2.b, _01 : m2x2.c, _11 : m2x2.d};
+		return tm;
+	}
+
+	public static function Tmatrix2x2numberedto2x2(tm:geom.tydef.Tmatrix2x2numbered) {
+		var this1 = new geom.structure.Mat2x2(tm._00, tm._10, tm._01, tm._11);
+		return cast this1;
+	}
+
+	public static function _2x2toAlternate2x2numbered(m2x2:geom.matrix.Matrix2x2) {
+		var am = {_00 : m2x2.a, _01 : m2x2.b, _10 : m2x2.c, _11 : m2x2.d};
+		return am;
+	}
+
+	public static function Alternate2x2numberedto2x2(am:geom.tydef.Alternate2x2numbered) {
+		var this1 = new geom.structure.Mat2x2(am._00, am._01, am._10, am._11);
+		return cast this1;
+	}
+
+	public static function _2x2toFloat32ArrayTranspose_(m2x2:geom.matrix.Matrix2x2) {
+		var this1 = new Float32Array(4);
+		var arr = cast this1;
+		cast arr[0] = m2x2.a;
+		cast arr[1] = m2x2.c;
+		cast arr[2] = m2x2.b;
+		cast arr[3] = m2x2.d;
+		return arr;
+	}
+
+	public static function _2x2toFloat32Array_(m2x2:geom.matrix.Matrix2x2) {
+		var this1 = new Float32Array(4);
+		var arr = cast this1;
+		cast arr[0] = m2x2.a;
+		cast arr[1] = m2x2.b;
+		cast arr[2] = m2x2.c;
+		cast arr[3] = m2x2.d;
+		return arr;
+	}
+
+	public static function Float32Array_to2x2Transpose(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat2x2(cast arr[0], cast arr[2], cast arr[1], cast arr[3]);
+		return cast this1;
+	}
+
+	public static function Float32Array_2x2(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat2x2(cast arr[0], cast arr[1], cast arr[2], cast arr[3]);
+		return cast this1;
+	}
+
+	public static function Arrayto3x3(arr:Array<Float>) {
+		var this1 = new geom.structure.Mat3x3(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]);
+		return cast this1;
+	}
+
+	public static function _3x3toArray(m3x3:geom.matrix.Matrix3x3) {
+		return [m3x3.a, m3x3.b, m3x3.c, m3x3.d, m3x3.e, m3x3.f, m3x3.g, m3x3.h, m3x3.i];
+	}
+
+	public static function _2x2to3x3(m2:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat3x3(m2.a, m2.b, 0., m2.c, m2.d, 0., 0., cast 0, 1.);
+		return cast this1;
+	}
+
+	public static function _3x3to2x2(m3x3:geom.matrix.Matrix3x3) {
+		var this1 = new geom.structure.Mat2x2(m3x3.a, m3x3.b, m3x3.d, m3x3.e);
+		return cast this1;
+	}
+
+	public static function Vectorto3x3(vec:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat3x3(cast vec[0], cast vec[1], cast vec[2], cast vec[3], cast vec[4], cast vec[5], cast vec[6], cast vec[7], cast vec[8]);
+		return cast this1;
+	}
+
+	public static function _3x3toVector(m3x3:geom.matrix.Matrix3x3) {
+		var this1 = js.Syntax.construct(Array, 8);
+		var v = cast this1;
+		cast v[0] = m3x3.a;
+		cast v[1] = m3x3.b;
+		cast v[2] = m3x3.c;
+		cast v[3] = m3x3.d;
+		cast v[4] = m3x3.e;
+		cast v[5] = m3x3.f;
+		cast v[6] = m3x3.g;
+		cast v[7] = m3x3.h;
+		cast v[8] = m3x3.i;
+		return v;
+	}
+
+	public static function _3x3toTmatrix3x3(m3x3:geom.matrix.Matrix3x3) {
+		var tm = {a : m3x3.a, b : m3x3.b, c : m3x3.c, d : m3x3.d, e : m3x3.e, f : m3x3.f, g : m3x3.g, h : m3x3.h, i : m3x3.i};
+		return tm;
+	}
+
+	public static function Tmatrix3x3to3x3(tm:geom.tydef.Tmatrix3x3) {
+		var m3x3 = cast tm;
+		var this1 = m3x3;
+		return cast this1;
+	}
+
+	public static function _3x3toTmatrix3x3numbered(m3x3:geom.matrix.Matrix3x3) {
+		var tm = {_00 : m3x3.a, _10 : m3x3.b, _20 : m3x3.c, _01 : m3x3.d, _11 : m3x3.e, _21 : m3x3.f, _02 : m3x3.g, _12 : m3x3.h, _22 : m3x3.i};
+		return tm;
+	}
+
+	public static function Tmatrix3x3numberedto3x3(tm:geom.tydef.Tmatrix3x3numbered) {
+		var this1 = new geom.structure.Mat3x3(tm._00, tm._10, tm._20, tm._01, tm._11, tm._21, tm._02, tm._12, tm._22);
+		return cast this1;
+	}
+
+	public static function _m3x3toAlternate3x3numbered(m3x3:geom.matrix.Matrix3x3) {
+		var tm = {_00 : m3x3.a, _01 : m3x3.b, _02 : m3x3.c, _10 : m3x3.d, _11 : m3x3.e, _12 : m3x3.f, _20 : m3x3.g, _21 : m3x3.h, _22 : m3x3.i};
+		return tm;
+	}
+
+	public static function Alternate3x3numberedto3x3(tm:geom.tydef.Alternate3x3numbered) {
+		var this1 = new geom.structure.Mat3x3(tm._00, tm._01, tm._02, tm._10, tm._11, tm._12, tm._20, tm._21, tm._22);
+		return cast this1;
+	}
+
+	public static function _3x3toFloat32ArrayTranspose_(m3x3:geom.matrix.Matrix3x3) {
+		var this1 = new Float32Array(9);
+		var arr = cast this1;
+		cast arr[0] = m3x3.a;
+		cast arr[1] = m3x3.d;
+		cast arr[2] = m3x3.g;
+		cast arr[3] = m3x3.b;
+		cast arr[4] = m3x3.e;
+		cast arr[5] = m3x3.h;
+		cast arr[6] = m3x3.c;
+		cast arr[7] = m3x3.f;
+		cast arr[8] = m3x3.i;
+		return arr;
+	}
+
+	public static function _3x3toFloat32Array_(m3x3:geom.matrix.Matrix3x3) {
+		var this1 = new Float32Array(9);
+		var arr = cast this1;
+		cast arr[0] = m3x3.a;
+		cast arr[1] = m3x3.b;
+		cast arr[2] = m3x3.c;
+		cast arr[3] = m3x3.d;
+		cast arr[4] = m3x3.e;
+		cast arr[5] = m3x3.f;
+		cast arr[6] = m3x3.g;
+		cast arr[7] = m3x3.h;
+		cast arr[8] = m3x3.i;
+		return arr;
+	}
+
+	public static function Float32Array_to3x3Transpose(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat3x3(cast arr[0], cast arr[3], cast arr[6], cast arr[1], cast arr[4], cast arr[7], cast arr[2], cast arr[5], cast arr[8]);
+		return cast this1;
+	}
+
+	public static function Float32Array_to3x3(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat3x3(cast arr[0], cast arr[1], cast arr[2], cast arr[3], cast arr[4], cast arr[5], cast arr[6], cast arr[7], cast arr[8]);
+		return cast this1;
+	}
+
+	public static function _2x2to4x3(m2:geom.matrix.Matrix2x2) {
+		var this1 = new geom.structure.Mat4x3(m2.a, m2.b, 0., 0., m2.c, m2.d, 0., 0., 0., 0., 1., 0.);
+		return cast this1;
+	}
+
+	public static function _4x3to2x2(m4x3:geom.matrix.Matrix4x3) {
+		var this1 = new geom.structure.Mat2x2(m4x3.a, m4x3.b, m4x3.e, m4x3.f);
+		return cast this1;
+	}
+
+	public static function _3x3to4x3(m3:geom.matrix.Matrix3x3) {
+		var this1 = new geom.structure.Mat4x3(m3.a, m3.b, m3.c, 0., m3.d, m3.e, m3.f, 0., m3.g, m3.h, m3.i, 0.);
+		return cast this1;
+	}
+
+	public static function _4x3to3x3(m4x3:geom.matrix.Matrix4x3) {
+		var this1 = new geom.structure.Mat3x3(m4x3.a, m4x3.b, m4x3.c, m4x3.e, m4x3.f, m4x3.g, m4x3.i, m4x3.j, m4x3.k);
+		return cast this1;
+	}
+
+	public static function ArraytoMatrix4x3(arr:Array<Float>) {
+		var this1 = new geom.structure.Mat4x3(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9], arr[10], arr[11]);
+		return cast this1;
+	}
+
+	public static function _4x3toArray(m4x3:geom.matrix.Matrix4x3) {
+		return [m4x3.a, m4x3.b, m4x3.c, m4x3.d, m4x3.e, m4x3.f, m4x3.g, m4x3.h, m4x3.i, m4x3.j, m4x3.k, m4x3.l];
+	}
+
+	public static function _4x3toVector(m4x3:geom.matrix.Matrix4x3) {
+		var this1 = js.Syntax.construct(Array, 12);
+		var vec = cast this1;
+		cast vec[0] = m4x3.a;
+		cast vec[1] = m4x3.b;
+		cast vec[2] = m4x3.c;
+		cast vec[3] = m4x3.d;
+		cast vec[4] = m4x3.e;
+		cast vec[5] = m4x3.f;
+		cast vec[6] = m4x3.g;
+		cast vec[7] = m4x3.h;
+		cast vec[8] = m4x3.i;
+		cast vec[9] = m4x3.j;
+		cast vec[10] = m4x3.k;
+		cast vec[11] = m4x3.l;
+		return vec;
+	}
+
+	public static function Vectorto4x3(v:haxe.ds.Vector<Float>) {
+		var this1 = new geom.structure.Mat4x3(cast v[0], cast v[1], cast v[2], cast v[3], cast v[4], cast v[5], cast v[6], cast v[7], cast v[8], cast v[9], cast v[10], cast v[11]);
+		return cast this1;
+	}
+
+	public static function _4x3toFloat32ArrayTranspose_(m4x3:geom.matrix.Matrix4x3) {
+		var this1 = new Float32Array(16);
+		var arr = cast this1;
+		return geom.matrix.Conversion._4x3toFloat32ArrayTransposeUpdate_(arr, m4x3);
+	}
+
+	public static function _4x3toFloat32ArrayTransposeUpdate_(arr:haxe.io.Float32Array, m4x3:geom.matrix.Matrix4x3) {
+		cast arr[0] = m4x3.a;
+		cast arr[1] = m4x3.e;
+		cast arr[2] = m4x3.i;
+		cast arr[3] = 0.;
+		cast arr[4] = m4x3.b;
+		cast arr[5] = m4x3.f;
+		cast arr[6] = m4x3.j;
+		cast arr[7] = 0.;
+		cast arr[8] = m4x3.c;
+		cast arr[9] = m4x3.g;
+		cast arr[10] = m4x3.k;
+		cast arr[11] = 0.;
+		cast arr[12] = m4x3.d;
+		cast arr[13] = m4x3.h;
+		cast arr[14] = m4x3.l;
+		cast arr[15] = 1.;
+		return arr;
+	}
+
+	public static function _4x3toFloat32Array_(m4x3:geom.matrix.Matrix4x3) {
+		var this1 = new Float32Array(16);
+		var arr = cast this1;
+		return geom.matrix.Conversion._4x3toFloat32ArrayUpdate_(arr, m4x3);
+	}
+
+	public static function _4x3toFloat32ArrayUpdate_(arr:haxe.io.Float32Array, m4x3:geom.matrix.Matrix4x3) {
+		cast arr[0] = m4x3.a;
+		cast arr[1] = m4x3.b;
+		cast arr[2] = m4x3.c;
+		cast arr[3] = m4x3.d;
+		cast arr[4] = m4x3.e;
+		cast arr[5] = m4x3.f;
+		cast arr[6] = m4x3.g;
+		cast arr[7] = m4x3.h;
+		cast arr[8] = m4x3.i;
+		cast arr[9] = m4x3.j;
+		cast arr[10] = m4x3.k;
+		cast arr[11] = m4x3.l;
+		cast arr[12] = 0.;
+		cast arr[13] = 0.;
+		cast arr[14] = 0.;
+		cast arr[15] = 1.;
+		return arr;
+	}
+
+	public static function Float32Array_to4x3Transpose(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat4x3(cast arr[0], cast arr[4], cast arr[8], cast arr[12], cast arr[1], cast arr[5], cast arr[9], cast arr[13], cast arr[2], cast arr[6], cast arr[10], cast arr[14]);
+		return cast this1;
+	}
+
+	public static function Float32Array_to4x3(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat4x3(cast arr[0], cast arr[1], cast arr[2], cast arr[3], cast arr[4], cast arr[5], cast arr[6], cast arr[7], cast arr[8], cast arr[9], cast arr[10], cast arr[11]);
+		return cast this1;
+	}
+
+	public static function _4x3toTAffineMatrix(m4x3:geom.matrix.Matrix4x3) {
+		return {e0 : m4x3.a, e4 : m4x3.b, e8 : m4x3.c, e12 : m4x3.d, e1 : m4x3.e, e5 : m4x3.f, e9 : m4x3.g, e13 : m4x3.h, e2 : m4x3.i, e6 : m4x3.j, e10 : m4x3.k, e14 : m4x3.l};
+	}
+
+	public static function Tmatrix4x4numberedto4x3(m:geom.tydef.Tmatrix4x4numbered) {
+		var this1 = new geom.structure.Mat4x3(m._00, m._10, m._20, m._30, m._01, m._11, m._21, m._31, m._02, m._12, m._22, m._32);
+		return cast this1;
+	}
+
+	public static function _4x3toTmatrix4x4numbered(m4x3:geom.matrix.Matrix4x3) {
+		return {_00 : m4x3.a, _10 : m4x3.b, _20 : m4x3.c, _30 : m4x3.d, _01 : m4x3.e, _11 : m4x3.f, _21 : m4x3.g, _31 : m4x3.h, _02 : m4x3.i, _12 : m4x3.j, _22 : m4x3.k, _32 : m4x3.l, _03 : 0., _13 : 0., _23 : 0., _33 : 1.};
+	}
+
+	public static function _4x3toTmatrix4x3(m4x3:geom.matrix.Matrix4x3) {
+		var tm4x3 = {a : m4x3.a, b : m4x3.b, c : m4x3.c, d : m4x3.d, e : m4x3.e, f : m4x3.f, g : m4x3.g, h : m4x3.h, i : m4x3.i, j : m4x3.j, k : m4x3.k, l : m4x3.l};
+		return tm4x3;
+	}
+
+	public static function Tmatrix4x3to4x3(tm:geom.tydef.Tmatrix4x3) {
+		var m4x3 = new geom.structure.Mat4x3(tm.a, tm.b, tm.c, tm.d, tm.e, tm.f, tm.g, tm.h, tm.i, tm.j, tm.k, tm.l);
+		var this1 = m4x3;
+		return cast this1;
+	}
+
+	public static function _4x4toFloat32ArrayTranspose_(m4x4:geom.matrix.Matrix4x4) {
+		var this1 = new Float32Array(16);
+		var arr = cast this1;
+		return geom.matrix.Conversion._4x4toFloat32ArrayTransposeUpdate_(arr, m4x4);
+	}
+
+	public static function _4x4toFloat32ArrayTransposeUpdate_(arr:haxe.io.Float32Array, m4x4:geom.matrix.Matrix4x4) {
+		cast arr[0] = m4x4.a;
+		cast arr[1] = m4x4.e;
+		cast arr[2] = m4x4.i;
+		cast arr[3] = m4x4.m;
+		cast arr[4] = m4x4.b;
+		cast arr[5] = m4x4.f;
+		cast arr[6] = m4x4.j;
+		cast arr[7] = m4x4.n;
+		cast arr[8] = m4x4.c;
+		cast arr[9] = m4x4.g;
+		cast arr[10] = m4x4.k;
+		cast arr[11] = m4x4.o;
+		cast arr[12] = m4x4.d;
+		cast arr[13] = m4x4.h;
+		cast arr[14] = m4x4.l;
+		cast arr[15] = m4x4.p;
+		return arr;
+	}
+
+	public static function _4x4toFloat32Array_(m4x4:geom.matrix.Matrix4x4) {
+		var this1 = new Float32Array(16);
+		var arr = cast this1;
+		return geom.matrix.Conversion._4x4toFloat32ArrayUpdate_(arr, m4x4);
+	}
+
+	public static function _4x4toFloat32ArrayUpdate_(arr:haxe.io.Float32Array, m4x4:geom.matrix.Matrix4x4) {
+		cast arr[0] = m4x4.a;
+		cast arr[1] = m4x4.b;
+		cast arr[2] = m4x4.c;
+		cast arr[3] = m4x4.d;
+		cast arr[4] = m4x4.e;
+		cast arr[5] = m4x4.f;
+		cast arr[6] = m4x4.g;
+		cast arr[7] = m4x4.h;
+		cast arr[8] = m4x4.i;
+		cast arr[9] = m4x4.j;
+		cast arr[10] = m4x4.k;
+		cast arr[11] = m4x4.l;
+		cast arr[12] = m4x4.m;
+		cast arr[13] = m4x4.n;
+		cast arr[14] = m4x4.o;
+		cast arr[15] = m4x4.p;
+		return arr;
+	}
+
+	public static function Float32Array_to4x4Transpose(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat4x4(cast arr[0], cast arr[4], cast arr[8], cast arr[12], cast arr[1], cast arr[5], cast arr[9], cast arr[13], cast arr[2], cast arr[6], cast arr[10], cast arr[14], cast arr[3], cast arr[7], cast arr[11], cast arr[15]);
+		return cast this1;
+	}
+
+	public static function Float32Array_to4x4(arr:haxe.io.Float32Array) {
+		var this1 = new geom.structure.Mat4x4(cast arr[0], cast arr[1], cast arr[2], cast arr[3], cast arr[4], cast arr[5], cast arr[6], cast arr[7], cast arr[8], cast arr[9], cast arr[10], cast arr[11], cast arr[12], cast arr[13], cast arr[14], cast arr[15]);
+		return cast this1;
+	}
+
+	public static function _4x4toTmatrix4x4(m4x4:geom.matrix.Matrix4x4) {
+		var tm = {a : m4x4.a, b : m4x4.b, c : m4x4.c, d : m4x4.d, e : m4x4.e, f : m4x4.f, g : m4x4.g, h : m4x4.h, i : m4x4.i, j : m4x4.j, k : m4x4.k, l : m4x4.l, m : m4x4.m, n : m4x4.n, o : m4x4.o, p : m4x4.p};
+		return tm;
+	}
+
+	public static function Tmatrix4x4to4x4(tm:geom.tydef.Tmatrix4x4) {
+		var m4x4 = cast tm;
+		var this1 = m4x4;
+		return cast this1;
+	}
+
+	public static function _4x4toTmatrix4x4numbered(m4x4:geom.matrix.Matrix4x4) {
+		var tm = {_00 : m4x4.a, _10 : m4x4.b, _20 : m4x4.c, _30 : m4x4.d, _01 : m4x4.e, _11 : m4x4.f, _21 : m4x4.g, _31 : m4x4.h, _02 : m4x4.i, _12 : m4x4.j, _22 : m4x4.k, _32 : m4x4.l, _03 : m4x4.m, _13 : m4x4.n, _23 : m4x4.o, _33 : m4x4.p};
+		return tm;
+	}
+
+	public static function Tmatrix4x4numberedto4x4(tm:geom.tydef.Tmatrix4x4numbered) {
+		var this1 = new geom.structure.Mat4x4(tm._00, tm._10, tm._20, tm._30, tm._01, tm._11, tm._21, tm._31, tm._02, tm._12, tm._22, tm._32, tm._03, tm._13, tm._23, tm._33);
+		return cast this1;
+	}
+
+	public static function _4x4toAlternate4x4numbered(m4x4:geom.matrix.Matrix4x4) {
+		var tm = {_00 : m4x4.a, _01 : m4x4.b, _02 : m4x4.c, _03 : m4x4.d, _10 : m4x4.e, _11 : m4x4.f, _12 : m4x4.g, _13 : m4x4.h, _20 : m4x4.i, _21 : m4x4.j, _22 : m4x4.k, _23 : m4x4.l, _30 : m4x4.m, _31 : m4x4.n, _32 : m4x4.o, _33 : m4x4.p};
+		return tm;
+	}
+
+	public static function Alternate4x4numberedto4x4(tm:geom.tydef.Alternate4x4numbered) {
+		var this1 = new geom.structure.Mat4x4(tm._00, tm._01, tm._02, tm._03, tm._10, tm._11, tm._12, tm._13, tm._20, tm._21, tm._22, tm._23, tm._30, tm._31, tm._32, tm._33);
+		return cast this1;
+	}
+}

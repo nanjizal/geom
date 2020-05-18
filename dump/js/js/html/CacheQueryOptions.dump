@@ -1,0 +1,1 @@
+typedef js.html.CacheQueryOptions = { ?ignoreVary : Null<Bool>, ?ignoreSearch : Null<Bool>, ?ignoreMethod : Null<Bool>, ?cacheName : Null<String> }

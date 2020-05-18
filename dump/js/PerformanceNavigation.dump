@@ -1,0 +1,21 @@
+@:realPath("js.html.PerformanceNavigation") @:native("PerformanceNavigation")
+extern class PerformanceNavigation {
+
+	var type(default,null):Int;
+
+	var redirectCount(default,null):Int;
+
+	function toJSON():Dynamic;
+
+	@:value(0)
+	static inline var TYPE_NAVIGATE:Int = 0;
+
+	@:value(1)
+	static inline var TYPE_RELOAD:Int = 1;
+
+	@:value(2)
+	static inline var TYPE_BACK_FORWARD:Int = 2;
+
+	@:value(255)
+	static inline var TYPE_RESERVED:Int = 255;
+}

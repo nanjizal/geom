@@ -1,0 +1,2 @@
+@:valueUsed @:used @:coreType @:runtimeValue
+abstract Enum<T : Enum.T> {}

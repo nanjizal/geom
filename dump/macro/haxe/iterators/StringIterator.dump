@@ -1,0 +1,20 @@
+class haxe.iterators.StringIterator {
+
+	public function new(s:String) {
+		this.offset = 0;
+		this.s = s;
+	}
+
+	@:value(0)
+	var offset:Int;
+
+	var s:String;
+
+	public function hasNext() {
+		return this.offset < this.s.length;
+	}
+
+	public function next() {
+		return StringTools.fastCodeAt(this.s, this.offset ++);
+	}
+}

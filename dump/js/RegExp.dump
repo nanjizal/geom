@@ -1,0 +1,7 @@
+@:realPath("_EReg.HaxeRegExp") @:directlyUsed @:used @:native("RegExp")
+private extern class RegExp extends RegExp {
+
+	var m:js.lib.RegExpMatch;
+
+	var s:String;
+}

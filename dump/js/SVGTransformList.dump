@@ -1,0 +1,25 @@
+@:realPath("js.html.svg.TransformList") @:native("SVGTransformList")
+extern class SVGTransformList implements ArrayAccess<SVGTransform> {
+
+	var numberOfItems(default,null):Int;
+
+	var length(default,null):Int;
+
+	function clear():Void;
+
+	function initialize(newItem:SVGTransform):SVGTransform;
+
+	function getItem(index:Int):SVGTransform;
+
+	function insertItemBefore(newItem:SVGTransform, index:Int):SVGTransform;
+
+	function replaceItem(newItem:SVGTransform, index:Int):SVGTransform;
+
+	function removeItem(index:Int):SVGTransform;
+
+	function appendItem(newItem:SVGTransform):SVGTransform;
+
+	function createSVGTransformFromMatrix(matrix:SVGMatrix):SVGTransform;
+
+	function consolidate():SVGTransform;
+}

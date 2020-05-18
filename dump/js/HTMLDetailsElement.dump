@@ -1,0 +1,5 @@
+@:realPath("js.html.DetailsElement") @:native("HTMLDetailsElement")
+extern class HTMLDetailsElement extends HTMLElement {
+
+	var open:Bool;
+}

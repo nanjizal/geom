@@ -1,0 +1,218 @@
+class haxe.io.Input {
+
+	public var bigEndian(default,set):Bool;
+
+	public function readByte() {
+		return throw throw haxe.Exception.thrown("Not implemented");
+	}
+
+	public function readBytes(s:haxe.io.Bytes, pos:Int, len:Int) {
+		var k = len;
+		var b = s.getData();
+		if (pos < 0 || len < 0 || pos + len > s.length) {
+			throw throw haxe.Exception.thrown(haxe.io.Error.OutsideBounds);
+		};
+		try {
+			while (k > 0) {
+				{
+					var v = cast cast this.readByte();
+					cast b.set(pos, v);
+				};
+				pos ++;
+				k --;
+			};
+		} catch (`3:Dynamic) {
+			var `4 = haxe.Exception.caught(`3);
+			var `5 = `4.unwrap();
+			if (Std.isOfType(`5, haxe.io.Eof)) {
+				{};
+				{};
+			} else throw `3;
+		};
+		return len - k;
+	}
+
+	public function close() {}
+
+	function set_bigEndian(b:Bool) {
+		this.bigEndian = b;
+		return b;
+	}
+
+	public function readAll(bufsize:Null<Int> = null) {
+		if (bufsize == null) {
+			bufsize = (1 << 14);
+		};
+		var buf = haxe.io.Bytes.alloc(bufsize);
+		var total = new haxe.io.BytesBuffer();
+		try {
+			while (true) {
+				var len = this.readBytes(buf, 0, bufsize);
+				if (len == 0) {
+					throw throw haxe.Exception.thrown(haxe.io.Error.Blocked);
+				};
+				total.addBytes(buf, 0, len);
+			};
+		} catch (`6:Dynamic) {
+			var `7 = haxe.Exception.caught(`6);
+			var `8 = `7.unwrap();
+			if (Std.isOfType(`8, haxe.io.Eof)) {
+				{};
+				{};
+			} else throw `6;
+		};
+		return total.getBytes();
+	}
+
+	public function readFullBytes(s:haxe.io.Bytes, pos:Int, len:Int) {
+		while (len > 0) {
+			var k = this.readBytes(s, pos, len);
+			if (k == 0) {
+				throw throw haxe.Exception.thrown(haxe.io.Error.Blocked);
+			};
+			pos += k;
+			len -= k;
+		};
+	}
+
+	public function read(nbytes:Int) {
+		var s = haxe.io.Bytes.alloc(nbytes);
+		var p = 0;
+		while (nbytes > 0) {
+			var k = this.readBytes(s, p, nbytes);
+			if (k == 0) {
+				throw throw haxe.Exception.thrown(haxe.io.Error.Blocked);
+			};
+			p += k;
+			nbytes -= k;
+		};
+		return s;
+	}
+
+	public function readUntil(end:Int) {
+		var buf = new haxe.io.BytesBuffer();
+		var last;
+		while ((last = this.readByte()) != end) {
+			buf.addByte(last);
+		};
+		return buf.getBytes().toString();
+	}
+
+	public function readLine() {
+		var buf = new haxe.io.BytesBuffer();
+		var last;
+		var s;
+		try {
+			while ((last = this.readByte()) != 10) {
+				buf.addByte(last);
+			};
+			s = buf.getBytes().toString();
+			if (s.charCodeAt(s.length - 1) == 13) {
+				s = s.substr(0, -1);
+			};
+		} catch (`9:Dynamic) {
+			var `10 = haxe.Exception.caught(`9);
+			var `11 = `10.unwrap();
+			if (Std.isOfType(`11, haxe.io.Eof)) {
+				var e = cast `11;
+				{
+					s = buf.getBytes().toString();
+					if (s.length == 0) {
+						throw throw haxe.Exception.thrown((e));
+					};
+				};
+			} else throw `9;
+		};
+		return s;
+	}
+
+	public function readFloat() {
+		return haxe.io.FPHelper.i32ToFloat(this.readInt32());
+	}
+
+	public function readDouble() {
+		var i1 = this.readInt32();
+		var i2 = this.readInt32();
+		return if (this.bigEndian) {
+			haxe.io.FPHelper.i64ToDouble(i2, i1);
+		} else {
+			haxe.io.FPHelper.i64ToDouble(i1, i2);
+		};
+	}
+
+	public function readInt8() {
+		var n = this.readByte();
+		if (n >= 128) {
+			return n - 256;
+		};
+		return n;
+	}
+
+	public function readInt16() {
+		var ch1 = this.readByte();
+		var ch2 = this.readByte();
+		var n = if (this.bigEndian) {
+			ch2 | (ch1 << 8);
+		} else {
+			ch1 | (ch2 << 8);
+		};
+		if (n & 32768 != 0) {
+			return n - 65536;
+		};
+		return n;
+	}
+
+	public function readUInt16() {
+		var ch1 = this.readByte();
+		var ch2 = this.readByte();
+		return if (this.bigEndian) {
+			ch2 | (ch1 << 8);
+		} else {
+			ch1 | (ch2 << 8);
+		};
+	}
+
+	public function readInt24() {
+		var ch1 = this.readByte();
+		var ch2 = this.readByte();
+		var ch3 = this.readByte();
+		var n = if (this.bigEndian) {
+			ch3 | (ch2 << 8) | (ch1 << 16);
+		} else {
+			ch1 | (ch2 << 8) | (ch3 << 16);
+		};
+		if (n & 8388608 != 0) {
+			return n - 16777216;
+		};
+		return n;
+	}
+
+	public function readUInt24() {
+		var ch1 = this.readByte();
+		var ch2 = this.readByte();
+		var ch3 = this.readByte();
+		return if (this.bigEndian) {
+			ch3 | (ch2 << 8) | (ch1 << 16);
+		} else {
+			ch1 | (ch2 << 8) | (ch3 << 16);
+		};
+	}
+
+	public function readInt32() {
+		var ch1 = this.readByte();
+		var ch2 = this.readByte();
+		var ch3 = this.readByte();
+		var ch4 = this.readByte();
+		return if (this.bigEndian) {
+			ch4 | (ch3 << 8) | (ch2 << 16) | (ch1 << 24);
+		} else {
+			ch1 | (ch2 << 8) | (ch3 << 16) | (ch4 << 24);
+		};
+	}
+
+	public function readString(len:Int, encoding:Null<haxe.io.Encoding> = null) {
+		var b = haxe.io.Bytes.alloc(len);
+		this.readFullBytes(b, 0, len);
+		return b.getString(0, len, encoding);
+	}
+}

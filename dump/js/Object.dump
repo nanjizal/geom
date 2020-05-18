@@ -1,0 +1,61 @@
+@:realPath("js.lib.Object") @:directlyUsed @:used @:native("Object")
+extern class Object {
+
+	@:pure
+	function new(value:Null<Any>):Void;
+
+	static function assign<T : assign.T>(target:assign.T, sources:haxe.extern.Rest<{ }>):assign.T;
+
+	@:pure
+	static function create<T : create.T>(proto:{ }, propertiesObject:Null<haxe.DynamicAccess<js.lib.ObjectPropertyDescriptor>>):create.T;
+
+	static function defineProperties<T : defineProperties.T>(obj:defineProperties.T, props:haxe.DynamicAccess<js.lib.ObjectPropertyDescriptor>):defineProperties.T;
+
+	static function defineProperty<T : defineProperty.T>(obj:defineProperty.T, prop:String, descriptor:js.lib.ObjectPropertyDescriptor):defineProperty.T;
+
+	@:pure
+	static function entries(obj:{ }):Array<js.lib.ObjectEntry>;
+
+	static function freeze<T : freeze.T>(obj:freeze.T):freeze.T;
+
+	@:pure
+	static function fromEntries<T : fromEntries.T>(iterable:Any):fromEntries.T;
+
+	@:pure
+	static function getOwnPropertyDescriptor(obj:{ }, prop:String):Null<js.lib.ObjectPropertyDescriptor>;
+
+	@:pure
+	static function getOwnPropertyNames(obj:{ }):Array<String>;
+
+	@:pure
+	static function getOwnPropertySymbols(obj:{ }):Array<Symbol>;
+
+	@:pure
+	static function getPrototypeOf<TProto : getPrototypeOf.TProto>(obj:{ }):Null<getPrototypeOf.TProto>;
+
+	@:pure
+	static function is<T : is.T>(value1:is.T, value2:is.T):Bool;
+
+	@:pure
+	static function isExtensible(obj:{ }):Bool;
+
+	@:pure
+	static function isFrozen(obj:{ }):Bool;
+
+	@:pure
+	static function isSealed(obj:{ }):Bool;
+
+	@:pure
+	static function keys(obj:{ }):Array<String>;
+
+	static function preventExtensions<T : preventExtensions.T>(obj:preventExtensions.T):preventExtensions.T;
+
+	static function seal<T : seal.T>(obj:seal.T):seal.T;
+
+	static function setPrototypeOf<T : setPrototypeOf.T>(obj:setPrototypeOf.T, prototype:Null<{ }>):setPrototypeOf.T;
+
+	@:pure
+	static function values(obj:{ }):Array<Any>;
+
+	static var prototype(default,never):js.lib.ObjectPrototype;
+}

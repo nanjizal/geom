@@ -1,0 +1,23 @@
+@:realPath("js.html.DocumentType") @:native("DocumentType")
+extern class DocumentType extends Node {
+
+	var name(default,null):String;
+
+	var publicId(default,null):String;
+
+	var systemId(default,null):String;
+
+	function before(nodes:haxe.extern.Rest<Node>):Void;
+
+	function before(nodes:haxe.extern.Rest<String>):Void;
+
+	function after(nodes:haxe.extern.Rest<Node>):Void;
+
+	function after(nodes:haxe.extern.Rest<String>):Void;
+
+	function replaceWith(nodes:haxe.extern.Rest<Node>):Void;
+
+	function replaceWith(nodes:haxe.extern.Rest<String>):Void;
+
+	function remove():Void;
+}

@@ -1,0 +1,17 @@
+@:realPath("js.html.TextTrackCue") @:native("TextTrackCue")
+extern class TextTrackCue extends EventTarget {
+
+	var track(default,null):TextTrack;
+
+	var id:String;
+
+	var startTime:Float;
+
+	var endTime:Float;
+
+	var pauseOnExit:Bool;
+
+	var onenter:haxe.Function;
+
+	var onexit:haxe.Function;
+}

@@ -1,0 +1,1 @@
+typedef js.html.Geolocation = { watchPosition : (successCallback : (js.html.Position -> Void), ?errorCallback : (PositionError -> Void), ?options : js.html.PositionOptions) -> Int, getCurrentPosition : (successCallback : (js.html.Position -> Void), ?errorCallback : (PositionError -> Void), ?options : js.html.PositionOptions) -> Void, clearWatch : (watchId : Int) -> Void }

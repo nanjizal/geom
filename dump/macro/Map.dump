@@ -1,0 +1,1 @@
+typedef Map<K : Map.K,V : Map.V> = haxe.ds.Map<Map.K, Map.V>

@@ -1,0 +1,13 @@
+@:realPath("js.html.DataTransferItemList") @:native("DataTransferItemList")
+extern class DataTransferItemList implements ArrayAccess<DataTransferItem> {
+
+	var length(default,null):Int;
+
+	function add(data:File):DataTransferItem;
+
+	function add(data:String, type:String):DataTransferItem;
+
+	function remove(index:Int):Void;
+
+	function clear():Void;
+}

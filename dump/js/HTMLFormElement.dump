@@ -1,0 +1,33 @@
+@:realPath("js.html.FormElement") @:native("HTMLFormElement")
+extern class HTMLFormElement extends HTMLElement implements ArrayAccess<HTMLElement> {
+
+	var acceptCharset:String;
+
+	var action:String;
+
+	var autocomplete:String;
+
+	var enctype:String;
+
+	var encoding:String;
+
+	var method:String;
+
+	var name:String;
+
+	var noValidate:Bool;
+
+	var target:String;
+
+	var elements(default,null):HTMLCollection;
+
+	var length(default,null):Int;
+
+	function submit():Void;
+
+	function reset():Void;
+
+	function checkValidity():Bool;
+
+	function reportValidity():Bool;
+}

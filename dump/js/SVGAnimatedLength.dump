@@ -1,0 +1,7 @@
+@:realPath("js.html.svg.AnimatedLength") @:native("SVGAnimatedLength")
+extern class SVGAnimatedLength {
+
+	var baseVal(default,null):SVGLength;
+
+	var animVal(default,null):SVGLength;
+}

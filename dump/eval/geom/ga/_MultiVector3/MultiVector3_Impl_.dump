@@ -1,0 +1,61 @@
+@:used
+private class geom.ga._MultiVector3.MultiVector3_Impl_ {
+
+	@:impl @:noCompletion
+	public static inline function _new(m:geom.structure.MVec3) {
+		var this = m;
+		return cast this;
+	}
+
+	public static var zero(get,never):geom.ga.MultiVector3;
+
+	static inline function get_zero() {
+		var this = new geom.structure.MVec3(0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	@:impl
+	static var nought(get,never):geom.ga.MultiVector3;
+
+	@:impl
+	static inline function get_nought(this:geom.structure.MVec3) {
+		var this = new geom.structure.MVec3(0., 0., 0., 0., 0., 0., 0., 0.);
+		return cast this;
+	}
+
+	@:op(A - B)
+	public static inline function subtracting(a:geom.ga.MultiVector3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(cast a.s - b.s, cast a.x - b.x, cast a.y - b.y, cast a.z - b.z, cast a.xy - b.xy, cast a.zx - b.zx, cast a.yz - b.yz, cast a.xyz - b.xyz);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function subtract(this:geom.structure.MVec3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(this.s - b.s, this.x - b.x, this.y - b.y, this.z - b.z, this.xy - b.xy, this.zx - b.zx, this.yz - b.yz, this.xyz - b.xyz);
+		return cast this;
+	}
+
+	@:op(A + B)
+	public static inline function adding(a:geom.ga.MultiVector3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(cast a.s + b.s, cast a.x + b.x, cast a.y + b.y, cast a.z + b.z, cast a.xy + b.xy, cast a.zx + b.zx, cast a.yz + b.yz, cast a.xyz + b.xyz);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function add(this:geom.structure.MVec3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(this.s + b.s, this.x + b.x, this.y + b.y, this.z + b.z, this.xy + b.xy, this.zx + b.zx, this.yz + b.yz, this.xyz + b.xyz);
+		return cast this;
+	}
+
+	@:op(A * B)
+	public static inline function multiplying(a:geom.ga.MultiVector3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(cast a.s * b.s + cast a.x * b.x + cast a.y * b.y + cast a.z * b.z - cast a.xy * b.xy - cast a.zx * cast a.zx - cast a.yz * b.yz - cast a.xyz * b.xyz, cast a.x * b.s + cast a.s * b.x - cast a.xy * b.y + cast a.zx * b.z + cast a.y * b.xy - cast a.z * b.zx - cast a.xyz * b.yz - cast a.yz * b.xyz, cast a.y * b.s + cast a.xy * b.x + cast a.s * b.y - cast a.yz * b.z - cast a.x * b.xy - cast a.xyz * b.zx + cast a.z * b.yz - cast a.zx * b.xyz, cast a.z * b.s - cast a.zx * b.x + cast a.yz * b.y + cast a.s * b.z - cast a.xyz * b.xy + cast a.x * b.zx - cast a.y * b.yz - cast a.xy * b.xyz, cast a.xy * b.s + cast a.y * b.x - cast a.x * b.y + cast a.xyz * b.z + cast a.s * b.xy + cast a.yz * b.zx - cast a.zx * b.yz + cast a.z * b.xyz, cast a.zx * b.s - cast a.z * b.x + cast a.xyz * b.y + cast a.x * b.z - cast a.yz * b.xy + cast a.s * b.zx + cast a.xy * b.yz + cast a.y * b.xyz, cast a.yz * b.s + cast a.xyz * b.x + cast a.z * b.y - cast a.y * b.z + cast a.zx * b.xy - cast a.xy * b.zx + cast a.s * b.yz + cast a.x * b.xyz, cast a.xyz * b.s + cast a.yz * b.x + cast a.zx * b.y + cast a.xy * b.z + cast a.z * b.xy + cast a.y * b.zx + cast a.x * b.yz + cast a.s * b.xyz);
+		return cast this;
+	}
+
+	@:impl
+	public static inline function multiply(this:geom.structure.MVec3, b:geom.ga.MultiVector3) {
+		var this = new geom.structure.MVec3(this.s * b.s + this.x * b.x + this.y * b.y + this.z * b.z - this.xy * b.xy - this.zx * this.zx - this.yz * b.yz - this.xyz * b.xyz, this.x * b.s + this.s * b.x - this.xy * b.y + this.zx * b.z + this.y * b.xy - this.z * b.zx - this.xyz * b.yz - this.yz * b.xyz, this.y * b.s + this.xy * b.x + this.s * b.y - this.yz * b.z - this.x * b.xy - this.xyz * b.zx + this.z * b.yz - this.zx * b.xyz, this.z * b.s - this.zx * b.x + this.yz * b.y + this.s * b.z - this.xyz * b.xy + this.x * b.zx - this.y * b.yz - this.xy * b.xyz, this.xy * b.s + this.y * b.x - this.x * b.y + this.xyz * b.z + this.s * b.xy + this.yz * b.zx - this.zx * b.yz + this.z * b.xyz, this.zx * b.s - this.z * b.x + this.xyz * b.y + this.x * b.z - this.yz * b.xy + this.s * b.zx + this.xy * b.yz + this.y * b.xyz, this.yz * b.s + this.xyz * b.x + this.z * b.y - this.y * b.z + this.zx * b.xy - this.xy * b.zx + this.s * b.yz + this.x * b.xyz, this.xyz * b.s + this.yz * b.x + this.zx * b.y + this.xy * b.z + this.z * b.xy + this.y * b.zx + this.x * b.yz + this.s * b.xyz);
+		return cast this;
+	}
+}

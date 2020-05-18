@@ -1,0 +1,55 @@
+@:realPath("js.html.SelectElement") @:native("HTMLSelectElement")
+extern class HTMLSelectElement extends HTMLElement implements ArrayAccess<HTMLElement> {
+
+	var autofocus:Bool;
+
+	var autocomplete:String;
+
+	var disabled:Bool;
+
+	var form(default,null):HTMLFormElement;
+
+	var multiple:Bool;
+
+	var name:String;
+
+	var required:Bool;
+
+	var size:Int;
+
+	var type(default,null):String;
+
+	var options(default,null):HTMLOptionsCollection;
+
+	var length:Int;
+
+	var selectedOptions(default,null):HTMLCollection;
+
+	var selectedIndex:Int;
+
+	var value:String;
+
+	var willValidate(default,null):Bool;
+
+	var validity(default,null):ValidityState;
+
+	var validationMessage(default,null):String;
+
+	var labels(default,null):NodeList;
+
+	function item(index:Int):HTMLElement;
+
+	function namedItem(name:String):HTMLOptionElement;
+
+	function add(element:haxe.extern.EitherType<HTMLOptionElement, HTMLOptGroupElement>, before:Null<haxe.extern.EitherType<HTMLElement, Int>>):Void;
+
+	function remove():Void;
+
+	function remove(index:Int):Void;
+
+	function checkValidity():Bool;
+
+	function reportValidity():Bool;
+
+	function setCustomValidity(error:String):Void;
+}

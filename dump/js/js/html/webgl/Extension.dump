@@ -1,0 +1,2 @@
+@:used @:enum
+abstract js.html.webgl.Extension<T : js.html.webgl.Extension.T> from String to String {}

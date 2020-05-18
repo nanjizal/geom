@@ -1,0 +1,42 @@
+class haxe.ds.WeakMap<K : haxe.ds.WeakMap.K,V : haxe.ds.WeakMap.V> implements haxe.IMap<haxe.ds.WeakMap.K, haxe.ds.WeakMap.V> {
+
+	public function new() {
+		throw throw haxe.Exception.thrown("Not implemented for this platform");
+	}
+
+	public function set(key:haxe.ds.WeakMap.K, value:haxe.ds.WeakMap.V) {}
+
+	public function get(key:haxe.ds.WeakMap.K) {
+		return null;
+	}
+
+	public function exists(key:haxe.ds.WeakMap.K) {
+		return false;
+	}
+
+	public function remove(key:haxe.ds.WeakMap.K) {
+		return false;
+	}
+
+	public function keys() {
+		return null;
+	}
+
+	public function iterator() {
+		return null;
+	}
+
+	public function keyValueIterator() {
+		return null;
+	}
+
+	public function copy() {
+		return null;
+	}
+
+	public function toString() {
+		return null;
+	}
+
+	public function clear() {}
+}

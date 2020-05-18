@@ -1,0 +1,28 @@
+@:realPath("js.html.Location") @:native("Location")
+extern class Location {
+
+	var href:String;
+
+	var origin(default,null):String;
+
+	var protocol:String;
+
+	var host:String;
+
+	var hostname:String;
+
+	var port:String;
+
+	var pathname:String;
+
+	var search:String;
+
+	var hash:String;
+
+	function assign(url:String):Void;
+
+	function replace(url:String):Void;
+
+	@:value({ forceget : false })
+	function reload(forceget:Bool):Void;
+}

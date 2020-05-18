@@ -1,0 +1,5 @@
+@:realPath("js.html.BarProp") @:native("BarProp")
+extern class BarProp {
+
+	var visible:Bool;
+}

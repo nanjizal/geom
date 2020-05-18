@@ -1,0 +1,9 @@
+@:realPath("js.html.HTMLOptionsCollection") @:native("HTMLOptionsCollection")
+extern class HTMLOptionsCollection extends HTMLCollection {
+
+	var selectedIndex:Int;
+
+	function add(element:haxe.extern.EitherType<HTMLOptionElement, HTMLOptGroupElement>, before:Null<haxe.extern.EitherType<HTMLElement, Int>>):Void;
+
+	function remove(index:Int):Void;
+}

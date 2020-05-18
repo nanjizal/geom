@@ -1,0 +1,41 @@
+@:keep @:directlyUsed @:used
+class haxe.ds.List<T : haxe.ds.List.T> {
+
+	public function new() {
+		this.length = 0;
+	}
+
+	var h:haxe.ds._List.ListNode<haxe.ds.List.T>;
+
+	var q:haxe.ds._List.ListNode<haxe.ds.List.T>;
+
+	public var length(default,null):Int;
+
+	public function add(item:haxe.ds.List.T) {
+		var x = new haxe.ds._List.ListNode(item, null);
+		if ((this.h == null)) this.h = x else this.q.next = x;
+		this.q = x;
+		this.length ++;
+	}
+
+	public function remove(v:haxe.ds.List.T) {
+		var prev = null;
+		var l = this.h;
+		while ((l != null)) {
+			if ((l.item == v)) {
+				if ((prev == null)) this.h = l.next else prev.next = l.next;
+				if ((this.q == l)) this.q = prev;
+				this.length --;
+				return true;
+			};
+			prev = l;
+			l = l.next;
+		};
+		return false;
+	}
+
+	@:maybeUsed
+	public inline function iterator() {
+		return new haxe.ds._List.ListIterator(this.h);
+	}
+}

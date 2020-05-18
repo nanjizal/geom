@@ -1,0 +1,6 @@
+enum hscript.ModuleDecl {
+	DPackage(path:Array<String>);
+	DImport(path:Array<String>, ?everything:Null<Bool>);
+	DClass(c:hscript.ClassDecl);
+	DTypedef(c:hscript.TypeDecl);
+}

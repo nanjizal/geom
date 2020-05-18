@@ -1,0 +1,5 @@
+@:realPath("js.html.PreElement") @:native("HTMLPreElement")
+extern class HTMLPreElement extends HTMLElement {
+
+	var width:Int;
+}

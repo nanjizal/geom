@@ -1,0 +1,1 @@
+typedef js.lib.Iterator<T : js.lib.Iterator.T> = { next : Void -> js.lib.IteratorStep<js.lib.Iterator.T> }

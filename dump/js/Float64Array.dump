@@ -1,0 +1,163 @@
+@:realPath("js.lib.Float64Array") @:used @:native("Float64Array")
+extern class Float64Array implements js.lib.ArrayBufferView implements ArrayAccess<Float> {
+
+	@:pure
+	function new(buffer:ArrayBuffer, byteOffset:Null<Int>, length:Null<Int>):Void;
+
+	@:pure
+	function new(length:Int):Void;
+
+	@:pure
+	function new(object:{ }):Void;
+
+	@:realPath("BYTES_PER_ELEMENT_") @:native("BYTES_PER_ELEMENT")
+	var BYTES_PER_ELEMENT(default,ctor):Int;
+
+	var buffer(default,ctor):ArrayBuffer;
+
+	var byteLength(default,ctor):Int;
+
+	var byteOffset(default,ctor):Int;
+
+	var length(default,ctor):Int;
+
+	function copyWithin(target:Int, start:Int, end:Null<Int>):Float64Array;
+
+	@:pure
+	function entries():js.lib.Iterator<js.lib.KeyValue<Int, Float>>;
+
+	function every(callback:(currentValue : Float, index : Int, array : Float64Array) -> Bool, thisArg:Null<Any>):Bool;
+
+	function every(callback:(currentValue : Float) -> Bool, thisArg:Null<Any>):Bool;
+
+	function every(callback:(currentValue : Float, index : Int) -> Bool, thisArg:Null<Any>):Bool;
+
+	function fill(value:Float, start:Null<Int>, end:Null<Int>):Float64Array;
+
+	function filter(callback:(element : Float, index : Int, array : Float64Array) -> Bool, thisArg:Null<Any>):Float64Array;
+
+	function filter(callback:(element : Float) -> Bool, thisArg:Null<Any>):Float64Array;
+
+	function filter(callback:(element : Float, index : Int) -> Bool, thisArg:Null<Any>):Float64Array;
+
+	function find(callback:(element : Float, index : Int, array : Float64Array) -> Bool, thisArg:Null<Any>):Null<Int>;
+
+	function find(callback:(element : Float) -> Bool, thisArg:Null<Any>):Null<Int>;
+
+	function find(callback:(element : Float, index : Int) -> Bool, thisArg:Null<Any>):Null<Int>;
+
+	function findIndex(callback:(element : Float, index : Int, array : Float64Array) -> Bool, thisArg:Null<Any>):Int;
+
+	function findIndex(callback:(element : Float) -> Bool, thisArg:Null<Any>):Int;
+
+	function findIndex(callback:(element : Float, index : Int) -> Bool, thisArg:Null<Any>):Int;
+
+	function forEach(callback:(element : Float, index : Int, array : Float64Array) -> Void, thisArg:Null<Any>):Void;
+
+	function forEach(callback:(element : Float) -> Void, thisArg:Null<Any>):Void;
+
+	function forEach(callback:(element : Float, index : Int) -> Void, thisArg:Null<Any>):Void;
+
+	@:pure
+	function includes(searchElement:Float, fromIndex:Null<Int>):Bool;
+
+	@:pure
+	function indexOf(searchElement:Float, fromIndex:Null<Int>):Int;
+
+	@:pure
+	function join(separator:Null<String>):String;
+
+	@:pure
+	function keys():js.lib.Iterator<Int>;
+
+	@:pure
+	function lastIndexOf(searchElement:Float, fromIndex:Null<Int>):Int;
+
+	function map(callback:(element : Float, index : Int, array : Float64Array) -> Float, thisArg:Null<Any>):Float64Array;
+
+	function map(callback:(element : Float) -> Float, thisArg:Null<Any>):Float64Array;
+
+	function map(callback:(element : Float, index : Int) -> Float, thisArg:Null<Any>):Float64Array;
+
+	function reduce<T : reduce.T>(callback:(previousValue : reduce.T, currentValue : Float, index : Int, array : Float64Array) -> reduce.T, initialValue:reduce.T):reduce.T;
+
+	function reduce<T : reduce.T>(callback:(previousValue : reduce.T, currentValue : Float) -> reduce.T, initialValue:reduce.T):reduce.T;
+
+	function reduce<T : reduce.T>(callback:(previousValue : reduce.T, currentValue : Float, index : Int) -> reduce.T, initialValue:reduce.T):reduce.T;
+
+	function reduce(callbackfn:(previousValue : Float, currentValue : Float) -> Int):Float;
+
+	function reduce(callbackfn:(previousValue : Float, currentValue : Float, index : Int) -> Int):Float;
+
+	function reduce(callbackfn:(previousValue : Float, currentValue : Float, index : Int, array : Float64Array) -> Int):Float;
+
+	function reduceRight<T : reduceRight.T>(callback:(previousValue : reduceRight.T, currentValue : Float, index : Int, array : Float64Array) -> reduceRight.T, initialValue:reduceRight.T):reduceRight.T;
+
+	function reduceRight<T : reduceRight.T>(callback:(previousValue : reduceRight.T, currentValue : Float) -> reduceRight.T, initialValue:reduceRight.T):reduceRight.T;
+
+	function reduceRight<T : reduceRight.T>(callback:(previousValue : reduceRight.T, currentValue : Float, index : Int) -> reduceRight.T, initialValue:reduceRight.T):reduceRight.T;
+
+	function reduceRight(callbackfn:(previousValue : Float, currentValue : Float) -> Int):Float;
+
+	function reduceRight(callbackfn:(previousValue : Float, currentValue : Float, index : Int) -> Int):Float;
+
+	function reduceRight(callbackfn:(previousValue : Float, currentValue : Float, index : Int, array : Float64Array) -> Int):Float;
+
+	function reverse():Float64Array;
+
+	function set(array:Array<Float>, offset:Null<Int>):Void;
+
+	function set(array:Int8Array, offset:Null<Int>):Void;
+
+	function set(array:Uint8Array, offset:Null<Int>):Void;
+
+	function set(array:Uint8ClampedArray, offset:Null<Int>):Void;
+
+	function set(array:Int16Array, offset:Null<Int>):Void;
+
+	function set(array:Uint16Array, offset:Null<Int>):Void;
+
+	function set(array:Int32Array, offset:Null<Int>):Void;
+
+	function set(array:Uint32Array, offset:Null<Int>):Void;
+
+	function set(array:Float32Array, offset:Null<Int>):Void;
+
+	function set(array:Float64Array, offset:Null<Int>):Void;
+
+	function set(array:Array<Int>, offset:Null<Int>):Void;
+
+	@:pure
+	function slice(start:Null<Int>, end:Null<Int>):Float64Array;
+
+	function some(callback:(element : Float, index : Int, array : Float64Array) -> Bool, thisArg:Null<Any>):Bool;
+
+	function some(callback:(element : Float) -> Bool, thisArg:Null<Any>):Bool;
+
+	function some(callback:(element : Float, index : Int) -> Bool, thisArg:Null<Any>):Bool;
+
+	function sort(compareFn:Null<(x : Float, y : Float) -> Int>):Float64Array;
+
+	@:pure
+	function subarray(begin:Null<Int>, end:Null<Int>):Float64Array;
+
+	@:pure
+	function values():js.lib.Iterator<Float>;
+
+	@:pure
+	function toLocaleString(locales:Null<String>, options:Null<js.lib.intl.NumberFormatOptions>):String;
+
+	@:pure
+	function toString():String;
+
+	static var BYTES_PER_ELEMENT(default,never):Int;
+
+	@:pure
+	static function from(source:{ }, mapFn:Null<(value : Float, index : Int) -> Int>, thisArg:Null<Any>):Float64Array;
+
+	@:pure
+	static function from(source:{ }, mapFn:Null<(value : Float) -> Int>, thisArg:Null<Any>):Float64Array;
+
+	@:pure
+	static function of(elements:haxe.extern.Rest<Dynamic>):Float64Array;
+}

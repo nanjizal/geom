@@ -1,0 +1,13 @@
+@:realPath("js.html.ScreenOrientation") @:native("ScreenOrientation")
+extern class ScreenOrientation extends EventTarget {
+
+	var type(default,null):js.html.OrientationType;
+
+	var angle(default,null):Int;
+
+	var onchange:haxe.Function;
+
+	function lock(orientation:js.html.OrientationLockType):Promise<Void>;
+
+	function unlock():Void;
+}

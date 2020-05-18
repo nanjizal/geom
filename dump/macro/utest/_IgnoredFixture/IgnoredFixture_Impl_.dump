@@ -1,0 +1,43 @@
+private class utest._IgnoredFixture.IgnoredFixture_Impl_ {
+
+	public static function NotIgnored() {
+		return {
+			var reason = null;
+			var this;
+			this = reason;
+			cast this;
+		};
+	}
+
+	@:value({ reason : null })
+	public static function Ignored(reason:Null<String> = null) {
+		return {
+			var this;
+			this = if ((reason != null)) reason else "";
+			cast this;
+		};
+	}
+
+	@:impl
+	public static var isIgnored(get,never):Bool;
+
+	@:impl
+	public static var ignoreReason(get,never):String;
+
+	@:impl @:noCompletion
+	public static inline function _new(reason:String) {
+		var this;
+		this = reason;
+		return cast this;
+	}
+
+	@:impl
+	static inline function get_isIgnored(this:String) {
+		return this != null;
+	}
+
+	@:impl
+	static inline function get_ignoreReason(this:String) {
+		return this;
+	}
+}

@@ -1,0 +1,1 @@
+typedef js.html.push.PushSubscriptionJSON = { ?keys : Null<js.html.push.PushSubscriptionKeys>, ?endpoint : Null<String> }

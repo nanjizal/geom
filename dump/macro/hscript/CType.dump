@@ -1,0 +1,8 @@
+enum hscript.CType {
+	CTPath(path:Array<String>, ?params:Null<Array<hscript.CType>>);
+	CTFun(args:Array<hscript.CType>, ret:hscript.CType);
+	CTAnon(fields:Array<{ t : hscript.CType, name : String, ?meta : Null<hscript.Metadata> }>);
+	CTParent(t:hscript.CType);
+	CTOpt(t:hscript.CType);
+	CTNamed(n:String, t:hscript.CType);
+}

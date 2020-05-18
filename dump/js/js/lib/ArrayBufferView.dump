@@ -1,0 +1,9 @@
+@:used
+extern interface js.lib.ArrayBufferView {
+
+	var buffer(default,ctor):ArrayBuffer;
+
+	var byteOffset(default,ctor):Int;
+
+	var byteLength(default,ctor):Int;
+}

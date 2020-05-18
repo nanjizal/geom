@@ -1,0 +1,14 @@
+@:keep @:directlyUsed @:used
+class haxe.ValueException extends haxe.Exception {
+
+	public function new(value:Any, previous:Null<haxe.Exception> = null, native:Null<Any> = null) {
+		super(Std.string(cast value), previous, native);
+		this.value = value;
+	}
+
+	public var value(default,null):Any;
+
+	function unwrap() {
+		return this.value;
+	}
+}

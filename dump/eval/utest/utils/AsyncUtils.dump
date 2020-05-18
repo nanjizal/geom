@@ -1,0 +1,7 @@
+@:used
+class utest.utils.AsyncUtils {
+
+	public static inline function orResolved(async:Null<utest.Async>) {
+		if ((async == null)) return utest.Async.getResolved() else return async;
+	}
+}

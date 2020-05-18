@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.constraints.Interval from geom.structure.Range to geom.structure.Range {}

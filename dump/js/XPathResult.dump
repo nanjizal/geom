@@ -1,0 +1,51 @@
+@:realPath("js.html.XPathResult") @:native("XPathResult")
+extern class XPathResult {
+
+	var resultType(default,null):Int;
+
+	var numberValue(default,null):Float;
+
+	var stringValue(default,null):String;
+
+	var booleanValue(default,null):Bool;
+
+	var singleNodeValue(default,null):Node;
+
+	var invalidIteratorState(default,null):Bool;
+
+	var snapshotLength(default,null):Int;
+
+	function iterateNext():Node;
+
+	function snapshotItem(index:Int):Node;
+
+	@:value(0)
+	static inline var ANY_TYPE:Int = 0;
+
+	@:value(1)
+	static inline var NUMBER_TYPE:Int = 1;
+
+	@:value(2)
+	static inline var STRING_TYPE:Int = 2;
+
+	@:value(3)
+	static inline var BOOLEAN_TYPE:Int = 3;
+
+	@:value(4)
+	static inline var UNORDERED_NODE_ITERATOR_TYPE:Int = 4;
+
+	@:value(5)
+	static inline var ORDERED_NODE_ITERATOR_TYPE:Int = 5;
+
+	@:value(6)
+	static inline var UNORDERED_NODE_SNAPSHOT_TYPE:Int = 6;
+
+	@:value(7)
+	static inline var ORDERED_NODE_SNAPSHOT_TYPE:Int = 7;
+
+	@:value(8)
+	static inline var ANY_UNORDERED_NODE_TYPE:Int = 8;
+
+	@:value(9)
+	static inline var FIRST_ORDERED_NODE_TYPE:Int = 9;
+}

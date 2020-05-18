@@ -4,4 +4,5 @@
 -lib haxe-doctest
 -lib equals
 -main geom.GeomTest
+-D dump=pretty
 --interp

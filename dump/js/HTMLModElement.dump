@@ -1,0 +1,7 @@
+@:realPath("js.html.ModElement") @:native("HTMLModElement")
+extern class HTMLModElement extends HTMLElement {
+
+	var cite:String;
+
+	var dateTime:String;
+}

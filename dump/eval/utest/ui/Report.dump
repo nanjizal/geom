@@ -1,0 +1,10 @@
+@:directlyUsed @:used
+class utest.ui.Report {
+
+	public static function create(runner:utest.Runner, displaySuccessResults:Null<utest.ui.common.SuccessResultsDisplayMode> = null, headerDisplayMode:Null<utest.ui.common.HeaderDisplayMode> = null) {
+		var report = new utest.ui.text.PrintReport(runner);
+		if ((null == displaySuccessResults)) report.displaySuccessResults = utest.ui.common.SuccessResultsDisplayMode.ShowSuccessResultsWithNoErrors else report.displaySuccessResults = displaySuccessResults;
+		if ((null == headerDisplayMode)) report.displayHeader = utest.ui.common.HeaderDisplayMode.ShowHeaderWithResults else report.displayHeader = headerDisplayMode;
+		return report;
+	}
+}

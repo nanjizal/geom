@@ -1,0 +1,45 @@
+@:noDoc @:dox(hide)
+class hx.doctest.internal.LogEvent {
+
+	public function new(level:hx.doctest.internal.Level, msg:String, loc:Null<hx.doctest.internal.SourceLocation> = null, pos:Null<haxe.PosInfos> = null) {
+		this.level = level;
+		this.msg = msg;
+		this.loc = loc;
+		this.pos = pos;
+	}
+
+	public var level(default,null):hx.doctest.internal.Level;
+
+	public var msg(default,null):String;
+
+	public var loc(default,null):hx.doctest.internal.SourceLocation;
+
+	public var pos(default,null):haxe.PosInfos;
+
+	@:value({ detailedErrorLocation : false })
+	public function log(detailedErrorLocation:Bool = false) {
+		if (this.level == hx.doctest.internal.Level.DEBUG) {} else {
+			if (this.level == hx.doctest.internal.Level.ERROR) {
+				if (detailedErrorLocation || this.loc == null) {
+					Sys.stderr().writeString(this.toString() + "\n", null);
+				} else {
+					Sys.stderr().writeString(hx.doctest.internal.DocTestUtils.substringAfterLast(("/" + this.loc.filePath), "/") + ":" + this.loc.lineNumber + ": [" + Std.string(this.level) + "] " + this.msg + "\n", null);
+				};
+				Sys.stderr().flush();
+			} else {
+				if (this.loc == null) {
+					haxe.Log.trace("[" + Std.string(this.level) + "] " + this.msg, this.pos);
+				} else {
+					haxe.Log.trace("[" + Std.string(this.level) + "] " + this.msg, {fileName : this.loc.filePath, lineNumber : this.loc.lineNumber, className : "", methodName : ""});
+				};
+			};
+		};
+	}
+
+	public function toString() {
+		if (this.loc == null) {
+			return "" + this.pos.fileName + ":" + this.pos.lineNumber + ": [" + Std.string(this.level) + "] " + this.msg;
+		};
+		return "" + this.loc.filePath + ":" + this.loc.lineNumber + ": characters " + this.loc.charStart + "-" + this.loc.charEnd + ": [" + Std.string(this.level) + "] " + this.msg;
+	}
+}

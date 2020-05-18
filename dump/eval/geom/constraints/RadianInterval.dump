@@ -1,0 +1,2 @@
+@:used @:forward
+abstract geom.constraints.RadianInterval from geom.constraints.Interval to geom.constraints.Interval {}

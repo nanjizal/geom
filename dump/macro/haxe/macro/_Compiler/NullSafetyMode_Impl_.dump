@@ -1,0 +1,15 @@
+@:enum
+private class haxe.macro._Compiler.NullSafetyMode_Impl_ {
+
+	@:value(cast "Off") @:enum @:impl
+	public static inline var Off:haxe.macro.NullSafetyMode = cast "Off";
+
+	@:value(cast "Loose") @:enum @:impl
+	public static inline var Loose:haxe.macro.NullSafetyMode = cast "Loose";
+
+	@:value(cast "Strict") @:enum @:impl
+	public static inline var Strict:haxe.macro.NullSafetyMode = cast "Strict";
+
+	@:value(cast "StrictThreaded") @:enum @:impl
+	public static inline var StrictThreaded:haxe.macro.NullSafetyMode = cast "StrictThreaded";
+}

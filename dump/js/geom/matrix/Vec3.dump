@@ -1,0 +1,1 @@
+typedef geom.matrix.Vec3 = geom.matrix.Matrix1x3

@@ -1,0 +1,30 @@
+@:realPath("js.html.svg.Angle") @:native("SVGAngle")
+extern class SVGAngle {
+
+	var unitType(default,null):Int;
+
+	var value:Float;
+
+	var valueInSpecifiedUnits:Float;
+
+	var valueAsString:String;
+
+	function newValueSpecifiedUnits(unitType:Int, valueInSpecifiedUnits:Float):Void;
+
+	function convertToSpecifiedUnits(unitType:Int):Void;
+
+	@:value(0)
+	static inline var SVG_ANGLETYPE_UNKNOWN:Int = 0;
+
+	@:value(1)
+	static inline var SVG_ANGLETYPE_UNSPECIFIED:Int = 1;
+
+	@:value(2)
+	static inline var SVG_ANGLETYPE_DEG:Int = 2;
+
+	@:value(3)
+	static inline var SVG_ANGLETYPE_RAD:Int = 3;
+
+	@:value(4)
+	static inline var SVG_ANGLETYPE_GRAD:Int = 4;
+}

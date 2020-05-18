@@ -1,0 +1,2340 @@
+@:realPath("js.html.webgl.WebGL2RenderingContext") @:used @:native("WebGL2RenderingContext")
+extern class WebGL2RenderingContext extends WebGLRenderingContext {
+
+	@:value({ length : 0 })
+	function bufferData(target:Int, srcData:js.lib.ArrayBufferView, usage:Int, srcOffset:Int, length:Int):Void;
+
+	function bufferData(target:Int, size:Int, usage:Int):Void;
+
+	function bufferData(target:Int, srcData:ArrayBuffer, usage:Int):Void;
+
+	function bufferData(target:Int, srcData:js.lib.ArrayBufferView, usage:Int):Void;
+
+	@:value({ length : 0 })
+	function bufferSubData(target:Int, dstByteOffset:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int, length:Int):Void;
+
+	function bufferSubData(target:Int, offset:Int, srcData:ArrayBuffer):Void;
+
+	function bufferSubData(target:Int, offset:Int, srcData:js.lib.ArrayBufferView):Void;
+
+	function copyBufferSubData(readTarget:Int, writeTarget:Int, readOffset:Int, writeOffset:Int, size:Int):Void;
+
+	@:value({ length : 0, dstOffset : 0 })
+	function getBufferSubData(target:Int, srcByteOffset:Int, dstData:js.lib.ArrayBufferView, dstOffset:Int, length:Int):Void;
+
+	function blitFramebuffer(srcX0:Int, srcY0:Int, srcX1:Int, srcY1:Int, dstX0:Int, dstY0:Int, dstX1:Int, dstY1:Int, mask:Int, filter:Int):Void;
+
+	function framebufferTextureLayer(target:Int, attachment:Int, texture:WebGLTexture, level:Int, layer:Int):Void;
+
+	function invalidateFramebuffer(target:Int, attachments:Array<Int>):Void;
+
+	function invalidateSubFramebuffer(target:Int, attachments:Array<Int>, x:Int, y:Int, width:Int, height:Int):Void;
+
+	function readBuffer(src:Int):Void;
+
+	function getInternalformatParameter(target:Int, internalformat:Int, pname:Int):Dynamic;
+
+	function renderbufferStorageMultisample(target:Int, samples:Int, internalformat:Int, width:Int, height:Int):Void;
+
+	function texStorage2D(target:Int, levels:Int, internalformat:Int, width:Int, height:Int):Void;
+
+	function texStorage3D(target:Int, levels:Int, internalformat:Int, width:Int, height:Int, depth:Int):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, pixels:js.lib.ArrayBufferView):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, pboOffset:Int):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, pixels:js.lib.ArrayBufferView):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, pboOffset:Int):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, pboOffset:Int):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function texImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, format:Int, type:Int, srcData:js.lib.ArrayBufferView):Void;
+
+	@:value({ srcOffset : 0 })
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, pboOffset:Int):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, source:HTMLCanvasElement):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, source:HTMLImageElement):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, source:HTMLVideoElement):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, source:ImageBitmap):Void;
+
+	function texSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, type:Int, source:ImageData):Void;
+
+	function copyTexSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, x:Int, y:Int, width:Int, height:Int):Void;
+
+	@:value({ srcLengthOverride : 0, srcOffset : 0 })
+	function compressedTexImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int, srcLengthOverride:Int):Void;
+
+	function compressedTexImage2D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, border:Int, imageSize:Int, offset:Int):Void;
+
+	@:value({ srcLengthOverride : 0, srcOffset : 0 })
+	function compressedTexImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int, srcLengthOverride:Int):Void;
+
+	function compressedTexImage3D(target:Int, level:Int, internalformat:Int, width:Int, height:Int, depth:Int, border:Int, imageSize:Int, offset:Int):Void;
+
+	@:value({ srcLengthOverride : 0, srcOffset : 0 })
+	function compressedTexSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int, srcLengthOverride:Int):Void;
+
+	function compressedTexSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, width:Int, height:Int, format:Int, imageSize:Int, offset:Int):Void;
+
+	@:value({ srcLengthOverride : 0, srcOffset : 0 })
+	function compressedTexSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, srcData:js.lib.ArrayBufferView, srcOffset:Int, srcLengthOverride:Int):Void;
+
+	function compressedTexSubImage3D(target:Int, level:Int, xoffset:Int, yoffset:Int, zoffset:Int, width:Int, height:Int, depth:Int, format:Int, imageSize:Int, offset:Int):Void;
+
+	function getFragDataLocation(program:WebGLProgram, name:String):Int;
+
+	function uniform1ui(location:WebGLUniformLocation, v0:Int):Void;
+
+	function uniform2ui(location:WebGLUniformLocation, v0:Int, v1:Int):Void;
+
+	function uniform3ui(location:WebGLUniformLocation, v0:Int, v1:Int, v2:Int):Void;
+
+	function uniform4ui(location:WebGLUniformLocation, v0:Int, v1:Int, v2:Int, v3:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1fv(location:WebGLUniformLocation, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1fv(location:WebGLUniformLocation, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2fv(location:WebGLUniformLocation, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2fv(location:WebGLUniformLocation, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3fv(location:WebGLUniformLocation, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3fv(location:WebGLUniformLocation, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4fv(location:WebGLUniformLocation, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4fv(location:WebGLUniformLocation, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1iv(location:WebGLUniformLocation, data:Int32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1iv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2iv(location:WebGLUniformLocation, data:Int32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2iv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3iv(location:WebGLUniformLocation, data:Int32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3iv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4iv(location:WebGLUniformLocation, data:Int32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4iv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1uiv(location:WebGLUniformLocation, data:Uint32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform1uiv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2uiv(location:WebGLUniformLocation, data:Uint32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform2uiv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3uiv(location:WebGLUniformLocation, data:Uint32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform3uiv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4uiv(location:WebGLUniformLocation, data:Uint32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniform4uiv(location:WebGLUniformLocation, data:Array<Int>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3x2fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3x2fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4x2fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4x2fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2x3fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2x3fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4x3fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4x3fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2x4fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix2x4fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3x4fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix3x4fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4fv(location:WebGLUniformLocation, transpose:Bool, data:Float32Array, srcOffset:Int, srcLength:Int):Void;
+
+	@:value({ srcLength : 0, srcOffset : 0 })
+	function uniformMatrix4fv(location:WebGLUniformLocation, transpose:Bool, data:Array<Float>, srcOffset:Int, srcLength:Int):Void;
+
+	function vertexAttribI4i(index:Int, x:Int, y:Int, z:Int, w:Int):Void;
+
+	function vertexAttribI4iv(index:Int, values:Int32Array):Void;
+
+	function vertexAttribI4iv(index:Int, values:Array<Int>):Void;
+
+	function vertexAttribI4ui(index:Int, x:Int, y:Int, z:Int, w:Int):Void;
+
+	function vertexAttribI4uiv(index:Int, values:Uint32Array):Void;
+
+	function vertexAttribI4uiv(index:Int, values:Array<Int>):Void;
+
+	function vertexAttribIPointer(index:Int, size:Int, type:Int, stride:Int, offset:Int):Void;
+
+	function vertexAttribDivisor(index:Int, divisor:Int):Void;
+
+	function drawArraysInstanced(mode:Int, first:Int, count:Int, instanceCount:Int):Void;
+
+	function drawElementsInstanced(mode:Int, count:Int, type:Int, offset:Int, instanceCount:Int):Void;
+
+	function drawRangeElements(mode:Int, start:Int, end:Int, count:Int, type:Int, offset:Int):Void;
+
+	function readPixels(x:Int, y:Int, width:Int, height:Int, format:Int, type:Int, dstData:js.lib.ArrayBufferView, dstOffset:Int):Void;
+
+	function readPixels(x:Int, y:Int, width:Int, height:Int, format:Int, type:Int, dstData:js.lib.ArrayBufferView):Void;
+
+	function readPixels(x:Int, y:Int, width:Int, height:Int, format:Int, type:Int, offset:Int):Void;
+
+	function drawBuffers(buffers:Array<Int>):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferfv(buffer:Int, drawbuffer:Int, values:Float32Array, srcOffset:Int):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferfv(buffer:Int, drawbuffer:Int, values:Array<Float>, srcOffset:Int):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferiv(buffer:Int, drawbuffer:Int, values:Int32Array, srcOffset:Int):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferiv(buffer:Int, drawbuffer:Int, values:Array<Int>, srcOffset:Int):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferuiv(buffer:Int, drawbuffer:Int, values:Uint32Array, srcOffset:Int):Void;
+
+	@:value({ srcOffset : 0 })
+	function clearBufferuiv(buffer:Int, drawbuffer:Int, values:Array<Int>, srcOffset:Int):Void;
+
+	function clearBufferfi(buffer:Int, drawbuffer:Int, depth:Float, stencil:Int):Void;
+
+	function createQuery():WebGLQuery;
+
+	function deleteQuery(query:WebGLQuery):Void;
+
+	function isQuery(query:WebGLQuery):Bool;
+
+	function beginQuery(target:Int, query:WebGLQuery):Void;
+
+	function endQuery(target:Int):Void;
+
+	function getQuery(target:Int, pname:Int):Dynamic;
+
+	function getQueryParameter(query:WebGLQuery, pname:Int):Dynamic;
+
+	function createSampler():WebGLSampler;
+
+	function deleteSampler(sampler:WebGLSampler):Void;
+
+	function isSampler(sampler:WebGLSampler):Bool;
+
+	function bindSampler(unit:Int, sampler:WebGLSampler):Void;
+
+	function samplerParameteri(sampler:WebGLSampler, pname:Int, param:Int):Void;
+
+	function samplerParameterf(sampler:WebGLSampler, pname:Int, param:Float):Void;
+
+	function getSamplerParameter(sampler:WebGLSampler, pname:Int):Dynamic;
+
+	function fenceSync(condition:Int, flags:Int):WebGLSync;
+
+	function isSync(sync:WebGLSync):Bool;
+
+	function deleteSync(sync:WebGLSync):Void;
+
+	function clientWaitSync(sync:WebGLSync, flags:Int, timeout:Int):Int;
+
+	function waitSync(sync:WebGLSync, flags:Int, timeout:Int):Void;
+
+	function getSyncParameter(sync:WebGLSync, pname:Int):Dynamic;
+
+	function createTransformFeedback():WebGLTransformFeedback;
+
+	function deleteTransformFeedback(tf:WebGLTransformFeedback):Void;
+
+	function isTransformFeedback(tf:WebGLTransformFeedback):Bool;
+
+	function bindTransformFeedback(target:Int, tf:WebGLTransformFeedback):Void;
+
+	function beginTransformFeedback(primitiveMode:Int):Void;
+
+	function endTransformFeedback():Void;
+
+	function transformFeedbackVaryings(program:WebGLProgram, varyings:Array<String>, bufferMode:Int):Void;
+
+	function getTransformFeedbackVarying(program:WebGLProgram, index:Int):WebGLActiveInfo;
+
+	function pauseTransformFeedback():Void;
+
+	function resumeTransformFeedback():Void;
+
+	function bindBufferBase(target:Int, index:Int, buffer:WebGLBuffer):Void;
+
+	function bindBufferRange(target:Int, index:Int, buffer:WebGLBuffer, offset:Int, size:Int):Void;
+
+	function getIndexedParameter(target:Int, index:Int):Dynamic;
+
+	function getUniformIndices(program:WebGLProgram, uniformNames:Array<String>):Array<Int>;
+
+	function getActiveUniforms(program:WebGLProgram, uniformIndices:Array<Int>, pname:Int):Dynamic;
+
+	function getUniformBlockIndex(program:WebGLProgram, uniformBlockName:String):Int;
+
+	function getActiveUniformBlockParameter(program:WebGLProgram, uniformBlockIndex:Int, pname:Int):Dynamic;
+
+	function getActiveUniformBlockName(program:WebGLProgram, uniformBlockIndex:Int):String;
+
+	function uniformBlockBinding(program:WebGLProgram, uniformBlockIndex:Int, uniformBlockBinding:Int):Void;
+
+	function createVertexArray():WebGLVertexArrayObject;
+
+	function deleteVertexArray(vertexArray:WebGLVertexArrayObject):Void;
+
+	function isVertexArray(vertexArray:WebGLVertexArrayObject):Bool;
+
+	function bindVertexArray(array:WebGLVertexArrayObject):Void;
+
+	function getContextAttributes():js.html.webgl.ContextAttributes;
+
+	function isContextLost():Bool;
+
+	function getSupportedExtensions():Array<String>;
+
+	function getExtension<T : getExtension.T>(name:js.html.webgl.Extension<getExtension.T>):getExtension.T;
+
+	function activeTexture(texture:Int):Void;
+
+	function attachShader(program:WebGLProgram, shader:WebGLShader):Void;
+
+	function bindAttribLocation(program:WebGLProgram, index:Int, name:String):Void;
+
+	function bindBuffer(target:Int, buffer:WebGLBuffer):Void;
+
+	function bindFramebuffer(target:Int, framebuffer:WebGLFramebuffer):Void;
+
+	function bindRenderbuffer(target:Int, renderbuffer:WebGLRenderbuffer):Void;
+
+	function bindTexture(target:Int, texture:WebGLTexture):Void;
+
+	function blendColor(red:Float, green:Float, blue:Float, alpha:Float):Void;
+
+	function blendEquation(mode:Int):Void;
+
+	function blendEquationSeparate(modeRGB:Int, modeAlpha:Int):Void;
+
+	function blendFunc(sfactor:Int, dfactor:Int):Void;
+
+	function blendFuncSeparate(srcRGB:Int, dstRGB:Int, srcAlpha:Int, dstAlpha:Int):Void;
+
+	function checkFramebufferStatus(target:Int):Int;
+
+	function clear(mask:Int):Void;
+
+	function clearColor(red:Float, green:Float, blue:Float, alpha:Float):Void;
+
+	function clearDepth(depth:Float):Void;
+
+	function clearStencil(s:Int):Void;
+
+	function colorMask(red:Bool, green:Bool, blue:Bool, alpha:Bool):Void;
+
+	function compileShader(shader:WebGLShader):Void;
+
+	function copyTexImage2D(target:Int, level:Int, internalformat:Int, x:Int, y:Int, width:Int, height:Int, border:Int):Void;
+
+	function copyTexSubImage2D(target:Int, level:Int, xoffset:Int, yoffset:Int, x:Int, y:Int, width:Int, height:Int):Void;
+
+	function createBuffer():WebGLBuffer;
+
+	function createFramebuffer():WebGLFramebuffer;
+
+	function createProgram():WebGLProgram;
+
+	function createRenderbuffer():WebGLRenderbuffer;
+
+	function createShader(type:Int):WebGLShader;
+
+	function createTexture():WebGLTexture;
+
+	function cullFace(mode:Int):Void;
+
+	function deleteBuffer(buffer:WebGLBuffer):Void;
+
+	function deleteFramebuffer(framebuffer:WebGLFramebuffer):Void;
+
+	function deleteProgram(program:WebGLProgram):Void;
+
+	function deleteRenderbuffer(renderbuffer:WebGLRenderbuffer):Void;
+
+	function deleteShader(shader:WebGLShader):Void;
+
+	function deleteTexture(texture:WebGLTexture):Void;
+
+	function depthFunc(func:Int):Void;
+
+	function depthMask(flag:Bool):Void;
+
+	function depthRange(zNear:Float, zFar:Float):Void;
+
+	function detachShader(program:WebGLProgram, shader:WebGLShader):Void;
+
+	function disable(cap:Int):Void;
+
+	function disableVertexAttribArray(index:Int):Void;
+
+	function drawArrays(mode:Int, first:Int, count:Int):Void;
+
+	function drawElements(mode:Int, count:Int, type:Int, offset:Int):Void;
+
+	function enable(cap:Int):Void;
+
+	function enableVertexAttribArray(index:Int):Void;
+
+	function finish():Void;
+
+	function flush():Void;
+
+	function framebufferRenderbuffer(target:Int, attachment:Int, renderbuffertarget:Int, renderbuffer:WebGLRenderbuffer):Void;
+
+	function framebufferTexture2D(target:Int, attachment:Int, textarget:Int, texture:WebGLTexture, level:Int):Void;
+
+	function frontFace(mode:Int):Void;
+
+	function generateMipmap(target:Int):Void;
+
+	function getActiveAttrib(program:WebGLProgram, index:Int):WebGLActiveInfo;
+
+	function getActiveUniform(program:WebGLProgram, index:Int):WebGLActiveInfo;
+
+	function getAttachedShaders(program:WebGLProgram):Array<WebGLShader>;
+
+	function getAttribLocation(program:WebGLProgram, name:String):Int;
+
+	function getBufferParameter(target:Int, pname:Int):Dynamic;
+
+	function getParameter(pname:Int):Dynamic;
+
+	function getError():Int;
+
+	function getFramebufferAttachmentParameter(target:Int, attachment:Int, pname:Int):Dynamic;
+
+	function getProgramParameter(program:WebGLProgram, pname:Int):Dynamic;
+
+	function getProgramInfoLog(program:WebGLProgram):String;
+
+	function getRenderbufferParameter(target:Int, pname:Int):Dynamic;
+
+	function getShaderParameter(shader:WebGLShader, pname:Int):Dynamic;
+
+	function getShaderPrecisionFormat(shadertype:Int, precisiontype:Int):WebGLShaderPrecisionFormat;
+
+	function getShaderInfoLog(shader:WebGLShader):String;
+
+	function getShaderSource(shader:WebGLShader):String;
+
+	function getTexParameter(target:Int, pname:Int):Dynamic;
+
+	function getUniform(program:WebGLProgram, location:WebGLUniformLocation):Dynamic;
+
+	function getUniformLocation(program:WebGLProgram, name:String):WebGLUniformLocation;
+
+	function getVertexAttrib(index:Int, pname:Int):Dynamic;
+
+	function getVertexAttribOffset(index:Int, pname:Int):Int;
+
+	function hint(target:Int, mode:Int):Void;
+
+	function isBuffer(buffer:WebGLBuffer):Bool;
+
+	function isEnabled(cap:Int):Bool;
+
+	function isFramebuffer(framebuffer:WebGLFramebuffer):Bool;
+
+	function isProgram(program:WebGLProgram):Bool;
+
+	function isRenderbuffer(renderbuffer:WebGLRenderbuffer):Bool;
+
+	function isShader(shader:WebGLShader):Bool;
+
+	function isTexture(texture:WebGLTexture):Bool;
+
+	function lineWidth(width:Float):Void;
+
+	function linkProgram(program:WebGLProgram):Void;
+
+	function pixelStorei(pname:Int, param:Int):Void;
+
+	function polygonOffset(factor:Float, units:Float):Void;
+
+	function renderbufferStorage(target:Int, internalformat:Int, width:Int, height:Int):Void;
+
+	function sampleCoverage(value:Float, invert:Bool):Void;
+
+	function scissor(x:Int, y:Int, width:Int, height:Int):Void;
+
+	function shaderSource(shader:WebGLShader, source:String):Void;
+
+	function stencilFunc(func:Int, ref:Int, mask:Int):Void;
+
+	function stencilFuncSeparate(face:Int, func:Int, ref:Int, mask:Int):Void;
+
+	function stencilMask(mask:Int):Void;
+
+	function stencilMaskSeparate(face:Int, mask:Int):Void;
+
+	function stencilOp(fail:Int, zfail:Int, zpass:Int):Void;
+
+	function stencilOpSeparate(face:Int, fail:Int, zfail:Int, zpass:Int):Void;
+
+	function texParameterf(target:Int, pname:Int, param:Float):Void;
+
+	function texParameteri(target:Int, pname:Int, param:Int):Void;
+
+	function uniform1f(location:WebGLUniformLocation, x:Float):Void;
+
+	function uniform2f(location:WebGLUniformLocation, x:Float, y:Float):Void;
+
+	function uniform3f(location:WebGLUniformLocation, x:Float, y:Float, z:Float):Void;
+
+	function uniform4f(location:WebGLUniformLocation, x:Float, y:Float, z:Float, w:Float):Void;
+
+	function uniform1i(location:WebGLUniformLocation, x:Int):Void;
+
+	function uniform2i(location:WebGLUniformLocation, x:Int, y:Int):Void;
+
+	function uniform3i(location:WebGLUniformLocation, x:Int, y:Int, z:Int):Void;
+
+	function uniform4i(location:WebGLUniformLocation, x:Int, y:Int, z:Int, w:Int):Void;
+
+	function useProgram(program:WebGLProgram):Void;
+
+	function validateProgram(program:WebGLProgram):Void;
+
+	function vertexAttrib1f(indx:Int, x:Float):Void;
+
+	function vertexAttrib1fv(indx:Int, values:Float32Array):Void;
+
+	function vertexAttrib1fv(indx:Int, values:Array<Float>):Void;
+
+	function vertexAttrib2f(indx:Int, x:Float, y:Float):Void;
+
+	function vertexAttrib2fv(indx:Int, values:Float32Array):Void;
+
+	function vertexAttrib2fv(indx:Int, values:Array<Float>):Void;
+
+	function vertexAttrib3f(indx:Int, x:Float, y:Float, z:Float):Void;
+
+	function vertexAttrib3fv(indx:Int, values:Float32Array):Void;
+
+	function vertexAttrib3fv(indx:Int, values:Array<Float>):Void;
+
+	function vertexAttrib4f(indx:Int, x:Float, y:Float, z:Float, w:Float):Void;
+
+	function vertexAttrib4fv(indx:Int, values:Float32Array):Void;
+
+	function vertexAttrib4fv(indx:Int, values:Array<Float>):Void;
+
+	function vertexAttribPointer(indx:Int, size:Int, type:Int, normalized:Bool, stride:Int, offset:Int):Void;
+
+	function viewport(x:Int, y:Int, width:Int, height:Int):Void;
+
+	@:value(3074)
+	static inline var READ_BUFFER:Int = 3074;
+
+	@:value(3314)
+	static inline var UNPACK_ROW_LENGTH:Int = 3314;
+
+	@:value(3315)
+	static inline var UNPACK_SKIP_ROWS:Int = 3315;
+
+	@:value(3316)
+	static inline var UNPACK_SKIP_PIXELS:Int = 3316;
+
+	@:value(3330)
+	static inline var PACK_ROW_LENGTH:Int = 3330;
+
+	@:value(3331)
+	static inline var PACK_SKIP_ROWS:Int = 3331;
+
+	@:value(3332)
+	static inline var PACK_SKIP_PIXELS:Int = 3332;
+
+	@:value(6144)
+	static inline var COLOR:Int = 6144;
+
+	@:value(6145)
+	static inline var DEPTH:Int = 6145;
+
+	@:value(6146)
+	static inline var STENCIL:Int = 6146;
+
+	@:value(6403)
+	static inline var RED:Int = 6403;
+
+	@:value(32849)
+	static inline var RGB8:Int = 32849;
+
+	@:value(32856)
+	static inline var RGBA8:Int = 32856;
+
+	@:value(32857)
+	static inline var RGB10_A2:Int = 32857;
+
+	@:value(32874)
+	static inline var TEXTURE_BINDING_3D:Int = 32874;
+
+	@:value(32877)
+	static inline var UNPACK_SKIP_IMAGES:Int = 32877;
+
+	@:value(32878)
+	static inline var UNPACK_IMAGE_HEIGHT:Int = 32878;
+
+	@:value(32879)
+	static inline var TEXTURE_3D:Int = 32879;
+
+	@:value(32882)
+	static inline var TEXTURE_WRAP_R:Int = 32882;
+
+	@:value(32883)
+	static inline var MAX_3D_TEXTURE_SIZE:Int = 32883;
+
+	@:value(33640)
+	static inline var UNSIGNED_INT_2_10_10_10_REV:Int = 33640;
+
+	@:value(33000)
+	static inline var MAX_ELEMENTS_VERTICES:Int = 33000;
+
+	@:value(33001)
+	static inline var MAX_ELEMENTS_INDICES:Int = 33001;
+
+	@:value(33082)
+	static inline var TEXTURE_MIN_LOD:Int = 33082;
+
+	@:value(33083)
+	static inline var TEXTURE_MAX_LOD:Int = 33083;
+
+	@:value(33084)
+	static inline var TEXTURE_BASE_LEVEL:Int = 33084;
+
+	@:value(33085)
+	static inline var TEXTURE_MAX_LEVEL:Int = 33085;
+
+	@:value(32775)
+	static inline var MIN:Int = 32775;
+
+	@:value(32776)
+	static inline var MAX:Int = 32776;
+
+	@:value(33190)
+	static inline var DEPTH_COMPONENT24:Int = 33190;
+
+	@:value(34045)
+	static inline var MAX_TEXTURE_LOD_BIAS:Int = 34045;
+
+	@:value(34892)
+	static inline var TEXTURE_COMPARE_MODE:Int = 34892;
+
+	@:value(34893)
+	static inline var TEXTURE_COMPARE_FUNC:Int = 34893;
+
+	@:value(34917)
+	static inline var CURRENT_QUERY:Int = 34917;
+
+	@:value(34918)
+	static inline var QUERY_RESULT:Int = 34918;
+
+	@:value(34919)
+	static inline var QUERY_RESULT_AVAILABLE:Int = 34919;
+
+	@:value(35041)
+	static inline var STREAM_READ:Int = 35041;
+
+	@:value(35042)
+	static inline var STREAM_COPY:Int = 35042;
+
+	@:value(35045)
+	static inline var STATIC_READ:Int = 35045;
+
+	@:value(35046)
+	static inline var STATIC_COPY:Int = 35046;
+
+	@:value(35049)
+	static inline var DYNAMIC_READ:Int = 35049;
+
+	@:value(35050)
+	static inline var DYNAMIC_COPY:Int = 35050;
+
+	@:value(34852)
+	static inline var MAX_DRAW_BUFFERS:Int = 34852;
+
+	@:value(34853)
+	static inline var DRAW_BUFFER0:Int = 34853;
+
+	@:value(34854)
+	static inline var DRAW_BUFFER1:Int = 34854;
+
+	@:value(34855)
+	static inline var DRAW_BUFFER2:Int = 34855;
+
+	@:value(34856)
+	static inline var DRAW_BUFFER3:Int = 34856;
+
+	@:value(34857)
+	static inline var DRAW_BUFFER4:Int = 34857;
+
+	@:value(34858)
+	static inline var DRAW_BUFFER5:Int = 34858;
+
+	@:value(34859)
+	static inline var DRAW_BUFFER6:Int = 34859;
+
+	@:value(34860)
+	static inline var DRAW_BUFFER7:Int = 34860;
+
+	@:value(34861)
+	static inline var DRAW_BUFFER8:Int = 34861;
+
+	@:value(34862)
+	static inline var DRAW_BUFFER9:Int = 34862;
+
+	@:value(34863)
+	static inline var DRAW_BUFFER10:Int = 34863;
+
+	@:value(34864)
+	static inline var DRAW_BUFFER11:Int = 34864;
+
+	@:value(34865)
+	static inline var DRAW_BUFFER12:Int = 34865;
+
+	@:value(34866)
+	static inline var DRAW_BUFFER13:Int = 34866;
+
+	@:value(34867)
+	static inline var DRAW_BUFFER14:Int = 34867;
+
+	@:value(34868)
+	static inline var DRAW_BUFFER15:Int = 34868;
+
+	@:value(35657)
+	static inline var MAX_FRAGMENT_UNIFORM_COMPONENTS:Int = 35657;
+
+	@:value(35658)
+	static inline var MAX_VERTEX_UNIFORM_COMPONENTS:Int = 35658;
+
+	@:value(35679)
+	static inline var SAMPLER_3D:Int = 35679;
+
+	@:value(35682)
+	static inline var SAMPLER_2D_SHADOW:Int = 35682;
+
+	@:value(35723)
+	static inline var FRAGMENT_SHADER_DERIVATIVE_HINT:Int = 35723;
+
+	@:value(35051)
+	static inline var PIXEL_PACK_BUFFER:Int = 35051;
+
+	@:value(35052)
+	static inline var PIXEL_UNPACK_BUFFER:Int = 35052;
+
+	@:value(35053)
+	static inline var PIXEL_PACK_BUFFER_BINDING:Int = 35053;
+
+	@:value(35055)
+	static inline var PIXEL_UNPACK_BUFFER_BINDING:Int = 35055;
+
+	@:value(35685)
+	static inline var FLOAT_MAT2x3:Int = 35685;
+
+	@:value(35686)
+	static inline var FLOAT_MAT2x4:Int = 35686;
+
+	@:value(35687)
+	static inline var FLOAT_MAT3x2:Int = 35687;
+
+	@:value(35688)
+	static inline var FLOAT_MAT3x4:Int = 35688;
+
+	@:value(35689)
+	static inline var FLOAT_MAT4x2:Int = 35689;
+
+	@:value(35690)
+	static inline var FLOAT_MAT4x3:Int = 35690;
+
+	@:value(35904)
+	static inline var SRGB:Int = 35904;
+
+	@:value(35905)
+	static inline var SRGB8:Int = 35905;
+
+	@:value(35907)
+	static inline var SRGB8_ALPHA8:Int = 35907;
+
+	@:value(34894)
+	static inline var COMPARE_REF_TO_TEXTURE:Int = 34894;
+
+	@:value(34836)
+	static inline var RGBA32F:Int = 34836;
+
+	@:value(34837)
+	static inline var RGB32F:Int = 34837;
+
+	@:value(34842)
+	static inline var RGBA16F:Int = 34842;
+
+	@:value(34843)
+	static inline var RGB16F:Int = 34843;
+
+	@:value(35069)
+	static inline var VERTEX_ATTRIB_ARRAY_INTEGER:Int = 35069;
+
+	@:value(35071)
+	static inline var MAX_ARRAY_TEXTURE_LAYERS:Int = 35071;
+
+	@:value(35076)
+	static inline var MIN_PROGRAM_TEXEL_OFFSET:Int = 35076;
+
+	@:value(35077)
+	static inline var MAX_PROGRAM_TEXEL_OFFSET:Int = 35077;
+
+	@:value(35659)
+	static inline var MAX_VARYING_COMPONENTS:Int = 35659;
+
+	@:value(35866)
+	static inline var TEXTURE_2D_ARRAY:Int = 35866;
+
+	@:value(35869)
+	static inline var TEXTURE_BINDING_2D_ARRAY:Int = 35869;
+
+	@:value(35898)
+	static inline var R11F_G11F_B10F:Int = 35898;
+
+	@:value(35899)
+	static inline var UNSIGNED_INT_10F_11F_11F_REV:Int = 35899;
+
+	@:value(35901)
+	static inline var RGB9_E5:Int = 35901;
+
+	@:value(35902)
+	static inline var UNSIGNED_INT_5_9_9_9_REV:Int = 35902;
+
+	@:value(35967)
+	static inline var TRANSFORM_FEEDBACK_BUFFER_MODE:Int = 35967;
+
+	@:value(35968)
+	static inline var MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS:Int = 35968;
+
+	@:value(35971)
+	static inline var TRANSFORM_FEEDBACK_VARYINGS:Int = 35971;
+
+	@:value(35972)
+	static inline var TRANSFORM_FEEDBACK_BUFFER_START:Int = 35972;
+
+	@:value(35973)
+	static inline var TRANSFORM_FEEDBACK_BUFFER_SIZE:Int = 35973;
+
+	@:value(35976)
+	static inline var TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN:Int = 35976;
+
+	@:value(35977)
+	static inline var RASTERIZER_DISCARD:Int = 35977;
+
+	@:value(35978)
+	static inline var MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS:Int = 35978;
+
+	@:value(35979)
+	static inline var MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS:Int = 35979;
+
+	@:value(35980)
+	static inline var INTERLEAVED_ATTRIBS:Int = 35980;
+
+	@:value(35981)
+	static inline var SEPARATE_ATTRIBS:Int = 35981;
+
+	@:value(35982)
+	static inline var TRANSFORM_FEEDBACK_BUFFER:Int = 35982;
+
+	@:value(35983)
+	static inline var TRANSFORM_FEEDBACK_BUFFER_BINDING:Int = 35983;
+
+	@:value(36208)
+	static inline var RGBA32UI:Int = 36208;
+
+	@:value(36209)
+	static inline var RGB32UI:Int = 36209;
+
+	@:value(36214)
+	static inline var RGBA16UI:Int = 36214;
+
+	@:value(36215)
+	static inline var RGB16UI:Int = 36215;
+
+	@:value(36220)
+	static inline var RGBA8UI:Int = 36220;
+
+	@:value(36221)
+	static inline var RGB8UI:Int = 36221;
+
+	@:value(36226)
+	static inline var RGBA32I:Int = 36226;
+
+	@:value(36227)
+	static inline var RGB32I:Int = 36227;
+
+	@:value(36232)
+	static inline var RGBA16I:Int = 36232;
+
+	@:value(36233)
+	static inline var RGB16I:Int = 36233;
+
+	@:value(36238)
+	static inline var RGBA8I:Int = 36238;
+
+	@:value(36239)
+	static inline var RGB8I:Int = 36239;
+
+	@:value(36244)
+	static inline var RED_INTEGER:Int = 36244;
+
+	@:value(36248)
+	static inline var RGB_INTEGER:Int = 36248;
+
+	@:value(36249)
+	static inline var RGBA_INTEGER:Int = 36249;
+
+	@:value(36289)
+	static inline var SAMPLER_2D_ARRAY:Int = 36289;
+
+	@:value(36292)
+	static inline var SAMPLER_2D_ARRAY_SHADOW:Int = 36292;
+
+	@:value(36293)
+	static inline var SAMPLER_CUBE_SHADOW:Int = 36293;
+
+	@:value(36294)
+	static inline var UNSIGNED_INT_VEC2:Int = 36294;
+
+	@:value(36295)
+	static inline var UNSIGNED_INT_VEC3:Int = 36295;
+
+	@:value(36296)
+	static inline var UNSIGNED_INT_VEC4:Int = 36296;
+
+	@:value(36298)
+	static inline var INT_SAMPLER_2D:Int = 36298;
+
+	@:value(36299)
+	static inline var INT_SAMPLER_3D:Int = 36299;
+
+	@:value(36300)
+	static inline var INT_SAMPLER_CUBE:Int = 36300;
+
+	@:value(36303)
+	static inline var INT_SAMPLER_2D_ARRAY:Int = 36303;
+
+	@:value(36306)
+	static inline var UNSIGNED_INT_SAMPLER_2D:Int = 36306;
+
+	@:value(36307)
+	static inline var UNSIGNED_INT_SAMPLER_3D:Int = 36307;
+
+	@:value(36308)
+	static inline var UNSIGNED_INT_SAMPLER_CUBE:Int = 36308;
+
+	@:value(36311)
+	static inline var UNSIGNED_INT_SAMPLER_2D_ARRAY:Int = 36311;
+
+	@:value(36012)
+	static inline var DEPTH_COMPONENT32F:Int = 36012;
+
+	@:value(36013)
+	static inline var DEPTH32F_STENCIL8:Int = 36013;
+
+	@:value(36269)
+	static inline var FLOAT_32_UNSIGNED_INT_24_8_REV:Int = 36269;
+
+	@:value(33296)
+	static inline var FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING:Int = 33296;
+
+	@:value(33297)
+	static inline var FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE:Int = 33297;
+
+	@:value(33298)
+	static inline var FRAMEBUFFER_ATTACHMENT_RED_SIZE:Int = 33298;
+
+	@:value(33299)
+	static inline var FRAMEBUFFER_ATTACHMENT_GREEN_SIZE:Int = 33299;
+
+	@:value(33300)
+	static inline var FRAMEBUFFER_ATTACHMENT_BLUE_SIZE:Int = 33300;
+
+	@:value(33301)
+	static inline var FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE:Int = 33301;
+
+	@:value(33302)
+	static inline var FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE:Int = 33302;
+
+	@:value(33303)
+	static inline var FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE:Int = 33303;
+
+	@:value(33304)
+	static inline var FRAMEBUFFER_DEFAULT:Int = 33304;
+
+	@:value(34042)
+	static inline var UNSIGNED_INT_24_8:Int = 34042;
+
+	@:value(35056)
+	static inline var DEPTH24_STENCIL8:Int = 35056;
+
+	@:value(35863)
+	static inline var UNSIGNED_NORMALIZED:Int = 35863;
+
+	@:value(36006)
+	static inline var DRAW_FRAMEBUFFER_BINDING:Int = 36006;
+
+	@:value(36008)
+	static inline var READ_FRAMEBUFFER:Int = 36008;
+
+	@:value(36009)
+	static inline var DRAW_FRAMEBUFFER:Int = 36009;
+
+	@:value(36010)
+	static inline var READ_FRAMEBUFFER_BINDING:Int = 36010;
+
+	@:value(36011)
+	static inline var RENDERBUFFER_SAMPLES:Int = 36011;
+
+	@:value(36052)
+	static inline var FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER:Int = 36052;
+
+	@:value(36063)
+	static inline var MAX_COLOR_ATTACHMENTS:Int = 36063;
+
+	@:value(36065)
+	static inline var COLOR_ATTACHMENT1:Int = 36065;
+
+	@:value(36066)
+	static inline var COLOR_ATTACHMENT2:Int = 36066;
+
+	@:value(36067)
+	static inline var COLOR_ATTACHMENT3:Int = 36067;
+
+	@:value(36068)
+	static inline var COLOR_ATTACHMENT4:Int = 36068;
+
+	@:value(36069)
+	static inline var COLOR_ATTACHMENT5:Int = 36069;
+
+	@:value(36070)
+	static inline var COLOR_ATTACHMENT6:Int = 36070;
+
+	@:value(36071)
+	static inline var COLOR_ATTACHMENT7:Int = 36071;
+
+	@:value(36072)
+	static inline var COLOR_ATTACHMENT8:Int = 36072;
+
+	@:value(36073)
+	static inline var COLOR_ATTACHMENT9:Int = 36073;
+
+	@:value(36074)
+	static inline var COLOR_ATTACHMENT10:Int = 36074;
+
+	@:value(36075)
+	static inline var COLOR_ATTACHMENT11:Int = 36075;
+
+	@:value(36076)
+	static inline var COLOR_ATTACHMENT12:Int = 36076;
+
+	@:value(36077)
+	static inline var COLOR_ATTACHMENT13:Int = 36077;
+
+	@:value(36078)
+	static inline var COLOR_ATTACHMENT14:Int = 36078;
+
+	@:value(36079)
+	static inline var COLOR_ATTACHMENT15:Int = 36079;
+
+	@:value(36182)
+	static inline var FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:Int = 36182;
+
+	@:value(36183)
+	static inline var MAX_SAMPLES:Int = 36183;
+
+	@:value(5131)
+	static inline var HALF_FLOAT:Int = 5131;
+
+	@:value(33319)
+	static inline var RG:Int = 33319;
+
+	@:value(33320)
+	static inline var RG_INTEGER:Int = 33320;
+
+	@:value(33321)
+	static inline var R8:Int = 33321;
+
+	@:value(33323)
+	static inline var RG8:Int = 33323;
+
+	@:value(33325)
+	static inline var R16F:Int = 33325;
+
+	@:value(33326)
+	static inline var R32F:Int = 33326;
+
+	@:value(33327)
+	static inline var RG16F:Int = 33327;
+
+	@:value(33328)
+	static inline var RG32F:Int = 33328;
+
+	@:value(33329)
+	static inline var R8I:Int = 33329;
+
+	@:value(33330)
+	static inline var R8UI:Int = 33330;
+
+	@:value(33331)
+	static inline var R16I:Int = 33331;
+
+	@:value(33332)
+	static inline var R16UI:Int = 33332;
+
+	@:value(33333)
+	static inline var R32I:Int = 33333;
+
+	@:value(33334)
+	static inline var R32UI:Int = 33334;
+
+	@:value(33335)
+	static inline var RG8I:Int = 33335;
+
+	@:value(33336)
+	static inline var RG8UI:Int = 33336;
+
+	@:value(33337)
+	static inline var RG16I:Int = 33337;
+
+	@:value(33338)
+	static inline var RG16UI:Int = 33338;
+
+	@:value(33339)
+	static inline var RG32I:Int = 33339;
+
+	@:value(33340)
+	static inline var RG32UI:Int = 33340;
+
+	@:value(34229)
+	static inline var VERTEX_ARRAY_BINDING:Int = 34229;
+
+	@:value(36756)
+	static inline var R8_SNORM:Int = 36756;
+
+	@:value(36757)
+	static inline var RG8_SNORM:Int = 36757;
+
+	@:value(36758)
+	static inline var RGB8_SNORM:Int = 36758;
+
+	@:value(36759)
+	static inline var RGBA8_SNORM:Int = 36759;
+
+	@:value(36764)
+	static inline var SIGNED_NORMALIZED:Int = 36764;
+
+	@:value(36662)
+	static inline var COPY_READ_BUFFER:Int = 36662;
+
+	@:value(36663)
+	static inline var COPY_WRITE_BUFFER:Int = 36663;
+
+	@:value(36662)
+	static inline var COPY_READ_BUFFER_BINDING:Int = 36662;
+
+	@:value(36663)
+	static inline var COPY_WRITE_BUFFER_BINDING:Int = 36663;
+
+	@:value(35345)
+	static inline var UNIFORM_BUFFER:Int = 35345;
+
+	@:value(35368)
+	static inline var UNIFORM_BUFFER_BINDING:Int = 35368;
+
+	@:value(35369)
+	static inline var UNIFORM_BUFFER_START:Int = 35369;
+
+	@:value(35370)
+	static inline var UNIFORM_BUFFER_SIZE:Int = 35370;
+
+	@:value(35371)
+	static inline var MAX_VERTEX_UNIFORM_BLOCKS:Int = 35371;
+
+	@:value(35373)
+	static inline var MAX_FRAGMENT_UNIFORM_BLOCKS:Int = 35373;
+
+	@:value(35374)
+	static inline var MAX_COMBINED_UNIFORM_BLOCKS:Int = 35374;
+
+	@:value(35375)
+	static inline var MAX_UNIFORM_BUFFER_BINDINGS:Int = 35375;
+
+	@:value(35376)
+	static inline var MAX_UNIFORM_BLOCK_SIZE:Int = 35376;
+
+	@:value(35377)
+	static inline var MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS:Int = 35377;
+
+	@:value(35379)
+	static inline var MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS:Int = 35379;
+
+	@:value(35380)
+	static inline var UNIFORM_BUFFER_OFFSET_ALIGNMENT:Int = 35380;
+
+	@:value(35382)
+	static inline var ACTIVE_UNIFORM_BLOCKS:Int = 35382;
+
+	@:value(35383)
+	static inline var UNIFORM_TYPE:Int = 35383;
+
+	@:value(35384)
+	static inline var UNIFORM_SIZE:Int = 35384;
+
+	@:value(35386)
+	static inline var UNIFORM_BLOCK_INDEX:Int = 35386;
+
+	@:value(35387)
+	static inline var UNIFORM_OFFSET:Int = 35387;
+
+	@:value(35388)
+	static inline var UNIFORM_ARRAY_STRIDE:Int = 35388;
+
+	@:value(35389)
+	static inline var UNIFORM_MATRIX_STRIDE:Int = 35389;
+
+	@:value(35390)
+	static inline var UNIFORM_IS_ROW_MAJOR:Int = 35390;
+
+	@:value(35391)
+	static inline var UNIFORM_BLOCK_BINDING:Int = 35391;
+
+	@:value(35392)
+	static inline var UNIFORM_BLOCK_DATA_SIZE:Int = 35392;
+
+	@:value(35394)
+	static inline var UNIFORM_BLOCK_ACTIVE_UNIFORMS:Int = 35394;
+
+	@:value(35395)
+	static inline var UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES:Int = 35395;
+
+	@:value(35396)
+	static inline var UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER:Int = 35396;
+
+	@:value(35398)
+	static inline var UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER:Int = 35398;
+
+	@:value(cast 4294967295)
+	static inline var INVALID_INDEX:Int = cast 4294967295;
+
+	@:value(37154)
+	static inline var MAX_VERTEX_OUTPUT_COMPONENTS:Int = 37154;
+
+	@:value(37157)
+	static inline var MAX_FRAGMENT_INPUT_COMPONENTS:Int = 37157;
+
+	@:value(37137)
+	static inline var MAX_SERVER_WAIT_TIMEOUT:Int = 37137;
+
+	@:value(37138)
+	static inline var OBJECT_TYPE:Int = 37138;
+
+	@:value(37139)
+	static inline var SYNC_CONDITION:Int = 37139;
+
+	@:value(37140)
+	static inline var SYNC_STATUS:Int = 37140;
+
+	@:value(37141)
+	static inline var SYNC_FLAGS:Int = 37141;
+
+	@:value(37142)
+	static inline var SYNC_FENCE:Int = 37142;
+
+	@:value(37143)
+	static inline var SYNC_GPU_COMMANDS_COMPLETE:Int = 37143;
+
+	@:value(37144)
+	static inline var UNSIGNALED:Int = 37144;
+
+	@:value(37145)
+	static inline var SIGNALED:Int = 37145;
+
+	@:value(37146)
+	static inline var ALREADY_SIGNALED:Int = 37146;
+
+	@:value(37147)
+	static inline var TIMEOUT_EXPIRED:Int = 37147;
+
+	@:value(37148)
+	static inline var CONDITION_SATISFIED:Int = 37148;
+
+	@:value(37149)
+	static inline var WAIT_FAILED:Int = 37149;
+
+	@:value(1)
+	static inline var SYNC_FLUSH_COMMANDS_BIT:Int = 1;
+
+	@:value(35070)
+	static inline var VERTEX_ATTRIB_ARRAY_DIVISOR:Int = 35070;
+
+	@:value(35887)
+	static inline var ANY_SAMPLES_PASSED:Int = 35887;
+
+	@:value(36202)
+	static inline var ANY_SAMPLES_PASSED_CONSERVATIVE:Int = 36202;
+
+	@:value(35097)
+	static inline var SAMPLER_BINDING:Int = 35097;
+
+	@:value(36975)
+	static inline var RGB10_A2UI:Int = 36975;
+
+	@:value(36255)
+	static inline var INT_2_10_10_10_REV:Int = 36255;
+
+	@:value(36386)
+	static inline var TRANSFORM_FEEDBACK:Int = 36386;
+
+	@:value(36387)
+	static inline var TRANSFORM_FEEDBACK_PAUSED:Int = 36387;
+
+	@:value(36388)
+	static inline var TRANSFORM_FEEDBACK_ACTIVE:Int = 36388;
+
+	@:value(36389)
+	static inline var TRANSFORM_FEEDBACK_BINDING:Int = 36389;
+
+	@:value(37167)
+	static inline var TEXTURE_IMMUTABLE_FORMAT:Int = 37167;
+
+	@:value(36203)
+	static inline var MAX_ELEMENT_INDEX:Int = 36203;
+
+	@:value(33503)
+	static inline var TEXTURE_IMMUTABLE_LEVELS:Int = 33503;
+
+	@:value(-1)
+	static inline var TIMEOUT_IGNORED:Int = -1;
+
+	@:value(37447)
+	static inline var MAX_CLIENT_WAIT_TIMEOUT_WEBGL:Int = 37447;
+
+	@:value(256)
+	static inline var DEPTH_BUFFER_BIT:Int = 256;
+
+	@:value(1024)
+	static inline var STENCIL_BUFFER_BIT:Int = 1024;
+
+	@:value(16384)
+	static inline var COLOR_BUFFER_BIT:Int = 16384;
+
+	@:value(0)
+	static inline var POINTS:Int = 0;
+
+	@:value(1)
+	static inline var LINES:Int = 1;
+
+	@:value(2)
+	static inline var LINE_LOOP:Int = 2;
+
+	@:value(3)
+	static inline var LINE_STRIP:Int = 3;
+
+	@:value(4)
+	static inline var TRIANGLES:Int = 4;
+
+	@:value(5)
+	static inline var TRIANGLE_STRIP:Int = 5;
+
+	@:value(6)
+	static inline var TRIANGLE_FAN:Int = 6;
+
+	@:value(0)
+	static inline var ZERO:Int = 0;
+
+	@:value(1)
+	static inline var ONE:Int = 1;
+
+	@:value(768)
+	static inline var SRC_COLOR:Int = 768;
+
+	@:value(769)
+	static inline var ONE_MINUS_SRC_COLOR:Int = 769;
+
+	@:value(770)
+	static inline var SRC_ALPHA:Int = 770;
+
+	@:value(771)
+	static inline var ONE_MINUS_SRC_ALPHA:Int = 771;
+
+	@:value(772)
+	static inline var DST_ALPHA:Int = 772;
+
+	@:value(773)
+	static inline var ONE_MINUS_DST_ALPHA:Int = 773;
+
+	@:value(774)
+	static inline var DST_COLOR:Int = 774;
+
+	@:value(775)
+	static inline var ONE_MINUS_DST_COLOR:Int = 775;
+
+	@:value(776)
+	static inline var SRC_ALPHA_SATURATE:Int = 776;
+
+	@:value(32774)
+	static inline var FUNC_ADD:Int = 32774;
+
+	@:value(32777)
+	static inline var BLEND_EQUATION:Int = 32777;
+
+	@:value(32777)
+	static inline var BLEND_EQUATION_RGB:Int = 32777;
+
+	@:value(34877)
+	static inline var BLEND_EQUATION_ALPHA:Int = 34877;
+
+	@:value(32778)
+	static inline var FUNC_SUBTRACT:Int = 32778;
+
+	@:value(32779)
+	static inline var FUNC_REVERSE_SUBTRACT:Int = 32779;
+
+	@:value(32968)
+	static inline var BLEND_DST_RGB:Int = 32968;
+
+	@:value(32969)
+	static inline var BLEND_SRC_RGB:Int = 32969;
+
+	@:value(32970)
+	static inline var BLEND_DST_ALPHA:Int = 32970;
+
+	@:value(32971)
+	static inline var BLEND_SRC_ALPHA:Int = 32971;
+
+	@:value(32769)
+	static inline var CONSTANT_COLOR:Int = 32769;
+
+	@:value(32770)
+	static inline var ONE_MINUS_CONSTANT_COLOR:Int = 32770;
+
+	@:value(32771)
+	static inline var CONSTANT_ALPHA:Int = 32771;
+
+	@:value(32772)
+	static inline var ONE_MINUS_CONSTANT_ALPHA:Int = 32772;
+
+	@:value(32773)
+	static inline var BLEND_COLOR:Int = 32773;
+
+	@:value(34962)
+	static inline var ARRAY_BUFFER:Int = 34962;
+
+	@:value(34963)
+	static inline var ELEMENT_ARRAY_BUFFER:Int = 34963;
+
+	@:value(34964)
+	static inline var ARRAY_BUFFER_BINDING:Int = 34964;
+
+	@:value(34965)
+	static inline var ELEMENT_ARRAY_BUFFER_BINDING:Int = 34965;
+
+	@:value(35040)
+	static inline var STREAM_DRAW:Int = 35040;
+
+	@:value(35044)
+	static inline var STATIC_DRAW:Int = 35044;
+
+	@:value(35048)
+	static inline var DYNAMIC_DRAW:Int = 35048;
+
+	@:value(34660)
+	static inline var BUFFER_SIZE:Int = 34660;
+
+	@:value(34661)
+	static inline var BUFFER_USAGE:Int = 34661;
+
+	@:value(34342)
+	static inline var CURRENT_VERTEX_ATTRIB:Int = 34342;
+
+	@:value(1028)
+	static inline var FRONT:Int = 1028;
+
+	@:value(1029)
+	static inline var BACK:Int = 1029;
+
+	@:value(1032)
+	static inline var FRONT_AND_BACK:Int = 1032;
+
+	@:value(2884)
+	static inline var CULL_FACE:Int = 2884;
+
+	@:value(3042)
+	static inline var BLEND:Int = 3042;
+
+	@:value(3024)
+	static inline var DITHER:Int = 3024;
+
+	@:value(2960)
+	static inline var STENCIL_TEST:Int = 2960;
+
+	@:value(2929)
+	static inline var DEPTH_TEST:Int = 2929;
+
+	@:value(3089)
+	static inline var SCISSOR_TEST:Int = 3089;
+
+	@:value(32823)
+	static inline var POLYGON_OFFSET_FILL:Int = 32823;
+
+	@:value(32926)
+	static inline var SAMPLE_ALPHA_TO_COVERAGE:Int = 32926;
+
+	@:value(32928)
+	static inline var SAMPLE_COVERAGE:Int = 32928;
+
+	@:value(0)
+	static inline var NO_ERROR:Int = 0;
+
+	@:value(1280)
+	static inline var INVALID_ENUM:Int = 1280;
+
+	@:value(1281)
+	static inline var INVALID_VALUE:Int = 1281;
+
+	@:value(1282)
+	static inline var INVALID_OPERATION:Int = 1282;
+
+	@:value(1285)
+	static inline var OUT_OF_MEMORY:Int = 1285;
+
+	@:value(2304)
+	static inline var CW:Int = 2304;
+
+	@:value(2305)
+	static inline var CCW:Int = 2305;
+
+	@:value(2849)
+	static inline var LINE_WIDTH:Int = 2849;
+
+	@:value(33901)
+	static inline var ALIASED_POINT_SIZE_RANGE:Int = 33901;
+
+	@:value(33902)
+	static inline var ALIASED_LINE_WIDTH_RANGE:Int = 33902;
+
+	@:value(2885)
+	static inline var CULL_FACE_MODE:Int = 2885;
+
+	@:value(2886)
+	static inline var FRONT_FACE:Int = 2886;
+
+	@:value(2928)
+	static inline var DEPTH_RANGE:Int = 2928;
+
+	@:value(2930)
+	static inline var DEPTH_WRITEMASK:Int = 2930;
+
+	@:value(2931)
+	static inline var DEPTH_CLEAR_VALUE:Int = 2931;
+
+	@:value(2932)
+	static inline var DEPTH_FUNC:Int = 2932;
+
+	@:value(2961)
+	static inline var STENCIL_CLEAR_VALUE:Int = 2961;
+
+	@:value(2962)
+	static inline var STENCIL_FUNC:Int = 2962;
+
+	@:value(2964)
+	static inline var STENCIL_FAIL:Int = 2964;
+
+	@:value(2965)
+	static inline var STENCIL_PASS_DEPTH_FAIL:Int = 2965;
+
+	@:value(2966)
+	static inline var STENCIL_PASS_DEPTH_PASS:Int = 2966;
+
+	@:value(2967)
+	static inline var STENCIL_REF:Int = 2967;
+
+	@:value(2963)
+	static inline var STENCIL_VALUE_MASK:Int = 2963;
+
+	@:value(2968)
+	static inline var STENCIL_WRITEMASK:Int = 2968;
+
+	@:value(34816)
+	static inline var STENCIL_BACK_FUNC:Int = 34816;
+
+	@:value(34817)
+	static inline var STENCIL_BACK_FAIL:Int = 34817;
+
+	@:value(34818)
+	static inline var STENCIL_BACK_PASS_DEPTH_FAIL:Int = 34818;
+
+	@:value(34819)
+	static inline var STENCIL_BACK_PASS_DEPTH_PASS:Int = 34819;
+
+	@:value(36003)
+	static inline var STENCIL_BACK_REF:Int = 36003;
+
+	@:value(36004)
+	static inline var STENCIL_BACK_VALUE_MASK:Int = 36004;
+
+	@:value(36005)
+	static inline var STENCIL_BACK_WRITEMASK:Int = 36005;
+
+	@:value(2978)
+	static inline var VIEWPORT:Int = 2978;
+
+	@:value(3088)
+	static inline var SCISSOR_BOX:Int = 3088;
+
+	@:value(3106)
+	static inline var COLOR_CLEAR_VALUE:Int = 3106;
+
+	@:value(3107)
+	static inline var COLOR_WRITEMASK:Int = 3107;
+
+	@:value(3317)
+	static inline var UNPACK_ALIGNMENT:Int = 3317;
+
+	@:value(3333)
+	static inline var PACK_ALIGNMENT:Int = 3333;
+
+	@:value(3379)
+	static inline var MAX_TEXTURE_SIZE:Int = 3379;
+
+	@:value(3386)
+	static inline var MAX_VIEWPORT_DIMS:Int = 3386;
+
+	@:value(3408)
+	static inline var SUBPIXEL_BITS:Int = 3408;
+
+	@:value(3410)
+	static inline var RED_BITS:Int = 3410;
+
+	@:value(3411)
+	static inline var GREEN_BITS:Int = 3411;
+
+	@:value(3412)
+	static inline var BLUE_BITS:Int = 3412;
+
+	@:value(3413)
+	static inline var ALPHA_BITS:Int = 3413;
+
+	@:value(3414)
+	static inline var DEPTH_BITS:Int = 3414;
+
+	@:value(3415)
+	static inline var STENCIL_BITS:Int = 3415;
+
+	@:value(10752)
+	static inline var POLYGON_OFFSET_UNITS:Int = 10752;
+
+	@:value(32824)
+	static inline var POLYGON_OFFSET_FACTOR:Int = 32824;
+
+	@:value(32873)
+	static inline var TEXTURE_BINDING_2D:Int = 32873;
+
+	@:value(32936)
+	static inline var SAMPLE_BUFFERS:Int = 32936;
+
+	@:value(32937)
+	static inline var SAMPLES:Int = 32937;
+
+	@:value(32938)
+	static inline var SAMPLE_COVERAGE_VALUE:Int = 32938;
+
+	@:value(32939)
+	static inline var SAMPLE_COVERAGE_INVERT:Int = 32939;
+
+	@:value(34467)
+	static inline var COMPRESSED_TEXTURE_FORMATS:Int = 34467;
+
+	@:value(4352)
+	static inline var DONT_CARE:Int = 4352;
+
+	@:value(4353)
+	static inline var FASTEST:Int = 4353;
+
+	@:value(4354)
+	static inline var NICEST:Int = 4354;
+
+	@:value(33170)
+	static inline var GENERATE_MIPMAP_HINT:Int = 33170;
+
+	@:value(5120)
+	static inline var BYTE:Int = 5120;
+
+	@:value(5121)
+	static inline var UNSIGNED_BYTE:Int = 5121;
+
+	@:value(5122)
+	static inline var SHORT:Int = 5122;
+
+	@:value(5123)
+	static inline var UNSIGNED_SHORT:Int = 5123;
+
+	@:value(5124)
+	static inline var INT:Int = 5124;
+
+	@:value(5125)
+	static inline var UNSIGNED_INT:Int = 5125;
+
+	@:value(5126)
+	static inline var FLOAT:Int = 5126;
+
+	@:value(6402)
+	static inline var DEPTH_COMPONENT:Int = 6402;
+
+	@:value(6406)
+	static inline var ALPHA:Int = 6406;
+
+	@:value(6407)
+	static inline var RGB:Int = 6407;
+
+	@:value(6408)
+	static inline var RGBA:Int = 6408;
+
+	@:value(6409)
+	static inline var LUMINANCE:Int = 6409;
+
+	@:value(6410)
+	static inline var LUMINANCE_ALPHA:Int = 6410;
+
+	@:value(32819)
+	static inline var UNSIGNED_SHORT_4_4_4_4:Int = 32819;
+
+	@:value(32820)
+	static inline var UNSIGNED_SHORT_5_5_5_1:Int = 32820;
+
+	@:value(33635)
+	static inline var UNSIGNED_SHORT_5_6_5:Int = 33635;
+
+	@:value(35632)
+	static inline var FRAGMENT_SHADER:Int = 35632;
+
+	@:value(35633)
+	static inline var VERTEX_SHADER:Int = 35633;
+
+	@:value(34921)
+	static inline var MAX_VERTEX_ATTRIBS:Int = 34921;
+
+	@:value(36347)
+	static inline var MAX_VERTEX_UNIFORM_VECTORS:Int = 36347;
+
+	@:value(36348)
+	static inline var MAX_VARYING_VECTORS:Int = 36348;
+
+	@:value(35661)
+	static inline var MAX_COMBINED_TEXTURE_IMAGE_UNITS:Int = 35661;
+
+	@:value(35660)
+	static inline var MAX_VERTEX_TEXTURE_IMAGE_UNITS:Int = 35660;
+
+	@:value(34930)
+	static inline var MAX_TEXTURE_IMAGE_UNITS:Int = 34930;
+
+	@:value(36349)
+	static inline var MAX_FRAGMENT_UNIFORM_VECTORS:Int = 36349;
+
+	@:value(35663)
+	static inline var SHADER_TYPE:Int = 35663;
+
+	@:value(35712)
+	static inline var DELETE_STATUS:Int = 35712;
+
+	@:value(35714)
+	static inline var LINK_STATUS:Int = 35714;
+
+	@:value(35715)
+	static inline var VALIDATE_STATUS:Int = 35715;
+
+	@:value(35717)
+	static inline var ATTACHED_SHADERS:Int = 35717;
+
+	@:value(35718)
+	static inline var ACTIVE_UNIFORMS:Int = 35718;
+
+	@:value(35721)
+	static inline var ACTIVE_ATTRIBUTES:Int = 35721;
+
+	@:value(35724)
+	static inline var SHADING_LANGUAGE_VERSION:Int = 35724;
+
+	@:value(35725)
+	static inline var CURRENT_PROGRAM:Int = 35725;
+
+	@:value(512)
+	static inline var NEVER:Int = 512;
+
+	@:value(513)
+	static inline var LESS:Int = 513;
+
+	@:value(514)
+	static inline var EQUAL:Int = 514;
+
+	@:value(515)
+	static inline var LEQUAL:Int = 515;
+
+	@:value(516)
+	static inline var GREATER:Int = 516;
+
+	@:value(517)
+	static inline var NOTEQUAL:Int = 517;
+
+	@:value(518)
+	static inline var GEQUAL:Int = 518;
+
+	@:value(519)
+	static inline var ALWAYS:Int = 519;
+
+	@:value(7680)
+	static inline var KEEP:Int = 7680;
+
+	@:value(7681)
+	static inline var REPLACE:Int = 7681;
+
+	@:value(7682)
+	static inline var INCR:Int = 7682;
+
+	@:value(7683)
+	static inline var DECR:Int = 7683;
+
+	@:value(5386)
+	static inline var INVERT:Int = 5386;
+
+	@:value(34055)
+	static inline var INCR_WRAP:Int = 34055;
+
+	@:value(34056)
+	static inline var DECR_WRAP:Int = 34056;
+
+	@:value(7936)
+	static inline var VENDOR:Int = 7936;
+
+	@:value(7937)
+	static inline var RENDERER:Int = 7937;
+
+	@:value(7938)
+	static inline var VERSION:Int = 7938;
+
+	@:value(9728)
+	static inline var NEAREST:Int = 9728;
+
+	@:value(9729)
+	static inline var LINEAR:Int = 9729;
+
+	@:value(9984)
+	static inline var NEAREST_MIPMAP_NEAREST:Int = 9984;
+
+	@:value(9985)
+	static inline var LINEAR_MIPMAP_NEAREST:Int = 9985;
+
+	@:value(9986)
+	static inline var NEAREST_MIPMAP_LINEAR:Int = 9986;
+
+	@:value(9987)
+	static inline var LINEAR_MIPMAP_LINEAR:Int = 9987;
+
+	@:value(10240)
+	static inline var TEXTURE_MAG_FILTER:Int = 10240;
+
+	@:value(10241)
+	static inline var TEXTURE_MIN_FILTER:Int = 10241;
+
+	@:value(10242)
+	static inline var TEXTURE_WRAP_S:Int = 10242;
+
+	@:value(10243)
+	static inline var TEXTURE_WRAP_T:Int = 10243;
+
+	@:value(3553)
+	static inline var TEXTURE_2D:Int = 3553;
+
+	@:value(5890)
+	static inline var TEXTURE:Int = 5890;
+
+	@:value(34067)
+	static inline var TEXTURE_CUBE_MAP:Int = 34067;
+
+	@:value(34068)
+	static inline var TEXTURE_BINDING_CUBE_MAP:Int = 34068;
+
+	@:value(34069)
+	static inline var TEXTURE_CUBE_MAP_POSITIVE_X:Int = 34069;
+
+	@:value(34070)
+	static inline var TEXTURE_CUBE_MAP_NEGATIVE_X:Int = 34070;
+
+	@:value(34071)
+	static inline var TEXTURE_CUBE_MAP_POSITIVE_Y:Int = 34071;
+
+	@:value(34072)
+	static inline var TEXTURE_CUBE_MAP_NEGATIVE_Y:Int = 34072;
+
+	@:value(34073)
+	static inline var TEXTURE_CUBE_MAP_POSITIVE_Z:Int = 34073;
+
+	@:value(34074)
+	static inline var TEXTURE_CUBE_MAP_NEGATIVE_Z:Int = 34074;
+
+	@:value(34076)
+	static inline var MAX_CUBE_MAP_TEXTURE_SIZE:Int = 34076;
+
+	@:value(33984)
+	static inline var TEXTURE0:Int = 33984;
+
+	@:value(33985)
+	static inline var TEXTURE1:Int = 33985;
+
+	@:value(33986)
+	static inline var TEXTURE2:Int = 33986;
+
+	@:value(33987)
+	static inline var TEXTURE3:Int = 33987;
+
+	@:value(33988)
+	static inline var TEXTURE4:Int = 33988;
+
+	@:value(33989)
+	static inline var TEXTURE5:Int = 33989;
+
+	@:value(33990)
+	static inline var TEXTURE6:Int = 33990;
+
+	@:value(33991)
+	static inline var TEXTURE7:Int = 33991;
+
+	@:value(33992)
+	static inline var TEXTURE8:Int = 33992;
+
+	@:value(33993)
+	static inline var TEXTURE9:Int = 33993;
+
+	@:value(33994)
+	static inline var TEXTURE10:Int = 33994;
+
+	@:value(33995)
+	static inline var TEXTURE11:Int = 33995;
+
+	@:value(33996)
+	static inline var TEXTURE12:Int = 33996;
+
+	@:value(33997)
+	static inline var TEXTURE13:Int = 33997;
+
+	@:value(33998)
+	static inline var TEXTURE14:Int = 33998;
+
+	@:value(33999)
+	static inline var TEXTURE15:Int = 33999;
+
+	@:value(34000)
+	static inline var TEXTURE16:Int = 34000;
+
+	@:value(34001)
+	static inline var TEXTURE17:Int = 34001;
+
+	@:value(34002)
+	static inline var TEXTURE18:Int = 34002;
+
+	@:value(34003)
+	static inline var TEXTURE19:Int = 34003;
+
+	@:value(34004)
+	static inline var TEXTURE20:Int = 34004;
+
+	@:value(34005)
+	static inline var TEXTURE21:Int = 34005;
+
+	@:value(34006)
+	static inline var TEXTURE22:Int = 34006;
+
+	@:value(34007)
+	static inline var TEXTURE23:Int = 34007;
+
+	@:value(34008)
+	static inline var TEXTURE24:Int = 34008;
+
+	@:value(34009)
+	static inline var TEXTURE25:Int = 34009;
+
+	@:value(34010)
+	static inline var TEXTURE26:Int = 34010;
+
+	@:value(34011)
+	static inline var TEXTURE27:Int = 34011;
+
+	@:value(34012)
+	static inline var TEXTURE28:Int = 34012;
+
+	@:value(34013)
+	static inline var TEXTURE29:Int = 34013;
+
+	@:value(34014)
+	static inline var TEXTURE30:Int = 34014;
+
+	@:value(34015)
+	static inline var TEXTURE31:Int = 34015;
+
+	@:value(34016)
+	static inline var ACTIVE_TEXTURE:Int = 34016;
+
+	@:value(10497)
+	static inline var REPEAT:Int = 10497;
+
+	@:value(33071)
+	static inline var CLAMP_TO_EDGE:Int = 33071;
+
+	@:value(33648)
+	static inline var MIRRORED_REPEAT:Int = 33648;
+
+	@:value(35664)
+	static inline var FLOAT_VEC2:Int = 35664;
+
+	@:value(35665)
+	static inline var FLOAT_VEC3:Int = 35665;
+
+	@:value(35666)
+	static inline var FLOAT_VEC4:Int = 35666;
+
+	@:value(35667)
+	static inline var INT_VEC2:Int = 35667;
+
+	@:value(35668)
+	static inline var INT_VEC3:Int = 35668;
+
+	@:value(35669)
+	static inline var INT_VEC4:Int = 35669;
+
+	@:value(35670)
+	static inline var BOOL:Int = 35670;
+
+	@:value(35671)
+	static inline var BOOL_VEC2:Int = 35671;
+
+	@:value(35672)
+	static inline var BOOL_VEC3:Int = 35672;
+
+	@:value(35673)
+	static inline var BOOL_VEC4:Int = 35673;
+
+	@:value(35674)
+	static inline var FLOAT_MAT2:Int = 35674;
+
+	@:value(35675)
+	static inline var FLOAT_MAT3:Int = 35675;
+
+	@:value(35676)
+	static inline var FLOAT_MAT4:Int = 35676;
+
+	@:value(35678)
+	static inline var SAMPLER_2D:Int = 35678;
+
+	@:value(35680)
+	static inline var SAMPLER_CUBE:Int = 35680;
+
+	@:value(34338)
+	static inline var VERTEX_ATTRIB_ARRAY_ENABLED:Int = 34338;
+
+	@:value(34339)
+	static inline var VERTEX_ATTRIB_ARRAY_SIZE:Int = 34339;
+
+	@:value(34340)
+	static inline var VERTEX_ATTRIB_ARRAY_STRIDE:Int = 34340;
+
+	@:value(34341)
+	static inline var VERTEX_ATTRIB_ARRAY_TYPE:Int = 34341;
+
+	@:value(34922)
+	static inline var VERTEX_ATTRIB_ARRAY_NORMALIZED:Int = 34922;
+
+	@:value(34373)
+	static inline var VERTEX_ATTRIB_ARRAY_POINTER:Int = 34373;
+
+	@:value(34975)
+	static inline var VERTEX_ATTRIB_ARRAY_BUFFER_BINDING:Int = 34975;
+
+	@:value(35738)
+	static inline var IMPLEMENTATION_COLOR_READ_TYPE:Int = 35738;
+
+	@:value(35739)
+	static inline var IMPLEMENTATION_COLOR_READ_FORMAT:Int = 35739;
+
+	@:value(35713)
+	static inline var COMPILE_STATUS:Int = 35713;
+
+	@:value(36336)
+	static inline var LOW_FLOAT:Int = 36336;
+
+	@:value(36337)
+	static inline var MEDIUM_FLOAT:Int = 36337;
+
+	@:value(36338)
+	static inline var HIGH_FLOAT:Int = 36338;
+
+	@:value(36339)
+	static inline var LOW_INT:Int = 36339;
+
+	@:value(36340)
+	static inline var MEDIUM_INT:Int = 36340;
+
+	@:value(36341)
+	static inline var HIGH_INT:Int = 36341;
+
+	@:value(36160)
+	static inline var FRAMEBUFFER:Int = 36160;
+
+	@:value(36161)
+	static inline var RENDERBUFFER:Int = 36161;
+
+	@:value(32854)
+	static inline var RGBA4:Int = 32854;
+
+	@:value(32855)
+	static inline var RGB5_A1:Int = 32855;
+
+	@:value(36194)
+	static inline var RGB565:Int = 36194;
+
+	@:value(33189)
+	static inline var DEPTH_COMPONENT16:Int = 33189;
+
+	@:value(36168)
+	static inline var STENCIL_INDEX8:Int = 36168;
+
+	@:value(34041)
+	static inline var DEPTH_STENCIL:Int = 34041;
+
+	@:value(36162)
+	static inline var RENDERBUFFER_WIDTH:Int = 36162;
+
+	@:value(36163)
+	static inline var RENDERBUFFER_HEIGHT:Int = 36163;
+
+	@:value(36164)
+	static inline var RENDERBUFFER_INTERNAL_FORMAT:Int = 36164;
+
+	@:value(36176)
+	static inline var RENDERBUFFER_RED_SIZE:Int = 36176;
+
+	@:value(36177)
+	static inline var RENDERBUFFER_GREEN_SIZE:Int = 36177;
+
+	@:value(36178)
+	static inline var RENDERBUFFER_BLUE_SIZE:Int = 36178;
+
+	@:value(36179)
+	static inline var RENDERBUFFER_ALPHA_SIZE:Int = 36179;
+
+	@:value(36180)
+	static inline var RENDERBUFFER_DEPTH_SIZE:Int = 36180;
+
+	@:value(36181)
+	static inline var RENDERBUFFER_STENCIL_SIZE:Int = 36181;
+
+	@:value(36048)
+	static inline var FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE:Int = 36048;
+
+	@:value(36049)
+	static inline var FRAMEBUFFER_ATTACHMENT_OBJECT_NAME:Int = 36049;
+
+	@:value(36050)
+	static inline var FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL:Int = 36050;
+
+	@:value(36051)
+	static inline var FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE:Int = 36051;
+
+	@:value(36064)
+	static inline var COLOR_ATTACHMENT0:Int = 36064;
+
+	@:value(36096)
+	static inline var DEPTH_ATTACHMENT:Int = 36096;
+
+	@:value(36128)
+	static inline var STENCIL_ATTACHMENT:Int = 36128;
+
+	@:value(33306)
+	static inline var DEPTH_STENCIL_ATTACHMENT:Int = 33306;
+
+	@:value(0)
+	static inline var NONE:Int = 0;
+
+	@:value(36053)
+	static inline var FRAMEBUFFER_COMPLETE:Int = 36053;
+
+	@:value(36054)
+	static inline var FRAMEBUFFER_INCOMPLETE_ATTACHMENT:Int = 36054;
+
+	@:value(36055)
+	static inline var FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:Int = 36055;
+
+	@:value(36057)
+	static inline var FRAMEBUFFER_INCOMPLETE_DIMENSIONS:Int = 36057;
+
+	@:value(36061)
+	static inline var FRAMEBUFFER_UNSUPPORTED:Int = 36061;
+
+	@:value(36006)
+	static inline var FRAMEBUFFER_BINDING:Int = 36006;
+
+	@:value(36007)
+	static inline var RENDERBUFFER_BINDING:Int = 36007;
+
+	@:value(34024)
+	static inline var MAX_RENDERBUFFER_SIZE:Int = 34024;
+
+	@:value(1286)
+	static inline var INVALID_FRAMEBUFFER_OPERATION:Int = 1286;
+
+	@:value(37440)
+	static inline var UNPACK_FLIP_Y_WEBGL:Int = 37440;
+
+	@:value(37441)
+	static inline var UNPACK_PREMULTIPLY_ALPHA_WEBGL:Int = 37441;
+
+	@:value(37442)
+	static inline var CONTEXT_LOST_WEBGL:Int = 37442;
+
+	@:value(37443)
+	static inline var UNPACK_COLORSPACE_CONVERSION_WEBGL:Int = 37443;
+
+	@:value(37444)
+	static inline var BROWSER_DEFAULT_WEBGL:Int = 37444;
+}

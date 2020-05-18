@@ -1,0 +1,5 @@
+@:realPath("js.lib.RangeError") @:native("RangeError")
+extern class RangeError extends Error {
+
+	function new(message:Null<String>):Void;
+}

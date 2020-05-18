@@ -1,0 +1,5 @@
+@:realPath("js.html.Permissions") @:native("Permissions")
+extern class Permissions {
+
+	function query(permission:Dynamic):Promise<PermissionStatus>;
+}

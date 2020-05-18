@@ -1,0 +1,51 @@
+@:realPath("js.lib.DataView") @:used @:native("DataView")
+extern class DataView implements js.lib.ArrayBufferView {
+
+	function new(buffer:ArrayBuffer, byteOffset:Null<Int>, byteLength:Null<Int>):Void;
+
+	var buffer(default,ctor):ArrayBuffer;
+
+	var byteOffset(default,ctor):Int;
+
+	var byteLength(default,ctor):Int;
+
+	@:pure
+	function getInt8(byteOffset:Int):Int;
+
+	@:pure
+	function getUint8(byteOffset:Int):Int;
+
+	@:pure
+	function getInt16(byteOffset:Int, littleEndian:Null<Bool>):Int;
+
+	@:pure
+	function getUint16(byteOffset:Int, littleEndian:Null<Bool>):Int;
+
+	@:pure
+	function getInt32(byteOffset:Int, littleEndian:Null<Bool>):Int;
+
+	@:pure
+	function getUint32(byteOffset:Int, littleEndian:Null<Bool>):Int;
+
+	@:pure
+	function getFloat32(byteOffset:Int, littleEndian:Null<Bool>):Float;
+
+	@:pure
+	function getFloat64(byteOffset:Int, littleEndian:Null<Bool>):Float;
+
+	function setInt8(byteOffset:Int, value:Int):Void;
+
+	function setUint8(byteOffset:Int, value:Int):Void;
+
+	function setInt16(byteOffset:Int, value:Int, littleEndian:Null<Bool>):Void;
+
+	function setUint16(byteOffset:Int, value:Int, littleEndian:Null<Bool>):Void;
+
+	function setInt32(byteOffset:Int, value:Int, littleEndian:Null<Bool>):Void;
+
+	function setUint32(byteOffset:Int, value:Int, littleEndian:Null<Bool>):Void;
+
+	function setFloat32(byteOffset:Int, value:Float, littleEndian:Null<Bool>):Void;
+
+	function setFloat64(byteOffset:Int, value:Float, littleEndian:Null<Bool>):Void;
+}

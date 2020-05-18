@@ -1,0 +1,88 @@
+private class haxe.ds._Map.Map_Impl_ {
+
+	@:impl @:noCompletion
+	public static function _new
+
+	@:impl
+	public static inline function set(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>, key:haxe.ds.Map.K, value:haxe.ds.Map.V) this.set(key, value)
+
+	@:impl @:arrayAccess
+	public static inline function get(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>, key:haxe.ds.Map.K) return this.get(key)
+
+	@:impl
+	public static inline function exists(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>, key:haxe.ds.Map.K) return this.exists(key)
+
+	@:impl
+	public static inline function remove(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>, key:haxe.ds.Map.K) return this.remove(key)
+
+	@:impl
+	public static inline function keys(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		return this.keys();
+	}
+
+	@:impl
+	public static inline function iterator(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		return this.iterator();
+	}
+
+	@:impl
+	public static inline function keyValueIterator(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		return this.keyValueIterator();
+	}
+
+	@:impl
+	public static inline function copy(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		return cast this.copy();
+	}
+
+	@:impl
+	public static inline function toString(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		return this.toString();
+	}
+
+	@:impl
+	public static inline function clear(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>) {
+		this.clear();
+	}
+
+	@:impl @:arrayAccess @:noCompletion
+	public static inline function arrayWrite(this:haxe.IMap<haxe.ds.Map.K, haxe.ds.Map.V>, k:haxe.ds.Map.K, v:haxe.ds.Map.V) {
+		this.set(k, v);
+		return v;
+	}
+
+	@:impl @:to
+	static inline function toStringMap<K : toStringMap.K,V : toStringMap.V>(t:haxe.IMap<toStringMap.K, toStringMap.V>) {
+		return new haxe.ds.StringMap();
+	}
+
+	@:impl @:to
+	static inline function toIntMap<K : toIntMap.K,V : toIntMap.V>(t:haxe.IMap<toIntMap.K, toIntMap.V>) {
+		return new haxe.ds.IntMap();
+	}
+
+	@:impl @:to
+	static inline function toEnumValueMapMap<K : toEnumValueMapMap.K,V : toEnumValueMapMap.V>(t:haxe.IMap<toEnumValueMapMap.K, toEnumValueMapMap.V>) {
+		return new haxe.ds.EnumValueMap();
+	}
+
+	@:impl @:to
+	static inline function toObjectMap<K : toObjectMap.K,V : toObjectMap.V>(t:haxe.IMap<toObjectMap.K, toObjectMap.V>) {
+		return new haxe.ds.ObjectMap();
+	}
+
+	@:from
+	static inline function fromStringMap<V : fromStringMap.V>(map:haxe.ds.StringMap<fromStringMap.V>) {
+		return cast map;
+	}
+
+	@:from
+	static inline function fromIntMap<V : fromIntMap.V>(map:haxe.ds.IntMap<fromIntMap.V>) {
+		return cast map;
+	}
+
+	@:from
+	static inline function fromObjectMap<K : fromObjectMap.K,V : fromObjectMap.V>(map:haxe.ds.ObjectMap<fromObjectMap.K, fromObjectMap.V>) {
+		return cast map;
+	}
+}

@@ -1,0 +1,11 @@
+@:realPath("js.lib.Error") @:directlyUsed @:used @:native("Error")
+extern class Error {
+
+	function new(message:Null<String>):Void;
+
+	var message:String;
+
+	var name:String;
+
+	var stack(default,null):String;
+}

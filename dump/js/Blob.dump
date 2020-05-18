@@ -1,0 +1,11 @@
+@:realPath("js.html.Blob") @:native("Blob")
+extern class Blob {
+
+	function new(blobParts:Null<Array<haxe.extern.EitherType<ArrayBuffer, haxe.extern.EitherType<js.lib.ArrayBufferView, haxe.extern.EitherType<Blob, String>>>>>, options:Null<js.html.BlobPropertyBag>):Void;
+
+	var size(default,null):Int;
+
+	var type(default,null):String;
+
+	function slice(start:Null<Int>, end:Null<Int>, contentType:Null<String>):Blob;
+}

@@ -1,0 +1,32 @@
+class haxe.rtti.Meta {
+
+	public static function getType(t:Dynamic) {
+		var meta = haxe.rtti.Meta.getMeta(t);
+		return if ((meta == null || meta.obj == null)) {} else {
+			meta.obj;
+		};
+	}
+
+	static function isInterface(t:Dynamic) {
+		throw throw haxe.Exception.thrown("Something went wrong");
+	}
+
+	@:has_untyped
+	static function getMeta(t:Dynamic) {
+		return t.__meta__;
+	}
+
+	public static function getStatics(t:Dynamic) {
+		var meta = haxe.rtti.Meta.getMeta(t);
+		return if ((meta == null || meta.statics == null)) {} else {
+			meta.statics;
+		};
+	}
+
+	public static function getFields(t:Dynamic) {
+		var meta = haxe.rtti.Meta.getMeta(t);
+		return if ((meta == null || meta.fields == null)) {} else {
+			meta.fields;
+		};
+	}
+}

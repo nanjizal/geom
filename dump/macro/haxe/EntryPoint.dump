@@ -1,0 +1,73 @@
+class haxe.EntryPoint {
+
+	@:value(new Lock())
+	static var sleepLock:sys.thread.Lock = new sys.thread.Lock();
+
+	@:value(new Mutex())
+	static var mutex:sys.thread.Mutex = new sys.thread.Mutex();
+
+	@:value(new Array<Void>())
+	static var pending:Array<Void -> Void> = new Array();
+
+	@:value(0)
+	public static var threadCount(default,null):Int = 0;
+
+	public static function wakeup() {
+		haxe.EntryPoint.sleepLock.release();
+	}
+
+	public static function runInMainThread(f:Void -> Void) {
+		haxe.EntryPoint.mutex.acquire();
+		haxe.EntryPoint.pending.push(f);
+		haxe.EntryPoint.mutex.release();
+		haxe.EntryPoint.wakeup();
+	}
+
+	public static function addThread(f:Void -> Void) {
+		haxe.EntryPoint.mutex.acquire();
+		haxe.EntryPoint.threadCount ++;
+		haxe.EntryPoint.mutex.release();
+		{
+			var h = new eval.vm.NativeThread(function() {
+				f();
+				haxe.EntryPoint.mutex.acquire();
+				haxe.EntryPoint.threadCount --;
+				if ((haxe.EntryPoint.threadCount == 0)) haxe.EntryPoint.wakeup();
+				haxe.EntryPoint.mutex.release();
+			});
+			var this;
+			this = h;
+			cast this;
+		};
+	}
+
+	static function processEvents() {
+		while (true) {
+			haxe.EntryPoint.mutex.acquire();
+			var f = haxe.EntryPoint.pending.shift();
+			haxe.EntryPoint.mutex.release();
+			if (f == null) {
+				break;
+			};
+			f();
+		};
+		var time = haxe.MainLoop.tick();
+		if (! haxe.MainLoop.hasEvents() && haxe.EntryPoint.threadCount == 0) {
+			return -1;
+		};
+		return time;
+	}
+
+	@:keep
+	public static function run() {
+		while (true) {
+			var nextTick = haxe.EntryPoint.processEvents();
+			if (nextTick < 0) {
+				break;
+			};
+			if (nextTick > 0) {
+				haxe.EntryPoint.sleepLock.wait(nextTick);
+			};
+		};
+	}
+}
