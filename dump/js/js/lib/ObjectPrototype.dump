@@ -1,1 +1,0 @@
-typedef js.lib.ObjectPrototype = { valueOf : Function, toString : Function, toLocaleString : Function, propertyIsEnumerable : Function, isPrototypeOf : Function, hasOwnProperty : Function }

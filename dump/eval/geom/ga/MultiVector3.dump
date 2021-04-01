@@ -1,2 +1,0 @@
-@:used @:forward
-abstract geom.ga.MultiVector3 from geom.structure.MVec3 to geom.structure.MVec3 {}

@@ -1,1 +1,0 @@
-typedef js.html.ConvertCoordinateOptions = { ?toBox : Null<js.html.CSSBoxType>, ?fromBox : Null<js.html.CSSBoxType> }

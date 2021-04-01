@@ -1,1 +1,0 @@
-typedef js.html.NotificationOptions = { ?tag : Null<String>, ?requireInteraction : Null<Bool>, ?lang : Null<String>, ?icon : Null<String>, ?dir : Null<js.html.NotificationDirection>, ?data : Null<Dynamic>, ?body : Null<String> }

@@ -1,5 +1,0 @@
-@:realPath("js.html.CanvasPattern") @:native("CanvasPattern")
-extern class CanvasPattern {
-
-	function setTransform(matrix:SVGMatrix):Void;
-}

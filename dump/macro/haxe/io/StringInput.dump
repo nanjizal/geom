@@ -1,6 +1,0 @@
-class haxe.io.StringInput extends haxe.io.BytesInput {
-
-	public function new(s:String) {
-		super(haxe.io.Bytes.ofString(s, null), null, null);
-	}
-}

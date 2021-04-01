@@ -1,1 +1,0 @@
-typedef js.html.push.PushSubscriptionKeys = { ?p256dh : Null<String>, ?auth : Null<String> }

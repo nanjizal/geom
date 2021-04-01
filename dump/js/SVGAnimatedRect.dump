@@ -1,7 +1,0 @@
-@:realPath("js.html.svg.AnimatedRect") @:native("SVGAnimatedRect")
-extern class SVGAnimatedRect {
-
-	var baseVal(default,null):SVGRect;
-
-	var animVal(default,null):SVGRect;
-}

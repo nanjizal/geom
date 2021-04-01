@@ -1,4 +1,0 @@
-@:directlyUsed @:used @:flatEnum
-private enum utest._Dispatcher.EventException {
-	StopPropagation;
-}

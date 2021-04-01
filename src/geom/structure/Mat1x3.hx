@@ -12,4 +12,11 @@ class Mat1x3 {
         this.y = y;
         this.z = z;
     }
+    // for rough debug, perhaps remove later.
+    public function values(){
+        return x + ' ' + y + ' ' + z;
+    }
+    public function clone(): Mat1x3 {
+        return { x: this.x, y: this.y, z: this.z };
+    }
 }

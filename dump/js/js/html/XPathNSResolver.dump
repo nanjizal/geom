@@ -1,1 +1,0 @@
-typedef js.html.XPathNSResolver = { lookupNamespaceURI : (prefix : String) -> String }

@@ -1,7 +1,0 @@
-@:realPath("js.html.CanvasCaptureMediaStream") @:native("CanvasCaptureMediaStream")
-extern class CanvasCaptureMediaStream extends MediaStream {
-
-	var canvas(default,null):HTMLCanvasElement;
-
-	function requestFrame():Void;
-}

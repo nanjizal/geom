@@ -1,1 +1,0 @@
-typedef haxe.V8CallSite = { getLineNumber : Void -> Int, getFunctionName : Void -> String, getFileName : Void -> String, getColumnNumber : Void -> Int }

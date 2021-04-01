@@ -1,2 +1,0 @@
-@:used @:forward
-abstract geom.flat.f32.Float32Flat from haxe.io.Float32Array to haxe.io.Float32Array {}

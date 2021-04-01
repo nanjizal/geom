@@ -1,7 +1,0 @@
-@:realPath("js.html.LIElement") @:native("HTMLLIElement")
-extern class HTMLLIElement extends HTMLElement {
-
-	var value:Int;
-
-	var type:String;
-}

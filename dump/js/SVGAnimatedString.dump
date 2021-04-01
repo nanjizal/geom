@@ -1,7 +1,0 @@
-@:realPath("js.html.svg.AnimatedString") @:native("SVGAnimatedString")
-extern class SVGAnimatedString {
-
-	var baseVal:String;
-
-	var animVal(default,null):String;
-}

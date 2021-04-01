@@ -1,6 +1,0 @@
-@:directlyUsed @:used @:flatEnum
-enum utest.ui.common.HeaderDisplayMode {
-	AlwaysShowHeader;
-	NeverShowHeader;
-	ShowHeaderWithResults;
-}

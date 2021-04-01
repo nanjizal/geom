@@ -1,1 +1,0 @@
-typedef js.lib.AsyncIterator<T : js.lib.AsyncIterator.T> = { next : Void -> Promise<js.lib.IteratorStep<js.lib.AsyncIterator.T>> }

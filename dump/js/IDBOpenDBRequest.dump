@@ -1,7 +1,0 @@
-@:realPath("js.html.idb.OpenDBRequest") @:native("IDBOpenDBRequest")
-extern class IDBOpenDBRequest extends IDBRequest {
-
-	var onblocked:haxe.Function;
-
-	var onupgradeneeded:haxe.Function;
-}

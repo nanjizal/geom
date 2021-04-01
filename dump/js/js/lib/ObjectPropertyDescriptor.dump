@@ -1,1 +1,0 @@
-typedef js.lib.ObjectPropertyDescriptor = { ?writable : Null<Bool>, ?value : Null<Any>, ?set : Null<Any -> Void>, ?get : Null<Void -> Any>, ?enumerable : Null<Bool>, ?configurable : Null<Bool> }

@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.VertexArrayObject") @:native("WebGLVertexArrayObject")
-extern class WebGLVertexArrayObject {
-}

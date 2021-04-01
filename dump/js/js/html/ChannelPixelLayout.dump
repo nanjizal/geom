@@ -1,1 +1,0 @@
-typedef js.html.ChannelPixelLayout = { width : Int, stride : Int, skip : Int, offset : Int, height : Int, dataType : js.html.ChannelPixelLayoutDataType }

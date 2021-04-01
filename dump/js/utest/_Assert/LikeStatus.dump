@@ -1,1 +1,0 @@
-private typedef utest._Assert.LikeStatus = { recursive : Bool, path : String, expectedValue : Dynamic, error : String, actualValue : Dynamic }

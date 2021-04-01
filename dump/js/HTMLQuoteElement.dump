@@ -1,5 +1,0 @@
-@:realPath("js.html.QuoteElement") @:native("HTMLQuoteElement")
-extern class HTMLQuoteElement extends HTMLElement {
-
-	var cite:String;
-}

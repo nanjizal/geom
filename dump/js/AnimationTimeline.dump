@@ -1,5 +1,0 @@
-@:realPath("js.html.AnimationTimeline") @:native("AnimationTimeline")
-extern class AnimationTimeline {
-
-	var currentTime(default,null):Float;
-}

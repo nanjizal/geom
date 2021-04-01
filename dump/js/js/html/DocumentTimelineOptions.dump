@@ -1,1 +1,0 @@
-typedef js.html.DocumentTimelineOptions = { ?originTime : Null<Float> }

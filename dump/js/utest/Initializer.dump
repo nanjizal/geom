@@ -1,1 +1,0 @@
-typedef utest.Initializer = { __initializeUtest__ : Void -> utest.InitializeUtest }

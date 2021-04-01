@@ -1,7 +1,0 @@
-@:realPath("js.html.MapElement") @:native("HTMLMapElement")
-extern class HTMLMapElement extends HTMLElement {
-
-	var name:String;
-
-	var areas(default,null):HTMLCollection;
-}

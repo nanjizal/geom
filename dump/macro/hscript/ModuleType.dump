@@ -1,1 +1,0 @@
-typedef hscript.ModuleType = { params : { }, name : String, meta : hscript.Metadata, isPrivate : Bool }

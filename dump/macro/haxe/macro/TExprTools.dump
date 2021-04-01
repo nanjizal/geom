@@ -1,2 +1,0 @@
-@:dox(hide)
-typedef haxe.macro.TExprTools = haxe.macro.ExprTools

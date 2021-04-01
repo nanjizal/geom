@@ -1,1 +1,0 @@
-typedef js.html.idb.ObjectStoreParameters = { ?keyPath : Null<haxe.extern.EitherType<String, Array<String>>>, ?autoIncrement : Null<Bool> }

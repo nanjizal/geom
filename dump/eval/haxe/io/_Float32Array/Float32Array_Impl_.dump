@@ -1,7 +1,0 @@
-@:keep @:directlyUsed @:used
-private class haxe.io._Float32Array.Float32Array_Impl_ {
-
-	public static function fromData(d:haxe.io.Float32ArrayData) {
-		return cast d;
-	}
-}

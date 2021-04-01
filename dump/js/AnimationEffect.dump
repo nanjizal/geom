@@ -1,9 +1,0 @@
-@:realPath("js.html.AnimationEffect") @:native("AnimationEffect")
-extern class AnimationEffect {
-
-	function getTiming():js.html.EffectTiming;
-
-	function getComputedTiming():js.html.ComputedEffectTiming;
-
-	function updateTiming(timing:Null<js.html.OptionalEffectTiming>):Void;
-}

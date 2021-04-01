@@ -1,1 +1,0 @@
-typedef js.html.DOMQuadJSON = { ?p4 : Null<DOMPoint>, ?p3 : Null<DOMPoint>, ?p2 : Null<DOMPoint>, ?p1 : Null<DOMPoint> }

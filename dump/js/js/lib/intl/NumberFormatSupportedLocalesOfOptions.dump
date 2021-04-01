@@ -1,1 +1,0 @@
-typedef js.lib.intl.NumberFormatSupportedLocalesOfOptions = { ?localeMatcher : Null<js.lib.intl.LocaleMatcher> }

@@ -1,2 +1,0 @@
-@:enum
-private abstract utest.utils._TestBuilder.IsAsync {}

@@ -1,1 +1,0 @@
-typedef js.html.GetNotificationOptions = { ?tag : Null<String> }

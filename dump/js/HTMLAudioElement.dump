@@ -1,3 +1,0 @@
-@:realPath("js.html.AudioElement") @:native("HTMLAudioElement")
-extern class HTMLAudioElement extends HTMLMediaElement {
-}

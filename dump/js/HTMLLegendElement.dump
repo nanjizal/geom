@@ -1,7 +1,0 @@
-@:realPath("js.html.LegendElement") @:native("HTMLLegendElement")
-extern class HTMLLegendElement extends HTMLElement {
-
-	var form(default,null):HTMLFormElement;
-
-	var align:String;
-}

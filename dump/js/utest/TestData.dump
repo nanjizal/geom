@@ -1,1 +1,0 @@
-typedef utest.TestData = { name : String, execute : Void -> utest.Async }

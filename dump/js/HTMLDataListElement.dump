@@ -1,5 +1,0 @@
-@:realPath("js.html.DataListElement") @:native("HTMLDataListElement")
-extern class HTMLDataListElement extends HTMLElement {
-
-	var options(default,null):HTMLCollection;
-}

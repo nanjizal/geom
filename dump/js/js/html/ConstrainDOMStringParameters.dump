@@ -1,1 +1,0 @@
-typedef js.html.ConstrainDOMStringParameters = { ?ideal : Null<haxe.extern.EitherType<String, Array<String>>>, ?exact : Null<haxe.extern.EitherType<String, Array<String>>> }

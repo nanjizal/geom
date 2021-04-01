@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.TransformFeedback") @:native("WebGLTransformFeedback")
-extern class WebGLTransformFeedback {
-}

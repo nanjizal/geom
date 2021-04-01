@@ -1,7 +1,0 @@
-@:realPath("js.html.svg.AnimatedTransformList") @:native("SVGAnimatedTransformList")
-extern class SVGAnimatedTransformList {
-
-	var baseVal(default,null):SVGTransformList;
-
-	var animVal(default,null):SVGTransformList;
-}

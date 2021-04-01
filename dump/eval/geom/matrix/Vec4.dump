@@ -1,1 +1,0 @@
-typedef geom.matrix.Vec4 = geom.matrix.Matrix1x4

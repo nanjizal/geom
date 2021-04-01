@@ -1,9 +1,0 @@
-@:noDoc @:dox(hide)
-class hx.doctest.internal.Logger {
-
-	public static function log(level:hx.doctest.internal.Level, msg:String, loc:Null<hx.doctest.internal.SourceLocation> = null, pos:Null<haxe.PosInfos> = null) {
-		var event = new hx.doctest.internal.LogEvent(level, msg, loc, pos);
-		event.log(null);
-		return event;
-	}
-}

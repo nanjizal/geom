@@ -1,1 +1,0 @@
-typedef js.html.idb.OpenDBOptions = { ?version : Null<Int>, ?storage : Null<js.html.StorageType> }

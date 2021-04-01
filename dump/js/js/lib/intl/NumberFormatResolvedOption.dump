@@ -1,1 +1,0 @@
-typedef js.lib.intl.NumberFormatResolvedOption = { useGrouping : String, style : js.lib.intl.NumberFormatStyle, numberingSystem : String, minimumSignificantDigits : Int, minimumIntegerDigits : Int, minimumFractionDigits : Int, maximumSignificantDigits : Int, maximumFractionDigits : Int, locale : String, currencyDisplay : String, currency : String }

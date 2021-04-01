@@ -1,5 +1,0 @@
-@:realPath("js.lib.SyntaxError") @:native("SyntaxError")
-extern class SyntaxError extends Error {
-
-	function new(message:Null<String>):Void;
-}

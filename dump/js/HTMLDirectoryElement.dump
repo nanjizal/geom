@@ -1,5 +1,0 @@
-@:realPath("js.html.DirectoryElement") @:native("HTMLDirectoryElement")
-extern class HTMLDirectoryElement extends HTMLElement {
-
-	var compact:Bool;
-}

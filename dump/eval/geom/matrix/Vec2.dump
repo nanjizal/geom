@@ -1,1 +1,0 @@
-typedef geom.matrix.Vec2 = geom.matrix.Matrix1x2

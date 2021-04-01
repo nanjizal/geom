@@ -1,6 +1,0 @@
-@:realPath("js.html.webgl.extension.WEBGLCompressedTextureEtc1") @:native("WEBGL_compressed_texture_etc1")
-extern class WEBGL_compressed_texture_etc1 {
-
-	@:value(36196)
-	static inline var COMPRESSED_RGB_ETC1_WEBGL:Int = 36196;
-}

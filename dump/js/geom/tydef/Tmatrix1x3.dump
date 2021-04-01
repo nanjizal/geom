@@ -1,1 +1,0 @@
-typedef geom.tydef.Tmatrix1x3 = { z : Float, y : Float, x : Float }

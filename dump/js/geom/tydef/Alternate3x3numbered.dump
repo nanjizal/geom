@@ -1,1 +1,0 @@
-typedef geom.tydef.Alternate3x3numbered = { _22 : Float, _21 : Float, _20 : Float, _12 : Float, _11 : Float, _10 : Float, _02 : Float, _01 : Float, _00 : Float }

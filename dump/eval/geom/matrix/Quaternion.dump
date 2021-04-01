@@ -1,2 +1,0 @@
-@:used @:forward
-abstract geom.matrix.Quaternion from geom.structure.Mat1x4 to geom.structure.Mat1x4 {}

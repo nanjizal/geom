@@ -1,1 +1,0 @@
-typedef js.html.webgl.ContextAttributes = { ?stencil : Null<Bool>, ?preserveDrawingBuffer : Null<Bool>, ?premultipliedAlpha : Null<Bool>, ?powerPreference : Null<js.html.webgl.PowerPreference>, ?failIfMajorPerformanceCaveat : Null<Bool>, ?depth : Null<Bool>, ?antialias : Null<Bool>, ?alpha : Null<Bool> }

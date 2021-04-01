@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.Framebuffer") @:used @:native("WebGLFramebuffer")
-extern class WebGLFramebuffer {
-}

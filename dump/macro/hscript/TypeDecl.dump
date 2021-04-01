@@ -1,1 +1,0 @@
-typedef hscript.TypeDecl = { t : hscript.CType, params : { }, name : String, meta : hscript.Metadata, isPrivate : Bool }

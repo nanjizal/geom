@@ -1,9 +1,0 @@
-@:realPath("js.html.svg.Point") @:native("SVGPoint")
-extern class SVGPoint {
-
-	var x:Float;
-
-	var y:Float;
-
-	function matrixTransform(matrix:SVGMatrix):SVGPoint;
-}

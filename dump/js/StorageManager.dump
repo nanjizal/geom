@@ -1,9 +1,0 @@
-@:realPath("js.html.StorageManager") @:native("StorageManager")
-extern class StorageManager {
-
-	function persisted():Promise<Bool>;
-
-	function persist():Promise<Bool>;
-
-	function estimate():Promise<js.html.StorageEstimate>;
-}

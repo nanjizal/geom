@@ -1,3 +1,0 @@
-@:realPath("js.html.XMLHttpRequestUpload") @:native("XMLHttpRequestUpload")
-extern class XMLHttpRequestUpload extends XMLHttpRequestEventTarget {
-}

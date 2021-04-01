@@ -1,1 +1,0 @@
-typedef js.html.Coordinates = { speed : Float, longitude : Float, latitude : Float, heading : Float, altitudeAccuracy : Float, altitude : Float, accuracy : Float }

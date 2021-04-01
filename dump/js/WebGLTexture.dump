@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.Texture") @:used @:native("WebGLTexture")
-extern class WebGLTexture {
-}

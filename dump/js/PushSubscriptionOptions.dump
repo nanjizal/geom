@@ -1,5 +1,0 @@
-@:realPath("js.html.push.PushSubscriptionOptions") @:native("PushSubscriptionOptions")
-extern class PushSubscriptionOptions {
-
-	var applicationServerKey(default,null):ArrayBuffer;
-}

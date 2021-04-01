@@ -1,9 +1,0 @@
-@:realPath("js.html.LabelElement") @:native("HTMLLabelElement")
-extern class HTMLLabelElement extends HTMLElement {
-
-	var form(default,null):HTMLFormElement;
-
-	var htmlFor:String;
-
-	var control(default,null):HTMLElement;
-}

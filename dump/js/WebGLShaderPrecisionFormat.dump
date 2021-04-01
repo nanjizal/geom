@@ -1,9 +1,0 @@
-@:realPath("js.html.webgl.ShaderPrecisionFormat") @:used @:native("WebGLShaderPrecisionFormat")
-extern class WebGLShaderPrecisionFormat {
-
-	var rangeMin(default,null):Int;
-
-	var rangeMax(default,null):Int;
-
-	var precision(default,null):Int;
-}

@@ -1,1 +1,0 @@
-typedef js.html.AddEventListenerOptions = { ?passive : Null<Bool>, ?once : Null<Bool>, ?capture : Null<Bool> }

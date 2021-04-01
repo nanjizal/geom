@@ -1,2 +1,0 @@
-@:dox(hide)
-typedef haxe.macro.TTypeTools = haxe.macro.TypeTools

@@ -1,1 +1,0 @@
-typedef js.html.DOMPointInit = { ?z : Null<Float>, ?y : Null<Float>, ?x : Null<Float>, ?w : Null<Float> }

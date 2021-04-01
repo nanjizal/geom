@@ -1,2 +1,0 @@
-@:used @:forward
-abstract geom.matrix.Matrix2x2 from geom.structure.Mat2x2 to geom.structure.Mat2x2 {}

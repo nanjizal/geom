@@ -1,1 +1,0 @@
-typedef List<T : List.T> = haxe.ds.List<List.T>

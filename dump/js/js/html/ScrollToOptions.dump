@@ -1,1 +1,0 @@
-typedef js.html.ScrollToOptions = { ?top : Null<Float>, ?left : Null<Float>, ?behavior : Null<js.html.ScrollBehavior> }

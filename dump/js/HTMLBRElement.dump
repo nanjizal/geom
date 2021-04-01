@@ -1,5 +1,0 @@
-@:realPath("js.html.BRElement") @:native("HTMLBRElement")
-extern class HTMLBRElement extends HTMLElement {
-
-	var clear:String;
-}

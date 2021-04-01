@@ -1,3 +1,0 @@
-@:realPath("js.html.PictureElement") @:native("HTMLPictureElement")
-extern class HTMLPictureElement extends HTMLElement {
-}

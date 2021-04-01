@@ -1,2 +1,0 @@
-@:used @:enum
-abstract geom.MathConstants from Float to Float {}

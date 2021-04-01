@@ -1,2 +1,0 @@
-@:noDoc @:dox(hide)
-typedef hx.doctest.internal.SourceLocation = { lineNumber : Int, filePath : String, charStart : Int, charEnd : Int }

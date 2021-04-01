@@ -1,1 +1,0 @@
-typedef js.html.ConstrainDoubleRange = { ?min : Null<Float>, ?max : Null<Float>, ?ideal : Null<Float>, ?exact : Null<Float> }

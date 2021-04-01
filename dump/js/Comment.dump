@@ -1,6 +1,0 @@
-@:realPath("js.html.Comment") @:native("Comment")
-extern class Comment extends CharacterData {
-
-	@:value({ data : "" })
-	function new(data:String):Void;
-}

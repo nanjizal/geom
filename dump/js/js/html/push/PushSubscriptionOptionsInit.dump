@@ -1,1 +1,0 @@
-typedef js.html.push.PushSubscriptionOptionsInit = { ?applicationServerKey : Null<haxe.extern.EitherType<haxe.extern.EitherType<js.lib.ArrayBufferView, ArrayBuffer>, String>> }

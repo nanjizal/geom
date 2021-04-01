@@ -1,3 +1,0 @@
-@:realPath("js.html.SpanElement") @:native("HTMLSpanElement")
-extern class HTMLSpanElement extends HTMLElement {
-}

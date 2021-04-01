@@ -1,5 +1,0 @@
-@:realPath("js.html.TitleElement") @:native("HTMLTitleElement")
-extern class HTMLTitleElement extends HTMLElement {
-
-	var text:String;
-}

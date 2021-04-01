@@ -1,1 +1,0 @@
-typedef js.html.FormDataIterator = { next : Void -> Dynamic }

@@ -1,1 +1,0 @@
-typedef js.html.ShadowRootInit = { mode : js.html.ShadowRootMode }

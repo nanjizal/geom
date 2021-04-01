@@ -1,1 +1,0 @@
-typedef js.html.idb.IndexParameters = { ?unique : Null<Bool>, ?multiEntry : Null<Bool>, ?locale : Null<String> }

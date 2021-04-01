@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.Renderbuffer") @:used @:native("WebGLRenderbuffer")
-extern class WebGLRenderbuffer {
-}

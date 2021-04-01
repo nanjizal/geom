@@ -1,1 +1,0 @@
-typedef js.lib.intl.NumberFormatPart = { value : String, type : js.lib.intl.NumberFormatPartType }

@@ -1,1 +1,0 @@
-typedef js.html.EventListenerOptions = { ?capture : Null<Bool> }

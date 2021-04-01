@@ -1,1 +1,0 @@
-typedef geom.tydef.Tmatrix2x2 = { d : Float, c : Float, b : Float, a : Float }

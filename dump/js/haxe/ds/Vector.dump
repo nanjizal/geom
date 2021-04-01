@@ -1,2 +1,0 @@
-@:used
-abstract haxe.ds.Vector<T : haxe.ds.Vector.T> {}

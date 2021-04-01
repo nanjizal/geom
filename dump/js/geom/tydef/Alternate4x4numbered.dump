@@ -1,1 +1,0 @@
-typedef geom.tydef.Alternate4x4numbered = { _33 : Float, _32 : Float, _31 : Float, _30 : Float, _23 : Float, _22 : Float, _21 : Float, _20 : Float, _13 : Float, _12 : Float, _11 : Float, _10 : Float, _03 : Float, _02 : Float, _01 : Float, _00 : Float }

@@ -1,9 +1,0 @@
-@:realPath("js.html.webgl.extension.EXTTextureFilterAnisotropic") @:native("EXT_texture_filter_anisotropic")
-extern class EXT_texture_filter_anisotropic {
-
-	@:value(34046)
-	static inline var TEXTURE_MAX_ANISOTROPY_EXT:Int = 34046;
-
-	@:value(34047)
-	static inline var MAX_TEXTURE_MAX_ANISOTROPY_EXT:Int = 34047;
-}

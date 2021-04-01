@@ -1,1 +1,0 @@
-typedef js.html.TouchInit = { target : EventTarget, ?screenY : Null<Int>, ?screenX : Null<Int>, ?rotationAngle : Null<Float>, ?radiusY : Null<Float>, ?radiusX : Null<Float>, ?pageY : Null<Int>, ?pageX : Null<Int>, identifier : Int, ?force : Null<Float>, ?clientY : Null<Int>, ?clientX : Null<Int> }

@@ -1,1 +1,0 @@
-typedef geom.tydef.TAffineMatrix = { e9 : Float, e8 : Float, e6 : Float, e5 : Float, e4 : Float, e2 : Float, e14 : Float, e13 : Float, e12 : Float, e10 : Float, e1 : Float, e0 : Float }

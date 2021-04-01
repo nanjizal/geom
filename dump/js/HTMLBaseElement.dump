@@ -1,7 +1,0 @@
-@:realPath("js.html.BaseElement") @:native("HTMLBaseElement")
-extern class HTMLBaseElement extends HTMLElement {
-
-	var href:String;
-
-	var target:String;
-}

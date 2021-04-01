@@ -1,3 +1,0 @@
-@:keep @:used @:coreApi
-class sys.io.FileInput extends haxe.io.Input {
-}

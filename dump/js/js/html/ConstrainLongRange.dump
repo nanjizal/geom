@@ -1,1 +1,0 @@
-typedef js.html.ConstrainLongRange = { ?min : Null<Int>, ?max : Null<Int>, ?ideal : Null<Int>, ?exact : Null<Int> }

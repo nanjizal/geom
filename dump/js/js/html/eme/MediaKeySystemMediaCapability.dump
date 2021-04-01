@@ -1,1 +1,0 @@
-typedef js.html.eme.MediaKeySystemMediaCapability = { ?robustness : Null<String>, ?contentType : Null<String> }

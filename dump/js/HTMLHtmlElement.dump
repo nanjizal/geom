@@ -1,5 +1,0 @@
-@:realPath("js.html.HtmlElement") @:native("HTMLHtmlElement")
-extern class HTMLHtmlElement extends HTMLElement {
-
-	var version:String;
-}

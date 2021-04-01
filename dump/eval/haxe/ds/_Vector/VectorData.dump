@@ -1,1 +1,0 @@
-private typedef haxe.ds._Vector.VectorData<T : haxe.ds._Vector.VectorData.T> = eval.Vector<haxe.ds._Vector.VectorData.T>

@@ -1,3 +1,0 @@
-@:keep @:used @:coreApi
-class sys.io.FileOutput extends haxe.io.Output {
-}

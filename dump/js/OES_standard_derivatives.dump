@@ -1,6 +1,0 @@
-@:realPath("js.html.webgl.extension.OESStandardDerivatives") @:native("OES_standard_derivatives")
-extern class OES_standard_derivatives {
-
-	@:value(35723)
-	static inline var FRAGMENT_SHADER_DERIVATIVE_HINT_OES:Int = 35723;
-}

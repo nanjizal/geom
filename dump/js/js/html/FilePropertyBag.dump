@@ -1,1 +1,0 @@
-typedef js.html.FilePropertyBag = { ?type : Null<String>, ?lastModified : Null<Int> }

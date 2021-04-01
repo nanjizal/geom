@@ -1,3 +1,0 @@
-@:directlyUsed @:used @:autoBuild(utest.utils.TestBuilder.build())
-interface utest.ITest {
-}

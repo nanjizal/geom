@@ -1,5 +1,0 @@
-@:realPath("js.html.DListElement") @:native("HTMLDListElement")
-extern class HTMLDListElement extends HTMLElement {
-
-	var compact:Bool;
-}

@@ -1,5 +1,0 @@
-@:realPath("js.html.TableCaptionElement") @:native("HTMLTableCaptionElement")
-extern class HTMLTableCaptionElement extends HTMLElement {
-
-	var align:String;
-}

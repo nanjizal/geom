@@ -1,1 +1,0 @@
-typedef js.html.OptionalEffectTiming = { ?iterations : Null<Float>, ?iterationStart : Null<Float>, ?fill : Null<js.html.FillMode>, ?endDelay : Null<Float>, ?easing : Null<String>, ?duration : Null<haxe.extern.EitherType<Float, String>>, ?direction : Null<js.html.PlaybackDirection>, ?delay : Null<Float> }

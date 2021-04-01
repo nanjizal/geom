@@ -1,1 +1,0 @@
-typedef hscript.Argument = { ?value : Null<hscript.Expr>, ?t : Null<hscript.CType>, ?opt : Null<Bool>, name : String }

@@ -1,6 +1,0 @@
-@:realPath("js.html.DOMRect") @:native("DOMRect")
-extern class DOMRect extends DOMRectReadOnly {
-
-	@:value({ height : 0.0, width : 0.0, y : 0.0, x : 0.0 })
-	function new(x:Float, y:Float, width:Float, height:Float):Void;
-}

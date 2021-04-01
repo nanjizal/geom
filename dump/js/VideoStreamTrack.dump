@@ -1,3 +1,0 @@
-@:realPath("js.html.VideoStreamTrack") @:native("VideoStreamTrack")
-extern class VideoStreamTrack extends MediaStreamTrack {
-}

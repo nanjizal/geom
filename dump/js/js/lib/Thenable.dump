@@ -1,2 +1,0 @@
-@:forward
-abstract js.lib.Thenable<T : js.lib.Thenable.T> from js.lib.ThenableStruct<js.lib.Thenable.T> {}

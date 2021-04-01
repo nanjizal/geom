@@ -1,9 +1,0 @@
-@:realPath("js.html.TimeRanges") @:native("TimeRanges")
-extern class TimeRanges {
-
-	var length(default,null):Int;
-
-	function start(index:Int):Float;
-
-	function end(index:Int):Float;
-}

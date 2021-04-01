@@ -1,7 +1,0 @@
-@:realPath("js.html.OptGroupElement") @:native("HTMLOptGroupElement")
-extern class HTMLOptGroupElement extends HTMLElement {
-
-	var disabled:Bool;
-
-	var label:String;
-}

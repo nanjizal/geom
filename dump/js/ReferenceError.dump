@@ -1,5 +1,0 @@
-@:realPath("js.lib.ReferenceError") @:native("ReferenceError")
-extern class ReferenceError extends Error {
-
-	function new(message:Null<String>):Void;
-}

@@ -1,5 +1,0 @@
-enum hscript.Const {
-	CInt(v:Int);
-	CFloat(f:Float);
-	CString(s:String);
-}

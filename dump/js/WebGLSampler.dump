@@ -1,3 +1,0 @@
-@:realPath("js.html.webgl.Sampler") @:native("WebGLSampler")
-extern class WebGLSampler {
-}

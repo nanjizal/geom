@@ -1,1 +1,0 @@
-typedef utest.InitializeUtest = { tests : Array<utest.TestData>, accessories : utest.Accessories }
