@@ -1,5 +1,6 @@
 package geom.matrix;
 import geom.matrix.Matrix1x2;
+import geom.structure.Polar;
 import geom.curve.Hyperbolic;
 import geom.curve.ComplexTrig;
 /**
@@ -910,5 +911,22 @@ abstract Complex( geom.structure.Mat1x2 ) from geom.structure.Mat1x2 to geom.str
     public inline
     function root2(): Complex {
         return squareRoot( this );
+    }
+    /**
+     * to Polar
+     */
+    @:to
+    public inline
+    function toPolar(): Polar {
+       var polar: Polar = { phase: phase, magnitude: magnitude };
+       return polar;
+    }
+    /**
+     * from Polar
+     */
+    @:from
+    public static inline
+    function fromPolar( polar: Polar ) {
+      return new Complex({ x: polar.magnitude * Math.cos( polar.phase ), y: polar.magnitude * Math.sin( polar.phase } );
     }
 }
